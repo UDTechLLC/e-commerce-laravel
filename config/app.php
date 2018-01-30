@@ -168,6 +168,8 @@ return [
          * Package Service Providers...
          */
 
+        Aimeos\Shop\ShopServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
