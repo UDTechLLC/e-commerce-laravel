@@ -1,5 +1,8 @@
 let mix = require('laravel-mix');
 
+mix.autoload({
+    'quill': ['window.Quill', 'quill']
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
