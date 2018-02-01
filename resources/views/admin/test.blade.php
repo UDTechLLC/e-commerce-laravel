@@ -1,4 +1,4 @@
 @extends('admin.layouts.app')
 @section('content')
-    ffdsfsd
-    @endsection
+    <div class="container" v-html="test"></div>
+@endsection

@@ -10,8 +10,13 @@ window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 
+require('./vue.js');
+
+
 require(`gentelella/vendors/fastclick/lib/fastclick.js`);
 require(`gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js`);
 require(`gentelella/vendors/iCheck/icheck.js`);
 
 require(`gentelella/build/js/custom.js`);
+
+

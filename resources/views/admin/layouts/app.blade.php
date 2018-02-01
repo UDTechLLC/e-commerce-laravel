@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>ShedFat Admin</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -24,10 +24,8 @@
     <![endif]-->
 </head>
 <body class="nav-md">
-<div class="container body">
-    <div class="main_container">
-
-
+<div class="container body" >
+    <div class="main_container" id="admin-app">
 
     @include('admin.layouts.partials.sidebar')
     @include('admin.layouts.partials.top-menu')
