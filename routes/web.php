@@ -21,3 +21,7 @@ Route::group(['namespace' => 'Admin'], function () {
         'uses' => 'HomeController@index'
     ]);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
