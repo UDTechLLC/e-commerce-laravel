@@ -18,12 +18,14 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->string('assets');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id')->unsigned();
             $table->string('category')->nullable();
             $table->string('subcategory')->nullable();
             $table->boolean('published');
             $table->string('color_block')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
