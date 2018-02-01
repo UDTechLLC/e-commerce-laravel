@@ -1,0 +1,21 @@
+.site_title {
+  text-align: center;
+  .logo {
+    width: 110px;
+    margin: auto;
+  }
+  .mini-logo {
+    display: none;
+    width: 35px;
+    height: 60px;
+    margin: auto;
+  }
+}
+
+.nav-sm .navbar.nav_title a .logo {
+  display: none;
+}
+
+.nav-sm .navbar.nav_title a .mini-logo {
+  display: block;
+}
