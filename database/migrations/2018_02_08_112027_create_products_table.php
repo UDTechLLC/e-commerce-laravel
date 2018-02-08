@@ -22,6 +22,9 @@ class CreateProductsTable extends Migration
             $table->integer('amount');
             $table->integer('count')->nullable();
             $table->string('view_name')->nullable();
+            $table->integer('position')->nullable();
+            $table->boolean('published')->default(true);
+            $table->string('slug');
             $table->timestamps();
         });
     }
