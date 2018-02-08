@@ -9,9 +9,24 @@ window._ = require('lodash');
 
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
+window.axios = require('axios');
+
+window.Vue = require('vue');
 
 require(`gentelella/vendors/fastclick/lib/fastclick.js`);
 require(`gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js`);
 require(`gentelella/vendors/iCheck/icheck.js`);
 
 require(`gentelella/build/js/custom.js`);
+
+/// global 
+Vue.component('table-vue', require('./vue/components/table.vue'));
+
+Vue.component('products-index', require('./vue/pages/products/index.vue'));
+
+const app = new Vue({
+    el: '#app',
+    data: {
+        
+    }
+});
