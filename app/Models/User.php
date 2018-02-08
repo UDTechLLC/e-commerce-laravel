@@ -5,12 +5,15 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable,
     Illuminate\Foundation\Auth\User as Authenticatable,
-    Laratrust\Traits\LaratrustUserTrait;
+    Laratrust\Traits\LaratrustUserTrait,
+    Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
     use LaratrustUserTrait,
         Notifiable;
+    use Billable;
+
 
     /**
      * The attributes that are mass assignable.
