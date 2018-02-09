@@ -50,7 +50,7 @@
         },
         methods: {
             getProducts() {
-                let url = `/admin/getProducts?page=${this.pagination.currentPage}&sortType=${this.sortParam.type}&sortField=${this.sortParam.field}`;
+                let url = `/admin/products/list?page=${this.pagination.currentPage}&sortType=${this.sortParam.type}&sortField=${this.sortParam.field}`;
                 axios.get(url).then(
                     response => {
                         this.gridData = response.data.data;

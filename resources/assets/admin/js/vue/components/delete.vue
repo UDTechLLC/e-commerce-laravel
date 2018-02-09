@@ -18,6 +18,7 @@
             }
         },
         props: {
+            index: Number,
             message: String,
             url: String,
             redirect: String
@@ -26,7 +27,7 @@
             deleteItem() {
                 this.showModal = false;
                 axios.delete(this.url).then(
-                        response => window.location.href = this.redirect,
+                        response => this.$emit('deleteItem', this.index),
                         error => console.log('error delete component')
                 );
             }
@@ -38,7 +39,7 @@
         display: inline-block;
     }
     a {
-        font-size: 20px;
+        font-size: 17px;
         padding-left: 10px;
     .glyphicon-trash {
         color: #d43f3a;

@@ -30,7 +30,9 @@ class Product extends EloquentModel
         'old_amount',
         'amount',
         'count',
-        'view_name'
+        'view_name',
+        'position',
+        'slug'
     );
 
     /**
