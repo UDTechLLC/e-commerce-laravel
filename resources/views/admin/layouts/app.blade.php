@@ -24,22 +24,25 @@
     <![endif]-->
 </head>
 <body class="nav-md">
-<div class="container body" >
-    <div class="main_container" id="admin-app">
+<div class="container body">
+    <div class="main_container">
+
 
     @include('admin.layouts.partials.sidebar')
     @include('admin.layouts.partials.top-menu')
 
     <!-- page content -->
         <div class="right_col" role="main">
-            @yield('content')
+            <div id="app">
+
+                @yield('content')
+            </div>
         </div>
         <!-- /page content -->
 
 
-
-    @include('admin.layouts.partials.footer')
-        </div>
+        @include('admin.layouts.partials.footer')
+    </div>
 </div>
 
 <script src="{{asset('admin_panel/js/app.js')}}"></script>

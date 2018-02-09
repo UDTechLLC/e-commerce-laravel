@@ -9,8 +9,7 @@ window._ = require('lodash');
 
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
-
-require('./vue.js');
+window.axios = require('axios');
 
 
 require(`gentelella/vendors/fastclick/lib/fastclick.js`);
@@ -19,4 +18,4 @@ require(`gentelella/vendors/iCheck/icheck.js`);
 
 require(`gentelella/build/js/custom.js`);
 
-
+require('./vue.js');

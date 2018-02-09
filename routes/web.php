@@ -20,6 +20,16 @@ Route::group(['namespace' => 'Admin'], function () {
         'as'   => 'admin_panel',
         'uses' => 'HomeController@index'
     ]);
+
+    Route::get('/products', [
+        'as' => '.products',
+        'uses' => 'ProductController@index'
+    ]);
+
+    Route::get('/admin/getProducts', [
+        'as' => '.getProducts',
+        'uses' => 'ProductController@getProducts'
+    ]);
 });
 
 Auth::routes();

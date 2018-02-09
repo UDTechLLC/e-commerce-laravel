@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Order;
 
-class CreatePostsTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +14,17 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('body');
-            $table->string('assets');
             $table->unsignedInteger('user_id');
-            $table->string('category')->nullable();
-            $table->string('subcategory')->nullable();
-            $table->boolean('published');
-            $table->string('color_block')->nullable();
+            $table->unsignedInteger('products_id');
+            $table->integer('amount');
+            $table->integer('count');
+            $table->enum('state', Order::ORDER_STATES)->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('products_id')->references('id')->on('products');
         });
     }
 
@@ -36,6 +35,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('orders');
     }
 }
