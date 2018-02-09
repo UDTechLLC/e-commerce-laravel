@@ -13,6 +13,11 @@ Route::group([
         'as' => '.list',
         'uses' => 'ProductController@getProducts'
     ]);
+
+    Route::get('/create', [
+        'as' => '.create',
+        'uses' => 'ProductController@create'
+    ]);
     
     Route::delete('/delete/{product}', [
         'as' => '.delete',

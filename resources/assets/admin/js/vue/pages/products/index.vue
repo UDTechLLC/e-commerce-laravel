@@ -2,10 +2,18 @@
     <div>
         <h3>Products</h3>
         <div class="clearfix"></div>
+
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Products list <small>different icon design elements</small></h2>
+                    <div class="nav navbar-right panel_toolbox">
+                        <a href="/admin/products/create">
+                            <button class="btn btn-sm btn-success btn-block">
+                                <i class="fa fa-plus"></i> Add product
+                            </button>
+                        </a>
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
