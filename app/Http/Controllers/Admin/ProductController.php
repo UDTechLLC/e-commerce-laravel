@@ -1,8 +1,11 @@
 <?php
+declare (strict_types = 1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
+use App\Http\Resources\Admin\ProductsResource;
+use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,18 +14,25 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        $user = User::all();
-        //dd($user);
         return view("admin.products.index");
     }
 
-    public function getProducts()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function getProducts(Request $request)
     {
-        return User::all();
+        $sortField = $request->get('sortField') ?? 'id';
+        $sortType = $request->get('sortType') ?? 'asc';
+
+        $users = Product::orderBy($sortField, $sortType)->paginate(20);
+        
+        return  ProductsResource::collection($users);
     }
 
     /**

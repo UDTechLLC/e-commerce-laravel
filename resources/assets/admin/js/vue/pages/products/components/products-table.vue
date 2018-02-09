@@ -1,34 +1,47 @@
 <template>
     <div>
         <table-vue
+                @sort="sort"
                 :data="gridData"
                 :columns="gridColumns"
-                :filter-key="searchQuery">
+                :filter-key="searchQuery"
+                :actionField="actionField">
         </table-vue>
+
+        <div v-if="pagination.totalPage > 1">
+            <paginate
+                    :pageCount="pagination.totalPage"
+                    :containerClass="'pagination'"
+                    :clickHandler="clickCallback">
+            </paginate>
+        </div>
+
     </div>
 </template>
 
-<script>
+<script type="text/babel">
 
     export default ({
         data() {
             return {
                 searchQuery: '',
-                /*gridColumns: [
-                 'name', 'power', 'test'
-                 ],*/
-                gridColumns: {
-                    id: 'id',
-                    name: 'name',
-                    email: 'email'
-                },
+                actionField: true,
+                gridColumns: [
+                     'id',
+                     'title',
+                     'category',
+                     'description'
+                ],
 
-                gridData: [
-                    { f_name: 'Chuck Norris', g_power: Infinity, t_test: 'AAAaa' },
-                    { f_name: 'Bruce Lee', g_power: 9000 },
-                    { f_name: 'Jackie Chan', g_power: 7000 },
-                    { f_name: 'Jet Li', g_power: 8000 }
-                ]
+                gridData: [],
+                pagination: {
+                    totalPage: 1,
+                    currentPage: 1
+                },
+                sortParam: {
+                    field: 'id',
+                    type: 'asc'
+                }
             }
         },
 
@@ -37,12 +50,22 @@
         },
         methods: {
             getProducts() {
-               axios.get('/admin/getProducts').then(
-                       response => this.gridData = response.data,
-                        error => console.log('errors')
-
-            )
-
+                let url = `/admin/getProducts?page=${this.pagination.currentPage}&sortType=${this.sortParam.type}&sortField=${this.sortParam.field}`;
+                axios.get(url).then(
+                    response => {
+                        this.gridData = response.data.data;
+                        this.pagination.totalPage = response.data.meta.last_page;
+                    },
+                    error => console.log('errors')
+                )
+            },
+            clickCallback(page) {
+                this.pagination.currentPage = page;
+                this.getProducts();
+            },
+            sort(sortParam) {
+                this.sortParam = sortParam;
+                this.getProducts();
             }
         }
     })

@@ -15,13 +15,22 @@
           </span>
 
             </th>
+            <th v-if="actionField">Action</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr v-for="entry in filteredData">
-            <td v-for="(key, index) in columns">
-                {{entry[index]}}
+        <tr v-for="entry in data">
+            <td v-for="key in columns" v-html="entry[key]">
+i
+            </td>
+            <td v-if="actionField">
+                <a href="/ss" v-if="entry.action.edit"><i class="fa fa-edit"></i></a>
+                <delete
+                        message="FSFSF"
+                        url="/"
+                        redirect="String"
+                ></delete>
             </td>
         </tr>
         </tbody>
@@ -33,42 +42,26 @@
     export default ({
         props: {
             data: Array,
-            columns: Object,
-            filterKey: String
+            columns: Array,
+            filterKey: String,
+            actionField: Boolean
         },
         data() {
             let sortOrders = {};
-            for (let key in this.columns) {
+            this.columns.forEach(function (key) {
+                sortOrders[key] = 1
+            });
+            /*for (let key in this.columns) {
                 sortOrders[this.columns[key]] = 1;
                 console.log(sortOrders);
-            }
+            }*/
             return {
                 sortKey: '',
                 sortOrders: sortOrders
             }
         },
         computed: {
-            filteredData() {
-                let sortKey = this.sortKey;
-                let filterKey = this.filterKey && this.filterKey.toLowerCase();
-                let order = this.sortOrders[sortKey] || 1;
-                let data = this.data;
-                if (filterKey) {
-                    data = data.filter(function (row) {
-                        return Object.keys(row).some(function (key) {
-                            return String(row[key]).toLowerCase().indexOf(filterKey) > -1
-                        })
-                    })
-                }
-                if (sortKey) {
-                    data = data.slice().sort(function (a, b) {
-                        a = a[sortKey];
-                        b = b[sortKey];
-                        return (a === b ? 0 : a > b ? 1 : -1) * order
-                    })
-                }
-                return data
-            }
+
         },
         filters: {
             capitalize: function (str) {
@@ -77,10 +70,22 @@
         },
         methods: {
             sortBy: function (key) {
+                this.sortOrders[key] = this.sortOrders[key] * -1;
+                let sort = {
+                    field: key,
+                    type: this.sortOrders[key] == -1 ? 'DESC' : 'ASC'
+                };
+                this.$emit('sort', sort);
                 this.sortKey = key;
-                this.sortOrders[key] = this.sortOrders[key] * -1
+
             }
         }
     })
 
 </script>
+
+<style scoped>
+    th {
+        cursor: pointer;
+    }
+</style>
