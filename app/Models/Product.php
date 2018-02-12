@@ -29,6 +29,7 @@ class Product extends EloquentModel implements HasMedia
      */
     protected $fillable = array(
         'title',
+        'sub_title',
         'category',
         'description',
         'old_amount',
