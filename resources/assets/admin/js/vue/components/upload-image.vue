@@ -6,13 +6,19 @@
         <div v-else class="image-preview">
             <img src="/admin_panel/images/empty-image.png" alt="Upload image">
         </div>
+        <p class="text-danger" v-if="errorImage">The image is required.</p>
+        <p class="text-danger" v-if="errors.has('image')">{{ errors.first('image') }}</p>
         <div class="fileUpload btn btn-info"  v-if="!image">
             <i class="fa fa-cloud-upload"></i> <span>Upload a file</span>
-            <input type="file" @change="onFileChange" class="upload" />
+            <input type="file" @change="onFileChange" class="upload"
+                   v-validate data-vv-rules="required|image"
+                   :class="{'is-danger': errors.has('image')}"
+                   name="image"
+            />
         </div>
 
         <div v-else>
-            <button class="btn btn-danger" @click="removeImage">
+            <button class="btn btn-danger" @click.prevent="removeImage">
                 <i class="fa fa-remove"></i> Remove image
             </button>
         </div>
@@ -27,6 +33,14 @@
                 image: ''
             }
         },
+        props: {
+          errorImage: Boolean
+        },
+        watch: {
+            image(val) {
+                this.$emit('getFile', val);
+            }
+        },
         methods: {
             onFileChange(e) {
                 let files = e.target.files || e.dataTransfer.files;
@@ -35,14 +49,18 @@
                 this.createImage(files[0]);
             },
             createImage(file) {
-                let image = new Image();
-                let reader = new FileReader();
-                let vm = this;
+                this.$validator.validateAll();
 
-                reader.onload = (e) => {
-                    vm.image = e.target.result;
-                };
-                reader.readAsDataURL(file);
+                if (!this.errors.has("image")) {
+                    let image = new Image();
+                    let reader = new FileReader();
+                    let vm = this;
+
+                    reader.onload = (e) => {
+                        vm.image = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                    }
             },
             removeImage: function (e) {
                 this.image = '';

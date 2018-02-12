@@ -36,6 +36,11 @@
             <div id="app">
 
                 @yield('content')
+
+                <notifications group="foo-css"
+                               position="bottom right"
+                               :speed="500" />
+
             </div>
         </div>
         <!-- /page content -->

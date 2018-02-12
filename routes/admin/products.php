@@ -19,6 +19,11 @@ Route::group([
         'uses' => 'ProductController@create'
     ]);
     
+    Route::post('/store', [
+        'as' => '.store',
+        'uses' => 'ProductController@store'
+    ]);
+    
     Route::delete('/delete/{product}', [
         'as' => '.delete',
         'uses' => 'ProductController@destroy'
