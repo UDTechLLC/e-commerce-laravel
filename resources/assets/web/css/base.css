@@ -1,0 +1,205 @@
+.clear {
+  clear: both; }
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+  body p {
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400; }
+  body ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  body .check-icon-list li {
+    color: #29282e;
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 34px; }
+    body .check-icon-list li .fa-check {
+      color: #eb212e;
+      padding-right: 11px; }
+  body .wrapper {
+    margin: 0 auto;
+    max-width: 1170px;
+    width: 100%; }
+    body .wrapper .separate-heading-block {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -ms-align-items: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin: 0 0 31px;
+      overflow: hidden;
+      text-align: center; }
+      body .wrapper .separate-heading-block .separate-heading-title {
+        color: #2b2e32;
+        font-family: Montserrat, Arial, Helvetica, sans-serif;
+        font-size: 38px;
+        font-weight: 700;
+        line-height: 1.26;
+        letter-spacing: 0px;
+        padding: 0 45px;
+        ms-flex-grow: 0;
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+        flex-grow: 0; }
+      body .wrapper .separate-heading-block .title-sep-container {
+        position: relative;
+        height: 6px;
+        -ms-flex-grow: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1; }
+        body .wrapper .separate-heading-block .title-sep-container .title-sep {
+          border: 0 solid #e7e6e6;
+          border-style: solid;
+          box-sizing: content-box;
+          display: block;
+          position: relative;
+          width: 100%; }
+          body .wrapper .separate-heading-block .title-sep-container .title-sep.sep-single {
+            border-color: #ff0000;
+            border-bottom-width: 1px; }
+
+.top-product-description-block {
+  background-image: url("../images/bg-12-week-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 65px 0 25px; }
+  .top-product-description-block .wrapper .product-preview-wrapper {
+    float: left;
+    width: 50%; }
+    .top-product-description-block .wrapper .product-preview-wrapper .image-wrapper {
+      margin: 15px auto;
+      text-align: center; }
+  .top-product-description-block .wrapper .product-info-block {
+    float: left;
+    width: 50%; }
+    .top-product-description-block .wrapper .product-info-block .product-info .product-title-block .product-title {
+      color: #eb212e;
+      font-size: 38px;
+      font-family: Montserrat, Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      line-height: 41px !important;
+      margin: 0;
+      text-transform: uppercase; }
+      .top-product-description-block .wrapper .product-info-block .product-info .product-title-block .product-title-sub-line {
+        color: #29282e;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin: 0 0 23px; }
+    .top-product-description-block .wrapper .product-info-block .product-info .product-description-block .product-description {
+      color: #29282e;
+      font-size: 20px;
+      line-height: 26px;
+      margin: 0 0 20px; }
+    .top-product-description-block .wrapper .product-info-block .product-info .product-price-block .product-price {
+      margin: 25px 0 0; }
+      .top-product-description-block .wrapper .product-info-block .product-info .product-price-block .product-price .product-amount {
+        display: inline-block;
+        color: #ed1c24;
+        font-family: Montserrat, Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 26px;
+        margin: 0 5px 30px; }
+    .top-product-description-block .wrapper .product-info-block .product-info .product-button-block .add-to-cart-wrapper {
+      margin: 30px 0 25px; }
+      .top-product-description-block .wrapper .product-info-block .product-info .product-button-block .add-to-cart-wrapper .add-to-cart-btn {
+        border-radius: 3px;
+        background-color: #ed1c24;
+        color: #ffffff;
+        display: block;
+        font-family: Montserrat, Arial, Helvetica, sans-serif;
+        font-size: 23px;
+        font-weight: 700;
+        margin: 0;
+        outline: none;
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 212px; }
+
+.training-plan-faqs-block-wrapper .wrapper {
+  padding: 80px 0; }
+  .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper {
+    float: left;
+    width: 58%; }
+  .training-plan-faqs-block-wrapper .wrapper .training-plan-faqs-block {
+    float: right;
+    width: 39%; }
+    .training-plan-faqs-block-wrapper .wrapper .training-plan-faqs-block .training-plan-faqs-title {
+      background-color: #eb212e;
+      color: #ffffff;
+      font-family: Montserrat, Arial, Helvetica, sans-serif;
+      font-size: 23px;
+      font-weight: 700;
+      margin: 0 0 30px;
+      padding: 10px 0 11px;
+      text-align: center;
+      text-transform: uppercase; }
+    .training-plan-faqs-block-wrapper .wrapper .training-plan-faqs-block .training-plan-faqs-list .training-plan-faqs-list-item p {
+      color: #29282e;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 26px;
+      margin: 0 0 3px; }
+      .training-plan-faqs-block-wrapper .wrapper .training-plan-faqs-block .training-plan-faqs-list .training-plan-faqs-list-item p.item-description {
+        margin: 0 0 25px; }
+      .training-plan-faqs-block-wrapper .wrapper .training-plan-faqs-block .training-plan-faqs-list .training-plan-faqs-list-item p strong {
+        font-family: Montserrat, Arial, Helvetica, sans-serif;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 30px; }
+
+.custom-plan-block-wrapper {
+  background-color: #f5f3f3;
+  padding: 55px 30px 33px; }
+  .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block {
+    float: left;
+    width: 50%; }
+    .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block .image-wrapper {
+      text-align: center; }
+  .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block {
+    float: left;
+    width: 37.6%; }
+    .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block .custom-plan-description-list .custom-plan-description-list-item {
+      margin: 0 0 24px; }
+      .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block .custom-plan-description-list .custom-plan-description-list-item .item-icon-wrapper {
+        float: left;
+        width: 20%;
+        margin: 15px 10% 15px 0;
+        text-align: center; }
+      .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block .custom-plan-description-list .custom-plan-description-list-item .item-content {
+        float: left;
+        margin: 15px 0;
+        width: 70%; }
+        .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block .custom-plan-description-list .custom-plan-description-list-item .item-content .item-title {
+          color: #eb212e;
+          font-family: Montserrat, Arial, Helvetica, sans-serif;
+          font-size: 23px;
+          line-height: 32px;
+          margin: 7px 0 13px;
+          text-align: left;
+          text-transform: uppercase; }
+        .custom-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block .custom-plan-description-list .custom-plan-description-list-item .item-content .item-text {
+          color: #494949;
+          font-size: 20px;
+          line-height: 23px;
+          margin: 0 0 20px;
+          text-align: left;
+          text-transform: uppercase; }

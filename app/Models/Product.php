@@ -92,4 +92,8 @@ class Product extends EloquentModel implements HasMedia
      */
 
     // @todo:
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
