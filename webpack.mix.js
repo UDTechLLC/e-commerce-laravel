@@ -25,7 +25,9 @@ mix.sass('resources/assets/admin/sass/app.scss', 'public/admin_panel/css')
     .sass('resources/assets/sass/app.scss', 'public/web/css')
     .sass('resources/assets/web/sass/base.sass', 'public/web/css')
     .copy('resources/assets/web/images', 'public/web/images')
-    .copy('resources/assets/web/carouselengine', 'public/web/carouselengine');
+    .js('resources/assets/web/js/script.js', 'public/web/js')
+    .copy('resources/assets/web/carouselengine', 'public/web/carouselengine')
+    .copy('resources/assets/web/slick', 'public/web/slick');
 /*.js([
         `${path}jquery/dist/jquery.js`,
         `${path}bootstrap/dist/js/bootstrap.js`

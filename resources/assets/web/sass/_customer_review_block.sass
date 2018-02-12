@@ -1,0 +1,67 @@
+.customer-review-block-wrapper
+  background-color: #f5f3f3
+  padding: 70px 0 15px
+
+  .wrapper
+    @media screen and (max-width: 992px)
+      padding-left: 30px !important
+      padding-right: 30px !important
+
+    @media screen and (max-width: 550px)
+      padding-left: 15px !important
+      padding-right: 15px !important
+
+    .customer-review-block
+      .customer-reviews-wrapper
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+
+        .customer-preview-single-block
+          width: 48%
+
+          @media screen and (max-width: 800px)
+            border-top: 1px solid #c5c3c3
+            padding-bottom: 20px
+            text-align: center
+            width: 100%
+
+            &:first-child
+              border: none
+
+          .star-rating-wrapper
+            margin: 0 0 20px
+
+            .star-rating
+              margin: 26px 0 0
+
+              @media screen and (max-width: 800px)
+                display: inline-block
+
+              .single-star-wrapper
+                float: left
+                padding: 0 3px
+
+                &:first-child
+                  padding-left: 0
+
+          .cr-title, .cr-content
+            color: #0f0f0f
+            font-size: 20px
+            line-height: 24px
+            margin: 0 0 11px
+            text-align: left
+
+            @media screen and (max-width: 800px)
+              text-align: center
+
+          .cr-title
+            font-family: Montserrat, Arial, Helvetica, sans-serif
+            font-weight: 700
+
+          .cr-content
+            font-family: "PT Sans", Arial, Helvetica, sans-serif
+
+            @media screen and (max-width: 800px)
+              font-size: 16px
+              line-height: 22px

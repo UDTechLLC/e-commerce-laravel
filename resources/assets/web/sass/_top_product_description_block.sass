@@ -5,19 +5,41 @@
   padding: 65px 0 25px
 
   .wrapper
+    @media screen and (max-width: 800px)
+      padding-left: 30px
+      padding-right: 30px
+
+    @media screen and (max-width: 550px)
+      padding-left: 15px
+      padding-right: 15px
+
     .product-preview-wrapper
       float: left
       width: 50%
+
+      @media screen and (max-width: 800px)
+        float: none
+        width: 100%
 
       .image-wrapper
         margin: 15px auto
         text-align: center
 
+        img
+          max-width: 100%
+
     .product-info-block
       float: left
       width: 50%
 
+      @media screen and (max-width: 800px)
+        float: none
+        width: 100%
+
       .product-info
+        @media screen and (max-width: 800px)
+          text-align: center
+
         .product-title-block
           .product-title
             color: #eb212e
@@ -27,6 +49,13 @@
             line-height: 41px !important
             margin: 0
             text-transform: uppercase
+
+            @media screen and (max-width: 800px)
+              font-size: 30px
+              line-height: 30px !important
+
+            @media screen and (max-width: 550px)
+              font-size: 24.32px
 
             &-sub-line
               color: #29282e
@@ -40,6 +69,11 @@
             font-size: 20px
             line-height: 26px
             margin: 0 0 20px
+
+            @media screen and (max-width: 800px)
+              font-size: 16px
+              line-height: 22px
+              margin-bottom: 11px
 
         .product-price-block
           .product-price
@@ -73,3 +107,6 @@
               text-decoration: none
               text-transform: uppercase
               width: 212px
+
+              @media screen and (max-width: 800px)
+                margin: 0 auto

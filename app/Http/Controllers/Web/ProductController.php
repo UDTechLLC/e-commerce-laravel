@@ -53,7 +53,8 @@ class ProductController extends Controller
     {
         $product = Product::whereSlug($slug)->firstOrFail();
         $product = Product::find($product->id);
-        return view('web.shop.products.show', compact('product'));
+        $url =  $product->getMedia('products')->first()->getUrl();
+        return view('web.shop.products.show', compact('product', '$url'));
     }
 
     /**
