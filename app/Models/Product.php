@@ -7,13 +7,17 @@ use Illuminate\Database\Eloquent\{
     Builder
 };
 use App\Models\EloquentModel;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 /**
  * Class Product
  * @package App\Models
  */
-class Product extends EloquentModel
+class Product extends EloquentModel implements HasMedia
 {
+
+    use HasMediaTrait;
     /**
      * @var string
      */
@@ -30,7 +34,9 @@ class Product extends EloquentModel
         'old_amount',
         'amount',
         'count',
-        'view_name'
+        'view_name',
+        'position',
+        'slug'
     );
 
     /**

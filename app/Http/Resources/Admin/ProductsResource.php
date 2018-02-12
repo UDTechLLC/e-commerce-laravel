@@ -20,13 +20,13 @@ class ProductsResource extends Resource
     public function toArray($request): array
     {
         return [
-            'id'          => $this->id,
-            'title'       => "<a href='" . route('admin_panel') . "'>" . $this->title . "</a>",
+            'id'          => $this->getKey(),
+            'title'       => "<a href='" . route('admin') . "'>" . $this->title . "</a>",
             'category'    => $this->category,
-            'description' => substr($this->description, 0, 50),
+            'description' => substr($this->description, 0, 50) . "...",
             'action'      => [
                 'edit'   => 1,
-                'delete' => 3
+                'delete' => route('admin.products.delete', $this->getKey())
             ]
         ];
     }

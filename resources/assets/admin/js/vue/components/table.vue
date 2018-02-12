@@ -20,16 +20,17 @@
         </thead>
 
         <tbody>
-        <tr v-for="entry in data">
+        <tr v-for="(entry, index) in data">
             <td v-for="key in columns" v-html="entry[key]">
 i
             </td>
             <td v-if="actionField">
-                <a href="/ss" v-if="entry.action.edit"><i class="fa fa-edit"></i></a>
+                <a href="/ss" v-if="entry.action.edit" class="item-edit"><i class="fa fa-edit"></i></a>
                 <delete
-                        message="FSFSF"
-                        url="/"
-                        redirect="String"
+                        :index="index"
+                        :url="entry.action.delete"
+                        redirect="/"
+                        @deleteItem="deleteItem"
                 ></delete>
             </td>
         </tr>
@@ -78,6 +79,9 @@ i
                 this.$emit('sort', sort);
                 this.sortKey = key;
 
+            },
+            deleteItem(item) {
+                this.data.splice(item, 1)
             }
         }
     })
@@ -87,5 +91,9 @@ i
 <style scoped>
     th {
         cursor: pointer;
+    }
+    .item-edit {
+        font-size: 20px;
+        color: #949400;
     }
 </style>
