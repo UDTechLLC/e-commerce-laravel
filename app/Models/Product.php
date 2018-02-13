@@ -29,6 +29,7 @@ class Product extends EloquentModel implements HasMedia
      */
     protected $fillable = array(
         'title',
+
         'category',
         'description',
         'old_amount',
@@ -92,4 +93,8 @@ class Product extends EloquentModel implements HasMedia
      */
 
     // @todo:
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
