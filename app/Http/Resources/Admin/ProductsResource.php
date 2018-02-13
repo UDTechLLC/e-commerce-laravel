@@ -22,7 +22,6 @@ class ProductsResource extends Resource
         return [
             'id'          => $this->getKey(),
             'title'       => "<a href='" . route('admin') . "'>" . $this->title . "</a>",
-            'category'    => $this->category,
             'description' => substr($this->description, 0, 50) . "...",
             'action'      => [
                 'edit'   => 1,
