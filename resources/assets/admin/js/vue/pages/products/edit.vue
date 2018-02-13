@@ -5,11 +5,13 @@
             <upload-image
                     @getFile="getFile"
                     :errorImage="errorImage"
+                    :oldImage="entry.image"
             ></upload-image>
             <h2 class="text-center">Load preview image</h2>
             <upload-image
                     @getFile="getPreview"
                     :errorImage="errorPreviewImage"
+                    :oldImage="entry.imagePreview"
             ></upload-image>
 
             <div class="form-group" :class="{'has-error': errors.has('title') }">
@@ -18,7 +20,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="title" name="title"
-                           v-model="title"
+                           v-model="entry.title"
                            v-validate data-vv-rules="required"
                            :class="{'is-danger': errors.has('title')}"
                            class="form-control col-md-7 col-xs-12">
@@ -41,7 +43,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="subtitle" name="subtitle"
-                           v-model="subtitle"
+                           v-model="entry.subtitle"
                            v-validate data-vv-rules="required"
                            :class="{'is-danger': errors.has('subtitle')}"
                            class="form-control col-md-7 col-xs-12">
@@ -55,7 +57,7 @@
                     <textarea class="form-control"
                               v-validate data-vv-rules="required"
                               :class="{'is-danger': errors.has('description')}"
-                              name="description" v-model="description" rows="3"></textarea>
+                              name="description" v-model="entry.description" rows="3"></textarea>
                     <span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>
                 </div>
             </div>
@@ -64,7 +66,7 @@
                         class="required">*</span>
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="number" id="old-price" v-model="oldPrice"
+                    <input type="number" id="old-price" v-model="entry.oldPrice"
                            v-validate data-vv-rules="required|numeric"
                            :class="{'is-danger': errors.has('old-price')}"
                            name="old-price" class="form-control col-md-7 col-xs-12">
@@ -76,7 +78,7 @@
                         class="required">*</span>
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="number" id="price" name="price" v-model="price"
+                    <input type="number" id="price" name="price" v-model="entry.price"
                            v-validate data-vv-rules="required|numeric"
                            :class="{'is-danger': errors.has('price')}"
                            class="form-control col-md-7 col-xs-12">
@@ -95,32 +97,30 @@
         </form>
     </div>
 </template>
-
 <script type="text/babel">
 
     export default ({
         data: () => ({
-            title: "",
-            subtitle: "",
-            description: "",
-            oldPrice: "",
-            price: "",
-            image: "",
-            imagePreview: "",
-            slug: "",
+            entry: {},
             errorImage: false,
             errorPreviewImage: false
         }),
+        props: {
+            product: String
+        },
+        created() {
+            this.entry = JSON.parse(this.product)
+        },
         computed: {
             renderSlug() {
-                let slug = this.sanitizeTitle(this.title);
+                let slug = this.sanitizeTitle(this.entry.title);
                 this.slug = slug;
                 return `${location.hostname}/${slug}`;
             }
         },
         methods: {
             getFile(file) {
-                this.image = file;
+                this.entry.image = file;
                 this.errorImage = false;
             },
             getPreview(file) {
@@ -129,26 +129,16 @@
             },
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
-                    if (this.image == "") this.errorImage = true;
-                    if (this.imagePreview == "") this.errorPreviewImage = true;
-                    if (result && this.image && this.imagePreview)  this.submitForm();
+                    if (this.entry.image == "") this.errorImage = true;
+                    if (this.entry.imagePreview == "") this.errorPreviewImage = true;
+                    if (result && this.entry.image && this.entry.imagePreview)  this.submitForm();
                 });
             },
             submitForm() {
-                let data = {
-                    image: this.image,
-                    imagePreview: this.imagePreview,
-                    slug: this.slug,
-                    title: this.title,
-                    subtitle: this.subtitle,
-                    description: this.description,
-                    oldPrice: this.oldPrice,
-                    price: this.price
-                };
 
-                axios.post('/admin/products/store', data).then(
+                axios.put('/admin/products/update', this.entry).then(
                         result => {
-                            this.notifySuccess("Product create");
+                            this.notifySuccess("Product update");
                             setTimeout(() => location.href = "/admin/products", 1500);
                         },
                         error => this.notifyError(error.message)
@@ -176,5 +166,6 @@
                 return slug;
             }
         }
-    });
+    })
+
 </script>

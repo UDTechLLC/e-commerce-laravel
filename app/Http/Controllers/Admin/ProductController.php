@@ -87,7 +87,18 @@ class ProductController extends Controller
     public function edit()
     {
         $product = Product::find(125);
-        dd($product);
+
+        $data = [
+            'title'        => $product->title,
+            'subtitle'     => "subtitle",
+            'description'  => $product->description,
+            'image'        => $product->getMainImage(),
+            'imagePreview' => $product->getPreviewImage(),
+            'price'        => $product->amount,
+            'oldPrice'     => $product->old_amount
+        ];
+
+        return view('admin.products.edit', ['product' => $data]);
     }
 
     /**
@@ -97,9 +108,9 @@ class ProductController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

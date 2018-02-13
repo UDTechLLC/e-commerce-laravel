@@ -90,7 +90,7 @@ class Product extends EloquentModel implements HasMedia
     /**
      * Entity public methods go below
      */
-    
+
     /**
      * @param $image
      * @param $collect
@@ -108,5 +108,21 @@ class Product extends EloquentModel implements HasMedia
         $this->addMediaFromBase64($image)
             ->usingFileName($this->slug . "." . $imageType)
             ->toMediaCollection($collect);
+    }
+
+    /**
+     * @return string
+     */
+    public function getMainImage():string
+    {
+        return ($this->getMedia('products')->first()) ? $this->getMedia('products')->first()->getUrl() : " ";
+    }
+
+    /**
+     * @return string
+     */
+    public function getPreviewImage():string
+    {
+        return ($this->getMedia('products')->first()) ? $this->getMedia('preview')->first()->getUrl() : " ";
     }
 }

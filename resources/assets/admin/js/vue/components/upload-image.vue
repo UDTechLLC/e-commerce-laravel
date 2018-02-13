@@ -1,14 +1,15 @@
 <template>
     <div class="upload-form">
         <div v-if="image" class="image-preview">
-            <img :src="image" />
+            <img :src="image"/>
         </div>
         <div v-else class="image-preview">
-            <img src="/admin_panel/images/empty-image.png" alt="Upload image">
+            <img v-if="oldImage" :src="oldImage" alt="Upload image">
+            <img v-else src="/admin_panel/images/empty-image.png" alt="Upload image">
         </div>
         <p class="text-danger" v-if="errorImage">The image is required.</p>
         <p class="text-danger" v-if="errors.has('image')">{{ errors.first('image') }}</p>
-        <div class="fileUpload btn btn-info"  v-if="!image">
+        <div class="fileUpload btn btn-info" v-if="!image">
             <i class="fa fa-cloud-upload"></i> <span>Upload a file</span>
             <input type="file" @change="onFileChange" class="upload"
                    v-validate data-vv-rules="required|image"
@@ -28,13 +29,12 @@
 <script type="text/babel">
 
     export default ({
-        data() {
-            return {
-                image: ''
-            }
-        },
+        data: () => ({
+            image: ''
+        }),
         props: {
-          errorImage: Boolean
+            errorImage: Boolean,
+            oldImage: String
         },
         watch: {
             image(val) {
@@ -62,7 +62,7 @@
                         vm.image = e.target.result;
                     };
                     reader.readAsDataURL(file);
-                    }
+                }
             },
             removeImage: function (e) {
                 this.image = '';
@@ -76,10 +76,12 @@
     .upload-form {
         text-align: center;
     }
+
     .fileUpload {
         position: relative;
         overflow: hidden;
     }
+
     .fileUpload input.upload {
         position: absolute;
         top: 0;
@@ -91,15 +93,18 @@
         opacity: 0;
         filter: alpha(opacity=0);
     }
+
     .image-preview {
         margin: auto;
         width: 200px;
         height: 150px;
     }
+
     img {
         width: 100%;
         height: 100%;
     }
+
     .btn {
         margin-top: 30px;
     }

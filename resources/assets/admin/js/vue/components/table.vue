@@ -25,7 +25,7 @@
 i
             </td>
             <td v-if="actionField">
-                <a href="/ss" v-if="entry.action.edit" class="item-edit"><i class="fa fa-edit"></i></a>
+                <a :href="entry.action.edit" v-if="entry.action.edit" class="item-edit"><i class="fa fa-edit"></i></a>
                 <delete
                         :index="index"
                         :url="entry.action.delete"

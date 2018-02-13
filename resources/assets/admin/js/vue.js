@@ -19,6 +19,7 @@ Vue.component('upload-image', require('./vue/components/upload-image'));
 
 Vue.component('products-index', require('./vue/pages/products/index'));
 Vue.component('products-create', require('./vue/pages/products/create.vue'));
+Vue.component('products-edit', require('./vue/pages/products/edit.vue'));
 
 
 require('./vue/mixins');

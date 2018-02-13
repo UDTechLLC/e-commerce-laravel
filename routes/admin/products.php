@@ -29,6 +29,11 @@ Route::group([
         'uses' => 'ProductController@edit'
     ]);
 
+    Route::put('/update', [
+        'as'   => '.update',
+        'uses' => 'ProductController@update'
+    ]);
+
     Route::delete('/delete/{product}', [
         'as'   => '.delete',
         'uses' => 'ProductController@destroy'
