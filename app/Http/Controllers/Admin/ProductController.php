@@ -31,8 +31,8 @@ class ProductController extends Controller
         $sortType = $request->get('sortType') ?? 'asc';
 
         $users = Product::orderBy($sortField, $sortType)->paginate(20);
-        
-        return  ProductsResource::collection($users);
+
+        return ProductsResource::collection($users);
     }
 
     /**
@@ -53,8 +53,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        return "Aaa";
+        $product = Product::create([
+            'title'       => $request->get('title'),
+            'slug'        => $request->get('slug'),
+            'description' => $request->get('description'),
+            'old_amount'  => $request->get('oldPrice'),
+            'amount'      => $request->get('price')
+        ]);
+
+        $fileData = $request->input('image');
+
+        $imageParts = explode(";base64,", $fileData);
+        $imageTypeAux = explode("image/", $imageParts[0]);
+        $imageType = $imageTypeAux[1];
+
+
+        $product->addMediaFromBase64($fileData)
+            ->usingFileName($product->slug . "." . $imageType)
+            ->toMediaCollection('products');
+
+        return $product;
     }
 
     /**
