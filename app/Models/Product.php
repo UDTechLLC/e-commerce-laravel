@@ -29,6 +29,7 @@ class Product extends EloquentModel implements HasMedia
      */
     protected $fillable = array(
         'title',
+
         'category',
         'description',
         'old_amount',
@@ -124,5 +125,11 @@ class Product extends EloquentModel implements HasMedia
     public function getPreviewImage():string
     {
         return ($this->getMedia('products')->first()) ? $this->getMedia('preview')->first()->getUrl() : " ";
+    }
+
+    // @todo:
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
