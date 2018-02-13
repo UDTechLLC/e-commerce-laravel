@@ -1,9 +1,15 @@
 <template>
     <div>
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
+            <h2 class="text-center">Load main image</h2>
             <upload-image
                     @getFile="getFile"
                     :errorImage="errorImage"
+            ></upload-image>
+            <h2 class="text-center">Load preview image</h2>
+            <upload-image
+                    @getFile="getPreview"
+                    :errorImage="errorPreviewImage"
             ></upload-image>
 
             <div class="form-group" :class="{'has-error': errors.has('title') }">
@@ -29,7 +35,7 @@
                            class="form-control col-md-7 col-xs-12">
                 </div>
             </div>
-            <div class="form-group" :class="{'has-error': errors.has('Subtitle') }">
+            <div class="form-group" :class="{'has-error': errors.has('subtitle') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Subtitle">Subtitle <span
                         class="required">*</span>
                 </label>
@@ -81,10 +87,8 @@
             <div class="ln_solid"></div>
             <div class="form-group">
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-
-                    <button class="btn btn-primary" type="button">Cancel</button>
-                    <button class="btn btn-primary" type="reset">Reset</button>
-                    <button type="submit" @click.prevent="validateBeforeSubmit" class="btn btn-success">Submit</button>
+                    <button type="submit" @click.prevent="validateBeforeSubmit" class="btn btn-success btn-lg">Submit
+                    </button>
                 </div>
             </div>
 
@@ -102,14 +106,16 @@
             oldPrice: "",
             price: "",
             image: "",
+            imagePreview: "",
             slug: "",
-            errorImage: false
+            errorImage: false,
+            errorPreviewImage: false
         }),
         computed: {
-            renderSlug: function () {
+            renderSlug() {
                 let slug = this.sanitizeTitle(this.title);
                 this.slug = slug;
-                return `location.hostname/${slug}`;
+                return `${location.hostname}/${slug}`;
             }
         },
         methods: {
@@ -117,20 +123,21 @@
                 this.image = file;
                 this.errorImage = false;
             },
+            getPreview(file) {
+                this.imagePreview = file;
+                this.errorPreviewImage = false;
+            },
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
-                    if (this.image == "") {
-                        this.errorImage = true;
-                        console.log('aa');
-                    }
-                    if (result && this.image) {
-                        this.submitForm();
-                    }
+                    if (this.image == "") this.errorImage = true;
+                    if (this.imagePreview == "") this.errorPreviewImage = true;
+                    if (result && this.image && this.imagePreview)  this.submitForm();
                 });
             },
             submitForm() {
                 let data = {
                     image: this.image,
+                    imagePreview: this.imagePreview,
                     slug: this.slug,
                     title: this.title,
                     subtitle: this.subtitle,

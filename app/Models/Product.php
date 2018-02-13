@@ -90,6 +90,23 @@ class Product extends EloquentModel implements HasMedia
     /**
      * Entity public methods go below
      */
+    
+    /**
+     * @param $image
+     * @param $collect
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     */
+    public function saveImage($image, $collect)
+    {
+        $imageParts = explode(";base64,", $image);
+        $imageTypeAux = explode("image/", $imageParts[0]);
+        $imageType = $imageTypeAux[1];
 
-    // @todo:
+
+        $this->addMediaFromBase64($image)
+            ->usingFileName($this->slug . "." . $imageType)
+            ->toMediaCollection($collect);
+    }
 }

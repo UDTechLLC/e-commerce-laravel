@@ -24,7 +24,7 @@ class ProductsResource extends Resource
             'title'       => "<a href='" . route('admin') . "'>" . $this->title . "</a>",
             'description' => substr($this->description, 0, 50) . "...",
             'action'      => [
-                'edit'   => 1,
+                'edit'   => route('admin.products.edit'),
                 'delete' => route('admin.products.delete', $this->getKey())
             ]
         ];

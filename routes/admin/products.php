@@ -3,29 +3,34 @@
 
 Route::group([
     'prefix' => 'products',
-    'as' => '.products'
+    'as'     => '.products'
 ], function () {
     Route::get('/', [
         'uses' => 'ProductController@index'
     ]);
 
     Route::get('/list', [
-        'as' => '.list',
+        'as'   => '.list',
         'uses' => 'ProductController@getProducts'
     ]);
 
     Route::get('/create', [
-        'as' => '.create',
+        'as'   => '.create',
         'uses' => 'ProductController@create'
     ]);
-    
+
     Route::post('/store', [
-        'as' => '.store',
+        'as'   => '.store',
         'uses' => 'ProductController@store'
     ]);
-    
+
+    Route::get('/edit', [
+        'as'   => '.edit',
+        'uses' => 'ProductController@edit'
+    ]);
+
     Route::delete('/delete/{product}', [
-        'as' => '.delete',
+        'as'   => '.delete',
         'uses' => 'ProductController@destroy'
     ]);
 });

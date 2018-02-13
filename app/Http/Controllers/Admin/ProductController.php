@@ -61,16 +61,8 @@ class ProductController extends Controller
             'amount'      => $request->get('price')
         ]);
 
-        $fileData = $request->input('image');
-
-        $imageParts = explode(";base64,", $fileData);
-        $imageTypeAux = explode("image/", $imageParts[0]);
-        $imageType = $imageTypeAux[1];
-
-
-        $product->addMediaFromBase64($fileData)
-            ->usingFileName($product->slug . "." . $imageType)
-            ->toMediaCollection('products');
+        $product->saveImage($request->input('image'), 'products');
+        $product->saveImage($request->input('imagePreview'), 'preview');
 
         return $product;
     }
@@ -92,9 +84,10 @@ class ProductController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $product = Product::find(125);
+        dd($product);
     }
 
     /**
