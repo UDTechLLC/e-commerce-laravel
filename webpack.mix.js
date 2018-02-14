@@ -3,6 +3,13 @@ let mix = require('laravel-mix');
 mix.autoload({
     'quill': ['window.Quill', 'quill']
 });
+
+mix.options({
+    processCssUrls: false,
+    imgLoaderOptions: {
+        enabled: false
+    }
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
