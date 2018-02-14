@@ -54,7 +54,7 @@
                         <div class="shop-item">
                             <div class="image-wrapper">
                                 <a href="#">
-                                    <img src="{!! $products->getPreviewImage() !!}" />
+                                    <img src="{!! $products->getFirstMediaUrl('preview') !!}" />
                                 </a>
                             </div>
                             <div class="product-details">

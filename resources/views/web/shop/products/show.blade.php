@@ -24,7 +24,7 @@
         <div class="wrapper">
             <div class="product-preview-wrapper">
                 <div class="image-wrapper">
-                    <img src="{!! $product->getMainImage() !!}" />
+                    <img src="{!! $product->getFirstMediaUrl('products') !!}" />
                 </div>
             </div>
             <div class="product-info-block">

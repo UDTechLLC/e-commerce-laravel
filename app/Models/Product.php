@@ -110,23 +110,7 @@ class Product extends EloquentModel implements HasMedia
             ->usingFileName($this->slug . "." . $imageType)
             ->toMediaCollection($collect);
     }
-
-    /**
-     * @return string
-     */
-    public function getMainImage():string
-    {
-        return ($this->getMedia('products')->first()) ? $this->getMedia('products')->first()->getUrl() : " ";
-    }
-
-    /**
-     * @return string
-     */
-    public function getPreviewImage():string
-    {
-        return ($this->getMedia('products')->first()) ? $this->getMedia('preview')->first()->getUrl() : " ";
-    }
-
+    
     // @todo:
     public function getRouteKeyName()
     {
