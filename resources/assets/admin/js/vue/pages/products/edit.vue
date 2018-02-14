@@ -140,7 +140,7 @@
 
                 axios.put(`/admin/products/update/${this.oldSlug}`, this.entry).then(
                         result => {
-                            this.notifySuccess("Product update");
+                            this.notifySuccess("Done", "Product update");
                             setTimeout(() => location.href = "/admin/products", 1500);
                         },
                         error =>  this.notifyError(
