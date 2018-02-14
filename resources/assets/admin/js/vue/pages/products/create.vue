@@ -60,12 +60,11 @@
                 </div>
             </div>
             <div class="form-group" :class="{'has-error': errors.has('old-price') }">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price<span
-                        class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="number" id="old-price" v-model="oldPrice"
-                           v-validate data-vv-rules="required|numeric"
+                           v-validate data-vv-rules="numeric"
                            :class="{'is-danger': errors.has('old-price')}"
                            name="old-price" class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('old-price')">{{ errors.first('old-price') }}</span>
@@ -103,7 +102,7 @@
             title: "",
             subtitle: "",
             description: "",
-            oldPrice: "",
+            oldPrice: null,
             price: "",
             image: "",
             imagePreview: "",
@@ -151,7 +150,12 @@
                             this.notifySuccess("Product create");
                             setTimeout(() => location.href = "/admin/products", 1500);
                         },
-                        error => this.notifyError(error.message)
+                        error => {
+                            this.notifyError(
+                                    error.response.data.message,
+                                    error.response.data.errors,
+                                    error.response.status)
+                        }
                 );
             },
             sanitizeTitle(title) {

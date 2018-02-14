@@ -3,6 +3,8 @@ declare (strict_types = 1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\CreateProductRequest;
+use App\Http\Requests\Admin\UpdateProductRequest;
 use App\Http\Resources\Admin\ProductsResource;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
@@ -52,16 +54,16 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  CreateProductRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request)
     {
         $product = Product::create([
             'title'       => $request->get('title'),
             'slug'        => $request->get('slug'),
             'description' => $request->get('description'),
-            'old_amount'  => $request->get('oldPrice'),
+            'old_amount'  => $request->get('oldPrice') ?? 0,
             'amount'      => $request->get('price')
         ]);
 
@@ -107,11 +109,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateProductRequest $request
      * @param Product $product
      * @return Product
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
         //  dd($request->all());
         $product->update([

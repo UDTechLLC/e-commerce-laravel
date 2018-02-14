@@ -141,9 +141,12 @@
                 axios.put(`/admin/products/update/${this.oldSlug}`, this.entry).then(
                         result => {
                             this.notifySuccess("Product update");
-                          //  setTimeout(() => location.href = "/admin/products", 1500);
+                            setTimeout(() => location.href = "/admin/products", 1500);
                         },
-                        error => this.notifyError(error.message)
+                        error =>  this.notifyError(
+                                error.response.data.message,
+                                error.response.data.errors,
+                                error.response.status)
                 );
             },
             sanitizeTitle(title) {

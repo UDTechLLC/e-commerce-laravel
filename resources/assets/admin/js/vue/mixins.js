@@ -1,9 +1,9 @@
 Vue.mixin({
     methods: {
-        notifyError(text) {
+        notifyError(title, text, code) {
             this.$notify({
                 group: 'foo-css',
-                title: `Test  notification #5`,
+                title: `${title} CODE: ${code}`,
                 text,
                 type: 'error',
                 data: {
@@ -11,10 +11,10 @@ Vue.mixin({
                 }
             })
         },
-        notifySuccess(text) {
+        notifySuccess(title, text) {
             this.$notify({
                 group: 'foo-css',
-                title: `Test  notification #5`,
+                title,
                 text,
                 type: 'success',
                 data: {

@@ -91,10 +91,11 @@ class Product extends EloquentModel implements HasMedia
     /**
      * Entity public methods go below
      */
-
+    
     /**
      * @param $image
      * @param $collect
+     * @return \Spatie\MediaLibrary\Media
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
@@ -110,6 +111,10 @@ class Product extends EloquentModel implements HasMedia
             ->toMediaCollection($collect);
     }
 
+    /**
+     * @param $image
+     * @param $collect
+     */
     public function updateImageBase64($image, $collect)
     {
         $newMedia = $this->saveImageBase64($image, $collect);
@@ -118,6 +123,9 @@ class Product extends EloquentModel implements HasMedia
     }
 
     // @todo:
+    /**
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'slug';
