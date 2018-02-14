@@ -21,10 +21,10 @@ class ProductsResource extends Resource
     {
         return [
             'id'          => $this->getKey(),
-            'title'       => "<a href='" . route('admin') . "'>" . $this->title . "</a>",
+            'title'       => "<a href='" . route('products.show', $this->slug) . "'>" . $this->title . "</a>",
             'description' => substr($this->description, 0, 50) . "...",
             'action'      => [
-                'edit'   => route('admin.products.edit'),
+                'edit'   => route('admin.products.edit', $this->slug),
                 'delete' => route('admin.products.delete', $this->getKey())
             ]
         ];

@@ -13,6 +13,7 @@ Route::group([
         'uses' => 'ProductController@index'
     ]);
     Route::get('products/{slug}', [
+        'as' => 'products.show',
         'uses' => 'ProductController@show'
     ]);
 

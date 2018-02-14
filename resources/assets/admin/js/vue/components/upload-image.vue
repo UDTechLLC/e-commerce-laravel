@@ -46,9 +46,7 @@
                 let files = e.target.files || e.dataTransfer.files;
                 if (!files.length)
                     return;
-                console.log(files[0]);
                 setTimeout(() => this.createImage(files[0]), 500);
-                //this.createImage(files[0])
             },
             createImage(file) {
                 //this.$validator.validateAll();

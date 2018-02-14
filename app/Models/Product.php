@@ -99,32 +99,22 @@ class Product extends EloquentModel implements HasMedia
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
      */
-    public function saveImage($image, $collect)
+    public function saveImageBase64($image, $collect)
     {
         $imageParts = explode(";base64,", $image);
         $imageTypeAux = explode("image/", $imageParts[0]);
         $imageType = $imageTypeAux[1];
-
-
-        $this->addMediaFromBase64($image)
+        
+        return $this->addMediaFromBase64($image)
             ->usingFileName($this->slug . "." . $imageType)
             ->toMediaCollection($collect);
     }
 
-    /**
-     * @return string
-     */
-    public function getMainImage():string
+    public function updateImageBase64($image, $collect)
     {
-        return ($this->getMedia('products')->first()) ? $this->getMedia('products')->first()->getUrl() : " ";
-    }
-
-    /**
-     * @return string
-     */
-    public function getPreviewImage():string
-    {
-        return ($this->getMedia('products')->first()) ? $this->getMedia('preview')->first()->getUrl() : " ";
+        $newMedia = $this->saveImageBase64($image, $collect);
+        $arr = ['id' => $newMedia->id];
+        $this->updateMedia([$arr], $collect);
     }
 
     // @todo:

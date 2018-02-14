@@ -24,12 +24,12 @@ Route::group([
         'uses' => 'ProductController@store'
     ]);
 
-    Route::get('/edit', [
+    Route::get('/edit/{product}', [
         'as'   => '.edit',
         'uses' => 'ProductController@edit'
     ]);
 
-    Route::put('/update', [
+    Route::put('/update/{product}', [
         'as'   => '.update',
         'uses' => 'ProductController@update'
     ]);

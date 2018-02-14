@@ -66,8 +66,8 @@
                         class="required">*</span>
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="number" id="old-price" v-model="entry.oldPrice"
-                           v-validate data-vv-rules="required|numeric"
+                    <input type="text" id="old-price" v-model="entry.oldPrice"
+                           v-validate data-vv-rules="numeric"
                            :class="{'is-danger': errors.has('old-price')}"
                            name="old-price" class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('old-price')">{{ errors.first('old-price') }}</span>
@@ -102,6 +102,7 @@
     export default ({
         data: () => ({
             entry: {},
+            oldSlug: "",
             errorImage: false,
             errorPreviewImage: false
         }),
@@ -109,7 +110,8 @@
             product: String
         },
         created() {
-            this.entry = JSON.parse(this.product)
+            this.entry = JSON.parse(this.product);
+            this.oldSlug = this.entry.slug;
         },
         computed: {
             renderSlug() {
@@ -136,10 +138,10 @@
             },
             submitForm() {
 
-                axios.put('/admin/products/update', this.entry).then(
+                axios.put(`/admin/products/update/${this.oldSlug}`, this.entry).then(
                         result => {
                             this.notifySuccess("Product update");
-                            setTimeout(() => location.href = "/admin/products", 1500);
+                          //  setTimeout(() => location.href = "/admin/products", 1500);
                         },
                         error => this.notifyError(error.message)
                 );
