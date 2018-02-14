@@ -13,7 +13,7 @@ class ProductsTableSeeder extends Seeder
     {
         //
         $product = factory(App\Models\Product::class)->create([
-            'title' => '12 Week Custom <br> Training Plan',
+            'title' => '12 Week Custom Training Plan',
             'sub_title' => '100% Personalized Training Program',
             'description' => 'Our dedicated team will develop a personalized training plan that not only makes sense, 
             but makes a real difference. Let us show you what a difference 12 weeks can actually make!',
@@ -27,7 +27,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => '12 Week Custom <br> Meal Plan',
+            'title' => '12 Week Custom Meal Plan',
             'sub_title' => '100% Personalized Meal Program',
             'description' => 'Training is important but nutrition is what can make or break you!  Our dedicated
              team knows that reaching any health and fitness goal starts with a solid nutrition plan. We do not want 
@@ -55,17 +55,18 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/preview/maxx_icon.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
-        $product = factory(App\Models\Product::class)->create([
-            'title' => 'KICKSTARTER',
-            'description' => '15-20 minutes of exercise each day can change your life. Start your day with a rush of
-             mood and energy boosting endorphins. Finish the day with a bang, reduce stress and ensure quality sleep.',
-            'amount' => '60.00',
-            'slug' => 'kickstarter',
-        ]);
-        $pathToFile = 'resources/assets/web/seed_products/kickstarter.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.jpg';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+//        $product = factory(App\Models\Product::class)->create([
+//            'title' => 'KICKSTARTER',
+//            'description' => '15-20 minutes of exercise each day can change your life. Start your day with a rush of
+//             mood and energy boosting endorphins. Finish the day with a bang,
+//             reduce stress and ensure quality sleep.',
+//            'amount' => '60.00',
+//            'slug' => 'kickstarter',
+//        ]);
+//        $pathToFile = 'resources/assets/web/seed_products/kickstarter.png';
+//        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+//        $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.jpg';
+//        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
             'title' => 'SHEDFAT INFUSER BOTTLE',

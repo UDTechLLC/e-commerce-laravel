@@ -49,12 +49,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Product $product)
     {
-        $product = Product::whereSlug($slug)->firstOrFail();
-        $product = Product::find($product->id);
-        $url =  $product->getMedia('products')->first()->getUrl();
-        return view('web.shop.products.show', compact('product', 'url'));
+
+        return view('web.shop.products.show', compact('product'));
     }
 
     /**

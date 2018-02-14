@@ -1,0 +1,123 @@
+.shop-grid-wrapper
+  .wrapper
+    .shop-items-wrapper
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+      padding-top: 30px
+
+      @media screen and (max-width: 768px)
+        padding-bottom: 30px
+
+      .shop-item
+        border: 1px solid #eaeaea
+        box-sizing: border-box
+        margin: 0 15px 30px
+        padding: 30px
+        width: calc( 100%/3 - 20px )
+
+        @media screen and (max-width: 992px)
+          width: calc( 100%/2 - 30px )
+
+        @media screen and (max-width: 768px)
+          display: flex
+          flex-wrap: wrap
+          margin: 0
+          padding: 30px 15px 15px
+          width: calc( 100%/2 )
+
+        &:first-child, &:nth-child(3n + 1)
+          margin-left: 0
+
+          @media screen and (max-width: 992px) and (min-width: 768px)
+            margin-left: 15px
+
+        &:nth-child(3n)
+          margin-right: 0
+
+          @media screen and (max-width: 992px) and (min-width: 768px)
+            margin-right: 15px
+
+        .image-wrapper
+          width: 100%
+
+          img
+            max-width: 100%
+            width: 100%
+
+        .product-details
+          padding: 27px 0 0
+
+          @media screen and (max-width: 768px)
+            padding: 14px 0 0
+
+          .product-title
+            font-family: 'PT Sans',Arial,Helvetica sans-serif
+            font-size: 20px
+            font-weight: 900
+            line-height: 1
+            margin: 0 0 15px
+            text-align: left
+
+            a
+              color: #2b2e32
+              outline: none
+              text-decoration: none
+
+              &:hover
+                color: #ed1c24
+          .product-category-label
+            color: #787a7e
+            font-family: 'PT Sans',Arial,Helvetica sans-serif
+            font-size: 16px
+            font-weight: 400
+            line-height: 1
+            margin: 0 0 15px
+        .product-price-block
+          @media screen and (max-width: 768px)
+            margin-top: auto
+            width: 100%
+
+          .product-price
+            margin: 0 0 15px
+
+            .product-amount
+              color: #eb212e
+              font-family: 'PT Sans',Arial,Helvetica sans-serif
+              font-size: 24px
+              font-weight: 700
+
+              @media screen and (max-width: 768px)
+                font-size: 18px
+
+              del
+                color: #787a7e
+                font-size: 20px
+                font-weight: 400
+
+                @media screen and (max-width: 768px)
+                  font-size: 14px
+
+              ins
+                text-decoration: none
+
+        .product-button-block
+          @media screen and (max-width: 768px)
+            margin-top: auto
+            width: 100%
+
+          .add-to-cart-wrapper
+            .add-to-cart-btn
+              background-color: #eb212e
+              color: #fff
+              display: block
+              font-family: Montserrat, Arial, Helvetica, sans-serif
+              font-size: 15px
+              font-weight: 700
+              line-height: 1
+              margin: 0
+              padding: 15px 0
+              text-align: center
+              text-decoration: none
+              text-transform: uppercase
+              width: 100%

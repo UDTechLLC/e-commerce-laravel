@@ -12,7 +12,7 @@ Route::group([
     Route::get('/', [
         'uses' => 'ProductController@index'
     ]);
-    Route::get('products/{slug}', [
+    Route::get('products/{product}', [
         'uses' => 'ProductController@show'
     ]);
 
