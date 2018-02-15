@@ -3,7 +3,6 @@
   background-repeat: no-repeat
   background-size: cover
   padding: 65px 0 25px
-
   .wrapper
     @media screen and (max-width: 800px)
       padding-left: 30px
@@ -78,23 +77,22 @@
     .product-price
       margin: 25px 0 0
 
-      .product-amount
-        display: inline-block
-        color: #ed1c24
-        font-family: Montserrat, Arial, Helvetica, sans-serif
-        font-size: 30px
-        font-weight: 700
-        line-height: 26px
-        margin: 0 5px 30px
-
+    .product-amount
+      display: flex
+      color: #ed1c24
+      font-family: Montserrat, Arial, Helvetica, sans-serif
+      font-size: 30px
+      font-weight: 700
+      line-height: 26px
+      margin: 0 5px 30px
+      @media (max-width: 800px)
+        justify-content: center
   .product-button-block
     .add-to-cart-wrapper
       margin: 30px 0 25px
-
       .add-to-cart-btn
         border-radius: 3px
-        background-color: #ed1c24
-        color: #ffffff
+
         display: block
         font-family: Montserrat, Arial, Helvetica, sans-serif
         font-size: 23px
@@ -109,3 +107,15 @@
 
         @media screen and (max-width: 800px)
           margin: 0 auto
+  .has-old-price
+    &>.product-amount
+      margin-left: 0
+
+      &:before
+        display: block
+        margin-right: 10px
+        content: 'Today:'
+      &.product-amount--old
+        color: $def-color
+        &:before
+          content: 'Before'
