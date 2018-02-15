@@ -10,4 +10,8 @@ Route::group([
         'as'   => '.list',
         'uses' => 'UserController@getUsers'
     ]);
+    Route::delete('/delete/{user}', [
+        'as'   => '.delete',
+        'uses' => 'UserController@destroy'
+    ]);
 });
