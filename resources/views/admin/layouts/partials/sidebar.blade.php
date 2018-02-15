@@ -37,6 +37,9 @@
                     <li>
                         <a href="{{route('admin.users')}}"><i class="fa fa-cube"></i> Users </a>
                     </li>
+                    <li>
+                        <a href="{{route('admin.orders')}}"><i class="fa fa-cube"></i> Orders </a>
+                    </li>
                 </ul>
             </div>
         </div>
