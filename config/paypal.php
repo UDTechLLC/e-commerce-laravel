@@ -5,15 +5,15 @@
  */
 
 return [
-    'mode'    => 'sandbox', // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
-    'sandbox' => [
+    'mode'     => 'sandbox', // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
+    'sandbox'  => [
         'username'    => env('PAYPAL_SANDBOX_API_USERNAME', 'a.polykarpov-facilitator_api1.udtech.co'),
         'password'    => env('PAYPAL_SANDBOX_API_PASSWORD', 'DRR95BR3ZJW3AVU5'),
         'secret'      => env('PAYPAL_SANDBOX_API_SECRET', 'A8il9T27k9Fnji5K9b..zN544zP0AC0819MgBx41VNDrmqqMQyBodyHi'),
         'certificate' => env('PAYPAL_SANDBOX_API_CERTIFICATE', ''),
         'app_id'      => 'APP-80W284485P519543T', // Used for testing Adaptive Payments API in sandbox mode
     ],
-    'live' => [
+    'live'     => [
         'username'    => env('PAYPAL_LIVE_API_USERNAME', ''),
         'password'    => env('PAYPAL_LIVE_API_PASSWORD', ''),
         'secret'      => env('PAYPAL_LIVE_API_SECRET', ''),
