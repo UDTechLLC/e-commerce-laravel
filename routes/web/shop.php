@@ -12,10 +12,11 @@ Route::group([
     Route::get('/', [
         'uses' => 'ProductController@index'
     ]);
-    Route::get('products/{slug}', [
+
+    Route::get('products/{product}', [
         'as' => 'products.show',
         'uses' => 'ProductController@show'
     ]);
 
-//    require_once 'products.php';
+//   require_once 'products.php';
 });

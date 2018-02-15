@@ -29,7 +29,6 @@ class Product extends EloquentModel implements HasMedia
      */
     protected $fillable = array(
         'title',
-
         'category',
         'description',
         'old_amount',
@@ -111,6 +110,9 @@ class Product extends EloquentModel implements HasMedia
             ->toMediaCollection($collect);
     }
 
+
+    // @todo:
+
     /**
      * @param $image
      * @param $collect
@@ -126,6 +128,7 @@ class Product extends EloquentModel implements HasMedia
     /**
      * @return string
      */
+
     public function getRouteKeyName()
     {
         return 'slug';
