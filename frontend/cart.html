@@ -141,7 +141,7 @@
                                 <form class="culculate-shiping-form" action="" name="" method="post">
                                     <div class="culculate-shiping-form-block">
                                         <div class="cart-form-row">
-                                            <p class="shiping-select-wrapper">
+                                            <div class="shiping-select-wrapper">
                                                 <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state">
                                                     <option value="">Select a country…</option>
                                                     <option value="AX">Åland Islands</option>
@@ -167,16 +167,17 @@
                                                     <option value="BY">Belarus</option>
                                                 </select>
                                                 <div class="select-arrow" style="height: 36px; width: 36px; line-height: 36px;"></div>
-                                            </p>
+                                            </div>
                                         </div>
-                                        <div class="cart-form-field-wrapper">
-                                            <input class="input-text" value="" placeholder="State / county" name="calc_shipping_state" id="calc_shipping_state" type="text" />
+                                        <div class="cart-form-field-wrapper left-wrapper">
+                                            <input class="cart-form-field" value="" placeholder="State / county" name="calc_shipping_state" id="calc_shipping_state" type="text" />
                                         </div>
-                                        <div class="cart-form-field-wrapper">
-                                            <input class="input-text" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode" type="text" />
+                                        <div class="cart-form-field-wrapper right-wrapper">
+                                            <input class="cart-form-field" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode" type="text" />
                                         </div>
+                                        <div class="clear"></div>
                                         <p class="shiping-button-wrapper">
-                                            <button type="submit" name="calc_shipping" value="1" class="fusion-button button-default fusion-button-default-size button">Update totals</button>
+                                            <button type="submit" name="calc_shipping" value="1" class="shiping-update-button">Update totals</button>
                                         </p>
                                     </div>
                                 </form>
@@ -197,53 +198,51 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cart-bottom-block">
-                            <div class="cart-totals-wrapper">
-                                <div class="cart-header-block">
-                                    <h2 class="cart-heading">
-                                        Cart totals
-                                    </h2>
-                                </div>
-                                <table class="shop-table">
-                                    <tbody>
-                                        <tr class="cart-subtotal">
-                                            <th>
-                                                Subtotal
-                                            </th>
-                                            <td class="product-subtotal">
-                                                <span class="product-subtotal-amount">
-                                                    $84.00
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="shipping">
-                                            <th>
-                                                Shipping
-                                            </th>
-                                            <td class="">
-                                                Flat rate:
-                                                <span class="product-flat-rate">
-                                                    $17.99
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="order-total">
-                                            <th>Total</th>
-                                            <td class="product-total">
-                                                <span class="product-total-amount">
-                                                    <strong>
-                                                        $101.99
-                                                    </strong>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="proceed-to-checkout-button-wrapper">
-                                    <a class="proceed-to-checkout" href="#">
-                                        Proceed to checkout
-                                    </a>
-                                </div>
+                        <div class="cart-bottom-block cart-totals-wrapper">
+                            <div class="cart-header-block">
+                                <h2 class="cart-heading">
+                                    Cart totals
+                                </h2>
+                            </div>
+                            <table class="shop-table">
+                                <tbody>
+                                    <tr class="cart-subtotal">
+                                        <th>
+                                            Subtotal
+                                        </th>
+                                        <td class="product-subtotal">
+                                            <span class="product-subtotal-amount">
+                                                $84.00
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="shipping">
+                                        <th>
+                                            Shipping
+                                        </th>
+                                        <td class="">
+                                            Flat rate:
+                                            <span class="product-flat-rate">
+                                                $17.99
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="order-total">
+                                        <th>Total</th>
+                                        <td class="product-total">
+                                            <span class="product-total-amount">
+                                                <strong>
+                                                    $101.99
+                                                </strong>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="proceed-to-checkout-button-wrapper">
+                                <a class="proceed-to-checkout" href="#">
+                                    Proceed to checkout
+                                </a>
                             </div>
                         </div>
                     </div>
