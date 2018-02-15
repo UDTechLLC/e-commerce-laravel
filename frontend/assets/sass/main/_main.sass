@@ -1,5 +1,8 @@
 .flex
   display: flex
+  @media (max-width: 768px)
+    &--m-block
+      display: block
   &-a--center
     align-items: center
   &-a--bottom
@@ -12,3 +15,4 @@
     justify-content: space-between
   &-j--end
     justify-content: flex-end
+
