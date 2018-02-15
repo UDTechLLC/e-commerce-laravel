@@ -62,8 +62,7 @@
                 </div>
             </div>
             <div class="form-group" :class="{'has-error': errors.has('old-price') }">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price<span
-                        class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="text" id="old-price" v-model="entry.oldPrice"
