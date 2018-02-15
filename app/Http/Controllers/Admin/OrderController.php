@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +16,10 @@ class OrderController extends Controller
      */
     public function index(): View
     {
-        return view("admin.orders.index");
+        $order = Order::all();
+        return view("admin.orders.index", [
+            'order' => $order
+        ]);
     }
 
     /**
