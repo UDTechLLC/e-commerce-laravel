@@ -29,13 +29,25 @@
         });
 
 
+
+        function heightMain() {
+
+            setTimeout(function () {
+                $('main').css({
+                    'min-height': $(window).height() - $('footer').height() - $('header').height() - 3 + 'px'
+                });
+            },100)
+
+        }
+        heightMain();
         $(window).resize(function () {
             if ($(window).width() > 800){
                 $('.second-header__menu-items').css({
                     'display': '',
                 });
             }
-        })
+            heightMain();
+        });
 
     });
 })( jQuery );
