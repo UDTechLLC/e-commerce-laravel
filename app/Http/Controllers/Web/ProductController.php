@@ -52,7 +52,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-
+//        return view('web.shop.products.never-stop-moving-e-book', compact('product'));
         return view('web.shop.products.show', compact('product'));
     }
 
