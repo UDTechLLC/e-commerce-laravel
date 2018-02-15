@@ -1,0 +1,27 @@
+header
+  .first-header
+    border-bottom: 1px solid #eaeaea
+    @media (max-width: $breakpoint-mobile)
+      .wrapper
+        padding: 0
+    &__soc-links
+      @media (max-width: $breakpoint-mobile)
+        justify-content: center
+        padding: 20px 0
+      a
+        margin-right: 50px
+        font-size: 16px
+        &:last-child
+          margin-right: 0
+        @media (min-width: $breakpoint-mobile)
+          margin-right: 20px
+    &__menu
+      @media (max-width: $breakpoint-mobile)
+        justify-content: center
+        border-top: 1px solid #eaeaea
+      &-item
+        text-transform: uppercase
+        border-right: 1px solid #eaeaea
+        display: block
+        padding: 16px 20px
+

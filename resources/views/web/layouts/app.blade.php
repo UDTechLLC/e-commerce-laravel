@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
+    <title>Shedfat</title>
 
     <link rel="stylesheet" href="{{ asset('web/css/base.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">
@@ -20,6 +21,7 @@
     <![endif]-->
 </head>
 <body>
+@include('web.layouts.header')
     <div id="app">
         @yield('content')
     </div>
