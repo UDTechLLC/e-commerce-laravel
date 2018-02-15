@@ -13,100 +13,99 @@
       padding-left: 15px
       padding-right: 15px
 
-    .product-preview-wrapper
-      float: left
-      width: 50%
+  .product-preview-wrapper
+    float: left
+    width: 50%
+
+    @media screen and (max-width: 800px)
+      float: none
+      width: 100%
+
+  .image-wrapper
+    margin: 15px auto
+    text-align: center
+
+    img
+      max-width: 100%
+
+  .product-info-block
+    float: left
+    width: 50%
+
+    @media screen and (max-width: 800px)
+      float: none
+      width: 100%
+
+  .product-info
+    @media screen and (max-width: 800px)
+      text-align: center
+
+  .product-title-block
+    .product-title
+      color: #eb212e
+      font-size: 38px
+      font-family: Montserrat, Arial, Helvetica, sans-serif
+      font-weight: 700
+      line-height: 41px !important
+      margin: 0
+      text-transform: uppercase
 
       @media screen and (max-width: 800px)
-        float: none
-        width: 100%
+        font-size: 30px
+        line-height: 30px !important
 
-      .image-wrapper
-        margin: 15px auto
+      @media screen and (max-width: 550px)
+        font-size: 24.32px
+
+      &-sub-line
+        color: #29282e
+        font-size: 16px
+        letter-spacing: 0
+        line-height: 20px
+        margin: 0
+  .product-description
+    color: #29282e
+    font-size: 20px
+    line-height: 26px
+    margin: 23px 0 20px
+
+    @media screen and (max-width: 800px)
+      font-size: 16px
+      line-height: 22px
+      margin-bottom: 11px
+
+  .product-price-block
+    .product-price
+      margin: 25px 0 0
+
+      .product-amount
+        display: inline-block
+        color: #ed1c24
+        font-family: Montserrat, Arial, Helvetica, sans-serif
+        font-size: 30px
+        font-weight: 700
+        line-height: 26px
+        margin: 0 5px 30px
+
+  .product-button-block
+    .add-to-cart-wrapper
+      margin: 30px 0 25px
+
+      .add-to-cart-btn
+        border-radius: 3px
+        background-color: #ed1c24
+        color: #ffffff
+        display: block
+        font-family: Montserrat, Arial, Helvetica, sans-serif
+        font-size: 23px
+        font-weight: 700
+        margin: 0
+        outline: none
+        padding: 16px
         text-align: center
+        text-decoration: none
+        text-transform: uppercase
+        width: 212px
 
-        img
-          max-width: 100%
-
-    .product-info-block
-      float: left
-      width: 50%
-
-      @media screen and (max-width: 800px)
-        float: none
-        width: 100%
-
-      .product-info
         @media screen and (max-width: 800px)
-          text-align: center
-
-        .product-title-block
-          .product-title
-            color: #eb212e
-            font-size: 38px
-            font-family: Montserrat, Arial, Helvetica, sans-serif
-            font-weight: 700
-            line-height: 41px !important
-            margin: 0
-            text-transform: uppercase
-
-            @media screen and (max-width: 800px)
-              font-size: 30px
-              line-height: 30px !important
-
-            @media screen and (max-width: 550px)
-              font-size: 24.32px
-
-            &-sub-line
-              color: #29282e
-              font-size: 16px
-              letter-spacing: 0
-              line-height: 20px
-              margin: 0 0 23px
-        .product-description-block
-          .product-description
-            color: #29282e
-            font-size: 20px
-            line-height: 26px
-            margin: 0 0 20px
-
-            @media screen and (max-width: 800px)
-              font-size: 16px
-              line-height: 22px
-              margin-bottom: 11px
-
-        .product-price-block
-          .product-price
-            margin: 25px 0 0
-
-            .product-amount
-              display: inline-block
-              color: #ed1c24
-              font-family: Montserrat, Arial, Helvetica, sans-serif
-              font-size: 30px
-              font-weight: 700
-              line-height: 26px
-              margin: 0 5px 30px
-
-        .product-button-block
-          .add-to-cart-wrapper
-            margin: 30px 0 25px
-
-            .add-to-cart-btn
-              border-radius: 3px
-              background-color: #ed1c24
-              color: #ffffff
-              display: block
-              font-family: Montserrat, Arial, Helvetica, sans-serif
-              font-size: 23px;
-              font-weight: 700
-              margin: 0
-              outline: none
-              padding: 16px
-              text-align: center
-              text-decoration: none
-              text-transform: uppercase
-              width: 212px
-
-              @media screen and (max-width: 800px)
-                margin: 0 auto
+          margin: 0 auto
