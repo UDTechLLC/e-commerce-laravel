@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\{
     Builder
 };
 use App\Models\EloquentModel;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Order
@@ -104,11 +103,4 @@ class Order extends EloquentModel
      */
 
     // @todo:
-    /**
-     * @return BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
 }
