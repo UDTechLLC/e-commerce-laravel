@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Http\Resources\Web\CartProductResource;
+use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +18,13 @@ class CartController extends Controller
     public function index()
     {
         return view('web.shop.cart.index');
+    }
+    
+    public function getProduct()
+    {
+        $products = Product::limit(3)->get();
+        
+        return CartProductResource::collection($products);
     }
 
     /**
