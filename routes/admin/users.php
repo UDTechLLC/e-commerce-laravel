@@ -6,4 +6,8 @@ Route::group([
     Route::get('/', [
         'uses' => 'UserController@index'
     ]);
+    Route::get('/list', [
+        'as'   => '.list',
+        'uses' => 'UserController@getUsers'
+    ]);
 });

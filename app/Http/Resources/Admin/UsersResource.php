@@ -15,6 +15,13 @@ class UsersResource extends Resource
      */
     public function toArray($request): array
     {
-
+        return [
+            'id' => $this->getKey(),
+            'name' => substr($this->name, 0, 50) ,
+            'email' => substr($this->email, 0, 50) //,
+//             'action' => [
+////                             'delete' => route('admin.users.delete', $this->getKey())
+//             ]
+        ];
     }
 }

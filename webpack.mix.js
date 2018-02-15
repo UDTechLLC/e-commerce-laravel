@@ -28,6 +28,7 @@ mix.options({
 mix.sass('resources/assets/admin/sass/app.scss', 'public/admin_panel/css')
     .js('resources/assets/admin/js/app.js', 'public/admin_panel/js')
     .copy('resources/assets/admin/images', 'public/admin_panel/images')
+    .copy('resources/assets/admin/fonts', 'public/admin_panel/fonts')
     .js('resources/assets/js/app.js', 'public/web/js')
     .sass('resources/assets/sass/app.scss', 'public/web/css')
     .sass('resources/assets/web/sass/base.sass', 'public/web/css')
