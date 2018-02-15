@@ -12,7 +12,7 @@
             <th>Product_id</th>
             <th>Amount</th>
             <th>Count</th>
-            <th>State</th>
+            <th>Status</th>
          </tr>
          </thead>
          <tbody>

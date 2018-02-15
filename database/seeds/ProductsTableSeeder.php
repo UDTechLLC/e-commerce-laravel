@@ -138,7 +138,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => '14 DAY DETOX SMOOTHIE <br> CLEANSE',
+            'title' => '14 DAY DETOX SMOOTHIE CLEANSE',
             'description' => 'The Power of Juice! This is the fast lane on the health highway. Whether you are 
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
             'old_amount' => '40.00',
