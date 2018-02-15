@@ -1,5 +1,6 @@
 (function( $ ) {
     $( document ).ready( function() {
+        console.log(1);
         if ( 0 < $( '#successStories' ).length ) {
             $( '#successStories' ).slick({
                 autoplay: true,

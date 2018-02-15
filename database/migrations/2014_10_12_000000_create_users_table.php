@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable()->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->unsignedInteger('cart_id')->nullable();
             $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();

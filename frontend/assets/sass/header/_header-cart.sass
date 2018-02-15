@@ -1,0 +1,96 @@
+header
+  .header-cart
+    padding: 16px 0
+    width: 180px
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    @media (min-width: $breakpoint-mobile)
+      background: #fafafa
+      &:hover
+        background: #eaeaea
+        color: $l-grey
+    &__text
+      display: flex
+      align-items: center
+      text-transform: uppercase
+      &:before,
+      &:after
+        font-family: FontAwesome
+      &:before
+        content: '\f07a'
+        margin-right: 8px
+      &:after
+        content: '\f107'
+        margin-left: 5px
+        font-size: 18px
+        @media (max-width: $breakpoint-mobile)
+          display: none
+    &__delimiter
+      margin: 0 5px
+
+    &-wrapper
+      position: relative
+      @media (min-width: $breakpoint-mobile)
+        &:hover
+          .header-cart-items
+            display: block
+    &-items
+      display: none
+      position: absolute
+      top: 100%
+      left: -1px
+      width: 100%
+      &__footer
+        background: #fafafa
+        border-bottom: 1px solid #eaeaea
+        border-left: 1px solid #eaeaea
+        border-right: 1px solid #eaeaea
+        padding: 10px
+        a
+          font-size: 12px
+          display: flex
+          align-items: center
+          &:before,
+          &:after
+            font-family: FontAwesome
+            margin-right: 5px
+        &-view-cart
+          &:before
+            content: '\f07a'
+
+        &-checkout
+          &:before
+            content: '\f14a'
+
+    &-item
+      border-bottom: 1px solid #eaeaea
+      border-left: 1px solid #eaeaea
+      border-right: 1px solid #eaeaea
+      a
+        padding: 10px
+        width: 100%
+        box-sizing: border-box
+        &:hover
+          background: #f6f6f6
+
+      &__image
+        width: 36px
+        height: 36px
+        background: #fafafa
+        box-sizing: border-box
+        display: flex
+        align-items: center
+        justify-content: center
+        img
+          max-width: 80%
+      &__title-price
+        width: 70%
+        color: $def-color
+      &__title
+        font-size: 12px
+      &__count-price
+        font-size: 12px
+      &__delimiter
+        margin: 0 5px

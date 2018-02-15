@@ -1,0 +1,113 @@
+.checkout-top-navigation-bar-wrapper
+  .wrapper
+    .checkout-top-navigation-bar
+      .checkout-title
+        color: #29282e
+        font-family: Montserrat, Arial, Helvetica, sans-serif
+        font-size: 38px
+        font-weight: 700
+        line-height: 1.26
+        letter-spacing: 0
+        margin-bottom: 39px
+        text-align: center
+
+      .path-checkout-bar
+        display: flex
+        justify-content: space-between
+        list-style: none
+        margin: 0 70px 43px
+
+        li
+          position: relative
+          text-align: center
+          width: 130px
+
+          &:before
+            content: ""
+            display: block
+            position: absolute
+            background: #eaeaea
+            width: 251px
+            height: 2px
+            top: 25px
+            left: 90px
+
+          &:nth-child(5):before
+            display: block
+            background: #ffffff
+
+          &.checked
+            .icon
+              &:before
+                background: url("../images/checkout/ic_ready.svg") no-repeat !important
+
+            &:before
+              background: #eb212e
+
+          .icon
+            width: 50px
+            height: 50px
+            margin: 0 auto 7px
+            position: relative
+            border-radius: 50%
+            border: 2px solid #eb212e
+            background-color: #fff
+
+            &:before
+              content: ""
+              display: block
+              position: absolute
+              top: 0
+              bottom: 0
+              left: 0
+              right: 0
+              margin: auto
+
+            &.billing-details:before
+              background: url("../images/checkout/ic_billing_normal.svg") no-repeat
+
+            &.payment:before
+              background: url("../images/checkout/ic_payment_normal.svg") no-repeat
+
+            &.finish-order:before
+              background: url("../images/checkout/ic_finish_order_normal.svg") no-repeat
+
+          span
+            font-family: "PT Sans", Arial, Helvetica, sans-serif
+            font-size: 15px
+            font-weight: 400
+            letter-spacing: 0
+            line-height: 30px
+            color: #f01616
+
+          &.active
+            .icon
+              background-color: #eb212e
+
+              &.billing-details:before
+                background: url("../images/checkout/ic_billing_active.svg") no-repeat
+
+          &.disabled
+            background-color: transparent !important
+
+            .icon
+              border: 2px solid #eaeaea
+
+            span
+              color: #dcdcdc
+
+      .reservation-order
+        height: 30px
+        border-radius: 2px
+        background-color: #eb212e
+        text-align: center
+        margin-bottom: 28px
+
+        p
+          color: #fff
+          font-family: Montserrat
+          font-size: 13px
+          font-weight: 700
+          line-height: 29px
+          text-transform: uppercase
+          letter-spacing: .33px

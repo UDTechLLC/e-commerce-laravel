@@ -19,4 +19,19 @@ Route::group([
     ]);
 
 //   require_once 'products.php';
+
+    Route::group([
+        'prefix' => 'cart',
+        'as' => 'cart'
+    ], function () {
+        
+        Route::get('/', [
+           'uses' => 'CartController@index'
+        ]);
+
+        Route::get('/getProducts', [
+            'as' => '.getProduct',
+            'uses' => 'CartController@getProduct'
+        ]);
+    });
 });
