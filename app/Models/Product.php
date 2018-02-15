@@ -29,6 +29,7 @@ class Product extends EloquentModel implements HasMedia
      */
     protected $fillable = array(
         'title',
+
         'category',
         'description',
         'old_amount',
@@ -90,6 +91,43 @@ class Product extends EloquentModel implements HasMedia
     /**
      * Entity public methods go below
      */
+    
+    /**
+     * @param $image
+     * @param $collect
+     * @return \Spatie\MediaLibrary\Media
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     */
+    public function saveImageBase64($image, $collect)
+    {
+        $imageParts = explode(";base64,", $image);
+        $imageTypeAux = explode("image/", $imageParts[0]);
+        $imageType = $imageTypeAux[1];
+        
+        return $this->addMediaFromBase64($image)
+            ->usingFileName($this->slug . "." . $imageType)
+            ->toMediaCollection($collect);
+    }
+
+    /**
+     * @param $image
+     * @param $collect
+     */
+    public function updateImageBase64($image, $collect)
+    {
+        $newMedia = $this->saveImageBase64($image, $collect);
+        $arr = ['id' => $newMedia->id];
+        $this->updateMedia([$arr], $collect);
+    }
 
     // @todo:
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

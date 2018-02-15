@@ -29,7 +29,6 @@
                 gridColumns: [
                      'id',
                      'title',
-                     'category',
                      'description'
                 ],
 

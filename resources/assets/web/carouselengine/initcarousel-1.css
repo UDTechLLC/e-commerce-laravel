@@ -1,0 +1,125 @@
+/* carousel */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+#amazingcarousel-1 .amazingcarousel-image {	
+	position: relative;
+	padding: 30px;
+	background-color: transparent;
+	border: 1px solid #eaeaea;
+}
+
+#amazingcarousel-1 .amazingcarousel-image img {
+	display: block;
+	width: 100% !important;
+	max-width: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#amazingcarousel-1 .amazingcarousel-text {
+	padding-right: 64px;
+}
+#amazingcarousel-1 .amazingcarousel-title {
+	position:relative;
+	font: bold 14px "Open Sans", sans-serif;
+	color:#333333;
+	margin:6px;
+	text-align:left;
+	line-height: 16px;
+	height: 16px;
+	overflow: hidden;
+}
+
+#amazingcarousel-1 .amazingcarousel-description {
+	position:relative;
+	font: 12px "Open Sans", sans-serif;
+	color:#333333;
+	margin:6px;
+	text-align:left;
+	line-height: 16px;		
+	height: 32px;
+	overflow: hidden;
+}
+
+#amazingcarousel-1 .amazingcarousel-list-container { 
+	padding: 0;
+}
+
+
+@media (max-width: 767px) {
+#amazingcarousel-1 .amazingcarousel-image {
+padding: 0;
+border: none;
+}
+#amazingcarousel-1 .amazingcarousel-list-container {
+padding-bottom: 30px;
+}
+}
+
+
+#amazingcarousel-1 .amazingcarousel-item-container {
+	text-align: center;
+	padding: 0px;
+}
+
+#amazingcarousel-1 .amazingcarousel-prev {
+	right: 0%;
+	top: 100%;
+	margin-right: 32px;
+	margin-top: -64px;
+}
+
+#amazingcarousel-1 .amazingcarousel-next {
+	right: 0%;
+	top: 100%;
+	margin-right: 0px;
+	margin-top: -64px;
+}
+
+#amazingcarousel-1 .amazingcarousel-nav {
+	position: absolute;
+	width: 100%;
+	top: 100%;
+}
+
+#amazingcarousel-1 .amazingcarousel-bullet-wrapper {
+	display:none;
+}
+
+/* item */
+
+#amazingcarousel-1 .amazingcarousel-item-container {
+	text-align: center;
+	padding: 0px;
+}
+
+/* arrows */
+
+#amazingcarousel-1 .amazingcarousel-prev {
+	right: 0%;
+	top: 100%;
+	margin-right: 32px;
+	margin-top: -64px;
+}
+
+#amazingcarousel-1 .amazingcarousel-next {
+	right: 0%;
+	top: 100%;
+	margin-right: 0px;
+	margin-top: -64px;
+}
+
+/* navigation bullets */
+
+#amazingcarousel-1 .amazingcarousel-nav {
+	position: absolute;
+	width: 100%;
+	top: 100%;
+}
+
+#amazingcarousel-1 .amazingcarousel-bullet-wrapper {
+	margin: 4px auto;
+}
+

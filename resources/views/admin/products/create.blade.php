@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
 @section('content')
-    <h2>sdsdasd</h2>
-    <upload-file></upload-file>
+    <h2>Product create</h2>
+    <products-create></products-create>
 @endsection
