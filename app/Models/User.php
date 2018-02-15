@@ -14,7 +14,7 @@ class User extends Authenticatable
         Notifiable;
     use Billable;
 
-
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *

@@ -11,4 +11,5 @@ Route::group([
     ]);
 
     require_once 'products.php';
+    require_once 'users.php';
 });

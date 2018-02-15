@@ -1,25 +1,37 @@
 <?php
+declare (strict_types = 1);
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Product;
+use App\Http\Resources\Admin\UsersResource;
 use Illuminate\Contracts\View\View;
+use \App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index(): View
     {
-        $product = Product::all();
-        return view("web.shop.products.index", [
-            'product'=>$product
-        ]);
+        return view("admin.users.index");
+    }
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function getUsers(Request $request)
+    {
+        $sortField = $request->get('sortField') ?? 'id';
+        $sortType = $request->get('sortType') ?? 'asc';
+
+        $users = User::orderBy($sortField, $sortType)->paginate(20);
+
+        return UsersResource::collection($users);
     }
 
     /**
@@ -40,19 +52,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  Product $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-
-        return view('web.shop.products.show', compact('product'));
+        //
     }
 
     /**
@@ -81,11 +92,11 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
     }
 }
