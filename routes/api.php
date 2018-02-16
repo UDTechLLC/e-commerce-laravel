@@ -26,12 +26,12 @@ Route::group([
             'uses' => 'Api\CartController@index',
         ]);
 
-        Route::get('store/{product}', [
+        Route::post('store/{product}', [
             'as'   => '.store',
             'uses' => 'Api\CartController@store',
         ]);
 
-        Route::get('remove/{product}', [
+        Route::delete('remove/{product}', [
             'as'   => '.remove',
             'uses' => 'Api\CartController@remove',
         ]);
