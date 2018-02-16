@@ -68,7 +68,7 @@ class CartController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws \Throwable
      */
-    public function remove(Request $request, Product $product)
+    public function removeAll(Request $request, Product $product)
     {
         /** @var User $user */
         $user = \Auth::user();
