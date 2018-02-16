@@ -21,6 +21,11 @@ Route::group([
         'as'     => '.products',
         'prefix' => 'products',
     ], function () {
+        Route::get('/', [
+            'as'   => '.list',
+            'uses' => 'Api\CartController@index',
+        ]);
+
         Route::post('store', [
             'as'   => '.store',
             'uses' => 'Api\CartController@store',
