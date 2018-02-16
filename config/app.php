@@ -168,6 +168,8 @@ return [
          * Package Service Providers...
          */
 
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -235,7 +237,6 @@ return [
         * Install Package Service Providers...
         */
         'Laratrust'   => Laratrust\LaratrustFacade::class,
-
+        'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
     ],
-
 ];
