@@ -1,0 +1,31 @@
+@media screen and (max-width: $breakpoint-mobile)
+  header
+    .wrapper
+      padding: 0
+    .btn__mobile-menu
+      position: absolute
+      right: 20px
+      top: 20px
+      font-size: 21px
+      color: #dadada
+    .second-header
+      border-bottom: 1px solid #eaeaea
+      padding-bottom: 0
+      &__menu-items
+        display: none
+      &__menu-item
+        border-bottom: 1px solid $l-grey
+        margin: 0
+        border-bottom: 1px solid #eaeaea
+        border-top: 0
+        &:last-child
+          border-bottom: 0
+        a
+          padding: 17px 20px
+        &.active
+          background: #f6f6f6
+          a
+            color: $def-color
+@media screen and (min-width: $breakpoint-mobile)
+  .btn__mobile-menu
+    display: none

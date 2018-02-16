@@ -1,6 +1,5 @@
 (function( $ ) {
     $( document ).ready( function() {
-        console.log(1);
         if ( 0 < $( '#successStories' ).length ) {
             $( '#successStories' ).slick({
                 autoplay: true,
@@ -23,5 +22,20 @@
                 ]
             });
         }
+
+
+        $('.btn__mobile-menu').click(function () {
+            $('.second-header__menu-items').slideToggle();
+        });
+
+
+        $(window).resize(function () {
+            if ($(window).width() > 800){
+                $('.second-header__menu-items').css({
+                    'display': '',
+                });
+            }
+        })
+
     });
 })( jQuery );
