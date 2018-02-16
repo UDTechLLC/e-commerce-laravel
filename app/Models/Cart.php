@@ -25,7 +25,7 @@ class Cart extends EloquentModel
      */
     protected $fillable = [
         'user_id',
-        'product_id'
+        'hash'
     ];
 
     /**
@@ -62,7 +62,10 @@ class Cart extends EloquentModel
      * Entity relations go below
      */
 
-    // @todo:
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 
     /**
      * Entity scopes go below

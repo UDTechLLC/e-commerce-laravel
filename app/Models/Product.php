@@ -73,7 +73,10 @@ class Product extends EloquentModel implements HasMedia
      * Entity relations go below
      */
 
-    // @todo:
+    public function carts()
+    {
+        return $this->belongsToMany(Cart::class);
+    }
 
     /**
      * Entity scopes go below
@@ -90,13 +93,13 @@ class Product extends EloquentModel implements HasMedia
     /**
      * Entity public methods go below
      */
-    
+
     /**
      * @param $image
      * @param $collect
+     *
      * @return \Spatie\MediaLibrary\Media
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
      */
     public function saveImageBase64($image, $collect)
@@ -116,6 +119,10 @@ class Product extends EloquentModel implements HasMedia
     /**
      * @param $image
      * @param $collect
+     *
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaCannotBeUpdated
      */
     public function updateImageBase64($image, $collect)
     {
