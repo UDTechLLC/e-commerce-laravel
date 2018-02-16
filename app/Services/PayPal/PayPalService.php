@@ -17,15 +17,15 @@ class PayPalService
     const LIVE_MODE    = 'live';
 
     /** @var \Omnipay\PayPal\ExpressGateway $gateway */
-    protected $gateway;
+    public $gateway;
 
     /** @var array $parameters */
     protected $parameters = [];
 
     /** @var string $currency */
-    protected $currency = 'USD';
+    protected $currency;
 
-    /** @var integer */
+    /** @var int */
     protected $amount;
 
     /**
@@ -43,11 +43,11 @@ class PayPalService
      *
      * @param int $amount
      */
-    public function setAmount(integer $amount)
+    public function setAmount(int $amount)
     {
         $this->amount = $amount;
 
-        $this->parameters['amount'] = $this->amount;
+        $this->parameters['amount'] = (float) $this->amount;
     }
 
     /**
@@ -55,7 +55,7 @@ class PayPalService
      *
      * @param $currency
      */
-    public function setCurrency($currency)
+    public function setCurrency($currency = 'USD')
     {
         $this->currency = $currency;
 
@@ -80,8 +80,8 @@ class PayPalService
         /** Sed pay-pal mode and credentials */
         $this->setCredentials();
 
-        /** Set callback url's */
-        $this->setCallbacks();
+        /** Set currency */
+        $this->setCurrency();
     }
 
     /**
@@ -102,6 +102,34 @@ class PayPalService
     public function setCancelUrl(string $url)
     {
         $this->parameters['cancelUrl'] = $url;
+    }
+
+    /**
+     * Purchase order.
+     *
+     * @return \Omnipay\Common\Message\ResponseInterface
+     */
+    public function purchase()
+    {
+        $response = $this->gateway->purchase($this->parameters)->send();
+
+        if ($response->isRedirect()) {
+            return $response;
+        }
+    }
+
+    /**
+     * Complete purchase order.
+     *
+     * @return \Omnipay\Common\Message\ResponseInterface
+     */
+    public function completePurchase()
+    {
+        $response = $this->gateway->completePurchase($this->parameters)->send();
+
+        if ($response->isSuccessful()) {
+            return $response;
+        }
     }
 
     /**

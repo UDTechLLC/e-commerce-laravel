@@ -18,12 +18,22 @@ class PayPalController extends Controller
 
     public function pay(Request $request)
     {
-        $this->setCallbacks();
+        $this->setCallbacks();  //todo: add order id to callback
+        $this->service->setAmount(20);
+
+        $response = $this->service->purchase();
+
+        return $response->redirect();
     }
 
-    public function returnUrl()
+    public function returnUrl()    //todo: add order
     {
+        $this->setCallbacks();
+        $this->service->setAmount(20);    //todo: get from order
 
+        $response = $this->service->completePurchase();
+
+        return $response->redirect();
     }
 
     public function cancelUrl()
@@ -33,6 +43,7 @@ class PayPalController extends Controller
 
     private function setCallbacks()
     {
-
+        $this->service->setReturnUrl(route('paypal.return'));
+        $this->service->setCancelUrl(route('paypal.cancel'));
     }
 }
