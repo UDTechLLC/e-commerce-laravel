@@ -9,7 +9,7 @@
     float: left
     width: 50%
 
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: $breakpoint-mobile)
       float: none
       width: 100%
 
@@ -24,14 +24,14 @@
     float: left
     width: 50%
 
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: $breakpoint-mobile)
       float: none
       width: 100%
 
   .product-info
-    @media screen and (min-width: 800px)
+    @media screen and (min-width: $breakpoint-mobile)
       padding-left: 10px
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: $breakpoint-mobile)
       text-align: center
 
   .product-title-block
@@ -46,7 +46,7 @@
       margin: 0
       text-transform: uppercase
 
-      @media screen and (max-width: 800px)
+      @media screen and (max-width: $breakpoint-mobile)
         font-size: 30px
         line-height: 30px !important
 
@@ -65,7 +65,7 @@
     line-height: 26px
     margin: 27px 0 20px
 
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: $breakpoint-mobile)
       font-size: 16px
       line-height: 22px
       margin-bottom: 11px
@@ -82,7 +82,7 @@
       font-weight: 700
       line-height: 26px
       margin: 0 5px 30px
-      @media (max-width: 800px)
+      @media (max-width: $breakpoint-mobile)
         justify-content: center
   .product-button-block
     .add-to-cart-wrapper
@@ -102,7 +102,7 @@
         text-transform: uppercase
         width: 212px
 
-        @media screen and (max-width: 800px)
+        @media screen and (max-width: $breakpoint-mobile)
           margin: 0 auto
   .has-old-price
     &>.product-amount
