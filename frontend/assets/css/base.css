@@ -92,6 +92,10 @@ div {
         right: -16.5%; }
       .after-lines:before {
         left: -16.5%; } }
+  .after-lines--white {
+    color: white !important; }
+    .after-lines--white:after, .after-lines--white:before {
+      background: white; }
 
 @media screen and (max-width: 1200px) {
   .wrapper {
@@ -765,6 +769,24 @@ ul {
   @media (min-width: 800px) {
     .section__text {
       font-size: 20px; } }
+  .section__text--white {
+    color: white; }
+
+.parallax-section {
+  overflow: hidden;
+  padding: 70px 0 0;
+  max-height: 770px; }
+  .parallax-section .section__text {
+    max-width: 650px;
+    margin: 50px auto; }
+  .parallax-section .block-in-section-wrapper {
+    margin-top: 20px; }
+  .parallax-section .block-in-section {
+    width: 50%; }
+    .parallax-section .block-in-section--image {
+      overflow: hidden; }
+      .parallax-section .block-in-section--image img {
+        margin-top: 9px; }
 
 .shop-grid-wrapper .wrapper .shop-items-wrapper {
   display: -webkit-box;
@@ -1647,7 +1669,7 @@ header .second-header {
         header .second-header__menu-item.active a {
           color: #29282e; } }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 801px) {
   .btn__mobile-menu {
     display: none; } }
 
@@ -1659,7 +1681,7 @@ footer {
 footer .first-footer {
   background: #2b2e32;
   padding: 30px 0; }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 801px) {
     footer .first-footer__menu {
       display: -webkit-box;
       display: -webkit-flex;
@@ -1671,7 +1693,7 @@ footer .first-footer {
       margin: 20px 0 0; }
       footer .first-footer__menu li:first-child {
         margin: 0; } }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 801px) {
     footer .first-footer__menu li {
       margin-right: 30px; }
       footer .first-footer__menu li:last-child {
@@ -1682,7 +1704,7 @@ footer .first-footer {
   footer .first-footer__menu a {
     font-size: 14px;
     color: #cccc; }
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 801px) {
       footer .first-footer__menu a:hover {
         color: white; } }
   footer .first-footer__soc-links a {
@@ -1690,7 +1712,7 @@ footer .first-footer {
     font-size: 25px; }
     footer .first-footer__soc-links a:last-child {
       margin-right: 0; }
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 801px) {
       footer .first-footer__soc-links a {
         margin-right: 15px; }
         footer .first-footer__soc-links a:hover {
