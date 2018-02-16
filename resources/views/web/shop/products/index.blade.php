@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <add-to-card
-                                    product-id="{{ $products->id }}"
+                                    product-slug="{{ $products->slug }}"
                             >
                             </add-to-card>
                         </div>

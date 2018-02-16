@@ -2,7 +2,7 @@
 <div>
     <div class="product-button-block">
         <div class="add-to-cart-wrapper">
-            <a class="add-to-cart-btn" href="#" @click.prevent="addProduct(productId)">
+            <a class="add-to-cart-btn" href="#" @click.prevent="addProduct(productSlug)">
                 Add to cart
             </a>
         </div>
@@ -12,7 +12,7 @@
 <script type="text/babel">
     export default ({
         props: {
-            productId: String
+            productSlug: String
         }
     });
 </script>

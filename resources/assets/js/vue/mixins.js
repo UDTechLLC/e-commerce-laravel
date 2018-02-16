@@ -1,12 +1,11 @@
 Vue.mixin({
   methods: {
-    addProduct(productId) {
+    addProduct(productSlug) {
       this.$EventBus.$emit('test');
       let data = {
-        product_id: productId,
         hash: Vue.localStorage.get('hash')
       };
-      axios.post('/api/carts/products/store', data).then(
+      axios.post(`/api/carts/products/store/${productSlug}`, data).then(
         response => console.log('as'),
         error => console.log('error')
       )
