@@ -55,7 +55,10 @@
 									</span>
                                 </div>
                             </div>
-                            <add-to-card></add-to-card>
+                            <add-to-card
+                                    product-id="{{ $products->id }}"
+                            >
+                            </add-to-card>
                         </div>
             @endforeach
         </div>

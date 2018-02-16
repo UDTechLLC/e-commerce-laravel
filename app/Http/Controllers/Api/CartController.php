@@ -30,15 +30,16 @@ class CartController extends Controller
 
     public function store(StoreCartRequest $request)
     {
+       // dd($request->all());
         $user = \Auth::user();
 
-        if (!$user) {
+       // if (!$user) {
             $hash = $request->get('hash');
 
             $cart = Cart::where('hash', $hash)->first() ?? Cart::create(['hash' => $hash]);
-        } else {
+        /*} else {
             $cart = $user->cart();
-        }
+        }*/
 
         $product = Product::find($request->get('product_id'));
 
