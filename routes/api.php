@@ -26,9 +26,14 @@ Route::group([
             'uses' => 'Api\CartController@index',
         ]);
 
-        Route::post('store', [
+        Route::post('store/{product}', [
             'as'   => '.store',
             'uses' => 'Api\CartController@store',
+        ]);
+
+        Route::delete('remove/{product}', [
+            'as'   => '.remove',
+            'uses' => 'Api\CartController@remove',
         ]);
     });
 });
