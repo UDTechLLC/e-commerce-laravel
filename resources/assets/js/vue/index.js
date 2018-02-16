@@ -15,8 +15,6 @@ const app = new Vue({
       let hash = this.makeCardHash();
       Vue.localStorage.set('hash', hash);
     }
-
-    this.$EventBus.$on('test', this.clickHandler);
   },
   methods: {
     clickHandler() {

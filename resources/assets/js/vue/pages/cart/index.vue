@@ -150,6 +150,7 @@
         },
         created() {
             this.getProducts();
+            this.$EventBus.$on('updateProduct', this.getProducts);
         },
         methods: {
             getProducts() {

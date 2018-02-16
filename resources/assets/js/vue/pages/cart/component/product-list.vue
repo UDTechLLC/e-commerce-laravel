@@ -76,8 +76,12 @@
             },
             deleteAllProduct() {
                 axios.delete(`/api/carts/products/remove/12week-custom-training-plan?hash=${Vue.localStorage.get('hash')}`).then(
-                        response => console.log('delete'),
+                        response => {
+                            console.log('delete');
+                            this.$EventBus.$emit('updateProduct', this.clickHandler);
+                        },
                         error => console.log('error')
+
                 )
             }
         }
