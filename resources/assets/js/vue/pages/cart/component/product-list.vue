@@ -71,14 +71,14 @@
             products: Array
         },
         methods: {
-            addProduct() {
-                console.log('add product')
-            },
             deleteProduct() {
                 console.log('delete product')
             },
             deleteAllProduct() {
-                console.log('delete all product')
+                axios.delete(`/api/carts/products/remove/12week-custom-training-plan?hash=${Vue.localStorage.get('hash')}`).then(
+                        response => console.log('delete'),
+                        error => console.log('error')
+                )
             }
         }
     });

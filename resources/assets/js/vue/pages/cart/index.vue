@@ -153,7 +153,6 @@
         },
         methods: {
             getProducts() {
-
                 //Vue.localStorage.set('someNumber', 123);
                 axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
                         response => {
