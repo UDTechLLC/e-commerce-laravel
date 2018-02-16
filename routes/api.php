@@ -33,7 +33,7 @@ Route::group([
 
         Route::delete('remove/{product}', [
             'as'   => '.remove',
-            'uses' => 'Api\CartController@remove',
+            'uses' => 'Api\CartController@removeAll',
         ]);
     });
 });
