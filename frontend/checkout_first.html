@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="assets/js/head.js"></script>
+        <script src="components/head.js"></script>
     </head>
     <body>
-        <div class="main">
-            <div class="checkout-top-navigation-bar-wrapper">
-                <div class="wrapper">
-                    <div class="checkout-top-navigation-bar">
-                        <h2 class="checkout-title">
-                            Checkout
-                        </h2>
-                        <ul class="path-checkout-bar">
-                            <li class="checked"><div class="icon shopping-cart"></div><span>1. Shopping Cart</span></li>
-                            <li class="active" data-page="col-1"><div class="icon billing-details"></div><span>2. Billing Details</span></li>
-                            <li class="disabled" data-page="col-2"><div class="icon billing-details shipping-address"></div><span>3. Shipping Address</span></li>
-                            <li class="disabled" data-page="order_review"><div class="icon payment"></div><span>4. Payment</span></li>
-                            <li class="disabled" data-page="checkout-process-final"><div class="icon finish-order"></div><span>5. Finish Order</span></li>
-                        </ul>
-                        <div id="reservation-order" class="reservation-order">
-                            <p>Your order is reserved for
-                                <span id="timer">
+    <header>
+        <script src="components/header.js"></script>
+    </header>
+
+<main>
+    <div class="main">
+        <div class="checkout-top-navigation-bar-wrapper">
+            <div class="wrapper">
+                <div class="checkout-top-navigation-bar">
+                    <h2 class="checkout-title">
+                        Checkout
+                    </h2>
+                    <ul class="path-checkout-bar">
+                        <li class="checked"><div class="icon shopping-cart"></div><span>1. Shopping Cart</span></li>
+                        <li class="active" data-page="col-1"><div class="icon billing-details"></div><span>2. Billing Details</span></li>
+                        <li class="disabled" data-page="col-2"><div class="icon billing-details shipping-address"></div><span>3. Shipping Address</span></li>
+                        <li class="disabled" data-page="order_review"><div class="icon payment"></div><span>4. Payment</span></li>
+                        <li class="disabled" data-page="checkout-process-final"><div class="icon finish-order"></div><span>5. Finish Order</span></li>
+                    </ul>
+                    <div id="reservation-order" class="reservation-order">
+                        <p>Your order is reserved for
+                            <span id="timer">
                                     00:28
                                 </span>
-                                minutes!
-                            </p>
-                        </div>
+                            minutes!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -297,21 +301,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="continue-checkout">
-                                Continue
-                            </a>
+                            <div class="buttons-area">
+                                <a href="#" class="continue-checkout">
+                                    Continue
+                                </a>
+                            </div>
                             <div class="clear"></div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <script type="text/javascript" src="assets/slick/slick.min.js"></script>
-        <script src="assets/js/select2.min.js"></script>
-        <script src="assets/js/script.js"></script>
-        <script src="assets/carouselengine/amazingcarousel.js"></script>
-        <script src="assets/carouselengine/initcarousel-1.js"></script>
+</main>
+<footer>
+    <script src="components/footer.js"></script>
+</footer>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script type="text/javascript" src="assets/slick/slick.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/carouselengine/amazingcarousel.js"></script>
+    <script src="assets/carouselengine/initcarousel-1.js"></script>
     </body>
 </html>

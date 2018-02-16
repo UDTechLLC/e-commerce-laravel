@@ -23,8 +23,6 @@
         overflow: hidden
         padding: 30px
 
-        .cart-wrapper
-
 
 .culculate-shiping-block-wrapper, .promotional-code-block-wrapper, .cart-totals-wrapper
   border: 1px solid #eaeaea
@@ -43,7 +41,7 @@
     .cart-bottom-block
       width: calc( 100%/2 - 20px )
 
-      @media screen and (max-width: 800px)
+      @media screen and (max-width: $breakpoint-mobile)
         width: 100%
 
       .culculate-shiping-block-wrapper
@@ -102,7 +100,7 @@
               position: relative
               width: 48%
 
-              @media screen and (max-width: 800px)
+              @media screen and (max-width: $breakpoint-mobile)
                 margin-left: 0
                 margin-right: 0
                 width: 100%
@@ -153,7 +151,7 @@
               display: flex
               width: 100%
 
-              @media screen and (max-width: 800px)
+              @media screen and (max-width: $breakpoint-mobile)
                 display: block
 
               .cart-form-field
@@ -172,7 +170,7 @@
                 -ms-flex-positive: 2
                 flex-grow: 2
 
-                @media screen and (max-width: 800px)
+                @media screen and (max-width: $breakpoint-mobile)
                   float: none
                   width: 100%
 
@@ -193,7 +191,7 @@
                 text-transform: uppercase
                 width: auto
 
-                @media screen and (max-width: 800px)
+                @media screen and (max-width: $breakpoint-mobile)
                   margin-top: 20px
 
       &.cart-totals-wrapper

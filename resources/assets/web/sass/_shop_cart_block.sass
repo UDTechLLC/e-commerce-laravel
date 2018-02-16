@@ -1,0 +1,393 @@
+.cart-header-block
+  border-bottom: 1px solid #eaeaea
+  margin-bottom: 30px
+  padding-bottom: 10px
+
+  .cart-heading
+    color: #2b2e32
+    font-family: Montserrat, Arial, Helvetica, sans-serif
+    font-size: 38px
+    font-weight: 700
+    line-height: 1.26
+    letter-spacing: 0
+    margin: 0
+
+.cart-block-wrapper
+  padding: 50px 30px 60px
+
+  .wrapper
+    .cart-form
+      .cart-block
+        border: 1px solid #eaeaea
+        box-sizing: border-box
+        overflow: hidden
+        padding: 30px
+
+        .cart-wrapper
+          .shop-table
+            background-color: transparent
+            border-collapse: collapse
+            border-spacing: 0
+            box-sizing: border-box
+            margin: 0
+            max-width: 100%
+            text-align: left
+            width: 100%
+
+            .product-
+              &name
+                width: 50%
+
+                @media screen and (max-width: 800px)
+                  width: 35%
+
+              &price, &quantity, &subtotal
+                text-align: center
+
+              &remove
+                width: 5%
+
+            thead
+              tr
+                border-bottom: 1px solid #eaeaea
+
+                th
+                  font-family: Montserrat, Arial, Helvetica, sans-serif
+                  font-size: 13px
+                  font-weight: 700
+                  height: auto
+                  letter-spacing: 0
+                  line-height: normal
+                  padding-bottom: 12px
+
+            tbody
+              tr
+                border-bottom: 1px solid #eaeaea
+                height: 140px
+
+                td
+                  color: #494949
+                  font-family: "PT Sans", Arial, Helvetica, sans-serif
+                  font-size: 15px
+                  font-weight: 400
+                  line-height: 1.87
+                  padding: 25px 0
+
+                  .product-thumbnail
+                    float: left
+                    margin-right: 25px
+                    width: 90px
+
+                    a
+                      outline: none
+
+                      img
+                        border-style: none
+                        vertical-align: top
+                        max-width: 90px
+                        height: auto
+
+                  .product-info
+                    margin-left: 115px
+                    margin-top: 20px
+
+                    .product-title
+                      color: #2b2e32
+                      font-family: "PT Sans", Arial, Helvetica, sans-serif
+                      font-size: 15px
+                      font-weight: 400
+                      letter-spacing: 0
+                      line-height: 1.87
+                      margin-top: 0
+                      margin-bottom: 5px
+                      outline: none
+                      text-decoration: none
+
+                      &:hover
+                        color: #ed1c24
+
+                  .quantity
+                    border: 1px solid #eaeaea
+                    display: inline-block
+                    margin: 0 auto
+                    overflow: hidden
+
+                    input
+                      background-color: #ffffff
+                      border: 0
+                      border-radius: 0
+                      color: #494949
+                      float: left
+                      font-size: 13px
+                      height: 36px
+                      line-height: 16px
+                      margin: 0
+                      padding: 0
+                      text-align: center
+                      vertical-align: middle
+                      -webkit-appearance: none
+                      width: 36px
+
+                      &.minus, &.plus
+                        cursor: pointer
+
+                        &:hover
+                          background-color: #f6f6f6
+
+                      &.minus
+                        border-right: 1px solid #eaeaea
+
+                      &.plus
+                        border-left: 1px solid #eaeaea
+
+                      &.qty
+                        -moz-appearance: textfield
+
+                  .product-subtotal-amount
+                    color: #ed1c24
+
+                  .remove
+                    color: #2b2e32
+                    font-size: 24px
+                    float: right
+                    text-decoration: none
+
+.culculate-shiping-block-wrapper, .promotional-code-block-wrapper, .cart-totals-wrapper
+  border: 1px solid #eaeaea
+  box-sizing: border-box
+  margin-top: 30px
+  overflow: hidden
+  padding: 30px
+
+.cart-bottom-block-wrapper
+  .wrapper
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    overflow: hidden
+
+    .cart-bottom-block
+      width: calc( 100%/2 - 20px )
+
+      @media screen and (max-width: 800px)
+        width: 100%
+
+      .culculate-shiping-block-wrapper
+        .culculate-shiping-form
+          .culculate-shiping-form-block
+
+            .cart-form-row
+              margin: 0 0 20px
+
+              .shiping-select-wrapper
+                overflow: visible
+                position: relative
+
+                .country_to_state
+                  background-color: #ffffff
+                  border: 1px solid #d2d2d2
+                  color: #aaa9a9
+                  -webkit-appearance: none
+                  text-overflow: ''
+                  box-sizing: border-box
+                  cursor: pointer
+                  display: block
+                  font-size: 13px
+                  height: 38px
+                  outline: 0
+                  padding: 0 15px
+                  position: relative
+                  text-indent: .01px
+                  vertical-align: middle
+                  z-index: 5
+                  margin: 0
+                  border-radius: 0
+                  background-clip: padding-box
+                  min-width: 180px
+                  width: 100%
+
+                .select-arrow
+                  background-color: #ffffff
+                  border-color: #d2d2d2
+                  border-left-width: 1px
+                  border-left-style: solid
+                  color: #d2d2d2
+                  position: absolute
+                  bottom: 1px
+                  right: 1px
+                  pointer-events: none
+                  z-index: 10
+                  font-family: icomoon
+                  font-size: 9px
+                  text-align: center
+
+            .cart-form-field-wrapper
+              float: left
+              margin: 0 0 20px
+              overflow: visible
+              position: relative
+              width: 48%
+
+              @media screen and (max-width: 800px)
+                margin-left: 0
+                margin-right: 0
+                width: 100%
+
+              &.left-wrapper
+                margin-right: 4%
+
+              .cart-form-field
+                border: 1px solid #d2d2d2
+                box-sizing: border-box
+                color: #aaa9a9
+                font-size: 13px
+                height: 38px
+                min-width: 150px
+                padding: 0 15px
+                vertical-align: middle
+                width: 100%
+
+            .shiping-button-wrapper
+              .shiping-update-button
+                background: #eb212e
+                border: none
+                border-radius: 3px
+                box-sizing: border-box
+                color: #ffffff
+                cursor: pointer
+                display: inline-block
+                float: right
+                font-family: Montserrat, Arial, Helvetica, sans-serif
+                font-size: 13px
+                font-weight: 700
+                letter-spacing: 1px
+                line-height: 16px
+                outline: 0
+                padding: 11px 23px
+                position: relative
+                text-transform: uppercase
+
+      .promotional-code-block-wrapper
+        .promotional-code-form-wrapper
+          .promotional-code-form
+            .promotional-code-form-block
+              -webkit-align-items: center
+              -ms-flex-align: center
+              align-items: center
+              display: -webkit-flex
+              display: -ms-flexbox
+              display: flex
+              width: 100%
+
+              @media screen and (max-width: 800px)
+                display: block
+
+              .cart-form-field
+                background-color: #ffffff
+                border: 1px solid #d2d2d2
+                box-sizing: border-box
+                color: #aaa9a9
+                float: left
+                font-size: 13px
+                height: 50px
+                margin-right: 10px
+                padding: 0 15px
+                width: auto
+                -ms-flex-grow: 2
+                -webkit-flex-grow: 2
+                -ms-flex-positive: 2
+                flex-grow: 2
+
+                @media screen and (max-width: 800px)
+                  float: none
+                  width: 100%
+
+              .cart-submit-field
+                background: #eb212e
+                border: none
+                border-radius: 3px
+                color: #ffffff
+                cursor: pointer
+                display: inline-block
+                float: right
+                font-family: Montserrat,Arial,Helvetica,sans-serif
+                font-size: 23px
+                font-weight: 700
+                letter-spacing: 0
+                line-height: 24px
+                padding: 16px 60px
+                text-transform: uppercase
+                width: auto
+
+                @media screen and (max-width: 800px)
+                  margin-top: 20px
+
+      &.cart-totals-wrapper
+        .shop-table
+          background-color: transparent
+          border-collapse: collapse
+          border-spacing: 0
+          box-sizing: border-box
+          margin: 0
+          max-width: 100%
+          text-align: left
+          width: 100%
+
+          tbody
+            tr
+              height: auto
+
+              &.shipping
+                border-bottom: 1px solid #eaeaea
+
+              &.cart-subtotal
+                th, td
+                  padding-top: 0
+
+              th
+                box-sizing: border-box
+                color: #494949
+                font-family: Montserrat, Arial, Helvetica, sans-serif
+                font-size: 15px
+                font-weight: 700
+                line-height: 1.73
+                letter-spacing: 0
+                padding: 20px 0
+                width: 50%
+
+              td
+                box-sizing: border-box
+                color: #494949
+                font-family: "PT Sans", Arial, Helvetica, sans-serif
+                font-size: 15px
+                font-weight: 400
+                letter-spacing: 0
+                line-height: 1.87
+                padding: 20px 0
+                text-align: right
+                width: 50%
+
+                .product-total-amount
+                  color: #ed1c24
+
+        .proceed-to-checkout-button-wrapper
+          clear: both
+          float: right
+          margin-top: 10px
+
+          .proceed-to-checkout
+            background-color: #eb212e
+            border: none
+            border-radius: 3px
+            color: #ffffff
+            display: inline-block
+            font-family: Montserrat,Arial,Helvetica,sans-serif
+            font-size: 23px
+            font-weight: 700
+            letter-spacing: 0
+            line-height: 24px
+            outline: none
+            padding: 16px 60px
+            text-decoration: none
+            text-transform: uppercase
+            width: auto

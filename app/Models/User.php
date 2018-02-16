@@ -21,7 +21,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'cart_id', 'stripe_id', 'card_brand',
+        'card_last_four', 'trial_ends_at'
     ];
 
     /**
@@ -32,4 +33,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
 }

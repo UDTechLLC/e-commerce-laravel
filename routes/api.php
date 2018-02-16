@@ -13,6 +13,32 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::group([
+    'as'     => '.carts',
+    'prefix' => 'carts',
+], function () {
+    Route::group([
+        'as'     => '.products',
+        'prefix' => 'products',
+    ], function () {
+        Route::get('/', [
+            'as'   => '.list',
+            'uses' => 'Api\CartController@index',
+        ]);
+
+        Route::post('store/{product}', [
+            'as'   => '.store',
+            'uses' => 'Api\CartController@store',
+        ]);
+
+        Route::delete('remove/{product}', [
+            'as'   => '.remove',
+            'uses' => 'Api\CartController@removeAll',
+        ]);
+    });
+});
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
