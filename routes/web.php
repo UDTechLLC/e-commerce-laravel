@@ -14,9 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-require_once  'web/shop.php';
+require_once 'web/shop.php';
 require_once 'admin/admin.php';
-
+require_once 'web/paypal.php';
 
 Auth::routes();
 
