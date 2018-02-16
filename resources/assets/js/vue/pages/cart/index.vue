@@ -68,7 +68,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="promotional-code-block-wrapper">
+                     <!--   <div class="promotional-code-block-wrapper">
                             <div class="cart-header-block">
                                 <h2 class="cart-heading">
                                     Have A Promotional Code?
@@ -82,7 +82,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="cart-bottom-block cart-totals-wrapper">
                         <div class="cart-header-block">

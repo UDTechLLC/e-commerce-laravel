@@ -35,15 +35,15 @@
                     </div>
                 </td>
                 <td class="product-price">
-                                                <span class="product-amount">
-                                                    ${{product.amount}}
-                                                </span>
+                     <span class="product-amount">
+                          ${{product.amount}}
+                     </span>
                 </td>
                 <td class="product-quantity">
                     <div class="quantity buttons_added">
-                        <input value="-" class="minus" type="button" />
+                        <input value="-" class="minus" type="button" @click="deleteProduct" />
                         <input id="" class="input-text qty text" step="1" min="0" max="" name="" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number" />
-                        <input value="+" class="plus" type="button" />
+                        <input value="+" class="plus" type="button" @click="addProduct" />
                     </div>
                 </td>
                 <td class="product-subtotal">
@@ -52,7 +52,7 @@
                                                 </span>
                 </td>
                 <td class="product-remove">
-                    <a href="#" class="remove" aria-label="Remove this item">
+                    <a href="#" class="remove" aria-label="Remove this item" @click.prevent="deleteAllProduct">
                         ×
                     </a>
                 </td>
@@ -69,6 +69,17 @@
        }),
         props: {
             products: Array
+        },
+        methods: {
+            addProduct() {
+                console.log('add product')
+            },
+            deleteProduct() {
+                console.log('delete product')
+            },
+            deleteAllProduct() {
+                console.log('delete all product')
+            }
         }
     });
 </script>
