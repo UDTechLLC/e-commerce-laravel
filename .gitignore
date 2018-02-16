@@ -1,4 +1,6 @@
 /node_modules
+/frontend/assets/node_modules
+/frontend/.idea
 /public/hot
 /public/storage
 /public/mix-manifest.json
