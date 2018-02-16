@@ -21,4 +21,3 @@ require_once 'web/paypal.php';
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
