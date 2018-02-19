@@ -9,6 +9,7 @@ use App\Http\Resources\Api\CartResource;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
+use App\Transformers\Api\CartTransformer;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -29,7 +30,7 @@ class CartController extends Controller
 
         throw_if(null === $cart, new CartNotFoundException());
 
-        return new CartResource($cart);
+        return fractal($cart, new CartTransformer())->respond();
     }
 
     /**
@@ -64,7 +65,7 @@ class CartController extends Controller
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => ++$countProduct]);
         }
 
-        return new CartResource($cart);
+        return fractal($cart, new CartTransformer())->respond();
     }
 
     /**
@@ -124,7 +125,7 @@ class CartController extends Controller
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
         }
 
-        return new CartResource($cart);
+        return fractal($cart, new CartTransformer())->respond();
     }
 
     /**
@@ -139,6 +140,11 @@ class CartController extends Controller
             : $user->cart();
     }
 
+    /**
+     * Create cart.
+     *
+     * @param $hash
+     */
     private function createCart($hash)
     {
         Cart::create([
