@@ -9,7 +9,7 @@
                 <a href="#" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
             </div>
             <div class="first-header__menu flex flex-a--center">
-                <a href="#" class="first-header__menu-item">Shop</a>
+                <a href="{{url('/')}}" class="first-header__menu-item">Shop</a>
                 <div class="header-cart-wrapper">
                     <a href="#" class="header-cart">
                         <!-- <span class="header-cart__text">Cart</span>-->
@@ -127,7 +127,7 @@
                         <a href="#">Home</a>
                     </li>
                     <li class="second-header__menu-item">
-                        <a href="#">Shop</a>
+                        <a href="{{url('/')}}">Shop</a>
                     </li>
                 </ul>
             </div>

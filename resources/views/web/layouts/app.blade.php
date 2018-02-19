@@ -10,7 +10,7 @@
 
     {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
     <title>Shedfat</title>
-
+@yield('style')
     <link rel="stylesheet" href="{{ asset('web/css/base.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">
     <!--<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
