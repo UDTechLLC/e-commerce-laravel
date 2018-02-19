@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Exceptions\Api\CartNotFoundException;
-use App\Http\Requests\Cart\StoreCartRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cart\StoreCartRequest;
 use App\Http\Resources\Web\CartProductResource;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -26,9 +25,7 @@ class CartController extends Controller
         $user = \Auth::user();
         $hash = $request->get('hash');
 
-        $cart = null === $user
-            ? Cart::where('hash', $hash)->first()
-            : $user->cart();
+        $cart = $this->getCart($user, $hash);
 
         throw_if(null === $cart, new CartNotFoundException());
 
@@ -55,7 +52,18 @@ class CartController extends Controller
 
         throw_if(null === $cart, new CartNotFoundException());
 
-        $cart->products()->save($product);
+        $isProduct = $cart->products()->where('product_id', $product->getKey())->first();
+
+        $countProduct = $isProduct
+            ? $isProduct->pivot->count
+            : 0;
+
+        if (0 === $countProduct) {
+            $cart->products()->attach($product, ['count' => ++$countProduct]);
+        } else {
+            $cart->products()->updateExistingPivot($product->getKey(), ['count' => ++$countProduct]);
+        }
+
 
         return CartProductResource::collection($cart->products);
     }
@@ -65,24 +73,70 @@ class CartController extends Controller
      *
      * @param Product $product
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @throws \Throwable
+     */
+    public function remove(Request $request, Product $product)
+    {
+        $hash = $request->get('hash');
+
+        return $this->delete($product, $hash);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @param Product $product
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      * @throws \Throwable
      */
     public function removeAll(Request $request, Product $product)
     {
-        /** @var User $user */
-        $user = \Auth::user();
         $hash = $request->get('hash');
 
+        return $this->delete($product, $hash, true);
+    }
+
+    /**
+     * @param Product $product
+     * @param $hash
+     *
+     * @param bool $all
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @throws \Throwable
+     */
+    private function delete($product, $hash, $all = false)
+    {
+        /** @var User $user */
+        $user = \Auth::user();
+
         /** @var Cart $cart */
-        $cart = null === $user
-            ? $cart = Cart::where('hash', $hash)->first()
-            : $cart = $user->cart();
+        $cart = $this->getCart($user, $hash);
 
         throw_if(null === $cart, new CartNotFoundException());
 
-        $cart->products()->detach($product);
+        $countProduct = $cart->products()->where('product_id', $product->getKey())->first()->pivot->count;
 
-        return response()->json();
+        if ($all || 0 === $countProduct) {
+            $cart->products()->detach($product);
+        } else {
+            $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
+        }
+
+        return CartProductResource::collection($cart->products);
+    }
+
+    /**
+     * @param $hash
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    private function getCart($user, $hash)
+    {
+        return null === $user
+            ? Cart::where('hash', $hash)->first()
+            : $user->cart();
     }
 }

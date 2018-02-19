@@ -5,10 +5,12 @@
         <div class="shop-grid-wrapper">
             <div class="wrapper">
                 <div class="shop-items-wrapper">
+
             @foreach($products as $product)
+
                         <div class="shop-item">
                             <div class="image-wrapper">
-                                <a href="#">
+                                <a href="{{url('product/'.$product->slug)}}">
                                     <img src="{!! $product->getFirstMediaUrl('preview') !!}" />
                                 </a>
                             </div>
@@ -39,18 +41,16 @@
 									</span>
                                 </div>
                             </div>
-                            <div class="product-button-block">
-                                <div class="add-to-cart-wrapper">
-                                    <a class="add-to-cart-btn" href="#">
-                                        Add to cart
-                                    </a>
-                                </div>
-                            </div>
+                            <add-to-card
+                                    product-slug="{{ $product->slug }}"
+                            >
+                            </add-to-card>
                         </div>
             @endforeach
         </div>
     </div>
         </div>
     </div>
+
     </main>
 @endsection
