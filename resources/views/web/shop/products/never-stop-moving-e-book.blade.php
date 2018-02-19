@@ -23,11 +23,13 @@
                         </div>
                         <div class="product-price-block">
                             <div class="product-price has-old-price">
-                            <span class="product-amount product-amount--old">
+                                @if($product->old_amount)
+                                <span class="product-amount product-amount--old">
                                 <span class="currency">$</span>
                                 {{--<span>50.00</span>--}}
                                 <span>{{ $product->old_amount }}</span>
                             </span>
+                                @endif
                                 <span class="product-amount">
                             <span class="currency">$</span>
                             {{--<span>30.00</span>--}}

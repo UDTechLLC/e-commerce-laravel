@@ -41,10 +41,11 @@
 									</span>
                                 </div>
                             </div>
+
                             <add-to-card
                                     product-slug="{{ $product->slug }}"
                             >
-                            </add-to-card>
+                            </add-to-cart>
                         </div>
             @endforeach
         </div>

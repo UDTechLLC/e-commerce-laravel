@@ -98,7 +98,7 @@
                                 </th>
                                 <td class="product-subtotal">
                                             <span class="product-subtotal-amount">
-                                                $84.00
+                                                ${{ subTotal }}
                                             </span>
                                 </td>
                             </tr>
@@ -152,18 +152,18 @@
             this.getProducts();
             this.$EventBus.$on('updateProduct', this.getProducts);
         },
-        methods: {
-            getProducts() {
-                //Vue.localStorage.set('someNumber', 123);
-                axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
-                        response => {
-                            this.products = response.data.data;
-                            this.countItems = this.products.length
-                        },
-                        error => console.log('error')
+        computed: {
+            subTotal() {
+                let subTotal = 0;
+                this.products.forEach((value, key) => {
+                    subTotal += value.amount
+                });
 
-                )
+                return subTotal;
             }
+        },
+        methods: {
+
         }
     })
 

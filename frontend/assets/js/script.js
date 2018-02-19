@@ -68,5 +68,25 @@
             heightMain();
         });
 
+
+        var body = $('body');
+        var header_first = $('.first-header');
+        var header_second = $('.second-header');
+        var fixedTop = 53;
+        setTimeout(function () {
+            fixedTop = header_first.height() + 3;
+            console.log(fixedTop);
+        },100);
+
+        $(window).scroll(function () {
+            var curScroll = $(window).scrollTop();
+
+            curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
+
+
+        });
+
+
+
     });
 })( jQuery );

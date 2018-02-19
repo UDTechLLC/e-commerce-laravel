@@ -10,10 +10,15 @@
 
     {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
     <title>Shedfat</title>
+
 @yield('style')
+
+
+    <link rel="stylesheet" href="{{ asset('web/css/app.css') }}">
+
     <link rel="stylesheet" href="{{ asset('web/css/base.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">
-    <!--<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
+   {{-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick-theme.css') }}">
     <!--[if lt IE 9]!!>
@@ -21,11 +26,11 @@
     <![endif]-->
 </head>
 <body>
+<div id="app">
 @include('web.layouts.header')
-    <div id="app">
         @yield('content')
-    </div>
 @include('web.layouts.footer')
+</div>
     <!-- Scripts -->
     <script src="{{ asset('web/js/app.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
