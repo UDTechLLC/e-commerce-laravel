@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\Api\CartNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Cart\StoreCartRequest;
+use App\Http\Resources\Api\CartResource;
 use App\Http\Resources\Web\CartProductResource;
 use App\Models\Cart;
 use App\Models\Product;
@@ -16,7 +17,7 @@ class CartController extends Controller
     /**
      * @param Request $request
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return CartResource
      * @throws \Throwable
      */
     public function index(Request $request)
@@ -29,14 +30,14 @@ class CartController extends Controller
 
         throw_if(null === $cart, new CartNotFoundException());
 
-        return CartProductResource::collection($cart->products);
+        return new CartResource($cart);
     }
 
     /**
      * @param StoreCartRequest $request
      * @param Product $product
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return CartResource
      * @throws \Throwable
      */
     public function store(StoreCartRequest $request, Product $product)
@@ -64,8 +65,7 @@ class CartController extends Controller
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => ++$countProduct]);
         }
 
-
-        return CartProductResource::collection($cart->products);
+        return new CartResource($cart);
     }
 
     /**
@@ -104,7 +104,7 @@ class CartController extends Controller
      *
      * @param bool $all
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return CartResource
      * @throws \Throwable
      */
     private function delete($product, $hash, $all = false)
@@ -125,7 +125,7 @@ class CartController extends Controller
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
         }
 
-        return CartProductResource::collection($cart->products);
+        return new CartResource($cart);
     }
 
     /**
