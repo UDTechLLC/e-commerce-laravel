@@ -6,7 +6,6 @@ use App\Exceptions\Api\CartNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Cart\StoreCartRequest;
 use App\Http\Resources\Api\CartResource;
-use App\Http\Resources\Web\CartProductResource;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
@@ -48,7 +47,7 @@ class CartController extends Controller
 
         /** @var Cart $cart */
         $cart = null === $user
-            ? Cart::where('hash', $hash)->first() ?? Cart::create(['hash' => $hash])
+            ? Cart::where('hash', $hash)->first() ?? $this->createCart($hash)
             : $cart = $user->cart();
 
         throw_if(null === $cart, new CartNotFoundException());
@@ -73,7 +72,7 @@ class CartController extends Controller
      *
      * @param Product $product
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return CartResource
      * @throws \Throwable
      */
     public function remove(Request $request, Product $product)
@@ -88,7 +87,7 @@ class CartController extends Controller
      *
      * @param Product $product
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return CartResource
      * @throws \Throwable
      */
     public function removeAll(Request $request, Product $product)
@@ -136,7 +135,14 @@ class CartController extends Controller
     private function getCart($user, $hash)
     {
         return null === $user
-            ? Cart::where('hash', $hash)->first()
+            ? Cart::where('hash', $hash)->first() ?? $this->createCart($hash)
             : $user->cart();
+    }
+
+    private function createCart($hash)
+    {
+        Cart::create([
+            'hash' => $hash
+        ]);
     }
 }
