@@ -86,7 +86,7 @@ div {
 .after-lines {
   position: relative;
   margin: auto; }
-  @media (min-width: 800px) {
+  @media (min-width: 801px) {
     .after-lines {
       width: 75%; }
       .after-lines:after, .after-lines:before {
@@ -104,6 +104,9 @@ div {
         left: -16.5%; } }
   .after-lines--large {
     width: 50%; }
+    @media (max-width: 800px) {
+      .after-lines--large {
+        width: 100%; } }
     .after-lines--large:after, .after-lines--large:before {
       width: 37%; }
     .after-lines--large:after {
@@ -150,7 +153,10 @@ img {
 
 .grey-section {
   background: #f5f3f3;
-  padding: 80px 0; }
+  padding: 30px 0 0; }
+  @media screen and (min-width: 801px) {
+    .grey-section {
+      padding: 0px 0; } }
 
 .border-red {
   border-color: #ed1c24 !important; }
@@ -169,7 +175,7 @@ img {
   transition: .2s;
   background: #ed1c24;
   color: #ffffff; }
-  @media (min-width: 800px) {
+  @media (min-width: 801px) {
     .add-to-cart-btn:hover {
       background: #c61017; } }
   .add-to-cart-btn--mobile {
@@ -183,6 +189,9 @@ img {
     font-weight: 600; }
     .add-to-cart-btn--mobile.active {
       bottom: 0; }
+    @media (min-width: 801px) {
+      .add-to-cart-btn--mobile {
+        display: none; } }
 
 .clear {
   clear: both; }
@@ -304,7 +313,8 @@ ul {
     .training-plan-faqs-block-wrapper .wrapper {
       padding-left: 15px !important;
       padding-right: 15px !important;
-      padding-top: 30px; } }
+      padding-top: 30px;
+      padding-bottom: 30px; } }
   .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper {
     float: left;
     margin-bottom: 64px;
@@ -606,6 +616,9 @@ ul {
   -webkit-background-size: cover;
           background-size: cover;
   padding: 65px 0 47px; }
+  @media screen and (max-width: 800px) {
+    .top-product-description-block {
+      padding: 15px 0 15px; } }
   .top-product-description-block .product-preview-wrapper {
     float: left;
     width: 50%; }
@@ -618,6 +631,9 @@ ul {
     text-align: center; }
     .top-product-description-block .image-wrapper img {
       max-width: 100%; }
+      @media screen and (max-width: 800px) {
+        .top-product-description-block .image-wrapper img {
+          max-width: 65%; } }
   .top-product-description-block .product-info-block {
     float: left;
     width: 50%; }
@@ -795,7 +811,10 @@ ul {
     max-width: 90%; }
 
 .section__wrapper {
-  padding: 80px 0; }
+  padding: 30px 0; }
+  @media screen and (min-width: 801px) {
+    .section__wrapper {
+      padding: 80px 0; } }
 
 .section__title {
   font-size: 25px;
@@ -849,7 +868,19 @@ ul {
   border: 2px solid #29282e;
   -webkit-border-radius: 50%;
           border-radius: 50%;
-  margin: auto; }
+  margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .section__icon-img img {
     max-width: 90%; }
 
@@ -866,13 +897,16 @@ ul {
       padding: 70px 0 420px; } }
   @media screen and (max-width: 600px) {
     .parallax-section {
-      padding: 70px 0 700px; } }
+      padding: 70px 0 600px; } }
   @media screen and (max-width: 400px) {
     .parallax-section {
-      padding: 70px 0 750px; } }
+      padding: 70px 0 650px; } }
   .parallax-section .section__text {
     max-width: 650px;
     margin: 50px auto; }
+    @media screen and (max-width: 800px) {
+      .parallax-section .section__text {
+        margin: 20px auto 0; } }
   .parallax-section .block-in-section-wrapper {
     margin-top: 20px; }
     @media screen and (max-width: 990px) {
@@ -924,6 +958,9 @@ ul {
       color: white;
       text-align: center;
       margin: 20px 0; }
+      @media screen and (max-width: 600px) {
+        .parallax-section .block-in-section__icon-wr:first-child {
+          margin-top: 0; } }
       @media screen and (min-width: 601px) {
         .parallax-section .block-in-section__icon-wr {
           width: 50%; } }
@@ -944,6 +981,9 @@ ul {
 
 .restaurants__wrap {
   margin-top: 40px; }
+  @media screen and (max-width: 800px) {
+    .restaurants__wrap {
+      margin-top: 25px; } }
 
 .restaurants__item {
   padding: 16px 36px;
@@ -951,8 +991,15 @@ ul {
   font-size: 23px;
   margin: 20px;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: red; }
+  color: red;
+  font-weight: 700; }
+  @media screen and (max-width: 800px) {
+    .restaurants__item {
+      font-size: 16px;
+      padding: 5px 10px;
+      margin: 6px;
+      -webkit-border-radius: 3px;
+              border-radius: 3px; } }
 
 .comments__wrapper {
   width: 100%;
@@ -961,7 +1008,8 @@ ul {
   padding: 0 0 40px 0; }
   .comments__wrapper:last-child {
     margin-bottom: 0;
-    border: 0; }
+    border: 0;
+    padding-bottom: 20px; }
   @media screen and (min-width: 800px) {
     .comments__wrapper {
       width: 760px; } }
@@ -1013,11 +1061,15 @@ ul {
   width: initial;
   -webkit-border-radius: 5px;
           border-radius: 5px;
-  font-size: 20px;
-  max-width: -webkit-calc(100% - 150px);
-  max-width: calc(100% - 150px); }
-  .comments__text p {
-    font-size: 20px; }
+  font-size: 16px; }
+  @media screen and (min-width: 801px) {
+    .comments__text {
+      max-width: -webkit-calc(100% - 150px);
+      max-width: calc(100% - 150px);
+      font-size: 20px; } }
+  @media screen and (min-width: 801px) {
+    .comments__text p {
+      font-size: 20px; } }
   .comments__text:before {
     content: '';
     border: 10px solid transparent;
@@ -1034,6 +1086,18 @@ ul {
   @media screen and (min-width: 801px) {
     .queen-of-the-hill__bg {
       background: url("../images/full-product/queen-of-the-hill/bg.jpg") no-repeat center/cover; } }
+
+.detox-section__item {
+  width: 32%;
+  margin: 20px 0;
+  text-align: center;
+  vertical-align: top; }
+  .detox-section__item img {
+    height: 57px;
+    width: auto; }
+  .detox-section__item .section__info {
+    font-size: 15px;
+    margin-top: 25px; }
 
 .shop-grid-wrapper .wrapper .shop-items-wrapper {
   display: -webkit-box;

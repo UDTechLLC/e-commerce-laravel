@@ -1,11 +1,18 @@
 .restaurants
   &__wrap
     margin-top: 40px
+    @media screen and (max-width: $breakpoint-mobile)
+      margin-top: 25px
   &__item
     padding: 16px 36px
     border: 1px solid red
     font-size: 23px
     margin: 20px
     font-family: $Montserrat
-    font-weight: bold
     color: red
+    font-weight: 700
+    @media screen and (max-width: $breakpoint-mobile)
+      font-size: 16px
+      padding: 5px 10px
+      margin: 6px
+      border-radius: 3px
