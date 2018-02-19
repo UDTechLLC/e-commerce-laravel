@@ -144,10 +144,12 @@ class CartController extends Controller
      * Create cart.
      *
      * @param $hash
+     *
+     * @return Cart
      */
     private function createCart($hash)
     {
-        Cart::create([
+        return Cart::create([
             'hash' => $hash
         ]);
     }
