@@ -21,11 +21,11 @@
     <![endif]-->
 </head>
 <body>
+<div id="app">
 @include('web.layouts.header')
-    <div id="app">
         @yield('content')
-    </div>
 @include('web.layouts.footer')
+</div>
     <!-- Scripts -->
     <script src="{{ asset('web/js/app.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

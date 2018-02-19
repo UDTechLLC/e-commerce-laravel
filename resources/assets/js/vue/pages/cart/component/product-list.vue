@@ -24,12 +24,12 @@
             <tr class="cart-row" v-for="product in products">
                 <td class="product-name">
                     <div class="product-thumbnail">
-                        <a :href="product.slug">
+                        <a :href="'/products/' + product.slug">
                             <img :src="product.image" />
                         </a>
                     </div>
                     <div class="product-info">
-                        <a class="product-title" :href="product.slug">
+                        <a class="product-title" :href="'/products/' + product.slug">
                             {{ product.title }}
                         </a>
                     </div>
