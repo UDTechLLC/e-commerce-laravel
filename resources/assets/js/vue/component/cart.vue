@@ -1,6 +1,6 @@
 <template>
     <div class="header-cart-wrapper">
-        <a href="#" class="header-cart">
+        <a href="/cart" class="header-cart">
             <!-- <span class="header-cart__text">Cart</span>-->
                         <span class="header-cart__text">
                                 <span class="flex">
@@ -26,7 +26,7 @@
                                            {{ product.title }}
                                         </span>
                                         <span class="flex header-cart-item__count-price">
-                                           <span class="header-cart-item__count">2</span>
+                                           <span class="header-cart-item__count">{{ product.count }}</span>
                                             <span class="header-cart-item__delimiter">x</span>
                                            <span class="header-cart-item__price flex">
                                                <span class="currency">$</span>
@@ -54,7 +54,8 @@
             countItems: 0
         }),
         created() {
-            this.getProducts()
+            this.getProducts();
+            this.$EventBus.$on('updateProduct', this.updateProducts);
         }
     });
 </script>

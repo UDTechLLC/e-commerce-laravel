@@ -6,9 +6,11 @@ Vue.mixin({
       let data = {
         hash: Vue.localStorage.get('hash')
       };
-
       axios.post(`/api/carts/products/add/${productSlug}`, data).then(
-        response => this.$EventBus.$emit('updateProduct', this.clickHandler),
+        response => {
+          this.$EventBus.$emit('updateProduct', response.data.data.products.data);
+          this.addedToCart = true;
+        },
         error => console.log('error')
       )
     },
@@ -16,11 +18,16 @@ Vue.mixin({
     getProducts() {
       axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
         response => {
-          this.products = response.data.data;
+          this.products = response.data.data.products.data;
           this.countItems = this.products.length;
         },
         error => console.log('error')
       )
+    },
+
+    updateProducts(products) {
+      console.log("update => " + products);
+      this.products = products
     },
 
     makeCardHash() {

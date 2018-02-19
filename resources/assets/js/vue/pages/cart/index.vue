@@ -150,7 +150,7 @@
         },
         created() {
             this.getProducts();
-            this.$EventBus.$on('updateProduct', this.getProducts);
+            this.$EventBus.$on('updateProduct', this.updateProducts);
         },
         computed: {
             subTotal() {
@@ -162,9 +162,6 @@
                 return subTotal;
             }
         },
-        methods: {
-
-        }
     })
 
 </script>
