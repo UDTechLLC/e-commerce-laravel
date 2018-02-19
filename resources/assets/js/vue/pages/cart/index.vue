@@ -109,7 +109,7 @@
                                 <td class="">
                                     Flat rate:
                                             <span class="product-flat-rate">
-                                                $17.99
+                                                ${{ shipping }}
                                             </span>
                                 </td>
                             </tr>
@@ -118,7 +118,7 @@
                                 <td class="product-total">
                                             <span class="product-total-amount">
                                                 <strong>
-                                                    $101.99
+                                                    ${{ total }}
                                                 </strong>
                                             </span>
                                 </td>
@@ -143,28 +143,18 @@
     export default ({
         data: () => ({
             products: [],
-            countItems: 0
+            countItems: 0,
+            subTotal: 0,
+            shipping: 0,
+            total: 0
         }),
         components: {
           productList
         },
         created() {
             this.getProducts();
-            this.$EventBus.$on('updateProduct', this.getProducts);
+            this.$EventBus.$on('updateProduct', this.updateProducts);
         },
-        computed: {
-            subTotal() {
-                let subTotal = 0;
-                this.products.forEach((value, key) => {
-                    subTotal += value.amount
-                });
-
-                return subTotal;
-            }
-        },
-        methods: {
-
-        }
     })
 
 </script>

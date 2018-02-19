@@ -10,13 +10,15 @@ $width-screen-600: 600px
   @media screen and (max-width: $width-screen-990)
     padding: 70px 0 420px
   @media screen and (max-width: $width-screen-600)
-    padding: 70px 0 700px
+    padding: 70px 0 600px
   @media screen and (max-width: 400px)
-    padding: 70px 0 750px
+    padding: 70px 0 650px
   .section
     &__text
       max-width: 650px
       margin: 50px auto
+      @media screen and (max-width: $breakpoint-mobile)
+        margin: 20px auto 0
   .block-in-section-wrapper
     margin-top: 20px
     @media screen and (max-width: $width-screen-990)
@@ -52,8 +54,12 @@ $width-screen-600: 600px
       color: white
       text-align: center
       margin: 20px 0
+      @media screen and (max-width: $width-screen-600 )
+        &:first-child
+          margin-top: 0
       @media screen and (min-width: $width-screen-600 + 1)
         width: 50%
+
     &__icon
       img
         margin: auto

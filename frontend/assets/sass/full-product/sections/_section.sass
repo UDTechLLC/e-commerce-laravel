@@ -1,6 +1,8 @@
 .section
   &__wrapper
-    padding: 80px 0
+    padding: 30px 0
+    @media screen and (min-width: $breakpoint-mobile + 1)
+      padding: 80px 0
   &__title
     font-size: 25px
     text-transform: uppercase
@@ -43,6 +45,9 @@
     border: 2px solid $def-color
     border-radius: 50%
     margin: auto
+    display: flex
+    justify-content: center
+    align-items: center
     img
       max-width: 90%
   &__icon-info

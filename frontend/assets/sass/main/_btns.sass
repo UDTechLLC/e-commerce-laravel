@@ -2,7 +2,7 @@
   transition: .2s
   background: $red
   color: #ffffff
-  @media (min-width: $breakpoint-mobile)
+  @media (min-width: $breakpoint-mobile+1)
     &:hover
       background: darken($red,10)
   &--mobile
@@ -16,3 +16,5 @@
     font-weight: 600
     &.active
       bottom: 0
+    @media (min-width: $breakpoint-mobile+1)
+      display: none
