@@ -40,7 +40,6 @@
         },
         components: {
             "product-item": productItem
-        },
-        methods: {}
+        }
     });
 </script>

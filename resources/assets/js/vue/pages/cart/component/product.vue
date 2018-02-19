@@ -27,7 +27,7 @@
         </td>
         <td class="product-subtotal">
                      <span class="product-subtotal-amount">
-                           {{ subTotal }}
+                           {{ product.total_sum }}
                      </span>
         </td>
         <td class="product-remove">
@@ -43,17 +43,12 @@
         props: {
             product: Object
         },
-        computed: {
-          subTotal() {
-                return '$' + this.product.amount * this.product.count;
-            }
-        },
         methods: {
             deleteProduct(slug) {
                 axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
                         response => {
                             console.log(response);
-                            this.$EventBus.$emit('updateProduct', response.data.data.products.data);
+                            this.$EventBus.$emit('updateProduct', response);
                         },
                         error => console.log('error')
                 )
@@ -62,7 +57,7 @@
                 axios.delete(`/api/carts/products/remove/${slug}/all?hash=${Vue.localStorage.get('hash')}`).then(
                         response => {
                             console.log(response);
-                            this.$EventBus.$emit('updateProduct', response.data.data.products.data);
+                            this.$EventBus.$emit('updateProduct', response);
                         },
                         error => console.log('error')
                 )
