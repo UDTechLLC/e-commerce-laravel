@@ -89,6 +89,9 @@
           justify-content: space-between
           flex-wrap: wrap
 
+          &.finish-order-step
+            border: none
+
           .contacts-block-wrapper
             width: 40%
 
@@ -187,6 +190,12 @@
 
           .cart-review-block-wrapper
             width: 56%
+
+            &.finish-order-step
+              width: 100%
+
+              .cart-review-block
+                margin-bottom: 0
 
             @media screen and (max-width: 767px)
               display: none
