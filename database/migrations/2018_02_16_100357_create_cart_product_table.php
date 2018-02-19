@@ -16,6 +16,7 @@ class CreateCartProductTable extends Migration
         Schema::create('cart_product', function (Blueprint $table) {
             $table->unsignedInteger('cart_id');
             $table->unsignedInteger('product_id');
+            $table->smallInteger('count');
         });
     }
 
