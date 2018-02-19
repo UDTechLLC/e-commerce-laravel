@@ -1978,6 +1978,14 @@ ul {
           margin: 0 0 40px;
           position: relative;
           width: 100%; }
+          .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .contacts-block-wrapper .contacts-block .form-field-wrapper.error .form-field {
+            border-color: #eb212e; }
+          .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .contacts-block-wrapper .contacts-block .form-field-wrapper.error .error-massage {
+            color: #eb212e;
+            display: block !important;
+            font-family: "PT Sans", Arial, Helvetica, sans-serif;
+            font-size: 12.5px;
+            font-weight: 400; }
           .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .contacts-block-wrapper .contacts-block .form-field-wrapper.half-field {
             width: 46%; }
           .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .contacts-block-wrapper .contacts-block .form-field-wrapper label {
