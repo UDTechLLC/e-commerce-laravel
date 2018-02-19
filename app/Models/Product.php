@@ -88,7 +88,10 @@ class Product extends EloquentModel implements HasMedia
      * Entity mutators and accessors go below
      */
 
-    // @todo:
+    public function getAmountAttribute($value)
+    {
+        return (float) $value / 100;
+    }
 
     /**
      * Entity public methods go below
