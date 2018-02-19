@@ -75,7 +75,7 @@ div {
         border: 50px solid transparent;
         border-top: 50px solid #f5f3f3;
         bottom: -100px;
-        margin-left: -25px; } }
+        margin-left: -50px; } }
 
 .text-center {
   text-align: center; }
@@ -172,6 +172,17 @@ img {
   @media (min-width: 800px) {
     .add-to-cart-btn:hover {
       background: #c61017; } }
+  .add-to-cart-btn--mobile {
+    position: fixed;
+    z-index: 9999;
+    bottom: -70px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px 0;
+    font-weight: 600; }
+    .add-to-cart-btn--mobile.active {
+      bottom: 0; }
 
 .clear {
   clear: both; }
@@ -809,6 +820,43 @@ ul {
   .section__text--white {
     color: white; }
 
+.section__img {
+  margin-top: 60px; }
+
+.section__icons {
+  margin-top: 60px; }
+  .section__icons > div {
+    vertical-align: top; }
+
+.section__icon-wrapper {
+  width: 33%;
+  margin: 30px 0; }
+  @media (max-width: 880px) {
+    .section__icon-wrapper {
+      width: 49%; } }
+  @media (max-width: 620px) {
+    .section__icon-wrapper {
+      width: 100%; } }
+
+.section__icon-text {
+  max-width: 390px;
+  margin: 20px auto 0;
+  text-transform: uppercase;
+  font-size: 20px; }
+
+.section__icon-img {
+  width: 89px;
+  height: 89px;
+  border: 2px solid #29282e;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin: auto; }
+  .section__icon-img img {
+    max-width: 90%; }
+
+.section__icon-info {
+  font-size: 20px; }
+
 .parallax-section {
   overflow: hidden;
   padding: 70px 0 0;
@@ -981,6 +1029,12 @@ ul {
     right: 100%; }
   .comments__text p {
     margin: 0; }
+
+.queen-of-the-hill__bg {
+  background: url("../images/full-product/queen-of-the-hill/bg-mobile.jpg") no-repeat center/cover; }
+  @media screen and (min-width: 801px) {
+    .queen-of-the-hill__bg {
+      background: url("../images/full-product/queen-of-the-hill/bg.jpg") no-repeat center/cover; } }
 
 .shop-grid-wrapper .wrapper .shop-items-wrapper {
   display: -webkit-box;
@@ -2005,14 +2059,6 @@ header {
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s; }
-  .fixed-header .second-header__menu-item a {
-    padding: 20px; }
-    @media screen and (min-width: 801px) {
-      .fixed-header .second-header__menu-item a {
-        padding: 20px 0; } }
-
-.fixed-header .btn__mobile-menu {
-  top: 27px; }
 
 header .header-cart {
   padding: 16px 0;
