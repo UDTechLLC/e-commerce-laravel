@@ -3,10 +3,10 @@
     <div class="wrapper">
         <div class="flex flex-j--between flex-a--center flex--m-block">
             <div class="first-header__soc-links flex flex-a--center">
-                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+                <a href="https://www.facebook.com/shedfatnow" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/channel/UCEALCddkV4XQR-6qiJaA70Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/shedfat/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.snapchat.com/add/shedfat" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
             </div>
             <div class="first-header__menu flex flex-a--center">
                 <a href="{{url('/')}}" class="first-header__menu-item">Shop</a>
