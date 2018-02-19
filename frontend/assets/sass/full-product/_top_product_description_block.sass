@@ -3,8 +3,8 @@
   background-repeat: no-repeat
   background-size: cover
   padding: 65px 0 47px
-
-
+  @media screen and (max-width: $breakpoint-mobile)
+    padding: 15px 0 15px
   .product-preview-wrapper
     float: left
     width: 50%
@@ -19,7 +19,8 @@
 
     img
       max-width: 100%
-
+      @media screen and (max-width: $breakpoint-mobile)
+        max-width: 65%
   .product-info-block
     float: left
     width: 50%
