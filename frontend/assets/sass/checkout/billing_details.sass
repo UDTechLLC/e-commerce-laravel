@@ -1,4 +1,6 @@
 .checkout-billing-details-block-wrapper
+  padding: 0 0 100px
+
   .wrapper
     .checkout-billing-details-block
       .checkout-billing-details-form
@@ -15,55 +17,245 @@
             line-height: 30px
             margin: 0
 
+            label
+              &.checkbox
+                align-items: center
+                display: flex !important
+                margin-bottom: 2px
+
+                &:before
+                  background-color: #fff
+                  border: 1px solid #d2d2d2
+                  border-radius: 2px
+                  content: ""
+                  display: inline-block
+                  height: 18px
+                  margin-right: 10px
+                  width: 18px
+
+            .form-checkbox-field
+              display: none
+
+              &:checked + label:before
+                background: url("../images/checkout/tick.png") no-repeat
+                border: none
+                height: 20px
+                width: 20px
+
+        .buttons-area
+          float: right
+
+          .continue-checkout
+            background: #eb212e
+            border: none
+            border-radius: 3px
+            box-sizing: border-box
+            color: #fff
+            cursor: pointer
+            display: inline-block
+            font-family: Montserrat, Arial, Helvetica, sans-serif
+            font-size: 20px
+            font-weight: 700
+            line-height: 28px
+            margin: 30px 0 0
+            outline: 0
+            padding: 11px 19px
+            position: relative
+            text-align: center
+            text-decoration: none
+            text-transform: uppercase
+
+          .back-button
+            background: #eaeaea
+            border: none
+            border-radius: 3px
+            color: #29282e
+            cursor: pointer
+            font-family: Montserrat, Arial, Helvetica, sans-serif
+            font-size: 20px
+            font-weight: 700
+            letter-spacing: 1px
+            line-height: 28px
+            margin-right: 27px
+            outline: none
+            padding: 11px 19px
+            text-align: center
+            text-decoration: none
+            text-transform: uppercase
+
         .billing-details-info-wrapper
+          border-bottom: 1px solid #e0dede
           display: flex
           justify-content: space-between
           flex-wrap: wrap
 
-          .contacts-block
-            display: flex
-            justify-content: space-between
-            flex-wrap: wrap
+          .contacts-block-wrapper
             width: 40%
 
-            .contacts-block-title
-              color: #2b2e32
-              font-family: Montserrat, Arial, Helvetica, sans-serif
-              font-size: 16px
-              font-weight: 700
-              line-height: 1.73
-              letter-spacing: 0
-              margin: 23px 0 12px
+            @media screen and (max-width: 767px)
               width: 100%
 
-            .form-field-wrapper
-              margin: 0 0 40px
-              position: relative
-              width: 100%
+            .contacts-block
+              display: flex
+              justify-content: space-between
+              flex-wrap: wrap
 
-              &.half-field
-                width: 46%
-
-              label
-                color: #494949
-                display: block
-                font-family: "PT Sans", Arial, Helvetica, sans-serif
-                font-size: 15px
-                font-weight: 400
-                line-height: 22px
-                margin-bottom: 0
-
-                span
-                  color: #aaa9b1
-
-              .form-field
-                background-color: #ffffff
-                border: 1px solid #d2d2d2
-                box-shadow: none
-                box-sizing: border-box
-                color: #aaa9a9
-                font-family: Arial,Helvetica,sans-serif
-                font-size: 13px
-                height: 38px
-                padding: 0 15px
+              .contacts-block-title
+                color: #2b2e32
+                font-family: Montserrat, Arial, Helvetica, sans-serif
+                font-size: 16px
+                font-weight: 700
+                line-height: 1.73
+                letter-spacing: 0
+                margin: 23px 0 12px
                 width: 100%
+
+              .form-field-wrapper
+                margin: 0 0 40px
+                position: relative
+                width: 100%
+
+                &.half-field
+                  width: 46%
+
+                label
+                  color: #494949
+                  display: block
+                  font-family: "PT Sans", Arial, Helvetica, sans-serif
+                  font-size: 15px
+                  font-weight: 400
+                  line-height: 22px
+                  margin-bottom: 0
+
+                  &.checkbox
+                    display: flex !important
+                    align-items: center
+
+                    &:before
+                      content: ""
+                      width: 18px
+                      height: 18px
+                      border-radius: 2px
+                      display: inline-block
+                      border: 1px solid #d2d2d2
+                      background-color: #fff
+                      margin-right: 10px
+
+                  span
+                    color: #aaa9b1
+
+                .form-field
+                  background-color: #ffffff
+                  border: 1px solid #d2d2d2
+                  box-shadow: none
+                  box-sizing: border-box
+                  color: #aaa9a9
+                  font-family: Arial,Helvetica,sans-serif
+                  font-size: 13px
+                  height: 38px
+                  padding: 0 15px
+                  width: 100%
+
+                .form-checkbox-field
+                  display: none
+
+                  &:checked + label:before
+                    background: url("../images/checkout/tick.png") no-repeat
+                    width: 20px
+                    height: 20px
+                    border: none
+
+                .select2-container
+                  width: 100% !important
+
+                  .select2-selection--single
+                    border-color: #d2d2d2
+                    border-radius: 0
+                    height: 38px
+
+                    .select2-selection__rendered
+                      color: #aaa9a9
+                      font-size: 13px
+                      line-height: 38px
+                      padding: 0 15px
+
+                    .select2-selection__arrow
+                      b
+                        border-color: #d2d2d2 transparent transparent
+                        margin-left: -9px
+                        margin-top: 3px
+
+          .cart-review-block-wrapper
+            width: 56%
+
+            @media screen and (max-width: 767px)
+              display: none
+
+            .cart-review-block
+              border: 1px solid #eaeaea
+              margin: 30px 0
+              padding: 0 30px 9px
+              width: 100%
+
+
+              .cart-header-block
+                margin: 24px 0 21px
+                padding-bottom: 13px
+
+                .cart-heading
+                  font-size: 23px
+                  line-height: 30.26px
+
+              .shop-table
+                thead
+                  tr
+                    th
+                      color: #494949
+                      font-size: 16px
+                      line-height: 20.97px
+                      padding-bottom: 10px
+
+                      &.product-subtotal
+                        text-align: right
+                        width: 40%
+
+                tbody
+                  tr
+                    td
+                      &.product-subtotal
+                        text-align: right
+
+                        .product-subtotal-amount
+                          color: #494949
+
+                tfoot
+                  tr
+                    th
+                      color: #494949
+                      font-family: Montserrat
+                      font-size: 16px
+                      font-weight: 700
+                      line-height: 21px
+                      max-width: 87%
+                      padding-bottom: 14px
+                      padding-right: 30px
+                      text-align: right
+                      width: 100%
+
+                    td
+                      color: #494949
+                      font-size: 15px
+                      line-height: 23px
+                      padding-bottom: 14px
+                      text-align: right
+                      white-space: nowrap
+
+                      .product-total-amount
+                        color: #ed1c24
+
+                    &:first-child
+                      th
+                        padding-top: 21px
+
+                      td
+                        padding-top: 20px

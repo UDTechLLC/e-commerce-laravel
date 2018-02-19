@@ -20,7 +20,6 @@ class PayPalController extends Controller
     {
         $this->setCallbacks();  //todo: add order id to callback
         $this->service->setAmount(20);
-
         $response = $this->service->purchase();
 
         return $response->redirect();
@@ -38,7 +37,6 @@ class PayPalController extends Controller
 
     public function cancelUrl()
     {
-
     }
 
     private function setCallbacks()

@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -51,7 +52,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-
+//        return view('web.shop.products.never-stop-moving-e-book', compact('product'));
         return view('web.shop.products.show', compact('product'));
     }
 

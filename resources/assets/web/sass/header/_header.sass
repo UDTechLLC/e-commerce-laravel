@@ -1,0 +1,17 @@
+header
+  border-top: 3px solid $red
+  a
+    font-size: 13px
+    color: $l-grey
+    @media (min-width: $breakpoint-mobile)
+      &:hover
+        color: red
+
+  .header-logo
+    width: 104px
+    display: block
+    @media screen and (max-width: $breakpoint-mobile)
+      margin: 14px 0 14px 20px
+    @media screen and (min-width: $breakpoint-mobile)
+      &:hover
+        opacity: .7

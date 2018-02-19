@@ -1,6 +1,6 @@
 .flex
   display: flex
-  @media (max-width: 800px)
+  @media (max-width: $breakpoint-mobile)
     &--m-block
       display: block
   &-a--center
@@ -15,4 +15,76 @@
     justify-content: space-between
   &-j--end
     justify-content: flex-end
+div
+  box-sizing: border-box
+.triangle-bottom
+  position: relative
+  margin-bottom: 80px
+  &:after
+    content: ''
+    position: absolute
+    border: 40px solid transparent
+    border-top: 40px solid #f5f3f3
+    bottom: -80px
+    left: 50%
+    margin-left: -40px
+    @media (min-width: $breakpoint-mobile)
+      border: 20px solid transparent
+      border-top: 20px solid #f5f3f3
+      bottom: -40px
+      margin-left: -20px
+.text-center
+  text-align: center
+.full-width
+  width: 100%
 
+.after-lines
+  position: relative
+  margin: auto
+  @media (min-width: $breakpoint-mobile)
+    width: 75%
+    &:after,
+    &:before
+      content: ''
+      display: block
+      width: 13%
+      position: absolute
+      height: 1px
+      background: $def-color
+      top: 50%
+      margin-top: -.5px
+    &:after
+      right: -16.5%
+    &:before
+      left: -16.5%
+
+.wrapper
+  @media screen and (max-width: 1200px)
+    padding-left: 30px
+    padding-right: 30px
+
+  @media screen and (max-width: 550px)
+    padding-left: 15px
+    padding-right: 15px
+
+.inline-block
+  &>div
+    display: inline-block
+
+a
+  transition: .2s
+  text-decoration: none
+
+  &:hover
+    text-decoration: none
+    outline: 0
+img
+  max-width: 100%
+
+.btn
+  background: none
+  padding: 0
+  border: 0
+  display: block
+  outline: 0
+  cursor: pointer
