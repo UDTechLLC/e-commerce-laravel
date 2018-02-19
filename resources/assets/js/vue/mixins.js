@@ -7,7 +7,7 @@ Vue.mixin({
         hash: Vue.localStorage.get('hash')
       };
 
-      axios.post(`/api/carts/products/store/${productSlug}`, data).then(
+      axios.post(`/api/carts/products/add/${productSlug}`, data).then(
         response => this.$EventBus.$emit('updateProduct', this.clickHandler),
         error => console.log('error')
       )
@@ -18,11 +18,6 @@ Vue.mixin({
         response => {
           this.products = response.data.data;
           this.countItems = this.products.length;
-
-          this.products.forEach((value, key) => {
-            console.log(value.slug);
-          })
-
         },
         error => console.log('error')
       )
