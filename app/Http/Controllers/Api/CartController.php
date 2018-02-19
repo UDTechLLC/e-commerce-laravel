@@ -119,7 +119,7 @@ class CartController extends Controller
 
         $countProduct = $cart->products()->where('product_id', $product->getKey())->first()->pivot->count;
 
-        if ($all || 0 === $countProduct) {
+        if ($all || 1 === $countProduct) {
             $cart->products()->detach($product);
         } else {
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
