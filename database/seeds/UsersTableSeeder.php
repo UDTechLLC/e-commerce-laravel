@@ -12,12 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 10)->create();
         $user = factory(User::class)->create([
             'email'    => 'admin@mail.com',
             'password' => bcrypt("123456")
         ]);
 
         $user->attachRole(2);
+        factory(User::class, 10)->create();
     }
 }
