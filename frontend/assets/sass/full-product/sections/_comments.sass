@@ -7,6 +7,7 @@
     &:last-child
       margin-bottom: 0
       border: 0
+      padding-bottom: 20px
     @media screen and (min-width: $breakpoint-mobile)
       width: 760px
   &__item
@@ -42,10 +43,13 @@
     position: relative
     width: initial
     border-radius: 5px
-    font-size: 20px
-    max-width: calc(100% - 150px)
-    p
+    font-size: 16px
+    @media screen and (min-width: $breakpoint-mobile + 1)
+      max-width: calc(100% - 150px)
       font-size: 20px
+    p
+      @media screen and (min-width: $breakpoint-mobile + 1)
+        font-size: 20px
     &:before
       content: ''
       border: 10px solid transparent
