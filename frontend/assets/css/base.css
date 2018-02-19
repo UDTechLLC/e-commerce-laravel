@@ -749,7 +749,7 @@ ul {
       .get-more__text {
         width: 40%;
         margin-top: 0;
-        text-align: left; } }
+        text-align: center; } }
     .get-more__text img {
       max-width: 100%; }
       @media (max-width: 500px) {
@@ -758,8 +758,7 @@ ul {
       @media (min-width: 800px) {
         .get-more__text img {
           display: block;
-          margin-left: 30px;
-          margin-top: -20px; } }
+          margin: -20px auto 0; } }
 
 .total-results__img {
   margin-top: 60px; }
