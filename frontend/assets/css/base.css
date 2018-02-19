@@ -172,6 +172,17 @@ img {
   @media (min-width: 800px) {
     .add-to-cart-btn:hover {
       background: #c61017; } }
+  .add-to-cart-btn--mobile {
+    position: fixed;
+    z-index: 9999;
+    bottom: -70px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px 0;
+    font-weight: 600; }
+    .add-to-cart-btn--mobile.active {
+      bottom: 0; }
 
 .clear {
   clear: both; }
