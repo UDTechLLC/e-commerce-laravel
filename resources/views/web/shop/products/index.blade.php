@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 
 <html lang="en">
@@ -21,6 +22,12 @@
 <body>
 
 <div class="main" id="app">
+=======
+@extends('web.layouts.app')
+@section('content')
+    <main>
+<div class="main">
+>>>>>>> 60fd362a2d97bcf967c5a988991196eab4b59835
         <div class="shop-grid-wrapper">
             <div class="wrapper">
                 <div class="shop-items-wrapper">
@@ -65,6 +72,6 @@
     </div>
         </div>
     </div>
-<script src="{{asset('web/js/app.js')}}"></script>
-</body>
-</html>
+
+    </main>
+@endsection

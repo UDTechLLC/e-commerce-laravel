@@ -29,7 +29,8 @@
                 gridColumns: [
                     'id',
                     'name',
-                    'email'
+                    'email',
+                    'phone'
                 ],
 
                 gridData: [],

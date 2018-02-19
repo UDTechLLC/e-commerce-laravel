@@ -3,7 +3,7 @@ footer
     background: $grey
     padding: 30px 0
     &__menu
-      @media screen and (min-width: $breakpoint-mobile)
+      @media screen and (min-width: $breakpoint-mobile + 1)
         display: flex
       li
         @media screen and (max-width: $breakpoint-mobile)
@@ -11,7 +11,7 @@ footer
           margin: 20px 0 0
           &:first-child
             margin: 0
-        @media screen and (min-width: $breakpoint-mobile)
+        @media screen and (min-width: $breakpoint-mobile + 1)
           margin-right: 30px
           &:last-child
             margin-right: 0
@@ -20,7 +20,7 @@ footer
       a
         font-size: 14px
         color: #cccc
-        @media screen and (min-width: $breakpoint-mobile)
+        @media screen and (min-width: $breakpoint-mobile + 1)
           &:hover
             color: white
     &__soc-links
@@ -29,7 +29,7 @@ footer
         font-size: 25px
         &:last-child
           margin-right: 0
-        @media screen and (min-width: $breakpoint-mobile)
+        @media screen and (min-width: $breakpoint-mobile  + 1)
           margin-right: 15px
           &:hover
             opacity: .5

@@ -15,6 +15,7 @@ Route::group([
 
     Route::get('products/{product}', [
         'as' => 'products.show',
+//        'as' => 'products.never-stop-moving-e-book',
         'uses' => 'ProductController@show'
     ]);
 
