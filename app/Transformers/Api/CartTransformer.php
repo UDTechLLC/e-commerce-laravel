@@ -3,6 +3,7 @@
 namespace App\Transformers\Api;
 
 use App\Models\Cart;
+use GuzzleHttp\Client;
 use League\Fractal\TransformerAbstract;
 
 class CartTransformer extends TransformerAbstract
@@ -16,16 +17,15 @@ class CartTransformer extends TransformerAbstract
      */
     public function transform(Cart $cart)
     {
-        $a = '';
-
         return [
             'id'       => $cart->getKey(),
             'products' => fractal($cart->products, new ProductTransformer()),
+            'isShipping' => $this->isShipping($cart),
             'sum'      => [
                 'products_counts' => $this->getProductsCount($cart),
                 'products_sum' => $this->getProductsSum($cart),
-                'shipping_sum' => 10,
-                'total_sum' => $this->getProductsSum($cart) + 10,
+                'shipping_sum' => $this->getShippingSum(),
+                'total_sum' => $this->getProductsSum($cart) + $this->getShippingSum(),
             ],
         ];
     }
@@ -55,5 +55,51 @@ class CartTransformer extends TransformerAbstract
         }
 
         return $count;
+    }
+
+    private function getShippingSum()
+    {
+        $country = $this->getDefaultCountry();
+
+        return $country === 'United States' || $country === 'Canada'
+            ? 17.99
+            : 6.99;
+    }
+
+    /**
+     * Get country by ip.
+     *
+     * @return mixed
+     */
+    private function getDefaultCountry()
+    {
+        $http = new Client();
+
+        $response = $this->decodeResponse($http->get("http://ip-api.com/json/{$_SERVER['REMOTE_ADDR']}"));
+
+        return isset($response->country) ?: 'United States';
+    }
+
+    /**
+     * Decode response.
+     *
+     * @param $response
+     *
+     * @return mixed
+     */
+    private function decodeResponse($response)
+    {
+        return json_decode((string)$response->getBody());
+    }
+
+    private function isShipping(Cart $cart)
+    {
+        foreach ($cart->products as $product) {
+            if ($product->isVirtual) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -1,12 +1,31 @@
 .detox-section
+  .section__title
+    @media screen and (max-width: $breakpoint-mobile)
+      font-size: 33px
+      text-align: center
+      margin-bottom: 50px
   &__item
-    width: 32%
-    margin: 20px 0
+    width: 49%
+    margin: 10px 0 0
     text-align: center
     vertical-align: top
+    @media screen and (min-width: $breakpoint-mobile + 1)
+      width: 32%
     img
       height: 57px
       width: auto
     .section__info
       font-size: 15px
       margin-top: 25px
+  &__block
+    width: 100%
+    @media screen and (min-width: $breakpoint-mobile + 1)
+      width: 50%
+    &--right
+      @media screen and (max-width: $breakpoint-mobile)
+        text-align: center
+        img
+          max-width: 290px
+  &__wrapper
+    @media screen and (max-width: $breakpoint-mobile)
+      flex-direction: column-reverse
