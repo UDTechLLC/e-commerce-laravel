@@ -12,6 +12,26 @@ header
     display: block
     @media screen and (max-width: $breakpoint-mobile)
       margin: 14px 0 14px 20px
-    @media screen and (min-width: $breakpoint-mobile)
+    @media screen and (min-width: $breakpoint-mobile+1)
       &:hover
         opacity: .7
+
+
+.fixed-header
+  .header-logo
+    width: 90px
+  .second-header
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    z-index: 999
+    box-shadow: 0 0 15px rgba(#000,.2)
+    transition: .2s
+    &__menu-item
+      a
+        padding: 20px
+        @media screen and (min-width: $breakpoint-mobile +1)
+          padding: 20px 0
+  .btn__mobile-menu
+    top: 27px

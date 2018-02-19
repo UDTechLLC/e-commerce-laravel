@@ -60,12 +60,22 @@ div {
     bottom: -80px;
     left: 50%;
     margin-left: -40px; }
-    @media (min-width: 800px) {
+    @media (min-width: 801px) {
       .triangle-bottom:after {
         border: 20px solid transparent;
         border-top: 20px solid #f5f3f3;
         bottom: -40px;
         margin-left: -20px; } }
+  .triangle-bottom--large:after {
+    border: 40px solid transparent;
+    border-top: 40px solid #f5f3f3;
+    bottom: -80px; }
+    @media (min-width: 801px) {
+      .triangle-bottom--large:after {
+        border: 50px solid transparent;
+        border-top: 50px solid #f5f3f3;
+        bottom: -100px;
+        margin-left: -25px; } }
 
 .text-center {
   text-align: center; }
@@ -144,6 +154,14 @@ img {
 
 .border-red {
   border-color: #ed1c24 !important; }
+
+.border-top {
+  border-top: 1px solid grey; }
+  .border-top--grey {
+    border-color: #eaeaea; }
+
+.fixed-header {
+  padding-top: 90px; }
 
 .add-to-cart-btn {
   -webkit-transition: .2s;
@@ -629,7 +647,7 @@ ul {
     color: #29282e;
     font-size: 20px;
     line-height: 26px;
-    margin: 27px 0 20px; }
+    margin: 27px 0 30px; }
     @media screen and (max-width: 800px) {
       .top-product-description-block .product-description {
         font-size: 16px;
@@ -1969,9 +1987,32 @@ header {
     @media screen and (max-width: 800px) {
       header .header-logo {
         margin: 14px 0 14px 20px; } }
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 801px) {
       header .header-logo:hover {
         opacity: .7; } }
+
+.fixed-header .header-logo {
+  width: 90px; }
+
+.fixed-header .second-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
+  .fixed-header .second-header__menu-item a {
+    padding: 20px; }
+    @media screen and (min-width: 801px) {
+      .fixed-header .second-header__menu-item a {
+        padding: 20px 0; } }
+
+.fixed-header .btn__mobile-menu {
+  top: 27px; }
 
 header .header-cart {
   padding: 16px 0;
@@ -2130,7 +2171,8 @@ header .first-header {
     padding: 16px 20px; }
 
 header .second-header {
-  position: relative; }
+  position: relative;
+  background: white; }
   header .second-header__menu-items {
     display: -webkit-box;
     display: -webkit-flex;
