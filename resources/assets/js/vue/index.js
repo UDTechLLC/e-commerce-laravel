@@ -2,7 +2,8 @@ import VueLocalStorage from 'vue-localstorage';
 Vue.use(VueLocalStorage);
 
 Vue.component('cart', require('./pages/cart'));
-Vue.component('add-to-card', require('./component/addToCart'));
+Vue.component('add-to-cart', require('./component/addToCart'));
+Vue.component('mini-cart', require('./component/cart'));
 
 require('./mixins');
 

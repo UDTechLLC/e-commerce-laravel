@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('position')->nullable();
             $table->boolean('published')->default(true);
             $table->string('slug');
+            $table->boolean('isVirtual')->default(true);
             $table->timestamps();
         });
     }
