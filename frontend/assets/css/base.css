@@ -2005,14 +2005,6 @@ header {
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s; }
-  .fixed-header .second-header__menu-item a {
-    padding: 20px; }
-    @media screen and (min-width: 801px) {
-      .fixed-header .second-header__menu-item a {
-        padding: 20px 0; } }
-
-.fixed-header .btn__mobile-menu {
-  top: 27px; }
 
 header .header-cart {
   padding: 16px 0;
