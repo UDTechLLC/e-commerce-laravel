@@ -68,5 +68,33 @@
             heightMain();
         });
 
+
+        var body = $('body'),
+            header_first = $('.first-header'),
+            header_second = $('.second-header'),
+            fixedTop = 53,
+            mobileAddToCard = $('.add-to-cart-btn--mobile'),
+            wrapperAddToCard = $('.add-to-cart-wrapper'),
+            showBtnAfter = 1000;
+
+
+        setTimeout(function () {
+            fixedTop = header_first.height() + 3;
+            showBtnAfter = wrapperAddToCard.offset().top - 80;
+        },100);
+
+        $(window).scroll(function () {
+            var curScroll = $(window).scrollTop();
+
+            curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
+
+
+            curScroll >= showBtnAfter ? mobileAddToCard.addClass('active'): mobileAddToCard.removeClass('active');
+
+
+        });
+
+
+
     });
 })( jQuery );

@@ -27,6 +27,7 @@ class ProductTransformer extends TransformerAbstract
             'slug'   => $product->slug,
             'count'  => $product->pivot->count,
             'is_virtual' => $product->isVirtual,
+            'total_sum' => $product->amount * $product->pivot->count,
             'image'  => $product->getFirstMediaUrl('preview')
         ];
     }
