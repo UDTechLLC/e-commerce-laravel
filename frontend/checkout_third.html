@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="components/head.js"></script>
+</head>
+<body>
+<header>
+    <script src="components/header.js"></script>
+</header>
+<main>
+    <div class="main">
+        <div class="checkout-top-navigation-bar-wrapper">
+            <div class="wrapper">
+                <div class="checkout-top-navigation-bar">
+                    <h2 class="checkout-title">
+                        Checkout
+                    </h2>
+                    <ul class="path-checkout-bar">
+                        <li class="checked"><div class="icon shopping-cart"></div><span>1. Shopping Cart</span></li>
+                        <li class="checked" data-page="col-1"><div class="icon billing-details"></div><span>2. Billing Details</span></li>
+                        <li class="checked" data-page="col-2"><div class="icon billing-details shipping-address"></div><span>3. Shipping Address</span></li>
+                        <li class="active" data-page="order_review"><div class="icon payment"></div><span>4. Payment</span></li>
+                        <li class="disabled" data-page="checkout-process-final"><div class="icon finish-order"></div><span>5. Finish Order</span></li>
+                    </ul>
+                    <div id="reservation-order" class="reservation-order">
+                        <p>Your order is reserved for
+                            <span id="timer">
+                                                00:28
+                                            </span>
+                            minutes!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="billing-address-info-block-wrapper">
+            <div class="wrapper">
+                <div class="billing-address-info-block billing-address-edit-block">
+                    <div class="cart-header-block">
+                        <h2 class="cart-heading">
+                            Billing address
+                        </h2>
+                        <a class="edit-block-link" href="#">
+                            Edit
+                        </a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="billing-user-info-block">
+                        <span id="baCompName" class="billing-user-info">Company, </span>
+                        <span id="baStreetAddress" class="billing-user-info">311 W 34TH ST, </span>
+                        <span id="baTown" class="billing-user-info">New york </span>
+                        <span id="baState" class="billing-user-info">NY </span>
+                        <span id="baZipCode" class="billing-user-info">10001, </span>
+                        <span id="baCountry" class="billing-user-info">United States</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="customer-login-block-wrapper">
+            <div class="wrapper">
+                <div class="customer-login-block">
+                    <div class="customer-login-info">
+                        Returning customer?
+                        <a class="showlogin" href="#">
+                            Click here to login
+                        </a>
+                    </div>
+                    <form class="customer-login-form" style="display: none" name="customer_login_form" action="" method="post">
+                        <p>
+                            If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing & Shipping section.
+                        </p>
+                        <div class="form-field-wrapper">
+                            <label for="userEmail">
+                                Username or email
+                                <span class="required">*</span>
+                            </label>
+                            <input id="userEmail" class="form-field" type="text" />
+                        </div>
+                        <div class="form-field-wrapper">
+                            <label for="userPassword">
+                                Password
+                                <span class="required">*</span>
+                            </label>
+                            <input id="userPassword" class="form-field" type="password" />
+                        </div>
+                        <div class="clear"></div>
+                        <div class="form-submit-wrapper">
+                            <input class="login-button button" name="login" value="Login" type="submit" />
+                            <label class="rememberme-wrapper">
+                                <input class="remember-me-checkbox" name="rememberme" id="rememberme" value="forever" type="checkbox" />
+                                <span>Remember me</span>
+                            </label>
+                        </div>
+                        <div class="lost-password-wrapper">
+                            <a href="#">Lost your password?</a>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-billing-details-block-wrapper">
+            <div class="wrapper">
+                <div class="checkout-billing-details-block">
+                    <form class="checkout-billing-details-form" action="" name="checkout-billing-details" method="post">
+                        <div class="checkout-title-block">
+                            <h3 class="checkout-title">
+                                Payment
+                            </h3>
+                            <p>
+                                All transactions are secure and encrypted.
+                            </p>
+                        </div>
+                        <div class="billing-details-info-wrapper">
+                            <div class="contacts-block-wrapper">
+                                <div id="payment" class="payment-block-wrapper">
+                                    <div class="paypal-method payment-method-block">
+                                        <div class="paypal-header-block">
+                                            <div class="payment-method-title">
+                                                <img src="assets/images/checkout/img-paypal.png" />
+                                            </div>
+                                            <div class="icons-label-block">
+                                                <img src="assets/images/checkout/paypal-icons.png" />
+                                            </div>
+                                        </div>
+                                        <div class="paypal-content-block">
+                                            <p>
+                                                Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-review-block-wrapper">
+                                <div class="cart-review-block">
+                                    <div class="cart-header-block">
+                                        <h2 class="cart-heading">
+                                            Cart totals
+                                        </h2>
+                                    </div>
+                                    <table class="shop-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="product-name">
+                                                Product
+                                            </th>
+                                            <th class="product-subtotal">
+                                                Total
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="cart-row">
+                                            <td class="product-name">
+                                                <div class="product-thumbnail">
+                                                    <a href="#">
+                                                        <img src="assets/images/product_preview/maxx_icon.jpg" />
+                                                    </a>
+                                                </div>
+                                                <div class="product-info">
+                                                    <a class="product-title" href="#">
+                                                        Shedfat Maxx
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">
+                                                                    <span class="product-subtotal-amount">
+                                                                        $34.00
+                                                                    </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart-row">
+                                            <td class="product-name">
+                                                <div class="product-thumbnail">
+                                                    <a href="#">
+                                                        <img src="assets/images/product_preview/12_week_custom_meal_plan_shop_preview.jpg" />
+                                                    </a>
+                                                </div>
+                                                <div class="product-info">
+                                                    <a class="product-title" href="#">
+                                                        12 Week Custom Meal Plan
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">
+                                                                    <span class="product-subtotal-amount">
+                                                                        $50.00
+                                                                    </span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr class="cart-subtotal">
+                                            <th>
+                                                Subtotal
+                                            </th>
+                                            <td>
+                                                                    <span class="product-subtotal-amount">
+                                                                        $84.00
+                                                                    </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>
+                                                Shipping
+                                            </th>
+                                            <td>
+                                                                    <span class="product-subtotal-amount">
+                                                                        Flat rate: $17.99
+                                                                    </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>
+                                                Total
+                                            </th>
+                                            <td>
+                                                                    <span class="product-total-amount">
+                                                                        <strong>
+                                                                            $101.99
+                                                                        </strong>
+                                                                    </span>
+                                            </td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons-area">
+                            <a href="#" class="back-button">
+                                Back
+                            </a>
+                            <a href="#" class="continue-checkout">
+                                Continue
+                            </a>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <script src="components/footer.js"></script>
+</footer>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script type="text/javascript" src="assets/slick/slick.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/carouselengine/amazingcarousel.js"></script>
+<script src="assets/carouselengine/initcarousel-1.js"></script>
+</body>
+</html>
