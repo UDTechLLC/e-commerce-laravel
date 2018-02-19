@@ -4,6 +4,7 @@
 Route::group([
     'namespace' => 'Admin',
     'prefix' => 'admin',
+    'middleware' => ['auth','role:administrator'],
     'as' => 'admin'
 ], function () {
     Route::get('/', [
@@ -12,4 +13,5 @@ Route::group([
 
     require_once 'products.php';
     require_once 'users.php';
+    require_once 'orders.php';
 });

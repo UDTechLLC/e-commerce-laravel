@@ -1,0 +1,21 @@
+header
+  .second-header
+    position: relative
+    &__menu-items
+      display: flex
+    &__menu-item
+      border-top: 4px solid white
+      margin-right: 30px
+      &:last-child
+        margin-right: 0
+      a
+        padding: 35px 0
+        text-transform: uppercase
+        display: block
+        font-family: $Montserrat
+        font-size: 13px
+      &.active
+        @media (min-width: $breakpoint-mobile)
+          border-top: 4px solid $red
+        a
+          color: $red

@@ -19,6 +19,7 @@ class UsersResource extends Resource
             'id' => $this->getKey(),
             'name' => substr($this->name, 0, 50) ,
             'email' => substr($this->email, 0, 50) ,
+            'phone' => substr($this->phone, 0, 50) ,
              'action' => [
                              'delete' => route('admin.users.delete', $this->getKey())
              ]

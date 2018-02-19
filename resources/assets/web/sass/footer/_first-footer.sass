@@ -1,0 +1,38 @@
+footer
+  .first-footer
+    background: $grey
+    padding: 30px 0
+    &__menu
+      @media screen and (min-width: $breakpoint-mobile)
+        display: flex
+      li
+        @media screen and (max-width: $breakpoint-mobile)
+          text-align: center
+          margin: 20px 0 0
+          &:first-child
+            margin: 0
+        @media screen and (min-width: $breakpoint-mobile)
+          margin-right: 30px
+          &:last-child
+            margin-right: 0
+        @media screen and (min-width: 1000px)
+          margin-right: 50px
+      a
+        font-size: 14px
+        color: #cccc
+        @media screen and (min-width: $breakpoint-mobile)
+          &:hover
+            color: white
+    &__soc-links
+      a
+        margin-right: 50px
+        font-size: 25px
+        &:last-child
+          margin-right: 0
+        @media screen and (min-width: $breakpoint-mobile)
+          margin-right: 15px
+          &:hover
+            opacity: .5
+      @media screen and (max-width: $breakpoint-mobile)
+        justify-content: center
+        margin-top: 40px

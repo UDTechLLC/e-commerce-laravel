@@ -35,7 +35,10 @@
                         <a href="{{route('admin.products')}}"><i class="fa fa-cube"></i> Products </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.users')}}"><i class="fa fa-cube"></i> Users </a>
+                        <a href="{{route('admin.users')}}"><i class="fa fa-users"></i> Users </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.orders')}}"><i class="fa fa-shopping-bag"></i> Orders </a>
                     </li>
                 </ul>
             </div>

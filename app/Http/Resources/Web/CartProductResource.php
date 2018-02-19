@@ -18,6 +18,7 @@ class CartProductResource extends Resource
             'id'     => $this->id,
             'title'  => $this->title,
             'amount' => $this->amount,
+            'slug'   => $this->slug,
             'image'  => $this->getFirstMediaUrl('preview')
         ];
     }

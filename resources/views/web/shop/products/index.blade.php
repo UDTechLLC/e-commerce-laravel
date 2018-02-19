@@ -1,56 +1,11 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-
-    <title>ShedYourFat Shop page</title>
-
-    <link rel="stylesheet" href="{{ asset('web/css/base.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">
-    <!--<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick-theme.css') }}">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
+@extends('web.layouts.app')
+@section('content')
+    <main>
 <div class="main">
         <div class="shop-grid-wrapper">
             <div class="wrapper">
                 <div class="shop-items-wrapper">
             @foreach($product as $products)
-
-                {{--<div class="col-sm-4">--}}
-                    {{--<div class="product" style="height: 500px;">--}}
-                        {{--<div class="image-wrapper">--}}
-                        {{--<img src="{!! $products->getMedia('preview')->first()->getUrl() !!}" />--}}
-                        {{--</div>--}}
-                        {{--<div>--}}
-                        {{--<a href="{{url('products/'.$products->slug)}}">--}}
-                            {{--<h3 class="title">{!! $products->title !!}</h3> </a>--}}
-                        {{--<p>Sub_title {{ $products->sub_title }}</p>--}}
-                            {{--<h4 class="price">Price: {{$products->amount}}</h4>--}}
-                        {{--@if($products -> category)--}}
-                        {{--<p>Category {{ $products->category }}</p>--}}
-                            {{--@endif--}}
-                        {{--</div>--}}
-                        {{--<p> {{ $products -> description }}</p>--}}
-                        {{--<div class="product-button-block">--}}
-                            {{--<div class="add-to-cart-wrapper">--}}
-                                {{--<a class="add-to-cart-btn" href="#">--}}
-                                    {{--Add to cart--}}
-                                {{--</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</div>--}}
                         <div class="shop-item">
                             <div class="image-wrapper">
                                 <a href="#">
@@ -81,18 +36,16 @@
 									</span>
                                 </div>
                             </div>
-                            <div class="product-button-block">
-                                <div class="add-to-cart-wrapper">
-                                    <a class="add-to-cart-btn" href="#">
-                                        Add to cart
-                                    </a>
-                                </div>
-                            </div>
+                            <add-to-card
+                                    product-slug="{{ $products->slug }}"
+                            >
+                            </add-to-card>
                         </div>
             @endforeach
         </div>
     </div>
         </div>
     </div>
-</body>
-</html>
+
+    </main>
+@endsection

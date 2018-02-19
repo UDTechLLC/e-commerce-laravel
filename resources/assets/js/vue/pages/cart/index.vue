@@ -68,7 +68,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="promotional-code-block-wrapper">
+                     <!--   <div class="promotional-code-block-wrapper">
                             <div class="cart-header-block">
                                 <h2 class="cart-heading">
                                     Have A Promotional Code?
@@ -82,7 +82,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="cart-bottom-block cart-totals-wrapper">
                         <div class="cart-header-block">
@@ -150,10 +150,12 @@
         },
         created() {
             this.getProducts();
+            this.$EventBus.$on('updateProduct', this.getProducts);
         },
         methods: {
             getProducts() {
-                axios.get('/cart/getProducts').then(
+                //Vue.localStorage.set('someNumber', 123);
+                axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
                         response => {
                             this.products = response.data.data;
                             this.countItems = this.products.length
