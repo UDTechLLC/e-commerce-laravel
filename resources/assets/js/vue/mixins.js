@@ -1,18 +1,33 @@
 Vue.mixin({
   methods: {
+
     addProduct(productSlug) {
       this.$EventBus.$emit('test');
       let data = {
         hash: Vue.localStorage.get('hash')
       };
+
       axios.post(`/api/carts/products/store/${productSlug}`, data).then(
-        response => console.log('as'),
+        response => this.$EventBus.$emit('updateProduct', this.clickHandler),
         error => console.log('error')
       )
     },
-    deleteProduct() {
-      console.log('delete')
+
+    getProducts() {
+      axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
+        response => {
+          this.products = response.data.data;
+          this.countItems = this.products.length;
+
+          this.products.forEach((value, key) => {
+            console.log(value.slug);
+          })
+
+        },
+        error => console.log('error')
+      )
     },
+
     makeCardHash() {
       var text = "";
       var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

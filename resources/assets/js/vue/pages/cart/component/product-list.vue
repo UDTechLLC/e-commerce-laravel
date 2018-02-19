@@ -24,12 +24,12 @@
             <tr class="cart-row" v-for="product in products">
                 <td class="product-name">
                     <div class="product-thumbnail">
-                        <a href="#">
+                        <a :href="product.slug">
                             <img :src="product.image" />
                         </a>
                     </div>
                     <div class="product-info">
-                        <a class="product-title" href="#">
+                        <a class="product-title" :href="product.slug">
                             {{ product.title }}
                         </a>
                     </div>
@@ -41,18 +41,18 @@
                 </td>
                 <td class="product-quantity">
                     <div class="quantity buttons_added">
-                        <input value="-" class="minus" type="button" @click="deleteProduct" />
+                        <input value="-" class="minus" type="button" @click="deleteProduct(product.slug)" />
                         <input id="" class="input-text qty text" step="1" min="0" max="" name="" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number" />
-                        <input value="+" class="plus" type="button" @click="addProduct" />
+                        <input value="+" class="plus" type="button" @click="addProduct(product.slug)" />
                     </div>
                 </td>
                 <td class="product-subtotal">
-                                                <span class="product-subtotal-amount">
-                                                    $34.00
-                                                </span>
+                     <span class="product-subtotal-amount">
+                           $34.00
+                     </span>
                 </td>
                 <td class="product-remove">
-                    <a href="#" class="remove" aria-label="Remove this item" @click.prevent="deleteAllProduct">
+                    <a href="#" class="remove" aria-label="Remove this item" @click.prevent="deleteAllProduct(product.slug)">
                         ×
                     </a>
                 </td>
@@ -74,8 +74,8 @@
             deleteProduct() {
                 console.log('delete product')
             },
-            deleteAllProduct() {
-                axios.delete(`/api/carts/products/remove/12week-custom-training-plan?hash=${Vue.localStorage.get('hash')}`).then(
+            deleteAllProduct(slug) {
+                axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
                         response => {
                             console.log('delete');
                             this.$EventBus.$emit('updateProduct', this.clickHandler);
