@@ -60,12 +60,22 @@ div {
     bottom: -80px;
     left: 50%;
     margin-left: -40px; }
-    @media (min-width: 800px) {
+    @media (min-width: 801px) {
       .triangle-bottom:after {
         border: 20px solid transparent;
         border-top: 20px solid #f5f3f3;
         bottom: -40px;
         margin-left: -20px; } }
+  .triangle-bottom--large:after {
+    border: 40px solid transparent;
+    border-top: 40px solid #f5f3f3;
+    bottom: -80px; }
+    @media (min-width: 801px) {
+      .triangle-bottom--large:after {
+        border: 50px solid transparent;
+        border-top: 50px solid #f5f3f3;
+        bottom: -100px;
+        margin-left: -50px; } }
 
 .text-center {
   text-align: center; }
@@ -145,6 +155,14 @@ img {
 .border-red {
   border-color: #ed1c24 !important; }
 
+.border-top {
+  border-top: 1px solid grey; }
+  .border-top--grey {
+    border-color: #eaeaea; }
+
+.fixed-header {
+  padding-top: 90px; }
+
 .add-to-cart-btn {
   -webkit-transition: .2s;
   -o-transition: .2s;
@@ -154,6 +172,17 @@ img {
   @media (min-width: 800px) {
     .add-to-cart-btn:hover {
       background: #c61017; } }
+  .add-to-cart-btn--mobile {
+    position: fixed;
+    z-index: 9999;
+    bottom: -70px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px 0;
+    font-weight: 600; }
+    .add-to-cart-btn--mobile.active {
+      bottom: 0; }
 
 .clear {
   clear: both; }
@@ -629,7 +658,7 @@ ul {
     color: #29282e;
     font-size: 20px;
     line-height: 26px;
-    margin: 27px 0 20px; }
+    margin: 27px 0 30px; }
     @media screen and (max-width: 800px) {
       .top-product-description-block .product-description {
         font-size: 16px;
@@ -720,7 +749,7 @@ ul {
       .get-more__text {
         width: 40%;
         margin-top: 0;
-        text-align: left; } }
+        text-align: center; } }
     .get-more__text img {
       max-width: 100%; }
       @media (max-width: 500px) {
@@ -729,8 +758,7 @@ ul {
       @media (min-width: 800px) {
         .get-more__text img {
           display: block;
-          margin-left: 30px;
-          margin-top: -20px; } }
+          margin: -20px auto 0; } }
 
 .total-results__img {
   margin-top: 60px; }
@@ -790,6 +818,43 @@ ul {
       font-size: 20px; } }
   .section__text--white {
     color: white; }
+
+.section__img {
+  margin-top: 60px; }
+
+.section__icons {
+  margin-top: 60px; }
+  .section__icons > div {
+    vertical-align: top; }
+
+.section__icon-wrapper {
+  width: 33%;
+  margin: 30px 0; }
+  @media (max-width: 880px) {
+    .section__icon-wrapper {
+      width: 49%; } }
+  @media (max-width: 620px) {
+    .section__icon-wrapper {
+      width: 100%; } }
+
+.section__icon-text {
+  max-width: 390px;
+  margin: 20px auto 0;
+  text-transform: uppercase;
+  font-size: 20px; }
+
+.section__icon-img {
+  width: 89px;
+  height: 89px;
+  border: 2px solid #29282e;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin: auto; }
+  .section__icon-img img {
+    max-width: 90%; }
+
+.section__icon-info {
+  font-size: 20px; }
 
 .parallax-section {
   overflow: hidden;
@@ -963,6 +1028,12 @@ ul {
     right: 100%; }
   .comments__text p {
     margin: 0; }
+
+.queen-of-the-hill__bg {
+  background: url("../images/full-product/queen-of-the-hill/bg-mobile.jpg") no-repeat center/cover; }
+  @media screen and (min-width: 801px) {
+    .queen-of-the-hill__bg {
+      background: url("../images/full-product/queen-of-the-hill/bg.jpg") no-repeat center/cover; } }
 
 .shop-grid-wrapper .wrapper .shop-items-wrapper {
   display: -webkit-box;
@@ -1969,9 +2040,24 @@ header {
     @media screen and (max-width: 800px) {
       header .header-logo {
         margin: 14px 0 14px 20px; } }
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 801px) {
       header .header-logo:hover {
         opacity: .7; } }
+
+.fixed-header .header-logo {
+  width: 90px; }
+
+.fixed-header .second-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
 
 header .header-cart {
   padding: 16px 0;
@@ -2130,7 +2216,8 @@ header .first-header {
     padding: 16px 20px; }
 
 header .second-header {
-  position: relative; }
+  position: relative;
+  background: white; }
   header .second-header__menu-items {
     display: -webkit-box;
     display: -webkit-flex;
