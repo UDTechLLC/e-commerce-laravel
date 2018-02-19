@@ -5,3 +5,14 @@
   @media (min-width: $breakpoint-mobile)
     &:hover
       background: darken($red,10)
+  &--mobile
+    position: fixed
+    z-index: 9999
+    bottom: -70px
+    width: 100%
+    text-align: center
+    font-size: 25px
+    padding: 10px 0
+    font-weight: 600
+    &.active
+      bottom: 0

@@ -1,20 +1,84 @@
+$width-screen-990: 990px
+$width-screen-600: 600px
+
+
 .parallax-section
   overflow: hidden
   padding: 70px 0 0
-  max-height: 770px
-
+  height: 770px
+  position: relative
+  @media screen and (max-width: $width-screen-990)
+    padding: 70px 0 420px
+  @media screen and (max-width: $width-screen-600)
+    padding: 70px 0 700px
+  @media screen and (max-width: 400px)
+    padding: 70px 0 750px
   .section
     &__text
       max-width: 650px
       margin: 50px auto
   .block-in-section-wrapper
     margin-top: 20px
+    @media screen and (max-width: $width-screen-990)
+      justify-content: center
+      flex-direction: column-reverse
   .block-in-section
-    width: 50%
+    width: 100%
+    @media screen and (max-width: 600px)
+      &>.flex
+        flex-direction: column
+        justify-content: center
+    @media screen and (min-width: $width-screen-990 + 1 )
+      width: 50%
     &--image
       overflow: hidden
       img
-        margin-top: 9px
+        position: absolute
+        bottom: -4px
+        left: 15%
+        @media screen and (max-width: 1200px)
+          left: 0
+        @media screen and (max-width: $width-screen-990)
+          left: 50%
+          margin-left: -240.5px
+        @media screen and (max-width: $width-screen-600)
+          width: 300px
+          margin-left: -150px
+
+
+
+    &__icon-wr
+      width: 100%
+      color: white
+      text-align: center
+      margin: 20px 0
+      @media screen and (min-width: $width-screen-600 + 1)
+        width: 50%
+    &__icon
+      img
+        margin: auto
+        width: 88px
+        height: 88px
+        display: block
+
+    &__title
+      text-transform: uppercase
+      font-size: 22.5px
+      margin: 15px 0 10px
+    &__info
+      font-size: 20px
+      max-width: 195px
+      margin: auto
+      line-height: 26px
+
+
+
+
+
+
+
+
+
 
 
 

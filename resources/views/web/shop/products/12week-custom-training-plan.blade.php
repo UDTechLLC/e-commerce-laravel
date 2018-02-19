@@ -405,4 +405,5 @@
             </div>
         </div>
     </main>
+    <a href="#" class="btn add-to-cart-btn add-to-cart-btn--mobile">ADD TO CART</a>
 @endsection

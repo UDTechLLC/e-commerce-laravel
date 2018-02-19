@@ -117,7 +117,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => 'WHAT TO EAT IN THE <br> STREETS',
+            'title' => 'WHAT TO EAT IN THE STREETS',
             'description' => 'The list of popular “fast food” chains with meal options that will keep you on the right 
             track with your diet guilt free.',
             'old_amount' => '50.00',
