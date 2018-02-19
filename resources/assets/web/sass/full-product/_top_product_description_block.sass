@@ -2,21 +2,14 @@
   background-image: url("../images/bg-12-week-header.jpg")
   background-repeat: no-repeat
   background-size: cover
-  padding: 65px 0 25px
-  .wrapper
-    @media screen and (max-width: 800px)
-      padding-left: 30px
-      padding-right: 30px
+  padding: 65px 0 47px
 
-    @media screen and (max-width: 550px)
-      padding-left: 15px
-      padding-right: 15px
 
   .product-preview-wrapper
     float: left
     width: 50%
 
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: $breakpoint-mobile)
       float: none
       width: 100%
 
@@ -31,15 +24,19 @@
     float: left
     width: 50%
 
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: $breakpoint-mobile)
       float: none
       width: 100%
 
   .product-info
-    @media screen and (max-width: 800px)
+    @media screen and (min-width: $breakpoint-mobile)
+      padding-left: 10px
+    @media screen and (max-width: $breakpoint-mobile)
       text-align: center
 
   .product-title-block
+    margin-top: 8px
+
     .product-title
       color: #eb212e
       font-size: 38px
@@ -49,7 +46,7 @@
       margin: 0
       text-transform: uppercase
 
-      @media screen and (max-width: 800px)
+      @media screen and (max-width: $breakpoint-mobile)
         font-size: 30px
         line-height: 30px !important
 
@@ -66,9 +63,9 @@
     color: #29282e
     font-size: 20px
     line-height: 26px
-    margin: 23px 0 20px
+    margin: 27px 0 20px
 
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: $breakpoint-mobile)
       font-size: 16px
       line-height: 22px
       margin-bottom: 11px
@@ -85,31 +82,34 @@
       font-weight: 700
       line-height: 26px
       margin: 0 5px 30px
-      @media (max-width: 800px)
+      @media (max-width: $breakpoint-mobile)
         justify-content: center
   .product-button-block
     .add-to-cart-wrapper
       margin: 30px 0 25px
       .add-to-cart-btn
         border-radius: 3px
-
+        box-sizing: border-box
         display: block
         font-family: Montserrat, Arial, Helvetica, sans-serif
         font-size: 23px
         font-weight: 700
         margin: 0
         outline: none
-        padding: 16px
+        padding: 10px 0
         text-align: center
         text-decoration: none
         text-transform: uppercase
         width: 212px
 
-        @media screen and (max-width: 800px)
+        @media screen and (max-width: $breakpoint-mobile)
           margin: 0 auto
   .has-old-price
     &>.product-amount
       margin-left: 0
+      margin-bottom: 20px
+      font-size: 24px
+
 
       &:before
         display: block

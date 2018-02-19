@@ -20,6 +20,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '100.00',
             'amount' => '50.00',
             'slug' => '12week-custom-training-plan',
+            'view_name' => '12week-custom-training-plan',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/12_week_cutom_training_plan.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -36,6 +37,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '100.00',
             'amount' => '50.00',
             'slug' => '12week-custom-meal-plan',
+            'view_name' => '12week-custom-meal-plan',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/12_week_cutom_meal_plan.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -49,6 +51,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '59.99',
             'amount' => '24.99',
             'slug' => 'shedfat-maxx',
+            'view_name' => 'shedfat-maxx',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -62,6 +65,7 @@ class ProductsTableSeeder extends Seeder
 //             reduce stress and ensure quality sleep.',
 //            'amount' => '60.00',
 //            'slug' => 'kickstarter',
+//            'view_name' => 'kickstarter',
 //        ]);
 //        $pathToFile = 'resources/assets/web/seed_products/kickstarter.png';
 //        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -76,6 +80,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '40.00',
             'amount' => '25.00',
             'slug' => 'shedfat-infuser-bottle',
+            'view_name' => 'shedfat-infuser-bottle',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/infuser_bottle.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -89,6 +94,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '40.00',
             'amount' => '25.00',
             'slug' => 'resistance-bands',
+            'view_name' => 'resistance-bands',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/resistance_bands.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -103,6 +109,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '50.00',
             'amount' => '30.00',
             'slug' => 'never-stop-moving-e-book',
+            'view_name' => 'never-stop-moving-e-book',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/never_stop_moving.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -116,6 +123,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '50.00',
             'amount' => '19.00',
             'slug' => 'what-to-eat-in-the-streets',
+            'view_name' => 'what-to-eat-in-the-streets',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/what_to_eat_in_the_streets.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -131,6 +139,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '99.00',
             'amount' => '50.00',
             'slug' => 'queen-of-the-hill',
+            'view_name' => 'queen-of-the-hill',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/queen_of_the_hill.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -138,12 +147,13 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => '14 DAY DETOX SMOOTHIE <br> CLEANSE',
+            'title' => '14 DAY DETOX SMOOTHIE CLEANSE',
             'description' => 'The Power of Juice! This is the fast lane on the health highway. Whether you are 
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
             'old_amount' => '40.00',
             'amount' => '20.00',
             'slug' => '14-day-detox-guide',
+            'view_name' => '14-day-detox-guide',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/14_day_detox_smoothie_cleanse.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
