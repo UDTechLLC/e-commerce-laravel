@@ -15,17 +15,23 @@ class CartTransformer extends TransformerAbstract
      *
      * @return array
      */
-    public function transform(Cart $cart)
+    public function transform(Cart $cart): array
     {
+        $productSum = $this->getProductsSum($cart);
+        $shippingSum = $this->getShippingSum();
+        $isShipping = $this->isShipping($cart);
+
         return [
-            'id'       => $cart->getKey(),
-            'products' => fractal($cart->products, new ProductTransformer()),
-            'isShipping' => $this->isShipping($cart),
-            'sum'      => [
+            'id'         => $cart->getKey(),
+            'products'   => fractal($cart->products, new ProductTransformer()),
+            'isShipping' => $isShipping,
+            'sum'        => [
                 'products_counts' => $this->getProductsCount($cart),
-                'products_sum' => $this->getProductsSum($cart),
-                'shipping_sum' => $this->getShippingSum(),
-                'total_sum' => $this->getProductsSum($cart) + $this->getShippingSum(),
+                'products_sum'    => (string)$productSum,
+                'shipping_sum'    => (string)$shippingSum,
+                'total_sum'       => $isShipping
+                    ? (string)($productSum + $shippingSum)
+                    : 0
             ],
         ];
     }
@@ -57,9 +63,16 @@ class CartTransformer extends TransformerAbstract
         return $count;
     }
 
-    private function getShippingSum()
+    /**
+     * Get shipping sum by country.
+     *
+     * @param null $country
+     *
+     * @return float
+     */
+    private function getShippingSum($country = null)
     {
-        $country = $this->getDefaultCountry();
+        $country = $country ?? $this->getDefaultCountry();
 
         return $country === 'United States' || $country === 'Canada'
             ? 17.99
@@ -92,7 +105,14 @@ class CartTransformer extends TransformerAbstract
         return json_decode((string)$response->getBody());
     }
 
-    private function isShipping(Cart $cart)
+    /**
+     * Check shipping.
+     *
+     * @param Cart $cart
+     *
+     * @return bool
+     */
+    private function isShipping(Cart $cart): bool
     {
         foreach ($cart->products as $product) {
             if ($product->isVirtual) {
