@@ -18,8 +18,8 @@ Vue.mixin({
     getProducts() {
       axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
         response => {
-          console.log(response);
           this.products = response.data.data.products.data;
+          this.isShipping = response.data.data.isShipping;
           this.countItems = response.data.data.sum.products_counts;
           this.subTotal = response.data.data.sum.products_sum;
           this.shipping = response.data.data.sum.shipping_sum;
