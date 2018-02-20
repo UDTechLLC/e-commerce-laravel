@@ -61,6 +61,10 @@ Route::group([
         'as' => '.billing',
         'uses' => 'Api\CheckoutController@billing',
     ]);
+    Route::get('shipping', [
+        'as' => '.shipping',
+        'uses' => 'Api\CheckoutController@shipping'
+    ]);
 });
 
 
