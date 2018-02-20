@@ -45,7 +45,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => 'SHEDFAT MAXX',
+            'title' => 'Shedfat Maxx',
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
             'old_amount' => '59.99',
@@ -73,7 +73,7 @@ class ProductsTableSeeder extends Seeder
 //        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => 'SHEDFAT INFUSER BOTTLE',
+            'title' => 'Shadfat Infuser Bottle',
             'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
             overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
              a more enjoyable process.',
@@ -88,7 +88,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => 'RESISTANCE BANDS',
+            'title' => 'Resistance Bands',
             'description' => 'Versatility and simplicity. The addition of resistance bands to your routine, whether
              it is in the gym or in your living room, can take both your workouts and your results to the next level.',
             'old_amount' => '40.00',
@@ -102,7 +102,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => 'NEVER STOP MOVING',
+            'title' => 'Never Stop Moving',
             'description' => 'Looking for a comprehensive yet simple training plan? Never Stop Moving is our 63-day,
              total body tutorial! We teach you how to achieve and more importantly how to maintain a tighter and more
               toned physique from head to toe.',
@@ -117,7 +117,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => 'WHAT TO EAT IN THE STREETS',
+            'title' => 'What to eat in the streets',
             'description' => 'The list of popular “fast food” chains with meal options that will keep you on the right 
             track with your diet guilt free.',
             'old_amount' => '50.00',
@@ -131,7 +131,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => 'QUEEN OF THE HILL',
+            'title' => 'Queen Of The Hill',
             'description' => 'You do not need to spend hundreds of dollars on a personal 
             trainer to get the results that you are after! All of the guidance that you need 
             is right here in our 90 Day, total body, gym based program. It can be accessed at
@@ -147,7 +147,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title' => '14 DAY DETOX SMOOTHIE CLEANSE',
+            'title' => '14 Day Detox Smoothie Cleanse',
             'description' => 'The Power of Juice! This is the fast lane on the health highway. Whether you are 
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
             'old_amount' => '40.00',

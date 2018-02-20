@@ -15,10 +15,10 @@
                                 </a>
                             </div>
                             <div class="product-details">
-                                <h3 class="product-title">
+                                <h2 class="product-title">
                                     <a href="{{url('product/'.$product->slug)}}">
                                     {!! $product->title !!} </a>
-                                </h3>
+                                </h2>
                                 @if($product -> category)
                                     <p class="product-category-label"> {{ $product->category }} </p>
                                 @endif
@@ -54,5 +54,5 @@
     </div>
 
     </main>
-    <a href="#" class="btn add-to-cart-btn add-to-cart-btn--mobile">ADD TO CART</a>
+
 @endsection
