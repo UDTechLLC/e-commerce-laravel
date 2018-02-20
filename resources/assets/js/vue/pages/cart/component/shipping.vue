@@ -67,6 +67,7 @@
                             this.selectedCountry = response.data.selected;
                             this.states = response.data.states;
                             this.$EventBus.$emit('updateShipping', response.data.shipping);
+                            Vue.localStorage.set('shippingCountry', this.selectedCountry);
                         },
                         error => console.log('error')
                 )
