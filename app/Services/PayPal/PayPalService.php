@@ -41,13 +41,13 @@ class PayPalService
     /**
      * Set amount.
      *
-     * @param int $amount
+     * @param string $amount
      */
-    public function setAmount(int $amount)
+    public function setAmount(string $amount)
     {
         $this->amount = $amount;
 
-        $this->parameters['amount'] = (float) $this->amount;
+        $this->parameters['amount'] = $this->amount;
     }
 
     /**

@@ -28,11 +28,11 @@ class PayPalController extends Controller
     public function returnUrl()    //todo: add order
     {
         $this->setCallbacks();
-        $this->service->setAmount(20);    //todo: get from order
+        $this->service->setAmount("20.99");    //todo: get from order
 
         $response = $this->service->completePurchase();
 
-        return $response->redirect();
+        return $response->getData();
     }
 
     public function cancelUrl()
