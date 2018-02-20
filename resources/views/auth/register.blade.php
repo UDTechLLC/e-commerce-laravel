@@ -1,6 +1,10 @@
 @extends('web.layouts.app')
-
+@section('style')
+    <link rel="stylesheet" href="{{ asset('web/css/app.css') }}">
+@endsection
 @section('content')
+ <main>
+<div class="main">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -74,4 +78,6 @@
         </div>
     </div>
 </div>
+ </div>
+</main>
 @endsection

@@ -1,0 +1,127 @@
+.shop-table
+  background-color: transparent
+  border-collapse: collapse
+  border-spacing: 0
+  box-sizing: border-box
+  margin: 0
+  max-width: 100%
+  text-align: left
+  width: 100%
+
+  .product-
+    &name
+      width: 50%
+
+      @media screen and (max-width: 800px)
+        width: 35%
+
+    &price, &quantity, &subtotal
+      text-align: center
+
+    &remove
+      width: 5%
+
+  thead
+    tr
+      border-bottom: 1px solid #eaeaea
+
+      th
+        font-family: Montserrat, Arial, Helvetica, sans-serif
+        font-size: 13px
+        font-weight: 700
+        height: auto
+        letter-spacing: 0
+        line-height: normal
+        padding-bottom: 12px
+
+  tbody
+    tr
+      border-bottom: 1px solid #eaeaea
+      height: 140px
+
+      td
+        color: #494949
+        font-family: "PT Sans", Arial, Helvetica, sans-serif
+        font-size: 15px
+        font-weight: 400
+        line-height: 1.87
+        padding: 25px 0
+
+        .product-thumbnail
+          float: left
+          margin-right: 25px
+          width: 90px
+
+          a
+            outline: none
+
+            img
+              border-style: none
+              vertical-align: top
+              max-width: 90px
+              height: auto
+
+        .product-info
+          margin-left: 115px
+          margin-top: 20px
+
+          .product-title
+            color: #2b2e32
+            font-family: "PT Sans", Arial, Helvetica, sans-serif
+            font-size: 15px
+            font-weight: 400
+            letter-spacing: 0
+            line-height: 1.87
+            margin-top: 0
+            margin-bottom: 5px
+            outline: none
+            text-decoration: none
+
+            &:hover
+              color: #ed1c24
+
+        .quantity
+          border: 1px solid #eaeaea
+          display: inline-block
+          margin: 0 auto
+          overflow: hidden
+
+          input
+            background-color: #ffffff
+            border: 0
+            border-radius: 0
+            color: #494949
+            float: left
+            font-size: 13px
+            height: 36px
+            line-height: 16px
+            margin: 0
+            padding: 0
+            text-align: center
+            vertical-align: middle
+            -webkit-appearance: none
+            width: 36px
+
+            &.minus, &.plus
+              cursor: pointer
+
+              &:hover
+                background-color: #f6f6f6
+
+            &.minus
+              border-right: 1px solid #eaeaea
+
+            &.plus
+              border-left: 1px solid #eaeaea
+
+            &.qty
+              -moz-appearance: textfield
+
+        .product-subtotal-amount
+          color: #ed1c24
+
+        .remove
+          color: #2b2e32
+          font-size: 24px
+          float: right
+          text-decoration: none

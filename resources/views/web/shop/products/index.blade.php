@@ -5,39 +5,45 @@
         <div class="shop-grid-wrapper">
             <div class="wrapper">
                 <div class="shop-items-wrapper">
-            @foreach($product as $products)
+
+            @foreach($products as $product)
+
                         <div class="shop-item">
                             <div class="image-wrapper">
-                                <a href="#">
-                                    <img src="{!! $products->getFirstMediaUrl('preview') !!}" />
+                                <a href="{{url('product/'.$product->slug)}}">
+                                    <img src="{!! $product->getFirstMediaUrl('preview') !!}" />
                                 </a>
                             </div>
                             <div class="product-details">
                                 <h3 class="product-title">
-                                    <a href="{{url('products/'.$products->slug)}}">
-                                    {!! $products->title !!} </a>
+                                    <a href="{{url('product/'.$product->slug)}}">
+                                    {!! $product->title !!} </a>
                                 </h3>
-                                @if($products -> category)
-                                    <p class="product-category-label"> {{ $products->category }} </p>
+                                @if($product -> category)
+                                    <p class="product-category-label"> {{ $product->category }} </p>
                                 @endif
 
                             </div>
                             <div class="product-price-block">
                                 <div class="product-price">
 									<span class="product-amount">
-                                        @if($products->old_amount)
+                                         {{--@if($products -> category)--}}
+                                        {{--<p>Category {{ $product->category }}</p>--}}
+                                        {{--@endif--}}
+                                        @if($product->old_amount)
                                         <del>
-                                            ${{$products->old_amount}}
+                                            ${{$product->old_amount}}
                                         </del>
                                         @endif
 										<ins>
-                                            ${{$products->amount}}
+                                            ${{$product->amount}}
                                         </ins>
 									</span>
                                 </div>
                             </div>
-                            <add-to-cart
-                                    product-slug="{{ $products->slug }}"
+
+                            <add-to-card
+                                    product-slug="{{ $product->slug }}"
                             >
                             </add-to-cart>
                         </div>
@@ -48,4 +54,5 @@
     </div>
 
     </main>
+    <a href="#" class="btn add-to-cart-btn add-to-cart-btn--mobile">ADD TO CART</a>
 @endsection

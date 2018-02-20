@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
         return view("web.shop.products.index", [
-            'product'=>$product
+            'products'=>$product
         ]);
     }
 
@@ -52,7 +52,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+//        return view('web.shop.products.12week-custom-training-plan', compact('product'));
 //        return view('web.shop.products.never-stop-moving-e-book', compact('product'));
+//        return view('web.shop.products.shedfat-infuser-bottle', compact('product'));
+//        return view('web.shop.products.resistance-bands',compact('product'));
+//        return view('web.shop.products.what-to-eat-in-the-streets',compact('product'));
         return view('web.shop.products.show', compact('product'));
     }
 

@@ -46,11 +46,17 @@
                         </ul>
                     </div>
                     <div class="product-price-block">
-                        <div class="product-price">
-									<span class="product-amount">
-                                        {{--{{ $product->amount }}--}}
-										$100.00
-									</span>
+                        <div class="product-price has-old-price">
+                            @if($product->old_amount)
+                                <span class="product-amount product-amount--old">
+                                <span class="currency">$</span>
+                                <span>{{ $product->old_amount }}</span>
+                            </span>
+                            @endif
+                            <span class="product-amount">
+                            <span class="currency">$</span>
+                            <span>{{ $product->amount }}</span>
+                        </span>
                         </div>
                     </div>
                     <add-to-cart
@@ -396,4 +402,5 @@
     </div>
 </div>
 </main>
+    <a href="#" class="btn add-to-cart-btn add-to-cart-btn--mobile">ADD TO CART</a>
 @endsection
