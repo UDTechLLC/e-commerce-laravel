@@ -58,6 +58,7 @@ class ProductController extends Controller
 //        return view('web.shop.products.resistance-bands',compact('product'));
 //        return view('web.shop.products.what-to-eat-in-the-streets',compact('product'));
 //        return view('web.shop.products.14-day-detox-guide',compact('product'));
+//        return view('web.shop.products.queen-of-the-hill', compact('product'));
         return view('web.shop.products.show', compact('product'));
     }
 
