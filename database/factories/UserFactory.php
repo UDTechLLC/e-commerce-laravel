@@ -15,10 +15,16 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'phone' => $faker->phoneNumber,
-        'password' => bcrypt("123456"),
+        'first_name'     => $faker->firstName,
+        'last_name'      => $faker->lastName,
+        'address'        => $faker->address,
+        'country'        => $faker->country,
+        'city'           => $faker->city,
+        'state'          => $faker->countryCode,
+        'postcode'       => $faker->postcode,
+        'email'          => $faker->email,
+        'phone'          => $faker->phoneNumber,
+        'password'       => bcrypt("123456"),
         'remember_token' => str_random(10),
     ];
 });
