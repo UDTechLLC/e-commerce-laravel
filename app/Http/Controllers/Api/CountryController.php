@@ -9,6 +9,11 @@ use PragmaRX\Countries\Package\Countries;
 
 class CountryController extends Controller
 {
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(Request $request)
     {
         $countries = Countries::all()->pluck('name.common');
@@ -18,7 +23,28 @@ class CountryController extends Controller
     }
 
     /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getStates(Request $request)
+    {
+        $country = ucfirst($request->get('country'));
+
+        $states = Countries::where('name.common', $country)
+            ->first()
+            ->hydrateStates()
+            ->states
+            ->sortBy('name')
+            ->pluck('name');
+
+        return response()->json(['states' => $states]);
+    }
+
+    /**
      * Get country by ip.
+     *
+     * @param $ip
      *
      * @return mixed
      */
