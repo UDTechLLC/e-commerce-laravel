@@ -51,7 +51,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '59.99',
             'amount' => '2499',
             'slug' => 'shedfat-maxx',
-            'view_name' => 'shedfat-maxx',
+            'view_name' => 'show',
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');

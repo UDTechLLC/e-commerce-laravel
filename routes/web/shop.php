@@ -10,6 +10,8 @@ Route::group([
     'namespace' => 'Web',
 ], function () {
     Route::get('/', [
+//        'prefix' =>'shop',
+        'as' => 'shop',
         'uses' => 'ProductController@index'
     ]);
 
