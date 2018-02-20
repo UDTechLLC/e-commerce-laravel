@@ -52,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="12_week_custom_meal_plan.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="12_week_custom_meal_plan.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/12_week_custom_meal_plan.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
@@ -64,11 +64,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_custom_plan_block.sass" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_custom_plan_block.sass" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/sass/_custom_plan_block.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+            <state relative-caret-position="450">
+              <caret line="120" column="58" lean-forward="false" selection-start-line="120" selection-start-column="58" selection-end-line="120" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_variables.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/main/_variables.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,7 +118,7 @@
         <entry file="file://$PROJECT_DIR$/assets/sass/base.sass">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="269">
-              <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+              <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -144,6 +154,7 @@
         <option value="$PROJECT_DIR$/assets/sass/checkout/thank_you_page/thank_you_page_bloks.sass" />
         <option value="$PROJECT_DIR$/assets/sass/checkout/billing_details.sass" />
         <option value="$PROJECT_DIR$/checkout_first.html" />
+        <option value="$PROJECT_DIR$/assets/sass/_custom_plan_block.sass" />
       </list>
     </option>
   </component>
@@ -296,7 +307,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58518000" />
+    <option name="totallyTimeSpent" value="58978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -360,14 +371,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/sass/checkout/billing_details.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
-          <caret line="128" column="37" lean-forward="false" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/sass/fonts.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -455,14 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
           <caret line="88" column="26" lean-forward="false" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/_custom_plan_block.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -715,7 +710,7 @@
     <entry file="file://$PROJECT_DIR$/assets/sass/base.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
-          <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -770,6 +765,22 @@
             <element signature="n#style#0;n#span#0;n#div#10;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#12;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/main/_variables.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/_custom_plan_block.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="120" column="58" lean-forward="false" selection-start-line="120" selection-start-column="58" selection-end-line="120" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>

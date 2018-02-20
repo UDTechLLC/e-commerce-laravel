@@ -485,6 +485,35 @@ ul {
               font-size: 16px;
               line-height: 20px; } }
 
+@media screen and (max-width: 800px) {
+  .custom-meal-plan-block-wrapper .wrapper .custom-plan-block {
+    margin-left: -15px;
+    margin-right: -15px; } }
+
+.custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block {
+  margin-right: 6%;
+  width: 54.1%; }
+  @media screen and (max-width: 800px) {
+    .custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block {
+      margin-bottom: 50px;
+      width: 100%; } }
+  .custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block .image-wrapper .desktop-image {
+    display: inline-block; }
+    @media screen and (max-width: 800px) {
+      .custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block .image-wrapper .desktop-image {
+        display: none; } }
+  .custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block .image-wrapper .mobile-image {
+    display: none; }
+    @media screen and (max-width: 800px) {
+      .custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-image-block .image-wrapper .mobile-image {
+        display: inline-block; } }
+
+.custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block {
+  width: 39.6%; }
+  @media screen and (max-width: 800px) {
+    .custom-meal-plan-block-wrapper .wrapper .custom-plan-block .custom-plan-content .custom-plan-description-block {
+      width: 100%; } }
+
 .success-stories-block-wrapper {
   padding: 55px 0 14px; }
   .success-stories-block-wrapper .wrapper .success-stories-block {
