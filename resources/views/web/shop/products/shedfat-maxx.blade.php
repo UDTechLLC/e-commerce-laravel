@@ -40,11 +40,15 @@
                                     <button class="btn">+</button>
                                 </div>
 
-                                <div class="add-to-cart-wrapper">
-                                    <a class="add-to-cart-btn" href="#">
-                                        Add to cart
-                                    </a>
-                                </div>
+                                {{--<div class="add-to-cart-wrapper">--}}
+                                    {{--<a class="add-to-cart-btn" href="#">--}}
+                                        {{--Add to cart--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                                <add-to-cart
+                                        product-slug="{{ $product->slug }}"
+                                >
+                                </add-to-cart>
                             </div>
 
                         </div>
