@@ -66,7 +66,7 @@
                                             First name
                                         </label>
                                         <input id="bdFirstName" class="form-field" name="bg_first_name" type="text"
-                                               v-validate data-vv-rules="required"
+                                               v-validate data-vv-rules="required" v-model="billing.firstName"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your first name.</span>
@@ -76,7 +76,7 @@
                                             Last name
                                         </label>
                                         <input id="bdLastName" class="form-field" name="bg_last_name" type="text"
-                                               v-validate data-vv-rules="required"
+                                               v-validate data-vv-rules="required" v-model="billing.lastName"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your last name.</span>
@@ -88,14 +88,16 @@
                                                     (optional)
                                                 </span>
                                         </label>
-                                        <input id="bdCompName" class="form-field" name="bd_comp_name" type="text"/>
+                                        <input id="bdCompName" class="form-field" name="bd_comp_name" type="text"
+                                               v-model="billing.company"
+                                        />
                                     </div>
                                     <div class="form-field-wrapper" :class="{'error': errors.has('bg_email') }">
                                         <label for="bdEmail">
                                             Email address
                                         </label>
                                         <input id="bdEmail" class="form-field" name="bg_email" type="email"
-                                               v-validate data-vv-rules="required|email"
+                                               v-validate data-vv-rules="required|email" v-model="billing.email"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your email.</span>
@@ -106,7 +108,7 @@
                                         </label>
                                         <input id="bdStreetAddress" class="form-field" name="bg_street_address"
                                                type="text" placeholder="House number and street name"
-                                               v-validate data-vv-rules="required"
+                                               v-validate data-vv-rules="required" v-model="billing.street"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your address</span>
@@ -119,35 +121,18 @@
                                                 </span>
                                         </label>
                                         <input id="bdApartments" class="form-field" name="bd_apartments" type="text"
-                                               placeholder="Apartment, suite, unit etc. (optional)"/>
+                                               placeholder="Apartment, suite, unit etc. (optional)"
+                                               v-model="billing.apartment"/>
                                     </div>
                                     <div class="form-field-wrapper half-field">
                                         <label for="bdCountry">
                                             Country
                                         </label>
                                         <!-- <input id="bdCountry" class="form-field" name="bd_country" type="text" /> -->
-                                        <select id="bdCountry" class="form-field" name="bd_country">
+                                        <select id="bdCountry" class="form-field" name="bd_country"
+                                                v-model="billing.country" @change="getCountries">
                                             <option value="">Select a country...</option>
-                                            <option value="AF">Afghanistan</option>
-                                            <option value="AL">Albania</option>
-                                            <option value="DZ">Algeria</option>
-                                            <option value="AS">American Samoa</option>
-                                            <option value="AD">Andorra</option>
-                                            <option value="AO">Angola</option>
-                                            <option value="AI">Anguilla</option>
-                                            <option value="AQ">Antarctica</option>
-                                            <option value="AG">Antigua and Barbuda</option>
-                                            <option value="AR">Argentina</option>
-                                            <option value="AM">Armenia</option>
-                                            <option value="AW">Aruba</option>
-                                            <option value="AU">Australia</option>
-                                            <option value="AT">Austria</option>
-                                            <option value="AZ">Azerbaijan</option>
-                                            <option value="BS">Bahamas</option>
-                                            <option value="BH">Bahrain</option>
-                                            <option value="BD">Bangladesh</option>
-                                            <option value="BB">Barbados</option>
-                                            <option value="BY">Belarus</option>
+                                            <option value="" v-for="country in countries" :value="country" >{{ country }}</option>
                                         </select>
                                     </div>
                                     <div class="form-field-wrapper half-field" :class="{'error': errors.has('bg_city') }">
@@ -155,7 +140,7 @@
                                             Town / City
                                         </label>
                                         <input id="bdTownCity" class="form-field" name="bg_city" type="text"
-                                               v-validate data-vv-rules="required"
+                                               v-validate data-vv-rules="required" v-model="billing.city"
                                         />
                                         <span class="error-massage" style="display: none">Please enter your city.</span>
                                     </div>
@@ -163,7 +148,18 @@
                                         <label for="bdState">
                                             State / County
                                         </label>
-                                        <input id="bdState" class="form-field" name="bd_state" type="text"/>
+
+                                        <div v-if="states.length == 0">
+                                            <input id="bdState" class="form-field" name="bd_state" type="text"
+                                                   v-model="billing.state"
+                                            />
+                                        </div>
+                                        <div v-else>
+                                        <select id="bdState" class="form-field" name="bd_country" v-model="billing.state">
+                                            <option value="">Select a option...</option>
+                                            <option value="" v-for="state in states" :value="state" >{{ state }}</option>
+                                        </select>
+                                        </div>
                                         <span class="error-massage"
                                               style="display: none">Please enter your state.</span>
                                     </div>
@@ -172,7 +168,7 @@
                                             Postcode / ZIP
                                         </label>
                                         <input id="bdZipCode" class="form-field" name="bg_post_zip" type="text"
-                                               v-validate data-vv-rules="required"
+                                               v-validate data-vv-rules="required" v-model="billing.postcode"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your postcode.</span>
@@ -182,7 +178,7 @@
                                             Phone
                                         </label>
                                         <input id="bdPhone" class="form-field" name="bg_phone" type="text"
-                                               v-validate data-vv-rules="required"
+                                               v-validate data-vv-rules="required" v-model="billing.phone"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your phone.</span>
@@ -211,6 +207,9 @@
                             </div>
                             <cart-totals
                                     :products="products"
+                                    :subTotal="subTotal"
+                                    :total="total"
+                                    :shipping="shipping"
                             ></cart-totals>
                         </div>
                         <div class="buttons-area">
@@ -230,15 +229,48 @@
 import cartTotals from './../components/cart-totals';
 
     export default ({
+        data: () => ({
+            billing: {
+                firstName: "",
+                lastName: "",
+                email: "",
+                company: "",
+                street: "",
+                apartment: "",
+                country: "",
+                state: "",
+                city: "",
+                postcode: "",
+                phone: ""
+            }
+        }),
         props: {
-            products: Array
+            products: Array,
+            subTotal: String,
+            total: Number,
+            shipping: Number,
+            countries: Array,
+            states: Array,
+            selectedCountry: String
         },
         components: {
             cartTotals
         },
+        created() {
+            this.billing.country = this.selectedCountry;
+        },
         methods: {
+            getCountries() {
+                this.$emit('updateCountry', this.billing.country);
+            },
             next() {
-                this.$emit('next', 'second');
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        // eslint-disable-next-line
+                        this.$emit('next', 'second');
+                        return;
+                    }
+                });
             }
         }
     })

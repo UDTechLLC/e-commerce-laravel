@@ -45,7 +45,7 @@
                     </th>
                     <td>
                         <span class="product-subtotal-amount">
-                            $84.00
+                            ${{ subTotal }}
                         </span>
                     </td>
                 </tr>
@@ -55,7 +55,7 @@
                     </th>
                     <td>
                         <span class="product-subtotal-amount">
-                            Flat rate: $17.99
+                            Flat rate: ${{ shipping }}
                         </span>
                     </td>
                 </tr>
@@ -66,7 +66,7 @@
                     <td>
                         <span class="product-total-amount">
                             <strong>
-                                $101.99
+                                ${{ total }}
                             </strong>
                         </span>
                     </td>
@@ -80,7 +80,10 @@
 
     export default ({
         props: {
-            products: Array
+            products: Array,
+            subTotal: String,
+            total: Number,
+            shipping: Number
         }
     })
 

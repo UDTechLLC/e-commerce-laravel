@@ -35,6 +35,13 @@
 
         <component :is="currentComponent"
                    :products="products"
+                   :countries="countries"
+                   :states="states"
+                   :selectedCountry="selectedCountry"
+                   :subTotal="subTotal"
+                   :total="total"
+                   :shipping="shipping"
+                   @updateCountry="updateCountry"
                    @next="nextStep"
         ></component>
     </div>
@@ -47,19 +54,47 @@
     export default ({
         data: () => ({
             progress: 1,
+            selectedCountry: Vue.localStorage.get('shippingCountry'),
+            countries: [],
+            states: [],
             products: [],
+            subTotal: "0",
+            shipping: 0,
             currentComponent: first
         }),
         components: {
             first,
             second
         },
+        computed: {
+            total() {
+                return Math.ceil((( Number(this.subTotal) + Number(this.shipping) )*100)/100);
+            }
+        },
         created() {
-            this.getProducts()
+            this.getProducts();
+            this.getCountries();
         },
         methods: {
             nextStep(componentName) {
-                this.currentComponent = componentName
+                this.currentComponent = componentName;
+                this.progress++;
+            },
+            getCountries() {
+                axios.get(`/api/countries?country=${this.selectedCountry}`).then(
+                        response => {
+                            this.countries = response.data.countries;
+                            this.selectedCountry = response.data.selected;
+                            this.states = response.data.states;
+                            this.shipping = response.data.shipping;
+                            Vue.localStorage.set('shippingCountry', this.selectedCountry);
+                        },
+                        error => console.log('error')
+                )
+            },
+            updateCountry(value) {
+                this.selectedCountry = value;
+                this.getCountries();
             }
         }
     })
