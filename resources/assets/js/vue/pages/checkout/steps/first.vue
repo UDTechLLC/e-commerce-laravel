@@ -61,19 +61,23 @@
                                     <h4 class="contacts-block-title">
                                         Contacts
                                     </h4>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bg_first_name') }">
                                         <label for="bdFirstName">
                                             First name
                                         </label>
-                                        <input id="bdFirstName" class="form-field" name="bd_first_name" type="text"/>
+                                        <input id="bdFirstName" class="form-field" name="bg_first_name" type="text"
+                                               v-validate data-vv-rules="required"
+                                        />
                                         <span class="error-massage"
                                               style="display: none">Please enter your first name.</span>
                                     </div>
-                                    <div class="form-field-wrapper error">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bg_last_name') }">
                                         <label for="bdLastName">
                                             Last name
                                         </label>
-                                        <input id="bdLastName" class="form-field" name="bd_last_name" type="text"/>
+                                        <input id="bdLastName" class="form-field" name="bg_last_name" type="text"
+                                               v-validate data-vv-rules="required"
+                                        />
                                         <span class="error-massage"
                                               style="display: none">Please enter your last name.</span>
                                     </div>
@@ -86,20 +90,24 @@
                                         </label>
                                         <input id="bdCompName" class="form-field" name="bd_comp_name" type="text"/>
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bg_email') }">
                                         <label for="bdEmail">
                                             Email address
                                         </label>
-                                        <input id="bdEmail" class="form-field" name="bd_email" type="email"/>
+                                        <input id="bdEmail" class="form-field" name="bg_email" type="email"
+                                               v-validate data-vv-rules="required|email"
+                                        />
                                         <span class="error-massage"
                                               style="display: none">Please enter your email.</span>
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bg_street_address') }">
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
-                                        <input id="bdStreetAddress" class="form-field" name="bd_street_address"
-                                               type="text" placeholder="House number and street name"/>
+                                        <input id="bdStreetAddress" class="form-field" name="bg_street_address"
+                                               type="text" placeholder="House number and street name"
+                                               v-validate data-vv-rules="required"
+                                        />
                                         <span class="error-massage"
                                               style="display: none">Please enter your address</span>
                                     </div>
@@ -142,11 +150,13 @@
                                             <option value="BY">Belarus</option>
                                         </select>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bg_city') }">
                                         <label for="bdTownCity">
                                             Town / City
                                         </label>
-                                        <input id="bdTownCity" class="form-field" name="bd_town_city" type="text"/>
+                                        <input id="bdTownCity" class="form-field" name="bg_city" type="text"
+                                               v-validate data-vv-rules="required"
+                                        />
                                         <span class="error-massage" style="display: none">Please enter your city.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field">
@@ -157,19 +167,23 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your state.</span>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bg_post_zip') }">
                                         <label for="bdZipCode">
                                             Postcode / ZIP
                                         </label>
-                                        <input id="bdZipCode" class="form-field" name="bd_post_zip" type="text"/>
+                                        <input id="bdZipCode" class="form-field" name="bg_post_zip" type="text"
+                                               v-validate data-vv-rules="required"
+                                        />
                                         <span class="error-massage"
                                               style="display: none">Please enter your postcode.</span>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bg_phone') }">
                                         <label for="bdPhone">
                                             Phone
                                         </label>
-                                        <input id="bdPhone" class="form-field" name="bd_phone" type="text"/>
+                                        <input id="bdPhone" class="form-field" name="bg_phone" type="text"
+                                               v-validate data-vv-rules="required"
+                                        />
                                         <span class="error-massage"
                                               style="display: none">Please enter your phone.</span>
                                     </div>
