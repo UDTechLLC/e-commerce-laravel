@@ -16,7 +16,7 @@
         <ul class="header-cart-items">
             <li class="header-cart-item" v-for="product in products">
                 <a :href="'/products/' + product.slug" class="flex flex-a--center flex-j--between">
-
+ev
                                         <span class="header-cart-item__image">
                                             <img :src="product.image" alt="">
                                         </span>

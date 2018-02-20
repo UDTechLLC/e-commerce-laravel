@@ -42,7 +42,7 @@
                                 </div>
                             </div>
 
-                            <add-to-card
+                            <add-to-cart
                                     product-slug="{{ $product->slug }}"
                             >
                             </add-to-cart>
