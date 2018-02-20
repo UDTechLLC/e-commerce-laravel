@@ -65,6 +65,18 @@ Route::group([
         'as' => '.shipping',
         'uses' => 'Api\CheckoutController@shipping'
     ]);
+    Route::get('pay', [
+        'as' => '.pay',
+        'uses' => 'Api\CheckoutController@pay'
+    ]);
+    Route::get('pay/success', [
+        'as' => '.pay.success',
+        'uses' => 'Api\CheckoutController@returnUrl',
+    ]);
+    Route::get('pay/cancel', [
+        'as' => '.pay.cancel',
+        'uses' => 'Api\CheckoutController@cancelUrl',
+    ]);
 });
 
 
