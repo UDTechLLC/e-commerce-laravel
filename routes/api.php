@@ -51,6 +51,10 @@ Route::group([
         'as'   => '.index',
         'uses' => 'Api\CountryController@index',
     ]);
+    Route::get('states', [
+        'as'   => '.states',
+        'uses' => 'Api\CountryController@getStates',
+    ]);
 });
 
 
