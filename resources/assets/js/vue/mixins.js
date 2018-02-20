@@ -22,8 +22,6 @@ Vue.mixin({
           this.isShipping = response.data.data.isShipping;
           this.countItems = response.data.data.sum.products_counts;
           this.subTotal = response.data.data.sum.products_sum;
-          this.shipping = response.data.data.sum.shipping_sum;
-          this.total = response.data.data.sum.total_sum;
         },
         error => console.log('error')
       )
@@ -33,8 +31,6 @@ Vue.mixin({
       this.products = response.data.data.products.data;
       this.countItems = response.data.data.sum.products_counts;
       this.subTotal = response.data.data.sum.products_sum;
-      this.shipping = response.data.data.sum.shipping_sum;
-      this.total = response.data.data.sum.total_sum;
     },
 
     makeCardHash() {

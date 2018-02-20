@@ -101,17 +101,27 @@
             isShipping: false,
             countItems: 0,
             subTotal: 0,
-            shipping: 0,
-            total: 0
+            shipping: 0
         }),
         components: {
             productList,
             shipping
         },
+        computed: {
+          total() {
+              return Number(this.subTotal) + Number(this.shipping);
+          }
+        },
         created() {
             this.getProducts();
             this.$EventBus.$on('updateProduct', this.updateProducts);
+            this.$EventBus.$on('updateShipping', this.updateShipping);
         },
+        methods: {
+            updateShipping(value) {
+                this.shipping = value;
+            }
+        }
     })
 
 </script>

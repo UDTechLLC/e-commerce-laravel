@@ -66,6 +66,7 @@
                             this.countries = response.data.countries;
                             this.selectedCountry = response.data.selected;
                             this.states = response.data.states;
+                            this.$EventBus.$emit('updateShipping', response.data.shipping);
                         },
                         error => console.log('error')
                 )
