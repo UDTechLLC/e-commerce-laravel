@@ -15,17 +15,18 @@ class CartTransformer extends TransformerAbstract
      *
      * @return array
      */
-    public function transform(Cart $cart)
+    public function transform(Cart $cart): array
     {
+        $productSum = $this->getProductsSum($cart);
+        $isShipping = $this->isShipping($cart);
+
         return [
-            'id'       => $cart->getKey(),
-            'products' => fractal($cart->products, new ProductTransformer()),
-            'isShipping' => $this->isShipping($cart),
-            'sum'      => [
+            'id'         => $cart->getKey(),
+            'products'   => fractal($cart->products, new ProductTransformer()),
+            'isShipping' => $isShipping,
+            'sum'        => [
                 'products_counts' => $this->getProductsCount($cart),
-                'products_sum' => $this->getProductsSum($cart),
-                'shipping_sum' => $this->getShippingSum(),
-                'total_sum' => $this->getProductsSum($cart) + $this->getShippingSum(),
+                'products_sum'    => (string)$productSum,
             ],
         ];
     }
@@ -57,42 +58,14 @@ class CartTransformer extends TransformerAbstract
         return $count;
     }
 
-    private function getShippingSum()
-    {
-        $country = $this->getDefaultCountry();
-
-        return $country === 'United States' || $country === 'Canada'
-            ? 17.99
-            : 6.99;
-    }
-
     /**
-     * Get country by ip.
+     * Check shipping.
      *
-     * @return mixed
+     * @param Cart $cart
+     *
+     * @return bool
      */
-    private function getDefaultCountry()
-    {
-        $http = new Client();
-
-        $response = $this->decodeResponse($http->get("http://ip-api.com/json/{$_SERVER['REMOTE_ADDR']}"));
-
-        return isset($response->country) ?: 'United States';
-    }
-
-    /**
-     * Decode response.
-     *
-     * @param $response
-     *
-     * @return mixed
-     */
-    private function decodeResponse($response)
-    {
-        return json_decode((string)$response->getBody());
-    }
-
-    private function isShipping(Cart $cart)
+    private function isShipping(Cart $cart): bool
     {
         foreach ($cart->products as $product) {
             if ($product->isVirtual) {
