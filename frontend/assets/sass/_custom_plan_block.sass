@@ -85,3 +85,38 @@
                   @media screen and (max-width: 490px)
                     font-size: 16px
                     line-height: 20px
+
+.custom-meal-plan-block-wrapper
+  .wrapper
+    .custom-plan-block
+      @media screen and (max-width: $breakpoint-mobile)
+        margin-left: -15px
+        margin-right: -15px
+
+      .custom-plan-content
+        .custom-plan-image-block
+          margin-right: 6%
+          width: 54.1%
+
+          @media screen and (max-width: $breakpoint-mobile)
+            margin-bottom: 50px
+            width: 100%
+
+          .image-wrapper
+            .desktop-image
+              display: inline-block
+
+              @media screen and (max-width: $breakpoint-mobile)
+                display: none
+
+            .mobile-image
+              display: none
+
+              @media screen and (max-width: $breakpoint-mobile)
+                display: inline-block
+
+        .custom-plan-description-block
+          width: 39.6%
+
+          @media screen and (max-width: $breakpoint-mobile)
+            width: 100%

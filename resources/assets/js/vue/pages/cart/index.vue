@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="cart-block-wrapper">
+        <div class="cart-block-wrapper" v-if="products.length > 0">
             <div class="wrapper">
                 <form class="cart-form" action="" method="post">
                     <div class="cart-block">
@@ -10,7 +10,7 @@
                             </h2>
                         </div>
                         <product-list
-                            :products="products"
+                                :products="products"
                         ></product-list>
                     </div>
                 </form>
@@ -18,57 +18,11 @@
             <div class="cart-bottom-block-wrapper">
                 <div class="wrapper">
                     <div class="cart-bottom-block">
-                        <div class="culculate-shiping-block-wrapper">
-                            <div class="cart-header-block">
-                                <h2 class="cart-heading">
-                                    Calculate shipping
-                                </h2>
-                            </div>
-                            <form class="culculate-shiping-form" action="" name="" method="post">
-                                <div class="culculate-shiping-form-block">
-                                    <div class="cart-form-row">
-                                        <div class="shiping-select-wrapper">
-                                            <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state">
-                                                <option value="">Select a country…</option>
-                                                <option value="AX">Åland Islands</option>
-                                                <option value="AF">Afghanistan</option>
-                                                <option value="AL">Albania</option>
-                                                <option value="DZ">Algeria</option>
-                                                <option value="AS">American Samoa</option>
-                                                <option value="AD">Andorra</option>
-                                                <option value="AO">Angola</option>
-                                                <option value="AI">Anguilla</option>
-                                                <option value="AQ">Antarctica</option>
-                                                <option value="AG">Antigua and Barbuda</option>
-                                                <option value="AR">Argentina</option>
-                                                <option value="AM">Armenia</option>
-                                                <option value="AW">Aruba</option>
-                                                <option value="AU">Australia</option>
-                                                <option value="AT">Austria</option>
-                                                <option value="AZ">Azerbaijan</option>
-                                                <option value="BS">Bahamas</option>
-                                                <option value="BH">Bahrain</option>
-                                                <option value="BD">Bangladesh</option>
-                                                <option value="BB">Barbados</option>
-                                                <option value="BY">Belarus</option>
-                                            </select>
-                                            <div class="select-arrow" style="height: 36px; width: 36px; line-height: 36px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-form-field-wrapper left-wrapper">
-                                        <input class="cart-form-field" value="" placeholder="State / county" name="calc_shipping_state" id="calc_shipping_state" type="text" />
-                                    </div>
-                                    <div class="cart-form-field-wrapper right-wrapper">
-                                        <input class="cart-form-field" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode" type="text" />
-                                    </div>
-                                    <div class="clear"></div>
-                                    <p class="shiping-button-wrapper">
-                                        <button type="submit" name="calc_shipping" value="1" class="shiping-update-button">Update totals</button>
-                                    </p>
-                                </div>
-                            </form>
-                        </div>
-                     <!--   <div class="promotional-code-block-wrapper">
+                        <shipping
+                                v-if="isShipping"
+                        ></shipping>
+
+                        <!--<div class="promotional-code-block-wrapper">
                             <div class="cart-header-block">
                                 <h2 class="cart-heading">
                                     Have A Promotional Code?
@@ -134,27 +88,43 @@
                 </div>
             </div>
         </div>
+        <empty-cart v-else></empty-cart>
     </div>
 </template>
 <script type="text/babel">
 
     import productList from './component/product-list';
+    import shipping from './component/shipping';
+    import emptyCart from './component/empty-cart';
 
     export default ({
         data: () => ({
             products: [],
+            isShipping: false,
             countItems: 0,
             subTotal: 0,
-            shipping: 0,
-            total: 0
+            shipping: 0
         }),
         components: {
-          productList
+            productList,
+            shipping,
+            emptyCart
+        },
+        computed: {
+          total() {
+              return Number(this.subTotal) + Number(this.shipping);
+          }
         },
         created() {
             this.getProducts();
             this.$EventBus.$on('updateProduct', this.updateProducts);
+            this.$EventBus.$on('updateShipping', this.updateShipping);
         },
+        methods: {
+            updateShipping(value) {
+                this.shipping = value;
+            }
+        }
     })
 
 </script>

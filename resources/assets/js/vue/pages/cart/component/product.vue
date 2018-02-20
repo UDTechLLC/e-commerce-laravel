@@ -2,12 +2,12 @@
     <tr class="cart-row">
         <td class="product-name">
             <div class="product-thumbnail">
-                <a :href="'/products/' + product.slug">
+                <a :href="'/product/' + product.slug">
                     <img :src="product.image"/>
                 </a>
             </div>
             <div class="product-info">
-                <a class="product-title" :href="'/products/' + product.slug">
+                <a class="product-title" :href="'/product/' + product.slug">
                     {{ product.title }}
                 </a>
             </div>
@@ -27,7 +27,7 @@
         </td>
         <td class="product-subtotal">
                      <span class="product-subtotal-amount">
-                           {{ product.total_sum }}
+                           ${{ product.total_sum }}
                      </span>
         </td>
         <td class="product-remove">
