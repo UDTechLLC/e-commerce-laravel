@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="cart-block-wrapper">
+        <div class="cart-block-wrapper" v-if="products.length > 0">
             <div class="wrapper">
                 <form class="cart-form" action="" method="post">
                     <div class="cart-block">
@@ -88,12 +88,14 @@
                 </div>
             </div>
         </div>
+        <empty-cart v-else></empty-cart>
     </div>
 </template>
 <script type="text/babel">
 
     import productList from './component/product-list';
     import shipping from './component/shipping';
+    import emptyCart from './component/empty-cart';
 
     export default ({
         data: () => ({
@@ -105,7 +107,8 @@
         }),
         components: {
             productList,
-            shipping
+            shipping,
+            emptyCart
         },
         computed: {
           total() {

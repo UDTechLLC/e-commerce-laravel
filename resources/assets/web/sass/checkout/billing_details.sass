@@ -89,6 +89,9 @@
           justify-content: space-between
           flex-wrap: wrap
 
+          &.finish-order-step
+            border: none
+
           .contacts-block-wrapper
             width: 40%
 
@@ -114,6 +117,17 @@
                 margin: 0 0 40px
                 position: relative
                 width: 100%
+
+                &.error
+                  .form-field
+                    border-color: #eb212e
+
+                  .error-massage
+                    color: #eb212e
+                    display: block !important
+                    font-family: "PT Sans", Arial, Helvetica, sans-serif
+                    font-size: 12.5px
+                    font-weight: 400
 
                 &.half-field
                   width: 46%
@@ -187,6 +201,12 @@
 
           .cart-review-block-wrapper
             width: 56%
+
+            &.finish-order-step
+              width: 100%
+
+              .cart-review-block
+                margin-bottom: 0
 
             @media screen and (max-width: 767px)
               display: none
