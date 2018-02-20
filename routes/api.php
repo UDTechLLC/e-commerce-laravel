@@ -37,10 +37,20 @@ Route::group([
         ]);
 
         Route::delete('remove/{product}/all', [
-            'as' => 'remove',
-            'uses' => 'Api\CartController@removeAll'
+            'as'   => 'remove',
+            'uses' => 'Api\CartController@removeAll',
         ]);
     });
+});
+
+Route::group([
+    'as'     => '.countries',
+    'prefix' => 'countries',
+], function () {
+    Route::get('/', [
+        'as'   => '.index',
+        'uses' => 'Api\CountryController@index',
+    ]);
 });
 
 
