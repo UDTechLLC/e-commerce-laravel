@@ -18,7 +18,6 @@ class CartTransformer extends TransformerAbstract
     public function transform(Cart $cart): array
     {
         $productSum = $this->getProductsSum($cart);
-        $shippingSum = $this->getShippingSum();
         $isShipping = $this->isShipping($cart);
 
         return [
@@ -28,10 +27,6 @@ class CartTransformer extends TransformerAbstract
             'sum'        => [
                 'products_counts' => $this->getProductsCount($cart),
                 'products_sum'    => (string)$productSum,
-                'shipping_sum'    => (string)$shippingSum,
-                'total_sum'       => $isShipping
-                    ? (string)($productSum + $shippingSum)
-                    : 0
             ],
         ];
     }
@@ -61,48 +56,6 @@ class CartTransformer extends TransformerAbstract
         }
 
         return $count;
-    }
-
-    /**
-     * Get shipping sum by country.
-     *
-     * @param null $country
-     *
-     * @return float
-     */
-    private function getShippingSum($country = null)
-    {
-        $country = $country ?? $this->getDefaultCountry();
-
-        return $country === 'United States' || $country === 'Canada'
-            ? 17.99
-            : 6.99;
-    }
-
-    /**
-     * Get country by ip.
-     *
-     * @return mixed
-     */
-    private function getDefaultCountry()
-    {
-        $http = new Client();
-
-        $response = $this->decodeResponse($http->get("http://ip-api.com/json/{$_SERVER['REMOTE_ADDR']}"));
-
-        return isset($response->country) ?: 'United States';
-    }
-
-    /**
-     * Decode response.
-     *
-     * @param $response
-     *
-     * @return mixed
-     */
-    private function decodeResponse($response)
-    {
-        return json_decode((string)$response->getBody());
     }
 
     /**
