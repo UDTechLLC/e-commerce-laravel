@@ -10,7 +10,7 @@
                 <div class="cart-form-row">
                     <div class="shiping-select-wrapper">
                         <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state"
-                                v-model="selectedCountry">
+                                v-model="selectedCountry" @change="getState">
                             <option value="" v-for="country in countries" :value="country" >{{ country }}</option>
                         </select>
                         <div class="select-arrow" style="height: 36px; width: 36px; line-height: 36px;"></div>
@@ -54,6 +54,9 @@
                         },
                         error => console.log('error')
                 )
+            },
+            getState() {
+
             },
             updateShipping() {
                 console.log('update')
