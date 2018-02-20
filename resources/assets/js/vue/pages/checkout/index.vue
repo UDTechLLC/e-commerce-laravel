@@ -9,16 +9,16 @@
                     <li class="checked">
                         <div class="icon shopping-cart"></div>
                         <span>1. Shopping Cart</span></li>
-                    <li class="active" data-page="col-1">
+                    <li :class="{active: progress == 1, checked: progress > 1}" data-page="col-1">
                         <div class="icon billing-details"></div>
                         <span>2. Billing Details</span></li>
-                    <li class="disabled" data-page="col-2">
+                    <li :class="{disabled: progress < 2, active: progress == 2, checked: progress > 2 }" data-page="col-2">
                         <div class="icon billing-details shipping-address"></div>
                         <span>3. Shipping Address</span></li>
-                    <li class="disabled" data-page="order_review">
+                    <li :class="{disabled: progress < 3, active: progress == 3, checked: progress > 3 }" data-page="order_review">
                         <div class="icon payment"></div>
                         <span>4. Payment</span></li>
-                    <li class="disabled" data-page="checkout-process-final">
+                    <li :class="{disabled: progress < 4, active: progress == 4, checked: progress > 4 }" data-page="checkout-process-final">
                         <div class="icon finish-order"></div>
                         <span>5. Finish Order</span></li>
                 </ul>
@@ -46,6 +46,7 @@
 
     export default ({
         data: () => ({
+            progress: 1,
             products: [],
             currentComponent: first
         }),
