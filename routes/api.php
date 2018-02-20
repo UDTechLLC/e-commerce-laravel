@@ -53,6 +53,16 @@ Route::group([
     ]);
 });
 
+Route::group([
+    'as' => '.checkout',
+    'prefix' => 'checkout',
+], function () {
+    Route::get('billing', [
+        'as' => '.billing',
+        'uses' => 'Api\CheckoutController@billing',
+    ]);
+});
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
