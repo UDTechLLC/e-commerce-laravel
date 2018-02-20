@@ -10,15 +10,28 @@
                 <div class="cart-form-row">
                     <div class="shiping-select-wrapper">
                         <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state"
-                                v-model="selectedCountry" @change="getState">
+                                v-model="selectedCountry" @change="getCountries">
+                            <option value="">Select a country…</option>
                             <option value="" v-for="country in countries" :value="country" >{{ country }}</option>
                         </select>
                         <div class="select-arrow" style="height: 36px; width: 36px; line-height: 36px;"></div>
                     </div>
                 </div>
                 <div class="cart-form-field-wrapper left-wrapper">
+                    <div v-if="states.length == 0">
                     <input class="cart-form-field" value="" placeholder="State / county" name="calc_shipping_state"
                            id="calc_shipping_state" type="text"/>
+                    </div>
+                    <div class="cart-form-row" v-else>
+                        <div class="shiping-select-wrapper">
+                            <select name="calc_shipping_country" class="country_to_state"
+                                    v-model="selectedState">
+                                <option value="">Select a option…</option>
+                                <option value="" v-for="state in states" :value="state" >{{ state }}</option>
+                            </select>
+                            <div class="select-arrow" style="height: 36px; width: 36px; line-height: 36px;"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="cart-form-field-wrapper right-wrapper">
                     <input class="cart-form-field" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode"
@@ -38,25 +51,24 @@
 <script type="text/babel">
     export default ({
         data: () => ({
-            selected: "",
             countries: [],
-            selectedCountry: ''
+            states: [],
+            selectedCountry: '',
+            selectedState: ''
         }),
         created() {
             this.getCountries();
         },
         methods: {
             getCountries() {
-                axios.get('/api/countries').then(
+                axios.get(`/api/countries?country=${this.selectedCountry}`).then(
                         response => {
                             this.countries = response.data.countries;
-                            this.selectedCountry = response.data.default
+                            this.selectedCountry = response.data.selected;
+                            this.states = response.data.states;
                         },
                         error => console.log('error')
                 )
-            },
-            getState() {
-
             },
             updateShipping() {
                 console.log('update')
