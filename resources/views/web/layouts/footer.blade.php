@@ -3,7 +3,7 @@
         <div class="wrapper">
             <div class="flex flex-j--between flex-a--center flex--m-block">
                 <ul class="first-footer__menu">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{url('/')}}">Home</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">Return Policy</a></li>
