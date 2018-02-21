@@ -1,0 +1,266 @@
+.ingredients
+  margin-top: 60px
+  @media screen and (max-width: $breakpoint-mobile)
+    display: block
+    margin-top: 30px
+    &__item
+      display: inline-block
+
+  &__item
+    text-align: center
+    @media screen and (max-width: $breakpoint-mobile)
+      width: 32%
+      margin-bottom: 20px
+    @media screen and (max-width: 600px)
+      width: 49%
+  &__img
+    height: 90px
+    width: 100%
+    @media screen and (max-width: 400px)
+      height: 90px
+      img
+        max-width: 150px
+  &__text
+    font-size: 20px
+    line-height: 26px
+    @media screen and (max-width: 400px)
+      font-size: 16px
+      line-height: 22px
+  &__table
+    width: 100%
+    font-family: $Montserrat
+    margin-top: 60px
+    thead
+      background: $red
+      color: white
+      font-size: 13px
+      td
+        padding: 10px 15px
+    tbody
+      td
+        padding: 17px 15px
+        font-size: 17px
+        letter-spacing: -.4px
+    tr
+      td
+        text-align: center
+        box-sizing: border-box
+        width: 20%
+        border-bottom: 1px solid #eaeaea
+        &:first-child
+          text-align: left
+          width: 60%
+        @media screen and (max-width: 1200px)
+          &:first-child
+            width: 50%
+          &:nth-child(2)
+            width: 25%
+          &:nth-child(3)
+            width: 25%
+        @media screen and (max-width: 965px)
+          &:nth-child(2)
+            width: 20%
+          &:nth-child(3)
+            width: 30%
+        @media screen and (max-width: $breakpoint-mobile)
+          &:first-child
+            width: 60%
+          &:nth-child(2)
+            width: 20%
+          &:nth-child(3)
+            width: 20%
+  &__table-info
+    font-size: 13px
+    margin: 10px 0 30px 0
+    display: block
+    font-family: $Montserrat
+    @media screen and (max-width: $breakpoint-mobile)
+      padding: 0 20px
+  &__other-wrapper
+    width: 100%
+    @media screen and (max-width: $breakpoint-mobile)
+      display: block
+      padding: 0 20px
+    .ingredients__other-item
+      width: 20%
+      padding: 0
+      position: relative
+      &:first-child
+        width: 60%
+      @media screen and (max-width: 1200px)
+        &:first-child
+          width: 50%
+        &:nth-child(2)
+          width: 25%
+        &:nth-child(3)
+          width: 25%
+      @media screen and (max-width: 965px)
+        &:nth-child(2)
+          width: 20%
+        &:nth-child(3)
+          width: 30%
+      @media screen and (max-width: $breakpoint-mobile)
+        padding: 0
+        width: 100%
+        margin-bottom: 20px
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3)
+          width: 100%
+        &:nth-child(2)
+          display: none
+  &__other-title
+    margin: 0
+  &__other-text
+    margin: 0 0 35px
+    font-family: $Montserrat
+    &:last-child
+      margin-bottom: 0
+  &__other-line
+    width: 2px
+    height: 100%
+    position: absolute
+    left: 50%
+    margin-left: -1px
+    background: #eaeaea
+  &__other-label
+    background: #f7f6f7
+    border: 1px solid #eaeaea
+    border-radius: 2px
+    padding: 15px 0
+    text-align: center
+    width: 231px
+    margin: 0 0 55px
+    font-size: 13px
+    font-family: $Montserrat
+    font-weight: bold
+    &:last-child
+      margin-bottom: 0
+    @media screen and (max-width: $breakpoint-mobile)
+      margin-bottom: 20px
+    @media screen and (max-width: 700px)
+      background: none
+      padding: 0
+      width: 100%
+      border: 0
+      display: block
+      text-align: left
+      margin-bottom: 10px
+
+
+
+.maxx-description
+  color: white
+  font-size: 16px
+  background: url("../images/full-product/shedfat-maxx/description-maxx.jpg") no-repeat center / cover
+  @media screen and (max-width: 1200px)
+    padding-left:  20px
+    padding-right:  20px
+  p
+    font-size: 20px
+    line-height: 26px
+  .section__icon-wrapper
+    width: inherit
+  &__wrapper
+    @media screen and (max-width: $breakpoint-mobile)
+      &>.block-75
+        &>.maxx-description__icons
+          display: block
+          &>div
+            display: inline-block
+            width: 49%
+            text-align: center
+            vertical-align: top
+  &__title
+    display: flex
+    margin: 0
+    font-size: 23px
+    letter-spacing: -.5px
+    &:before
+      content: ''
+      display: block
+      width: 9px
+      height: 9px
+      border-radius: 50%
+      background: $red
+      margin-right: 10px
+      margin-top: 12px
+  &__blocks
+    margin-top: 40px
+    .maxx-description__title
+      text-align: left
+    .maxx-description__text
+      text-align: left
+  &__right-block
+    @media screen and (min-width: $breakpoint-mobile + 1)
+      padding-left: 30px
+      .maxx-description__title
+        &:nth-child(3)
+          margin-top: 50px
+
+  &__left-block
+    @media screen and (min-width: $breakpoint-mobile + 1)
+      padding-right: 25px
+  .bottle-description
+    margin-top: 40px
+    max-width: 288px
+    @media screen and (max-width: $breakpoint-mobile)
+      width: 36%
+  @media screen and (max-width: $breakpoint-mobile)
+    .text-right
+      text-align: center
+
+.maxx-directions
+  .wrapper
+    @media screen and (max-width: 1200px)
+      padding: 0 20px
+  &__wrapper
+    position: relative
+
+  &__line
+    position: absolute
+    height: 1px
+    background: $red
+    width: 100%
+    left: 0
+    top: 25px
+    @media screen and (max-width: $breakpoint-mobile)
+      display: none
+  &__item
+    width: 33.33%
+    text-align: center
+    z-index: 1
+    @media screen and (max-width: $breakpoint-mobile)
+      width: 100%
+      display: flex
+      align-items: center
+      text-align: left
+      margin: 20px 0
+  &__item-num
+    display: block
+    width: 50px
+    height: 50px
+    text-align: center
+    line-height: 50px
+    background: $red
+    color: white
+    font-size: 30px
+    margin: auto
+    border-radius: 50%
+    font-family: $Montserrat
+    @media screen and (max-width: $breakpoint-mobile)
+      margin: 0 20px 0 0
+  &__item-text
+    font-size: 18px
+    line-height: 26px
+    max-width: 320px
+    margin: 25px auto 0
+    @media screen and (max-width: $breakpoint-mobile)
+      margin: 0
+      max-width: calc(100% - 75px)
+  .info-text
+    font-size: 18px
+    margin-top: 30px
+    opacity: .7
+    @media screen and (max-width: $breakpoint-mobile)
+      margin-top: 10px
