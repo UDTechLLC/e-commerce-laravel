@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="product-button-block">
-                            <div class="flex flex-a--center">
+                            <div class="flex flex-a--center wrapper-btns-buy-count">
 
                                 <div class="btn-wrapper-product-count flex flex-a--center">
                                     <button class="btn">-</button>
@@ -40,15 +40,12 @@
                                     <button class="btn">+</button>
                                 </div>
 
-                                {{--<div class="add-to-cart-wrapper">--}}
-                                    {{--<a class="add-to-cart-btn" href="#">--}}
-                                        {{--Add to cart--}}
-                                    {{--</a>--}}
-                                {{--</div>--}}
+                                <div class="add-to-cart-wrapper">
                                 <add-to-cart
                                         product-slug="{{ $product->slug }}"
                                 >
                                 </add-to-cart>
+                                </div>
                             </div>
 
                         </div>
