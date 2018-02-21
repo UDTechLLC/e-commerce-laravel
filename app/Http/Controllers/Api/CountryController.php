@@ -38,6 +38,8 @@ class CountryController extends Controller
      */
     public function getStates(string $country)
     {
+        $country = ucfirst($country);
+
         $states = Countries::where('name.common', $country)
             ->first()
             ->hydrateStates()
