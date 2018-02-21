@@ -27,7 +27,7 @@
                         </div>
                         <div class="product-info">
                             <a class="product-title" href="#">
-                                {{ product.title }}
+                                {{ product.title }} <span>x {{ product.count }}</span>
                             </a>
                         </div>
                     </td>
