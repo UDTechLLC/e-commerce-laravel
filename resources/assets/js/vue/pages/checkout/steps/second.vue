@@ -49,13 +49,17 @@
                                         <label for="bdFirstName">
                                             First name
                                         </label>
-                                        <input id="bdFirstName" class="form-field" name="bd_first_name" type="text" />
+                                        <input id="bdFirstName" class="form-field" name="bd_first_name" type="text"
+                                            v-model="shippingInfo.firstName"
+                                        />
                                     </div>
                                     <div class="form-field-wrapper">
                                         <label for="bdLastName">
                                             Last name
                                         </label>
-                                        <input id="bdLastName" class="form-field" name="bd_last_name" type="text" />
+                                        <input id="bdLastName" class="form-field" name="bd_last_name" type="text"
+                                               v-model="shippingInfo.lastName"
+                                        />
                                     </div>
                                     <div class="form-field-wrapper">
                                         <label for="bdCompName">
@@ -64,35 +68,45 @@
                                                         (optional)
                                                     </span>
                                         </label>
-                                        <input id="bdCompName" class="form-field" name="bd_comp_name" type="text" />
+                                        <input id="bdCompName" class="form-field" name="bd_comp_name" type="text"
+                                               v-model="shippingInfo.company"
+                                        />
                                     </div>
                                     <div class="form-field-wrapper">
                                         <label for="bdEmail">
                                             Email address
                                         </label>
-                                        <input id="bdEmail" class="form-field" name="bd_email" type="email" />
+                                        <input id="bdEmail" class="form-field" name="bd_email" type="email"
+                                               v-model="shippingInfo.email"
+                                        />
                                     </div>
                                     <div class="form-field-wrapper">
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
-                                        <input id="bdStreetAddress" class="form-field" name="bd_street_address" type="text" placeholder="House number and street name" />
+                                        <input id="bdStreetAddress" class="form-field" name="bd_street_address"
+                                               type="text" placeholder="House number and street name"
+                                               v-model="shippingInfo.street"
+                                        />
                                     </div>
                                     <div class="form-field-wrapper">
                                         <label for="bdApartments">
                                             Apartment, suite, unit etc.
                                                     <span>
-                                                                (optional)
-                                                            </span>
+                                                        (optional)
+                                                    </span>
                                         </label>
-                                        <input id="bdApartments" class="form-field" name="bd_apartments" type="text" placeholder="Apartment, suite, unit etc. (optional)" />
+                                        <input id="bdApartments" class="form-field" name="bd_apartments" type="text"
+                                               placeholder="Apartment, suite, unit etc. (optional)"
+                                               v-model="shippingInfo.apartment"
+                                        />
                                     </div>
                                     <div class="form-field-wrapper half-field">
                                         <label for="bdCountry">
                                             Country
                                         </label>
                                         <!-- <input id="bdCountry" class="form-field" name="bd_country" type="text" /> -->
-                                        <select id="bdCountry" class="form-field" name="bd_country">
+                                        <!--<select id="bdCountry" class="form-field" name="bd_country">
                                             <option value="">Select a country...</option>
                                             <option value="AF">Afghanistan</option>
                                             <option value="AL">Albania</option>
@@ -114,6 +128,12 @@
                                             <option value="BD">Bangladesh</option>
                                             <option value="BB">Barbados</option>
                                             <option value="BY">Belarus</option>
+                                        </select>-->
+                                        <select id="bdCountry" class="form-field" name="bd_country"
+                                                v-model="billing.country" @change="getCountries">
+                                            <option value="">Select a country...</option>
+                                            <option value="" v-for="country in countries" :value="country">{{ country }}
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-field-wrapper half-field">
@@ -211,10 +231,16 @@
         props: {
             billing: Object,
             products: Array,
+            countries: Array,
             subTotal: String,
             total: Number,
             shipping: Number
         },
+        methods: {
+            getCountries() {
+                this.$emit('updateCountry', this.shippingInfo.country);
+            },
+        }
     })
 
 </script>
