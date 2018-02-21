@@ -1,6 +1,6 @@
 @extends('web.layouts.app')
 @section('content')
-<main>
+<main class="home">
     <div class="top-home-banner-block-wrapper">
         <div class="top-home-banner-block">
             <div class="main-product">
