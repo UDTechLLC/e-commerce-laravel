@@ -35,6 +35,7 @@
 
         <component :is="currentComponent"
                    :products="products"
+                   :billing="billing"
                    :countries="countries"
                    :states="states"
                    :selectedCountry="selectedCountry"
@@ -60,7 +61,7 @@
             products: [],
             subTotal: "0",
             shipping: 0,
-            currentComponent: first,
+            currentComponent: second,
             billing: {}
         }),
         components: {

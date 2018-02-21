@@ -13,12 +13,12 @@
                         <div class="clear"></div>
                     </div>
                     <div class="billing-user-info-block">
-                        <span id="baCompName" class="billing-user-info">Company, </span>
-                        <span id="baStreetAddress" class="billing-user-info">311 W 34TH ST, </span>
-                        <span id="baTown" class="billing-user-info">New york </span>
-                        <span id="baState" class="billing-user-info">NY </span>
-                        <span id="baZipCode" class="billing-user-info">10001, </span>
-                        <span id="baCountry" class="billing-user-info">United States</span>
+                        <span id="baCompName" class="billing-user-info">{{ billing.company}}, </span>
+                        <span id="baStreetAddress" class="billing-user-info">{{ billing.street }}, </span>
+                        <span id="baTown" class="billing-user-info"> {{ billing.city }} </span>
+                        <span id="baState" class="billing-user-info"> {{billing.state }} </span>
+                        <span id="baZipCode" class="billing-user-info"> {{ billing.postcode }}, </span>
+                        <span id="baCountry" class="billing-user-info"> {{ billing.country }} </span>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <div class="billing-details-info-wrapper">
                             <div class="contacts-block-wrapper">
                                 <transition name="fade">
-                                <div class="contacts-block" v-if="show">
+                                    <div class="contacts-block" v-if="show">
                                     <h4 class="contacts-block-title">
                                         Contacts
                                     </h4>
@@ -61,8 +61,8 @@
                                         <label for="bdCompName">
                                             Company Name
                                                     <span>
-                                                                (optional)
-                                                            </span>
+                                                        (optional)
+                                                    </span>
                                         </label>
                                         <input id="bdCompName" class="form-field" name="bd_comp_name" type="text" />
                                     </div>
@@ -189,24 +189,32 @@
 
     export default ({
         data: () => ({
-            show: false
+            show: false,
+            shippingInfo: {
+                firstName: "",
+                lastName: "",
+                email: "",
+                company: "",
+                street: "",
+                apartment: "",
+                country: "",
+                state: "",
+                city: "",
+                postcode: "",
+                phone: ""
+            }
         }),
         components: {
             cartTotals,
             login
         },
         props: {
+            billing: Object,
             products: Array,
             subTotal: String,
             total: Number,
             shipping: Number
         },
-        mounted() {
-
-        },
-        methods: {
-
-        }
     })
 
 </script>
