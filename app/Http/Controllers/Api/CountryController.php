@@ -40,16 +40,12 @@ class CountryController extends Controller
     {
         $country = ucfirst($country);
 
-        try {
-            $states = Countries::where('name.common', $country)
-                ->first()
-                ->hydrateStates()
-                ->states
-                ->sortBy('name')
-                ->pluck('name');
-        } catch (\Exception $ex) {
-            dd($country);
-        }
+        $states = Countries::where('name.common', $country)
+            ->first()
+            ->hydrateStates()
+            ->states
+            ->sortBy('name')
+            ->pluck('name');
 
         return $states;
     }
