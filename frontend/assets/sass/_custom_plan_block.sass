@@ -3,8 +3,7 @@
   padding: 55px 30px 33px
 
   @media screen and (max-width: 550px)
-    padding-left: 15px
-    padding-right: 15px
+    padding: 15px
 
   .wrapper
     .custom-plan-block
@@ -18,6 +17,8 @@
             width: 100%
 
           .image-wrapper
+            max-width: 70%
+            margin: 0 auto
             text-align: center
 
             img
@@ -89,10 +90,6 @@
 .custom-meal-plan-block-wrapper
   .wrapper
     .custom-plan-block
-      @media screen and (max-width: $breakpoint-mobile)
-        margin-left: -15px
-        margin-right: -15px
-
       .custom-plan-content
         .custom-plan-image-block
           margin-right: 6%
