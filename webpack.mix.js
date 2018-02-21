@@ -29,12 +29,13 @@ mix.sass('resources/assets/admin/sass/app.scss', 'public/admin_panel/css')
     .js('resources/assets/admin/js/app.js', 'public/admin_panel/js')
     .copy('resources/assets/admin/images', 'public/admin_panel/images')
     .copy('resources/assets/admin/fonts', 'public/admin_panel/fonts')
+
     .js('resources/assets/js/app.js', 'public/web/js')
     .sass('resources/assets/sass/app.scss', 'public/web/css')
     .sass('resources/assets/web/sass/base.sass', 'public/web/css')
     .copy('resources/assets/web/images', 'public/web/images')
     .copy('resources/assets/web/fonts', 'public/web/fonts')
-    .js('resources/assets/web/js/script.js', 'public/web/js')
+    .copy('resources/assets/web/js', 'public/web/js')
     .copy('resources/assets/web/carouselengine', 'public/web/carouselengine')
     .copy('resources/assets/web/slick', 'public/web/slick');
 /*.js([

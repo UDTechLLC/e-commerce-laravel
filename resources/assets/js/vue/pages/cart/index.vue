@@ -80,7 +80,7 @@
                             </tbody>
                         </table>
                         <div class="proceed-to-checkout-button-wrapper">
-                            <a class="proceed-to-checkout" href="#">
+                            <a class="proceed-to-checkout" href="/checkout" >
                                 Proceed to checkout
                             </a>
                         </div>
