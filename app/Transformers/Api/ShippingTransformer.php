@@ -2,7 +2,7 @@
 
 namespace App\Transformers\Api;
 
-use App\Models\Shipping;
+use App\Models\OrderShipping;
 use League\Fractal\TransformerAbstract;
 
 class ShippingTransformer extends TransformerAbstract
@@ -10,11 +10,11 @@ class ShippingTransformer extends TransformerAbstract
     /**
      * A Fractal transformer.
      *
-     * @param Shipping $shipping
+     * @param OrderShipping $shipping
      *
      * @return array
      */
-    public function transform(Shipping $shipping)
+    public function transform(OrderShipping $shipping)
     {
         return [
             'id'         => $shipping->getKey(),

@@ -24,15 +24,19 @@ class BillingRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name'  => 'required',
-            'email'      => 'required|email|unique:users,email',
-            'address'    => 'required',
-            'country'    => 'required',
-            'city'       => 'required',
-            'state'      => 'required',
-            'postcode'   => 'required',
-            'phone'      => 'required|unique:users,phone',
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+            'email'         => 'required',
+            'address'       => 'required',
+            'country'       => 'required',
+            'city'          => 'required',
+            'state'         => 'required',
+            'postcode'      => 'required',
+            'phone'         => 'required',
+            'product_cost'  => 'required',
+            'shipping_cost' => 'required',
+//            'total_cost'    => 'required',
+            'count'         => 'required',
         ];
     }
 }

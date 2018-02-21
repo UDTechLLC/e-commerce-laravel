@@ -9,23 +9,23 @@ use Illuminate\Database\Eloquent\{
 use App\Models\EloquentModel;
 
 /**
- * Class Shipping
+ * Class OrderBilling
  * @package App\Models
  */
-class OrderShipping extends EloquentModel
+class OrderBilling extends EloquentModel
 {
     /**
      * @var string
      */
-    protected $table = 'order_shipping';
+    protected $table = 'order_billing';
 
     /**
      * The attributes that are mass assignable.
      * @var array
      */
     protected $fillable = [
-        'order_id', 'first_name', 'last_name', 'company_name', 'address', 'apartment', 'country', 'city', 'state',
-        'postcode',
+        'first_name', 'last_name', 'company_name', 'email', 'address', 'apartment', 'country',
+        'city', 'state', 'postcode', 'phone',
     ];
 
     /**

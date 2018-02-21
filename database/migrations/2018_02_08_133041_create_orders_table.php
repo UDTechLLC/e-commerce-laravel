@@ -16,15 +16,19 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('products_id');
-            $table->integer('amount');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('shipping_id')->nullable();
+            $table->unsignedInteger('billing_id')->nullable();
+            $table->integer('product_cost')->nullable();
+            $table->integer('shipping_cost')->nullable();
+            $table->integer('total_cost')->nullable();
             $table->integer('count');
             $table->enum('state', Order::ORDER_STATES)->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('products_id')->references('id')->on('products');
+            $table->foreign('shipping_id')->references('id')->on('order_shipping');
+            $table->foreign('billing_id')->references('id')->on('order_billing');
         });
     }
 
