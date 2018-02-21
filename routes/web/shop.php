@@ -19,7 +19,7 @@ Route::group([
     ]);
 
     Route::get('product/{product}', [
-        'as' => 'products.show',
+        'as'   => 'products.show',
         'uses' => 'ProductController@show'
     ]);
 
@@ -27,16 +27,21 @@ Route::group([
 
     Route::group([
         'prefix' => 'cart',
-        'as' => 'cart'
+        'as'     => 'cart'
     ], function () {
-        
+
         Route::get('/', [
-           'uses' => 'CartController@index'
+            'uses' => 'CartController@index'
         ]);
 
         Route::get('/getProducts', [
-            'as' => '.getProduct',
+            'as'   => '.getProduct',
             'uses' => 'CartController@getProduct'
         ]);
     });
+
+    Route::get('/checkout', [
+        'as'   => 'checkout',
+        'uses' => 'CheckoutController@index'
+    ]);
 });

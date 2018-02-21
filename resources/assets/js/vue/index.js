@@ -1,9 +1,12 @@
 import VueLocalStorage from 'vue-localstorage';
+import VeeValidate from 'vee-validate';
 Vue.use(VueLocalStorage);
+Vue.use(VeeValidate);
 
 Vue.component('cart', require('./pages/cart'));
 Vue.component('add-to-cart', require('./component/addToCart'));
 Vue.component('mini-cart', require('./component/cart'));
+Vue.component('checkout', require('./pages/checkout'));
 
 require('./mixins');
 

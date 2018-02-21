@@ -34,11 +34,11 @@
                         <div class="product-button-block">
                             <div class="flex flex-a--center wrapper-btns-buy-count">
 
-                                <div class="btn-wrapper-product-count flex flex-a--center">
-                                    <button class="btn">-</button>
-                                    <input type="number" class="product-count" value="1">
-                                    <button class="btn">+</button>
-                                </div>
+                                {{--<div class="btn-wrapper-product-count flex flex-a--center">--}}
+                                    {{--<button class="btn">-</button>--}}
+                                    {{--<input type="number" class="product-count" value="1">--}}
+                                    {{--<button class="btn">+</button>--}}
+                                {{--</div>--}}
 
                                 <div class="add-to-cart-wrapper">
                                 <add-to-cart
@@ -179,7 +179,7 @@
 
 
                         <h3 class="ingredients__other-title">Additional Information</h3>
-                        <p class="ingredients__other-text">Magnesium stearate & Silicon Dioxide, Hypromellose (Vegetable Shell).</p>
+                        <p class="ingredients__other-text">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnoze, treat, cure, or prevent any disease.</p>
                     </div>
                     <div class="ingredients__other-item">
                         <div class="ingredients__other-line"></div>
