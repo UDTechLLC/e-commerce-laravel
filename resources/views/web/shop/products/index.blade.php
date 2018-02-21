@@ -42,11 +42,20 @@
                                 </div>
                             </div>
 
-                            <add-to-cart
+                            <div class="product-button-block">
+                                <div class="add-to-cart-wrapper">
+                                    <add-to-cart
                                     product-slug="{{ $product->slug }}"
-                            >
-                            </add-to-cart>
+                                    >
+                                    </add-to-cart>
+                                </div>
+                            </div>
                         </div>
+                            {{--<add-to-cart--}}
+                                    {{--product-slug="{{ $product->slug }}"--}}
+                            {{-->--}}
+                            {{--</add-to-cart>--}}
+                        {{--</div>--}}
             @endforeach
         </div>
     </div>
