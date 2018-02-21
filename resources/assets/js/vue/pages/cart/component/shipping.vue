@@ -38,12 +38,12 @@
                            id="calc_shipping_postcode" type="text"/>
                 </div>
                 <div class="clear"></div>
-                <p class="shiping-button-wrapper">
+               <!-- <p class="shiping-button-wrapper">
                     <button type="submit" name="calc_shipping"
                             @click.prevent="updateShipping"
                             value="1" class="shiping-update-button">Update totals
                     </button>
-                </p>
+                </p>-->
             </div>
         </form>
     </div>
