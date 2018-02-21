@@ -1,0 +1,119 @@
+.top-home-banner-block-wrapper
+  .top-home-banner-block
+    display: flex
+    justify-content: center
+    max-width: none
+    min-height: 0
+    padding: 10px
+
+
+    &.mobile-block
+      display: none
+
+    @media screen and (max-width: 1500px)
+      height: calc(100vh - 150px)
+      padding: 20px 30px
+
+    @media screen and (max-width: 1050px)
+      flex-direction: column
+      height: auto
+
+    @media screen and (max-width: 800px)
+      padding-bottom: 0
+
+    .main-product, .secondary-products
+      display: inline-block
+      height: 100%
+
+      @media screen and (max-width: 1050px)
+        display: block
+        height: auto
+        width: 100%
+
+      a
+        display: block
+        cursor: pointer
+
+        @media screen and (max-width: 1500px)
+          height: 100%
+
+        @media screen and (max-width: 1050px)
+          height: auto
+
+        img
+          border-style: none
+          height: auto
+          max-width: 100%
+          vertical-align: top
+
+          &.mobile-image
+            display: none
+
+          @media screen and (max-width: 1500px)
+            display: block
+            height: 100%
+
+          @media screen and (max-width: 1050px)
+            height: auto
+
+          @media screen and (max-width: 767px)
+            &.desktop-image
+              display: none
+
+            &.mobile-image
+              display: block
+              width: 100%
+
+    .main-product
+      margin-right: 10px
+
+      @media screen and (max-width: 1050px)
+        margin-right: 0
+        margin-bottom: 10px
+
+      @media screen and (max-width: 767px)
+        margin-bottom: 30px
+
+    .secondary-products
+      .tabs-flex
+        display: inline-flex
+        height: 100%
+        flex-direction: column
+        justify-content: space-between
+
+        @media screen and (max-width: 1050px)
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+
+        @media screen and (max-width: 767px)
+          flex-direction: column
+
+        a
+          @media screen and (max-width: 1500px)
+            height: calc(50% - 5px)
+
+          @media screen and (max-width: 1050px)
+            height: auto
+
+          &.top
+            margin-bottom: 10px
+
+            @media screen and (max-width: 1050px)
+              margin-bottom: 0
+              margin-right: 15px
+
+            @media screen and (max-width: 767px)
+              margin-bottom: 30px
+              margin-right: 0
+
+          &.bottom
+            @media screen and (max-width: 1050px)
+              margin-left: 15px
+
+            @media screen and (max-width: 767px)
+              margin-bottom: 30px
+              margin-left: 0
+
+            @media screen and (max-width: 480px)
+              margin-bottom: 0
