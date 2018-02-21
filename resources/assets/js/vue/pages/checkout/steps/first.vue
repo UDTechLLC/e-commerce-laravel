@@ -1,51 +1,6 @@
 <template>
     <div>
-        <div class="customer-login-block-wrapper">
-            <div class="wrapper">
-                <div class="customer-login-block">
-                    <div class="customer-login-info">
-                        Returning customer?
-                        <a class="showlogin" href="#">
-                            Click here to login
-                        </a>
-                    </div>
-                    <form class="customer-login-form" style="display: none" name="customer_login_form" action=""
-                          method="post">
-                        <p>
-                            If you have shopped with us before, please enter your details in the boxes below. If you are
-                            a new customer, please proceed to the Billing & Shipping section.
-                        </p>
-                        <div class="form-field-wrapper">
-                            <label for="">
-                                Username or email
-                                <span class="required">*</span>
-                            </label>
-                            <input class="form-field" type="text"/>
-                        </div>
-                        <div class="form-field-wrapper">
-                            <label for="">
-                                Password
-                                <span class="required">*</span>
-                            </label>
-                            <input class="form-field" type="password"/>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="form-submit-wrapper">
-                            <input class="login-button button" name="login" value="Login" type="submit"/>
-                            <label class="rememberme-wrapper">
-                                <input class="remember-me-checkbox" name="rememberme" id="rememberme" value="forever"
-                                       type="checkbox"/>
-                                <span>Remember me</span>
-                            </label>
-                        </div>
-                        <div class="lost-password-wrapper">
-                            <a href="#">Lost your password?</a>
-                        </div>
-                        <div class="clear"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <login></login>
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
@@ -102,7 +57,8 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your email.</span>
                                     </div>
-                                    <div class="form-field-wrapper" :class="{'error': errors.has('bg_street_address') }">
+                                    <div class="form-field-wrapper"
+                                         :class="{'error': errors.has('bg_street_address') }">
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
@@ -132,10 +88,13 @@
                                         <select id="bdCountry" class="form-field" name="bd_country"
                                                 v-model="billing.country" @change="getCountries">
                                             <option value="">Select a country...</option>
-                                            <option value="" v-for="country in countries" :value="country" >{{ country }}</option>
+                                            <option value="" v-for="country in countries" :value="country">{{ country
+                                                }}
+                                            </option>
                                         </select>
                                     </div>
-                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bg_city') }">
+                                    <div class="form-field-wrapper half-field"
+                                         :class="{'error': errors.has('bg_city') }">
                                         <label for="bdTownCity">
                                             Town / City
                                         </label>
@@ -155,15 +114,18 @@
                                             />
                                         </div>
                                         <div v-else>
-                                        <select id="bdState" class="form-field" name="bd_country" v-model="billing.state">
-                                            <option value="">Select a option...</option>
-                                            <option value="" v-for="state in states" :value="state" >{{ state }}</option>
-                                        </select>
+                                            <select id="bdState" class="form-field" name="bd_country"
+                                                    v-model="billing.state">
+                                                <option value="">Select a option...</option>
+                                                <option value="" v-for="state in states" :value="state">{{ state }}
+                                                </option>
+                                            </select>
                                         </div>
                                         <span class="error-massage"
                                               style="display: none">Please enter your state.</span>
                                     </div>
-                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bg_post_zip') }">
+                                    <div class="form-field-wrapper half-field"
+                                         :class="{'error': errors.has('bg_post_zip') }">
                                         <label for="bdZipCode">
                                             Postcode / ZIP
                                         </label>
@@ -173,7 +135,8 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your postcode.</span>
                                     </div>
-                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bg_phone') }">
+                                    <div class="form-field-wrapper half-field"
+                                         :class="{'error': errors.has('bg_phone') }">
                                         <label for="bdPhone">
                                             Phone
                                         </label>
@@ -226,7 +189,8 @@
 </template>
 <script type="text/babel">
 
-import cartTotals from './../components/cart-totals';
+    import cartTotals from './../components/cart-totals';
+    import login from './../components/login';
 
     export default ({
         data: () => ({
@@ -254,7 +218,8 @@ import cartTotals from './../components/cart-totals';
             selectedCountry: String
         },
         components: {
-            cartTotals
+            cartTotals,
+            login
         },
         created() {
             this.billing.country = this.selectedCountry;
@@ -264,13 +229,16 @@ import cartTotals from './../components/cart-totals';
                 this.$emit('updateCountry', this.billing.country);
             },
             next() {
-                this.$validator.validateAll().then((result) => {
-                    if (result) {
-                        // eslint-disable-next-line
-                        this.$emit('next', 'second');
+               // this.$validator.validateAll().then((result) => {
+                 //   if (result) {
+                        let data = {
+                            step: 'second',
+                            billing: this.billing
+                        };
+                        this.$emit('next', data);
                         return;
-                    }
-                });
+                 //   }
+               // });
             }
         }
     })

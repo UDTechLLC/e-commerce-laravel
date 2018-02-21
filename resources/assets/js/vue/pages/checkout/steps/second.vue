@@ -23,64 +23,25 @@
                 </div>
             </div>
         </div>
-        <div class="customer-login-block-wrapper">
-            <div class="wrapper">
-                <div class="customer-login-block">
-                    <div class="customer-login-info">
-                        Returning customer?
-                        <a class="showlogin" href="#">
-                            Click here to login
-                        </a>
-                    </div>
-                    <form class="customer-login-form" style="display: none" name="customer_login_form" action="" method="post">
-                        <p>
-                            If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing & Shipping section.
-                        </p>
-                        <div class="form-field-wrapper">
-                            <label for="userEmail">
-                                Username or email
-                                <span class="required">*</span>
-                            </label>
-                            <input id="userEmail" class="form-field" type="text" />
-                        </div>
-                        <div class="form-field-wrapper">
-                            <label for="userPassword">
-                                Password
-                                <span class="required">*</span>
-                            </label>
-                            <input id="userPassword" class="form-field" type="password" />
-                        </div>
-                        <div class="clear"></div>
-                        <div class="form-submit-wrapper">
-                            <input class="login-button button" name="login" value="Login" type="submit" />
-                            <label class="rememberme-wrapper">
-                                <input class="remember-me-checkbox" name="rememberme" id="rememberme" value="forever" type="checkbox" />
-                                <span>Remember me</span>
-                            </label>
-                        </div>
-                        <div class="lost-password-wrapper">
-                            <a href="#">Lost your password?</a>
-                        </div>
-                        <div class="clear"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <login></login>
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
                     <form class="checkout-billing-details-form" action="" name="checkout-billing-details" method="post">
                         <div class="checkout-title-block">
                             <h3 class="checkout-title">
-                                <input id="shipToDifferentAddressCheckbox" class="form-checkbox-field" name="ship_to_different_address" value="1" type="checkbox" />
+                                <input id="shipToDifferentAddressCheckbox" class="form-checkbox-field"
+                                       name="ship_to_different_address" value="1" type="checkbox" @change="show = !show" />
                                 <label for="shipToDifferentAddressCheckbox" class="checkbox">
                                     Ship to a different address?
                                 </label>
                             </h3>
                         </div>
+
                         <div class="billing-details-info-wrapper">
                             <div class="contacts-block-wrapper">
-                                <div style="display: none;" class="contacts-block">
+                                <transition name="fade">
+                                <div class="contacts-block" v-if="show">
                                     <h4 class="contacts-block-title">
                                         Contacts
                                     </h4>
@@ -197,9 +158,13 @@
                                         </div>
                                     </div>-->
                                 </div>
+                                </transition>
                             </div>
                             <cart-totals
                                     :products="products"
+                                    :subTotal="subTotal"
+                                    :total="total"
+                                    :shipping="shipping"
                             ></cart-totals>
                         </div>
                         <div class="buttons-area">
@@ -220,14 +185,37 @@
 <script type="text/babel">
 
     import cartTotals from './../components/cart-totals';
+    import login from './../components/login';
 
     export default ({
-        props: {
-            products: Array
-        },
+        data: () => ({
+            show: false
+        }),
         components: {
-            cartTotals
+            cartTotals,
+            login
         },
+        props: {
+            products: Array,
+            subTotal: String,
+            total: Number,
+            shipping: Number
+        },
+        mounted() {
+
+        },
+        methods: {
+
+        }
     })
 
 </script>
+
+<style scoped>
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+</style>

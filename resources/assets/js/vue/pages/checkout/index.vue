@@ -60,7 +60,8 @@
             products: [],
             subTotal: "0",
             shipping: 0,
-            currentComponent: first
+            currentComponent: first,
+            billing: {}
         }),
         components: {
             first,
@@ -76,8 +77,9 @@
             this.getCountries();
         },
         methods: {
-            nextStep(componentName) {
-                this.currentComponent = componentName;
+            nextStep(value) {
+                this.currentComponent = value.step;
+                this.billing = value.billing;
                 this.progress++;
             },
             getCountries() {
