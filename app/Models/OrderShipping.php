@@ -61,7 +61,10 @@ class Shipping extends EloquentModel
      * Entity relations go below
      */
 
-    // @todo:
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 
     /**
      * Entity scopes go below
