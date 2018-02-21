@@ -9,7 +9,7 @@
                 <a href="https://www.snapchat.com/add/shedfat" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
             </div>
             <div class="first-header__menu flex flex-a--center">
-                <a href="{{url('/shop')}}" class="first-header__menu-item">Shop</a>
+                <a href="{{url('shop')}}" class="first-header__menu-item">Shop</a>
                 <mini-cart></mini-cart>
 
             </div>
@@ -31,11 +31,11 @@
 
 
                 <ul class="second-header__menu-items">
-                    <li class="second-header__menu-item active">
+                    <li class="second-header__menu-item {!! Request::is('/')?'active':'' !!}">
                         <a href="{{url('/')}}">Home</a>
                     </li>
-                    <li class="second-header__menu-item">
-                        <a href="{{url('/shop')}}">Shop</a>
+                    <li class="second-header__menu-item {!! Request::is('shop')?'active':'' !!}">
+                        <a href="{{url('shop')}}">Shop</a>
                     </li>
                 </ul>
             </div>
