@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title">
+            <a href="{{url('/')}}" class="site_title">
                 <img class="logo" src="{{asset('admin_panel/images/Shedfat-logo.png')}}" alt="logo">
                 <img class="mini-logo" src="{{asset('admin_panel/images/Shedfat-mini-logo.png')}}" alt="logo">
             </a>
@@ -16,7 +16,7 @@
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2>{{ Auth::user()->first_name }}</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
