@@ -123,7 +123,7 @@
                 <div class="clear"></div>
             </div>
         </div>
-        <div class="custom-plan-block-wrapper">
+        <div class="custom-plan-block-wrapper custom-meal-plan-block-wrapper">
             <div class="wrapper">
                 <div class="custom-plan-block">
                     <div class="separate-heading-block">
@@ -131,7 +131,7 @@
                             <div class="title-sep sep-single"></div>
                         </div>
                         <h2 class="separate-heading-title custom-plan-title">
-                            CUSTOM WORKOUT PROGRAM
+                            CUSTOM NUTRITION PROGRAM
                         </h2>
                         <div class="title-sep-container title-sep-container-right">
                             <div class="title-sep sep-single"></div>
@@ -140,49 +140,50 @@
                     <div class="custom-plan-content">
                         <div class="custom-plan-image-block">
                             <div class="image-wrapper">
-                                <img src="{{ asset('web/images/custom-training-program.png')}}" />
+                                <img class="desktop-image" src="{{ asset('web/images/full-product/12_week_custom_meal_plan/plates.png')}}" />
+                                <img class="mobile-image" src="{{ asset('web/images/full-product/12_week_custom_meal_plan/plate_mobile.png')}}" />
                             </div>
                         </div>
                         <div class="custom-plan-description-block">
                             <ul class="custom-plan-description-list">
                                 <li class="custom-plan-description-list-item">
                                     <div class="item-icon-wrapper">
-                                        <img src="{{ asset('web/images/workout-program-1.svg')}}" />
+                                        <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/nutrition-program-1.svg')}}" />
                                     </div>
                                     <div class="item-content">
                                         <h3 class="item-title">
                                             100% TAILORED
                                         </h3>
                                         <p class="item-text">
-                                            TO YOUR BODY AND GOALS
+                                            TO YOUR NEEDS AND GOALS
                                         </p>
                                     </div>
                                     <div class="clear"></div>
                                 </li>
                                 <li class="custom-plan-description-list-item">
                                     <div class="item-icon-wrapper">
-                                        <img src="{{ asset('web/images/workout-program-2.svg')}}" />
+                                        <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/nutrition-program-2.svg')}}" />
                                     </div>
                                     <div class="item-content">
                                         <h3 class="item-title">
-                                            20+ WAYS TO TRAIN
+                                            20+ EATING STYLES
                                         </h3>
                                         <p class="item-text">
-                                            AT HOME, HIIT, TABATA, ETC.
+                                            CARB CYCLING, PALEO, VEGAN, ETC.
                                         </p>
                                     </div>
                                     <div class="clear"></div>
                                 </li>
                                 <li class="custom-plan-description-list-item">
                                     <div class="item-icon-wrapper">
-                                        <img src="{{ asset('web/images/workout-program-3.svg')}}" />
+                                        <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/nutrition-program-3.svg')}}" />
                                     </div>
                                     <div class="item-content">
                                         <h3 class="item-title">
-                                            WARM-UP TIPS
+                                            COOKING GUIDES
                                         </h3>
                                         <p class="item-text">
-                                            TO KEEP YOU SAFE
+                                            TO PREP DELICIOUS FOOD
                                         </p>
                                     </div>
                                     <div class="clear"></div>
