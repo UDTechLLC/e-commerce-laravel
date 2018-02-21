@@ -35,7 +35,6 @@ div
       bottom: -40px
       margin-left: -20px
   &--large
-
     &:after
       border: 40px solid transparent
       border-top: 40px solid #f5f3f3
@@ -46,14 +45,19 @@ div
         border-top: 50px solid #f5f3f3
         bottom: -100px
         margin-left: -50px
+
 .text-center
   text-align: center
+.text-right
+  text-align: right
 .full-width
   width: 100%
 
 .after-lines
   position: relative
   margin: auto
+
+
 
 
   @media (min-width: $breakpoint-mobile + 1)
@@ -83,12 +87,35 @@ div
       right: -50%
     &:before
       left: -50%
+  &--large2
+    box-sizing: border-box
+    width: 40%
+    @media (max-width: $breakpoint-mobile)
+      width: 100%
+    &:after,
+    &:before
+      width: 85%
+    &:after
+      right: -75%
+    &:before
+      left: -75%
+    @media (max-width: 1200px)
+      &:after,
+      &:before
+        width: 60%
+      &:after
+        right: -60%
+      &:before
+        left: -60%
   &--white
     color: white !important
     &:after,
     &:before
       background: white
-.wrapper
+  &--red
+    &:after,
+    &:before
+      background: $red
   @media screen and (max-width: 1200px)
     padding-left: 30px
     padding-right: 30px
@@ -137,8 +164,60 @@ img
 .fixed-header
   padding-top: 90px
 
+
+.block-35
+  width: 35%
+.block-45
+  width: 45%
 .block-50
   width: 50%
+.block-75
+  width: 75%
+
 .m-block-100
   @media screen and (max-width: $breakpoint-mobile)
     width: 100%
+
+
+.wrapper-btns-buy-count
+  @media screen and (max-width: $breakpoint-mobile)
+    justify-content: center
+  @media screen and (max-width: 420px)
+    display: block
+.btn-wrapper-product-count
+  margin: 30px 30px 25px 0
+  color: #29282e
+  @media screen and (max-width: $breakpoint-mobile)
+    justify-content: center
+  @media screen and (max-width: 420px)
+    width: 310px
+    margin: 30px auto
+  .product-count
+    border: 1px solid #29282e
+    border-left: 0
+    border-right: 0
+    background: none
+    height: 48px
+    width: 49px
+    box-sizing: border-box
+    text-align: center
+    outline: 0
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button
+      -webkit-appearance: none
+      margin: 0
+    @media screen and (max-width: 420px)
+      width: 33%
+  .btn
+    border: 1px solid #29282e
+    height: 48px
+    width: 34px
+    background: none
+    font-size: 16px
+    transition: .2s
+    @media screen and (min-width: $breakpoint-mobile + 1)
+      &:hover
+        border: 1px solid #8b8b95
+        color: $red
+    @media screen and (max-width: 420px)
+      width: 33%

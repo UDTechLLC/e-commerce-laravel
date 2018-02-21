@@ -15,10 +15,10 @@
                                 </a>
                             </div>
                             <div class="product-details">
-                                <h3 class="product-title">
+                                <h2 class="product-title">
                                     <a href="{{url('product/'.$product->slug)}}">
                                     {!! $product->title !!} </a>
-                                </h3>
+                                </h2>
                                 @if($product -> category)
                                     <p class="product-category-label"> {{ $product->category }} </p>
                                 @endif
@@ -42,11 +42,20 @@
                                 </div>
                             </div>
 
-                            <add-to-cart
+                            <div class="product-button-block">
+                                <div class="add-to-cart-wrapper">
+                                    <add-to-cart
                                     product-slug="{{ $product->slug }}"
-                            >
-                            </add-to-cart>
+                                    >
+                                    </add-to-cart>
+                                </div>
+                            </div>
                         </div>
+                            {{--<add-to-cart--}}
+                                    {{--product-slug="{{ $product->slug }}"--}}
+                            {{-->--}}
+                            {{--</add-to-cart>--}}
+                        {{--</div>--}}
             @endforeach
         </div>
     </div>
@@ -54,5 +63,5 @@
     </div>
 
     </main>
-    <a href="#" class="btn add-to-cart-btn add-to-cart-btn--mobile">ADD TO CART</a>
+
 @endsection

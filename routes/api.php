@@ -53,6 +53,32 @@ Route::group([
     ]);
 });
 
+Route::group([
+    'as' => '.checkout',
+    'prefix' => 'checkout',
+], function () {
+    Route::get('billing', [
+        'as' => '.billing',
+        'uses' => 'Api\CheckoutController@billing',
+    ]);
+    Route::get('shipping', [
+        'as' => '.shipping',
+        'uses' => 'Api\CheckoutController@shipping'
+    ]);
+    Route::get('pay', [
+        'as' => '.pay',
+        'uses' => 'Api\CheckoutController@pay'
+    ]);
+    Route::get('pay/success', [
+        'as' => '.pay.success',
+        'uses' => 'Api\CheckoutController@returnUrl',
+    ]);
+    Route::get('pay/cancel', [
+        'as' => '.pay.cancel',
+        'uses' => 'Api\CheckoutController@cancelUrl',
+    ]);
+});
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
