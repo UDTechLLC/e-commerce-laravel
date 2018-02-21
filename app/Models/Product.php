@@ -78,6 +78,11 @@ class Product extends EloquentModel implements HasMedia
         return $this->belongsToMany(Cart::class);
     }
 
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
+
     /**
      * Entity scopes go below
      */
@@ -86,11 +91,15 @@ class Product extends EloquentModel implements HasMedia
 
     /**
      * Entity mutators and accessors go below
+     *
+     * @param $value
+     *
+     * @return float|int
      */
 
     public function getAmountAttribute($value)
     {
-        return (float) $value / 100;
+        return (string) $value / 100;
     }
 
     /**

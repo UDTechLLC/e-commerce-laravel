@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Checkout\BillingRequest;
 use App\Http\Requests\Checkout\ShippingRequest;
-use App\Models\Shipping;
+use App\Models\Order;
+use App\Models\OrderBilling;
+use App\Models\OrderShipping;
 use App\Models\User;
 use App\Services\PayPal\PayPalService;
+use App\Transformers\Api\OrderTransformer;
 use App\Transformers\Api\UserTransformer;
 use Illuminate\Http\Request;
 
@@ -30,12 +33,30 @@ class CheckoutController extends Controller
      */
     public function billing(BillingRequest $request)
     {
-        $data = $request->all();
-        $data['password'] = bcrypt(str_random());
+        $user = \Auth::user();
+        $billing = OrderBilling::create([
+            'first_name'    => $request->get('first_name'),
+            'last_name'     => $request->get('last_name'),
+            'email'         => $request->get('email'),
+            'address'       => $request->get('address'),
+            'country'       => $request->get('country'),
+            'city'          => $request->get('city'),
+            'state'         => $request->get('state'),
+            'postcode'      => $request->get('postcode'),
+            'phone'         => $request->get('phone'),
+        ]);
 
-        $user = User::create($data);
+        $order = Order::create([
+            'user_id' => null !== $user ? $user->getKey() : null,
+            'billing_id' => $billing->getKey(),
+            'product_cost' => $request->get('product_cost'),
+            'shipping_cost' => $request->get('shipping_cost'),
+            'total_cost' => $request->get('product_cost') + $request->get('shipping_cost'),
+            'count' => $request->get('count'),
+            'state' => Order::ORDER_STATE_PENDINGPAYMENT,
+        ]);
 
-        return fractal($user, new UserTransformer())->respond();
+        return fractal($order, new OrderTransformer())->respond();
     }
 
     /**
@@ -43,13 +64,29 @@ class CheckoutController extends Controller
      *
      * @param ShippingRequest $request
      *
+     * @param Order $order
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function shipping(ShippingRequest $request)
+    public function shipping(ShippingRequest $request, Order $order)
     {
-        Shipping::create($request->all());
+        $shipping = OrderShipping::create([
+            'first_name'    => $request->get('first_name'),
+            'last_name'     => $request->get('last_name'),
+            'address'       => $request->get('address'),
+            'country'       => $request->get('country'),
+            'city'          => $request->get('city'),
+            'state'         => $request->get('state'),
+            'postcode'      => $request->get('postcode'),
+        ]);
 
-        return fractal(User::find($request->get('user_id')), new UserTransformer())->respond();
+        $order->update([
+            'shipping_id' => $shipping->getKey(),
+            'shipping_cost' => $request->get('shipping_cost'),
+            'total_cost' => $order->product_cost + $request->get('shipping_cost'),
+        ]);
+
+        return fractal($order, new OrderTransformer())->respond();
     }
 
     /**

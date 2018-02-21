@@ -61,7 +61,7 @@ Route::group([
         'as' => '.billing',
         'uses' => 'Api\CheckoutController@billing',
     ]);
-    Route::get('shipping', [
+    Route::get('shipping/{order}', [
         'as' => '.shipping',
         'uses' => 'Api\CheckoutController@shipping'
     ]);
@@ -78,8 +78,6 @@ Route::group([
         'uses' => 'Api\CheckoutController@cancelUrl',
     ]);
 });
-
-
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
