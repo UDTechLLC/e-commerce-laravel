@@ -13,8 +13,7 @@ Route::group([
         'as' => 'home',
         'uses' => 'HomeController@index'
     ]);
-    Route::get('/', [
-        'prefix' =>'shop',
+    Route::get('shop', [
         'as' => 'shop',
         'uses' => 'ProductController@index'
     ]);
