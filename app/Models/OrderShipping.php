@@ -24,7 +24,7 @@ class OrderShipping extends EloquentModel
      * @var array
      */
     protected $fillable = [
-        'order_id', 'first_name', 'last_name', 'company_name', 'address', 'apartment', 'country', 'city', 'state',
+        'order_id', 'first_name', 'last_name', 'company_name', 'street', 'apartment', 'country', 'city', 'state',
         'postcode',
     ];
 

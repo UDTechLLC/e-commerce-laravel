@@ -57,8 +57,11 @@ class CheckoutController extends Controller
      */
     public function shipping(ShippingRequest $request, Order $order)
     {
+        $country = $request->get('country');
+
         $shipping = $this->createShipping($request);
-        $this->updateOrder($request, $order, $shipping);
+
+        $this->updateOrder($order, $shipping, $country);
 
         return fractal($order, new OrderTransformer())->respond();
     }
@@ -131,15 +134,17 @@ class CheckoutController extends Controller
     private function createBilling($request)
     {
         return OrderBilling::create([
-            'first_name' => $request->get('firstName'),
-            'last_name'  => $request->get('lastName'),
-            'email'      => $request->get('email'),
-            'address'    => $request->get('address'),
-            'country'    => $request->get('country'),
-            'city'       => $request->get('city'),
-            'state'      => $request->get('state'),
-            'postcode'   => $request->get('postcode'),
-            'phone'      => $request->get('phone'),
+            'first_name'   => $request->get('firstName'),
+            'last_name'    => $request->get('lastName'),
+            'email'        => $request->get('email'),
+            'company_name' => $request->get('company'),
+            'street'       => $request->get('street'),
+            'apartment'    => $request->get('apartment'),
+            'country'      => $request->get('country'),
+            'city'         => $request->get('city'),
+            'state'        => $request->get('state'),
+            'postcode'     => $request->get('postcode'),
+            'phone'        => $request->get('phone'),
         ]);
     }
 
@@ -185,29 +190,33 @@ class CheckoutController extends Controller
     private function createShipping($request)
     {
         return OrderShipping::create([
-            'first_name' => $request->get('first_name'),
-            'last_name'  => $request->get('last_name'),
-            'address'    => $request->get('address'),
-            'country'    => $request->get('country'),
-            'city'       => $request->get('city'),
-            'state'      => $request->get('state'),
-            'postcode'   => $request->get('postcode'),
+            'first_name'   => $request->get('firstName'),
+            'last_name'    => $request->get('lastName'),
+            'company_name' => $request->get('company'),
+            'street'       => $request->get('street'),
+            'apartment'    => $request->get('apartment'),
+            'country'      => $request->get('country'),
+            'city'         => $request->get('city'),
+            'state'        => $request->get('state'),
+            'postcode'     => $request->get('postcode'),
         ]);
     }
 
     /**
      * Update order.
      *
-     * @param $request
      * @param $order
      * @param $shipping
+     * @param $country
      */
-    private function updateOrder($request, $order, $shipping)
+    private function updateOrder($order, $shipping, $country)
     {
+        $shippingCost = $this->getShippingSum($country);
+
         $order->update([
             'shipping_id'   => $shipping->getKey(),
-            'shipping_cost' => $request->get('shipping_cost'),
-            'total_cost'    => $order->product_cost + $request->get('shipping_cost'),
+            'shipping_cost' => $shippingCost,
+            'total_cost'    => $order->product_cost + $shippingCost,
         ]);
     }
 
