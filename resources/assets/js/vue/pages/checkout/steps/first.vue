@@ -231,16 +231,21 @@
                 this.$emit('updateCountry', this.billingInfo.country);
             },
             next() {
-                // this.$validator.validateAll().then((result) => {
-                //   if (result) {
-                let data = {
-                    step: 'second',
-                    billing: this.billingInfo
-                };
-                this.$emit('next', data);
-                return;
-                //   }
-                // });
+               // this.$validator.validateAll().then((result) => {
+               //     if (result) {
+
+                        axios.post('/api/checkout/billing', this.billingInfo).then(
+                                result => console.log(result),
+                                error => console.log('error')
+                        );
+                        let data = {
+                            step: 'second',
+                            billing: this.billingInfo
+                        };
+                        this.$emit('next', data);
+                        return;
+            //        }
+           //     });
             }
         }
     })

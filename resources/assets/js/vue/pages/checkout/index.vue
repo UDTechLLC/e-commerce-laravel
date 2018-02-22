@@ -86,12 +86,11 @@
         },
         computed: {
             total() {
-                return Math.ceil((( Number(this.subTotal) + Number(this.shipping) ) * 100) / 100);
+                return Number(this.subTotal) + Number(this.shipping);
             }
         },
         created() {
             this.getProducts();
-            console.log(this.$EventBus.products);
             this.getCountries();
         },
         methods: {
