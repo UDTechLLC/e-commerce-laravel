@@ -57,8 +57,11 @@ class CheckoutController extends Controller
      */
     public function shipping(ShippingRequest $request, Order $order)
     {
+        $country = $request->get('country');
+
         $shipping = $this->createShipping($request);
-        $this->updateOrder($request, $order, $shipping);
+
+        $this->updateOrder($order, $shipping, $country);
 
         return fractal($order, new OrderTransformer())->respond();
     }
@@ -202,16 +205,18 @@ class CheckoutController extends Controller
     /**
      * Update order.
      *
-     * @param $request
      * @param $order
      * @param $shipping
+     * @param $country
      */
-    private function updateOrder($request, $order, $shipping)
+    private function updateOrder($order, $shipping, $country)
     {
+        $shippingCost = $this->getShippingSum($country);
+
         $order->update([
             'shipping_id'   => $shipping->getKey(),
-            'shipping_cost' => $request->get('shipping_cost'),
-            'total_cost'    => $order->product_cost + $request->get('shipping_cost'),
+            'shipping_cost' => $shippingCost,
+            'total_cost'    => $order->product_cost + $shippingCost,
         ]);
     }
 
