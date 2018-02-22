@@ -23,6 +23,9 @@ class CountryController extends Controller
         \Log::info('CountryController@index: ', ['country' => $name, 'ip' => $ip]);
 
         $country = $name ?? $this->getCountry($ip);
+
+        \Log::info('CountryController@index: ', ['getCountry' => $country]);
+
         $shippingSum = $this->getShippingSum($country);
 
         return response()->json([
