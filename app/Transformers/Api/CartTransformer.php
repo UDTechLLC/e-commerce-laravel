@@ -44,7 +44,7 @@ class CartTransformer extends TransformerAbstract
             $sum += $product->pivot->count * $product->amount;
         }
 
-        return (string)$sum;
+        return number_format($sum, 2);
     }
 
     /**

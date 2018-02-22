@@ -104,7 +104,7 @@ class Product extends EloquentModel implements HasMedia
      */
     public function getAmountAttribute($value)
     {
-        return (string) ($value / 100);
+        return number_format($value / 100, 2);
     }
 
     /**
@@ -112,7 +112,7 @@ class Product extends EloquentModel implements HasMedia
      */
     public function getTotalSumAttribute()
     {
-        return (string)($this->attributes['amount'] * $this->pivot->count / 100);
+        return number_format($this->attributes['amount'] * $this->pivot->count / 100, 2);
     }
 
     /**
