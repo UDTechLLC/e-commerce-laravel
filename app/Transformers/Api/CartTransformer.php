@@ -26,7 +26,7 @@ class CartTransformer extends TransformerAbstract
             'isShipping' => $isShipping,
             'sum'        => [
                 'products_counts' => $this->getProductsCount($cart),
-                'products_sum'    => (string)$productSum,
+                'products_sum'    => $productSum,
             ],
         ];
     }
@@ -34,9 +34,9 @@ class CartTransformer extends TransformerAbstract
     /**
      * @param Cart $cart
      *
-     * @return float
+     * @return string
      */
-    private function getProductsSum(Cart $cart): float
+    private function getProductsSum(Cart $cart): string
     {
         $sum = 0;
 
@@ -44,10 +44,17 @@ class CartTransformer extends TransformerAbstract
             $sum += $product->pivot->count * $product->amount;
         }
 
-        return (float)$sum;
+        return (string)$sum;
     }
 
-    private function getProductsCount(Cart $cart)
+    /**
+     * Get product count in cart.
+     *
+     * @param Cart $cart
+     *
+     * @return int
+     */
+    private function getProductsCount(Cart $cart): int
     {
         $count = 0;
 
