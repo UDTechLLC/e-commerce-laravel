@@ -67,6 +67,8 @@ class CountryController extends Controller
 
         $response = $this->decodeResponse($http->get("http://ip-api.com/json/{$ip}"));
 
+        \Log::info('CountryController@getCountry: ', ['country' => $response->country]);
+
         return isset($response->country) ?: 'United States';
     }
 
