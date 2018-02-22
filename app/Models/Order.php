@@ -134,17 +134,17 @@ class Order extends EloquentModel
 
     public function getProductCostAttribute($value)
     {
-        return (string) $value / 100;
+        return  number_format($value / 100, 2);
     }
 
     public function getShippingCostAttribute($value)
     {
-        return (string) $value / 100;
+        return number_format($value / 100, 2);
     }
 
     public function getTotalCostAttribute($value)
     {
-        return (string) $value / 100;
+        return number_format($value / 100, 2);
     }
 
     /**
