@@ -316,6 +316,7 @@
                                     This is my second round on Total Body Burn and I’m still loving it. I’ve lost 15 pounds the first 30 days and inches too. My husband noticed the changes and decided he wanted to join in as well. Now we look forward to completing the challenge of the day. It has become our routine and he is seeing changes too!*
                                 </p>
                             </div>
+                            <div class="clear"></div>
                             <div class="customer-preview-single-block">
                                 <div class="star-rating-wrapper">
                                     <ul class="star-rating">

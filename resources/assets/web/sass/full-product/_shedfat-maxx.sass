@@ -3,6 +3,8 @@
   @media screen and (max-width: $breakpoint-mobile)
     display: block
     margin-top: 30px
+    padding-left: 15px
+    padding-right: 15px
     &__item
       display: inline-block
 
@@ -30,10 +32,15 @@
     width: 100%
     font-family: $Montserrat
     margin-top: 60px
+    @media screen and (max-width: $breakpoint-mobile)
+      padding-left: 15px
+      padding-right: 15px
     thead
       background: $red
       color: white
       font-size: 13px
+      @media screen and (max-width: $breakpoint-mobile)
+        font-size: 12px
       td
         padding: 10px 15px
     tbody
@@ -41,6 +48,8 @@
         padding: 17px 15px
         font-size: 17px
         letter-spacing: -.4px
+        @media screen and (max-width: $breakpoint-mobile)
+          font-size: 16px
     tr
       td
         text-align: center
@@ -48,8 +57,11 @@
         width: 20%
         border-bottom: 1px solid #eaeaea
         &:first-child
+          border-left: 1px solid #eaeaea
           text-align: left
           width: 60%
+        &:last-child
+          border-right: 1px solid #eaeaea
         @media screen and (max-width: 1200px)
           &:first-child
             width: 50%
@@ -63,12 +75,14 @@
           &:nth-child(3)
             width: 30%
         @media screen and (max-width: $breakpoint-mobile)
+          padding: 10px 3px
           &:first-child
+            padding-left: 15px
             width: 60%
           &:nth-child(2)
-            width: 20%
+            width: 37%
           &:nth-child(3)
-            width: 20%
+            width: 3%
   &__table-info
     font-size: 13px
     margin: 10px 0 30px 0
@@ -159,6 +173,10 @@
   p
     font-size: 20px
     line-height: 26px
+    @media screen and (max-width: $breakpoint-mobile)
+      font-size: 16px
+      line-height: 20px
+      margin-bottom: 12px
   .section__icon-wrapper
     width: inherit
   &__wrapper
@@ -168,6 +186,7 @@
           display: block
           &>div
             display: inline-block
+            margin-bottom: 8px
             width: 49%
             text-align: center
             vertical-align: top
@@ -176,6 +195,10 @@
     margin: 0
     font-size: 23px
     letter-spacing: -.5px
+    @media screen and (max-width: 700px)
+      font-size: 18px
+      line-height: 24px
+      margin-bottom: 9px
     &:before
       content: ''
       display: block
@@ -216,7 +239,9 @@
       padding: 0 20px
   &__wrapper
     position: relative
-
+  .section__title
+    @media screen and (max-width: $breakpoint-mobile)
+      text-align: center
   &__line
     position: absolute
     height: 1px
@@ -264,3 +289,8 @@
     opacity: .7
     @media screen and (max-width: $breakpoint-mobile)
       margin-top: 10px
+
+section
+  .training-plan-faqs-block-wrapper
+    .wrapper
+      padding-top: 0
