@@ -22,7 +22,7 @@ class CountryController extends Controller
 
         \Log::info('CountryController@index: ', ['country' => $name, 'ip' => $ip]);
 
-        $country = $name ?: $this->getCountry($ip);
+        $country = $name ?? $this->getCountry($ip);
         $shippingSum = $this->getShippingSum($country);
 
         return response()->json([
