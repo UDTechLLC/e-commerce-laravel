@@ -58,6 +58,7 @@
     import first from './steps/first';
     import second from './steps/second';
     import third from './steps/third';
+    import fourth from './steps/fourth';
 
     export default ({
         data() {
@@ -80,7 +81,8 @@
         components: {
             first,
             second,
-            third
+            third,
+            fourth
         },
         computed: {
             total() {

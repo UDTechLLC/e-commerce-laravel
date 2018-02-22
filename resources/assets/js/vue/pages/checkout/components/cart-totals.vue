@@ -1,5 +1,4 @@
 <template>
-    <div class="cart-review-block-wrapper">
         <div class="cart-review-block">
             <div class="cart-header-block">
                 <h2 class="cart-heading">
@@ -74,7 +73,6 @@
                 </tfoot>
             </table>
         </div>
-    </div>
 </template>
 <script type="text/babel">
 

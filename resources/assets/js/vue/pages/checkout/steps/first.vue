@@ -167,12 +167,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <cart-totals
-                                    :products="products"
-                                    :subTotal="subTotal"
-                                    :total="total"
-                                    :shipping="shipping"
-                            ></cart-totals>
+                            <div class="cart-review-block-wrapper">
+                                <cart-totals
+                                        :products="products"
+                                        :subTotal="subTotal"
+                                        :total="total"
+                                        :shipping="shipping"
+                                ></cart-totals>
+                            </div>
                         </div>
                         <div class="buttons-area">
                             <a href="#" class="continue-checkout" @click.prevent="next">
@@ -229,16 +231,16 @@
                 this.$emit('updateCountry', this.billingInfo.country);
             },
             next() {
-               // this.$validator.validateAll().then((result) => {
-                 //   if (result) {
-                        let data = {
-                            step: 'second',
-                            billing: this.billingInfo
-                        };
-                        this.$emit('next', data);
-                        return;
-                 //   }
-               // });
+                // this.$validator.validateAll().then((result) => {
+                //   if (result) {
+                let data = {
+                    step: 'second',
+                    billing: this.billingInfo
+                };
+                this.$emit('next', data);
+                return;
+                //   }
+                // });
             }
         }
     })

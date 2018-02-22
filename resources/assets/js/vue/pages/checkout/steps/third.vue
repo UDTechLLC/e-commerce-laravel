@@ -1,7 +1,7 @@
 <template>
     <div>
         <billing-block
-            :billing="billing"
+                :billing="billing"
         ></billing-block>
         <login></login>
         <div class="checkout-billing-details-block-wrapper">
@@ -22,32 +22,35 @@
                                     <div class="paypal-method payment-method-block">
                                         <div class="paypal-header-block">
                                             <div class="payment-method-title">
-                                                <img src="/web/images/checkout/img-paypal.png" />
+                                                <img src="/web/images/checkout/img-paypal.png"/>
                                             </div>
                                             <div class="icons-label-block">
-                                                <img src="/web/images/checkout/paypal-icons.png" />
+                                                <img src="/web/images/checkout/paypal-icons.png"/>
                                             </div>
                                         </div>
                                         <div class="paypal-content-block">
                                             <p>
-                                                Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.
+                                                Pay via PayPal; you can pay with your credit card if you don’t have a
+                                                PayPal account.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <cart-totals
-                                    :products="products"
-                                    :subTotal="subTotal"
-                                    :total="total"
-                                    :shipping="shipping"
-                            ></cart-totals>
+                            <div class="cart-review-block-wrapper">
+                                <cart-totals
+                                        :products="products"
+                                        :subTotal="subTotal"
+                                        :total="total"
+                                        :shipping="shipping"
+                                ></cart-totals>
+                            </div>
                         </div>
                         <div class="buttons-area">
                             <a href="#" class="back-button">
                                 Back
                             </a>
-                            <a href="#" class="continue-checkout">
+                            <a href="#" class="continue-checkout" @click.prevent="next">
                                 Continue
                             </a>
                         </div>
@@ -65,9 +68,7 @@
     import billingBlock from './../components/billing-block';
 
     export default ({
-        data: () => ({
-
-        }),
+        data: () => ({}),
         props: {
             billing: Object,
             products: Array,
@@ -88,7 +89,7 @@
                 // this.$validator.validateAll().then((result) => {
                 //   if (result) {
                 let data = {
-                    step: 'second',
+                    step: 'fourth',
                     billing: this.billingInfo
                 };
                 this.$emit('next', data);
