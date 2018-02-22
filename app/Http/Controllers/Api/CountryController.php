@@ -20,6 +20,8 @@ class CountryController extends Controller
         $name = $request->get('country');
         $ip = $request->ip();
 
+        \Log::info('CountryController@index: ', ['country' => $name, 'ip' => $ip]);
+
         $country = $name ?: $this->getCountry($ip);
         $shippingSum = $this->getShippingSum($country);
 
