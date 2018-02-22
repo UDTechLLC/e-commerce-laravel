@@ -23,6 +23,8 @@ class OrderTransformer extends TransformerAbstract
             'total_cost' => $order->total_cost,
             'count' => $order->count,
             'state' => $order->state,
+            'billing' => fractal($order->billing, new BillingTransformer()),
+            'shipping' => fractal($order->shipping, new ShippingTransformer()),
         ];
     }
 }
