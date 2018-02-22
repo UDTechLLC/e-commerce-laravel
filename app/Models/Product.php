@@ -21,6 +21,30 @@ class Product extends EloquentModel implements HasMedia
     /**
      * @var string
      */
+    const VIEW_NAME_SHOW = 'show';
+    const VIEW_NAME_12WEEK_MEAL = '12week-custom-meal-plan';
+    const VIEW_NAME_12WEEK_TRAINING = '12week-custom-training-plan';
+    const VIEW_NAME_14DAY_DETOX = '14-day-detox-guide';
+    const VIEW_NAME_NEVER_STOP = 'never-stop-moving-e-book';
+    const VIEW_NAME_QUEEN_OF_THE_HILL = 'queen-of-the-hill';
+    const VIEW_NAME_RESISTANCE_BANDS = 'resistance-bands';
+    const VIEW_NAME_INFUSER_BOTTLE = 'shedfat-infuser-bottle';
+    const VIEW_NAME_SHEDFAT_MAX = 'shedfat-maxx';
+    const VIEW_NAME_WHAT_TO_EAT = 'what-to-eat-in-the-streets';
+
+    const VIEW_NAMES = [
+        self::VIEW_NAME_SHOW,
+        self::VIEW_NAME_12WEEK_MEAL,
+        self::VIEW_NAME_12WEEK_TRAINING,
+        self::VIEW_NAME_14DAY_DETOX,
+        self::VIEW_NAME_NEVER_STOP,
+        self::VIEW_NAME_QUEEN_OF_THE_HILL,
+        self::VIEW_NAME_RESISTANCE_BANDS,
+        self::VIEW_NAME_INFUSER_BOTTLE,
+        self::VIEW_NAME_SHEDFAT_MAX,
+        self::VIEW_NAME_WHAT_TO_EAT
+    ];
+
     protected $table = 'products';
 
     /**
