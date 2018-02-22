@@ -11,6 +11,9 @@
     line-height: 1.26
     letter-spacing: 0
     margin: 0
+    @media screen and (max-width: 480px)
+      font-size: 20px
+      line-height: 30px
 
 .cart-block-wrapper
   padding: 50px 30px 60px
@@ -22,6 +25,26 @@
         box-sizing: border-box
         overflow: hidden
         padding: 30px
+
+        .cart-wrapper
+          .shop-table
+            @media screen and (max-width: 480px)
+              .product-name
+                .product-thumbnail
+                  float: none
+                  margin-right: 0
+
+                .product-info
+                  margin-left: 0
+                  max-width: 90px
+
+              .product-price
+                display: none
+
+              .product-quantity
+                .quantity.buttons_added
+                  max-width: 36px
+
 
 
 .culculate-shiping-block-wrapper, .promotional-code-block-wrapper, .cart-totals-wrapper
@@ -194,6 +217,11 @@
                 @media screen and (max-width: $breakpoint-mobile)
                   margin-top: 20px
 
+                @media screen and (max-width: 480px)
+                  font-size: 18px
+                  padding: 16px 0
+                  width: 100%
+
       &.cart-totals-wrapper
         .shop-table
           background-color: transparent
@@ -247,6 +275,10 @@
           float: right
           margin-top: 10px
 
+          @media screen and (max-width: 480px)
+            float: none
+            width: 100%
+
           .proceed-to-checkout
             background-color: #eb212e
             border: none
@@ -263,3 +295,10 @@
             text-decoration: none
             text-transform: uppercase
             width: auto
+
+            @media screen and (max-width: 480px)
+              display: block
+              font-size: 14px
+              padding: 16px 0
+              text-align: center
+              width: 100%

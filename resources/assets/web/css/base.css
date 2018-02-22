@@ -2067,6 +2067,10 @@ section .training-plan-faqs-block-wrapper .wrapper {
     line-height: 1.26;
     letter-spacing: 0;
     margin: 0; }
+    @media screen and (max-width: 480px) {
+      .cart-header-block .cart-heading {
+        font-size: 20px;
+        line-height: 30px; } }
 
 .cart-block-wrapper {
   padding: 50px 30px 60px; }
@@ -2076,6 +2080,17 @@ section .training-plan-faqs-block-wrapper .wrapper {
             box-sizing: border-box;
     overflow: hidden;
     padding: 30px; }
+    @media screen and (max-width: 480px) {
+      .cart-block-wrapper .wrapper .cart-form .cart-block .cart-wrapper .shop-table .product-name .product-thumbnail {
+        float: none;
+        margin-right: 0; }
+      .cart-block-wrapper .wrapper .cart-form .cart-block .cart-wrapper .shop-table .product-name .product-info {
+        margin-left: 0;
+        max-width: 90px; }
+      .cart-block-wrapper .wrapper .cart-form .cart-block .cart-wrapper .shop-table .product-price {
+        display: none; }
+      .cart-block-wrapper .wrapper .cart-form .cart-block .cart-wrapper .shop-table .product-quantity .quantity.buttons_added {
+        max-width: 36px; } }
 
 .culculate-shiping-block-wrapper, .promotional-code-block-wrapper, .cart-totals-wrapper {
   border: 1px solid #eaeaea;
@@ -2247,6 +2262,11 @@ section .training-plan-faqs-block-wrapper .wrapper {
         @media screen and (max-width: 800px) {
           .cart-bottom-block-wrapper .wrapper .cart-bottom-block .promotional-code-block-wrapper .promotional-code-form-wrapper .promotional-code-form .promotional-code-form-block .cart-submit-field {
             margin-top: 20px; } }
+        @media screen and (max-width: 480px) {
+          .cart-bottom-block-wrapper .wrapper .cart-bottom-block .promotional-code-block-wrapper .promotional-code-form-wrapper .promotional-code-form .promotional-code-form-block .cart-submit-field {
+            font-size: 18px;
+            padding: 16px 0;
+            width: 100%; } }
     .cart-bottom-block-wrapper .wrapper .cart-bottom-block.cart-totals-wrapper .shop-table {
       background-color: transparent;
       border-collapse: collapse;
@@ -2292,6 +2312,10 @@ section .training-plan-faqs-block-wrapper .wrapper {
       clear: both;
       float: right;
       margin-top: 10px; }
+      @media screen and (max-width: 480px) {
+        .cart-bottom-block-wrapper .wrapper .cart-bottom-block.cart-totals-wrapper .proceed-to-checkout-button-wrapper {
+          float: none;
+          width: 100%; } }
       .cart-bottom-block-wrapper .wrapper .cart-bottom-block.cart-totals-wrapper .proceed-to-checkout-button-wrapper .proceed-to-checkout {
         background-color: #eb212e;
         border: none;
@@ -2309,6 +2333,13 @@ section .training-plan-faqs-block-wrapper .wrapper {
         text-decoration: none;
         text-transform: uppercase;
         width: auto; }
+        @media screen and (max-width: 480px) {
+          .cart-bottom-block-wrapper .wrapper .cart-bottom-block.cart-totals-wrapper .proceed-to-checkout-button-wrapper .proceed-to-checkout {
+            display: block;
+            font-size: 14px;
+            padding: 16px 0;
+            text-align: center;
+            width: 100%; } }
 
 .empty-cart-wrapper .wrapper {
   padding: 0 !important; }
