@@ -80,7 +80,7 @@
         props: {
             products: Array,
             subTotal: String,
-            total: Number,
+            total: String,
             shipping: Number
         }
     })

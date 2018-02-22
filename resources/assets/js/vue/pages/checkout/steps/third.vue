@@ -73,7 +73,7 @@
             billing: Object,
             products: Array,
             subTotal: String,
-            total: Number,
+            total: String,
             shipping: Number,
             countries: Array,
             states: Array,

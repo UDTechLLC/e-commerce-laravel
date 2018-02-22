@@ -232,7 +232,7 @@
             countries: Array,
             states: Array,
             subTotal: String,
-            total: Number,
+            total: String,
             shipping: Number,
             selectedShippingCountry: String
         },
@@ -244,11 +244,15 @@
                 this.$emit('updateCountry', this.shippingInfo.country);
             },
             next() {
-                let data = {
-                    step: 'third',
-                    billing: this.billing
-                };
-                this.$emit('next', data);
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        let data = {
+                            step: 'third',
+                            billing: this.billing
+                        };
+                        this.$emit('next', data);
+                    }
+                });
             },
             back() {
                 let data = {
