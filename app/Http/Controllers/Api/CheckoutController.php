@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Checkout\BillingRequest;
 use App\Http\Requests\Checkout\ShippingRequest;
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderBilling;
 use App\Models\OrderShipping;
@@ -29,14 +30,18 @@ class CheckoutController extends Controller
      *
      * @param BillingRequest $request
      *
+     * @param Cart $cart
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function billing(BillingRequest $request)
+    public function billing(BillingRequest $request, Cart $cart)
     {
+        /** @var User $user */
         $user = \Auth::user();
         $billing = $this->createBilling($request);
+        $shippingCost = $this->getShippingSum($request->get('country'));
 
-        $order = $this->createOrder($request, $user, $billing);
+        $order = $this->createOrder($user, $cart, $billing, $shippingCost);
 
         return fractal($order, new OrderTransformer())->respond();
     }
@@ -126,38 +131,48 @@ class CheckoutController extends Controller
     private function createBilling($request)
     {
         return OrderBilling::create([
-            'first_name'    => $request->get('first_name'),
-            'last_name'     => $request->get('last_name'),
-            'email'         => $request->get('email'),
-            'address'       => $request->get('address'),
-            'country'       => $request->get('country'),
-            'city'          => $request->get('city'),
-            'state'         => $request->get('state'),
-            'postcode'      => $request->get('postcode'),
-            'phone'         => $request->get('phone'),
+            'first_name' => $request->get('firstName'),
+            'last_name'  => $request->get('lastName'),
+            'email'      => $request->get('email'),
+            'address'    => $request->get('address'),
+            'country'    => $request->get('country'),
+            'city'       => $request->get('city'),
+            'state'      => $request->get('state'),
+            'postcode'   => $request->get('postcode'),
+            'phone'      => $request->get('phone'),
         ]);
     }
 
     /**
      * Create order.
      *
-     * @param $request
      * @param $user
+     * @param Cart $cart
      * @param $billing
+     *
+     * @param $shippingCost
      *
      * @return mixed
      */
-    private function createOrder($request, $user, $billing)
+    private function createOrder($user, Cart $cart, OrderBilling $billing, $shippingCost)
     {
-        return Order::create([
-            'user_id' => null !== $user ? $user->getKey() : null,
-            'billing_id' => $billing->getKey(),
-            'product_cost' => $request->get('product_cost'),
-            'shipping_cost' => $request->get('shipping_cost'),
-            'total_cost' => $request->get('product_cost') + $request->get('shipping_cost'),
-            'count' => $request->get('count'),
-            'state' => Order::ORDER_STATE_PENDINGPAYMENT,
+        $productCost = $this->getProductsCost($cart);
+        $count = $this->getProductsCount($cart);
+
+        /** @var Order $order */
+        $order = Order::create([
+            'user_id'       => null !== $user ? $user->getKey() : null,
+            'billing_id'    => $billing->getKey(),
+            'product_cost'  => $productCost,
+            'shipping_cost' => $shippingCost,
+            'total_cost'    => $productCost + $shippingCost,
+            'count'         => $count,
+            'state'         => Order::ORDER_STATE_PENDINGPAYMENT,
         ]);
+
+        $order->products()->saveMany($cart->products);
+
+        return $order;
     }
 
     /**
@@ -170,13 +185,13 @@ class CheckoutController extends Controller
     private function createShipping($request)
     {
         return OrderShipping::create([
-            'first_name'    => $request->get('first_name'),
-            'last_name'     => $request->get('last_name'),
-            'address'       => $request->get('address'),
-            'country'       => $request->get('country'),
-            'city'          => $request->get('city'),
-            'state'         => $request->get('state'),
-            'postcode'      => $request->get('postcode'),
+            'first_name' => $request->get('first_name'),
+            'last_name'  => $request->get('last_name'),
+            'address'    => $request->get('address'),
+            'country'    => $request->get('country'),
+            'city'       => $request->get('city'),
+            'state'      => $request->get('state'),
+            'postcode'   => $request->get('postcode'),
         ]);
     }
 
@@ -187,12 +202,60 @@ class CheckoutController extends Controller
      * @param $order
      * @param $shipping
      */
-    public function updateOrder($request, $order, $shipping)
+    private function updateOrder($request, $order, $shipping)
     {
         $order->update([
-            'shipping_id' => $shipping->getKey(),
+            'shipping_id'   => $shipping->getKey(),
             'shipping_cost' => $request->get('shipping_cost'),
-            'total_cost' => $order->product_cost + $request->get('shipping_cost'),
+            'total_cost'    => $order->product_cost + $request->get('shipping_cost'),
         ]);
+    }
+
+    /**
+     * Get product count in cart.
+     *
+     * @param Cart $cart
+     *
+     * @return int
+     */
+    private function getProductsCount(Cart $cart): int
+    {
+        $count = 0;
+
+        foreach ($cart->products as $product) {
+            $count += $product->pivot->count;
+        }
+
+        return $count;
+    }
+
+    /**
+     * @param Cart $cart
+     *
+     * @return string
+     */
+    private function getProductsCost(Cart $cart): string
+    {
+        $sum = 0;
+
+        foreach ($cart->products as $product) {
+            $sum += $product->pivot->count * $product->amount;
+        }
+
+        return number_format($sum, 2);
+    }
+
+    /**
+     * Get shipping sum by country.
+     *
+     * @param null $country
+     *
+     * @return float
+     */
+    private function getShippingSum($country)
+    {
+        return $country === 'United States' || $country === 'Canada'
+            ? 6.99
+            : 17.99;
     }
 }

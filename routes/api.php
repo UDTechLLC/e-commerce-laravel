@@ -57,7 +57,7 @@ Route::group([
     'as' => '.checkout',
     'prefix' => 'checkout',
 ], function () {
-    Route::post('billing', [
+    Route::get('billing/{cart}', [
         'as' => '.billing',
         'uses' => 'Api\CheckoutController@billing',
     ]);
