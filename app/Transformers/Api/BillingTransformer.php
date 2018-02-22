@@ -19,8 +19,10 @@ class BillingTransformer extends TransformerAbstract
         return [
             'first_name'    => $billing->first_name,
             'last_name'     => $billing->last_name,
+            'company'       => $billing->company_name,
             'email'         => $billing->email,
-            'address'       => $billing->address,
+            'street'        => $billing->street,
+            'apartment'     => $billing->apartment,
             'country'       => $billing->country,
             'city'          => $billing->city,
             'state'         => $billing->state,
