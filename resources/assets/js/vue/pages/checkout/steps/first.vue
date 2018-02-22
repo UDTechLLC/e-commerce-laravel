@@ -21,7 +21,7 @@
                                             First name
                                         </label>
                                         <input id="bdFirstName" class="form-field" name="bg_first_name" type="text"
-                                               v-validate data-vv-rules="required" v-model="billing.firstName"
+                                               v-validate data-vv-rules="required" v-model="billingInfo.firstName"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your first name.</span>
@@ -31,7 +31,7 @@
                                             Last name
                                         </label>
                                         <input id="bdLastName" class="form-field" name="bg_last_name" type="text"
-                                               v-validate data-vv-rules="required" v-model="billing.lastName"
+                                               v-validate data-vv-rules="required" v-model="billingInfo.lastName"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your last name.</span>
@@ -44,7 +44,7 @@
                                                 </span>
                                         </label>
                                         <input id="bdCompName" class="form-field" name="bd_comp_name" type="text"
-                                               v-model="billing.company"
+                                               v-model="billingInfo.company"
                                         />
                                     </div>
                                     <div class="form-field-wrapper" :class="{'error': errors.has('bg_email') }">
@@ -52,7 +52,7 @@
                                             Email address
                                         </label>
                                         <input id="bdEmail" class="form-field" name="bg_email" type="email"
-                                               v-validate data-vv-rules="required|email" v-model="billing.email"
+                                               v-validate data-vv-rules="required|email" v-model="billingInfo.email"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your email.</span>
@@ -64,7 +64,7 @@
                                         </label>
                                         <input id="bdStreetAddress" class="form-field" name="bg_street_address"
                                                type="text" placeholder="House number and street name"
-                                               v-validate data-vv-rules="required" v-model="billing.street"
+                                               v-validate data-vv-rules="required" v-model="billingInfo.street"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your address</span>
@@ -78,7 +78,7 @@
                                         </label>
                                         <input id="bdApartments" class="form-field" name="bd_apartments" type="text"
                                                placeholder="Apartment, suite, unit etc. (optional)"
-                                               v-model="billing.apartment"/>
+                                               v-model="billingInfo.apartment"/>
                                     </div>
                                     <div class="form-field-wrapper half-field">
                                         <label for="bdCountry">
@@ -86,7 +86,7 @@
                                         </label>
                                         <!-- <input id="bdCountry" class="form-field" name="bd_country" type="text" /> -->
                                         <select id="bdCountry" class="form-field" name="bd_country"
-                                                v-model="billing.country" @change="getCountries">
+                                                v-model="billingInfo.country" @change="getCountries">
                                             <option value="">Select a country...</option>
                                             <option value="" v-for="country in countries" :value="country">{{ country }}
                                             </option>
@@ -98,7 +98,7 @@
                                             Town / City
                                         </label>
                                         <input id="bdTownCity" class="form-field" name="bg_city" type="text"
-                                               v-validate data-vv-rules="required" v-model="billing.city"
+                                               v-validate data-vv-rules="required" v-model="billingInfo.city"
                                         />
                                         <span class="error-massage" style="display: none">Please enter your city.</span>
                                     </div>
@@ -109,12 +109,12 @@
 
                                         <div v-if="states.length == 0">
                                             <input id="bdState" class="form-field" name="bd_state" type="text"
-                                                   v-model="billing.state"
+                                                   v-model="billingInfo.state"
                                             />
                                         </div>
                                         <div v-else>
                                             <select id="bdState" class="form-field" name="bd_country"
-                                                    v-model="billing.state">
+                                                    v-model="billingInfo.state">
                                                 <option value="">Select a option...</option>
                                                 <option value="" v-for="state in states" :value="state">{{ state }}
                                                 </option>
@@ -129,7 +129,7 @@
                                             Postcode / ZIP
                                         </label>
                                         <input id="bdZipCode" class="form-field" name="bg_post_zip" type="text"
-                                               v-validate data-vv-rules="required" v-model="billing.postcode"
+                                               v-validate data-vv-rules="required" v-model="billingInfo.postcode"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your postcode.</span>
@@ -140,7 +140,7 @@
                                             Phone
                                         </label>
                                         <input id="bdPhone" class="form-field" name="bg_phone" type="text"
-                                               v-validate data-vv-rules="required" v-model="billing.phone"
+                                               v-validate data-vv-rules="required" v-model="billingInfo.phone"
                                         />
                                         <span class="error-massage"
                                               style="display: none">Please enter your phone.</span>
@@ -193,7 +193,7 @@
 
     export default ({
         data: () => ({
-            billing: {
+            billingInfo: {
                 firstName: "",
                 lastName: "",
                 email: "",
@@ -214,26 +214,26 @@
             shipping: Number,
             countries: Array,
             states: Array,
-            selectedCountry: String
+            selectedBillingCountry: String
         },
         components: {
             cartTotals,
             login
         },
         created() {
-            this.billing.country = this.selectedCountry;
+            this.billingInfo.country = this.selectedBillingCountry;
         },
         methods: {
             getCountries() {
                 console.log('sadsad');
-                this.$emit('updateCountry', this.billing.country);
+                this.$emit('updateCountry', this.billingInfo.country);
             },
             next() {
                // this.$validator.validateAll().then((result) => {
                  //   if (result) {
                         let data = {
                             step: 'second',
-                            billing: this.billing
+                            billing: this.billingInfo
                         };
                         this.$emit('next', data);
                         return;

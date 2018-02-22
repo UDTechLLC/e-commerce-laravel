@@ -130,7 +130,7 @@
                                             <option value="BY">Belarus</option>
                                         </select>-->
                                         <select id="bdCountry" class="form-field" name="bd_country"
-                                                v-model="billing.country" @change="getCountries">
+                                                v-model="shippingInfo.country" @change="getCountries">
                                             <option value="">Select a country...</option>
                                             <option value="" v-for="country in countries" :value="country">{{ country }}
                                             </option>
@@ -188,7 +188,7 @@
                             ></cart-totals>
                         </div>
                         <div class="buttons-area">
-                            <a href="#" class="back-button">
+                            <a href="#" class="back-button" @click.prevent="back">
                                 Back
                             </a>
                             <a href="#" class="continue-checkout">
@@ -234,12 +234,19 @@
             countries: Array,
             subTotal: String,
             total: Number,
-            shipping: Number
+            shipping: Number,
+            selectedShippingCountry: String
         },
         methods: {
             getCountries() {
                 this.$emit('updateCountry', this.shippingInfo.country);
             },
+            back() {
+                let data = {
+                    step: 'first'
+                };
+                this.$emit('back', data);
+            }
         }
     })
 
