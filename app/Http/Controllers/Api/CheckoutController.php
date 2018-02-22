@@ -131,15 +131,17 @@ class CheckoutController extends Controller
     private function createBilling($request)
     {
         return OrderBilling::create([
-            'first_name' => $request->get('firstName'),
-            'last_name'  => $request->get('lastName'),
-            'email'      => $request->get('email'),
-            'address'    => $request->get('address'),
-            'country'    => $request->get('country'),
-            'city'       => $request->get('city'),
-            'state'      => $request->get('state'),
-            'postcode'   => $request->get('postcode'),
-            'phone'      => $request->get('phone'),
+            'first_name'   => $request->get('firstName'),
+            'last_name'    => $request->get('lastName'),
+            'email'        => $request->get('email'),
+            'company_name' => $request->get('company'),
+            'address'      => $request->get('street'),
+            'apartment'    => $request->get('apartment'),
+            'country'      => $request->get('country'),
+            'city'         => $request->get('city'),
+            'state'        => $request->get('state'),
+            'postcode'     => $request->get('postcode'),
+            'phone'        => $request->get('phone'),
         ]);
     }
 
@@ -185,13 +187,15 @@ class CheckoutController extends Controller
     private function createShipping($request)
     {
         return OrderShipping::create([
-            'first_name' => $request->get('first_name'),
-            'last_name'  => $request->get('last_name'),
-            'address'    => $request->get('address'),
-            'country'    => $request->get('country'),
-            'city'       => $request->get('city'),
-            'state'      => $request->get('state'),
-            'postcode'   => $request->get('postcode'),
+            'first_name'   => $request->get('firstName'),
+            'last_name'    => $request->get('lastName'),
+            'company_name' => $request->get('company'),
+            'street'       => $request->get('street'),
+            'apartment'    => $request->get('apartment'),
+            'country'      => $request->get('country'),
+            'city'         => $request->get('city'),
+            'state'        => $request->get('state'),
+            'postcode'     => $request->get('postcode'),
         ]);
     }
 
