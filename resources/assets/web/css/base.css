@@ -1851,6 +1851,10 @@ ul {
     .maxx-description .text-right {
       text-align: center; } }
 
+@media screen and (max-width: 800px) {
+  .maxx-directions.grey-section {
+    margin-bottom: 0; } }
+
 @media screen and (max-width: 1200px) {
   .maxx-directions .wrapper {
     padding: 0 20px; } }
