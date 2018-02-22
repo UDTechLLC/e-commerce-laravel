@@ -70,7 +70,9 @@ class CountryController extends Controller
 
         \Log::info('CountryController@getCountry: ', ['country' => $response->country]);
 
-        return isset($response->country) ?: 'United States';
+        return isset($response->country)
+            ? $response->country
+            : 'United States';
     }
 
     /**
