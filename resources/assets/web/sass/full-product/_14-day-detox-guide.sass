@@ -1,10 +1,14 @@
 .detox-section
+  @media screen and (max-width: $breakpoint-mobile)
+    padding-left: 15px
+    padding-right: 15px
   .section__title
 
     @media screen and (max-width: $breakpoint-mobile)
-      font-size: 33px
+      font-size: 26px
       text-align: center
       margin-bottom: 50px
+      margin-top: 0
     @media screen and (min-width: $breakpoint-mobile+1)
       margin-left: 45px
   &__item
@@ -41,6 +45,14 @@
       .get-more__text
         margin-top: 0
 
+.grey-section
+  @media screen and (max-width: $breakpoint-mobile)
+    margin-bottom: 30px
+    padding-left: 15px
+    padding-right: 15px
+    .section__img--detox
+      margin: 0 auto
+      max-width: 265px
 
 .section
   &__title--detox

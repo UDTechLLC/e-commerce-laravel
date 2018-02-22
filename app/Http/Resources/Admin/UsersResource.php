@@ -17,7 +17,8 @@ class UsersResource extends Resource
     {
         return [
             'id' => $this->getKey(),
-            'name' => substr($this->name, 0, 50) ,
+            'first_name' => substr($this->first_name, 0, 50) ,
+            'last_name' => substr($this->last_name, 0, 50) ,
             'email' => substr($this->email, 0, 50) ,
             'phone' => substr($this->phone, 0, 50) ,
              'action' => [

@@ -24,15 +24,15 @@ class BillingRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstName'    => 'required',
-            'lastName'     => 'required',
-            'email'        => 'required',
-            'address'      => 'required',
-            'country'      => 'required',
-            'city'         => 'required',
-            'state'        => 'required',
-            'postcode'     => 'required',
-            'phone'        => 'required',
+            'firstName' => 'required',
+            'lastName'  => 'required',
+            'email'     => 'required',
+            'street'    => 'required',
+            'country'   => 'required',
+            'city'      => 'required',
+            'state'     => 'required',
+            'postcode'  => 'required',
+            'phone'     => 'required',
         ];
     }
 }
