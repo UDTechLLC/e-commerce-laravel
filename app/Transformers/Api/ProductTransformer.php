@@ -17,18 +17,18 @@ class ProductTransformer extends TransformerAbstract
     public function transform(Product $product)
     {
         return [
-            'id'     => $product->id,
-            'title'  => $product->title,
-            'sub_title' => $product->sub_title,
-            'category' => $product->category,
+            'id'          => $product->id,
+            'title'       => $product->title,
+            'sub_title'   => $product->sub_title,
+            'category'    => $product->category,
             'description' => $product->description,
-            'amount' => $product->amount,
-            'old_amount' => $product->old_amount,
-            'slug'   => $product->slug,
-            'count'  => $product->pivot->count,
-            'is_virtual' => $product->isVirtual,
-            'total_sum' => $product->amount * $product->pivot->count,
-            'image'  => $product->getFirstMediaUrl('preview')
+            'amount'      => $product->amount,
+            'old_amount'  => $product->old_amount,
+            'slug'        => $product->slug,
+            'count'       => $product->pivot->count,
+            'is_virtual'  => $product->isVirtual,
+            'total_sum'   => $product->total_sum,
+            'image'       => $product->getFirstMediaUrl('preview'),
         ];
     }
 }

@@ -88,8 +88,7 @@
                                         <select id="bdCountry" class="form-field" name="bd_country"
                                                 v-model="billing.country" @change="getCountries">
                                             <option value="">Select a country...</option>
-                                            <option value="" v-for="country in countries" :value="country">{{ country
-                                                }}
+                                            <option value="" v-for="country in countries" :value="country">{{ country }}
                                             </option>
                                         </select>
                                     </div>
@@ -226,6 +225,7 @@
         },
         methods: {
             getCountries() {
+                console.log('sadsad');
                 this.$emit('updateCountry', this.billing.country);
             },
             next() {

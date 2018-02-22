@@ -12,19 +12,20 @@ use App\Models\EloquentModel;
  * Class Shipping
  * @package App\Models
  */
-class Shipping extends EloquentModel
+class OrderShipping extends EloquentModel
 {
     /**
      * @var string
      */
-    protected $table = 'shippings';
+    protected $table = 'order_shipping';
 
     /**
      * The attributes that are mass assignable.
      * @var array
      */
     protected $fillable = [
-        'user_id', 'first_name', 'last_name', 'company_name', 'address', 'apartment', 'country', 'city', 'state',
+        'order_id', 'first_name', 'last_name', 'company_name', 'address', 'apartment', 'country', 'city', 'state',
+        'postcode',
     ];
 
     /**

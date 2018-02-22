@@ -61,7 +61,7 @@
             products: [],
             subTotal: "0",
             shipping: 0,
-            currentComponent: second,
+            currentComponent: first,
             billing: {}
         }),
         components: {
@@ -96,6 +96,7 @@
                 )
             },
             updateCountry(value) {
+                console.log('aaa');
                 this.selectedCountry = value;
                 this.getCountries();
             }

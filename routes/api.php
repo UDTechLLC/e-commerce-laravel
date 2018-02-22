@@ -57,29 +57,27 @@ Route::group([
     'as' => '.checkout',
     'prefix' => 'checkout',
 ], function () {
-    Route::get('billing', [
+    Route::post('billing', [
         'as' => '.billing',
         'uses' => 'Api\CheckoutController@billing',
     ]);
-    Route::get('shipping', [
+    Route::post('shipping/{order}', [
         'as' => '.shipping',
         'uses' => 'Api\CheckoutController@shipping'
     ]);
-    Route::get('pay', [
+    Route::post('pay/{order}', [
         'as' => '.pay',
         'uses' => 'Api\CheckoutController@pay'
     ]);
-    Route::get('pay/success', [
+    Route::get('pay/success/{order}', [
         'as' => '.pay.success',
         'uses' => 'Api\CheckoutController@returnUrl',
     ]);
-    Route::get('pay/cancel', [
+    Route::get('pay/cancel/{order}', [
         'as' => '.pay.cancel',
         'uses' => 'Api\CheckoutController@cancelUrl',
     ]);
 });
-
-
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -44,8 +44,11 @@ class Order extends EloquentModel
     protected $fillable = [
         // @todo:
         'user_id',
-        'products_id',
-        'amount',
+        'shipping_id',
+        'billing_id',
+        'product_cost',
+        'shipping_cost',
+        'total_cost',
         'count',
         'state',
     ];
@@ -84,7 +87,25 @@ class Order extends EloquentModel
      * Entity relations go below
      */
 
-    // @todo:
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+
+    public function shipping()
+    {
+        return $this->belongsTo(OrderShipping::class);
+    }
+
+    public function billing()
+    {
+        return $this->belongsTo(OrderBilling::class);
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 
     /**
      * Entity scopes go below
@@ -96,7 +117,35 @@ class Order extends EloquentModel
      * Entity mutators and accessors go below
      */
 
-    // @todo:
+    public function setProductCostAttribute($value)
+    {
+        $this->attributes['product_cost'] = $value * 100;
+    }
+
+    public function setShippingCostAttribute($value)
+    {
+        $this->attributes['shipping_cost'] = $value * 100;
+    }
+
+    public function setTotalCostAttribute($value)
+    {
+        $this->attributes['total_cost'] = $value * 100;
+    }
+
+    public function getProductCostAttribute($value)
+    {
+        return  number_format($value / 100, 2);
+    }
+
+    public function getShippingCostAttribute($value)
+    {
+        return number_format($value / 100, 2);
+    }
+
+    public function getTotalCostAttribute($value)
+    {
+        return number_format($value / 100, 2);
+    }
 
     /**
      * Entity public methods go below
