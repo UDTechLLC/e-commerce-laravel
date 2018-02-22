@@ -24,12 +24,12 @@ class ShippingRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name'  => 'required',
-            'address'    => 'required',
-            'country'    => 'required',
-            'city'       => 'required',
-            'state'      => 'required',
+            'firstName' => 'required',
+            'lastName'  => 'required',
+            'street'    => 'required',
+            'country'   => 'required',
+            'city'      => 'required',
+            'state'     => 'required',
         ];
     }
 }

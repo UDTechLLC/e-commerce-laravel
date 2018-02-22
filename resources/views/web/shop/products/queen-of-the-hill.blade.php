@@ -57,7 +57,8 @@
             </p>
 
             <div class="section__img">
-                <img src="{{ asset('web/images/full-product/queen-of-the-hill/books-90days.png')}}" alt="book" class="full-width">
+                <img src="{{ asset('web/images/full-product/queen-of-the-hill/books-90days.png')}}" alt="book" class="full-width desktop-image" />
+                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book-mobile-90days.png')}}" alt="book" class="full-width mobile-image" />
             </div>
 
             <div class="section__icons inline-block text-center">

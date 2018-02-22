@@ -29,18 +29,18 @@ div
     bottom: -80px
     left: 50%
     margin-left: -40px
-    @media (min-width: $breakpoint-mobile+1)
-      border: 20px solid transparent
-      border-top: 20px solid #f5f3f3
-      bottom: -40px
+    @media screen and (max-width: $breakpoint-mobile)
+      border: 25px solid transparent
+      border-top: 25px solid #f5f3f3
+      bottom: -50px
       margin-left: -20px
   &--large
     &:after
-      border: 40px solid transparent
-      border-top: 40px solid #f5f3f3
-      bottom: -80px
+      border: 25px solid transparent
+      border-top: 25px solid #f5f3f3
+      bottom: -50px
 
-      @media (min-width: $breakpoint-mobile+1)
+      @media screen and (min-width: $breakpoint-mobile+1)
         border: 50px solid transparent
         border-top: 50px solid #f5f3f3
         bottom: -100px

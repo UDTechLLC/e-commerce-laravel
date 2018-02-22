@@ -24,7 +24,7 @@ class OrderBilling extends EloquentModel
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'company_name', 'email', 'address', 'apartment', 'country',
+        'first_name', 'last_name', 'company_name', 'email', 'street', 'apartment', 'country',
         'city', 'state', 'postcode', 'phone',
     ];
 

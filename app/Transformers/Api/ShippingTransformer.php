@@ -21,7 +21,7 @@ class ShippingTransformer extends TransformerAbstract
             'first_name' => $shipping->first_name,
             'last_name'  => $shipping->last_name,
             'company'    => $shipping->company_name,
-            'address'    => $shipping->address,
+            'street'     => $shipping->street,
             'apartment'  => $shipping->apartment,
             'country'    => $shipping->country,
             'city'       => $shipping->city,
