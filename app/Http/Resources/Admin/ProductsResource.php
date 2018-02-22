@@ -25,7 +25,7 @@ class ProductsResource extends Resource
             'description' => substr($this->description, 0, 50) . "...",
             'action'      => [
                 'edit'   => route('admin.products.edit', $this->slug),
-                'delete' => route('admin.products.delete', $this->getKey())
+                'delete' => route('admin.products.delete', $this->slug)
             ]
         ];
     }
