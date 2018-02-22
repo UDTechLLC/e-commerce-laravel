@@ -205,3 +205,10 @@
     opacity: .75;
     color: black;
 }
+
+@media screen and (max-width: 480px) {
+    .slick-next, 
+    .slick-prev {
+        display: none !important;
+    }
+}
