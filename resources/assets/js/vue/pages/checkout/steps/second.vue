@@ -1,28 +1,8 @@
 <template>
     <div>
-        <div class="billing-address-info-block-wrapper">
-            <div class="wrapper">
-                <div class="billing-address-info-block billing-address-edit-block">
-                    <div class="cart-header-block">
-                        <h2 class="cart-heading">
-                            Billing address
-                        </h2>
-                        <a class="edit-block-link" href="#">
-                            Edit
-                        </a>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="billing-user-info-block">
-                        <span id="baCompName" class="billing-user-info">{{ billing.company}}, </span>
-                        <span id="baStreetAddress" class="billing-user-info">{{ billing.street }}, </span>
-                        <span id="baTown" class="billing-user-info"> {{ billing.city }} </span>
-                        <span id="baState" class="billing-user-info"> {{billing.state }} </span>
-                        <span id="baZipCode" class="billing-user-info"> {{ billing.postcode }}, </span>
-                        <span id="baCountry" class="billing-user-info"> {{ billing.country }} </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <billing-block
+                :billing="billing"
+        ></billing-block>
         <login></login>
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
@@ -196,7 +176,7 @@
                             <a href="#" class="back-button" @click.prevent="back">
                                 Back
                             </a>
-                            <a href="#" class="continue-checkout">
+                            <a href="#" class="continue-checkout" @click.prevent="next">
                                 Continue
                             </a>
                         </div>
@@ -211,6 +191,7 @@
 
     import cartTotals from './../components/cart-totals';
     import login from './../components/login';
+    import billingBlock from './../components/billing-block';
 
     export default ({
         data: () => ({
@@ -231,7 +212,8 @@
         }),
         components: {
             cartTotals,
-            login
+            login,
+            billingBlock
         },
         props: {
             billing: Object,
@@ -249,6 +231,13 @@
         methods: {
             getCountries() {
                 this.$emit('updateCountry', this.shippingInfo.country);
+            },
+            next() {
+                let data = {
+                    step: 'third',
+                    billing: this.billing
+                };
+                this.$emit('next', data);
             },
             back() {
                 let data = {

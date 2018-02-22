@@ -57,6 +57,7 @@
 
     import first from './steps/first';
     import second from './steps/second';
+    import third from './steps/third';
 
     export default ({
         data() {
@@ -69,7 +70,7 @@
                 selectedShippingCountry: countryDefault,
                 countries: [],
                 states: [],
-                products: [],
+                products: this.$EventBus.products,
                 subTotal: "0",
                 shipping: 0,
                 currentComponent: "first",
@@ -78,7 +79,8 @@
         },
         components: {
             first,
-            second
+            second,
+            third
         },
         computed: {
             total() {
@@ -87,6 +89,7 @@
         },
         created() {
             this.getProducts();
+            console.log(this.$EventBus.products);
             this.getCountries();
         },
         methods: {
