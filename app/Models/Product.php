@@ -112,7 +112,7 @@ class Product extends EloquentModel implements HasMedia
      */
     public function getTotalSumAttribute()
     {
-        return (string)($this->attributes['amount'] * $this->pivot->count);
+        return (string)($this->attributes['amount'] * $this->pivot->count / 100);
     }
 
     /**
