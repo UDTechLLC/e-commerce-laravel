@@ -183,6 +183,7 @@ return [
          * Install Package Service Providers...
          */
         Laratrust\LaratrustServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
     ],
 

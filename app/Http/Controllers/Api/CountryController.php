@@ -40,6 +40,8 @@ class CountryController extends Controller
     {
         $country = ucfirst($country);
 
+        \Log::info('CountryController@getStates: ', ['country' => $country]);
+
         $states = Countries::where('name.common', $country)
             ->first()
             ->hydrateStates()
