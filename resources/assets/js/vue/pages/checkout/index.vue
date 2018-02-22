@@ -35,6 +35,7 @@
                 </div>
             </div>
         </div>
+        <keep-alive>
             <component :is="currentComponent"
                        :products="products"
                        :billing="billing"
@@ -49,6 +50,7 @@
                        @next="nextStep"
                        @back="backStep"
             ></component>
+        </keep-alive>
     </div>
 </template>
 <script type="text/babel">
@@ -70,7 +72,7 @@
                 products: [],
                 subTotal: "0",
                 shipping: 0,
-                currentComponent: first,
+                currentComponent: "first",
                 billing: {}
             }
         },

@@ -31,7 +31,7 @@
                         <div class="checkout-title-block">
                             <h3 class="checkout-title">
                                 <input id="shipToDifferentAddressCheckbox" class="form-checkbox-field"
-                                       name="ship_to_different_address" value="1" type="checkbox" @change="show = !show" />
+                                       name="ship_to_different_address" value="1" type="checkbox" @change="showShipping = !showShipping" />
                                 <label for="shipToDifferentAddressCheckbox" class="checkbox">
                                     Ship to a different address?
                                 </label>
@@ -41,25 +41,29 @@
                         <div class="billing-details-info-wrapper">
                             <div class="contacts-block-wrapper">
                                 <transition name="fade">
-                                    <div class="contacts-block" v-if="show">
+                                    <div class="contacts-block" v-if="showShipping">
                                     <h4 class="contacts-block-title">
                                         Contacts
                                     </h4>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bd_first_name') }">
                                         <label for="bdFirstName">
                                             First name
                                         </label>
                                         <input id="bdFirstName" class="form-field" name="bd_first_name" type="text"
-                                            v-model="shippingInfo.firstName"
+                                            v-model="shippingInfo.firstName" v-validate data-vv-rules="required"
                                         />
+                                        <span class="error-massage"
+                                              style="display: none">Please enter your first name.</span>
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bd_last_name') }">
                                         <label for="bdLastName">
                                             Last name
                                         </label>
                                         <input id="bdLastName" class="form-field" name="bd_last_name" type="text"
-                                               v-model="shippingInfo.lastName"
+                                               v-model="shippingInfo.lastName" v-validate data-vv-rules="required"
                                         />
+                                        <span class="error-massage"
+                                              style="display: none">Please enter your last name.</span>
                                     </div>
                                     <div class="form-field-wrapper">
                                         <label for="bdCompName">
@@ -72,22 +76,26 @@
                                                v-model="shippingInfo.company"
                                         />
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bd_email') }">
                                         <label for="bdEmail">
                                             Email address
                                         </label>
                                         <input id="bdEmail" class="form-field" name="bd_email" type="email"
-                                               v-model="shippingInfo.email"
+                                               v-model="shippingInfo.email" v-validate data-vv-rules="required|email"
                                         />
+                                        <span class="error-massage"
+                                              style="display: none">Please enter your email.</span>
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('bd_street_address') }">
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
                                         <input id="bdStreetAddress" class="form-field" name="bd_street_address"
                                                type="text" placeholder="House number and street name"
-                                               v-model="shippingInfo.street"
+                                               v-model="shippingInfo.street" v-validate data-vv-rules="required"
                                         />
+                                         <span class="error-massage"
+                                               style="display: none">Please enter your address</span>
                                     </div>
                                     <div class="form-field-wrapper">
                                         <label for="bdApartments">
@@ -105,30 +113,6 @@
                                         <label for="bdCountry">
                                             Country
                                         </label>
-                                        <!-- <input id="bdCountry" class="form-field" name="bd_country" type="text" /> -->
-                                        <!--<select id="bdCountry" class="form-field" name="bd_country">
-                                            <option value="">Select a country...</option>
-                                            <option value="AF">Afghanistan</option>
-                                            <option value="AL">Albania</option>
-                                            <option value="DZ">Algeria</option>
-                                            <option value="AS">American Samoa</option>
-                                            <option value="AD">Andorra</option>
-                                            <option value="AO">Angola</option>
-                                            <option value="AI">Anguilla</option>
-                                            <option value="AQ">Antarctica</option>
-                                            <option value="AG">Antigua and Barbuda</option>
-                                            <option value="AR">Argentina</option>
-                                            <option value="AM">Armenia</option>
-                                            <option value="AW">Aruba</option>
-                                            <option value="AU">Australia</option>
-                                            <option value="AT">Austria</option>
-                                            <option value="AZ">Azerbaijan</option>
-                                            <option value="BS">Bahamas</option>
-                                            <option value="BH">Bahrain</option>
-                                            <option value="BD">Bangladesh</option>
-                                            <option value="BB">Barbados</option>
-                                            <option value="BY">Belarus</option>
-                                        </select>-->
                                         <select id="bdCountry" class="form-field" name="bd_country"
                                                 v-model="shippingInfo.country" @change="getCountries">
                                             <option value="">Select a country...</option>
@@ -136,29 +120,50 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bd_city') }">
                                         <label for="bdTownCity">
                                             Town / City
                                         </label>
-                                        <input id="bdTownCity" class="form-field" name="bd_town_city" type="text" />
+                                        <input id="bdTownCity" class="form-field" name="bd_city" type="text"
+                                            v-model="shippingInfo.city" v-validate data-vv-rules="required"
+                                        />
+                                        <span class="error-massage" style="display: none">Please enter your city.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field">
                                         <label for="bdState">
                                             State / County
                                         </label>
-                                        <input id="bdState" class="form-field" name="bd_state" type="text" />
+                                        <div v-if="states.length == 0">
+                                            <input id="bdState" class="form-field" name="bd_state" type="text"
+                                                   v-model="shippingInfo.state"
+                                            />
+                                        </div>
+                                        <div v-else>
+                                            <select id="bdState" class="form-field" name="bd_state"
+                                                    v-model="shippingInfo.state">
+                                                <option value="">Select a option...</option>
+                                                <option v-for="state in states" :value="state">{{ state }}
+                                                </option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bd_post_zip') }">
                                         <label for="bdZipCode">
                                             Postcode / ZIP
                                         </label>
-                                        <input id="bdZipCode" class="form-field" name="bd_post_zip" type="text" />
+                                        <input id="bdZipCode" class="form-field" name="bd_post_zip" type="text"
+                                               v-validate data-vv-rules="required" v-model="shippingInfo.postcode"/>
+                                        <span class="error-massage"
+                                              style="display: none">Please enter your postcode.</span>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field" :class="{'error': errors.has('bd_phone') }">
                                         <label for="bdPhone">
                                             Phone
                                         </label>
-                                        <input id="bdPhone" class="form-field" name="bd_phone" type="text" />
+                                        <input id="bdPhone" class="form-field" name="bd_phone" type="text"
+                                               v-validate data-vv-rules="required" v-model="shippingInfo.phone"/>
+                                         <span class="error-massage"
+                                               style="display: none">Please enter your phone.</span>
                                     </div>
                                     <!--<div class="form-field-wrapper">
                                         <input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account" type="checkbox" />
@@ -209,7 +214,7 @@
 
     export default ({
         data: () => ({
-            show: false,
+            showShipping: false,
             shippingInfo: {
                 firstName: "",
                 lastName: "",
@@ -232,10 +237,14 @@
             billing: Object,
             products: Array,
             countries: Array,
+            states: Array,
             subTotal: String,
             total: Number,
             shipping: Number,
             selectedShippingCountry: String
+        },
+        created() {
+            this.shippingInfo.country = this.selectedShippingCountry;
         },
         methods: {
             getCountries() {
