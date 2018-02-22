@@ -60,17 +60,17 @@ div {
     bottom: -80px;
     left: 50%;
     margin-left: -40px; }
-    @media (min-width: 801px) {
+    @media screen and (max-width: 800px) {
       .triangle-bottom:after {
-        border: 20px solid transparent;
-        border-top: 20px solid #f5f3f3;
-        bottom: -40px;
+        border: 25px solid transparent;
+        border-top: 25px solid #f5f3f3;
+        bottom: -50px;
         margin-left: -20px; } }
   .triangle-bottom--large:after {
-    border: 40px solid transparent;
-    border-top: 40px solid #f5f3f3;
-    bottom: -80px; }
-    @media (min-width: 801px) {
+    border: 25px solid transparent;
+    border-top: 25px solid #f5f3f3;
+    bottom: -50px; }
+    @media screen and (min-width: 801px) {
       .triangle-bottom--large:after {
         border: 50px solid transparent;
         border-top: 50px solid #f5f3f3;
@@ -1099,7 +1099,7 @@ ul {
     .top-product-description-block .has-old-price > .product-amount.product-amount--old {
       color: #29282e; }
       .top-product-description-block .has-old-price > .product-amount.product-amount--old:before {
-        content: 'Before'; }
+        content: 'Before:'; }
 
 .get-more {
   padding: 30px 20px; }
@@ -1144,11 +1144,27 @@ ul {
           display: block;
           margin: -20px auto 0; } }
 
+.total-results .section__text {
+  padding-left: 15px;
+  padding-right: 15px; }
+
 .total-results__img {
   margin-top: 60px; }
+  .total-results__img .mobile-image {
+    display: none; }
+  @media screen and (max-width: 800px) {
+    .total-results__img {
+      margin-top: 0; }
+      .total-results__img .desktop-image {
+        display: none; }
+      .total-results__img .mobile-image {
+        display: block; } }
 
 .total-results__icons {
   margin-top: 60px; }
+  @media screen and (max-width: 800px) {
+    .total-results__icons {
+      margin-top: 0; } }
   .total-results__icons > div {
     vertical-align: top; }
 
@@ -1158,6 +1174,9 @@ ul {
   @media (max-width: 880px) {
     .total-results__icon-wrapper {
       width: 49%; } }
+  @media screen and (max-width: 800px) {
+    .total-results__icon-wrapper {
+      margin-bottom: 0; } }
   @media (max-width: 620px) {
     .total-results__icon-wrapper {
       width: 100%; } }
@@ -1275,7 +1294,7 @@ ul {
       padding: 70px 0 600px; } }
   @media screen and (max-width: 400px) {
     .parallax-section {
-      padding: 70px 0 650px; } }
+      padding: 30px 15px 650px; } }
   .parallax-section .section__text {
     max-width: 650px;
     margin: 50px auto; }
@@ -1354,6 +1373,10 @@ ul {
       margin: auto;
       line-height: 26px; }
 
+@media screen and (max-width: 800px) {
+  .restaurants .wrapper .section__title {
+    padding: 0; } }
+
 .restaurants__wrap {
   margin-top: 40px; }
   @media screen and (max-width: 800px) {
@@ -1376,11 +1399,19 @@ ul {
       -webkit-border-radius: 3px;
               border-radius: 3px; } }
 
+@media screen and (max-width: 800px) {
+  .comments {
+    padding-bottom: 0; } }
+
 .comments__wrapper {
   width: 100%;
   margin: 0 auto 30px;
   border-bottom: 1px solid rgba(112, 112, 112, 0.15);
   padding: 0 0 40px 0; }
+  @media screen and (max-width: 800px) {
+    .comments__wrapper {
+      padding-left: 15px;
+      padding-right: 15px; } }
   .comments__wrapper:last-child {
     margin-bottom: 0;
     border: 0;
@@ -1457,16 +1488,45 @@ ul {
     margin: 0; }
 
 .queen-of-the-hill__bg {
-  background: url("../images/full-product/queen-of-the-hill/bg-mobile.jpg") no-repeat center/cover; }
+  background: url("../images/full-product/queen-of-the-hill/bg-mobile.jpg") no-repeat center/cover;
+  margin-bottom: 35px;
+  padding-left: 15px;
+  padding-right: 15px; }
   @media screen and (min-width: 801px) {
     .queen-of-the-hill__bg {
       background: url("../images/full-product/queen-of-the-hill/bg.jpg") no-repeat center/cover; } }
+  @media screen and (max-width: 800px) {
+    .queen-of-the-hill__bg .wrapper .section__title {
+      padding: 0; } }
+  @media screen and (max-width: 800px) {
+    .queen-of-the-hill__bg .wrapper .section__text {
+      text-align: center; } }
+  .queen-of-the-hill__bg .wrapper .section__img .mobile-image {
+    display: none; }
+  @media screen and (max-width: 800px) {
+    .queen-of-the-hill__bg .wrapper .section__img {
+      margin-top: 0; }
+      .queen-of-the-hill__bg .wrapper .section__img .desktop-image {
+        display: none; }
+      .queen-of-the-hill__bg .wrapper .section__img .mobile-image {
+        display: block; } }
+  @media screen and (max-width: 800px) {
+    .queen-of-the-hill__bg .wrapper .section__icons {
+      margin-top: 0; }
+      .queen-of-the-hill__bg .wrapper .section__icons .section__icon-wrapper {
+        margin-bottom: 0; } }
+
+@media screen and (max-width: 800px) {
+  .detox-section {
+    padding-left: 15px;
+    padding-right: 15px; } }
 
 @media screen and (max-width: 800px) {
   .detox-section .section__title {
-    font-size: 33px;
+    font-size: 26px;
     text-align: center;
-    margin-bottom: 50px; } }
+    margin-bottom: 50px;
+    margin-top: 0; } }
 
 @media screen and (min-width: 801px) {
   .detox-section .section__title {
@@ -1523,6 +1583,15 @@ ul {
       margin-top: 0; } }
 
 @media screen and (max-width: 800px) {
+  .grey-section {
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    .grey-section .section__img--detox {
+      margin: 0 auto;
+      max-width: 265px; } }
+
+@media screen and (max-width: 800px) {
   .section__title--detox {
     text-align: center; } }
 
@@ -1539,7 +1608,9 @@ ul {
   @media screen and (max-width: 800px) {
     .ingredients {
       display: block;
-      margin-top: 30px; }
+      margin-top: 30px;
+      padding-left: 15px;
+      padding-right: 15px; }
       .ingredients__item {
         display: inline-block; } }
   .ingredients__item {
@@ -1570,16 +1641,26 @@ ul {
     width: 100%;
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     margin-top: 60px; }
+    @media screen and (max-width: 800px) {
+      .ingredients__table {
+        padding-left: 15px;
+        padding-right: 15px; } }
     .ingredients__table thead {
       background: #ed1c24;
       color: white;
       font-size: 13px; }
+      @media screen and (max-width: 800px) {
+        .ingredients__table thead {
+          font-size: 12px; } }
       .ingredients__table thead td {
         padding: 10px 15px; }
     .ingredients__table tbody td {
       padding: 17px 15px;
       font-size: 17px;
       letter-spacing: -.4px; }
+      @media screen and (max-width: 800px) {
+        .ingredients__table tbody td {
+          font-size: 16px; } }
     .ingredients__table tr td {
       text-align: center;
       -webkit-box-sizing: border-box;
@@ -1587,8 +1668,11 @@ ul {
       width: 20%;
       border-bottom: 1px solid #eaeaea; }
       .ingredients__table tr td:first-child {
+        border-left: 1px solid #eaeaea;
         text-align: left;
         width: 60%; }
+      .ingredients__table tr td:last-child {
+        border-right: 1px solid #eaeaea; }
       @media screen and (max-width: 1200px) {
         .ingredients__table tr td:first-child {
           width: 50%; }
@@ -1602,12 +1686,15 @@ ul {
         .ingredients__table tr td:nth-child(3) {
           width: 30%; } }
       @media screen and (max-width: 800px) {
-        .ingredients__table tr td:first-child {
-          width: 60%; }
-        .ingredients__table tr td:nth-child(2) {
-          width: 20%; }
-        .ingredients__table tr td:nth-child(3) {
-          width: 20%; } }
+        .ingredients__table tr td {
+          padding: 10px 3px; }
+          .ingredients__table tr td:first-child {
+            padding-left: 15px;
+            width: 60%; }
+          .ingredients__table tr td:nth-child(2) {
+            width: 37%; }
+          .ingredients__table tr td:nth-child(3) {
+            width: 3%; } }
   .ingredients__table-info {
     font-size: 13px;
     margin: 10px 0 30px 0;
@@ -1701,6 +1788,11 @@ ul {
   .maxx-description p {
     font-size: 20px;
     line-height: 26px; }
+    @media screen and (max-width: 800px) {
+      .maxx-description p {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 12px; } }
   .maxx-description .section__icon-wrapper {
     width: inherit; }
   @media screen and (max-width: 800px) {
@@ -1708,6 +1800,7 @@ ul {
       display: block; }
       .maxx-description__wrapper > .block-75 > .maxx-description__icons > div {
         display: inline-block;
+        margin-bottom: 8px;
         width: 49%;
         text-align: center;
         vertical-align: top; } }
@@ -1719,6 +1812,11 @@ ul {
     margin: 0;
     font-size: 23px;
     letter-spacing: -.5px; }
+    @media screen and (max-width: 700px) {
+      .maxx-description__title {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 9px; } }
     .maxx-description__title:before {
       content: '';
       display: block;
@@ -1759,6 +1857,10 @@ ul {
 
 .maxx-directions__wrapper {
   position: relative; }
+
+@media screen and (max-width: 800px) {
+  .maxx-directions .section__title {
+    text-align: center; } }
 
 .maxx-directions__line {
   position: absolute;
@@ -1824,6 +1926,9 @@ ul {
   @media screen and (max-width: 800px) {
     .maxx-directions .info-text {
       margin-top: 10px; } }
+
+section .training-plan-faqs-block-wrapper .wrapper {
+  padding-top: 0; }
 
 .shop-grid-wrapper .wrapper .shop-items-wrapper {
   display: -webkit-box;

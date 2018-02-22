@@ -1,9 +1,14 @@
 .comments
+  @media screen and (max-width: $breakpoint-mobile)
+    padding-bottom: 0
   &__wrapper
     width: 100%
     margin: 0 auto 30px
     border-bottom: 1px solid rgba(#707070,.15)
     padding: 0 0 40px 0
+    @media screen and (max-width: $breakpoint-mobile)
+      padding-left: 15px
+      padding-right: 15px
     &:last-child
       margin-bottom: 0
       border: 0

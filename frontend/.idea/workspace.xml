@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_custom_plan_block.sass" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/sass/_custom_plan_block.sass">
+      <file leaf-file-name="queen-of-the-hill.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queen-of-the-hill.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="-561">
+              <caret line="15" column="112" lean-forward="false" selection-start-line="15" selection-start-column="112" selection-end-line="15" selection-end-column="112" />
               <folding />
             </state>
           </provider>
@@ -24,88 +24,92 @@
       <file leaf-file-name="12_week_custom_meal_plan.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/12_week_custom_meal_plan.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="397" column="30" lean-forward="false" selection-start-line="397" selection-start-column="30" selection-end-line="397" selection-end-column="30" />
+            <state relative-caret-position="453">
+              <caret line="321" column="20" lean-forward="false" selection-start-line="321" selection-start-column="20" selection-end-line="321" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="14-day-detox-guide.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/14-day-detox-guide.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2550">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="queen-of-the-hill.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queen-of-the-hill.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2550">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shedfat-maxx.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shedfat-maxx.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6222">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_success_stories_block.sass" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/sass/_success_stories_block.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_custom_guarantee_block.sass" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/sass/_custom_guarantee_block.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="67" column="33" lean-forward="false" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="12_week_custom_training_plan.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="12_week_custom_training_plan.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/12_week_custom_training_plan.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="396" column="42" lean-forward="true" selection-start-line="394" selection-start-column="36" selection-end-line="396" selection-end-column="42" />
+            <state relative-caret-position="187">
+              <caret line="320" column="57" lean-forward="false" selection-start-line="320" selection-start-column="57" selection-end-line="320" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_customer_review_block.sass" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/sass/_customer_review_block.sass">
+      <file leaf-file-name="_queen-of-the-hill.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_queen-of-the-hill.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_restaurants.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/full-product/sections/_restaurants.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+              <folding>
+                <marker date="1519301201762" expanded="true" signature="23:108" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_parallax-section.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/full-product/sections/_parallax-section.sass">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_comments.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/full-product/sections/_comments.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_14-day-detox-guide.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_14-day-detox-guide.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+              <folding>
+                <marker date="1519304935685" expanded="true" signature="187:266" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_training_plan_faqs_block.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/_training_plan_faqs_block.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_shedfat-maxx.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_shedfat-maxx.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="292" column="7" lean-forward="true" selection-start-line="292" selection-start-column="7" selection-end-line="292" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -118,7 +122,12 @@
       <find>continue-checkout</find>
       <find>checkbox</find>
       <find>custom-guarantee-content</find>
+      <find>.triangle-bottom</find>
+      <find>.training-plan-faqs-block-wrapper</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\work\udtech\projects\shedyourfat_new\src\frontend\assets\sass</dir>
+    </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -144,14 +153,25 @@
         <option value="$PROJECT_DIR$/assets/sass/top_home_banner_block.sass" />
         <option value="$PROJECT_DIR$/assets/sass/base.sass" />
         <option value="$PROJECT_DIR$/assets/sass/shop_now_block.sass" />
-        <option value="$PROJECT_DIR$/assets/sass/full-product/_top_product_description_block.sass" />
         <option value="$PROJECT_DIR$/assets/sass/_custom_plan_block.sass" />
-        <option value="$PROJECT_DIR$/12_week_custom_training_plan.html" />
         <option value="$PROJECT_DIR$/assets/sass/_custom_guarantee_block.sass" />
-        <option value="$PROJECT_DIR$/12_week_custom_meal_plan.html" />
         <option value="$PROJECT_DIR$/home.html" />
         <option value="$PROJECT_DIR$/assets/sass/_success_stories_block.sass" />
         <option value="$PROJECT_DIR$/assets/sass/_customer_review_block.sass" />
+        <option value="$PROJECT_DIR$/shedfat-maxx.html" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/_top_product_description_block.sass" />
+        <option value="$PROJECT_DIR$/never-stop.html" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/_total-results.sass" />
+        <option value="$PROJECT_DIR$/assets/sass/main/_main.sass" />
+        <option value="$PROJECT_DIR$/queen-of-the-hill.html" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/_queen-of-the-hill.sass" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/sections/_restaurants.sass" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/sections/_parallax-section.sass" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/sections/_comments.sass" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/_14-day-detox-guide.sass" />
+        <option value="$PROJECT_DIR$/assets/sass/full-product/_shedfat-maxx.sass" />
+        <option value="$PROJECT_DIR$/12_week_custom_meal_plan.html" />
+        <option value="$PROJECT_DIR$/12_week_custom_training_plan.html" />
       </list>
     </option>
   </component>
@@ -166,8 +186,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1961" />
-    <option name="y" value="-22" />
+    <option name="x" value="1367" />
+    <option name="y" value="-15" />
     <option name="width" value="983" />
     <option name="height" value="521" />
   </component>
@@ -262,7 +282,10 @@
             <path>
               <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sass" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="full-product" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sections" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -307,12 +330,12 @@
       <updated>1518688938607</updated>
       <workItem from="1518688940063" duration="5012000" />
       <workItem from="1519029815037" duration="16769000" />
-      <workItem from="1519218309871" duration="7188000" />
+      <workItem from="1519218309871" duration="22780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76099000" />
+    <option name="totallyTimeSpent" value="91691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -321,6 +344,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -332,7 +356,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -366,89 +389,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/checkout_first.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5236">
-          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#4;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#7;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#8;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#9;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#10;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#12;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/base.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/_shop_cart_block.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/_customer_login_block.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/checkout/billing_details.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="37" lean-forward="false" selection-start-line="67" selection-start-column="10" selection-end-line="83" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/_shop_table.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="126" column="31" lean-forward="false" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/checkout/top_navigation_bar.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/_general.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/checkout_second.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5338">
-          <caret line="314" column="52" lean-forward="false" selection-start-line="314" selection-start-column="40" selection-end-line="314" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/sass/fonts.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -672,14 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_top_product_description_block.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/sass/_custom_plan_block.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -696,41 +628,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/12_week_custom_training_plan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="396" column="42" lean-forward="true" selection-start-line="394" selection-start-column="36" selection-end-line="396" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/12_week_custom_meal_plan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="397" column="30" lean-forward="false" selection-start-line="397" selection-start-column="30" selection-end-line="397" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/14-day-detox-guide.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2550">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queen-of-the-hill.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2550">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shedfat-maxx.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6222">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -744,6 +644,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/_customer_review_block.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/sass/_success_stories_block.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="535">
@@ -752,10 +660,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/_customer_review_block.sass">
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_top_product_description_block.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="127" column="27" lean-forward="true" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shedfat-maxx.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5032">
+          <caret line="46" column="37" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="46" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/never-stop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="61" column="65" lean-forward="false" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_total-results.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/main/_main.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queen-of-the-hill.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="15" column="112" lean-forward="false" selection-start-line="15" selection-start-column="112" selection-end-line="15" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_queen-of-the-hill.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/sections/_restaurants.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding>
+            <marker date="1519301201762" expanded="true" signature="23:108" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/sections/_parallax-section.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/sections/_comments.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_14-day-detox-guide.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding>
+            <marker date="1519304935685" expanded="true" signature="187:266" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/_training_plan_faqs_block.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/full-product/_shedfat-maxx.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="292" column="7" lean-forward="true" selection-start-line="292" selection-start-column="7" selection-end-line="292" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12_week_custom_meal_plan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="321" column="20" lean-forward="false" selection-start-line="321" selection-start-column="20" selection-end-line="321" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12_week_custom_training_plan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="320" column="57" lean-forward="false" selection-start-line="320" selection-start-column="57" selection-end-line="320" selection-end-column="57" />
           <folding />
         </state>
       </provider>
