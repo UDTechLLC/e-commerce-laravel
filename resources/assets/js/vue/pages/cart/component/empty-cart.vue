@@ -15,7 +15,7 @@
                     Your cart is currently empty.
                 </p>
                 <p class="return-to-shop">
-                    <a class="back-to-shop-button" href="/">
+                    <a class="back-to-shop-button" href="shop">
                         Return to shop
                     </a>
                 </p>

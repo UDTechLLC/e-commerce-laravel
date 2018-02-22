@@ -20,7 +20,12 @@ class CountryController extends Controller
         $name = $request->get('country');
         $ip = $request->ip();
 
-        $country = $name ?: $this->getCountry($ip);
+        \Log::info('CountryController@index: ', ['country' => $name, 'ip' => $ip]);
+
+        $country = $name ?? $this->getCountry($ip);
+
+        \Log::info('CountryController@index: ', ['getCountry' => $country]);
+
         $shippingSum = $this->getShippingSum($country);
 
         return response()->json([
@@ -38,6 +43,8 @@ class CountryController extends Controller
      */
     public function getStates(string $country)
     {
+        \Log::info('CountryController@getStates: ', ['country' => $country]);
+
         $states = Countries::where('name.common', $country)
             ->first()
             ->hydrateStates()
@@ -61,7 +68,9 @@ class CountryController extends Controller
 
         $response = $this->decodeResponse($http->get("http://ip-api.com/json/{$ip}"));
 
-        return isset($response->country) ?: 'United States';
+        \Log::info('CountryController@getCountry: ', ['country' => $response->country]);
+
+        return $response->country ?? 'United States';
     }
 
     /**
@@ -86,7 +95,7 @@ class CountryController extends Controller
     private function getShippingSum($country)
     {
         return $country === 'United States' || $country === 'Canada'
-            ? 17.99
-            : 6.99;
+            ? 6.99
+            : 17.99;
     }
 }

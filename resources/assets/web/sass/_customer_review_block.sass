@@ -2,6 +2,10 @@
   background-color: #f5f3f3
   padding: 70px 0 15px
 
+  @media screen and (max-width: $breakpoint-mobile)
+    padding-top: 15px
+    padding-bottom: 15px
+
   .wrapper
     @media screen and (max-width: 992px)
       padding-left: 30px !important
@@ -12,6 +16,10 @@
       padding-right: 15px !important
 
     .customer-review-block
+      @media screen and (max-width: $breakpoint-mobile)
+        .separate-heading-block
+          margin-bottom: 0
+
       .customer-reviews-wrapper
         display: flex
         justify-content: space-between

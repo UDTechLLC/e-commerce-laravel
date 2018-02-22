@@ -12,13 +12,16 @@
                     <li :class="{active: progress == 1, checked: progress > 1}" data-page="col-1">
                         <div class="icon billing-details"></div>
                         <span>2. Billing Details</span></li>
-                    <li :class="{disabled: progress < 2, active: progress == 2, checked: progress > 2 }" data-page="col-2">
+                    <li :class="{disabled: progress < 2, active: progress == 2, checked: progress > 2 }"
+                        data-page="col-2">
                         <div class="icon billing-details shipping-address"></div>
                         <span>3. Shipping Address</span></li>
-                    <li :class="{disabled: progress < 3, active: progress == 3, checked: progress > 3 }" data-page="order_review">
+                    <li :class="{disabled: progress < 3, active: progress == 3, checked: progress > 3 }"
+                        data-page="order_review">
                         <div class="icon payment"></div>
                         <span>4. Payment</span></li>
-                    <li :class="{disabled: progress < 4, active: progress == 4, checked: progress > 4 }" data-page="checkout-process-final">
+                    <li :class="{disabled: progress < 4, active: progress == 4, checked: progress > 4 }"
+                        data-page="checkout-process-final">
                         <div class="icon finish-order"></div>
                         <span>5. Finish Order</span></li>
                 </ul>
@@ -32,49 +35,61 @@
                 </div>
             </div>
         </div>
-
-        <component :is="currentComponent"
-                   :products="products"
-                   :billing="billing"
-                   :countries="countries"
-                   :states="states"
-                   :selectedCountry="selectedCountry"
-                   :subTotal="subTotal"
-                   :total="total"
-                   :shipping="shipping"
-                   @updateCountry="updateCountry"
-                   @next="nextStep"
-        ></component>
+        <keep-alive>
+            <component :is="currentComponent"
+                       :products="products"
+                       :billing="billing"
+                       :countries="countries"
+                       :states="states"
+                       :selectedBillingCountry="selectedBillingCountry"
+                       :selectedShippingCountry="selectedShippingCountry"
+                       :subTotal="subTotal"
+                       :total="total"
+                       :shipping="shipping"
+                       @updateCountry="updateCountry"
+                       @next="nextStep"
+                       @back="backStep"
+            ></component>
+        </keep-alive>
     </div>
 </template>
 <script type="text/babel">
 
     import first from './steps/first';
     import second from './steps/second';
+    import third from './steps/third';
 
     export default ({
-        data: () => ({
-            progress: 1,
-            selectedCountry: Vue.localStorage.get('shippingCountry'),
-            countries: [],
-            states: [],
-            products: [],
-            subTotal: "0",
-            shipping: 0,
-            currentComponent: second,
-            billing: {}
-        }),
+        data() {
+            let countryDefault = (Vue.localStorage.get('shippingCountry')) ? Vue.localStorage.get('shippingCountry') : "";
+
+            return {
+                progress: 1,
+                selectedCountry: countryDefault,
+                selectedBillingCountry: countryDefault,
+                selectedShippingCountry: countryDefault,
+                countries: [],
+                states: [],
+                products: this.$EventBus.products,
+                subTotal: "0",
+                shipping: 0,
+                currentComponent: "first",
+                billing: {}
+            }
+        },
         components: {
             first,
-            second
+            second,
+            third
         },
         computed: {
             total() {
-                return Math.ceil((( Number(this.subTotal) + Number(this.shipping) )*100)/100);
+                return Math.ceil((( Number(this.subTotal) + Number(this.shipping) ) * 100) / 100);
             }
         },
         created() {
             this.getProducts();
+            console.log(this.$EventBus.products);
             this.getCountries();
         },
         methods: {
@@ -82,6 +97,10 @@
                 this.currentComponent = value.step;
                 this.billing = value.billing;
                 this.progress++;
+            },
+            backStep(value) {
+                this.currentComponent = value.step;
+                this.progress--;
             },
             getCountries() {
                 axios.get(`/api/countries?country=${this.selectedCountry}`).then(
@@ -96,6 +115,7 @@
                 )
             },
             updateCountry(value) {
+                console.log('aaa');
                 this.selectedCountry = value;
                 this.getCountries();
             }
