@@ -40,8 +40,6 @@ class CountryController extends Controller
      */
     public function getStates(string $country)
     {
-        $country = ucfirst($country);
-
         \Log::info('CountryController@getStates: ', ['country' => $country]);
 
         $states = Countries::where('name.common', $country)
