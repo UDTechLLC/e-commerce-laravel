@@ -66,8 +66,9 @@
             let countryDefault = (Vue.localStorage.get('shippingCountry')) ? Vue.localStorage.get('shippingCountry') : "";
 
             return {
+                orderId: "",
                 progress: 1,
-                cartId: "",
+                cartId: 0,
                 selectedCountry: countryDefault,
                 selectedBillingCountry: countryDefault,
                 selectedShippingCountry: countryDefault,
@@ -99,6 +100,7 @@
             nextStep(value) {
                 this.currentComponent = value.step;
                 this.billing = value.billing;
+                this.orderId = value.orderId;
                 this.progress++;
             },
             backStep(value) {

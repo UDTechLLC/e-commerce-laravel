@@ -232,21 +232,22 @@
                 this.$emit('updateCountry', this.billingInfo.country);
             },
             next() {
-               // this.$validator.validateAll().then((result) => {
-               //     if (result) {
-
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
                         axios.post(`/api/checkout/billing/${this.cartId}`, this.billingInfo).then(
-                                result => console.log(result),
+                                result => {
+                                    let data = {
+                                        step: 'second',
+                                        billing: this.billingInfo,
+                                        orderId: result.data.data.id
+                                    };
+                                    this.$emit('next', data);
+                                    return;
+                                },
                                 error => console.log('error')
                         );
-                        let data = {
-                            step: 'second',
-                            billing: this.billingInfo
-                        };
-                        this.$emit('next', data);
-                        return;
-            //        }
-           //     });
+                    }
+                });
             }
         }
     })
