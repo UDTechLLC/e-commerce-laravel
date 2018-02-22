@@ -135,7 +135,7 @@ class CheckoutController extends Controller
             'last_name'    => $request->get('lastName'),
             'email'        => $request->get('email'),
             'company_name' => $request->get('company'),
-            'address'      => $request->get('street'),
+            'street'       => $request->get('street'),
             'apartment'    => $request->get('apartment'),
             'country'      => $request->get('country'),
             'city'         => $request->get('city'),
