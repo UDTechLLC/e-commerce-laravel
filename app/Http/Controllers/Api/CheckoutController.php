@@ -73,7 +73,7 @@ class CheckoutController extends Controller
         $this->service->setAmount($order->total_cost);
         $response = $this->service->purchase();
 
-        if ($response->isRedirect()) {
+        if (!$response->isRedirect()) {
             return route('/');  //todo: Add error
         }
 
@@ -95,7 +95,7 @@ class CheckoutController extends Controller
 
         $response = $this->service->completePurchase();
 
-        return $response->getData();
+        return view('checkout_thank_you');
     }
 
     /**
