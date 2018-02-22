@@ -402,5 +402,8 @@
     </div>
 </div>
 </main>
-    <a href="#" class="btn add-to-cart-btn add-to-cart-btn--mobile">ADD TO CART</a>
+    <add-to-cart-mobile
+            product-slug="{{ $product->slug }}"
+    >
+    </add-to-cart-mobile>
 @endsection
