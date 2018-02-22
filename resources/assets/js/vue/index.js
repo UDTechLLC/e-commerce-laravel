@@ -7,7 +7,7 @@ Vue.component('cart', require('./pages/cart'));
 Vue.component('add-to-cart', require('./component/addToCart'));
 Vue.component('mini-cart', require('./component/cart'));
 Vue.component('checkout', require('./pages/checkout'));
-
+Vue.component('add-to-cart-mobile', require('./component/addToCartMobile'));
 require('./mixins');
 
 Vue.prototype.$EventBus = new Vue();

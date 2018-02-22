@@ -390,6 +390,9 @@
                                 <h2 class="cg-title">
                                     Still not sure? We are!
                                 </h2>
+                                <div class="image-wrapper">
+                                    <img src="{{asset('web/images/custom_guarantee_sticker.png')}}" />
+                                </div>
                                 <p class="cg-content">
                                     Follow one of our personalized exercise plans for 30 days. If after the 30 days is up and you do not feel like you are any closer to reaching your goals simply email
                                     <a href="mailto:info@shedyourfat.com">info@shedyourfat.com</a>
@@ -402,5 +405,8 @@
             </div>
         </div>
     </main>
-    <a href="#" class="btn add-to-cart-btn add-to-cart-btn--mobile">ADD TO CART</a>
+    <add-to-cart-mobile
+            product-slug="{{ $product->slug }}"
+    >
+    </add-to-cart-mobile>
 @endsection

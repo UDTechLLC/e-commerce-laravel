@@ -2,12 +2,15 @@
   padding: 55px 0 14px
 
   @media screen and (max-width: $breakpoint-mobile)
-    padding: 40px 0 5px
-
+    padding: 15px
 
   .wrapper
     .success-stories-block
-      padding: 15px 0 35px
+      padding: 0 0 35px
+
+      @media screen and (max-width: $breakpoint-mobile)
+        .separate-heading-block
+          display: none
 
       .success-story-slider-wrapper
         .success-story-slider
@@ -28,3 +31,11 @@
             img
               display: inline-block !important
               max-height: 308px
+
+.home
+  .success-stories-block-wrapper
+    .wrapper
+      .success-stories-block
+        @media screen and (max-width: $breakpoint-mobile)
+          .separate-heading-block
+            display: block !important
