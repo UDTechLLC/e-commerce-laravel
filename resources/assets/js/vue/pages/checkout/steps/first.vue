@@ -210,13 +210,14 @@
             }
         }),
         props: {
+            cartId: Number,
             products: Array,
             subTotal: String,
             total: Number,
             shipping: Number,
             countries: Array,
             states: Array,
-            selectedBillingCountry: String,
+            selectedBillingCountry: String
         },
         components: {
             cartTotals,
@@ -234,7 +235,7 @@
                // this.$validator.validateAll().then((result) => {
                //     if (result) {
 
-                        axios.post('/api/checkout/billing', this.billingInfo).then(
+                        axios.post(`/api/checkout/billing/${this.cartId}`, this.billingInfo).then(
                                 result => console.log(result),
                                 error => console.log('error')
                         );

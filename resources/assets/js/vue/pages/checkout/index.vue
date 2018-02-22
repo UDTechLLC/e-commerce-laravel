@@ -37,6 +37,7 @@
         </div>
         <keep-alive>
             <component :is="currentComponent"
+                       :cartId="cartId"
                        :products="products"
                        :billing="billing"
                        :countries="countries"
@@ -66,6 +67,7 @@
 
             return {
                 progress: 1,
+                cartId: "",
                 selectedCountry: countryDefault,
                 selectedBillingCountry: countryDefault,
                 selectedShippingCountry: countryDefault,
