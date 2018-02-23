@@ -32,13 +32,17 @@ class CheckoutController extends Controller
      *
      * @param Cart $cart
      *
+     * @param OrderBilling $orderBilling
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function billing(BillingRequest $request, Cart $cart)
+    public function billing(BillingRequest $request, Cart $cart, OrderBilling $orderBilling)
     {
         /** @var User $user */
         $user = \Auth::user();
-        $billing = $this->createBilling($request);
+
+        $billing = $this->createOrUpdateBilling($request, $orderBilling);
+
         $shippingCost = $this->getShippingSum($request->get('country'));
 
         $order = $this->createOrder($user, $cart, $billing, $shippingCost);
@@ -129,11 +133,15 @@ class CheckoutController extends Controller
      *
      * @param $request
      *
+     * @param $billing
+     *
      * @return mixed
      */
-    private function createBilling($request)
+    private function createOrUpdateBilling($request, $billing)
     {
-        return OrderBilling::create([
+        $billingId = $billing->getKey();
+
+        return OrderBilling::updateOrCreate(['id' => $billingId], [
             'first_name'   => $request->get('firstName'),
             'last_name'    => $request->get('lastName'),
             'email'        => $request->get('email'),
