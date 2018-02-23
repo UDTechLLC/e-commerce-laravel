@@ -61,12 +61,26 @@
                     <span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>
                 </div>
             </div>
+            <div class="form-group" :class="{'has-error': errors.has('view_name') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="view_name">View Name
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="view_name" name="view_name"
+                            v-model="entry.view_name"
+                            v-validate data-vv-rules="required"
+                            :class="{'is-danger': errors.has('view_name')}"
+                            class="form-control col-md-7 col-xs-12">
+                        <option v-for="view in viewArray">{{ view }}</option>
+                    </select>
+                    <span class="text-danger" v-if="errors.has('view_name')">{{ errors.first('view_name') }}</span>
+                </div>
+            </div>
             <div class="form-group" :class="{'has-error': errors.has('old-price') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="text" id="old-price" v-model="entry.oldPrice"
-                           v-validate data-vv-rules="numeric"
+                           v-validate data-vv-rules="decimal"
                            :class="{'is-danger': errors.has('old-price')}"
                            name="old-price" class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('old-price')">{{ errors.first('old-price') }}</span>
@@ -78,7 +92,7 @@
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="number" id="price" name="price" v-model="entry.price"
-                           v-validate data-vv-rules="required|numeric"
+                           v-validate data-vv-rules="required|decimal"
                            :class="{'is-danger': errors.has('price')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('price')">{{ errors.first('price') }}</span>
@@ -101,15 +115,18 @@
     export default ({
         data: () => ({
             entry: {},
+            viewArray:[],
             oldSlug: "",
             errorImage: false,
             errorPreviewImage: false
         }),
         props: {
-            product: String
+            product: String,
+            viewList: String
         },
         created() {
             this.entry = JSON.parse(this.product);
+            this.viewArray = JSON.parse(this.viewList);
             this.oldSlug = this.entry.slug;
         },
         computed: {

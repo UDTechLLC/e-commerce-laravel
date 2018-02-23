@@ -27,15 +27,19 @@
                             <ul class="product-description-list check-icon-list">
                                 <li class="product-description-list-item">
                                     <i class="fas fa-check"></i>
-                                    Fat Loss and Toning
+                                    Intermittent Fasting
                                 </li>
                                 <li class="product-description-list-item">
                                     <i class="fas fa-check"></i>
-                                    Muscle Building
+                                    Ketogenic
                                 </li>
                                 <li class="product-description-list-item">
                                     <i class="fas fa-check"></i>
-                                    Boost Energy Levels
+                                    Carb Cycling
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    Vegan/Vegetarian
                                 </li>
                             </ul>
                         </div>
