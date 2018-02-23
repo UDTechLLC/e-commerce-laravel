@@ -17,14 +17,6 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    /** @var PayPalService */
-    protected $service;
-
-    public function __construct()
-    {
-        $this->service = new PayPalService();
-    }
-
     /**
      * Add billing information.
      *
@@ -32,13 +24,17 @@ class CheckoutController extends Controller
      *
      * @param Cart $cart
      *
+     * @param OrderBilling $orderBilling
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function billing(BillingRequest $request, Cart $cart)
+    public function billing(BillingRequest $request, Cart $cart, OrderBilling $orderBilling)
     {
         /** @var User $user */
         $user = \Auth::user();
-        $billing = $this->createBilling($request);
+
+        $billing = $this->createOrUpdateBilling($request, $orderBilling);
+
         $shippingCost = $this->getShippingSum($request->get('country'));
 
         $order = $this->createOrder($user, $cart, $billing, $shippingCost);
@@ -53,13 +49,15 @@ class CheckoutController extends Controller
      *
      * @param Order $order
      *
+     * @param OrderShipping $orderShipping
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function shipping(ShippingRequest $request, Order $order)
+    public function shipping(ShippingRequest $request, Order $order, OrderShipping $orderShipping)
     {
         $country = $request->get('country');
 
-        $shipping = $this->createShipping($request);
+        $shipping = $this->createOrUpdateShipping($request, $orderShipping);
 
         $this->updateOrder($order, $shipping, $country);
 
@@ -67,73 +65,19 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Pay order.
-     *
-     * @param Request $request
-     *
-     * @param Order $order
-     *
-     * @return mixed
-     */
-    public function pay(Request $request, Order $order)
-    {
-        $this->setCallbacks($order);
-        $this->service->setAmount($order->total_cost);
-        $response = $this->service->purchase();
-
-        if (!$response->isRedirect()) {
-            return route('/');  //todo: Add error
-        }
-
-        return $response->redirect();
-    }
-
-    /**
-     * Success pay callback function.
-     *
-     * @param Request $request
-     * @param Order $order
-     *
-     * @return mixed
-     */
-    public function returnUrl(Request $request, Order $order)
-    {
-        $this->setCallbacks($order);
-        $this->service->setAmount($order->total_cost);
-
-        $response = $this->service->completePurchase();
-
-        return view('checkout_thank_you');
-    }
-
-    /**
-     * Cancel pay callback function.
-     */
-    public function cancelUrl()
-    {
-    }
-
-    /**
-     * Set callbacks for paypal answer.
-     *
-     * @param $order
-     */
-    private function setCallbacks($order)
-    {
-        $this->service->setReturnUrl(route('.checkout.pay.success', ['order' => $order->getKey()]));
-        $this->service->setCancelUrl(route('.checkout.pay.cancel', ['order' => $order->getKey()]));
-    }
-
-    /**
      * Add billing information.
      *
      * @param $request
      *
+     * @param $billing
+     *
      * @return mixed
      */
-    private function createBilling($request)
+    private function createOrUpdateBilling($request, $billing)
     {
-        return OrderBilling::create([
+        $billingId = $billing->getKey();
+
+        return OrderBilling::updateOrCreate(['id' => $billingId], [
             'first_name'   => $request->get('firstName'),
             'last_name'    => $request->get('lastName'),
             'email'        => $request->get('email'),
@@ -185,11 +129,15 @@ class CheckoutController extends Controller
      *
      * @param $request
      *
+     * @param $shipping
+     *
      * @return mixed
      */
-    private function createShipping($request)
+    private function createOrUpdateShipping($request, $shipping)
     {
-        return OrderShipping::create([
+        $shippingId = $shipping->getKey();
+
+        return OrderShipping::updateOrCreate(['id' => $shippingId], [
             'first_name'   => $request->get('firstName'),
             'last_name'    => $request->get('lastName'),
             'company_name' => $request->get('company'),

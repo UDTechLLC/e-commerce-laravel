@@ -112,7 +112,7 @@
         },
         computed: {
           total() {
-              return Number(this.subTotal) + Number(this.shipping);
+              return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
           }
         },
         created() {

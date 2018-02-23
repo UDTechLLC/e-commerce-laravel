@@ -23,7 +23,7 @@ class CountryController extends Controller
         \Log::info('CountryController@index: ', ['country' => $name, 'ip' => $ip]);
 
         $country = $name ?? $this->getCountry($ip);
-
+        
         \Log::info('CountryController@index: ', ['getCountry' => $country]);
 
         $shippingSum = $this->getShippingSum($country);
@@ -67,9 +67,7 @@ class CountryController extends Controller
         $http = new Client();
 
         $response = $this->decodeResponse($http->get("http://ip-api.com/json/{$ip}"));
-
-//        \Log::info('CountryController@getCountry: ', ['country' => $response->country]);
-
+        
         return $response->country ?? 'United States';
     }
 
