@@ -32,13 +32,17 @@ class CheckoutController extends Controller
      *
      * @param Cart $cart
      *
+     * @param OrderBilling $orderBilling
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function billing(BillingRequest $request, Cart $cart)
+    public function billing(BillingRequest $request, Cart $cart, OrderBilling $orderBilling)
     {
         /** @var User $user */
         $user = \Auth::user();
-        $billing = $this->createBilling($request);
+
+        $billing = $this->createOrUpdateBilling($request, $orderBilling);
+
         $shippingCost = $this->getShippingSum($request->get('country'));
 
         $order = $this->createOrder($user, $cart, $billing, $shippingCost);
@@ -53,13 +57,15 @@ class CheckoutController extends Controller
      *
      * @param Order $order
      *
+     * @param OrderShipping $orderShipping
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function shipping(ShippingRequest $request, Order $order)
+    public function shipping(ShippingRequest $request, Order $order, OrderShipping $orderShipping)
     {
         $country = $request->get('country');
 
-        $shipping = $this->createShipping($request);
+        $shipping = $this->createOrUpdateShipping($request, $orderShipping);
 
         $this->updateOrder($order, $shipping, $country);
 
@@ -129,11 +135,15 @@ class CheckoutController extends Controller
      *
      * @param $request
      *
+     * @param $billing
+     *
      * @return mixed
      */
-    private function createBilling($request)
+    private function createOrUpdateBilling($request, $billing)
     {
-        return OrderBilling::create([
+        $billingId = $billing->getKey();
+
+        return OrderBilling::updateOrCreate(['id' => $billingId], [
             'first_name'   => $request->get('firstName'),
             'last_name'    => $request->get('lastName'),
             'email'        => $request->get('email'),
@@ -185,11 +195,15 @@ class CheckoutController extends Controller
      *
      * @param $request
      *
+     * @param $shipping
+     *
      * @return mixed
      */
-    private function createShipping($request)
+    private function createOrUpdateShipping($request, $shipping)
     {
-        return OrderShipping::create([
+        $shippingId = $shipping->getKey();
+
+        return OrderShipping::updateOrCreate(['id' => $shippingId], [
             'first_name'   => $request->get('firstName'),
             'last_name'    => $request->get('lastName'),
             'company_name' => $request->get('company'),
