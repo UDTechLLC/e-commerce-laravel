@@ -100,6 +100,7 @@ class ProductController extends Controller
             'image'        => $product->getFirstMediaUrl('products'),
             'imagePreview' => $product->getFirstMediaUrl('preview'),
             'price'        => $product->amount,
+            'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
             'slug'         => $product->slug
         ];

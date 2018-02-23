@@ -68,11 +68,9 @@
                            v-validate data-vv-rules="required"
                            :class="{'is-danger': errors.has('view_name')}"
                             class="form-control col-md-7 col-xs-12">
-
                         <option v-for="view in viewArray">{{ view }}</option>
-                        <!--<option>view2</option>-->
                     </select>
-                    <!--<span class="text-danger" v-if="errors.has('view_name')">{{ errors.first('view_name') }}</span>-->
+                    <span class="text-danger" v-if="errors.has('view_name')">{{ errors.first('view_name') }}</span>
                 </div>
             </div>
             <div class="form-group" :class="{'has-error': errors.has('old-price') }">
