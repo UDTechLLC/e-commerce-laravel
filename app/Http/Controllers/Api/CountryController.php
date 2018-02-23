@@ -67,7 +67,7 @@ class CountryController extends Controller
         $http = new Client();
 
         $response = $this->decodeResponse($http->get("http://ip-api.com/json/{$ip}"));
-
+        
         return $response->country ?? 'United States';
     }
 
