@@ -272,7 +272,8 @@
             },
             back() {
                 let data = {
-                    step: 'first'
+                    step: 'first',
+                    progress: 1,
                 };
                 this.$emit('back', data);
             }

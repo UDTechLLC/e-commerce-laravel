@@ -7,7 +7,7 @@
                         <h2 class="cart-heading">
                             Billing address
                         </h2>
-                        <a class="edit-block-link" href="#">
+                        <a class="edit-block-link" href="#" @click.prevent="editBilling">
                             Edit
                         </a>
                         <div class="clear"></div>
@@ -33,6 +33,15 @@
         }),
         props: {
             billing: Object
+        },
+        methods: {
+            editBilling() {
+                let data = {
+                    step: 'first',
+                    progress: 1
+                };
+                this.$parent.$emit('back', data);
+            }
         }
     })
 

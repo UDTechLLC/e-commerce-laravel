@@ -1,5 +1,8 @@
 <template>
     <div>
+        <billing-block
+                :billing="billing"
+        ></billing-block>
         <login></login>
         <div class="billing-address-info-block-wrapper">
             <div class="wrapper">
@@ -8,7 +11,7 @@
                         <h2 class="cart-heading">
                             Payment
                         </h2>
-                        <a class="edit-block-link" href="#">
+                        <a class="edit-block-link" href="#" @click.prevent="editBilling">
                             Edit
                         </a>
                         <div class="clear"></div>
@@ -36,7 +39,7 @@
                             </div>
                         </div>
                         <div class="buttons-area">
-                            <a href="#" class="back-button">
+                            <a href="#" class="back-button" @click.prevent="back">
                                 Back
                             </a>
                             <a href="#" class="continue-checkout">
@@ -54,35 +57,30 @@
 
     import cartTotals from './../components/cart-totals';
     import login from './../components/login';
+    import billingBlock from './../components/billing-block';
 
     export default ({
         data: () => ({
         }),
         props: {
+            billing: Object,
             products: Array,
             subTotal: String,
             total: String,
-            shipping: Number,
-            countries: Array,
-            states: Array,
-            selectedBillingCountry: String,
+            shipping: Number
         },
         components: {
             cartTotals,
-            login
+            login,
+            billingBlock
         },
         methods: {
-
-            next() {
-                // this.$validator.validateAll().then((result) => {
-                //   if (result) {
+            back() {
                 let data = {
-                    step: 'second'
+                    step: 'third',
+                    progress: 3,
                 };
-                this.$emit('next', data);
-                return;
-                //   }
-                // });
+                this.$emit('back', data);
             }
         }
     })

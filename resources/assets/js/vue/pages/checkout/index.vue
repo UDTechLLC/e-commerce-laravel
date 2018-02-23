@@ -106,7 +106,7 @@
             },
             backStep(value) {
                 this.currentComponent = value.step;
-                this.progress--;
+                this.progress = value.progress;
             },
             getCountries() {
                 axios.get(`/api/countries?country=${this.selectedCountry}`).then(

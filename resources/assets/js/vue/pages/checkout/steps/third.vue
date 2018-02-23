@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="buttons-area">
-                            <a href="#" class="back-button">
+                            <a href="#" class="back-button" @click.prevent="back">
                                 Back
                             </a>
                             <a href="#" class="continue-checkout" @click.prevent="next">
@@ -74,10 +74,7 @@
             products: Array,
             subTotal: String,
             total: String,
-            shipping: Number,
-            countries: Array,
-            states: Array,
-            selectedBillingCountry: String
+            shipping: Number
         },
         components: {
             cartTotals,
@@ -86,16 +83,18 @@
         },
         methods: {
             next() {
-                // this.$validator.validateAll().then((result) => {
-                //   if (result) {
                 let data = {
                     step: 'fourth',
-                    billing: this.billingInfo
+                    billing: this.billing
                 };
                 this.$emit('next', data);
-                return;
-                //   }
-                // });
+            },
+            back() {
+                let data = {
+                    step: 'second',
+                    progress: 2
+                };
+                this.$emit('back', data);
             }
         }
     })
