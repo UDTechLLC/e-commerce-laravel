@@ -59,6 +59,22 @@
                     <span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>
                 </div>
             </div>
+            <div class="form-group" :class="{'has-error': errors.has('view_name') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="view_name">View Name
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="view_name" name="view_name"
+                           v-model="view_name"
+                           v-validate data-vv-rules="required"
+                           :class="{'is-danger': errors.has('view_name')}"
+                            class="form-control col-md-7 col-xs-12">
+
+                        <option v-for="view in viewArray">{{ view }}</option>
+                        <!--<option>view2</option>-->
+                    </select>
+                    <!--<span class="text-danger" v-if="errors.has('view_name')">{{ errors.first('view_name') }}</span>-->
+                </div>
+            </div>
             <div class="form-group" :class="{'has-error': errors.has('old-price') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price
                 </label>
@@ -102,6 +118,8 @@
             title: "",
             subtitle: "",
             description: "",
+            view_name: "show",
+            viewArray:[],
             oldPrice: null,
             price: "",
             image: "",
@@ -110,6 +128,12 @@
             errorImage: false,
             errorPreviewImage: false
         }),
+        props: {
+            viewList: String
+        },
+        created() {
+            this.viewArray = JSON.parse(this.viewList);
+        },
         computed: {
             renderSlug() {
                 let slug = this.sanitizeTitle(this.title);
@@ -141,6 +165,7 @@
                     title: this.title,
                     subtitle: this.subtitle,
                     description: this.description,
+                    view_name: this.view_name,
                     oldPrice: this.oldPrice,
                     price: this.price
                 };

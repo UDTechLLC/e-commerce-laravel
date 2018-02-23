@@ -63,6 +63,7 @@ class ProductController extends Controller
             'title'       => $request->get('title'),
             'slug'        => $request->get('slug'),
             'description' => $request->get('description'),
+            'view_name'   => $request->get('view_name'),
             'old_amount'  => $request->get('oldPrice') ?? 0,
             'amount'      => $request->get('price')
         ]);
@@ -120,6 +121,7 @@ class ProductController extends Controller
             'title'       => $request->get('title'),
             'subtitle'    => $request->get('subtitle'),
             'description' => $request->get('description'),
+            'view_name'   => $request->get('view_name'),
             'old_amount'  => $request->get('oldPrice') ?? "0",
             'amount'      => $request->get('price'),
             'slug'        => $request->get('slug')
