@@ -142,7 +142,10 @@ class Product extends EloquentModel implements HasMedia
     /**
      * Entity public methods go below
      */
-
+    public function getOldAmountAttribute($value)
+    {
+        return number_format($value / 100, 2);
+    }
     /**
      * @param $image
      * @param $collect
