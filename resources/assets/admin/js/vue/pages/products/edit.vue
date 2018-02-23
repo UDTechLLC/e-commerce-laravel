@@ -80,7 +80,7 @@
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="text" id="old-price" v-model="entry.oldPrice"
-                           v-validate data-vv-rules="numeric"
+                           v-validate data-vv-rules="decimal"
                            :class="{'is-danger': errors.has('old-price')}"
                            name="old-price" class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('old-price')">{{ errors.first('old-price') }}</span>
@@ -92,7 +92,7 @@
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="number" id="price" name="price" v-model="entry.price"
-                           v-validate data-vv-rules="required|numeric"
+                           v-validate data-vv-rules="required|decimal"
                            :class="{'is-danger': errors.has('price')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('price')">{{ errors.first('price') }}</span>
