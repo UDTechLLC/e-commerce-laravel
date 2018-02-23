@@ -17,6 +17,7 @@ class BillingTransformer extends TransformerAbstract
     public function transform(OrderBilling $billing)
     {
         return [
+            'id'            => $billing->getKey(),
             'first_name'    => $billing->first_name,
             'last_name'     => $billing->last_name,
             'company'       => $billing->company_name,

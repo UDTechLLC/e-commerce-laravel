@@ -61,7 +61,7 @@ Route::group([
         'as' => '.billing',
         'uses' => 'Api\CheckoutController@billing',
     ]);
-    Route::post('shipping/{order}', [
+    Route::post('shipping/{order}/{orderShipping?}', [
         'as' => '.shipping',
         'uses' => 'Api\CheckoutController@shipping'
     ]);

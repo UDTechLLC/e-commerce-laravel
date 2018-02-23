@@ -57,13 +57,15 @@ class CheckoutController extends Controller
      *
      * @param Order $order
      *
+     * @param OrderShipping $orderShipping
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function shipping(ShippingRequest $request, Order $order)
+    public function shipping(ShippingRequest $request, Order $order, OrderShipping $orderShipping)
     {
         $country = $request->get('country');
 
-        $shipping = $this->createShipping($request);
+        $shipping = $this->createOrUpdateShipping($request, $orderShipping);
 
         $this->updateOrder($order, $shipping, $country);
 
@@ -193,11 +195,15 @@ class CheckoutController extends Controller
      *
      * @param $request
      *
+     * @param $shipping
+     *
      * @return mixed
      */
-    private function createShipping($request)
+    private function createOrUpdateShipping($request, $shipping)
     {
-        return OrderShipping::create([
+        $shippingId = $shipping->getKey();
+
+        return OrderShipping::updateOrCreate(['id' => $shippingId], [
             'first_name'   => $request->get('firstName'),
             'last_name'    => $request->get('lastName'),
             'company_name' => $request->get('company'),
