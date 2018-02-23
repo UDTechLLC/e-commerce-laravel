@@ -42,7 +42,7 @@
                             <a href="#" class="back-button" @click.prevent="back">
                                 Back
                             </a>
-                            <a href="#" class="continue-checkout">
+                            <a :href="'/api/pay/'+orderId" class="continue-checkout">
                                 Proceed to PayPal
                             </a>
                         </div>
@@ -63,6 +63,7 @@
         data: () => ({
         }),
         props: {
+            orderId: Number,
             billing: Object,
             products: Array,
             subTotal: String,

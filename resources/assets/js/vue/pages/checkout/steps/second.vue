@@ -248,7 +248,8 @@
             next() {
                 let data = {
                     step: 'third',
-                    billing: this.billing
+                    billing: this.billing,
+                    orderId: this.orderId
                 };
 
                 if (!this.showShipping) return this.$emit('next', data);

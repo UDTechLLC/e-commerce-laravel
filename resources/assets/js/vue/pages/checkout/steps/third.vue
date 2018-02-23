@@ -70,6 +70,7 @@
     export default ({
         data: () => ({}),
         props: {
+            orderId: Number,
             billing: Object,
             products: Array,
             subTotal: String,
@@ -85,7 +86,8 @@
             next() {
                 let data = {
                     step: 'fourth',
-                    billing: this.billing
+                    billing: this.billing,
+                    orderId: this.orderId
                 };
                 this.$emit('next', data);
             },
