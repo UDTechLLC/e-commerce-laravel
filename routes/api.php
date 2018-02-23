@@ -54,28 +54,34 @@ Route::group([
 });
 
 Route::group([
-    'as' => '.checkout',
+    'as'     => '.checkout',
     'prefix' => 'checkout',
 ], function () {
     Route::post('billing/{cart}/{orderBilling?}', [
-        'as' => '.billing',
+        'as'   => '.billing',
         'uses' => 'Api\CheckoutController@billing',
     ]);
     Route::post('shipping/{order}/{orderShipping?}', [
-        'as' => '.shipping',
-        'uses' => 'Api\CheckoutController@shipping'
+        'as'   => '.shipping',
+        'uses' => 'Api\CheckoutController@shipping',
     ]);
-    Route::post('pay/{order}', [
-        'as' => '.pay',
-        'uses' => 'Api\CheckoutController@pay'
+});
+
+Route::group([
+    'as'     => '.pay',
+    'prefix' => 'pay',
+], function () {
+    Route::get('pay/{order}', [
+        'as'   => '.payment',
+        'uses' => 'Api\PayController@pay',
     ]);
     Route::get('pay/success/{order}', [
-        'as' => '.pay.success',
-        'uses' => 'Api\CheckoutController@returnUrl',
+        'as'   => '.success',
+        'uses' => 'Api\PayController@returnUrl',
     ]);
     Route::get('pay/cancel/{order}', [
-        'as' => '.pay.cancel',
-        'uses' => 'Api\CheckoutController@cancelUrl',
+        'as'   => '.cancel',
+        'uses' => 'Api\PayController@cancelUrl',
     ]);
 });
 
