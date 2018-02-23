@@ -195,6 +195,7 @@
 
     export default ({
         data: () => ({
+            billingId: "",
             billingInfo: {
                 firstName: "",
                 lastName: "",
@@ -228,18 +229,22 @@
         },
         methods: {
             getCountries() {
-                console.log('sadsad');
                 this.$emit('updateCountry', this.billingInfo.country);
             },
             next() {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-                        axios.post(`/api/checkout/billing/${this.cartId}`, this.billingInfo).then(
-                                result => {
+
+                        let url = `/api/checkout/billing/${this.cartId}`;
+                        if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
+
+                        axios.post(url, this.billingInfo).then(
+                                response => {
+                                    this.billingId = response.data.data.billing.data.id;
                                     let data = {
                                         step: 'second',
                                         billing: this.billingInfo,
-                                        orderId: result.data.data.id
+                                        orderId: response.data.data.id
                                     };
                                     this.$emit('next', data);
                                     return;

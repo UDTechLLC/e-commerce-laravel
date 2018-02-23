@@ -74,7 +74,7 @@
                 selectedShippingCountry: countryDefault,
                 countries: [],
                 states: [],
-                products: this.$EventBus.products,
+                products: [],
                 subTotal: "0",
                 shipping: 0,
                 currentComponent: "first",
