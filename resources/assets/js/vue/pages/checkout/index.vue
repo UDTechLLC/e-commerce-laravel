@@ -38,6 +38,7 @@
         <keep-alive>
             <component :is="currentComponent"
                        :cartId="cartId"
+                       :orderId="orderId"
                        :products="products"
                        :billing="billing"
                        :countries="countries"

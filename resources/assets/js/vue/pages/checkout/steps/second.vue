@@ -207,6 +207,7 @@
     export default ({
         data: () => ({
             showShipping: false,
+            shippingId: "",
             shippingInfo: {
                 firstName: "",
                 lastName: "",
@@ -227,6 +228,7 @@
             billingBlock
         },
         props: {
+            orderId: Number,
             billing: Object,
             products: Array,
             countries: Array,
@@ -244,13 +246,27 @@
                 this.$emit('updateCountry', this.shippingInfo.country);
             },
             next() {
+                let data = {
+                    step: 'third',
+                    billing: this.billing
+                };
+
+                if (!this.showShipping) return this.$emit('next', data);
+
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-                        let data = {
-                            step: 'third',
-                            billing: this.billing
-                        };
-                        this.$emit('next', data);
+
+                        let url = `/api/checkout/shipping/${this.orderId}`;
+                        if (this.shippingId != "") url = `/api/checkout/shipping/${this.orderId}/${this.shippingId}`;
+
+                        axios.post(url, this.shippingInfo).then(
+                                response => {
+                                    this.shippingId = response.data.data.shipping.data.id;
+                                    this.$emit('next', data);
+                                    return;
+                                },
+                                error => console.log('error')
+                        );
                     }
                 });
             },
