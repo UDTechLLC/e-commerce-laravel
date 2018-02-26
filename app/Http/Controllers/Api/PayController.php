@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Mail\OrderSent;
+use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Product;
 use App\Services\PayPal\PayPalService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -54,7 +57,12 @@ class PayController extends Controller
 
         $response = $this->service->completePurchase();
 
-        return view('web.checkout.checkout_thank_you', ['order' => $order]);
+        if ($response->isSuccessful()) {
+            $this->sendProducts($order);
+            $this->clearCart($order->cart);
+
+            return view('web.checkout.checkout_thank_you', ['order' => $order]);
+        }
     }
 
     /**
@@ -73,5 +81,23 @@ class PayController extends Controller
     {
         $this->service->setReturnUrl(route('.pay.success', ['order' => $order->getKey()]));
         $this->service->setCancelUrl(route('paypal.cancel', ['order' => $order->getKey()]));
+    }
+
+    /**
+     * Send products.
+     *
+     * @param Order $order
+     */
+    private function sendProducts(Order $order)
+    {
+        \Mail::to($order->billing->email)->send(new OrderSent($order));
+    }
+
+    /**
+     * @param Cart $cart
+     */
+    private function clearCart(Cart $cart)
+    {
+        $cart->products()->detach();
     }
 }
