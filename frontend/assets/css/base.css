@@ -116,6 +116,11 @@ div {
       right: -50%; }
     .after-lines--large:before {
       left: -50%; }
+    @media (max-width: 1300px) {
+      .after-lines--large:after {
+        right: -35%; }
+      .after-lines--large:before {
+        left: -35%; } }
   .after-lines--large2 {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -283,7 +288,8 @@ img {
     text-align: center;
     font-size: 25px;
     padding: 10px 0;
-    font-weight: 600; }
+    font-weight: 600;
+    text-transform: uppercase; }
     .add-to-cart-btn--mobile.active {
       bottom: 0; }
     @media (min-width: 801px) {
@@ -1241,7 +1247,7 @@ ul {
   margin: 30px 0; }
   @media (max-width: 880px) {
     .section__icon-wrapper {
-      width: 49%; } }
+      width: 100%; } }
   @media (max-width: 620px) {
     .section__icon-wrapper {
       width: 100%; } }
@@ -1515,6 +1521,9 @@ ul {
       margin-top: 0; }
       .queen-of-the-hill__bg .wrapper .section__icons .section__icon-wrapper {
         margin-bottom: 0; } }
+
+.amazingcarousel-item-container {
+  margin: 0 !important; }
 
 @media screen and (max-width: 800px) {
   .detox-section {
@@ -3507,8 +3516,9 @@ footer .first-footer {
       display: flex; } }
   @media screen and (max-width: 800px) {
     footer .first-footer__menu li {
-      text-align: center;
-      margin: 20px 0 0; }
+      text-align: left;
+      padding-left: 30px;
+      margin: 13px 0 0; }
       footer .first-footer__menu li:first-child {
         margin: 0; } }
   @media screen and (min-width: 801px) {
@@ -3535,12 +3545,16 @@ footer .first-footer {
         margin-right: 15px; }
         footer .first-footer__soc-links a:hover {
           opacity: .5; } }
+    @media screen and (max-width: 800px) {
+      footer .first-footer__soc-links a {
+        margin-right: 30px; } }
   @media screen and (max-width: 800px) {
     footer .first-footer__soc-links {
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
+      -webkit-box-pack: left;
+      -webkit-justify-content: left;
+          -ms-flex-pack: left;
+              justify-content: left;
+      margin-left: 30px;
       margin-top: 40px; } }
 
 footer .second-footer {
