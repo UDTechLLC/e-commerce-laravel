@@ -116,7 +116,8 @@
                                             <span class="error-massage"
                                                   style="display: none">Please enter your city.</span>
                                         </div>
-                                        <div class="form-field-wrapper half-field">
+                                        <div class="form-field-wrapper half-field "
+                                             :class="{'error': errors.has('bd_state') }">
                                             <label for="bdState">
                                                 State / County
                                             </label>
@@ -127,12 +128,15 @@
                                             </div>
                                             <div v-else>
                                                 <select id="bdState" class="form-field" name="bd_state"
-                                                        v-model="shippingInfo.state">
+                                                        v-model="shippingInfo.state"
+                                                        v-validate data-vv-rules="required">
                                                     <option value="">Select a option...</option>
                                                     <option v-for="state in states" :value="state">{{ state }}
                                                     </option>
                                                 </select>
                                             </div>
+                                            <span class="error-massage"
+                                                  style="display: none">Please enter your state.</span>
                                         </div>
                                         <div class="form-field-wrapper half-field"
                                              :class="{'error': errors.has('bd_post_zip') }">
