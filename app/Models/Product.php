@@ -138,9 +138,6 @@ class Product extends EloquentModel implements HasMedia
     }
 
     /**
-     * Entity public methods go below
-     */
-    /**
      * @param $value
      *
      * @return string
@@ -149,6 +146,22 @@ class Product extends EloquentModel implements HasMedia
     {
         return number_format($value / 100, 2);
     }
+
+    public function getProductLinkAttribute()
+    {
+        if ($this->isVirtual()) {
+            $media = $this->getMedia('products')->first();
+
+            return $media->hasCustomProperty('external_link')
+                ? $media->getCustomProperty('external_link')
+                : config('app.url') . $this->getFirstMediaUrl('download');
+        }
+    }
+
+    /**
+     * Entity public methods go below
+     */
+
     /**
      * @param $image
      * @param $collect

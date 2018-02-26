@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use App\Models\Product;
 use Illuminate\Bus\Queueable;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -13,25 +14,18 @@ class OrderSent extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * @var Product
+     * @var Collection
      */
-    public $product;
-
-    /**
-     * @var string
-     */
-    public $link;
+    public $order;
 
     /**
      * Create a new message instance.
      *
-     * @param $product
-     * @param $link
+     * @param $order
      */
-    public function __construct($product, $link)
+    public function __construct($order)
     {
-        $this->product = $product;
-        $this->link = $link;
+        $this->order = $order;
     }
 
     /**

@@ -60,7 +60,7 @@ class PayController extends Controller
             $this->sendProducts($order);
             $this->clearCart();
 
-            return view('checkout_thank_you', ['order' => $order]);
+            return view('web.checkout.checkout_thank_you', ['order' => $order]);
         }
     }
 
@@ -89,18 +89,7 @@ class PayController extends Controller
      */
     private function sendProducts(Order $order)
     {
-        /** @var Product $product */
-        foreach ($order->products as $product) {
-            if ($product->isVirtual()) {
-                $media = $product->getMedia('products')->first();
-
-                $link = $media->hasCustomProperty('external_link')
-                    ? $media->getCustomProperty('external_link')
-                    : config('app.url') . $product->getFirstMediaUrl('download');
-
-                \Mail::to($order->billing->email)->send(new OrderSent($product, $link));
-            }
-        }
+        \Mail::to($order->billing->email)->send(new OrderSent($order));
     }
 
     private function clearCart()
