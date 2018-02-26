@@ -78,6 +78,7 @@ div
       left: -16.5%
   &--large
     width: 50%
+
     @media (max-width: $breakpoint-mobile)
       width: 100%
     &:after,
@@ -87,6 +88,11 @@ div
       right: -50%
     &:before
       left: -50%
+    @media (max-width: 1300px)
+      &:after
+        right: -35%
+      &:before
+        left: -35%
   &--large2
     box-sizing: border-box
     width: 40%
