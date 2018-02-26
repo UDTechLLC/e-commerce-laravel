@@ -54,7 +54,7 @@ class PayController extends Controller
 
         $response = $this->service->completePurchase();
 
-        return view('checkout_thank_you');
+        return view('web.checkout.checkout_thank_you', ['order' => $order]);
     }
 
     /**
