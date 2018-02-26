@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Mail\OrderSent;
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Services\PayPal\PayPalService;
@@ -58,7 +59,7 @@ class PayController extends Controller
 
         if ($response->isSuccessful()) {
             $this->sendProducts($order);
-            $this->clearCart();
+            $this->clearCart($order->cart);
 
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         }
@@ -92,8 +93,11 @@ class PayController extends Controller
         \Mail::to($order->billing->email)->send(new OrderSent($order));
     }
 
-    private function clearCart()
+    /**
+     * @param Cart $cart
+     */
+    private function clearCart(Cart $cart)
     {
-        //
+        $cart->products()->detach();
     }
 }
