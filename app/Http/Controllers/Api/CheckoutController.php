@@ -119,7 +119,9 @@ class CheckoutController extends Controller
             'state'         => Order::ORDER_STATE_PENDINGPAYMENT,
         ]);
 
-        $order->products()->saveMany($cart->products);
+        foreach ($cart->products as $product) {
+            $order->products()->attach($product->id, ['count' => $product->pivot->count]);
+        }
 
         return $order;
     }

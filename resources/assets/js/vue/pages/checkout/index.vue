@@ -35,22 +35,26 @@
                 </div>
             </div>
         </div>
-        <keep-alive>
-            <component :is="currentComponent"
-                       :products="products"
-                       :billing="billing"
-                       :countries="countries"
-                       :states="states"
-                       :selectedBillingCountry="selectedBillingCountry"
-                       :selectedShippingCountry="selectedShippingCountry"
-                       :subTotal="subTotal"
-                       :total="total"
-                       :shipping="shipping"
-                       @updateCountry="updateCountry"
-                       @next="nextStep"
-                       @back="backStep"
-            ></component>
-        </keep-alive>
+        <transition name="component-fade" mode="out-in">
+            <keep-alive>
+                <component :is="currentComponent"
+                           :cartId="cartId"
+                           :orderId="orderId"
+                           :products="products"
+                           :billing="billing"
+                           :countries="countries"
+                           :states="states"
+                           :selectedBillingCountry="selectedBillingCountry"
+                           :selectedShippingCountry="selectedShippingCountry"
+                           :subTotal="subTotal"
+                           :total="total"
+                           :shipping="shipping"
+                           @updateCountry="updateCountry"
+                           @next="nextStep"
+                           @back="backStep"
+                ></component>
+            </keep-alive>
+        </transition>
     </div>
 </template>
 <script type="text/babel">
@@ -58,19 +62,22 @@
     import first from './steps/first';
     import second from './steps/second';
     import third from './steps/third';
+    import fourth from './steps/fourth';
 
     export default ({
         data() {
             let countryDefault = (Vue.localStorage.get('shippingCountry')) ? Vue.localStorage.get('shippingCountry') : "";
 
             return {
+                orderId: "",
                 progress: 1,
+                cartId: 0,
                 selectedCountry: countryDefault,
                 selectedBillingCountry: countryDefault,
                 selectedShippingCountry: countryDefault,
                 countries: [],
                 states: [],
-                products: this.$EventBus.products,
+                products: [],
                 subTotal: "0",
                 shipping: 0,
                 currentComponent: "first",
@@ -80,27 +87,28 @@
         components: {
             first,
             second,
-            third
+            third,
+            fourth
         },
         computed: {
             total() {
-                return Math.ceil((( Number(this.subTotal) + Number(this.shipping) ) * 100) / 100);
+                return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
             }
         },
         created() {
             this.getProducts();
-            console.log(this.$EventBus.products);
             this.getCountries();
         },
         methods: {
             nextStep(value) {
                 this.currentComponent = value.step;
                 this.billing = value.billing;
+                this.orderId = value.orderId;
                 this.progress++;
             },
             backStep(value) {
                 this.currentComponent = value.step;
-                this.progress--;
+                this.progress = value.progress;
             },
             getCountries() {
                 axios.get(`/api/countries?country=${this.selectedCountry}`).then(
@@ -115,7 +123,6 @@
                 )
             },
             updateCountry(value) {
-                console.log('aaa');
                 this.selectedCountry = value;
                 this.getCountries();
             }
@@ -123,3 +130,12 @@
     })
 
 </script>
+<style>
+    .component-fade-enter-active, .component-fade-leave-active {
+        transition: opacity .3s ease;
+    }
+    .component-fade-enter, .component-fade-leave-to
+        /* .component-fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+</style>

@@ -22,6 +22,7 @@ Vue.mixin({
           this.isShipping = response.data.data.isShipping;
           this.countItems = response.data.data.sum.products_counts;
           this.subTotal = response.data.data.sum.products_sum;
+          this.cartId = response.data.data.id;
         },
         error => console.log('error')
       )

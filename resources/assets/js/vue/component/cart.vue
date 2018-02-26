@@ -40,7 +40,7 @@
             <li class="header-cart-items__footer">
                 <div class="flex flex-a--center flex-j--between">
                     <a href="/cart" class="header-cart-items__footer-view-cart">View Cart</a>
-                    <a href="#" class="header-cart-items__footer-checkout">Checkout</a>
+                    <a href="/checkout" class="header-cart-items__footer-checkout">Checkout</a>
                 </div>
             </li>
         </ul>

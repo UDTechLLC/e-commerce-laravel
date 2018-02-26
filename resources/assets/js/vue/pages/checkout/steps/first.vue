@@ -167,12 +167,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <cart-totals
-                                    :products="products"
-                                    :subTotal="subTotal"
-                                    :total="total"
-                                    :shipping="shipping"
-                            ></cart-totals>
+                            <div class="cart-review-block-wrapper">
+                                <cart-totals
+                                        :products="products"
+                                        :subTotal="subTotal"
+                                        :total="total"
+                                        :shipping="shipping"
+                                ></cart-totals>
+                            </div>
                         </div>
                         <div class="buttons-area">
                             <a href="#" class="continue-checkout" @click.prevent="next">
@@ -193,6 +195,7 @@
 
     export default ({
         data: () => ({
+            billingId: "",
             billingInfo: {
                 firstName: "",
                 lastName: "",
@@ -208,13 +211,14 @@
             }
         }),
         props: {
+            cartId: Number,
             products: Array,
             subTotal: String,
-            total: Number,
+            total: String,
             shipping: Number,
             countries: Array,
             states: Array,
-            selectedBillingCountry: String,
+            selectedBillingCountry: String
         },
         components: {
             cartTotals,
@@ -225,20 +229,30 @@
         },
         methods: {
             getCountries() {
-                console.log('sadsad');
                 this.$emit('updateCountry', this.billingInfo.country);
             },
             next() {
-               // this.$validator.validateAll().then((result) => {
-                 //   if (result) {
-                        let data = {
-                            step: 'second',
-                            billing: this.billingInfo
-                        };
-                        this.$emit('next', data);
-                        return;
-                 //   }
-               // });
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+
+                        let url = `/api/checkout/billing/${this.cartId}`;
+                        if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
+
+                        axios.post(url, this.billingInfo).then(
+                                response => {
+                                    this.billingId = response.data.data.billing.data.id;
+                                    let data = {
+                                        step: 'second',
+                                        billing: this.billingInfo,
+                                        orderId: response.data.data.id
+                                    };
+                                    this.$emit('next', data);
+                                    return;
+                                },
+                                error => console.log('error')
+                        );
+                    }
+                });
             }
         }
     })

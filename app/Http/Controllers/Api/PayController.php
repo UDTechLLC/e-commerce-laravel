@@ -60,7 +60,7 @@ class PayController extends Controller
             $this->sendProducts($order);
             $this->clearCart();
 
-            return view('checkout_thank_you');
+            return view('checkout_thank_you', ['order' => $order]);
         }
     }
 
