@@ -46,6 +46,7 @@ class Order extends EloquentModel
         'user_id',
         'shipping_id',
         'billing_id',
+        'cart_id',
         'product_cost',
         'shipping_cost',
         'total_cost',
@@ -100,6 +101,11 @@ class Order extends EloquentModel
     public function billing()
     {
         return $this->belongsTo(OrderBilling::class);
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
     }
 
     public function products()

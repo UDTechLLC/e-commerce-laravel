@@ -62,9 +62,20 @@ class Cart extends EloquentModel
      * Entity relations go below
      */
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot('count');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 
     /**
