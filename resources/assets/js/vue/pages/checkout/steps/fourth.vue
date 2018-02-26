@@ -11,7 +11,7 @@
                         <h2 class="cart-heading">
                             Payment
                         </h2>
-                        <a class="edit-block-link" href="#" @click.prevent="editBilling">
+                        <a class="edit-block-link" href="#" @click.prevent="back">
                             Edit
                         </a>
                         <div class="clear"></div>

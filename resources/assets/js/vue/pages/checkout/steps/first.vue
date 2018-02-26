@@ -102,7 +102,8 @@
                                         />
                                         <span class="error-massage" style="display: none">Please enter your city.</span>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field"
+                                         :class="{'error': errors.has('bd_state') }">
                                         <label for="bdState">
                                             State / County
                                         </label>
@@ -114,6 +115,7 @@
                                         </div>
                                         <div v-else>
                                             <select id="bdState" class="form-field" name="bd_state"
+                                                    v-validate data-vv-rules="required"
                                                     v-model="billingInfo.state">
                                                 <option value="">Select a option...</option>
                                                 <option value="" v-for="state in states" :value="state">{{ state }}
