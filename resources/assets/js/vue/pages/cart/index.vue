@@ -52,7 +52,7 @@
                                 </th>
                                 <td class="product-subtotal">
                                             <span class="product-subtotal-amount">
-                                                ${{ subTotal }}
+                                                ${{ animatedSubTotal }}
                                             </span>
                                 </td>
                             </tr>
@@ -63,7 +63,7 @@
                                 <td class="">
                                     Flat rate:
                                             <span class="product-flat-rate">
-                                                ${{ shipping }}
+                                                ${{ animatedShipping }}
                                             </span>
                                 </td>
                             </tr>
@@ -72,7 +72,7 @@
                                 <td class="product-total">
                                             <span class="product-total-amount">
                                                 <strong>
-                                                    ${{ total }}
+                                                    ${{ animatedTotal }}
                                                 </strong>
                                             </span>
                                 </td>
@@ -103,7 +103,10 @@
             isShipping: false,
             countItems: 0,
             subTotal: 0,
-            shipping: 0
+            shipping: 0,
+            animatedTotal: 0,
+            animatedSubTotal: 0,
+            animatedShipping: 0
         }),
         components: {
             productList,
@@ -115,6 +118,17 @@
               return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
           }
         },
+        watch: {
+            total(newValue, oldValue) {
+                this.animateSum(newValue, oldValue, 'animatedTotal')
+            },
+            subTotal(newValue, oldValue) {
+                this.animateSum(newValue, oldValue, 'animatedSubTotal')
+            },
+            shipping(newValue, oldValue) {
+                this.animateSum(newValue, oldValue, 'animatedShipping')
+            }
+        },
         created() {
             this.getProducts();
             this.$EventBus.$on('updateProduct', this.updateProducts);
@@ -123,6 +137,24 @@
         methods: {
             updateShipping(value) {
                 this.shipping = value;
+            },
+            animateSum(newValue, oldValue, Variable) {
+                var vm = this;
+                function animate () {
+                    if (TWEEN.update()) {
+                        requestAnimationFrame(animate)
+                    }
+                }
+
+                new TWEEN.Tween({ tweeningNumber: oldValue })
+                        .easing(TWEEN.Easing.Quadratic.Out)
+                        .to({ tweeningNumber: newValue }, 500)
+                        .onUpdate(function () {
+                            vm[Variable] = this.tweeningNumber.toFixed(2)
+                        })
+                        .start();
+
+                animate()
             }
         }
     })

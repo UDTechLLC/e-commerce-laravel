@@ -27,7 +27,7 @@
         </td>
         <td class="product-subtotal">
                      <span class="product-subtotal-amount">
-                           ${{ product.total_sum }}
+                           ${{ animatedTotal }}
                      </span>
         </td>
         <td class="product-remove">
@@ -40,28 +40,55 @@
 
 <script type="text/babel">
     export default ({
+        data: () => ({
+            animatedTotal: 0
+        }),
         props: {
             product: Object
         },
-        methods: {
-            deleteProduct(slug) {
-                axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
-                        response => {
-                            console.log(response);
-                            this.$EventBus.$emit('updateProduct', response);
-                        },
-                        error => console.log('error')
-                )
-            },
-            deleteAllProduct(slug) {
-                axios.delete(`/api/carts/products/remove/${slug}/all?hash=${Vue.localStorage.get('hash')}`).then(
-                        response => {
-                            console.log(response);
-                            this.$EventBus.$emit('updateProduct', response);
-                        },
-                        error => console.log('error')
-                )
+        created() {
+            this.animatedTotal = this.product.total_sum;
+        },
+        watch: {
+            product(newValue, oldValue) {
+                var vm = this;
+
+                function animate() {
+                    if (TWEEN.update()) {
+                        requestAnimationFrame(animate)
+                    }
+                }
+
+                new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
+                        .easing(TWEEN.Easing.Quadratic.Out)
+                        .to({tweeningNumber: newValue.total_sum}, 500)
+                        .onUpdate(function () {
+                            vm.animatedTotal = this.tweeningNumber.toFixed(2)
+                        })
+                        .start();
+
+                animate()
             }
-        }
-    });
+            },
+            methods: {
+                deleteProduct(slug) {
+                    axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
+                            response => {
+                                console.log(response);
+                                this.$EventBus.$emit('updateProduct', response);
+                            },
+                            error => console.log('error')
+                    )
+                },
+                deleteAllProduct(slug) {
+                    axios.delete(`/api/carts/products/remove/${slug}/all?hash=${Vue.localStorage.get('hash')}`).then(
+                            response => {
+                                console.log(response);
+                                this.$EventBus.$emit('updateProduct', response);
+                            },
+                            error => console.log('error')
+                    )
+                }
+            }
+        });
 </script>
