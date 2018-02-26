@@ -11,6 +11,9 @@
     <!-- Bootstrap core CSS -->
 
     <link href="{{asset('admin_panel/css/app.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('web/css/app.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('web/css/base.css') }}">
 
 
     <!--[if lt IE 9]>

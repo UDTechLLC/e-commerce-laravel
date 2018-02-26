@@ -6,4 +6,8 @@ Route::group([
     Route::get('/', [
         'uses' => 'OrderController@index'
     ]);
+    Route::get('/{order}', [
+        'as'   => '.edit',
+        'uses' => 'OrderController@edit'
+    ]);
 });
