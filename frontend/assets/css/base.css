@@ -271,6 +271,9 @@ img {
       .btn-wrapper-product-count .btn {
         width: 33%; } }
 
+.amazingcarousel-play-video {
+  background-image: url("../carouselengine/playvideo-64-64-0.png") !important; }
+
 .add-to-cart-btn {
   -webkit-transition: .2s;
   -o-transition: .2s;
