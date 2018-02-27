@@ -143,7 +143,7 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/never_stop_moving.png';
+        $pathToFile = 'resources/assets/web/seed_products/never-stop-icon.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Never-stop-moving-Sales-2.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
