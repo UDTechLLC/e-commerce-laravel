@@ -1109,6 +1109,8 @@ ul {
       display: block;
       margin-right: 10px;
       content: 'Today:'; }
+    .top-product-description-block .has-old-price > .product-amount--new-price:before {
+      content: 'New price:'; }
     .top-product-description-block .has-old-price > .product-amount.product-amount--old {
       color: #29282e; }
       .top-product-description-block .has-old-price > .product-amount.product-amount--old:before {
@@ -1164,7 +1166,9 @@ ul {
 .total-results__img {
   margin-top: 60px; }
   .total-results__img .mobile-image {
-    display: none; }
+    display: none;
+    max-width: 290px;
+    margin: auto; }
   @media screen and (max-width: 800px) {
     .total-results__img {
       margin-top: 0; }
