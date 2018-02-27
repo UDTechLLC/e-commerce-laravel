@@ -378,7 +378,7 @@
                     </div>
                 </div>
 
-                <p class="info-text">*For the best results, use for 60 days in combination with diet and training</p>
+                <p class="info-text">*For the best results, use for 60 days in combination with diet and training.</p>
 
             </div>
         </section>
