@@ -163,6 +163,25 @@ class Product extends EloquentModel implements HasMedia
      */
 
     /**
+     * @param $value
+     *
+     * @return string
+     */
+    public function setAmountAttribute($value)
+    {
+        $this->attributes['amount']  = $value * 100;
+    }
+    /**
+     *   /**
+     * @param $value
+     *
+     * @return string
+     */
+    public function setOldAmountAttribute($value)
+    {
+        $this->attributes['old_amount']  = $value * 100;
+    }
+    /**
      * @param $image
      * @param $collect
      *

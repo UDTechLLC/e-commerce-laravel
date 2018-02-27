@@ -71,17 +71,17 @@
                 <div class="video-block-wrapper">
                     <div class="video-block">
                         <div id="amazingcarousel-container-1">
-                            <div id="amazingcarousel-1" style="display:none;position:relative;width:100%;max-width:990px;margin:0px auto 0px;">
-                                <div class="amazingcarousel-list-container">
-                                    <ul class="amazingcarousel-list">
-                                        <li class="amazingcarousel-item">
-                                            <div class="amazingcarousel-item-container">
-                                                <div class="amazingcarousel-image">
-                                                    <a href="https://player.vimeo.com/video/197577248" title="Rauve workout plan GYM"  class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ asset('web/images/197577248.jpg')}}"  alt="Rauve workout plan GYM" /></a>
+                            <div id="amazingcarousel-1" style="display: block; position: relative; width: 100%; max-width: 990px; margin: 0px auto; direction: ltr;">
+                                <div class="amazingcarousel-list-container" style="position: relative; margin: 0px auto; overflow: visible;">
+                                    <div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><ul class="amazingcarousel-list" style="display: block; position: relative; list-style-type: none; list-style-image: none; background-image: none; background-color: transparent; padding: 0px; margin: 0px;">
+                                            <li class="amazingcarousel-item amazingcarousel-item-0" style="display: block; position: relative; background-image: none; background-color: transparent; margin: 0px; padding: 0px; float: left;">
+                                                <div class="amazingcarousel-item-container" style="position: relative; margin: 0px 4px;">
+                                                    <div class="amazingcarousel-image">
+                                                        <a href="https://player.vimeo.com/video/197558254" title="Rauve workout plan GYM" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{asset('web/images/610809299_640.jpg')}}" alt="Rauve workout plan GYM"></a>
+                                                        <div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div></div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                            <div style="clear:both;"></div></ul></div>
                                 </div>
                             </div>
                         </div>
@@ -89,37 +89,37 @@
                 </div>
                 <div class="training-plan-faqs-block">
                     <h4 class="training-plan-faqs-title">
-                        Training Plan FAQs
+                        NUTRITION FAQS
                     </h4>
                     <ul class="training-plan-faqs-list">
                         <li class="training-plan-faqs-list-item">
                             <p class="item-title">
                                 <strong>
-                                    Do I need Workout Equipment?
+                                    Can my meal plan work for my family?
                                 </strong>
                             </p>
                             <p class="item-description">
-                                No, we will help you work with what you’ve got!
+                                Yes! We can implement food selections that take feeding your family into consideration.
                             </p>
                         </li>
                         <li class="training-plan-faqs-list-item">
                             <p class="item-title">
                                 <strong>
-                                    I have never worked out before, is this for me?
+                                    I can only eat snacks at my desk, can you accommodate for that?
                                 </strong>
                             </p>
                             <p class="item-description">
-                                Yes, no matter your age or experience level!
+                                Yes! We personalize eating you fit your schedule.
                             </p>
                         </li>
                         <li class="training-plan-faqs-list-item">
                             <p class="item-title">
                                 <strong>
-                                    I am always on the go, how much time do I need to dedicate?
+                                    I am a very picky eater, is that a problem?
                                 </strong>
                             </p>
                             <p class="item-description">
-                                That’s fine, amazing results can be achieved with a little time and consistency!
+                                No! We consider all food preferences as well as food allergies when creating your customized meal plan.
                             </p>
                         </li>
                     </ul>
@@ -216,28 +216,25 @@
                     <div class="success-story-slider-wrapper">
                         <div id="successStories" class="success-story-slider">
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_5611.jpg')}}" />
+                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_1.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_2421.jpg')}}" />
+                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_2.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_2810.jpg')}}" />
+                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_3.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_7519.jpg')}}" />
+                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_4.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_6252.jpg')}}" />
+                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_5.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_2811.jpg')}}" />
+                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_6.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_9363.jpg')}}" />
-                            </div>
-                            <div class="slider-item">
-                                <img src="{{ asset('web/images/success_story_slider/1/IMG_4745.jpg')}}" />
+                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_7.jpg')}}" />
                             </div>
                         </div>
                     </div>
@@ -280,11 +277,11 @@
                                 </ul>
                                 <div class="clear"></div>
                             </div>
-                            <h5 class="cr-title">
+                            <!--<h5 class="cr-title">
                                 “I can stream them on any device”
-                            </h5>
+                            </h5>-->
                             <p class="cr-content">
-                                I travel all around the world for work, so sticking to a routine and exercise plan is hard for me. Until I found the Total Body Burn program. The best thing is I can stream them on any device and just workout in my hotel room if there is no gym accessible. I stick to a workout plan and continue to see results*
+                                “I tried some other online fitness coach in the past, and the diet felt like it was copied and pasted, and I barely saw any results. But the plan you gave is awesome. The diet is working. I feel stronger and I’m getting leaner. It’s just a steady progress but overall I am digging the program. I will definitely do another 12 weeks because you’re are really helping me with my goals, so thank you!”
                             </p>
                         </div>
                         <div class="customer-preview-single-block">
@@ -308,11 +305,11 @@
                                 </ul>
                                 <div class="clear"></div>
                             </div>
-                            <h5 class="cr-title">
+                            <!--<h5 class="cr-title">
                                 “I’ve lost 15 pounds the first 30 days”
-                            </h5>
+                            </h5>-->
                             <p class="cr-content">
-                                This is my second round on Total Body Burn and I’m still loving it. I’ve lost 15 pounds the first 30 days and inches too. My husband noticed the changes and decided he wanted to join in as well. Now we look forward to completing the challenge of the day. It has become our routine and he is seeing changes too!*
+                                “I’m down 10 lbs since I saw my doctor a month ago ….I’m down 4″ in my waist…my blood pressure is the best it’s been in over 4 years! This is the best part….my blood work is AMAZING! I’ve dropped my cholesterol by 200 pts in a month and this is only my 3rd week of carb cycling!”
                             </p>
                         </div>
                         <div class="clear"></div>
@@ -337,11 +334,11 @@
                                 </ul>
                                 <div class="clear"></div>
                             </div>
-                            <h5 class="cr-title">
+                            <!--<h5 class="cr-title">
                                 “My jeans are too loose”
-                            </h5>
+                            </h5>-->
                             <p class="cr-content">
-                                I never thought that I could complete a full 30 day challenge, let alone a week challenge. Well I thought wrong! This has been such a whirlwind and amazing 30 days. I pushed my self past limits I didn’t even know existed and have seen changes in my overall physique. My jeans are too loose and keep falling and all of my friends and family notice a difference too.*
+                                “I appreciate everything you’ve done, and have learned a lot about nutrition. More importantly you have gotten me on the right path. I’ve gained muscle, and lost fat. My waist is significantly smaller, and I have abs that although they are shy …they are there. My arms, and legs are bigger, and I’m understanding my body better. I really want to thank you, and the other Shedfat team. I feel like we are part of a family.”
                             </p>
                         </div>
                         <div class="customer-preview-single-block">
@@ -365,11 +362,11 @@
                                 </ul>
                                 <div class="clear"></div>
                             </div>
-                            <h5 class="cr-title">
+                            <!--<h5 class="cr-title">
                                 “I have completely transformed!”
-                            </h5>
+                            </h5>-->
                             <p class="cr-content">
-                                30 days seemed like a long time when I first started, but now I’m on my third round and still loving it. I thought body weight exercises were not going to help me achieve the results I wanted, but boy was I wrong. I have completely transformed! Thank you Rauve and the Shed Fat Team. I’m a new me!*
+                                “My relationship with food took a complete 360, meals no longer seem scary and I enjoy putting all the good food in my body!! My confidence has sky rocketed. Seeing my body transform is really crazy and I’m just falling in love with myself. That’s something I’ve always lacked. Even though I’m not on the booty plan the cellulite on my booty is barely there and it’s looking very good! I finally have the hang of things and my junk food cravings are pretty much gone! I love this journey I can’t wait to keep going! I’ll talk to you next week, thank youuuu.”
                             </p>
                         </div>
                         <div class="clear"></div>
@@ -377,7 +374,7 @@
                 </div>
             </div>
         </div>
-        <div class="custom-guarantee-block-wrapper">
+        <div class="custom-guarantee-block-wrapper" style="background-image: url('{{ asset('web/images/full-product/12_week_custom_meal_plan/custom_guarantee_block_bg.jpg')}}')">
             <div class="wrapper">
                 <div class="custom-guarantee-block">
                     <div class="stiker-wrapper">
