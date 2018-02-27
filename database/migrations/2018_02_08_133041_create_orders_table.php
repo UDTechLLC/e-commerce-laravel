@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('shipping_id')->nullable();
             $table->unsignedInteger('billing_id')->nullable();
+            $table->unsignedInteger('cart_id');
             $table->integer('product_cost')->nullable();
             $table->integer('shipping_cost')->nullable();
             $table->integer('total_cost')->nullable();

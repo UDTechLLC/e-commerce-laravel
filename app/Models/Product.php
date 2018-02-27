@@ -16,11 +16,8 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  */
 class Product extends EloquentModel implements HasMedia
 {
-
     use HasMediaTrait;
-    /**
-     * @var string
-     */
+
     const VIEW_NAME_SHOW = 'show';
     const VIEW_NAME_12WEEK_MEAL = '12week-custom-meal-plan';
     const VIEW_NAME_12WEEK_TRAINING = '12week-custom-training-plan';
@@ -60,6 +57,7 @@ class Product extends EloquentModel implements HasMedia
         'count',
         'view_name',
         'position',
+        'isVirtual',
         'slug'
     );
 
@@ -73,7 +71,7 @@ class Product extends EloquentModel implements HasMedia
      * The attributes that should be cast to native types.
      * @var array
      */
-    protected $casts = [];
+    protected $casts = ['isVirtual' => 'boolean'];
 
     /**
      * The relationships that should be touched on save.
@@ -140,9 +138,6 @@ class Product extends EloquentModel implements HasMedia
     }
 
     /**
-     * Entity public methods go below
-     */
-    /**
      * @param $value
      *
      * @return string
@@ -151,6 +146,22 @@ class Product extends EloquentModel implements HasMedia
     {
         return number_format($value / 100, 2);
     }
+
+    public function getProductLinkAttribute()
+    {
+        if ($this->isVirtual()) {
+            $media = $this->getMedia('products')->first();
+
+            return $media->hasCustomProperty('external_link')
+                ? $media->getCustomProperty('external_link')
+                : config('app.url') . $this->getFirstMediaUrl('download');
+        }
+    }
+
+    /**
+     * Entity public methods go below
+     */
+
     /**
      * @param $value
      *
@@ -215,5 +226,13 @@ class Product extends EloquentModel implements HasMedia
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * @return bool
+     */
+    public function isVirtual(): bool
+    {
+        return $this->isVirtual;
     }
 }

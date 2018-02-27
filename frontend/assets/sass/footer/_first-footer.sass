@@ -7,8 +7,9 @@ footer
         display: flex
       li
         @media screen and (max-width: $breakpoint-mobile)
-          text-align: center
-          margin: 20px 0 0
+          text-align: left
+          padding-left: 30px
+          margin: 13px 0 0
           &:first-child
             margin: 0
         @media screen and (min-width: $breakpoint-mobile + 1)
@@ -24,6 +25,7 @@ footer
           &:hover
             color: white
     &__soc-links
+
       a
         margin-right: 50px
         font-size: 25px
@@ -33,6 +35,9 @@ footer
           margin-right: 15px
           &:hover
             opacity: .5
+        @media screen and (max-width: $breakpoint-mobile)
+          margin-right: 30px
       @media screen and (max-width: $breakpoint-mobile)
-        justify-content: center
+        justify-content: left
+        margin-left: 30px
         margin-top: 40px

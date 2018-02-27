@@ -112,6 +112,7 @@ class CheckoutController extends Controller
         $order = Order::create([
             'user_id'       => null !== $user ? $user->getKey() : null,
             'billing_id'    => $billing->getKey(),
+            'cart_id'       => $cart->getKey(),
             'product_cost'  => $productCost,
             'shipping_cost' => $shippingCost,
             'total_cost'    => $productCost + $shippingCost,
@@ -119,7 +120,9 @@ class CheckoutController extends Controller
             'state'         => Order::ORDER_STATE_PENDINGPAYMENT,
         ]);
 
-        $order->products()->saveMany($cart->products);
+        foreach ($cart->products as $product) {
+            $order->products()->attach($product->id, ['count' => $product->pivot->count]);
+        }
 
         return $order;
     }
