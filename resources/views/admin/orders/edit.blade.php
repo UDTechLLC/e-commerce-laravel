@@ -36,11 +36,13 @@
     </div>
     <div class="col-lg-3">
         <h3>Shipping details</h3>
+        @if($order->shipping_id)
         <p style="text-transform: capitalize">Name: {{ $order->shipping->first_name}} {{$order->shipping->last_name}}</p>
         <p>Address: </p>
         <p> {{$order->shipping->company_name}}  {{ $order-> shipping->street }} str, {{$order->shipping->apartment}} <br>
             {{ $order->shipping->country }}, {{ $order->shipping->city }} <br>
             {{$order->shipping->state}}, {{$order->shipping->postcode}}</p>
+            @endif
     </div>
 </div>
        </div>
@@ -101,8 +103,9 @@
                     </span>
                 </td>
                 {{--<td class="product-quantity">--}}
-                    {{----}}
+
                     {{--<div class="quantity buttons_added">--}}
+                        {{--<span> {{$order->count}}</span>--}}
                         {{--<input id="" class="input-text qty text" step="1" min="0" max="" name="" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number" />--}}
                     {{--</div>--}}
                 {{--</td>--}}
@@ -121,7 +124,7 @@
                     Total:
                 </td>
                 <td>
-                    {{$order->total_cost}}
+                    ${{$order->total_cost}}
                 </td>
             </tr>
             </tbody>
