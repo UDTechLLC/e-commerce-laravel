@@ -1166,7 +1166,9 @@ ul {
 .total-results__img {
   margin-top: 60px; }
   .total-results__img .mobile-image {
-    display: none; }
+    display: none;
+    max-width: 290px;
+    margin: auto; }
   @media screen and (max-width: 800px) {
     .total-results__img {
       margin-top: 0; }
