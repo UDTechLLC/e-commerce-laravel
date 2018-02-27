@@ -2,15 +2,15 @@
 
 @section('content')
    <div class="container">
-      <h2>Order Table</h2>
-      <p>The orders to a table:</p>
+      <h2>Orders</h2>
       <table class="table table-bordered">
          <thead>
          <tr>
-            <th>id</th>
+            <th>Order</th>
             <th>User_id</th>
             <th>Shipping_id</th>
             <th>Billing_id</th>
+            <th>Date</th>
             <th>Product_cost</th>
             <th>Shipping_cost</th>
             <th>Total_cost</th>
@@ -19,34 +19,60 @@
          </tr>
          </thead>
          <tbody>
+         {{--<tr>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>test</td>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>Test</td>--}}
+            {{--<td>Test</td>--}}
+         {{--</tr>--}}
+         @foreach($orders as $order)
          <tr>
-            <td>Test</td>
-            <td>test</td>
-            <td>Test</td>
-            <td>Test</td>
-            <td>Test</td>
-            <td>Test</td>
-            <td>Test</td>
-            <td>Test</td>
-            <td>Test</td>
-         </tr>
-         <tr>
-         @foreach($order as $orders)
-            <td>{{ $orders->id }}</td>
-            <td>{{ $orders->user_id}}</td>
-            <td>{{ $orders->shipping_id}}</td>
-            <td>{{ $orders->billing_id}}</td>
-            <td>{{ $orders->product_cost }}</td>
-            <td>{{ $orders->total_cost }}</td>
-            <td>{{ $orders->count }}</td>
-            <td>{{ $orders->state }}</td>
-            @endforeach
+            <td><a href="{{url('admin/orders/'.$order->id)}}"> #{{ $order->id }}</a></td>
+
+            @if($order->user_id)
+            <td>{{ $order->user->first_name }} , {{ $order->user->email }} </td>
+               @else
+            {{--<td>Unregister user</td>--}}
+               <td>{{ $order->billing->first_name}} {{ $order->billing->last_name}}, <br> {{$order->billing->email}}</td>
+
+            @endif
+
+            @if($order->shipping_id)
+               <td style="text-transform: capitalize">{{ $order->shipping->first_name}} {{ $order->shipping->last_name}},
+                  {{$order->shipping->company_name}}, {{ $order-> shipping->street }} str, {{$order->shipping->apartment}},
+                  {{ $order->shipping->country }}, {{ $order->shipping->city }} ,
+                  {{$order->shipping->state}}, {{$order->shipping->postcode}}</td>
+            @else
+             <td> - </td>
+            @endif
+
+            <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}},
+               {{$order->billing->company_name}}, {{ $order-> billing->street }} str, {{$order->billing->apartment}},
+               {{ $order->billing->country }}, {{ $order->billing->city }} ,
+               {{$order->billing->state}}, {{$order->billing->postcode}}</td>
+
+            <td>{{ $order->created_at->format('M j, Y') }}</td>
+            <td>{{ $order->product_cost }}</td>
+            <td>{{ $order->shipping_cost }}</td>
+            <td>{{ $order->total_cost }}</td>
+            <td>{{ $order->count }}</td>
+            <td>{{ $order->state }}</td>
+{{--<td><select>--}}
+      {{--@foreach(\App\Models\Order::ORDER_STATES as order)--}}
+      {{--<option value="{{ $order }}"></option>--}}
+         {{--@endforeach--}}
+   {{--</select></td>--}}
+            {{--{{dump($orders->state )}}--}}
             </tr>
+         @endforeach
          </tbody>
       </table>
    </div>
-
-   </body>
-   </html>
 
 @endsection
