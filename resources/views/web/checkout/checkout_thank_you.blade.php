@@ -1,6 +1,6 @@
 @extends('web.layouts.app')
 @section('content')
-    <main>
+    <main class="checkout checkout-thank-you">
         <div class="main thank-you-page-template">
             <div class="checkout-top-navigation-bar-wrapper">
                 <div class="wrapper">

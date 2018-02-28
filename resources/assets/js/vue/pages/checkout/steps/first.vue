@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <login></login>
+    <div class="checkout">
+        <!--<login></login>-->
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
@@ -155,26 +155,26 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your phone.</span>
                                     </div>
-                                    <div class="form-field-wrapper">
-                                        <input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"
-                                               type="checkbox"/>
-                                        <label for="bdCreateAccount" class="checkbox">
-                                            Create an account?
-                                        </label>
-                                    </div>
-                                    <div class="create-account-block" style="display: none">
-                                        <p>
-                                            Create an account by entering the information below. If you are a returning
-                                            customer please login at the top of the page.
-                                        </p>
-                                        <div class="form-field-wrapper">
-                                            <label for="bdCreatePass">
-                                                Create account password
-                                            </label>
-                                            <input id="bdCreatePass" class="form-field" name="bd_create_pass"
-                                                   type="text" placeholder="Password"/>
-                                        </div>
-                                    </div>
+                                    <!--<div class="form-field-wrapper">-->
+                                        <!--<input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"-->
+                                               <!--type="checkbox"/>-->
+                                        <!--<label for="bdCreateAccount" class="checkbox">-->
+                                            <!--Create an account?-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                    <!--<div class="create-account-block" style="display: none">-->
+                                        <!--<p>-->
+                                            <!--Create an account by entering the information below. If you are a returning-->
+                                            <!--customer please login at the top of the page.-->
+                                        <!--</p>-->
+                                        <!--<div class="form-field-wrapper">-->
+                                            <!--<label for="bdCreatePass">-->
+                                                <!--Create account password-->
+                                            <!--</label>-->
+                                            <!--<input id="bdCreatePass" class="form-field" name="bd_create_pass"-->
+                                                   <!--type="text" placeholder="Password"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                 </div>
                             </div>
                             <div class="cart-review-block-wrapper">
