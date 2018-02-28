@@ -3068,6 +3068,11 @@ section .training-plan-faqs-block-wrapper .wrapper {
         margin: 30px 0;
         padding: 0 30px 9px;
         width: 100%; }
+        @media screen and (max-width: 767px) {
+          .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block {
+            margin-top: 0;
+            margin-bottom: 30px !important;
+            padding: 0 15px 9px; } }
         .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .cart-header-block {
           margin: 24px 0 21px;
           padding-bottom: 13px; }
@@ -3086,6 +3091,12 @@ section .training-plan-faqs-block-wrapper .wrapper {
           text-align: right; }
           .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .shop-table tbody tr td.product-subtotal .product-subtotal-amount {
             color: #494949; }
+        @media screen and (max-width: 767px) {
+          .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .shop-table tbody tr td.product-name .product-thumbnail {
+            float: none;
+            margin-right: 0; }
+          .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .shop-table tbody tr td.product-name .product-info {
+            margin-left: 0; } }
         .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .shop-table tfoot tr th {
           color: #494949;
           font-family: Montserrat;
@@ -3110,6 +3121,18 @@ section .training-plan-faqs-block-wrapper .wrapper {
           padding-top: 21px; }
         .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .shop-table tfoot tr:first-child td {
           padding-top: 20px; }
+
+@media screen and (max-width: 767px) {
+  .checkout-final .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper, .checkout-thank-you .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper {
+    display: block; } }
+
+@media screen and (max-width: 767px) {
+  .checkout-thank-you .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper {
+    margin-top: 20px; }
+    .checkout-thank-you .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .shop-table tfoot tr td {
+      white-space: normal; }
+      .checkout-thank-you .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper .cart-review-block .shop-table tfoot tr td:first-child {
+        display: none; } }
 
 .billing-address-info-block-wrapper .wrapper .billing-address-info-block {
   border: 1px solid #eaeaea;
@@ -3239,6 +3262,11 @@ section .training-plan-faqs-block-wrapper .wrapper {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin: -12px 0 0; }
+  @media screen and (max-width: 480px) {
+    .thank-you-page-template .tp-customer-details-block-wrapper .wrapper .tp-customer-details-block .tp-customer-details-info {
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; } }
   .thank-you-page-template .tp-customer-details-block-wrapper .wrapper .tp-customer-details-block .tp-customer-details-info .cd-contacts {
     width: 35%; }
     .thank-you-page-template .tp-customer-details-block-wrapper .wrapper .tp-customer-details-block .tp-customer-details-info .cd-contacts .customer_details {
