@@ -80,7 +80,6 @@
                                                placeholder="Apartment, suite, unit etc. (optional)"
                                                v-model="billingInfo.apartment"/>
                                     </div>
-
                                     <div class="form-field-wrapper half-field"
                                          v-if="this.isShipping">
                                         <label for="bdCountry">
@@ -144,8 +143,7 @@
                                               style="display: none">Please enter your postcode.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bg_phone') }"
-                                         v-if="this.isShipping">
+                                         :class="{'error': errors.has('bg_phone') }">
                                         <label for="bdPhone">
                                             Phone
                                         </label>
@@ -228,7 +226,8 @@
             shipping: Number,
             countries: Array,
             states: Array,
-            selectedBillingCountry: String
+            selectedBillingCountry: String,
+            isShipping: Boolean
         },
         components: {
             cartTotals,

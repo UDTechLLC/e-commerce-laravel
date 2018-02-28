@@ -32,7 +32,7 @@ class BillingRequest extends FormRequest
 //            'city'      => '',
 //            'state'     => '',
 //            'postcode'  => '',
-//            'phone'     => 'required',
+            'phone'     => 'required',
         ];
     }
 }

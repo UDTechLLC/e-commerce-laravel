@@ -49,6 +49,7 @@
                            :subTotal="subTotal"
                            :total="total"
                            :shipping="shipping"
+                           :isShipping="isShipping"
                            @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
