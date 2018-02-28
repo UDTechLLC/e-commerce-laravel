@@ -58,7 +58,8 @@
                                               style="display: none">Please enter your email.</span>
                                     </div>
                                     <div class="form-field-wrapper"
-                                         :class="{'error': errors.has('bg_street_address') }">
+                                         :class="{'error': errors.has('bg_street_address') }"
+                                         v-if="this.isShipping">
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
@@ -69,7 +70,8 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your address</span>
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper"
+                                         v-if="this.isShipping">
                                         <label for="bdApartments">
                                             Apartment, suite, unit etc.
                                             <span>

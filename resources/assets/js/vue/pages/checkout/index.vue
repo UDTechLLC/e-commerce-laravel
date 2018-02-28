@@ -117,7 +117,7 @@
                             this.countries = response.data.countries;
                             this.selectedCountry = response.data.selected;
                             this.states = response.data.states;
-                            this.shipping = response.data.shipping;
+                            this.shipping = this.shipping ? response.data.shipping : 0;
                             Vue.localStorage.set('shippingCountry', this.selectedCountry);
                         },
                         error => console.log('error')
