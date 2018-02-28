@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\UpdateOrderStatusRequest;
 use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -62,30 +63,28 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-//        $data = [
-//            'user'   => $order->user_id,
-////            'shipping_id' => $order->shipping(),
-////            'image'        => $order->products()->getFirstMediaUrl('products'),
-////            'imagePreview' => $order->products()->getFirstMediaUrl('preview'),
-//        ];
-//        dump($order);
-//        dump($order->products());
-//        $product = $order->products()->get();
-        $stat = Order::ORDER_STATES;
-//        dump($stat);
-        return view('admin.orders.edit', compact('order','stat'));
+        $state = Order::ORDER_STATES;
+        return view('admin.orders.edit', compact('order','state'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param Order $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+//
+    }
+
+    public function updateStatus(UpdateOrderStatusRequest $request, Order $order)
+    {
+        $order->update([
+              'state' => $request->get('state')
+        ]);
+        return redirect()->route('admin.orders');
     }
 
     /**

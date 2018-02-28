@@ -2,7 +2,11 @@
 
 @section('content')
 
-
+<main>
+    <form action="{{route('admin.orders.update', $order->id )}}" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        {{ method_field('PATCH') }}
+    {{--{!! Form::model($order, ['action'=>['OrderController@update','id'=>$order->id],'files'=>true, 'method'=>'put']) !!}--}}
        <div class="wrapper">
            <h1>Order #{{$order->id}}</h1>
 <div class="row">
@@ -10,18 +14,22 @@
         <h3>General Details</h3>
         <p style="font-weight: bold;">Order date: </p>
         <p>{{$order->created_at->format('M j, Y') }}</p>
-        <fofm>
-            <label>Order status:</label>
-{{--{{ dump($stat) }}--}}
-            <select>
-                @foreach($stat as $state)
+           <div class="form-group">
+            <label for="state">Order status:</label>
+            <select name="state" id="state">
+                @foreach($state as $sta)
                     {{--{{ $state }}--}}
-                <option value="{{$state}}">{{$state}}</option>
+                <option value="{{ $sta }}" {{( $sta==$order->state ) ? 'selected' : '' }}>{{ $sta }}</option>
                 @endforeach
-            </select>
+            </select></div>
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3">
+                <button type="submit">Submit
+                </button>
+            </div>
+        </div>
+      </div>
 
-        </fofm>
-    </div>
     <div class="col-lg-3">
         <h3>Billing details</h3>
         <p style="text-transform: capitalize">Name: {{ $order->billing->first_name}} {{$order->billing->last_name}}</p>
@@ -45,27 +53,27 @@
             @endif
     </div>
 </div>
-       </div>
 
 
-    <div class="main">
-        <div class="cart-block-wrapper">
-            <div class="wrapper">
-                <form class="cart-form" action="" method="post">
-                    <div class="cart-block">
-                        <div class="cart-header-block">
-                            <h3 class="cart-heading">
-                                You Have {{$order->count}} Items In Your Cart
-                            </h3>
-                        </div>
-    <div class="cart-wrapper">
-        </div>
-        <table class="shop-table">
-            <thead>
-            <tr>
-                <th class="product-name">
-                    Product
-                </th>
+
+    {{--<div class="main">--}}
+        {{--<div class="cart-block-wrapper">--}}
+            {{--<div class="wrapper">--}}
+                {{--<form class="cart-form" action="" method="post">--}}
+                    {{--<div class="cart-block">--}}
+                        {{--<div class="cart-header-block">--}}
+                            {{--<h3 class="cart-heading">--}}
+                                {{--You Have {{$order->count}} Items In Your Cart--}}
+                            {{--</h3>--}}
+                        {{--</div>--}}
+    {{--<div class="cart-wrapper">--}}
+        {{--</div>--}}
+        {{--<table class="shop-table">--}}
+            {{--<thead>--}}
+            {{--<tr>--}}
+                {{--<th class="product-name">--}}
+                    {{--Product--}}
+                {{--</th>--}}
                 {{--<th class="product-price">--}}
                     {{--Price--}}
                 {{--</th>--}}
@@ -75,33 +83,33 @@
                 {{--<th class="product-subtotal">--}}
                     {{--Total--}}
                 {{--</th>--}}
-                <th class="product-price">
-                    Price
-                </th>
+                {{--<th class="product-price">--}}
+                    {{--Price--}}
+                {{--</th>--}}
 
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($order->products as $product)
-            <tr class="cart-row">
-                <td class="product-name">
+            {{--</tr>--}}
+            {{--</thead>--}}
+            {{--<tbody>--}}
+            {{--@foreach($order->products as $product)--}}
+            {{--<tr class="cart-row">--}}
+                {{--<td class="product-name">--}}
 
-                    <div class="product-thumbnail">
-                        <a href="#">
-                            <img src="{!! $product->getFirstMediaUrl('products') !!}" />
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <a class="product-title" href="#">
-                            {{$product->title}}
-                        </a>
-                    </div>
-                </td>
-                <td class="product-price">
-                    <span class="product-amount">
-                       ${{$product->amount}}
-                    </span>
-                </td>
+                    {{--<div class="product-thumbnail">--}}
+                        {{--<a href="#">--}}
+                            {{--<img src="{!! $product->getFirstMediaUrl('products') !!}" />--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="product-info">--}}
+                        {{--<a class="product-title" href="#">--}}
+                            {{--{{$product->title}}--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                {{--</td>--}}
+                {{--<td class="product-price">--}}
+                    {{--<span class="product-amount">--}}
+                       {{--${{$product->amount}}--}}
+                    {{--</span>--}}
+                {{--</td>--}}
                 {{--<td class="product-quantity">--}}
 
                     {{--<div class="quantity buttons_added">--}}
@@ -115,25 +123,135 @@
                                                 {{--</span>--}}
                 {{--</td>--}}
 
-            </tr>
-            @endforeach
-            </tbody>
-            <tbody>
-            <tr>
-                <td>
-                    Total:
-                </td>
-                <td>
-                    ${{$order->total_cost}}
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-   </form>
-  </div>
-    </div>
-    </div>
+            {{--</tr>--}}
+            {{--@endforeach--}}
+            {{--</tbody>--}}
+            {{--<tbody>--}}
+            {{--<tr>--}}
+                {{--<td>--}}
+                    {{--Total:--}}
+                {{--</td>--}}
+                {{--<td>--}}
+                    {{--${{$order->total_cost}}--}}
+                {{--</td>--}}
+            {{--</tr>--}}
+            {{--</tbody>--}}
+        {{--</table>--}}
+    {{--</div>--}}
+   {{--</form>--}}
+  {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+       <div class="checkout-billing-details-block-wrapper">
+           <div class="wrapper">
+               <div class="checkout-billing-details-block">
+                   {{--<form class="checkout-billing-details-form" action="" name="checkout-billing-details"--}}
+                         {{--method="post">--}}
+                       <div class="billing-details-info-wrapper finish-order-step">
+                           <div class="cart-review-block-wrapper finish-order-step">
+                               <div class="cart-review-block">
+                                   <div class="cart-header-block">
+                                       <h2 class="cart-heading">
+                                           Product details
+                                       </h2>
+                                   </div>
+                                   <table class="shop-table">
+                                       <thead>
+                                       <tr>
+                                           <th class="product-name">
+                                               Product
+                                           </th>
+                                           <th class="product-quantity">
+                                               Quantity
+                                           </th>
+                                           <th class="product-subtotal">
+                                               Total
+                                           </th>
+                                       </tr>
+                                       </thead>
+                                       <tfoot>
+                                       <tr class="cart-subtotal">
+                                           <td></td>
+                                           <th>
+                                               Subtotal:
+                                           </th>
+                                           <td>
+                                                <span class="product-subtotal-amount">
+                                                    ${{$order->product_cost}}
+                                                </span>
+                                           </td>
+                                       </tr>
+                                       <tr class="shipping">
+                                           <td></td>
+                                           <th>
+                                               Shipping:
+                                           </th>
+                                           <td>
+                                                <span class="product-subtotal-amount">
+                                                    ${{ $order->shipping_cost }} via Flat Rate
+                                                </span>
+                                           </td>
+                                       </tr>
+                                       <tr class="order-payment-method">
+                                           <td></td>
+                                           <th>
+                                               Payment method:
+                                           </th>
+                                           <td>
+                                               PayPal
+                                           </td>
+                                       </tr>
+                                       <tr class="order-total">
+                                           <td></td>
+                                           <th>
+                                               Total:
+                                           </th>
+                                           <td>
+                                                 <span class="product-total-amount">
+                                                     <strong>
+                                                         ${{ $order->total_cost }}
+                                                     </strong>
+                                                 </span>
+                                           </td>
+                                       </tr>
+                                       </tfoot>
+                                       <tbody>
+                                       @foreach($order->products as $product)
+                                           <tr class="cart-row">
+                                               <td class="product-name">
+                                                   <div class="product-thumbnail">
+                                                       <a href="#">
+                                                           <img src="{{ $product->getFirstMediaUrl('preview') }}"/>
+                                                       </a>
+                                                   </div>
+                                                   <div class="product-info">
+                                                       <a class="product-title" href="#">
+                                                           {{ $product->title }}
+                                                       </a>
+                                                   </div>
+                                               </td>
+                                               <td class="product-quantity">
+                                                   {{ $product->pivot->count }}
+                                               </td>
+                                               <td class="product-subtotal">
+                                                    <span class="product-subtotal-amount">
+                                                        $ {{ $product->pivot->count * $product->amount }}
+                                                    </span>
+                                               </td>
+                                           </tr>
+                                       @endforeach
+                                       </tbody>
+                                   </table>
+                               </div>
+                           </div>
+                       </div>
+               </div>
+           </div>
+       </div>
+       </div>
+    </form>
+</main>
+
 
 
     @endsection
