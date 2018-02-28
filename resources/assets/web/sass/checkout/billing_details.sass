@@ -229,6 +229,11 @@
               padding: 0 30px 9px
               width: 100%
 
+              @media screen and (max-width: 767px)
+                margin-top: 0
+                margin-bottom: 30px !important
+                padding: 0 15px 9px
+
 
               .cart-header-block
                 margin: 24px 0 21px
@@ -259,6 +264,15 @@
 
                         .product-subtotal-amount
                           color: #494949
+
+                      &.product-name
+                        @media screen and (max-width: 767px)
+                          .product-thumbnail
+                            float: none
+                            margin-right: 0
+
+                          .product-info
+                            margin-left: 0
 
                 tfoot
                   tr
@@ -291,3 +305,33 @@
 
                       td
                         padding-top: 20px
+
+.checkout-final, .checkout-thank-you
+  .checkout-billing-details-block-wrapper
+    .wrapper
+      .checkout-billing-details-block
+        .checkout-billing-details-form
+          .billing-details-info-wrapper
+            .cart-review-block-wrapper
+              @media screen and (max-width: 767px)
+                display: block
+
+.checkout-thank-you
+  .checkout-billing-details-block-wrapper
+    .wrapper
+      .checkout-billing-details-block
+        .checkout-billing-details-form
+          .billing-details-info-wrapper
+            .cart-review-block-wrapper
+              @media screen and (max-width: 767px)
+                margin-top: 20px
+
+                .cart-review-block
+                  .shop-table
+                    tfoot
+                      tr
+                        td
+                          white-space: normal
+
+                          &:first-child
+                            display: none
