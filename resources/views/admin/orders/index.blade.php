@@ -19,18 +19,6 @@
          </tr>
          </thead>
          <tbody>
-         {{--<tr>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>test</td>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>Test</td>--}}
-            {{--<td>Test</td>--}}
-         {{--</tr>--}}
          @foreach($orders as $order)
          <tr>
             <td><a href="{{url('admin/orders/'.$order->id)}}"> #{{ $order->id }}</a></td>
@@ -49,7 +37,10 @@
                   {{ $order->shipping->country }}, {{ $order->shipping->city }} ,
                   {{$order->shipping->state}}, {{$order->shipping->postcode}}</td>
             @else
-             <td> - </td>
+               <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}},
+                  {{$order->billing->company_name}}, {{ $order-> billing->street }} str, {{$order->billing->apartment}},
+                  {{ $order->billing->country }}, {{ $order->billing->city }} ,
+                  {{$order->billing->state}}, {{$order->billing->postcode}}</td>
             @endif
 
             <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}},

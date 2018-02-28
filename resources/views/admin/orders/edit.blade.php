@@ -26,7 +26,7 @@
             </select></div>
         <div class="form-group">
             <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3">
-                <button type="submit">Submit
+                <button type="submit" class="btn btn-primary">Submit
                 </button>
             </div>
         </div>
@@ -52,6 +52,12 @@
         <p> {{$order->shipping->company_name}}  {{ $order-> shipping->street }} str, {{$order->shipping->apartment}} <br>
             {{ $order->shipping->country }}, {{ $order->shipping->city }} <br>
             {{$order->shipping->state}}, {{$order->shipping->postcode}}</p>
+            @else
+            <p style="text-transform: capitalize">Name: {{ $order->billing->first_name}} {{$order->billing->last_name}}</p>
+            <p style="font-weight: bold;">Address: </p>
+            <p> {{$order->billing->company_name}}  {{ $order-> billing->street }} str, {{$order->billing->apartment}} <br>
+                {{ $order->billing->country }}, {{ $order->billing->city }} <br>
+                {{$order->billing->state}}, {{$order->billing->postcode}}</p>
             @endif
     </div>
 </div>
@@ -138,6 +144,7 @@
                                                    <div class="product-info">
                                                        <a class="product-title" href="#">
                                                            {{ $product->title }}
+                                                           <br> SKU {{ $product->id }}
                                                        </a>
                                                    </div>
                                                </td>
