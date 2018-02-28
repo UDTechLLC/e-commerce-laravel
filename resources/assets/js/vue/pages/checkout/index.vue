@@ -25,14 +25,14 @@
                         <div class="icon finish-order"></div>
                         <span>5. Finish Order</span></li>
                 </ul>
-                <div id="reservation-order" class="reservation-order">
-                    <p>Your order is reserved for
-                            <span id="timer">
-                                    00:28
-                                </span>
-                        minutes!
-                    </p>
-                </div>
+                <!--<div id="reservation-order" class="reservation-order">-->
+                    <!--<p>Your order is reserved for-->
+                            <!--<span id="timer">-->
+                                    <!--00:28-->
+                                <!--</span>-->
+                        <!--minutes!-->
+                    <!--</p>-->
+                <!--</div>-->
             </div>
         </div>
         <transition name="component-fade" mode="out-in">
