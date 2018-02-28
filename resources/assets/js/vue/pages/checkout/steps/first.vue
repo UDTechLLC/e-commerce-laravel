@@ -39,7 +39,7 @@
                                     <div class="form-field-wrapper">
                                         <label for="bdCompName">
                                             Company Name
-                                                <span>
+                                            <span>
                                                     (optional)
                                                 </span>
                                         </label>
@@ -72,7 +72,7 @@
                                     <div class="form-field-wrapper">
                                         <label for="bdApartments">
                                             Apartment, suite, unit etc.
-                                                <span>
+                                            <span>
                                                     (optional)
                                                 </span>
                                         </label>
@@ -80,7 +80,9 @@
                                                placeholder="Apartment, suite, unit etc. (optional)"
                                                v-model="billingInfo.apartment"/>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+
+                                    <div class="form-field-wrapper half-field"
+                                         v-if="this.isShipping">
                                         <label for="bdCountry">
                                             Country
                                         </label>
@@ -88,22 +90,26 @@
                                         <select id="bdCountry" class="form-field" name="bd_country"
                                                 v-model="billingInfo.country" @change="getCountries">
                                             <option value="">Select a country...</option>
-                                            <option value="" v-for="country in countries" :value="country">{{ country }}
+                                            <option value="" v-for="country in countries" :value="country">{{
+                                                country }}
                                             </option>
                                         </select>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bg_city') }">
+                                         :class="{'error': errors.has('bg_city') }"
+                                         v-if="this.isShipping">
                                         <label for="bdTownCity">
                                             Town / City
                                         </label>
                                         <input id="bdTownCity" class="form-field" name="bg_city" type="text"
                                                v-validate data-vv-rules="required" v-model="billingInfo.city"
                                         />
-                                        <span class="error-massage" style="display: none">Please enter your city.</span>
+                                        <span class="error-massage"
+                                              style="display: none">Please enter your city.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bd_state') }">
+                                         :class="{'error': errors.has('bd_state') }"
+                                         v-if="this.isShipping">
                                         <label for="bdState">
                                             State / County
                                         </label>
@@ -126,7 +132,8 @@
                                               style="display: none">Please enter your state.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bg_post_zip') }">
+                                         :class="{'error': errors.has('bg_post_zip') }"
+                                         v-if="this.isShipping">
                                         <label for="bdZipCode">
                                             Postcode / ZIP
                                         </label>
@@ -137,7 +144,8 @@
                                               style="display: none">Please enter your postcode.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bg_phone') }">
+                                         :class="{'error': errors.has('bg_phone') }"
+                                         v-if="this.isShipping">
                                         <label for="bdPhone">
                                             Phone
                                         </label>
@@ -241,17 +249,17 @@
                         if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
 
                         axios.post(url, this.billingInfo).then(
-                                response => {
-                                    this.billingId = response.data.data.billing.data.id;
-                                    let data = {
-                                        step: 'second',
-                                        billing: this.billingInfo,
-                                        orderId: response.data.data.id
-                                    };
-                                    this.$emit('next', data);
-                                    return;
-                                },
-                                error => console.log('error')
+                            response => {
+                                this.billingId = response.data.data.billing.data.id;
+                                let data = {
+                                    step: 'second',
+                                    billing: this.billingInfo,
+                                    orderId: response.data.data.id
+                                };
+                                this.$emit('next', data);
+                                return;
+                            },
+                            error => console.log('error')
                         );
                     }
                 });
