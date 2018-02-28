@@ -14,6 +14,8 @@
         <h3>General Details</h3>
         <p style="font-weight: bold;">Order date: </p>
         <p>{{$order->created_at->format('M j, Y') }}</p>
+        <p style="font-weight: bold;">Update date: </p>
+        <p>{{$order->updated_at->format('M j, Y') }}</p>
            <div class="form-group">
             <label for="state">Order status:</label>
             <select name="state" id="state">
@@ -53,100 +55,9 @@
             @endif
     </div>
 </div>
-
-
-
-    {{--<div class="main">--}}
-        {{--<div class="cart-block-wrapper">--}}
-            {{--<div class="wrapper">--}}
-                {{--<form class="cart-form" action="" method="post">--}}
-                    {{--<div class="cart-block">--}}
-                        {{--<div class="cart-header-block">--}}
-                            {{--<h3 class="cart-heading">--}}
-                                {{--You Have {{$order->count}} Items In Your Cart--}}
-                            {{--</h3>--}}
-                        {{--</div>--}}
-    {{--<div class="cart-wrapper">--}}
-        {{--</div>--}}
-        {{--<table class="shop-table">--}}
-            {{--<thead>--}}
-            {{--<tr>--}}
-                {{--<th class="product-name">--}}
-                    {{--Product--}}
-                {{--</th>--}}
-                {{--<th class="product-price">--}}
-                    {{--Price--}}
-                {{--</th>--}}
-                {{--<th class="product-quantity">--}}
-                    {{--Quantity--}}
-                {{--</th>--}}
-                {{--<th class="product-subtotal">--}}
-                    {{--Total--}}
-                {{--</th>--}}
-                {{--<th class="product-price">--}}
-                    {{--Price--}}
-                {{--</th>--}}
-
-            {{--</tr>--}}
-            {{--</thead>--}}
-            {{--<tbody>--}}
-            {{--@foreach($order->products as $product)--}}
-            {{--<tr class="cart-row">--}}
-                {{--<td class="product-name">--}}
-
-                    {{--<div class="product-thumbnail">--}}
-                        {{--<a href="#">--}}
-                            {{--<img src="{!! $product->getFirstMediaUrl('products') !!}" />--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-                    {{--<div class="product-info">--}}
-                        {{--<a class="product-title" href="#">--}}
-                            {{--{{$product->title}}--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-                {{--</td>--}}
-                {{--<td class="product-price">--}}
-                    {{--<span class="product-amount">--}}
-                       {{--${{$product->amount}}--}}
-                    {{--</span>--}}
-                {{--</td>--}}
-                {{--<td class="product-quantity">--}}
-
-                    {{--<div class="quantity buttons_added">--}}
-                        {{--<span> {{$order->count}}</span>--}}
-                        {{--<input id="" class="input-text qty text" step="1" min="0" max="" name="" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number" />--}}
-                    {{--</div>--}}
-                {{--</td>--}}
-                {{--<td class="product-subtotal">--}}
-                                                {{--<span class="product-subtotal-amount">--}}
-                                                    {{--$50.00--}}
-                                                {{--</span>--}}
-                {{--</td>--}}
-
-            {{--</tr>--}}
-            {{--@endforeach--}}
-            {{--</tbody>--}}
-            {{--<tbody>--}}
-            {{--<tr>--}}
-                {{--<td>--}}
-                    {{--Total:--}}
-                {{--</td>--}}
-                {{--<td>--}}
-                    {{--${{$order->total_cost}}--}}
-                {{--</td>--}}
-            {{--</tr>--}}
-            {{--</tbody>--}}
-        {{--</table>--}}
-    {{--</div>--}}
-   {{--</form>--}}
-  {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
        <div class="checkout-billing-details-block-wrapper">
            <div class="wrapper">
                <div class="checkout-billing-details-block">
-                   {{--<form class="checkout-billing-details-form" action="" name="checkout-billing-details"--}}
-                         {{--method="post">--}}
                        <div class="billing-details-info-wrapper finish-order-step">
                            <div class="cart-review-block-wrapper finish-order-step">
                                <div class="cart-review-block">
