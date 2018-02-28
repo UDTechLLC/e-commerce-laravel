@@ -10,4 +10,8 @@ Route::group([
         'as'   => '.edit',
         'uses' => 'OrderController@edit'
     ]);
+    Route::patch('/update/{order}', [
+        'as'   => '.update',
+        'uses' => 'OrderController@updateStatus'
+    ]);
 });
