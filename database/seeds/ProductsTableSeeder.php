@@ -41,7 +41,7 @@ class ProductsTableSeeder extends Seeder
         $product = factory(App\Models\Product::class)->create([
             'title'       => '12 Week Custom Meal Plan',
             'sub_title'   => '100% Personalized Meal Program',
-            'description' => 'Training is important but nutrition is what can make or break you!  Our dedicated
+            'description' => 'Training is important but nutrition is what can make or break you! Our dedicated
              team knows that reaching any health and fitness goal starts with a solid nutrition plan. We do not want 
              you to look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation
               for years to come.',
