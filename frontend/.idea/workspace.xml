@@ -32,19 +32,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkout_second.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/checkout_second.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-              <folding>
-                <marker date="1519660785983" expanded="false" signature="3867:3880" ph="..." />
-                <marker date="1519660785983" expanded="false" signature="7141:7155" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_general.sass" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/sass/_general.sass">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,11 +52,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkout_fourth.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="checkout_fourth.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/checkout_fourth.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="top_home_banner_block.sass" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/sass/top_home_banner_block.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -157,7 +154,6 @@
         <option value="$PROJECT_DIR$/assets/sass/checkout/payment_method_block.sass" />
         <option value="$PROJECT_DIR$/assets/sass/checkout/billing_address_edit_block.sass" />
         <option value="$PROJECT_DIR$/assets/sass/checkout/top_navigation_bar.sass" />
-        <option value="$PROJECT_DIR$/assets/sass/top_home_banner_block.sass" />
         <option value="$PROJECT_DIR$/assets/sass/base.sass" />
         <option value="$PROJECT_DIR$/assets/sass/shop_now_block.sass" />
         <option value="$PROJECT_DIR$/assets/sass/_custom_plan_block.sass" />
@@ -189,6 +185,7 @@
         <option value="$PROJECT_DIR$/assets/sass/checkout/thank_you_page/thank_you_page_bloks.sass" />
         <option value="$PROJECT_DIR$/assets/sass/checkout/billing_details.sass" />
         <option value="$PROJECT_DIR$/checkout_fourth.html" />
+        <option value="$PROJECT_DIR$/assets/sass/top_home_banner_block.sass" />
       </list>
     </option>
   </component>
@@ -359,7 +356,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102231000" />
+    <option name="totallyTimeSpent" value="103149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -528,13 +525,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sass/top_home_banner_block.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -804,6 +794,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/top_home_banner_block.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding />
         </state>
       </provider>
