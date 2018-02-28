@@ -171,13 +171,13 @@ a {
 img {
   max-width: 100%; }
 
-.btn {
+/*.btn {
   background: none;
   padding: 0;
   border: 0;
   display: block;
   outline: 0;
-  cursor: pointer; }
+  cursor: pointer; }*/
 
 .grey-section {
   background: #f5f3f3;

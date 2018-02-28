@@ -26,7 +26,7 @@ $width-screen-600: 600px
       flex-direction: column-reverse
   .block-in-section
     width: 100%
-    @media screen and (max-width: 600px)
+    @media screen and (max-width: $breakpoint-mobile)
       &>.flex
         flex-direction: column
         justify-content: center
@@ -57,9 +57,8 @@ $width-screen-600: 600px
       @media screen and (max-width: $width-screen-600 )
         &:first-child
           margin-top: 0
-      @media screen and (min-width: $width-screen-600 + 1)
+      @media screen and (min-width: $breakpoint-mobile + 1)
         width: 50%
-
     &__icon
       img
         margin: auto

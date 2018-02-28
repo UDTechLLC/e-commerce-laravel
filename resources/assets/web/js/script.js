@@ -77,11 +77,14 @@
             wrapperAddToCard = $('.add-to-cart-wrapper'),
             showBtnAfter = 1000;
 
+        if ( 0 < wrapperAddToCard.lenght ) {
 
-        setTimeout(function () {
-            fixedTop = header_first.height() + 3;
-            showBtnAfter = wrapperAddToCard.offset().top - 80;
-        },100);
+            setTimeout(function () {
+                fixedTop = header_first.height() + 3;
+                showBtnAfter = wrapperAddToCard.offset().top - 80;
+            }, 100);
+
+        }
 
         $(window).scroll(function () {
             var curScroll = $(window).scrollTop();
