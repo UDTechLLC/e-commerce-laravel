@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="checkout">
         <billing-block
                 :billing="billing"
         ></billing-block>
-        <login></login>
+        <!--<login></login>-->
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
