@@ -58,6 +58,7 @@ class PayController extends Controller
         $response = $this->service->completePurchase();
 
         if ($response->isSuccessful()) {
+            $this->updateOrderStatus($order);
             $this->sendProducts($order);
             $this->clearCart($order->cart);
 
@@ -99,5 +100,17 @@ class PayController extends Controller
     private function clearCart(Cart $cart)
     {
         $cart->products()->detach();
+    }
+
+    /**
+     * Update order status.
+     *
+     * @param Order $order
+     */
+    private function updateOrderStatus(Order $order)
+    {
+        $order->update([
+            'state' => Order::ORDER_STATE_PROCESSING
+        ]);
     }
 }
