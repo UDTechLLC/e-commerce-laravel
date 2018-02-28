@@ -5,7 +5,7 @@
                 Calculate shipping
             </h2>
         </div>
-        <form class="culculate-shiping-form" action="" name="" method="post">
+        <form class="culculate-shiping-form" action="#" name="#" method="post" onkeypress="return event.keyCode !== 13">
             <div class="culculate-shiping-form-block">
                 <div class="cart-form-row">
                     <div class="shiping-select-wrapper">
