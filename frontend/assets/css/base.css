@@ -3123,7 +3123,7 @@ section .training-plan-faqs-block-wrapper .wrapper {
           padding-top: 20px; }
 
 @media screen and (max-width: 767px) {
-  .checkout-fourth .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper, .checkout-thank-you .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper {
+  .checkout-final .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper, .checkout-thank-you .checkout-billing-details-block-wrapper .wrapper .checkout-billing-details-block .checkout-billing-details-form .billing-details-info-wrapper .cart-review-block-wrapper {
     display: block; } }
 
 @media screen and (max-width: 767px) {
