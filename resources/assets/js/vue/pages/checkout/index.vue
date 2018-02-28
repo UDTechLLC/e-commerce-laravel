@@ -101,10 +101,10 @@
         },
         methods: {
             nextStep(value) {
-                this.currentComponent = value.step;
+                this.currentComponent = !this.isShipping && value.step === 'second' ? 'third' :value.step;
                 this.billing = value.billing;
                 this.orderId = value.orderId;
-                this.progress++;
+                this.progress = this.isShipping && value.step === 'second' ? this.progress++ : this.progress + 2;
             },
             backStep(value) {
                 this.currentComponent = value.step;
