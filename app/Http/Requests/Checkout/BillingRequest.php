@@ -27,7 +27,7 @@ class BillingRequest extends FormRequest
             'firstName' => 'required',
             'lastName'  => 'required',
             'email'     => 'required',
-            'street'    => 'required',
+//            'street'    => 'required',
 //            'country'   => '',
 //            'city'      => '',
 //            'state'     => '',
