@@ -153,6 +153,19 @@ class Order extends EloquentModel
         return number_format($value / 100, 2);
     }
 
+    public function getShipping(): bool
+    {
+        /** @var Product $product */
+
+        foreach ($this->products as $product) {
+            if (!$product->isVirtual()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Entity public methods go below
      */

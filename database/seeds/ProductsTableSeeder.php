@@ -145,7 +145,7 @@ class ProductsTableSeeder extends Seeder
         ]);
         $pathToFile = 'resources/assets/web/seed_products/never-stop-icon.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/icon_Never-stop-moving-Sales-2.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/never_stop_moving_Sales.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/Never_stop moving e-book.pdf';
         $product->addMedia($pathToPdfFile)->preservingOriginal()->toMediaCollection('download');
@@ -183,9 +183,9 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/queen_of_the_hill.png';
+        $pathToFile = 'resources/assets/web/seed_products/Queen_of_the_Hill_90_Day_icon_2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/Queen-of-the-Hill_90-Day_icon.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/Queen_of_the_Hill_90_Day_icon_1.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/E-book_queen_of_the_hill.pdf';
         $product->addMedia($pathToPdfFile)->preservingOriginal()->toMediaCollection('download');
