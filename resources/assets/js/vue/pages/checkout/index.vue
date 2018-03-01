@@ -82,7 +82,8 @@
                 subTotal: "0",
                 shipping: 0,
                 currentComponent: "first",
-                billing: {}
+                billing: {},
+                isShipping: false
             }
         },
         components: {
