@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
-    <title>Shedfat</title>
+    <title>@section('title') Shedfat @show</title>
 
     @section('style')
         <link rel="stylesheet" href="{{ asset('web/css/app.css') }}">
