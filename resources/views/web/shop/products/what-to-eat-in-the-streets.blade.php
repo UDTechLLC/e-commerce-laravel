@@ -1,4 +1,7 @@
 @extends('web.layouts.app')
+@section('title')
+    {!! $product->title !!} -@parent
+@endsection
 @section('content')
     <main>
             <div class="top-product-description-block">

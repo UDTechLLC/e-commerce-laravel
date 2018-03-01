@@ -1,4 +1,7 @@
 @extends('web.layouts.app')
+@section('title')
+    Shop -@parent
+@endsection
 @section('content')
     <main>
 <div class="main">
