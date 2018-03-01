@@ -58,7 +58,8 @@
                                               style="display: none">Please enter your email.</span>
                                     </div>
                                     <div class="form-field-wrapper"
-                                         :class="{'error': errors.has('bg_street_address') }">
+                                         :class="{'error': errors.has('bg_street_address') }"
+                                         v-if="this.isShipping">
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
@@ -69,7 +70,8 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your address</span>
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper"
+                                         v-if="this.isShipping">
                                         <label for="bdApartments">
                                             Apartment, suite, unit etc.
                                             <span>
@@ -80,7 +82,6 @@
                                                placeholder="Apartment, suite, unit etc. (optional)"
                                                v-model="billingInfo.apartment"/>
                                     </div>
-
                                     <div class="form-field-wrapper half-field"
                                          v-if="this.isShipping">
                                         <label for="bdCountry">
@@ -144,8 +145,7 @@
                                               style="display: none">Please enter your postcode.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bg_phone') }"
-                                         v-if="this.isShipping">
+                                         :class="{'error': errors.has('bg_phone') }">
                                         <label for="bdPhone">
                                             Phone
                                         </label>
@@ -228,7 +228,8 @@
             shipping: Number,
             countries: Array,
             states: Array,
-            selectedBillingCountry: String
+            selectedBillingCountry: String,
+            isShipping: Boolean
         },
         components: {
             cartTotals,
