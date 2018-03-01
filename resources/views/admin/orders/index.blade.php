@@ -43,10 +43,14 @@
                   {{$order->billing->state}}, {{$order->billing->postcode}}</td>
             @endif
 
-            <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}},
-               {{$order->billing->company_name}}, {{ $order-> billing->street }} str, {{$order->billing->apartment}},
+            <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}}
+               {{--@if($order->getShipping)--}}
+               {{--@if($order->getShipping())--}}
+               , {{$order->billing->company_name}}, {{ $order-> billing->street }} str, {{ $order->billing->apartment }}
                {{ $order->billing->country }}, {{ $order->billing->city }} ,
-               {{$order->billing->state}}, {{$order->billing->postcode}}</td>
+               {{$order->billing->state}}, {{$order->billing->postcode}}
+            {{--@endif--}}
+            </td>
 
             <td>{{ $order->created_at->format('M j, Y') }}</td>
             <td>{{ $order->product_cost }}</td>
