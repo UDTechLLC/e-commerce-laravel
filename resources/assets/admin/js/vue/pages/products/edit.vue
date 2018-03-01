@@ -6,13 +6,13 @@
                     @getFile="getFile"
                     :errorImage="errorImage"
                     :oldImage="entry.image"
-            ></upload-image>
+            />
             <h2 class="text-center">Load preview image</h2>
             <upload-image
                     @getFile="getPreview"
                     :errorImage="errorPreviewImage"
                     :oldImage="entry.imagePreview"
-            ></upload-image>
+            />
 
             <div class="form-group" :class="{'has-error': errors.has('title') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Title <span
@@ -139,11 +139,11 @@
         methods: {
             getFile(file) {
                 this.entry.image = file;
-                this.errorImage = false;
+                this.entry.errorImage = false;
             },
             getPreview(file) {
-                this.imagePreview = file;
-                this.errorPreviewImage = false;
+                this.entry.imagePreview = file;
+                this.entry.errorPreviewImage = false;
             },
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
