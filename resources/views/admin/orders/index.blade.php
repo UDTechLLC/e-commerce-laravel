@@ -32,24 +32,28 @@
             @endif
 
             @if($order->shipping_id)
-               <td style="text-transform: capitalize">{{ $order->shipping->first_name}} {{ $order->shipping->last_name}},
+               <td style="text-transform: capitalize">{{ $order->shipping->first_name}} {{ $order->shipping->last_name}}
+                  @if($order->getShipping()),
                   {{$order->shipping->company_name}}, {{ $order-> shipping->street }} str, {{$order->shipping->apartment}},
                   {{ $order->shipping->country }}, {{ $order->shipping->city }} ,
                   {{$order->shipping->state}}, {{$order->shipping->postcode}}</td>
+                  @endif
             @else
-               <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}},
+               <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}}
+                  @if($order->getShipping()),
                   {{$order->billing->company_name}}, {{ $order-> billing->street }} str, {{$order->billing->apartment}},
                   {{ $order->billing->country }}, {{ $order->billing->city }} ,
                   {{$order->billing->state}}, {{$order->billing->postcode}}</td>
+                   @endif
             @endif
 
             <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}}
                {{--@if($order->getShipping)--}}
-               {{--@if($order->getShipping())--}}
-               , {{$order->billing->company_name}}, {{ $order-> billing->street }} str, {{ $order->billing->apartment }}
+               @if($order->getShipping()),
+               {{$order->billing->company_name}}, {{ $order-> billing->street }} str, {{ $order->billing->apartment }}
                {{ $order->billing->country }}, {{ $order->billing->city }} ,
                {{$order->billing->state}}, {{$order->billing->postcode}}
-            {{--@endif--}}
+            @endif
             </td>
 
             <td>{{ $order->created_at->format('M j, Y') }}</td>
