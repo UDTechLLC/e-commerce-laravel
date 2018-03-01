@@ -48,7 +48,7 @@
     </div>
 
     <div class="col-lg-3">
-        @if($order->shipping_id)
+        @if($order->getShipping())
         <h3>Shipping details</h3>
         @if($order->shipping_id)
         <p style="text-transform: capitalize">Name: {{ $order->shipping->first_name}} {{$order->shipping->last_name}}</p>
