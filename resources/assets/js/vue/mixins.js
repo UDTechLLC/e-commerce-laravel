@@ -32,6 +32,7 @@ Vue.mixin({
       this.products = response.data.data.products.data;
       this.countItems = response.data.data.sum.products_counts;
       this.subTotal = response.data.data.sum.products_sum;
+      this.isShipping = response.data.data.isShipping;
     },
 
     makeCardHash() {
