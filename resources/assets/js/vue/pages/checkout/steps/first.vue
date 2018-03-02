@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <login></login>
+    <div class="checkout">
+        <!--<login></login>-->
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
@@ -39,7 +39,7 @@
                                     <div class="form-field-wrapper">
                                         <label for="bdCompName">
                                             Company Name
-                                                <span>
+                                            <span>
                                                     (optional)
                                                 </span>
                                         </label>
@@ -58,7 +58,8 @@
                                               style="display: none">Please enter your email.</span>
                                     </div>
                                     <div class="form-field-wrapper"
-                                         :class="{'error': errors.has('bg_street_address') }">
+                                         :class="{'error': errors.has('bg_street_address') }"
+                                         v-if="this.isShipping">
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
@@ -69,10 +70,11 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your address</span>
                                     </div>
-                                    <div class="form-field-wrapper">
+                                    <div class="form-field-wrapper"
+                                         v-if="this.isShipping">
                                         <label for="bdApartments">
                                             Apartment, suite, unit etc.
-                                                <span>
+                                            <span>
                                                     (optional)
                                                 </span>
                                         </label>
@@ -80,7 +82,8 @@
                                                placeholder="Apartment, suite, unit etc. (optional)"
                                                v-model="billingInfo.apartment"/>
                                     </div>
-                                    <div class="form-field-wrapper half-field">
+                                    <div class="form-field-wrapper half-field"
+                                         v-if="this.isShipping">
                                         <label for="bdCountry">
                                             Country
                                         </label>
@@ -88,22 +91,26 @@
                                         <select id="bdCountry" class="form-field" name="bd_country"
                                                 v-model="billingInfo.country" @change="getCountries">
                                             <option value="">Select a country...</option>
-                                            <option value="" v-for="country in countries" :value="country">{{ country }}
+                                            <option value="" v-for="country in countries" :value="country">{{
+                                                country }}
                                             </option>
                                         </select>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bg_city') }">
+                                         :class="{'error': errors.has('bg_city') }"
+                                         v-if="this.isShipping">
                                         <label for="bdTownCity">
                                             Town / City
                                         </label>
                                         <input id="bdTownCity" class="form-field" name="bg_city" type="text"
                                                v-validate data-vv-rules="required" v-model="billingInfo.city"
                                         />
-                                        <span class="error-massage" style="display: none">Please enter your city.</span>
+                                        <span class="error-massage"
+                                              style="display: none">Please enter your city.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bd_state') }">
+                                         :class="{'error': errors.has('bd_state') }"
+                                         v-if="this.isShipping">
                                         <label for="bdState">
                                             State / County
                                         </label>
@@ -126,7 +133,8 @@
                                               style="display: none">Please enter your state.</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         :class="{'error': errors.has('bg_post_zip') }">
+                                         :class="{'error': errors.has('bg_post_zip') }"
+                                         v-if="this.isShipping">
                                         <label for="bdZipCode">
                                             Postcode / ZIP
                                         </label>
@@ -147,26 +155,26 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your phone.</span>
                                     </div>
-                                    <div class="form-field-wrapper">
-                                        <input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"
-                                               type="checkbox"/>
-                                        <label for="bdCreateAccount" class="checkbox">
-                                            Create an account?
-                                        </label>
-                                    </div>
-                                    <div class="create-account-block" style="display: none">
-                                        <p>
-                                            Create an account by entering the information below. If you are a returning
-                                            customer please login at the top of the page.
-                                        </p>
-                                        <div class="form-field-wrapper">
-                                            <label for="bdCreatePass">
-                                                Create account password
-                                            </label>
-                                            <input id="bdCreatePass" class="form-field" name="bd_create_pass"
-                                                   type="text" placeholder="Password"/>
-                                        </div>
-                                    </div>
+                                    <!--<div class="form-field-wrapper">-->
+                                        <!--<input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"-->
+                                               <!--type="checkbox"/>-->
+                                        <!--<label for="bdCreateAccount" class="checkbox">-->
+                                            <!--Create an account?-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                    <!--<div class="create-account-block" style="display: none">-->
+                                        <!--<p>-->
+                                            <!--Create an account by entering the information below. If you are a returning-->
+                                            <!--customer please login at the top of the page.-->
+                                        <!--</p>-->
+                                        <!--<div class="form-field-wrapper">-->
+                                            <!--<label for="bdCreatePass">-->
+                                                <!--Create account password-->
+                                            <!--</label>-->
+                                            <!--<input id="bdCreatePass" class="form-field" name="bd_create_pass"-->
+                                                   <!--type="text" placeholder="Password"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                 </div>
                             </div>
                             <div class="cart-review-block-wrapper">
@@ -220,7 +228,8 @@
             shipping: Number,
             countries: Array,
             states: Array,
-            selectedBillingCountry: String
+            selectedBillingCountry: String,
+            isShipping: Boolean
         },
         components: {
             cartTotals,
@@ -241,17 +250,17 @@
                         if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
 
                         axios.post(url, this.billingInfo).then(
-                                response => {
-                                    this.billingId = response.data.data.billing.data.id;
-                                    let data = {
-                                        step: 'second',
-                                        billing: this.billingInfo,
-                                        orderId: response.data.data.id
-                                    };
-                                    this.$emit('next', data);
-                                    return;
-                                },
-                                error => console.log('error')
+                            response => {
+                                this.billingId = response.data.data.billing.data.id;
+                                let data = {
+                                    step: 'second',
+                                    billing: this.billingInfo,
+                                    orderId: response.data.data.id
+                                };
+                                this.$emit('next', data);
+                                return;
+                            },
+                            error => console.log('error')
                         );
                     }
                 });

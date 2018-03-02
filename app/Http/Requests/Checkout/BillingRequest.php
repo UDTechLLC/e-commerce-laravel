@@ -27,11 +27,11 @@ class BillingRequest extends FormRequest
             'firstName' => 'required',
             'lastName'  => 'required',
             'email'     => 'required',
-            'street'    => 'required',
-            'country'   => 'required',
-            'city'      => 'required',
-            'state'     => 'required',
-            'postcode'  => 'required',
+//            'street'    => 'required',
+//            'country'   => '',
+//            'city'      => '',
+//            'state'     => '',
+//            'postcode'  => '',
             'phone'     => 'required',
         ];
     }

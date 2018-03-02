@@ -1,4 +1,7 @@
 @extends('web.layouts.app')
+@section('title')
+   Checkout -@parent
+@endsection
 {{--@section('style')
    @parent
    <link rel="stylesheet" href="{{ asset('web/css/select2.min.css') }}">

@@ -20,13 +20,13 @@ class CreateOrderBillingTable extends Migration
             $table->string('last_name');
             $table->string('company_name')->nullable();
             $table->string('email');
-            $table->string('street');
+            $table->string('street')->nullable();
             $table->string('apartment')->nullable();
-            $table->string('country');
-            $table->string('city');
-            $table->string('state');
-            $table->string('postcode');
-            $table->string('phone');
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
 
 //            $table->foreign('order_id')->references('id')->on('orders');

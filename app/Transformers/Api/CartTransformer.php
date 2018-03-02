@@ -3,6 +3,7 @@
 namespace App\Transformers\Api;
 
 use App\Models\Cart;
+use App\Models\Product;
 use GuzzleHttp\Client;
 use League\Fractal\TransformerAbstract;
 
@@ -74,8 +75,9 @@ class CartTransformer extends TransformerAbstract
      */
     private function isShipping(Cart $cart): bool
     {
+        /** @var Product $product */
         foreach ($cart->products as $product) {
-            if ($product->isVirtual) {
+            if (!$product->isVirtual()) {
                 return true;
             }
         }

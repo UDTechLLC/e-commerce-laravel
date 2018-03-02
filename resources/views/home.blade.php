@@ -1,4 +1,7 @@
 @extends('web.layouts.app')
+@section('title')
+    Weight Loss Teas | Detox Tea For Weight Loss | Nutrition Programs -@parent
+@endsection
 @section('content')
 <main class="home">
     <div class="top-home-banner-block-wrapper">

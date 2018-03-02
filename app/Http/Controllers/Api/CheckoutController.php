@@ -32,10 +32,11 @@ class CheckoutController extends Controller
     {
         /** @var User $user */
         $user = \Auth::user();
+        $country = $request->get('country');
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);
 
-        $shippingCost = $this->getShippingSum($request->get('country'));
+        $shippingCost = $this->getShippingSum($cart, $country);
 
         $order = $this->createOrder($user, $cart, $billing, $shippingCost);
 
@@ -212,10 +213,31 @@ class CheckoutController extends Controller
      *
      * @return float
      */
-    private function getShippingSum($country)
+    private function getShippingSum($cart, $country)
     {
-        return $country === 'United States' || $country === 'Canada'
-            ? 6.99
-            : 17.99;
+        return $this->isShipping($cart)
+            ? $country === 'United States' || $country === 'Canada'
+                ? 6.99
+                : 17.99
+            : 0;
+    }
+
+    /**
+     * Check shipping.
+     *
+     * @param Cart $cart
+     *
+     * @return bool
+     */
+    private function isShipping(Cart $cart): bool
+    {
+        /** @var Product $product */
+        foreach ($cart->products as $product) {
+            if (!$product->isVirtual()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
