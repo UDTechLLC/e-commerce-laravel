@@ -6,7 +6,6 @@
 	</head>
 
 	<body>
-
 	<header>
 		<script src="components/header.js"></script>
 	</header>
@@ -60,7 +59,7 @@
 								</div>
 								<div class="product-button-block">
 									<div class="add-to-cart-wrapper">
-										<a class="add-to-cart-btn" href="#">
+										<a class="add-to-cart-btn" href="#"  data-toggle="modal" data-target="#sideCartModal">
 											Add to cart
 										</a>
 									</div>
@@ -418,9 +417,122 @@
 	</footer>
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-		<script type="text/javascript" src="assets/slick/slick.min.js"></script>		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
+		<script src="assets/js/modal.js"></script>
+		<script type="text/javascript" src="assets/slick/slick.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
+		<script src="assets/js/select2.min.js"></script>
 		<script src="assets/js/script.js"></script>
 		<script src="assets/carouselengine/amazingcarousel.js"></script>
 		<script src="assets/carouselengine/initcarousel-1.js"></script>
+	<div id="sideCartModal" class="side-cart-screen-block modal right fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="side-cart-block-wrapper modal-content">
+				<div class="side-cart-block">
+					<span class="close-cart close" data-dismiss="modal" aria-label="Close"></span>
+					<div class="cart-products-wrapper">
+						<div class="cart-single-product">
+							<div class="product-image">
+								<img src="assets/images/side-cart-product-preview-image.png" />
+							</div>
+							<div class="product-details">
+								<h3 class="product-title">
+									12 Week Custom Meal Plan
+								</h3>
+								<div class="product-price-wrapper">
+												<span class="product-price">
+													$100.00
+												</span>
+									<div class="quantity buttons_added">
+										<input value="-" class="minus" type="button" />
+										<input id="" class="input-text qty text" step="1" min="0" max="" name="" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number" />
+										<input value="+" class="plus" type="button" />
+									</div>
+								</div>
+								<div class="deliver-block-wrapper">
+									<label class="deliver-label">
+										Deliver:
+									</label>
+									<select class="deliver-select">
+										<option>1 time only</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="cart-single-product">
+							<div class="product-image">
+								<img src="assets/images/side-cart-product-preview-image.png" />
+							</div>
+							<div class="product-details">
+								<h3 class="product-title">
+									12 Week Custom Meal Plan
+								</h3>
+								<div class="product-price-wrapper">
+												<span class="product-price">
+													$100.00
+												</span>
+									<div class="quantity buttons_added">
+										<input value="-" class="minus" type="button" />
+										<input id="" class="input-text qty text" step="1" min="0" max="" name="" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number" />
+										<input value="+" class="plus" type="button" />
+									</div>
+								</div>
+								<div class="deliver-block-wrapper">
+									<label class="deliver-label">
+										Deliver:
+									</label>
+									<select class="deliver-select">
+										<option>1 time only</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cart-button-area-wrapper">
+						<div class="cart-sub-totals-block-wrapper">
+							<div class="cart-sub-totals-block">
+											<span class="sub-total-label">
+												Subtotal:
+											</span>
+								<span class="sub-total-amount">
+												$106.80
+											</span>
+							</div>
+							<a href="#" class="view-cart-link">
+								View cart
+							</a>
+						</div>
+						<div class="cart-button-area">
+							<div class="cart-button checkout-button-wrapper">
+								<a href="#" class="checkout-button">
+									Checkout
+								</a>
+							</div>
+							<div class="cart-button keep-shoping-button-wrapper">
+								<a href="#" class="keep-shoping-button">
+									Keep Shoping
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="side-cart-footer-wrapper">
+						<p class="secure-shoping-wrapper">
+												<span class="label">
+													SECURE SHOPPING:
+												</span>
+							100% INDUSTRY STANDARD SSL
+						</p>
+						<p class="subscribe-save-wrapper">
+										<span class="label">
+											SUBSCRIBE AND SAVE 15%:
+										</span>
+							<a id="subsSaveMoreInf" href="#" class="subs-save-more-info">
+								MORE INFO
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	</body>
 </html>
