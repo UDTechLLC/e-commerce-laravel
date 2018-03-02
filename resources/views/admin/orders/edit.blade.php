@@ -35,32 +35,43 @@
     <div class="col-lg-3">
         <h3>Billing details</h3>
         <p style="text-transform: capitalize">Name: {{ $order->billing->first_name}} {{$order->billing->last_name}}</p>
+        @if($order->getShipping())
         <p style="font-weight: bold;">Address: </p>
         <p> {{$order->billing->company_name}}  {{ $order-> billing->street }} str, {{$order->billing->apartment}} <br>
             {{ $order->billing->country }}, {{ $order->billing->city }} <br>
             {{$order->billing->state}}, {{$order->billing->postcode}}</p>
+        @endif
         <p style="font-weight: bold;">Email address: </p>
         <p>{{ $order->billing->email }}</p>
         <p style="font-weight: bold;"> Phone: </p>
         <p>{{ $order->billing->phone }}</p>
     </div>
+
     <div class="col-lg-3">
+        @if($order->getShipping())
         <h3>Shipping details</h3>
         @if($order->shipping_id)
         <p style="text-transform: capitalize">Name: {{ $order->shipping->first_name}} {{$order->shipping->last_name}}</p>
+            {{--@if($order->getShipping())--}}
         <p>Address: </p>
         <p> {{$order->shipping->company_name}}  {{ $order-> shipping->street }} str, {{$order->shipping->apartment}} <br>
             {{ $order->shipping->country }}, {{ $order->shipping->city }} <br>
             {{$order->shipping->state}}, {{$order->shipping->postcode}}</p>
+                {{--@endif--}}
             @else
             <p style="text-transform: capitalize">Name: {{ $order->billing->first_name}} {{$order->billing->last_name}}</p>
+                   {{--@if($order->getShipping())--}}
             <p style="font-weight: bold;">Address: </p>
             <p> {{$order->billing->company_name}}  {{ $order-> billing->street }} str, {{$order->billing->apartment}} <br>
                 {{ $order->billing->country }}, {{ $order->billing->city }} <br>
                 {{$order->billing->state}}, {{$order->billing->postcode}}</p>
+                   {{--@endif--}}
             @endif
+        @endif
     </div>
+
 </div>
+<br>
        <div class="checkout-billing-details-block-wrapper">
            <div class="wrapper">
                <div class="checkout-billing-details-block">
