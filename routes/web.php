@@ -19,6 +19,7 @@ Route::get('/checkout', function () {
 require_once 'web/shop.php';
 require_once 'admin/admin.php';
 require_once 'web/paypal.php';
+require_once 'web/page.php';
 
 Auth::routes();
 
