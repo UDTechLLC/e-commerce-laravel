@@ -99,7 +99,7 @@
         },
         created() {
             this.getProducts();
-            this.getCountries();
+            setTimeout(this.getCountries, 500);
         },
         methods: {
             nextStep(value) {
@@ -113,16 +113,21 @@
                 this.progress = value.progress;
             },
             getCountries() {
-                axios.get(`/api/countries?country=${this.selectedCountry}`).then(
+                console.log(this.isShipping);
+
+                if (this.isShipping) {
+                    axios.get(`/api/countries?country=${this.selectedCountry}`).then(
                         response => {
                             this.countries = response.data.countries;
                             this.selectedCountry = response.data.selected;
                             this.states = response.data.states;
+                            // this.shipping = this.isShipping ? response.data.shipping : 0;
                             this.shipping = response.data.shipping;
                             Vue.localStorage.set('shippingCountry', this.selectedCountry);
                         },
                         error => console.log('error')
-                )
+                    )
+                }
             },
             updateCountry(value) {
                 this.selectedCountry = value;
