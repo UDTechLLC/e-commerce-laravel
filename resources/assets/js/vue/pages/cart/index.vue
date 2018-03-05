@@ -117,6 +117,7 @@
         },
         computed: {
           total() {
+              console.log(this.subTotal + " === " + this.shipping);
               return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
           }
         },
