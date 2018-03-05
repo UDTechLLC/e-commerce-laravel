@@ -3665,6 +3665,10 @@ section .training-plan-faqs-block-wrapper .wrapper {
   .faq__item-answer {
     display: none;
     padding-bottom: 20px; }
+    .faq__item-answer a {
+      color: #2b2e32; }
+      .faq__item-answer a:hover {
+        color: #ed1c24; }
 
 header {
   border-top: 3px solid #ed1c24; }
