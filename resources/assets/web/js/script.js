@@ -32,11 +32,27 @@
         if ( 0 < $( '.create-account-block' ).length ) {
             $( '#bdCreateAccount' ).on( 'change', function () {
                 $( '.create-account-block' ).slideToggle();
-            })
+            });
         }
         if ( 0 < $( '#bdCountry' ).length ) {
             $( '#bdCountry' ).select2();
         }
+        if ( 0 < $( '.deliver-select' ).length ) {
+            $( '.deliver-select' ).select2();
+        }
+        /*if ( 0 < $( '.add-to-cart-btn' ).length ) {
+            $( '.add-to-cart-btn' ).on( 'click', function () {
+                $( '.side-cart-block-wrapper' ).slideToggle(500,"swing");
+                /!*if ( $( '.side-cart-block-wrapper' ).hasClass( 'show-cart' ) ) {
+                    $( '.side-cart-block-wrapper' ).show("slide", { direction: "left" }, 3000);
+                } else {
+                    alert( 'test' );
+                    $( '.side-cart-block-wrapper' ).hide("slide", { direction: "right" }, 3000);
+                }*!/
+                return false;
+            });
+
+        }*/
         if ( ( 0 < $( '#shipToDifferentAddressCheckbox' ).length ) && ( 0 < $( '.contacts-block' ).length ) ) {
             $( '#shipToDifferentAddressCheckbox' ).on( 'change', function () {
                 $( '.contacts-block' ).slideToggle();
@@ -77,13 +93,11 @@
             wrapperAddToCard = $('.add-to-cart-wrapper'),
             showBtnAfter = 1000;
 
-        if ( 0 < wrapperAddToCard.lenght ) {
-
+        if ( 0 < wrapperAddToCard ) {
             setTimeout(function () {
                 fixedTop = header_first.height() + 3;
                 showBtnAfter = wrapperAddToCard.offset().top - 80;
             }, 100);
-
         }
 
         $(window).scroll(function () {
@@ -97,7 +111,37 @@
 
         });
 
+        var faq_item = $('.faq__item>.flex');
 
+        faq_item.click(function () {
+
+           var wrapper =  $(this).parents('.faq__item'),
+               generalWrapper = $('.faq__item'),
+               removeActive = function () {
+                    generalWrapper.removeClass('active');
+           },
+                showAnswer = function () {
+                    wrapper.find('.faq__item-answer').slideDown(500);
+           },
+                hideAnswer = function () {
+                    generalWrapper.find('.faq__item-answer').slideUp(500);
+           };
+
+           if(wrapper.hasClass('active')){
+               removeActive();
+               showAnswer();
+               wrapper.find('.faq__item-answer').slideUp(500);
+           }else {
+               removeActive();
+               wrapper.addClass('active');
+               hideAnswer();
+               showAnswer();
+
+           }
+
+
+
+        });
 
     });
 })( jQuery );
