@@ -3652,7 +3652,7 @@ section .training-plan-faqs-block-wrapper .wrapper {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: 5px; }
+    margin-top: 1px; }
     .faq__item-before::before {
       content: '\f067';
       font-size: 12px;
@@ -3661,7 +3661,9 @@ section .training-plan-faqs-block-wrapper .wrapper {
   .faq__item-question {
     -webkit-transition: .2s;
     -o-transition: .2s;
-    transition: .2s; }
+    transition: .2s;
+    color: #2b2e32;
+    font-size: 15px; }
   .faq__item-answer {
     display: none;
     padding-bottom: 20px; }
