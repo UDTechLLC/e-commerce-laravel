@@ -58,7 +58,7 @@
                                             </span>
                                 </td>
                             </tr>
-                            <tr class="shipping">
+                            <tr class="shipping" v-if="isShipping">
                                 <th>
                                     Shipping
                                 </th>
