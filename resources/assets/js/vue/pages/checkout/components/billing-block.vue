@@ -13,12 +13,12 @@
                         <div class="clear"></div>
                     </div>
                     <div class="billing-user-info-block">
-                        <span id="baCompName" class="billing-user-info">{{ billing.company}}, </span>
-                        <span id="baStreetAddress" class="billing-user-info">{{ billing.street }}, </span>
-                        <span id="baTown" class="billing-user-info"> {{ billing.city }} </span>
-                        <span id="baState" class="billing-user-info"> {{billing.state }} </span>
-                        <span id="baZipCode" class="billing-user-info"> {{ billing.postcode }}, </span>
-                        <span id="baCountry" class="billing-user-info"> {{ billing.country }} </span>
+                        <span id="baCompName" v-if="billing.company" class="billing-user-info">{{ billing.company}}, </span>
+                        <span id="baStreetAddress" v-if="billing.street" class="billing-user-info">{{ billing.street }}, </span>
+                        <span id="baTown" v-if="billing.city" class="billing-user-info"> {{ billing.city }} </span>
+                        <span id="baState" v-if="billing.state" class="billing-user-info"> {{billing.state }} </span>
+                        <span id="baZipCode" v-if="billing.postcode" class="billing-user-info"> {{ billing.postcode }}, </span>
+                        <span id="baCountry" v-if="billing.country" class="billing-user-info"> {{ billing.country }} </span>
                     </div>
                 </div>
             </div>
@@ -36,11 +36,7 @@
         },
         methods: {
             editBilling() {
-                let data = {
-                    step: 'first',
-                    progress: 1
-                };
-                this.$parent.$emit('back', data);
+                this.$parent.$emit('editBilling');
             }
         }
     })

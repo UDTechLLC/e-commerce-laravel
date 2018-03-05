@@ -53,6 +53,7 @@
                            @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
+                           @editBilling="editBilling"
                 ></component>
             </keep-alive>
         </transition>
@@ -132,6 +133,10 @@
             updateCountry(value) {
                 this.selectedCountry = value;
                 this.getCountries();
+            },
+            editBilling() {
+                this.currentComponent = 'first';
+                this.progress = 1;
             }
         }
     })
