@@ -12,7 +12,7 @@ document.getElementsByTagName('header')[0].innerHTML = `
                 <div class="first-header__menu flex flex-a--center">
                     <a href="#" class="first-header__menu-item">Shop</a>
                     <div class="header-cart-wrapper">
-                        <a href="#" class="header-cart">
+                        <a href="#" class="header-cart" data-toggle="modal" data-target="#sideCartModal">
                            <!-- <span class="header-cart__text">Cart</span>-->
                             <span class="header-cart__text">
                                 <span class="flex">
