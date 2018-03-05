@@ -43,6 +43,7 @@
                                         :subTotal="subTotal"
                                         :total="total"
                                         :shipping="shipping"
+                                        :isShipping="isShipping"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -75,7 +76,8 @@
             products: Array,
             subTotal: String,
             total: String,
-            shipping: Number
+            shipping: Number,
+            isShipping: Boolean
         },
         components: {
             cartTotals,

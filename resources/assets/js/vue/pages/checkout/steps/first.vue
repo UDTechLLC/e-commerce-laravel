@@ -183,6 +183,7 @@
                                         :subTotal="subTotal"
                                         :total="total"
                                         :shipping="shipping"
+                                        :isShipping="isShipping"
                                 ></cart-totals>
                             </div>
                         </div>
