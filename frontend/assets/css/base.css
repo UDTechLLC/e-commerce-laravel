@@ -3736,20 +3736,10 @@ header .header-cart {
     header .header-cart__text:before {
       content: '\f07a';
       margin-right: 8px; }
-    header .header-cart__text:after {
-      content: '\f107';
-      margin-left: 5px;
-      font-size: 18px; }
-      @media (max-width: 800px) {
-        header .header-cart__text:after {
-          display: none; } }
   header .header-cart__delimiter {
     margin: 0 5px; }
   header .header-cart-wrapper {
     position: relative; }
-    @media (min-width: 800px) {
-      header .header-cart-wrapper:hover .header-cart-items {
-        display: block; } }
   header .header-cart-items {
     display: none;
     position: absolute;
