@@ -1,0 +1,57 @@
+.faq
+  &__questions
+    padding: 50px 0 50px
+    .wrapper
+      @media (max-width: $breakpoint-mobile)
+        padding: 0 20px
+  &__item
+    font-family: $Montserrat
+    font-weight: 700
+    letter-spacing: 0
+    line-height: 1.73
+    font-size: 15px
+    border-bottom: 1px solid $l-grey
+    .flex
+      padding: 10px 0
+      cursor: pointer
+      &:hover
+        .faq__item
+          &-before
+            background: $red
+          &-question
+            color: $red
+
+    &.active
+      .faq__item
+        &-before
+          background: $red
+          &::before
+            content: '\f068'
+        &-question
+        &-answer
+          //display: block
+    &-before
+      position: relative
+      background: #2b2e32
+      width: 22px
+      min-width: 22px
+      height: 22px
+      min-height: 22px
+      text-align: center
+      margin-right: 40px
+      transition: .2s
+      display: flex
+      justify-content: center
+      align-items: center
+      margin-top: 5px
+      &::before
+        content: '\f067'
+        font-size: 12px
+        font-family: FontAwesome
+        color: white
+    &-question
+      transition: .2s
+    &-answer
+      //transition: .2s
+      display: none
+      padding-bottom: 20px

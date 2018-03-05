@@ -111,7 +111,37 @@
 
         });
 
+        var faq_item = $('.faq__item>.flex');
 
+        faq_item.click(function () {
+
+           var wrapper =  $(this).parents('.faq__item'),
+               generalWrapper = $('.faq__item'),
+               removeActive = function () {
+                    generalWrapper.removeClass('active');
+           },
+                showAnswer = function () {
+                    wrapper.find('.faq__item-answer').slideDown(500);
+           },
+                hideAnswer = function () {
+                    generalWrapper.find('.faq__item-answer').slideUp(500);
+           };
+
+           if(wrapper.hasClass('active')){
+               removeActive();
+               showAnswer();
+               wrapper.find('.faq__item-answer').slideUp(500);
+           }else {
+               removeActive();
+               wrapper.addClass('active');
+               hideAnswer();
+               showAnswer();
+
+           }
+
+
+
+        });
 
     });
 })( jQuery );
