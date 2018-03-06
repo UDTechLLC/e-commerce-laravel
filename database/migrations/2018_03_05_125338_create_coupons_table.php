@@ -19,8 +19,8 @@ class CreateCouponsTable extends Migration
             $table->text('description')->nullable();
             $table->enum('discount_type',['fix','percent'])->default('percent');
             $table->string('coupon_amount');
-            $table->string('limit');
-            $table->dateTime('expired');
+            $table->string('limit')->nullable();
+            $table->dateTime('expired')->nullable();
             $table->timestamps();
         });
     }

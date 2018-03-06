@@ -21,6 +21,9 @@ Vue.component('products-index', require('./vue/pages/products/index'));
 Vue.component('products-create', require('./vue/pages/products/create.vue'));
 Vue.component('products-edit', require('./vue/pages/products/edit.vue'));
 
+Vue.component('coupons-index', require('./vue/pages/coupons/index'));
+Vue.component('coupons-create', require('./vue/pages/coupons/create.vue'));
+
 Vue.component('users-index', require('./vue/pages/users/index'));
 
 

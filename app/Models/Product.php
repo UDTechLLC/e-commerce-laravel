@@ -104,6 +104,10 @@ class Product extends EloquentModel implements HasMedia
     {
         return $this->belongsToMany(Order::class);
     }
+    public function coupons()
+    {
+        return $this->belongsToMany(Coupon::class);
+    }
 
     /**
      * Entity scopes go below
