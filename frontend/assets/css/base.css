@@ -2667,7 +2667,8 @@ section .training-plan-faqs-block-wrapper .wrapper {
               height: auto;
               width: 100%; }
           .side-cart-screen-block .modal-dialog .side-cart-block-wrapper .side-cart-block .cart-products-wrapper .cart-single-product .product-details {
-            margin-left: 10px; }
+            margin-left: 10px;
+            width: 59%; }
             .side-cart-screen-block .modal-dialog .side-cart-block-wrapper .side-cart-block .cart-products-wrapper .cart-single-product .product-details .product-title {
               color: #000000;
               font-size: 15px;
@@ -4440,6 +4441,8 @@ section .training-plan-faqs-block-wrapper .wrapper {
   .popUp__img {
     width: 40%;
     text-align: right; }
+    .popUp__img img {
+      max-width: 270px; }
     @media screen and (max-width: 800px) {
       .popUp__img {
         text-align: center;
