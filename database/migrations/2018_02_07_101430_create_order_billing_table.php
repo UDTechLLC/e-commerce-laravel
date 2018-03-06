@@ -23,6 +23,7 @@ class CreateOrderBillingTable extends Migration
             $table->string('street')->nullable();
             $table->string('apartment')->nullable();
             $table->string('country')->nullable();
+            $table->string('iso_3166')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('postcode')->nullable();
