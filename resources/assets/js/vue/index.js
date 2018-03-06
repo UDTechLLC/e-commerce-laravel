@@ -15,9 +15,6 @@ Vue.prototype.$EventBus = new Vue();
 
 const app = new Vue({
   el: '#app',
-  data: {
-    showCart: false
-  },
   created() {
     if (!Vue.localStorage.get('hash')) {
       let hash = this.makeCardHash();

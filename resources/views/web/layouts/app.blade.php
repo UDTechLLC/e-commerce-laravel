@@ -28,7 +28,7 @@
 <div id="app">
     @include('web.layouts.header')
     @yield('content')
-    <modal-cart v-show="showCart"></modal-cart>
+    <modal-cart></modal-cart>
     @include('web.layouts.footer')
 </div>
 <!-- Scripts -->

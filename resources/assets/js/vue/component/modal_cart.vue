@@ -1,10 +1,9 @@
 <template>
-    <div id="sideCartModal" class="side-cart-screen-block modal right fade in" role="dialog">
+    <div id="sideCartModal" class="side-cart-screen-block modal right fade" role="dialog">
         <div class="modal-dialog">
             <div class="side-cart-block-wrapper modal-content">
                 <div class="side-cart-block">
-                    <span class="close-cart close" data-dismiss="modal" aria-label="Close"
-                    @click="$parent.showCart = !$parent.showCart"></span>
+                    <span class="close-cart close" data-dismiss="modal" aria-label="Close"></span>
                     <div class="cart-products-wrapper">
                         <div class="cart-single-product" v-for="product in products">
                             <div class="product-image">
@@ -19,11 +18,13 @@
 													${{ product.amount }}
 												</span>
                                     <div class="quantity buttons_added">
-                                        <input value="-" class="minus" type="button" />
+                                        <input value="-" class="minus" type="button"
+                                               @click="deleteProduct(product.slug)"/>
                                         <input id="" class="input-text qty text" step="1" min="0" max="" name=""
                                                :value="product.count" title="Qty" size="4" pattern="[0-9]*"
                                                inputmode="numeric" type="number" />
-                                        <input value="+" class="plus" type="button" />
+                                        <input value="+" class="plus" type="button"
+                                               @click="addProduct(product.slug)"/>
                                     </div>
                                 </div>
                                <!-- <div class="deliver-block-wrapper">
@@ -94,6 +95,17 @@
     created() {
       this.getProducts();
       this.$EventBus.$on('updateProduct', this.updateProducts);
+    },
+    methods: {
+      deleteProduct(slug) {
+        axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
+          response => {
+            console.log(response);
+            this.$EventBus.$emit('updateProduct', response);
+          },
+          error => console.log('error')
+        )
+      },
     }
   })
 </script>

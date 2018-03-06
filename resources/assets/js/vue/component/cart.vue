@@ -1,6 +1,6 @@
 <template>
     <div class="header-cart-wrapper">
-        <a href="#" class="header-cart" @click="$parent.showCart = !$parent.showCart">
+        <a href="#" class="header-cart"  data-toggle="modal" data-target="#sideCartModal">
             <!-- <span class="header-cart__text">Cart</span>-->
                         <span class="header-cart__text">
                                 <span class="flex">
