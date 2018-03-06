@@ -13,7 +13,7 @@
                         <div class="icon billing-details"></div>
                         <span>2. Billing Details</span></li>
                     <li :class="{disabled: progress < 2, active: progress == 2, checked: progress > 2 }"
-                        data-page="col-2">
+                        data-page="col-2" v-if="isShipping">
                         <div class="icon billing-details shipping-address"></div>
                         <span>3. Shipping Address</span></li>
                     <li :class="{disabled: progress < 3, active: progress == 3, checked: progress > 3 }"
@@ -53,6 +53,7 @@
                            @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
+                           @editBilling="editBilling"
                 ></component>
             </keep-alive>
         </transition>
@@ -109,8 +110,8 @@
                 this.progress = this.isShipping && value.step === 'second' ? this.progress++ : this.progress + 2;
             },
             backStep(value) {
-                this.currentComponent = value.step;
-                this.progress = value.progress;
+                this.currentComponent = !this.isShipping && value.step === 'second' ? 'first' :value.step;
+                this.progress = this.isShipping && value.step === 'second' ? this.progress-- : this.progress - 2;
             },
             getCountries() {
                 console.log(this.isShipping);
@@ -132,6 +133,10 @@
             updateCountry(value) {
                 this.selectedCountry = value;
                 this.getCountries();
+            },
+            editBilling() {
+                this.currentComponent = 'first';
+                this.progress = 1;
             }
         }
     })
