@@ -18,3 +18,6 @@ Route::get('privacy-policy', function () {
 Route::get('weight-loss-disclaimer', function () {
     return view('web.page.weight_loss_disclaimer');
 });
+Route::get('faq', function () {
+    return view('web.page.faq');
+});

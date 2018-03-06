@@ -1,12 +1,18 @@
 .sc-how-it-works-block-wrapper
   padding: 100px 30px 40px
 
+  @media screen and (max-width: 991px)
+    padding: 30px 20px 60px
+
   .wrapper
     .sc-how-it-works-block
       .separate-heading-block
         .title-sep-container
           .title-sep.sep-single
             border-color: #e0dede
+
+        .separate-heading-title
+          margin: 0
 
       p
         color: #494949
@@ -18,10 +24,36 @@
 
       .sc-products-block-wrapper
         .shop-items-wrapper
-          .shop-item
+          .shop-item-wrapper
             display: flex
             flex-wrap: wrap
+            margin: 0 15px 30px
+            width: calc( 100%/3 - 20px )
 
-            .product-details, .product-price-block, .product-button-block
-              margin-top: auto
+            @media screen and (max-width: 800px)
               width: 100%
+              margin-left: 0
+              margin-right: 0
+
+            &:first-child, &:nth-child(3n + 1)
+              margin-left: 0
+
+            &:nth-child(3n)
+              margin-right: 0
+
+            .sc-bandle-title
+              color: #2b2e32
+              font-size: 23px
+              margin: 0 0 30px
+              text-align: center
+              width: 100%
+
+            .shop-item
+              display: flex
+              flex-wrap: wrap
+              margin: 0
+              width: 100%
+
+              .product-details, .product-price-block, .product-button-block
+                margin-top: auto
+                width: 100%
