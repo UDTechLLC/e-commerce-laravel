@@ -14,4 +14,5 @@ Route::group([
     require_once 'products.php';
     require_once 'users.php';
     require_once 'orders.php';
+    require_once 'coupons.php';
 });
