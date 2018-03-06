@@ -103,9 +103,9 @@ div {
         top: 50%;
         margin-top: -.5px; }
       .after-lines:after {
-        right: -16.5%; }
+        right: -10.5%; }
       .after-lines:before {
-        left: -16.5%; } }
+        left: -10.5%; } }
   .after-lines--large {
     width: 50%; }
     @media (max-width: 800px) {
