@@ -37,6 +37,9 @@
                     <li class="second-header__menu-item {!! Request::is('shop')?'active':'' !!}">
                         <a href="{{url('shop')}}">Shop</a>
                     </li>
+                    <li class="second-header__menu-item {!! Request::is('faq')?'active':'' !!}">
+                        <a href="{{url('faq')}}">FAQ</a>
+                    </li>
                 </ul>
             </div>
         </div>

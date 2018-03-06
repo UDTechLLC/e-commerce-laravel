@@ -228,7 +228,50 @@ img
     @media screen and (max-width: 420px)
       width: 33%
 
+.product-price-block
+  .product-price
+    margin: 25px 0 0
 
+  .product-amount
+    display: flex
+    color: #ed1c24
+    font-family: Montserrat, Arial, Helvetica, sans-serif
+    font-size: 30px
+    font-weight: 700
+    line-height: 26px
+    margin: 0 5px 30px
+    @media (max-width: $breakpoint-mobile)
+      justify-content: center
+.has-old-price
+  &>.product-amount
+    margin-left: 0
+    margin-bottom: 20px
+    font-size: 24px
+
+
+    &:before
+      display: block
+      margin-right: 10px
+      content: 'Today:'
+    &--new-price
+      &:before
+        content: 'New price:'
+    &.product-amount--old
+      color: $def-color
+      &:before
+        content: 'Before:'
+    .line-throw
+      position: relative
+      &:after
+        content: ''
+        position: absolute
+        display: block
+        width: 102%
+        height: 2px
+        background: $grey
+        top: 50%
+        margin-top: -.5px
+        left: -1%
 
 .amazingcarousel-play-video
   background-image: url('../carouselengine/playvideo-64-64-0.png') !important

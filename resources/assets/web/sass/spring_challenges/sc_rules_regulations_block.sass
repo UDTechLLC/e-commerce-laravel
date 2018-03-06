@@ -1,0 +1,107 @@
+.sc-rules-regulation-block-wrapper
+  background-color: #ffffff
+  background-image: url("../images/spring_challenges/rule_reg_bg.jpg")
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  padding: 100px 30px
+
+  @media screen and (max-width: 991px)
+    padding: 60px 20px
+  
+  .wrapper
+    .sc-rules-regulation-block
+      .separate-heading-block
+        .title-sep-container
+          .title-sep.sep-single
+            border-color: #e0dede
+
+        .separate-heading-title
+          color: #ffffff
+
+      .sc-rules-regulations-content-wrapper
+        display: flex
+        justify-content: space-between
+
+        @media screen and (max-width: 991px)
+          flex-wrap: wrap
+
+        .sc-rules-regulations-list-wrapper
+          width: 66%
+
+          @media screen and (max-width: 991px)
+            order: 2
+            width: 100%
+
+          .sc-rules-regulations-list
+            margin: 15px 10px 15px 49px
+
+            .sc-rules-regulations-list-item
+              color: #ffffff
+              position: relative
+              font-family: 'PT Sans',Arial,Helvetica sans-serif
+              font-size: 20px
+              font-weight: 400
+              line-height: 1.2
+              margin-bottom: 20px
+
+              &:before
+                content: url("../images/spring_challenges/rule_regulations_list_icon.png")
+                display: block
+                position: absolute
+                left: -49px
+                top: 50%
+                margin-top: -14.6px
+
+              a
+                color: #eb212e
+                font-family: 'PT Sans',Arial,Helvetica sans-serif
+                font-size: 20px
+                line-height: 1.2
+
+        .sc-rules-regulations-slider-wrapper
+          width: 23.5%
+
+          @media screen and (max-width: 991px)
+            order: 1
+            width: 100%
+
+          p
+            color: #fff
+            font-family: 'PT Sans',Arial,Helvetica sans-serif
+            font-size: 20px
+            line-height: 1.2
+            margin-bottom: 20px
+            text-align: center
+
+          .rule-reg-slider
+            max-width: 274px
+
+            @media screen and (max-width: 991px)
+              margin-left: auto
+              margin-right: auto
+
+            .slick-dots
+              li
+                height: 10px
+                width: 10px
+
+                button
+                  height: 10px
+                  width: 10px
+
+                  &:before
+                    background-image: url("../images/spring_challenges/slider_dots.png")
+                    background-position: 0 0
+                    background-repeat: no-repeat
+                    content: ""
+                    color: #ffffff
+                    font-size: 0
+                    height: 10px
+                    opacity: 1
+                    width: 10px
+
+                &.slick-active
+                  button
+                    &:before
+                      background-position: 0 -10px
