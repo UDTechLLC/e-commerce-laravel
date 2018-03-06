@@ -3,6 +3,7 @@ declare (strict_types = 1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\CreateCouponRequest;
 use App\Http\Requests\Admin\CreateProductRequest;
 use App\Http\Resources\Admin\CouponsResource;
 use Illuminate\Contracts\View\View;
@@ -49,12 +50,19 @@ class CouponController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CreateCouponRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCouponRequest $request)
     {
-        //
+        $coupon =Coupon::create([
+            'code'        => $request->get('code'),
+            'description' => $request->get('description'),
+//            'discount_type' =>$request->get('discount_type'),
+            'coupon_amount'=>$request->get('coupon_amount')
+
+        ]);
+        return $coupon;
     }
 
     /**
