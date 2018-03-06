@@ -49,6 +49,7 @@
                                 <div class="add-to-cart-wrapper">
                                     <add-to-cart
                                     product-slug="{{ $product->slug }}"
+                                    {{--data-title="12 Week Custom Meal Plan"--}}
                                     >
                                     </add-to-cart>
                                 </div>
@@ -66,5 +67,63 @@
     </div>
 
     </main>
+   {{-- <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
+        <div class="popUp__wrapper">
+            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+            <h2 class="popUp__title">FREE GIFT</h2>
+            <div class="popUp__img-info">
+                <div class="popUp__img">
+                    <img src="assets/images/popUp/12-week-popUp.png" alt="12-week-popUp">
+                </div>
+                <div class="popUp__info">
+                    <div class="popUp__name">12 Week Custom Training Plan</div>
+                    <p class="popUp__description">Get the training plan on us! This weekend only!</p>
+                    <div class="product-price-block">
+                        <div class="product-price has-old-price">
+                            <span class="product-amount product-amount--old ">
+                                <span class="line-throw">
+                                    <span class="currency">$</span>
+                                    <span>80.00</span>
+                                </span>
+                            </span>
+                            <span class="product-amount">
+                            <span class="currency">$</span>
+                            <span> 0.00</span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+        <div class="popUp__wrapper">
+            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+            <h2 class="popUp__title">FREE GIFT</h2>
+            <div class="popUp__img-info">
+                <div class="popUp__img">
+                    <img src="assets/images/popUp/meal_free_icon.png" alt="meal_free_icon">
+                </div>
+                <div class="popUp__info">
+                    <div class="popUp__name">12 Week Custom Meal Plan</div>
+                    <p class="popUp__description">Get the meal plan on us! This weekend only!</p>
+                    <div class="product-price-block">
+                        <div class="product-price has-old-price">
+                            <span class="product-amount product-amount--old ">
+                                <span class="line-throw">
+                                    <span class="currency">$</span>
+                                    <span>80.00</span>
+                                </span>
+                            </span>
+                            <span class="product-amount">
+                            <span class="currency">$</span>
+                            <span> 0.00</span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--}}
 @endsection
