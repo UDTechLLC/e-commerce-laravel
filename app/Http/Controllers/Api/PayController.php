@@ -6,6 +6,7 @@ use App\Mail\OrderSent;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Services\Orders\ShipStationService;
 use App\Services\PayPal\PayPalService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,6 +32,8 @@ class PayController extends Controller
      */
     public function pay(Request $request, Order $order)
     {
+        $this->sendOrderToShipStation($order);
+
         $this->setCallbacks($order);
         $this->service->setAmount($order->total_cost);
         $response = $this->service->purchase();
@@ -38,6 +41,8 @@ class PayController extends Controller
         if (!$response->isRedirect()) {
             return route('/');  //todo: Add error
         }
+
+        $this->clearCart($order->cart);
 
         return $response->redirect();
     }
@@ -59,8 +64,8 @@ class PayController extends Controller
 
         if ($response->isSuccessful()) {
             $this->updateOrderStatus($order);
-            $this->sendProducts($order);
-            $this->clearCart($order->cart);
+            $this->updateOrderStatusOnShipStation($order);
+            $this->sendOrderToEmail($order);
 
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         }
@@ -89,7 +94,7 @@ class PayController extends Controller
      *
      * @param Order $order
      */
-    private function sendProducts(Order $order)
+    private function sendOrderToEmail(Order $order)
     {
         \Mail::to($order->billing->email)->send(new OrderSent($order));
     }
@@ -112,5 +117,25 @@ class PayController extends Controller
         $order->update([
             'state' => Order::ORDER_STATE_PROCESSING
         ]);
+    }
+
+    /**
+     * @param Order $order
+     */
+    private function sendOrderToShipStation($order)
+    {
+        $service = new ShipStationService($order);
+
+        $service->create();
+    }
+
+    /**
+     * @param $order
+     */
+    private function updateOrderStatusOnShipStation($order)
+    {
+        $service = new ShipStationService($order);
+
+        $service->update();
     }
 }
