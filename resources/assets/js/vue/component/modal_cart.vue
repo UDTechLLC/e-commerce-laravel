@@ -54,12 +54,12 @@
                         </div>
                         <div class="cart-button-area">
                             <div class="cart-button checkout-button-wrapper">
-                                <a href="#" class="checkout-button">
+                                <a href="/checkout" class="checkout-button">
                                     Checkout
                                 </a>
                             </div>
                             <div class="cart-button keep-shoping-button-wrapper">
-                                <a href="#" class="keep-shoping-button">
+                                <a href="#" data-dismiss="modal" aria-label="Close" class="keep-shoping-button">
                                     Keep Shoping
                                 </a>
                             </div>
@@ -67,15 +67,15 @@
                     </div>
                     <div class="side-cart-footer-wrapper">
                         <p class="secure-shoping-wrapper">
-												<span class="label">
-													SECURE SHOPPING:
-												</span>
+                            <span class="label">
+                                SECURE SHOPPING:
+                            </span>
                             100% INDUSTRY STANDARD SSL
                         </p>
                         <p class="subscribe-save-wrapper">
-										<span class="label">
-											SUBSCRIBE AND SAVE 15%:
-										</span>
+                            <span class="label">
+                                SUBSCRIBE AND SAVE 15%:
+                            </span>
                             <a id="subsSaveMoreInf" href="#" class="subs-save-more-info">
                                 MORE INFO
                             </a>
