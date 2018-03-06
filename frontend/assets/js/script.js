@@ -111,7 +111,113 @@
 
         });
 
+        var faq_item = $('.faq__item>.flex');
 
+        faq_item.click(function () {
+
+           var wrapper =  $(this).parents('.faq__item'),
+               generalWrapper = $('.faq__item'),
+               removeActive = function () {
+                    generalWrapper.removeClass('active');
+           },
+                showAnswer = function () {
+                    wrapper.find('.faq__item-answer').slideDown(500);
+           },
+                hideAnswer = function () {
+                    generalWrapper.find('.faq__item-answer').slideUp(500);
+           };
+
+           if(wrapper.hasClass('active')){
+               removeActive();
+               showAnswer();
+               wrapper.find('.faq__item-answer').slideUp(500);
+           }else {
+               removeActive();
+               wrapper.addClass('active');
+               hideAnswer();
+               showAnswer();
+
+           }
+
+
+
+        });
+
+        var contactForm = $('.validate-form');
+
+        var formValid = false;
+
+        var inputNameValid = false;
+
+        var inputMessageValid = false;
+
+        var inputEmailValid = false;
+
+
+            var inputName = $('.validate-form input[name="name"]');
+            var inputEmail = $('.validate-form input[name="email"]');
+            var message = $('.validate-form textarea');
+
+
+
+
+        function CheckFormValid() {
+                if(inputNameValid && inputMessageValid && inputEmailValid){
+                           $('.contact__submit').prop('disabled', false);
+                }else {
+                    $('.contact__submit').prop('disabled', true);
+                }
+        }
+
+        CheckFormValid();
+
+        inputName.on("change keyup",function () {
+            var nameIn = inputName.val();
+            if(nameIn.length>2){
+                inputNameValid = true;
+                $(this).removeClass('not-valid').addClass('valid');
+                CheckFormValid();
+            }else {
+                inputNameValid = false;
+                $(this).removeClass('valid').addClass('not-valid');
+                CheckFormValid();
+            }
+        });
+
+
+        message.on("change keyup",function () {
+            var nameIn = message.val();
+            if(nameIn.length>5){
+                inputMessageValid = true;
+                $(this).removeClass('not-valid').addClass('valid');
+                CheckFormValid();
+            }else {
+                inputMessageValid = false;
+                $(this).removeClass('valid').addClass('not-valid');
+                CheckFormValid();
+            }
+        });
+
+
+        function checkEmail(email) {
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (!reg.test(email)) return false;
+            return true;
+        }
+
+            inputEmail.on("change keyup",function () {
+                var email = $('#contactEmail').val();
+
+             if(checkEmail(email)){
+                 $(this).removeClass('not-valid').addClass('valid');
+                 inputEmailValid = true;
+                  CheckFormValid();
+             }else {
+                 $(this).removeClass('valid').addClass('not-valid');
+                 inputEmailValid = false;
+                  CheckFormValid();
+             }
+            });
 
     });
 })( jQuery );
