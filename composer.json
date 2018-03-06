@@ -17,7 +17,8 @@
         "spatie/laravel-fractal": "^5.3",
         "spatie/laravel-medialibrary": "^6.0.0",
         "srmklive/paypal": "~1.0",
-        "arcanedev/log-viewer": "^4.4"
+        "arcanedev/log-viewer": "^4.4",
+        "campo/laravel-shipstation": "~3.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

@@ -14,6 +14,7 @@ use App\Services\PayPal\PayPalService;
 use App\Transformers\Api\OrderTransformer;
 use App\Transformers\Api\UserTransformer;
 use Illuminate\Http\Request;
+use PragmaRX\Countries\Package\Countries;
 
 class CheckoutController extends Controller
 {
@@ -86,6 +87,7 @@ class CheckoutController extends Controller
             'street'       => $request->get('street'),
             'apartment'    => $request->get('apartment'),
             'country'      => $request->get('country'),
+            'iso_3166'     => $this->getIso3166($request->get('country')),
             'city'         => $request->get('city'),
             'state'        => $request->get('state'),
             'postcode'     => $request->get('postcode'),
@@ -111,6 +113,7 @@ class CheckoutController extends Controller
 
         /** @var Order $order */
         $order = Order::create([
+            'order_key'     => rand(111111111, 999999999),
             'user_id'       => null !== $user ? $user->getKey() : null,
             'billing_id'    => $billing->getKey(),
             'cart_id'       => $cart->getKey(),
@@ -118,7 +121,7 @@ class CheckoutController extends Controller
             'shipping_cost' => $shippingCost,
             'total_cost'    => $productCost + $shippingCost,
             'count'         => $count,
-            'state'         => Order::ORDER_STATE_PENDINGPAYMENT,
+            'state'         => Order::ORDER_STATE_PENDING_PAYMENT,
         ]);
 
         foreach ($cart->products as $product) {
@@ -148,6 +151,7 @@ class CheckoutController extends Controller
             'street'       => $request->get('street'),
             'apartment'    => $request->get('apartment'),
             'country'      => $request->get('country'),
+            'iso_3166'     => $this->getIso3166($request->get('country')),
             'city'         => $request->get('city'),
             'state'        => $request->get('state'),
             'postcode'     => $request->get('postcode'),
@@ -239,5 +243,17 @@ class CheckoutController extends Controller
         }
 
         return false;
+    }
+
+    /**
+     * Get iso_3166_1_alpha2 by country name.
+     *
+     * @param string $name
+     *
+     * @return mixed
+     */
+    private function getIso3166(string $name)
+    {
+        return Countries::where('name.common', 'Ukraine')->first()->iso_3166_1_alpha2;
     }
 }

@@ -23,6 +23,16 @@
             });
         }
 
+        if ( 0 < $( '#prevWinnersSlider' ).length ) {
+            $( '#prevWinnersSlider' ).slick({
+                autoplay: true,
+                arrows: false,
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        }
+
         if ( 0 < $( '.customer-login-form' ).length ) {
             $( '.showlogin' ).on( 'click', function() {
                 $( '.customer-login-form' ).slideToggle();
@@ -219,5 +229,43 @@
              }
             });
 
+
+
+        var CallPopUp = function (name) {
+
+            var btnTrainPlan = $('.add-to-cart-btn[data-title="'+ name +'"]');
+            var btnPopUpClose = $('.popUp__close');
+            var PopUpWrapepr = $('.popUp[data-modal="'+ name +'"]');
+            var blockInfo =   PopUpWrapepr.find('.popUp__wrapper');
+
+            btnTrainPlan.click(function () {
+
+                if (!$(this).hasClass('added')){
+                    PopUpWrapepr.addClass('popUp--open');
+                    setTimeout(function () {
+                        blockInfo.addClass('popUp__wrapper--show');
+                    },100)
+                }
+                $(this).addClass('added');
+
+            });
+
+
+            PopUpWrapepr.click(function (e) {
+                if( $(e.target).is('.popUp')){
+                    btnPopUpClose.click();
+                }
+            });
+
+            btnPopUpClose.click(function () {
+                blockInfo.removeClass('popUp__wrapper--show');
+                setTimeout(function () {
+                    PopUpWrapepr.removeClass('popUp--open');
+                },500)
+            });
+        };
+
+        CallPopUp('12 Week Custom Training Plan');
+        CallPopUp('12 Week Custom Meal Plan');
     });
 })( jQuery );

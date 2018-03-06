@@ -22,6 +22,7 @@ class CreateOrderShippingTable extends Migration
             $table->string('street');
             $table->string('apartment')->nullable();
             $table->string('country');
+            $table->string('iso_3166');
             $table->string('city');
             $table->string('state');
             $table->string('postcode');

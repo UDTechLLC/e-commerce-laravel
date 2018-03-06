@@ -1,0 +1,97 @@
+.sc-prizes-block-wrapper
+  background-color: #ffffff
+  background-image: url("../images/spring_challenges/prizes_block_bg.png")
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  padding: 74px 30px 100px
+
+  @media screen and (max-width: 991px)
+    padding: 30px 20px 60px
+
+  .wrapper
+    .sc-prizes-block
+      color: #2b2e32
+      font-family: Montserrat, Arial, Helvetica, sans-serif
+      font-weight: 700
+      line-height: 1.26
+      letter-spacing: 0
+
+      .sc-prizes-block-title
+        font-size: 38px
+        margin: 0 0 24px
+        text-align: center
+
+      .sc-prizes-columns-wrapper
+        align-items: center
+        display: flex
+        justify-content: space-between
+
+        @media screen and (max-width: 800px)
+          flex-wrap: wrap
+
+        .sc-prizes-column-single
+          background-color: #ffffff
+          font-family: Montserrat, Arial, Helvetica, sans-serif
+          font-weight: 700
+          margin: 0 4% 15px 0
+          padding: 11px 25px 30px 31px
+          width: calc(33.33% - ( ( 4% + 4% ) * 0.3333 ) )
+
+          @media screen and (max-width: 800px)
+            width: 100%
+            margin-right: 0
+
+          &:first-child
+            @media screen and (max-width: 800px)
+              order: 2
+
+          &:nth-child(2)
+            @media screen and (max-width: 800px)
+              order: 1
+
+          &:last-child
+            margin-right: 0
+
+            @media screen and (max-width: 800px)
+              order: 3
+
+          .sc-prizes-column-title
+            border-bottom: 1px solid #eaeaea
+            color: #f01616
+            font-size: 36px
+            line-height: 1.88
+            margin: 0 0 30px
+            padding: 0
+            text-align: center
+            text-transform: uppercase
+
+            sup
+              font-size: 22px
+          .sc-prizes-column-sub-title
+            font-size: 18px
+            line-height: 23px
+            letter-spacing: 0
+            text-align: center
+
+          .sc-prizes-list
+            .sc-prizes-item
+              padding-left: 30px
+              position: relative
+
+              .sc-prizes-list-icon
+                background-image: url("../images/spring_challenges/prizes_list_check_icon.png")
+                bottom: 0
+                display: block
+                height: 15px
+                left: 0
+                position: absolute
+                width: 19px
+
+              p
+                img
+
+      .sc-video-block-wrapper
+        margin-top: 70px
+        .amazingcarousel-image
+          border: 1px solid #ffffff !important

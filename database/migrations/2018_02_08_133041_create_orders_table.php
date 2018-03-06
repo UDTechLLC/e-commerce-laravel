@@ -16,10 +16,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('order_key');
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('shipping_id')->nullable();
             $table->unsignedInteger('billing_id')->nullable();
             $table->unsignedInteger('cart_id');
+            $table->unsignedInteger('coupon_id')->nullable();
             $table->integer('product_cost')->nullable();
             $table->integer('shipping_cost')->nullable();
             $table->integer('total_cost')->nullable();
@@ -30,6 +32,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('shipping_id')->references('id')->on('order_shipping');
             $table->foreign('billing_id')->references('id')->on('order_billing');
+//            $table->foreign('billing_id')->references('id')->on('order_billing');
         });
     }
 

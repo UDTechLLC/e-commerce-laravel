@@ -6,7 +6,9 @@
                     <div class="cart-block">
                         <div class="cart-header-block">
                             <h2 class="cart-heading">
-                                You Have {{countItems}} Items In Your Cart
+                                You Have {{countItems}}
+                                <span v-if="countItems == 1">Item</span>
+                                <span v-else>Items</span> In Your Cart
                             </h2>
                         </div>
                         <product-list
@@ -22,7 +24,7 @@
                                 v-if="isShipping"
                         ></shipping>
 
-                        <!--<div class="promotional-code-block-wrapper">
+                        <div class="promotional-code-block-wrapper">
                             <div class="cart-header-block">
                                 <h2 class="cart-heading">
                                     Have A Promotional Code?
@@ -36,7 +38,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                     <div class="cart-bottom-block cart-totals-wrapper">
                         <div class="cart-header-block">
@@ -56,7 +58,7 @@
                                             </span>
                                 </td>
                             </tr>
-                            <tr class="shipping">
+                            <tr class="shipping" v-if="isShipping">
                                 <th>
                                     Shipping
                                 </th>
@@ -115,6 +117,7 @@
         },
         computed: {
           total() {
+              console.log(this.subTotal + " === " + this.shipping);
               return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
           }
         },
