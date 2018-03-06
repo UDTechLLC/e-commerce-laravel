@@ -25,7 +25,7 @@ class OrderShipping extends EloquentModel
      */
     protected $fillable = [
         'order_id', 'first_name', 'last_name', 'company_name', 'street', 'apartment', 'country', 'city', 'state',
-        'postcode',
+        'postcode', 'iso_3166',
     ];
 
     /**
@@ -77,7 +77,13 @@ class OrderShipping extends EloquentModel
      * Entity mutators and accessors go below
      */
 
-    // @todo:
+    /**
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . " " . $this->attributes['last_name'];
+    }
 
     /**
      * Entity public methods go below
