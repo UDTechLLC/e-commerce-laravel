@@ -76,6 +76,10 @@ class OrderBilling extends EloquentModel
     /**
      * Entity mutators and accessors go below
      */
+
+    /**
+     * @return string
+     */
     public function getFullNameAttribute()
     {
         return $this->first_name . " " . $this->last_name;

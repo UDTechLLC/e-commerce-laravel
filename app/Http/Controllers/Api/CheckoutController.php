@@ -111,6 +111,7 @@ class CheckoutController extends Controller
 
         /** @var Order $order */
         $order = Order::create([
+            'order_key'     => rand(111111111, 999999999),
             'user_id'       => null !== $user ? $user->getKey() : null,
             'billing_id'    => $billing->getKey(),
             'cart_id'       => $cart->getKey(),
@@ -118,7 +119,7 @@ class CheckoutController extends Controller
             'shipping_cost' => $shippingCost,
             'total_cost'    => $productCost + $shippingCost,
             'count'         => $count,
-            'state'         => Order::ORDER_STATE_PENDINGPAYMENT,
+            'state'         => Order::ORDER_STATE_PENDING_PAYMENT,
         ]);
 
         foreach ($cart->products as $product) {
