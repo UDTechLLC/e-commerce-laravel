@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="components/head.js"></script>
+        <!--<script src="components/head.js"></script>-->
+        <meta name="viewport" content="width=device-width">
+        <meta charset="UTF-8">
+        <title>Shedfat</title>
+        <link rel="stylesheet" href="assets/css/base.css">
+        <link rel="stylesheet" href="assets/css/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/carouselengine/initcarousel-1.css">
+        <link rel="stylesheet" type="text/css" href="assets/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css">
+
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
     </head>
     <body>
         <header>
@@ -18,10 +30,12 @@
                         30 DAYS CHALLENGE
                     </h2>
                     <p class="red">
-                        Monday, August 7
-                        <sup>th</sup>
-                        – Monday, September 4
-                        <sup>th</sup>
+                        <strong>
+                            Monday, August 7
+                            <sup>th</sup>
+                            – Monday, September 4
+                            <sup>th</sup>
+                        </strong>
                     </p>
                     <h2 class="last-line">
                         Register NOW to Win your share of
@@ -29,7 +43,7 @@
                             $5K
                         </span>
                     </h2>
-                    <a class="sc-register-button" href="#">
+                    <a class="sc-register-button" href="#scRegistration">
                         Register
                     </a>
                 </div>
@@ -68,7 +82,7 @@
                                         <span class="sc-prizes-list-icon"></span>
                                         <p>
                                             6 month online training
-                                            <img src="assets/images/spring_challenges/prizes_list_icons/6.png">
+                                            <img src="assets/images/spring_challenges/prizes_list_icons/7.png">
                                         </p>
                                     </li>
                                 </ul>
@@ -134,7 +148,7 @@
                                         <span class="sc-prizes-list-icon"></span>
                                         <p>
                                             6 month online training
-                                            <img src="assets/images/spring_challenges/prizes_list_icons/6.png">
+                                            <img src="assets/images/spring_challenges/prizes_list_icons/7.png">
                                         </p>
                                     </li>
                                 </ul>
@@ -155,7 +169,7 @@
                                         <span class="sc-prizes-list-icon"></span>
                                         <p>
                                             6 month online training
-                                            <img src="assets/images/spring_challenges/prizes_list_icons/6.png">
+                                            <img src="assets/images/spring_challenges/prizes_list_icons/7.png">
                                         </p>
                                     </li>
                                 </ul>
@@ -183,7 +197,7 @@
                     </div>
                 </div>
             </div>
-            <div class="sc-registration-block-wrapper">
+            <div id="scRegistration" class="sc-registration-block-wrapper">
                 <div class="wrapper">
                     <div class="sc-registration-block">
                         <div class="separate-heading-block">
@@ -248,106 +262,231 @@
                         </p>
                         <div class="sc-products-block-wrapper">
                             <div class="shop-items-wrapper">
-                                <div class="shop-item">
-                                    <div class="image-wrapper">
-                                        <a href="#">
-                                            <img src="assets/images/spring_challenges/custom_meal_workout_plan.png" />
-                                        </a>
-                                    </div>
-                                    <div class="product-details">
-                                        <h3 class="product-title">
+                                <div class="shop-item-wrapper">
+                                    <h3 class="sc-bandle-title">
+                                        Basic
+                                    </h3>
+                                    <div class="shop-item">
+                                        <div class="image-wrapper">
                                             <a href="#">
-                                                Custom Meal & Workout Plan
+                                                <img src="assets/images/spring_challenges/custom_meal_workout_plan.png" />
                                             </a>
-                                        </h3>
-                                        <p class="product-category-label">
-                                            Limited-Time Offer
-                                        </p>
-                                    </div>
-                                    <div class="product-price-block">
-                                        <div class="product-price">
-                                        <span class="product-amount">
-                                            <ins>
-                                                $99.99
-                                            </ins>
-                                        </span>
                                         </div>
-                                    </div>
-                                    <div class="product-button-block">
-                                        <div class="add-to-cart-wrapper">
-                                            <a class="add-to-cart-btn" href="#">
-                                                Add to cart
-                                            </a>
+                                        <div class="product-details">
+                                            <h3 class="product-title">
+                                                <a href="#">
+                                                    Custom Meal & Workout Plan
+                                                </a>
+                                            </h3>
+                                            <p class="product-category-label">
+                                                Limited-Time Offer
+                                            </p>
+                                        </div>
+                                        <div class="product-price-block">
+                                            <div class="product-price">
+                                            <span class="product-amount">
+                                                <ins>
+                                                    $99.99
+                                                </ins>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-block">
+                                            <div class="add-to-cart-wrapper">
+                                                <a class="add-to-cart-btn" href="#">
+                                                    Add to cart
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="shop-item">
-                                    <div class="image-wrapper">
-                                        <a href="#">
-                                            <img src="assets/images/spring_challenges/custom_meal_workout_plan_email.png" />
-                                        </a>
-                                    </div>
-                                    <div class="product-details">
-                                        <h3 class="product-title">
+                                <div class="shop-item-wrapper">
+                                    <h3 class="sc-bandle-title">
+                                        Enhanced
+                                    </h3>
+                                    <div class="shop-item">
+                                        <div class="image-wrapper">
                                             <a href="#">
-                                                Custom Meal & Workout Plan + email support
+                                                <img src="assets/images/spring_challenges/custom_meal_workout_plan_email.png" />
                                             </a>
-                                        </h3>
-                                        <p class="product-category-label">
-                                            Limited-Time Offer
-                                        </p>
-                                    </div>
-                                    <div class="product-price-block">
-                                        <div class="product-price">
-                                        <span class="product-amount">
-                                            <ins>
-                                                $139.99
-                                            </ins>
-                                        </span>
                                         </div>
-                                    </div>
-                                    <div class="product-button-block">
-                                        <div class="add-to-cart-wrapper">
-                                            <a class="add-to-cart-btn" href="#">
-                                                Add to cart
-                                            </a>
+                                        <div class="product-details">
+                                            <h3 class="product-title">
+                                                <a href="#">
+                                                    Custom Meal & Workout Plan + email support
+                                                </a>
+                                            </h3>
+                                            <p class="product-category-label">
+                                                Limited-Time Offer
+                                            </p>
+                                        </div>
+                                        <div class="product-price-block">
+                                            <div class="product-price">
+                                            <span class="product-amount">
+                                                <ins>
+                                                    $139.99
+                                                </ins>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-block">
+                                            <div class="add-to-cart-wrapper">
+                                                <a class="add-to-cart-btn" href="#">
+                                                    Add to cart
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="shop-item">
-                                    <div class="image-wrapper">
-                                        <a href="#">
-                                            <img src="assets/images/spring_challenges/custom_meal_workout_plan_email_maxx.png" />
-                                        </a>
-                                    </div>
-                                    <div class="product-details">
-                                        <h3 class="product-title">
+                                <div class="shop-item-wrapper">
+                                    <h3 class="sc-bandle-title">
+                                        Optional
+                                    </h3>
+                                    <div class="shop-item">
+                                        <div class="image-wrapper">
                                             <a href="#">
-                                                Custom Meal & Workout Plan + email support + Maxx
+                                                <img src="assets/images/spring_challenges/custom_meal_workout_plan_email_maxx.png" />
                                             </a>
-                                        </h3>
-                                        <p class="product-category-label">
-                                            Limited-Time Offer
-                                        </p>
-                                    </div>
-                                    <div class="product-price-block">
-                                        <div class="product-price">
-                                        <span class="product-amount">
-                                            <ins>
-                                                $159.99
-                                            </ins>
-                                        </span>
                                         </div>
-                                    </div>
-                                    <div class="product-button-block">
-                                        <div class="add-to-cart-wrapper">
-                                            <a class="add-to-cart-btn" href="#">
-                                                Add to cart
-                                            </a>
+                                        <div class="product-details">
+                                            <h3 class="product-title">
+                                                <a href="#">
+                                                    Custom Meal & Workout Plan + email support + Maxx
+                                                </a>
+                                            </h3>
+                                            <p class="product-category-label">
+                                                Limited-Time Offer
+                                            </p>
+                                        </div>
+                                        <div class="product-price-block">
+                                            <div class="product-price">
+                                            <span class="product-amount">
+                                                <ins>
+                                                    $159.99
+                                                </ins>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-block">
+                                            <div class="add-to-cart-wrapper">
+                                                <a class="add-to-cart-btn" href="#">
+                                                    Add to cart
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sc-rules-regulation-block-wrapper">
+                <div class="wrapper">
+                    <div class="sc-rules-regulation-block">
+                        <div class="separate-heading-block">
+                            <div class="title-sep-container title-sep-container-left">
+                                <div class="title-sep sep-single"></div>
+                            </div>
+                            <h2 class="separate-heading-title custom-plan-title">
+                                Rules and Regulations
+                            </h2>
+                            <div class="title-sep-container title-sep-container-right">
+                                <div class="title-sep sep-single"></div>
+                            </div>
+                        </div>
+                        <div class="sc-rules-regulations-content-wrapper">
+                            <div class="sc-rules-regulations-list-wrapper">
+                                <ul class="sc-rules-regulations-list">
+                                    <li class="sc-rules-regulations-list-item">
+                                        In order to participate and qualify for the cash prizes you must register in the designated registration window listed above.
+                                    </li>
+                                    <li class="sc-rules-regulations-list-item">
+                                        The challenge will run from
+                                        <strong>
+                                            Monday, August 7
+                                            <sup>th</sup>
+                                            through Monday, September 4
+                                            <sup>th</sup>
+                                        </strong>
+                                        .
+                                    </li>
+                                    <li class="sc-rules-regulations-list-item">
+                                        All contestants will be judged on their before and after photo submissions. One photo showing a frontal view and one photo showing a side view.
+                                    </li>
+                                    <li class="sc-rules-regulations-list-item">
+                                        Before and After photos need to be submitted both in one email to
+                                        <a href="mailto:30day@shedyourfat.com">30day@shedyourfat.com</a>
+                                        September 5
+                                        <sup>th</sup>
+                                        - 6
+                                        <sup>th</sup>
+                                        . Anything outside this window will not be accepted.
+                                    </li>
+                                    <li class="sc-rules-regulations-list-item">
+                                        Winners will be selected by the Shedfat Team and will be determined by what we consider to be the most drastic, most impressive overall change in body composition and will be announced at 9pm on Friday, September 8
+                                        <sup>th</sup>
+                                        .
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sc-rules-regulations-slider-wrapper">
+                                <p>
+                                    Previous Winners
+                                </p>
+                                <div id="prevWinnersSlider" class="rule-reg-slider">
+                                    <img src="assets/images/spring_challenges/prev_winners/previous_winner_1.png" />
+                                    <img src="assets/images/spring_challenges/prev_winners/previous_winner_1.png" />
+                                    <img src="assets/images/spring_challenges/prev_winners/previous_winner_1.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sc-eligibility-block-wrapper">
+                <div class="wrapper">
+                    <div class="sc-eligibility-block">
+                        <div class="separate-heading-block">
+                            <div class="title-sep-container title-sep-container-left">
+                                <div class="title-sep sep-single"></div>
+                            </div>
+                            <h2 class="separate-heading-title custom-plan-title">
+                                Eligibility For Participation and Cash Prizes
+                            </h2>
+                            <div class="title-sep-container title-sep-container-right">
+                                <div class="title-sep sep-single"></div>
+                            </div>
+                        </div>
+                        <div class="sc-eligibility-content-wrapper">
+                            <p>
+                                In order to participate you must be 18 years of age or older.
+                            </p>
+                            <p>
+                                You must register within the designated registration window listed above.
+                            </p>
+                            <p>
+                                In order to qualify for cash prizes, you must take your before photo
+                                <br>
+                                holding a newspaper dated August 7
+                                <sup>th</sup>
+                                and you must take your after photo
+                                <br>
+                                holding a newspaper dated September 4
+                                <sup>th</sup>
+                                .
+                            </p>
+                            <p>
+                                <strong>* For current Shedfat clients</strong>
+                                – in order to participate and to qualify
+                                <br>
+                                for cash prizes, you will be required to register for the challenge
+                                <br>
+                                following the same protocol listed above.
+                            </p>
+                            <a class="sc-register-button" href="#scRegistration">
+                                Register
+                            </a>
                         </div>
                     </div>
                 </div>
