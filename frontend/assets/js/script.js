@@ -223,14 +223,17 @@
 
         var CallPopUp = function (name) {
 
-            var btnTrainPlan = $('.add-to-cart-btn[data-title="'+ name +'"]');
-            var btnPopUpClose = $('.popUp__close');
-            var PopUpWrapepr = $('.popUp[data-modal="'+ name +'"]');
-            var blockInfo =   PopUpWrapepr.find('.popUp__wrapper');
+            var btnAddToCart    =   $('.add-to-cart-btn[data-title="'+ name +'"]'),
+                btnPopUpClose   =   $('.popUp__close'),
+                PopUpWrapepr    =   $('.popUp[data-modal="'+ name +'"]'),
+                blockInfo       =   PopUpWrapepr.find('.popUp__wrapper'),
+                btnNoThanks     =   PopUpWrapepr.find('.no-thanks'),
+                btnLearnMore    =   PopUpWrapepr.find('.learn-more');
 
-            btnTrainPlan.click(function () {
+            btnAddToCart.click(function () {
 
                 if (!$(this).hasClass('added')){
+                    $('body').css('overflow','hidden');
                     PopUpWrapepr.addClass('popUp--open');
                     setTimeout(function () {
                         blockInfo.addClass('popUp__wrapper--show');
@@ -246,13 +249,28 @@
                     btnPopUpClose.click();
                 }
             });
+            btnNoThanks.click(function () {
+                btnPopUpClose.click();
+            });
+            btnLearnMore.click(function () {
+                btnPopUpClose.click();
+                setTimeout(function () {
+                    $('html,body').animate({
+                            scrollTop: $('.parallax-section').offset().top - 45},
+                        'slow');
+                },600);
 
+            });
             btnPopUpClose.click(function () {
+                $('body').css('overflow','auto');
                 blockInfo.removeClass('popUp__wrapper--show');
                 setTimeout(function () {
                     PopUpWrapepr.removeClass('popUp--open');
                 },500)
             });
+
+
+
         };
 
         CallPopUp('12 Week Custom Training Plan');

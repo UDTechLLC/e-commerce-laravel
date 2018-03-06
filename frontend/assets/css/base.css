@@ -320,6 +320,19 @@ img {
       margin-top: -.5px;
       left: -1%; }
 
+.line-throw {
+  position: relative; }
+  .line-throw:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 102%;
+    height: 2px;
+    background: #2b2e32;
+    top: 50%;
+    margin-top: -.5px;
+    left: -1%; }
+
 .amazingcarousel-play-video {
   background-image: url("../carouselengine/playvideo-64-64-0.png") !important; }
 
@@ -1278,6 +1291,8 @@ ul {
   text-transform: uppercase;
   color: #29282e;
   font-family: Montserrat, Arial, Helvetica, sans-serif; }
+  .section__title--white {
+    color: white; }
   @media (min-width: 801px) {
     .section__title--what-eat {
       font-size: 38px; } }
@@ -1359,6 +1374,15 @@ ul {
   padding: 70px 0 0;
   height: 770px;
   position: relative; }
+  .parallax-section--never-stop {
+    height: 931px; }
+    @media screen and (max-width: 990px) {
+      .parallax-section--never-stop .block-in-section-wrapper {
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: normal !important;
+        -webkit-flex-direction: column !important;
+            -ms-flex-direction: column !important;
+                flex-direction: column !important; } }
   @media screen and (max-width: 990px) {
     .parallax-section {
       padding: 70px 0 420px; } }
@@ -1369,7 +1393,7 @@ ul {
     .parallax-section {
       padding: 30px 15px 650px; } }
   .parallax-section .section__text {
-    max-width: 650px;
+    max-width: 700px;
     margin: 50px auto; }
     @media screen and (max-width: 800px) {
       .parallax-section .section__text {
@@ -1386,7 +1410,10 @@ ul {
         -webkit-box-direction: reverse;
         -webkit-flex-direction: column-reverse;
             -ms-flex-direction: column-reverse;
-                flex-direction: column-reverse; } }
+                flex-direction: column-reverse;
+        padding: 0 20px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box; } }
   .parallax-section .block-in-section {
     width: 100%; }
     @media screen and (max-width: 800px) {
@@ -1402,7 +1429,11 @@ ul {
                 justify-content: center; } }
     @media screen and (min-width: 991px) {
       .parallax-section .block-in-section {
-        width: 50%; } }
+        width: 50%; }
+        .parallax-section .block-in-section--40 {
+          width: 40%; }
+        .parallax-section .block-in-section--60 {
+          width: 60%; } }
     .parallax-section .block-in-section--image {
       overflow: hidden; }
       .parallax-section .block-in-section--image img {
@@ -1445,6 +1476,96 @@ ul {
       max-width: 195px;
       margin: auto;
       line-height: 26px; }
+      @media screen and (max-width: 990px) {
+        .parallax-section .block-in-section__info {
+          font-size: 18px; } }
+  .parallax-section__title {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 38px;
+    display: block;
+    margin: 0; }
+    @media screen and (max-width: 990px) {
+      .parallax-section__title {
+        font-size: 26px;
+        text-align: center; } }
+  .parallax-section__subTitle {
+    font-weight: 400;
+    margin: 10px 0 0; }
+    @media screen and (max-width: 990px) {
+      .parallax-section__subTitle {
+        text-align: center;
+        font-size: 15px; } }
+  .parallax-section__info {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 26px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    @media screen and (max-width: 990px) {
+      .parallax-section__info {
+        text-align: center;
+        font-size: 16px; } }
+  .parallax-section__info--white, .parallax-section__subTitle--white, .parallax-section__title--white, .parallax-section__list--white,
+  .parallax-section .product-amount--white {
+    color: white !important; }
+  .parallax-section__info--red, .parallax-section__subTitle--red, .parallax-section__title--red, .parallax-section__list--red,
+  .parallax-section .product-amount--red {
+    color: #ed1c24 !important; }
+  .parallax-section__info--black, .parallax-section__subTitle--black, .parallax-section__title--black, .parallax-section__list--black,
+  .parallax-section .product-amount--black {
+    color: #29282e !important; }
+  .parallax-section__list-before--red:before {
+    color: #ed1c24; }
+  .parallax-section__list-before--black:before {
+    color: #29282e; }
+  .parallax-section__list-before--white:before {
+    color: white; }
+  @media screen and (max-width: 990px) {
+    .parallax-section__list {
+      width: 199px;
+      margin: auto; } }
+  .parallax-section__list li {
+    font-size: 20px;
+    padding: 8px 0;
+    line-height: 26px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    @media screen and (max-width: 990px) {
+      .parallax-section__list li {
+        font-size: 16px; } }
+    .parallax-section__list li:before {
+      content: '\f00c';
+      font-family: FontAwesome;
+      color: #ed1c24;
+      margin-right: 20px; }
+  .parallax-section .add-to-cart-btn {
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: block;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0;
+    outline: none;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 250px; }
+    @media screen and (max-width: 990px) {
+      .parallax-section .add-to-cart-btn {
+        margin: 20px auto; } }
+  .parallax-section .product-amount {
+    font-size: 26px; }
+    @media screen and (max-width: 990px) {
+      .parallax-section .product-amount {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center; } }
+  .parallax-section .product-price {
+    margin: 40px 0;
+    text-align: center; }
 
 @media screen and (max-width: 800px) {
   .restaurants .wrapper .section__title {
@@ -4037,13 +4158,22 @@ section .training-plan-faqs-block-wrapper .wrapper {
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
             box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding: 43px 0; }
+    padding: 43px 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+    @media screen and (max-width: 800px) {
+      .popUp__wrapper {
+        overflow: scroll;
+        margin-top: -450%; } }
+    @media screen and (max-width: 500px) {
+      .popUp__wrapper {
+        padding: 80px 0; } }
     .popUp__wrapper--show {
       margin-top: 0;
       display: block; }
     @media screen and (max-width: 320px) {
       .popUp__wrapper {
-        padding: 20px 0; } }
+        padding: 40px 20px; } }
   .popUp__close {
     position: absolute;
     top: 10px;
@@ -4106,7 +4236,8 @@ section .training-plan-faqs-block-wrapper .wrapper {
       .popUp__info {
         text-align: center;
         width: 100%;
-        margin-top: 20px; } }
+        margin-top: 20px;
+        padding: 0; } }
   .popUp__name {
     font-size: 23px;
     line-height: 26px;
@@ -4141,6 +4272,70 @@ section .training-plan-faqs-block-wrapper .wrapper {
       margin-bottom: 10px; }
     .popUp .product-price {
       margin: 10px 0 0; } }
+  .popUp__subTitle {
+    font-size: 20px;
+    color: #494949; }
+  .popUp__productPriceBlock .old-price {
+    font-size: 23px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 400; }
+  .popUp__productPriceBlock .product-price {
+    font-size: 30px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #ed1c24;
+    margin-left: 20px; }
+  @media screen and (max-width: 800px) {
+    .popUp__productPriceBlock .product-amount .flex {
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; } }
+  .popUp .add-to-cart-btn {
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: block;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    outline: none;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 250px; }
+    @media screen and (max-width: 500px) {
+      .popUp .add-to-cart-btn {
+        margin: 0 auto 20px; } }
+  .popUp .no-thanks {
+    text-transform: uppercase;
+    font-size: 23px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #29282e;
+    margin-right: 20px; }
+    @media screen and (max-width: 950px) {
+      .popUp .no-thanks {
+        margin-right: 0;
+        font-size: 20px; } }
+    .popUp .no-thanks:hover {
+      color: #ed1c24; }
+  .popUp .btns-add-to-thanks {
+    margin: 40px 0; }
+    @media screen and (max-width: 500px) {
+      .popUp .btns-add-to-thanks {
+        display: block; } }
+  .popUp .learn-more {
+    text-decoration: underline;
+    color: #29282e;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 700; }
+    .popUp .learn-more:hover {
+      color: #ed1c24; }
 
 header {
   border-top: 3px solid #ed1c24; }
