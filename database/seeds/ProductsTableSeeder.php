@@ -28,7 +28,7 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan_without_bg.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shrnGkDNeGxWGmxBV'])
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
@@ -57,7 +57,7 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan_without_bg.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shr0jIVi7hXwcM0dz'])
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
