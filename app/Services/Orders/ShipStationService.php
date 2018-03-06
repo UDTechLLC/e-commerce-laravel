@@ -77,7 +77,7 @@ class ShipStationService
         $address->city = $destination->city;
         $address->state = $destination->state;
         $address->postalCode = $destination->postcode;
-        $address->country = 'US';
+        $address->country = $destination->iso_3166;
         $address->phone = $destination->phone;
 
         return $address;
