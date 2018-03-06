@@ -28,6 +28,7 @@
 <div id="app">
     @include('web.layouts.header')
     @yield('content')
+    <modal-cart v-show="showCart"></modal-cart>
     @include('web.layouts.footer')
 </div>
 <!-- Scripts -->
@@ -41,6 +42,7 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
     <script src="{{ asset('web/js/script.js') }}"></script>
+    <script src="{{ asset('web/js/modal.js')}}"></script>
     <script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>
     <script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>
 @show

@@ -1,6 +1,6 @@
 <template>
     <div class="header-cart-wrapper">
-        <a href="/cart" class="header-cart">
+        <a href="#" class="header-cart" @click="$parent.showCart = !$parent.showCart">
             <!-- <span class="header-cart__text">Cart</span>-->
                         <span class="header-cart__text">
                                 <span class="flex">
@@ -13,9 +13,9 @@
                                 </span>
                             </span>
         </a>
-        <ul class="header-cart-items">
+        <!--<ul class="header-cart-items">
             <li class="header-cart-item" v-for="product in products">
-                <a :href="'/product/' + product.slug" class="flex flex-a--center flex-j--between">
+                <a :href="'/product/' + product.slug" class="flex flex-a&#45;&#45;center flex-j&#45;&#45;between">
                                         <span class="header-cart-item__image">
                                             <img :src="product.image" alt="">
                                         </span>
@@ -38,12 +38,12 @@
 
 
             <li class="header-cart-items__footer">
-                <div class="flex flex-a--center flex-j--between">
+                <div class="flex flex-a&#45;&#45;center flex-j&#45;&#45;between">
                     <a href="/cart" class="header-cart-items__footer-view-cart">View Cart</a>
                     <a href="/checkout" class="header-cart-items__footer-checkout">Checkout</a>
                 </div>
             </li>
-        </ul>
+        </ul>-->
     </div>
 </template>
 <script type="text/babel">

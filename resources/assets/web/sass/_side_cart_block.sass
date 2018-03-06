@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i')
+
+.modal-open
+  overflow: hidden
+
+  .modal
+    overflow-x: hidden
+    overflow-y: auto
+
+  .modal-backdrop
+    background-color: #000
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 999
+
+    &.fade
+      filter: alpha(opacity=0)
+      opacity: 0
+
+    &.in
+      opacity: .65
+
+.fade
+  opacity: 0
+  transition: opacity .15s linear
+
+.side-cart-screen-block
+  &.fade
+    transition: opacity .15s linear
+
+    &.in
+      opacity: 1
+
+  &.modal.right
+    &.fade
+      .modal-dialog
+        right: -394px
+        transform: translate(0, -25%)
+        transition: opacity 0.3s linear, right 0.3s ease-out
+
+      @media screen and (max-width: 480px)
+        right: -305px
+
+    &.in
+      .modal-dialog
+        right: 0
+        transform: translate(0, 0)
+
+  .modal-dialog
+    height: 100%
+    max-width: 394px
+    position: fixed
+    transform: translate3d(0%, 0, 0)
+    top: 0
+    width: 100%
+    z-index: 9999
+
+    @media screen and (max-width: 480px)
+      max-width: 305px
+
+    .side-cart-block-wrapper
+      box-sizing: border-box
+      height: 100%
+      overflow-y: auto
+      position: absolute
+      right: 0
+      top: 0
+      width: 100%
+      z-index: 9999
+
+      .side-cart-block
+        background-color: #ededed
+        height: 100%
+        width: 100%
+
+        .close-cart
+          background-image: url("../images/side-cart-close-icon.png")
+          background-repeat: no-repeat
+          cursor: pointer
+          height: 20px
+          position: absolute
+          right: 15px
+          top: 15px
+          width: 20px
+
+        .cart-products-wrapper
+          background-color: #FFFFFF
+          border-bottom: 1px solid #d6d6d6
+          padding: 30px
+
+          @media screen and (max-width: 480px)
+            padding: 15px
+
+          .cart-single-product
+            border-bottom: 1px solid #d6d6d6
+            display: flex
+            font-family: "PT Sans", Arial, Helvetica, sans-serif
+            justify-content: space-between
+            padding: 25px 0
+
+            &:last-child
+              border-bottom: none
+              padding-bottom: 0
+
+            .product-image
+              max-width: 120px
+
+              @media screen and (max-width: 480px)
+                max-width: 90px
+
+              img
+                height: auto
+                width: 100%
+
+            .product-details
+              @media screen and (max-width: 480px)
+                margin-left: 10px
+
+              .product-title
+                color: #000000
+                font-size: 15px
+                font-weight: normal
+                margin-top: 0
+
+              .product-price-wrapper
+                display: flex
+                justify-content: space-between
+                margin-bottom: 15px
+
+                @media screen and (max-width: 480px)
+                  flex-wrap: wrap
+
+                .product-price
+                  color: #f11618
+                  font-size: 18px
+                  font-weight: bold
+                  margin: auto 0
+
+                .quantity
+                  border: 1px solid #eaeaea
+                  display: inline-block
+                  margin: 0
+                  overflow: hidden
+
+                  input
+                    background-color: #ffffff
+                    border: 0
+                    border-radius: 0
+                    color: #494949
+                    float: left
+                    font-size: 13px
+                    height: 36px
+                    line-height: 16px
+                    margin: 0
+                    padding: 0
+                    text-align: center
+                    vertical-align: middle
+                    -webkit-appearance: none
+                    width: 36px
+
+                    &.minus, &.plus
+                      cursor: pointer
+
+                      &:hover
+                        background-color: #f6f6f6
+
+                    &.minus
+                      border-right: 1px solid #eaeaea
+
+                    &.plus
+                      border-left: 1px solid #eaeaea
+
+                    &.qty
+                      -moz-appearance: textfield
+
+              .deliver-block-wrapper
+                display: flex
+                justify-content: space-between
+
+                @media screen and (max-width: 480px)
+                  flex-wrap: wrap
+
+                .deliver-label
+                  color: #000000
+                  display: block
+                  font-size: 15px
+                  font-weight: normal
+                  margin: auto 0
+
+                .select2
+                  &-container
+                    width: 147px !important
+
+                  &-selection
+                    border-color: #eaeaea !important
+                    border-radius: 0 !important
+                    height: 36px !important
+
+                    &__rendered
+                      color: #000000 !important
+                      font-size: 14px !important
+                      line-height: 35px !important
+
+                    &__arrow
+                      top: 5px !important
+
+        .cart-button-area-wrapper
+          background-color: #ededed
+          padding: 25px 30px
+
+          @media screen and (max-width: 480px)
+            padding: 10px 15px
+
+          .cart-sub-totals-block-wrapper
+            display: flex
+            justify-content: space-between
+            margin-bottom: 18px
+
+            .cart-sub-totals-block
+              font-size: 18px
+              font-weight: bold
+              padding-left: 15px
+
+              @media screen and (max-width: 480px)
+                padding-left: 0
+
+              .sub-total-label
+                color: #29282e
+
+              .sub-total-amount
+                color: #f13031
+
+            .view-cart-link
+              color: #29282e
+              display: block
+              font-size: 18px
+              font-weight: normal
+              outline: none
+              text-decoration: underline
+
+          .cart-button-area
+            .cart-button
+              font-family: Montserrat, Arial, Helvetica, sans-serif
+              margin-bottom: 10px
+              width: 100%
+
+              &.checkout-button-wrapper
+              &.keep-shoping-button-wrapper
+              a
+                border-radius: 3px
+                color: #ffffff
+                display: block
+                font-size: 23px
+                font-weight: bold
+                outline: none
+                padding: 10px 0
+                text-align: center
+                text-transform: uppercase
+                width: 100%
+
+                &.checkout-button
+                  background-color: #ed1c24
+
+                &.keep-shoping-button
+                  background-color: #29282e
+
+        .side-cart-footer-wrapper
+          background-color: #ed1c24
+          bottom: 0
+          color: #ffffff
+          font-size: 15px
+          font-weight: normal
+          left: 0
+          padding: 30px 15px
+          position: absolute
+          right: 0
+          text-align: center
+          text-transform: uppercase
+          width: 100%
+
+          @media screen and (max-width: 480px)
+            position: static
+
+          .secure-shoping-wrapper
+          .subscribe-save-wrapper
+            .subs-save-more-info
+              color: #ffffff
+              outline: none
+              text-decoration: underline
+
+          .label
+            font-weight: bold

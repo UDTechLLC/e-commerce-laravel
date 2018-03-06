@@ -8,12 +8,16 @@ Vue.component('add-to-cart', require('./component/addToCart'));
 Vue.component('mini-cart', require('./component/cart'));
 Vue.component('checkout', require('./pages/checkout'));
 Vue.component('add-to-cart-mobile', require('./component/addToCartMobile'));
+Vue.component('modal-cart', require('./component/modal_cart'));
 require('./mixins');
 
 Vue.prototype.$EventBus = new Vue();
 
 const app = new Vue({
   el: '#app',
+  data: {
+    showCart: false
+  },
   created() {
     if (!Vue.localStorage.get('hash')) {
       let hash = this.makeCardHash();
