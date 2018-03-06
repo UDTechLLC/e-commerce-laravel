@@ -7,15 +7,22 @@ $width-screen-600: 600px
   padding: 70px 0 0
   height: 770px
   position: relative
+  &--never-stop
+    height: 931px
+    .block-in-section-wrapper
+      @media screen and (max-width: $width-screen-990)
+        flex-direction: column !important
+
   @media screen and (max-width: $width-screen-990)
     padding: 70px 0 420px
   @media screen and (max-width: $width-screen-600)
     padding: 70px 0 600px
   @media screen and (max-width: 400px)
     padding: 30px 15px 650px
+
   .section
     &__text
-      max-width: 650px
+      max-width: 700px
       margin: 50px auto
       @media screen and (max-width: $breakpoint-mobile)
         margin: 20px auto 0
@@ -24,6 +31,8 @@ $width-screen-600: 600px
     @media screen and (max-width: $width-screen-990)
       justify-content: center
       flex-direction: column-reverse
+      padding: 0 20px
+      box-sizing: border-box
   .block-in-section
     width: 100%
     @media screen and (max-width: $breakpoint-mobile)
@@ -32,6 +41,10 @@ $width-screen-600: 600px
         justify-content: center
     @media screen and (min-width: $width-screen-990 + 1 )
       width: 50%
+      &--40
+        width: 40%
+      &--60
+        width: 60%
     &--image
       overflow: hidden
       img
@@ -70,20 +83,101 @@ $width-screen-600: 600px
       text-transform: uppercase
       font-size: 22.5px
       margin: 15px 0 10px
+
     &__info
       font-size: 20px
       max-width: 195px
       margin: auto
       line-height: 26px
+      @media screen and (max-width: $width-screen-990)
+        font-size: 18px
 
 
 
+  &__title
+    font-family: $Montserrat
+    font-size: 38px
+    display: block
+    margin: 0
+    @media screen and (max-width: $width-screen-990)
+      font-size: 26px
+      text-align: center
+  &__subTitle
+    font-weight: 400
+    margin: 10px 0 0
+    @media screen and (max-width: $width-screen-990)
+      text-align: center
+      font-size: 15px
+
+  &__info
+    margin: 20px 0
+    font-size: 20px
+    line-height: 26px
+    font-family: $Montserrat
+    @media screen and (max-width: $width-screen-990)
+      text-align: center
+      font-size: 16px
+  &__info,
+  &__subTitle,
+  &__title,
+  &__list,
+  .product-amount
+    &--white
+      color: white !important
+    &--red
+      color: $red !important
+    &--black
+      color: $def-color !important
 
 
+  &__list-before
+    &--red
+      &:before
+        color: $red
+    &--black
+      &:before
+        color: $def-color
+    &--white
+      &:before
+        color: white
 
+  &__list
+    @media screen and (max-width: $width-screen-990)
+      width: 199px
+      margin: auto
+    li
+      font-size: 20px
+      padding: 8px 0
+      line-height: 26px
+      font-family: $Montserrat
+      @media screen and (max-width: $width-screen-990)
+        font-size: 16px
+      &:before
+        content: '\f00c'
+        font-family: FontAwesome
+        color: $red
+        margin-right: 20px
 
-
-
-
-
-
+  .add-to-cart-btn
+    border-radius: 3px
+    box-sizing: border-box
+    display: block
+    font-family: $Montserrat
+    font-size: 23px
+    font-weight: 700
+    margin: 0
+    outline: none
+    padding: 10px 0
+    text-align: center
+    text-decoration: none
+    text-transform: uppercase
+    width: 250px
+    @media screen and (max-width: $width-screen-990)
+      margin: 20px auto
+  .product-amount
+    font-size: 26px
+    @media screen and (max-width: $width-screen-990)
+      justify-content: center
+  .product-price
+    margin: 40px 0
+    text-align: center

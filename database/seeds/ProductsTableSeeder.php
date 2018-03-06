@@ -25,14 +25,14 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/12_week_cutom_training_plan.png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan_without_bg.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shrnGkDNeGxWGmxBV'])
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/shop_icon_12_week_custom_training_plan.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icons.jpg';
         $product
             ->addMedia($pathToFile)
             ->preservingOriginal()
@@ -54,14 +54,14 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/12_week_cutom_meal_plan.png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan_without_bg.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shr0jIVi7hXwcM0dz'])
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/12_week_custom_meal_plan_shop_preview.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
