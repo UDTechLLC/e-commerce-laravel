@@ -23,6 +23,16 @@
             });
         }
 
+        if ( 0 < $( '#prevWinnersSlider' ).length ) {
+            $( '#prevWinnersSlider' ).slick({
+                autoplay: true,
+                arrows: false,
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        }
+
         if ( 0 < $( '.customer-login-form' ).length ) {
             $( '.showlogin' ).on( 'click', function() {
                 $( '.customer-login-form' ).slideToggle();
