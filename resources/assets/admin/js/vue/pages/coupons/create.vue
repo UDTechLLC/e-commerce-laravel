@@ -1,8 +1,8 @@
 <template>
     <div>
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
+        <form id="demo-form3" data-parsley-validate class="form-horizontal form-label-left" method="post">
             <div class="form-group" :class="{'has-error': errors.has('title') }">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Code <span
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Code <span
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -95,13 +95,11 @@
 //                    this.imagePreview = file;
 //                    this.errorPreviewImage = false;
 //                },
-//                validateBeforeSubmit() {
-//                    this.$validator.validateAll().then((result) => {
-//                        if (this.image == "") this.errorImage = true;
-//                        if (this.imagePreview == "") this.errorPreviewImage = true;
-//                        if (result && this.image && this.imagePreview)  this.submitForm();
-//                    });
-//                },
+                validateBeforeSubmit() {
+                    this.$validator.validateAll().then((result) => {
+                         this.submitForm();
+                    });
+                },
                 submitForm() {
                     let data = {
                         code: this.code,

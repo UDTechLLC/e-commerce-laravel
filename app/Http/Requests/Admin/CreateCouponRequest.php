@@ -13,7 +13,7 @@ class CreateCouponRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class CreateCouponRequest extends FormRequest
             return [
                 'code' => 'required',
                 'description' => 'required',
-//                'discount_type' => 'required',
+//                'limit' => 'required',
                 'coupon_amount' => 'required',
 
 

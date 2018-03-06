@@ -17,10 +17,10 @@ Route::group([
         'uses' => 'CouponController@create'
     ]);
 
-//    Route::post('/store', [
-//        'as'   => '.store',
-//        'uses' => 'CouponController@store'
-//    ]);
+    Route::post('/store', [
+        'as'   => '.store',
+        'uses' => 'CouponController@store'
+    ]);
 
 //    Route::get('/edit/{coupon}', [
 //        'as'   => '.edit',
