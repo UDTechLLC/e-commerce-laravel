@@ -20,19 +20,23 @@ class Order extends EloquentModel
     const ORDER_STATE_CANCELED = 'CANCELED';
     const ORDER_STATE_COMPLETED = 'COMPLETED';
     const ORDER_STATE_FAILED = 'FAILED';
-    const ORDER_STATE_ONHOLD = 'ON_HOLD';
-    const ORDER_STATE_PENDINGPAYMENT = 'PENDING_PAYMENT';
+    const ORDER_STATE_ON_HOLD = 'ON_HOLD';
+    const ORDER_STATE_PENDING_PAYMENT = 'PENDING_PAYMENT';
+    const ORDER_STATE_PENDING_SHIPMENT = 'PENDING_SHIPMENT';
     const ORDER_STATE_PROCESSING = 'PROCESSING';
     const ORDER_STATE_REFUNDED = 'REFUNDED';
+    const ORDER_STATE_SHIPPED = 'SHIPPED';
 
     const ORDER_STATES = [
         self::ORDER_STATE_CANCELED,
         self::ORDER_STATE_COMPLETED,
         self::ORDER_STATE_FAILED,
-        self::ORDER_STATE_ONHOLD,
-        self::ORDER_STATE_PENDINGPAYMENT,
+        self::ORDER_STATE_ON_HOLD,
+        self::ORDER_STATE_PENDING_PAYMENT,
+        self::ORDER_STATE_PENDING_SHIPMENT,
         self::ORDER_STATE_PROCESSING,
-        self::ORDER_STATE_REFUNDED
+        self::ORDER_STATE_REFUNDED,
+        self::ORDER_STATE_SHIPPED,
 
     ];
     protected $table = 'orders';
@@ -43,10 +47,12 @@ class Order extends EloquentModel
      */
     protected $fillable = [
         // @todo:
+        'order_key',
         'user_id',
         'shipping_id',
         'billing_id',
         'cart_id',
+        'coupon_id',
         'product_cost',
         'shipping_cost',
         'total_cost',
