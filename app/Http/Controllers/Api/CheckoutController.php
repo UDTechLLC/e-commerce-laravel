@@ -15,6 +15,7 @@ use App\Transformers\Api\OrderTransformer;
 use App\Transformers\Api\UserTransformer;
 use Illuminate\Http\Request;
 use PragmaRX\Countries\Package\Countries;
+use Stripe\Product;
 
 class CheckoutController extends Controller
 {

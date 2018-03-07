@@ -30,9 +30,10 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->foreign('coupon_id')->references('id')->on('coupons');
             $table->foreign('shipping_id')->references('id')->on('order_shipping');
             $table->foreign('billing_id')->references('id')->on('order_billing');
-//            $table->foreign('billing_id')->references('id')->on('order_billing');
         });
     }
 

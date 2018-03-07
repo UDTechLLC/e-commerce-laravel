@@ -16,8 +16,12 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('coupon_id')->nullable();
             $table->string('hash')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('coupon_id')->references('id')->on('coupons');
         });
     }
 

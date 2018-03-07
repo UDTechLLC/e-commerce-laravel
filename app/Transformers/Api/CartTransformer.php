@@ -19,6 +19,7 @@ class CartTransformer extends TransformerAbstract
     public function transform(Cart $cart): array
     {
         $productSum = $this->getProductsSum($cart);
+        $productCount = $this->getProductsCount($cart);
         $isShipping = $this->isShipping($cart);
 
         return [
@@ -26,7 +27,7 @@ class CartTransformer extends TransformerAbstract
             'products'   => fractal($cart->products, new ProductTransformer()),
             'isShipping' => $isShipping,
             'sum'        => [
-                'products_counts' => $this->getProductsCount($cart),
+                'products_counts' => $productCount,
                 'products_sum'    => $productSum,
             ],
         ];
@@ -42,7 +43,7 @@ class CartTransformer extends TransformerAbstract
         $sum = 0;
 
         foreach ($cart->products as $product) {
-            $sum += $product->pivot->count * $product->amount;
+            $sum += $product->pivot->count * $product->amount - $product->pivot->discount;
         }
 
         return number_format($sum, 2);
