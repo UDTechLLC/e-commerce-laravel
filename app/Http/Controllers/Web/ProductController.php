@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        $product = Product::all();
+        $product = Product::where('published', true)->get();
         return view("web.shop.products.index", [
             'products'=>$product
         ]);
@@ -64,9 +64,10 @@ class ProductController extends Controller
         else
         return view('web.shop.products.show', compact('product'));
     }
+
     public function challenge(): View
     {
-        $product = Product::all();
+        $product = Product::where('category','Limited-Time Offer')->get();
         return view("web.shop.challenges.spring", [
             'products'=>$product
         ]);
