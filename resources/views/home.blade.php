@@ -14,7 +14,7 @@
             </div>
             <div class="secondary-products">
                 <div class="tabs-flex">
-                    <a class="top" href="#">
+                    <a class="top" href="{{url('product/queen-of-the-hill')}}">
                         <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/desktop_2.jpg')}}" />
                         <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/mobile_2.jpg')}}">
                     </a>
