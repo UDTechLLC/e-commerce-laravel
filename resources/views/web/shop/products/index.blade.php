@@ -49,7 +49,7 @@
                                 <div class="add-to-cart-wrapper">
                                     <add-to-cart
                                     product-slug="{{ $product->slug }}"
-                                    {{--data-title="12 Week Custom Meal Plan"--}}
+                                    data-title="{{ $product->title }}"
                                     >
                                     </add-to-cart>
                                 </div>
@@ -67,13 +67,13 @@
     </div>
 
     </main>
-   {{-- <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
+    <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
-                    <img src="assets/images/popUp/12-week-popUp.png" alt="12-week-popUp">
+                    <img src="{{ asset('web/images/popUp/12-week-popUp.png') }}" alt="12-week-popUp">
                 </div>
                 <div class="popUp__info">
                     <div class="popUp__name">12 Week Custom Training Plan</div>
@@ -103,7 +103,7 @@
             <h2 class="popUp__title">FREE GIFT</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
-                    <img src="assets/images/popUp/meal_free_icon.png" alt="meal_free_icon">
+                    <img src="{{ asset('web/images/popUp/meal_free_icon.png') }}" alt="meal_free_icon">
                 </div>
                 <div class="popUp__info">
                     <div class="popUp__name">12 Week Custom Meal Plan</div>
@@ -125,5 +125,5 @@
                 </div>
             </div>
         </div>
-    </div>--}}
+    </div>
 @endsection
