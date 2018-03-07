@@ -61,6 +61,31 @@
                             {{--</add-to-cart>--}}
                         {{--</div>--}}
             @endforeach
+                <div class="shop-item">
+                    <div class="image-wrapper">
+                        <a href="{{url('challenge')}}">
+                            <img src="{{ asset('web/images/30_day_challenge_shop_preview.png') }}" />
+                        </a>
+                    </div>
+                    <div class="product-details">
+                        <h2 class="product-title">
+                            <a href="{{url('challenge')}}">
+                                Spring Challenge </a>
+                        </h2>
+                    </div>
+
+                    <div class="product-button-block">
+                        <div class="add-to-cart-wrapper">
+                            <div class="product-button-block">
+                                <div class="add-to-cart-wrapper">
+                                    <a class="add-to-cart-btn" href="{{url('challenge')}}">
+                                        Register
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
         </div>
