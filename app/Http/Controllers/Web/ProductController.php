@@ -64,6 +64,13 @@ class ProductController extends Controller
         else
         return view('web.shop.products.show', compact('product'));
     }
+    public function challenge(): View
+    {
+        $product = Product::all();
+        return view("web.shop.challenges.spring", [
+            'products'=>$product
+        ]);
+    }
 
     /**
      * Show the form for editing the specified resource.
