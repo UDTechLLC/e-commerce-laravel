@@ -33,10 +33,10 @@
                            v-validate data-vv-rules="decimal"
                            :class="{'is-danger': errors.has('coupon_amount')}"
                            name="old-price" class="form-control col-md-7 col-xs-12">
-                    <span class="text-danger" v-if="errors.has('coupon_amount')">{{ errors.first('coupon_amount') }}</span>
+                    <span class="text-danger"
+                          v-if="errors.has('coupon_amount')">{{ errors.first('coupon_amount') }}</span>
                 </div>
             </div>
-        Hello
             <div class="ln_solid"></div>
             <div class="form-group">
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -50,84 +50,41 @@
 </template>
 <script type="text/babel">
 
-//    export default ({
-//        data() {
-//            return {
-//                searchQuery: '',
-//                actionField: true,
-//                gridColumns: [
-//                    'id',
-//                    'code',
-//                    'description',
-//                    'discount_type',
-//                    'coupon_amount'
-//                ],
-                export default ({
-                  data: () => ({
-                code: "",
-                description: "",
-//                discount_type: "",
-                coupon_amount : "",
-//                view_name: "show",
-//                viewArray:[],
-//                oldPrice: null,
-//                price: "",
-            }),
-//                props: {
-//                viewList: String
-//            },
-//            created() {
-//                this.viewArray = JSON.parse(this.viewList);
-//            },
-//            computed: {
-//                renderSlug() {
-//                    let slug = this.sanitizeTitle(this.title);
-//                    this.slug = slug;
-//                    return `${location.hostname}/${slug}`;
-//                }
-//            },
-            methods: {
-//                getFile(file) {
-//                    this.image = file;
-//                    this.errorImage = false;
-//                },
-//                getPreview(file) {
-//                    this.imagePreview = file;
-//                    this.errorPreviewImage = false;
-//                },
-                validateBeforeSubmit() {
-                    this.$validator.validateAll().then((result) => {
-                         this.submitForm();
-                    });
-                },
-                submitForm() {
-                    let data = {
-                        code: this.code,
-//                        subtitle: this.subtitle,
-                        description: this.description,
-//                        discount_type: this.discount_type,
-                        coupon_amount: this.coupon_amount
-//                        view_name: this.view_name,
-//                        oldPrice: this.oldPrice,
-//                        price: this.price
-                    };
-                    axios.post('/admin/coupons/store', data).then(
+    export default ({
+        data: () => ({
+            code: "",
+            description: "",
+            coupon_amount: ""
+
+        }),
+
+        methods: {
+            validateBeforeSubmit() {
+                this.$validator.validateAll().then((result) => {
+                    this.submitForm();
+                });
+            },
+            submitForm() {
+                let data = {
+                    code: this.code,
+                    description: this.description,
+                    coupon_amount: this.coupon_amount
+                };
+                axios.post('/admin/coupons/store', data).then(
                         result => {
                             this.notifySuccess("Done", "Coupon create");
                             setTimeout(() => location.href = "/admin/coupons", 1500);
                         },
                         error => {
                             this.notifyError(
-                                error.response.data.message,
-                                error.response.data.errors,
-                                error.response.status)
+                                    error.response.data.message,
+                                    error.response.data.errors,
+                                    error.response.status)
                         }
-                    );
+                );
+            },
 
+        }
 
-                },
-
-            }
-
-       });
+    });
 </script>
