@@ -211,6 +211,7 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Custom Meal & Workout Plan',
+            'description'       => 'Custom Meal & Workout Plan',
             'amount'      => '99.99',
             'slug'        => 'Custom-Meal-&-Workout-Plan',
             'category'    => 'Limited-Time Offer',
@@ -228,6 +229,7 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Custom Meal & Workout Plan + email support',
+            'description'       => 'Custom Meal & Workout Plan + email support',
             'amount'      => '139.99',
             'slug'        => 'Custom-Meal-&-Workout-Plan-+-email_support',
             'category'    => 'Limited-Time Offer',
@@ -245,6 +247,7 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Custom Meal & Workout Plan + email support + Maxx',
+            'description' => 'Custom Meal & Workout Plan + email support + Maxx',
             'amount'      => '159.99',
             'slug'        => 'Custom-Meal-&-Workout-Plan-+-email_support-+-Maxx',
             'category'    => 'Limited-Time Offer',
