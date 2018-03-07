@@ -33,8 +33,10 @@
                             <div class="promotional-code-form-wrapper">
                                 <form class="promotional-code-form" action="" name="" method="post">
                                     <div class="promotional-code-form-block">
-                                        <input name="coupon_code" class="cart-form-field" value="" placeholder="Coupon code" type="text" />
-                                        <input class="cart-submit-field promo-code-button" name="apply_coupon" value="Apply Coupon" type="submit" />
+                                        <input name="coupon_code" class="cart-form-field" value="" placeholder="Coupon code"
+                                               type="text" v-model="coupon" />
+                                        <input class="cart-submit-field promo-code-button" name="apply_coupon"
+                                               value="Apply Coupon" type="submit" @click.prevent="submitCoupon" />
                                     </div>
                                 </form>
                             </div>
@@ -102,6 +104,7 @@
     export default ({
         data: () => ({
             products: [],
+            coupon: "",
             isShipping: false,
             countItems: 0,
             subTotal: 0,
@@ -117,7 +120,6 @@
         },
         computed: {
           total() {
-              console.log(this.subTotal + " === " + this.shipping);
               return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
           }
         },
@@ -158,6 +160,14 @@
                         .start();
 
                 animate()
+            },
+            submitCoupon() {
+                let url = `api/carts/coupons/add?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
+
+                axios.get(url).then(
+                        response => console.log(response),
+                        error => console.log('error')
+                )
             }
         }
     })
