@@ -88,6 +88,6 @@ class Coupon extends EloquentModel
     // @todo:
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class, 'product_coupons');
     }
 }
