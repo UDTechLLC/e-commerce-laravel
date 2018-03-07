@@ -20,6 +20,7 @@ class CartTransformer extends TransformerAbstract
     {
         $productSum = $this->getProductsSum($cart);
         $discountSum = $this->getDiscountSum($cart);
+        $withDiscountSum = $this->getWithDiscountSum($productSum, $discountSum);
         $productCount = $this->getProductsCount($cart);
         $isShipping = $this->isShipping($cart);
 
@@ -27,10 +28,12 @@ class CartTransformer extends TransformerAbstract
             'id'         => $cart->getKey(),
             'products'   => fractal($cart->products, new ProductTransformer()),
             'isShipping' => $isShipping,
+            'coupon'     => $cart->coupon ? $cart->coupon->code : null,
             'sum'        => [
-                'products_counts' => $productCount,
-                'products_sum'    => number_format($productSum - $discountSum, 2),
-                'discount_sum'    => $discountSum,
+                'products_counts'   => $productCount,
+                'products_sum'      => $productSum,
+                'discount_sum'      => $discountSum,
+                'with_discount_sum' => $withDiscountSum,
             ],
         ];
     }
@@ -45,7 +48,7 @@ class CartTransformer extends TransformerAbstract
         $sum = 0;
 
         foreach ($cart->products as $product) {
-            $sum += $product->pivot->count * $product->amount - $product->pivot->discount;
+            $sum += $product->pivot->count * $product->amount;
         }
 
         return number_format($sum, 2);
@@ -60,13 +63,7 @@ class CartTransformer extends TransformerAbstract
      */
     private function getProductsCount(Cart $cart): int
     {
-        $count = 0;
-
-        foreach ($cart->products as $product) {
-            $count += $product->pivot->count;
-        }
-
-        return $count;
+        return $cart->products()->withPivot('count')->sum('cart_product.count');
     }
 
     /**
@@ -88,8 +85,28 @@ class CartTransformer extends TransformerAbstract
         return false;
     }
 
+    /**
+     * Get discount sum.
+     *
+     * @param Cart $cart
+     *
+     * @return string
+     */
     private function getDiscountSum(Cart $cart)
     {
-        return number_format($cart->products()->withPivot('discount')->sum('discount'), 2);
+        return number_format($cart->products()->withPivot('discount_sum')->sum('discount_sum'), 2);
+    }
+
+    /**
+     * Get sum without discount.
+     *
+     * @param $productsSum
+     * @param $discountSum
+     *
+     * @return string
+     */
+    private function getWithDiscountSum($productsSum, $discountSum)
+    {
+        return number_format($productsSum - $discountSum, 2);
     }
 }

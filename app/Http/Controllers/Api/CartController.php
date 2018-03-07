@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\Api\CartNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Cart\AddCouponRequest;
+use App\Http\Requests\Cart\RemoveCouponRequest;
 use App\Http\Requests\Cart\StoreCartRequest;
 use App\Http\Resources\Api\CartResource;
 use App\Models\Cart;
@@ -24,11 +25,7 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        /** @var User $user */
-        $user = \Auth::user();
-        $hash = $request->get('hash');
-
-        $cart = $this->getCart($user, $hash);
+        $cart = $this->getCart($request);
 
         throw_if(null === $cart, new CartNotFoundException());
 
@@ -82,7 +79,7 @@ class CartController extends Controller
     {
         $hash = $request->get('hash');
 
-        return $this->delete($product, $hash);
+        return $this->delete($request, $product);
     }
 
     /**
@@ -97,19 +94,20 @@ class CartController extends Controller
     {
         $hash = $request->get('hash');
 
-        return $this->delete($product, $hash, true);
+        return $this->delete($request, $product, true);
     }
 
+    /**
+     * @param AddCouponRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addCoupon(AddCouponRequest $request)
     {
-        /** @var User $user */
-        $user = \Auth::user();
-
-        $hash = $request->get('hash');
         $code = $request->get('code');
 
         /** @var Cart $cart */
-        $cart = $this->getCart($user, $hash);
+        $cart = $this->getCart($request);
 
         /** @var Coupon $coupon */
         $coupon = Coupon::where('code', $code)->first();
@@ -122,21 +120,34 @@ class CartController extends Controller
     }
 
     /**
-     * @param Product $product
-     * @param $hash
+     * @param RemoveCouponRequest $request
      *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeCoupon(RemoveCouponRequest $request)
+    {
+        /** @var Cart $cart */
+        $cart = $this->getCart($request);
+
+        $cart->coupon()->dissociate()->save();
+
+        $this->calculateDiscount($cart);
+
+        return fractal($cart, new CartTransformer())->respond();
+    }
+
+    /**
+     * @param $requrst
+     * @param Product $product
      * @param bool $all
      *
      * @return CartResource
      * @throws \Throwable
      */
-    private function delete($product, $hash, $all = false)
+    private function delete($requrst, $product, $all = false)
     {
-        /** @var User $user */
-        $user = \Auth::user();
-
         /** @var Cart $cart */
-        $cart = $this->getCart($user, $hash);
+        $cart = $this->getCart($requrst);
 
         throw_if(null === $cart, new CartNotFoundException());
 
@@ -148,17 +159,22 @@ class CartController extends Controller
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
         }
 
+        $this->calculateDiscount($cart);
+
         return fractal($cart, new CartTransformer())->respond();
     }
 
     /**
-     * @param $user
-     * @param $hash
+     * @param $request
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return Cart
      */
-    private function getCart($user, $hash)
+    private function getCart($request)
     {
+        $user = \Auth::user();
+
+        $hash = $request->get('hash');
+
         return null === $user
             ? Cart::where('hash', $hash)->first() ?? $this->createCart($hash)
             : $user->cart();
@@ -186,17 +202,30 @@ class CartController extends Controller
         $coupon = $cart->coupon;
 
         $cartProducts = $cart->products;
-        $couponProducts = $coupon->products;
+        $couponProducts = $coupon->products ?? null;
 
-        $discount = $coupon->coupon_amount;
+        $discount = $coupon->coupon_amount ?? null;
 
         foreach ($cartProducts as $cartProduct) {
+            if (null === $couponProducts) {
+                $cartProduct->pivot->discount = 0;
+                $cartProduct->pivot->discount_sum = 0;
+
+                $cartProduct->pivot->save();
+
+                continue;
+            }
+
             foreach ($couponProducts as $couponProduct) {
                 if ($cartProduct->getKey() !== $couponProduct->getKey()) {
                     continue;
                 }
 
-                $cartProduct->pivot->discount = $cartProduct->amount / 100 * $discount;
+                $cartProduct->pivot->discount =
+                    $cartProduct->amount / 100 * $discount;
+
+                $cartProduct->pivot->discount_sum =
+                    $cartProduct->amount * $cartProduct->pivot->count / 100 * $discount;
                 $cartProduct->pivot->save();
             }
         }

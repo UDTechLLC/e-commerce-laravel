@@ -17,20 +17,22 @@ class ProductTransformer extends TransformerAbstract
     public function transform(Product $product)
     {
         return [
-            'id'              => $product->id,
-            'title'           => $product->title,
-            'sub_title'       => $product->sub_title,
-            'category'        => $product->category,
-            'description'     => $product->description,
-            'amount'          => $product->amount,
-            'old_amount'      => $product->old_amount,
-            'discount_amount' => number_format($product->amount - $product->pivot->discount),
-            'discount'        => number_format($product->pivot->discount, 2),
-            'slug'            => $product->slug,
-            'count'           => $product->pivot->count,
-            'is_virtual'      => $product->isVirtual,
-            'total_sum'       => number_format($product->total_sum - $product->pivot->discount, 2),
-            'image'           => $product->getFirstMediaUrl('preview'),
+            'id'                      => $product->id,
+            'title'                   => $product->title,
+            'sub_title'               => $product->sub_title,
+            'category'                => $product->category,
+            'description'             => $product->description,
+            'amount'                  => $product->amount,
+            'amount_with_discount'    => $product->getAmountWithDiscount(),
+            'old_amount'              => $product->old_amount,
+            'slug'                    => $product->slug,
+            'count'                   => $product->pivot->count,
+            'is_virtual'              => $product->isVirtual,
+            'discount_amount'         => $product->discount_amount,
+            'discount_amount_sum'     => $product->discount_amount_sum,
+            'total_sum_with_discount' => $product->getTotalSumWithDiscount(),
+            'total_sum'               => $product->total_sum,
+            'image'                   => $product->getFirstMediaUrl('preview'),
         ];
     }
 }

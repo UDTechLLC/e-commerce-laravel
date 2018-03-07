@@ -13,12 +13,12 @@
             </div>
         </td>
         <td class="product-price">
-                    <span v-if="product.discount">
+                    <span v-if="product.discount_amount != '0.00'">
                         <del>$ {{product.amount}}</del>
-                        <span class="product-subtotal-amount"> ${{ product.discount_amount }} </span>
+                        <span class="product-subtotal-amount"> ${{ product.amount_with_discount }} </span>
                     </span>
                      <span v-else class="product-amount">
-                          ${{ product.amount }}
+                          ${{ product.amount_with_discount }}
                      </span>
         </td>
         <td class="product-quantity">
@@ -63,25 +63,14 @@
                     }
                 }
 
-                if (this.product.discount) {
-                    console.log('sss => ' + this.product.discount);
-                    new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
-                            .easing(TWEEN.Easing.Quadratic.Out)
-                            .to({tweeningNumber: newValue.discount_amount}, 500)
-                            .onUpdate(function () {
-                                vm.animatedTotal = this.tweeningNumber.toFixed(2)
-                            })
-                            .start();
-                }
-                else {
-                    new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
-                            .easing(TWEEN.Easing.Quadratic.Out)
-                            .to({tweeningNumber: newValue.total_sum}, 500)
-                            .onUpdate(function () {
-                                vm.animatedTotal = this.tweeningNumber.toFixed(2)
-                            })
-                            .start();
-                }
+                new TWEEN.Tween({tweeningNumber: oldValue.total_sum_with_discount})
+                        .easing(TWEEN.Easing.Quadratic.Out)
+                        .to({tweeningNumber: newValue.total_sum_with_discount}, 500)
+                        .onUpdate(function () {
+                            vm.animatedTotal = this.tweeningNumber.toFixed(2)
+                        })
+                        .start();
+
 
                 animate()
             }
