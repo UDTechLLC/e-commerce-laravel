@@ -33,9 +33,9 @@ class CouponController extends Controller
         $sortField = $request->get('sortField') ?? 'id';
         $sortType = $request->get('sortType') ?? 'asc';
 
-        $users = Coupon::orderBy($sortField, $sortType)->paginate(20);
+        $coupons = Coupon::orderBy($sortField, $sortType)->paginate(20);
 
-        return CouponsResource::collection($users);
+        return CouponsResource::collection($coupons);
     }
     /**
      *  Show the form for creating a new resource.
