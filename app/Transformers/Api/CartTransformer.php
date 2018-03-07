@@ -19,6 +19,7 @@ class CartTransformer extends TransformerAbstract
     public function transform(Cart $cart): array
     {
         $productSum = $this->getProductsSum($cart);
+        $discountSum = $this->getDiscountSum($cart);
         $productCount = $this->getProductsCount($cart);
         $isShipping = $this->isShipping($cart);
 
@@ -29,6 +30,7 @@ class CartTransformer extends TransformerAbstract
             'sum'        => [
                 'products_counts' => $productCount,
                 'products_sum'    => $productSum,
+                'discount_sum'    => $discountSum,
             ],
         ];
     }
@@ -84,5 +86,10 @@ class CartTransformer extends TransformerAbstract
         }
 
         return false;
+    }
+
+    private function getDiscountSum(Cart $cart)
+    {
+        return $cart->products()->withPivot('discount')->sum('discount');
     }
 }
