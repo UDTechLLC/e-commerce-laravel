@@ -21,7 +21,9 @@ class CouponsResource extends Resource
             'coupon_amount' =>substr($this->coupon_amount,0,50),
 //            'title'       => "<a href='" . route('products.show', $this->slug) . "'>" . $this->title . "</a>",
             'description' => substr($this->description, 0, 50) . "...",
-
+            'action' => [
+                'attach' => route('admin.coupons.attach-product', $this->getKey())
+            ]
         ];
     }
 }

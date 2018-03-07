@@ -4,7 +4,8 @@
                 @sort="sort"
                 :data="gridData"
                 :columns="gridColumns"
-                :filter-key="searchQuery">
+                :filter-key="searchQuery"
+                :actionField="actionField">
                 <!--:actionField="actionField"-->
         </table-vue>
 

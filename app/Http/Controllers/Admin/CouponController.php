@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\CreateCouponRequest;
 use App\Http\Requests\Admin\CreateProductRequest;
 use App\Http\Resources\Admin\CouponsResource;
+use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
@@ -32,9 +33,9 @@ class CouponController extends Controller
         $sortField = $request->get('sortField') ?? 'id';
         $sortType = $request->get('sortType') ?? 'asc';
 
-        $users = Coupon::orderBy($sortField, $sortType)->paginate(20);
+        $coupons = Coupon::orderBy($sortField, $sortType)->paginate(20);
 
-        return CouponsResource::collection($users);
+        return CouponsResource::collection($coupons);
     }
     /**
      *  Show the form for creating a new resource.
@@ -108,5 +109,21 @@ class CouponController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function attachProduct(Coupon $coupon)
+    {
+        return view('admin.coupons.coupons-product', [
+            'coupon' => $coupon,
+            'productIds' => $coupon->products->pluck('id')->toArray(),
+            'products' => Product::all()
+        ]);
+    }
+    
+    public function attach(Request $request, Coupon $coupon) 
+    {
+        $coupon->products()->sync($request->get('products'));
+
+        return redirect()->back();
     }
 }
