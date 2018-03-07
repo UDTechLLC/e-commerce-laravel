@@ -184,8 +184,7 @@ class CartController extends Controller
         $discount = $cart->coupon->coupon_amount;
 
         foreach ($products as $product) {
-            $product->pivot->discount =
-                $product->amount - ($product->amount * $product->pivot->count / 100 * $discount);
+            $product->pivot->discount = $product->amount * $product->pivot->count / 100 * $discount;
             $product->pivot->save();
         }
     }
