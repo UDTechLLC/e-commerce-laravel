@@ -267,14 +267,13 @@
                                     <div class="product-details">
                                         <h3 class="product-title">
                                             <a href="#">
-                                                {{--Custom Meal & Workout Plan--}}
 
                                                 {!! $product->title !!}
                                             </a>
                                         </h3>
                                         <p class="product-category-label">
                                             {!! $product->category !!}
-                                            {{--Limited-Time Offer--}}
+
                                         </p>
                                     </div>
                                     <div class="product-price-block">
@@ -282,7 +281,6 @@
                                             <span class="product-amount">
                                                 <ins>
                                                     ${!! $product->amount !!}
-                                                    {{--$99.99--}}
                                                 </ins>
                                             </span>
                                         </div>
@@ -302,82 +300,7 @@
                             </div>
                             @endforeach
 
-                            {{--<div class="shop-item-wrapper">--}}
-                                {{--<h3 class="sc-bandle-title">--}}
-                                    {{--Enhanced--}}
-                                {{--</h3>--}}
-                                {{--<div class="shop-item">--}}
-                                    {{--<div class="image-wrapper">--}}
-                                        {{--<a href="#">--}}
-                                            {{--<img src="{{asset('web/images/spring_challenges/custom_meal_workout_plan_email.png')}}" />--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="product-details">--}}
-                                        {{--<h3 class="product-title">--}}
-                                            {{--<a href="#">--}}
-                                                {{--Custom Meal & Workout Plan + email support--}}
-                                            {{--</a>--}}
-                                        {{--</h3>--}}
-                                        {{--<p class="product-category-label">--}}
-                                            {{--Limited-Time Offer--}}
-                                        {{--</p>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="product-price-block">--}}
-                                        {{--<div class="product-price">--}}
-                                            {{--<span class="product-amount">--}}
-                                                {{--<ins>--}}
-                                                    {{--$139.99--}}
-                                                {{--</ins>--}}
-                                            {{--</span>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="product-button-block">--}}
-                                        {{--<div class="add-to-cart-wrapper">--}}
-                                            {{--<a class="add-to-cart-btn" href="#">--}}
-                                                {{--Add to cart--}}
-                                            {{--</a>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="shop-item-wrapper">--}}
-                                {{--<h3 class="sc-bandle-title">--}}
-                                    {{--Optional--}}
-                                {{--</h3>--}}
-                                {{--<div class="shop-item">--}}
-                                    {{--<div class="image-wrapper">--}}
-                                        {{--<a href="#">--}}
-                                            {{--<img src="{{asset('web/images/spring_challenges/custom_meal_workout_plan_email_maxx.png')}}" />--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="product-details">--}}
-                                        {{--<h3 class="product-title">--}}
-                                            {{--<a href="#">--}}
-                                                {{--Custom Meal & Workout Plan + email support + Maxx--}}
-                                            {{--</a>--}}
-                                        {{--</h3>--}}
-                                        {{--<p class="product-category-label">--}}
-                                            {{--Limited-Time Offer--}}
-                                        {{--</p>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="product-price-block">--}}
-                                        {{--<div class="product-price">--}}
-                                            {{--<span class="product-amount">--}}
-                                                {{--<ins>--}}
-                                                    {{--$159.99--}}
-                                                {{--</ins>--}}
-                                            {{--</span>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="product-button-block">--}}
-                                        {{--<div class="add-to-cart-wrapper">--}}
-                                            {{--<a class="add-to-cart-btn" href="#">--}}
-                                                {{--Add to cart--}}
-                                            {{--</a>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+                         
                         </div>
                     </div>
                 </div>
