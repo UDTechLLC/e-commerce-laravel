@@ -29,7 +29,7 @@ class CartTransformer extends TransformerAbstract
             'isShipping' => $isShipping,
             'sum'        => [
                 'products_counts' => $productCount,
-                'products_sum'    => $productSum,
+                'products_sum'    => number_format($productSum - $discountSum, 2),
                 'discount_sum'    => $discountSum,
             ],
         ];
@@ -90,6 +90,6 @@ class CartTransformer extends TransformerAbstract
 
     private function getDiscountSum(Cart $cart)
     {
-        return $cart->products()->withPivot('discount')->sum('discount');
+        return number_format($cart->products()->withPivot('discount')->sum('discount'), 2);
     }
 }

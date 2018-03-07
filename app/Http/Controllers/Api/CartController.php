@@ -178,14 +178,27 @@ class CartController extends Controller
         ]);
     }
 
+    /**
+     * @param $cart
+     */
     private function calculateDiscount($cart)
     {
-        $products = $cart->products;
-        $discount = $cart->coupon->coupon_amount;
+        $coupon = $cart->coupon;
 
-        foreach ($products as $product) {
-            $product->pivot->discount = $product->amount * $product->pivot->count / 100 * $discount;
-            $product->pivot->save();
+        $cartProducts = $cart->products;
+        $couponProducts = $coupon->products;
+
+        $discount = $coupon->coupon_amount;
+
+        foreach ($cartProducts as $cartProduct) {
+            foreach ($couponProducts as $couponProduct) {
+                if ($cartProduct->getKey() !== $couponProduct->getKey()) {
+                    continue;
+                }
+
+                $cartProduct->pivot->discount = $cartProduct->amount / 100 * $discount;
+                $cartProduct->pivot->save();
+            }
         }
     }
 }
