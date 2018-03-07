@@ -41,6 +41,16 @@ Route::group([
             'uses' => 'Api\CartController@removeAll',
         ]);
     });
+
+    Route::group([
+        'as' => '.coupons',
+        'prefix' => 'coupons',
+    ], function () {
+        Route::get('add', [
+            'as' => '.add',
+            'uses' => 'Api\CartController@addCoupon',
+        ]);
+    });
 });
 
 Route::group([

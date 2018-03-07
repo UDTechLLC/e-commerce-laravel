@@ -22,6 +22,16 @@ Route::group([
         'uses' => 'CouponController@store'
     ]);
 
+    Route::get('/attach-product/{coupon}', [
+        'as'   => '.attach-product',
+        'uses' => 'CouponController@attachProduct'
+    ]);
+    
+    Route::post('/attach-product/{coupon}', [
+        'as' => '.attach',
+        'uses' => 'CouponController@attach'
+    ]);
+
 //    Route::get('/edit/{coupon}', [
 //        'as'   => '.edit',
 //        'uses' => 'CouponController@edit'

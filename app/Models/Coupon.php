@@ -67,7 +67,10 @@ class Coupon extends EloquentModel
      * Entity relations go below
      */
 
-    // @todo:
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 
     /**
      * Entity scopes go below
@@ -88,6 +91,6 @@ class Coupon extends EloquentModel
     // @todo:
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class, 'product_coupons');
     }
 }

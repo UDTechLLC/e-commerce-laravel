@@ -25,6 +25,7 @@ class Cart extends EloquentModel
      */
     protected $fillable = [
         'user_id',
+        'coupon_id',
         'hash'
     ];
 
@@ -67,7 +68,7 @@ class Cart extends EloquentModel
      */
     public function products()
     {
-        return $this->belongsToMany(Product::class)->withPivot('count');
+        return $this->belongsToMany(Product::class)->withPivot(['count', 'discount']);
     }
 
     /**
@@ -76,6 +77,11 @@ class Cart extends EloquentModel
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class);
     }
 
     /**

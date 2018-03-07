@@ -26,12 +26,13 @@ i
             </td>
             <td v-if="actionField">
                 <a :href="entry.action.edit" v-if="entry.action.edit" class="item-edit"><i class="fa fa-edit"></i></a>
-                <delete
+                <delete v-if="entry.action.delete"
                         :index="index"
                         :url="entry.action.delete"
                         redirect="/"
                         @deleteItem="deleteItem"
                 ></delete>
+                <a :href="entry.action.attach">Attach product</a>
             </td>
         </tr>
         </tbody>
