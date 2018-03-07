@@ -13,8 +13,12 @@
             </div>
         </td>
         <td class="product-price">
-                     <span class="product-amount">
-                          ${{product.amount}}
+                    <span v-if="product.discount">
+                        <del>$ {{product.amount}}</del>
+                        <span class="product-subtotal-amount"> ${{ product.discount_amount }} </span>
+                    </span>
+                     <span v-else class="product-amount">
+                          ${{ product.amount }}
                      </span>
         </td>
         <td class="product-quantity">
@@ -59,38 +63,50 @@
                     }
                 }
 
-                new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
-                        .easing(TWEEN.Easing.Quadratic.Out)
-                        .to({tweeningNumber: newValue.total_sum}, 500)
-                        .onUpdate(function () {
-                            vm.animatedTotal = this.tweeningNumber.toFixed(2)
-                        })
-                        .start();
+                if (this.product.discount) {
+                    console.log('sss => ' + this.product.discount);
+                    new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
+                            .easing(TWEEN.Easing.Quadratic.Out)
+                            .to({tweeningNumber: newValue.discount_amount}, 500)
+                            .onUpdate(function () {
+                                vm.animatedTotal = this.tweeningNumber.toFixed(2)
+                            })
+                            .start();
+                }
+                else {
+                    new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
+                            .easing(TWEEN.Easing.Quadratic.Out)
+                            .to({tweeningNumber: newValue.total_sum}, 500)
+                            .onUpdate(function () {
+                                vm.animatedTotal = this.tweeningNumber.toFixed(2)
+                            })
+                            .start();
+                }
 
                 animate()
             }
+        },
+        methods: {
+            deleteProduct(slug) {
+                axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
+                        response => {
+                            console.log(response);
+                            this.$EventBus.$emit('updateProduct', response);
+                        },
+                        error => console.log('error')
+                )
             },
-            methods: {
-                deleteProduct(slug) {
-                    axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
-                            response => {
-                                console.log(response);
-                                this.$EventBus.$emit('updateProduct', response);
-                            },
-                            error => console.log('error')
-                    )
-                },
-                deleteAllProduct(slug) {
-                    axios.delete(`/api/carts/products/remove/${slug}/all?hash=${Vue.localStorage.get('hash')}`).then(
-                            response => {
-                                console.log(response);
-                                this.$EventBus.$emit('updateProduct', response);
-                            },
-                            error => console.log('error')
-                    )
-                }
+            deleteAllProduct(slug) {
+                axios.delete(`/api/carts/products/remove/${slug}/all?hash=${Vue.localStorage.get('hash')}`).then(
+                        response => {
+                            console.log(response);
+                            this.$EventBus.$emit('updateProduct', response);
+                        },
+                        error => console.log('error')
+                )
             }
-        });
+        }
+    });
 </script>
 
 <style scoped>

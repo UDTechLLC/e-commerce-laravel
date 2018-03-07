@@ -165,7 +165,7 @@
                 let url = `api/carts/coupons/add?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
 
                 axios.get(url).then(
-                        response => console.log(response),
+                        response => this.$EventBus.$emit('updateProduct', response),
                         error => console.log('error')
                 )
             }
