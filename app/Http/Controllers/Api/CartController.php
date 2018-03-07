@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Exceptions\Api\CartNotFoundException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cart\AddCouponRequest;
 use App\Http\Requests\Cart\StoreCartRequest;
 use App\Http\Resources\Api\CartResource;
 use App\Models\Cart;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\User;
 use App\Transformers\Api\CartTransformer;
@@ -98,6 +100,27 @@ class CartController extends Controller
         return $this->delete($product, $hash, true);
     }
 
+    public function addCoupon(AddCouponRequest $request)
+    {
+        /** @var User $user */
+        $user = \Auth::user();
+
+        $hash = $request->get('hash');
+        $code = $request->get('code');
+
+        /** @var Cart $cart */
+        $cart = $this->getCart($user, $hash);
+
+        /** @var Coupon $coupon */
+        $coupon = Coupon::where('code', $code)->first();
+
+        $coupon->carts()->save($cart);
+
+        $this->calculateDiscount($cart);
+
+        return fractal($cart, new CartTransformer())->respond();
+    }
+
     /**
      * @param Product $product
      * @param $hash
@@ -129,6 +152,7 @@ class CartController extends Controller
     }
 
     /**
+     * @param $user
      * @param $hash
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -152,5 +176,17 @@ class CartController extends Controller
         return Cart::create([
             'hash' => $hash
         ]);
+    }
+
+    private function calculateDiscount($cart)
+    {
+        $products = $cart->products;
+        $discount = $cart->coupon->coupon_amount;
+
+        foreach ($products as $product) {
+            $product->pivot->discount =
+                $product->amount - ($product->amount * $product->pivot->count / 100 * $discount);
+            $product->pivot->save();
+        }
     }
 }

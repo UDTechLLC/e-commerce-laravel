@@ -24,6 +24,7 @@ class ProductTransformer extends TransformerAbstract
             'description' => $product->description,
             'amount'      => $product->amount,
             'old_amount'  => $product->old_amount,
+            'discount'    => $product->pivot->discount,
             'slug'        => $product->slug,
             'count'       => $product->pivot->count,
             'is_virtual'  => $product->isVirtual,
