@@ -22,7 +22,6 @@
                         <textarea class="" placeholder="Message" name="massage" cols="39" rows="4" tabindex="4" required></textarea>
                     </div>
                     <div class="contact__form-group">
-
                         <button class="contact__submit submit" tabindex="5">submit form</button>
                     </div>
                 </form>
