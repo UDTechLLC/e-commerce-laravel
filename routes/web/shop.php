@@ -22,6 +22,10 @@ Route::group([
         'as'   => 'products.show',
         'uses' => 'ProductController@show'
     ]);
+    Route::get('challenge', [
+        'as'   => 'challenge',
+        'uses' => 'ProductController@challenge'
+    ]);
 
 //   require_once 'products.php';
 

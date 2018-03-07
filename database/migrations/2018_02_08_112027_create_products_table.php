@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('sub_title')->nullable();
             $table->text('category')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('old_amount')->nullable();
             $table->integer('amount');
             $table->integer('count')->nullable();

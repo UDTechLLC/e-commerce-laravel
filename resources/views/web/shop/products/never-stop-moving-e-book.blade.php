@@ -91,26 +91,26 @@
                             </h3>
                         </div>
                     </div>
-                    <div class="total-results__icon-wrapper">
-                        <div class="total-results__icon-img flex flex-a--center flex-j--center">
-                            <img src="{{ asset('web/images/full-product/total-results/icon-eat-clean.svg')}}" alt="icon-eat-clean">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="total-results__icon-text">
-                                Everything That You Need to Know About Eating Clean
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="total-results__icon-wrapper">
-                        <div class="total-results__icon-img flex flex-a--center flex-j--center">
-                            <img src="{{ asset('web/images/full-product/total-results/icon-grocery-icon.svg')}}" alt="icon-grocery-icon.svg">
-                        </div>
-                        <div class="text-center">
-                            <h3 class="total-results__icon-text">
-                                Smart Grocery Shopping List
-                            </h3>
-                        </div>
-                    </div>
+                    {{--<div class="total-results__icon-wrapper">--}}
+                        {{--<div class="total-results__icon-img flex flex-a--center flex-j--center">--}}
+                            {{--<img src="{{ asset('web/images/full-product/total-results/icon-eat-clean.svg')}}" alt="icon-eat-clean">--}}
+                        {{--</div>--}}
+                        {{--<div class="text-center">--}}
+                            {{--<h3 class="total-results__icon-text">--}}
+                                {{--Everything That You Need to Know About Eating Clean--}}
+                            {{--</h3>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="total-results__icon-wrapper">--}}
+                        {{--<div class="total-results__icon-img flex flex-a--center flex-j--center">--}}
+                            {{--<img src="{{ asset('web/images/full-product/total-results/icon-grocery-icon.svg')}}" alt="icon-grocery-icon.svg">--}}
+                        {{--</div>--}}
+                        {{--<div class="text-center">--}}
+                            {{--<h3 class="total-results__icon-text">--}}
+                                {{--Smart Grocery Shopping List--}}
+                            {{--</h3>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
 
                 </div>
