@@ -6,6 +6,7 @@ use App\Mail\OrderSent;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Services\Braintree\BraintreeService;
 use App\Services\Orders\ShipStationService;
 use App\Services\PayPal\PayPalService;
 use Braintree\Gateway;
@@ -146,23 +147,47 @@ class PayController extends Controller
         $service->update();
     }
 
-    public function payBraintree(Request $request)
+    /**
+     * @param Request $request
+     * @param Order $order
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function payBraintree(Request $request, Order $order)
     {
-        $gateway = new Gateway([
-            'environment' => 'sandbox',
-            'merchantId' => 'fqgkkgjbh2z5tjdj',
-            'publicKey' => '97t2sjk9hk8smkf8',
-            'privateKey' => '18659380deb1ced28908b9059e755ba0'
-        ]);
+        $token = $request->get('nonce');
+        $amount = $order->total_cost;
 
-        $result = $gateway->transaction()->sale([
-            'amount' => '10.00',
-            'paymentMethodNonce' => $request->get('nonce'),
-            'options' => [
-                'submitForSettlement' => True
-            ]
-        ]);
+        if ($order->isShipping()) {
+            $this->sendOrderToShipStation($order);
+        }
 
-        dd($result);
+        $service = new BraintreeService();
+
+        $service->setAuthToken($token);
+
+        $result = $service->pay($amount);
+
+        if ($result->success) {
+            $this->updateOrderStatus($order);
+
+            if ($order->isShipping()) {
+                $this->updateOrderStatusOnShipStation($order);
+            }
+
+            $this->sendOrderToEmail($order);
+
+            return view('web.checkout.checkout_thank_you', ['order' => $order]);
+        }
+    }
+
+    /**
+     * Get braintree token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getBraintreeToken()
+    {
+        return response()->json(['token' => (new BraintreeService())->getToken()]);
     }
 }
