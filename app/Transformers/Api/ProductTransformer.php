@@ -29,7 +29,7 @@ class ProductTransformer extends TransformerAbstract
             'slug'            => $product->slug,
             'count'           => $product->pivot->count,
             'is_virtual'      => $product->isVirtual,
-            'total_sum'       => $product->total_sum,
+            'total_sum'       => $product->total_sum - $product->pivot->discount,
             'image'           => $product->getFirstMediaUrl('preview'),
         ];
     }
