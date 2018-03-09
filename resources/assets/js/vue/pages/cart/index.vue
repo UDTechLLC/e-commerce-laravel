@@ -60,6 +60,18 @@
                                             </span>
                                 </td>
                             </tr>
+                            <tr class="cart-subtotal" v-if="coupon">
+                                <th>
+                                    Coupon: {{ coupon }}
+                                </th>
+                                <td class="product-subtotal">
+                                            <span class="product-subtotal-amount">
+                                                111111
+                                            </span>
+                                    <a href="#"> [Remove] </a>
+                                </td>
+                            </tr>
+
                             <tr class="shipping" v-if="isShipping">
                                 <th>
                                     Shipping

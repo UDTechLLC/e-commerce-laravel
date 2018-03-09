@@ -13,7 +13,7 @@
             </div>
         </td>
         <td class="product-price">
-                    <span v-if="product.discount">
+                    <span v-if="product.discount != '0.00'">
                         <del>$ {{product.amount}}</del>
                         <span class="product-subtotal-amount"> ${{ product.discount_amount }} </span>
                     </span>
@@ -63,25 +63,14 @@
                     }
                 }
 
-                if (this.product.discount) {
-                    console.log('sss => ' + this.product.discount);
-                    new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
-                            .easing(TWEEN.Easing.Quadratic.Out)
-                            .to({tweeningNumber: newValue.discount_amount}, 500)
-                            .onUpdate(function () {
-                                vm.animatedTotal = this.tweeningNumber.toFixed(2)
-                            })
-                            .start();
-                }
-                else {
-                    new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
-                            .easing(TWEEN.Easing.Quadratic.Out)
-                            .to({tweeningNumber: newValue.total_sum}, 500)
-                            .onUpdate(function () {
-                                vm.animatedTotal = this.tweeningNumber.toFixed(2)
-                            })
-                            .start();
-                }
+                new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
+                        .easing(TWEEN.Easing.Quadratic.Out)
+                        .to({tweeningNumber: newValue.total_sum}, 500)
+                        .onUpdate(function () {
+                            vm.animatedTotal = this.tweeningNumber.toFixed(2)
+                        })
+                        .start();
+
 
                 animate()
             }
