@@ -28,6 +28,7 @@ class CartTransformer extends TransformerAbstract
             'id'         => $cart->getKey(),
             'products'   => fractal($cart->products, new ProductTransformer()),
             'isShipping' => $isShipping,
+            'coupon'     => $cart->coupon ? $cart->coupon->code : null,
             'sum'        => [
                 'products_counts'   => $productCount,
                 'products_sum'      => $productSum,
