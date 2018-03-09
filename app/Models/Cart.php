@@ -102,5 +102,41 @@ class Cart extends EloquentModel
      * Entity public methods go below
      */
 
-    // @todo:
+    public function getProductsSum()
+    {
+        $sum = 0;
+
+        foreach ($this->products as $product) {
+            $sum += $product->pivot->count * $product->amount;
+        }
+
+        return number_format($sum, 2);
+    }
+
+    public function getDiscountSum()
+    {
+        return number_format((float)$this->products()->withPivot('discount_sum')->sum('discount_sum'), 2);
+    }
+
+    public function getWithDiscountSum()
+    {
+        return number_format($this->getProductsSum() - $this->getDiscountSum(), 2);
+    }
+
+    public function getProductsCount()
+    {
+        return $this->products()->withPivot('count')->sum('cart_product.count');
+    }
+
+    public function isShipping()
+    {
+        /** @var Product $product */
+        foreach ($this->products as $product) {
+            if (!$product->isVirtual()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

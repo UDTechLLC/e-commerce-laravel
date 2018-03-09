@@ -18,11 +18,11 @@ class CartTransformer extends TransformerAbstract
      */
     public function transform(Cart $cart): array
     {
-        $productSum = $this->getProductsSum($cart);
-        $discountSum = $this->getDiscountSum($cart);
-        $withDiscountSum = $this->getWithDiscountSum($productSum, $discountSum);
-        $productCount = $this->getProductsCount($cart);
-        $isShipping = $this->isShipping($cart);
+        $productsSum = $cart->getProductsSum();
+        $discountSum = $cart->getDiscountSum();
+        $withDiscountSum = $cart->getWithDiscountSum();
+        $productCount = $cart->getProductsCount();
+        $isShipping = $cart->isShipping();
 
         return [
             'id'         => $cart->getKey(),
@@ -31,7 +31,7 @@ class CartTransformer extends TransformerAbstract
             'coupon'     => $cart->coupon ? $cart->coupon->code : null,
             'sum'        => [
                 'products_counts'   => $productCount,
-                'products_sum'      => $productSum,
+                'products_sum'      => $productsSum,
                 'discount_sum'      => $discountSum,
                 'with_discount_sum' => $withDiscountSum,
             ],

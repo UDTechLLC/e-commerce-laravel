@@ -79,8 +79,6 @@ class CartController extends Controller
      */
     public function remove(Request $request, Product $product)
     {
-        $hash = $request->get('hash');
-
         return $this->delete($request, $product);
     }
 
@@ -94,8 +92,6 @@ class CartController extends Controller
      */
     public function removeAll(Request $request, Product $product)
     {
-        $hash = $request->get('hash');
-
         return $this->delete($request, $product, true);
     }
 
@@ -139,17 +135,17 @@ class CartController extends Controller
     }
 
     /**
-     * @param $requrst
+     * @param $request
      * @param Product $product
      * @param bool $all
      *
      * @return CartResource
      * @throws \Throwable
      */
-    private function delete($requrst, $product, $all = false)
+    private function delete($request, $product, $all = false)
     {
         /** @var Cart $cart */
-        $cart = $this->getCart($requrst);
+        $cart = $this->getCart($request);
 
         throw_if(null === $cart, new CartNotFoundException());
 
@@ -159,6 +155,10 @@ class CartController extends Controller
             $cart->products()->detach($product);
         } else {
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
+        }
+
+        if ($cart->getProductsCount() === 0) {
+            $cart->coupon()->dissociate()->save();
         }
 
         $this->calculateDiscount($cart);
