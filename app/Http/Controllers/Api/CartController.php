@@ -202,11 +202,18 @@ class CartController extends Controller
         $coupon = $cart->coupon;
 
         $cartProducts = $cart->products;
-        $couponProducts = $coupon->products;
+        $couponProducts = $coupon->products ?? null;
 
         $discount = $coupon->coupon_amount;
 
         foreach ($cartProducts as $cartProduct) {
+            if (null === $couponProducts) {
+                $cartProduct->pivot->discount = 0;
+                $cartProduct->pivot->discount_sum = 0;
+
+                continue;
+            }
+
             foreach ($couponProducts as $couponProduct) {
                 if ($cartProduct->getKey() !== $couponProduct->getKey()) {
                     continue;
