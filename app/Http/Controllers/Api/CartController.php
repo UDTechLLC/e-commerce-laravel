@@ -119,16 +119,27 @@ class CartController extends Controller
         return fractal($cart, new CartTransformer())->respond();
     }
 
-//    public function removeCoupon(RemoveCouponRequest $request)
-//    {
-//        $code = $request->get('code');
-//
-//        /** @var Cart $cart */
-//        $cart = $this->getCart($request);
-//
-//        /** @var Coupon $coupon */
-//        $coupon = Coupon::where('code', $code)->first();
-//    }
+    /**
+     * @param RemoveCouponRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeCoupon(RemoveCouponRequest $request)
+    {
+        $code = $request->get('code');
+
+        /** @var Cart $cart */
+        $cart = $this->getCart($request);
+
+        /** @var Coupon $coupon */
+        $coupon = Coupon::where('code', $code)->first();
+
+        $coupon->forceDelete();
+
+        $this->calculateDiscount($cart);
+
+        return fractal($cart, new CartTransformer())->respond();
+    }
 
     /**
      * @param $requrst

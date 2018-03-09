@@ -37,18 +37,22 @@ Route::group([
         ]);
 
         Route::delete('remove/{product}/all', [
-            'as'   => 'remove',
+            'as'   => '.remove',
             'uses' => 'Api\CartController@removeAll',
         ]);
     });
 
     Route::group([
-        'as' => '.coupons',
+        'as'     => '.coupons',
         'prefix' => 'coupons',
     ], function () {
-        Route::get('add', [
-            'as' => '.add',
+        Route::post('/', [
+            'as'   => '.add',
             'uses' => 'Api\CartController@addCoupon',
+        ]);
+        Route::delete('remove', [
+            'as'   => '.remove',
+            'uses' => 'Api\CartController@removeCoupon',
         ]);
     });
 });
