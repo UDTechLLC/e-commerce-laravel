@@ -51,7 +51,7 @@
             product: Object
         },
         created() {
-            this.animatedTotal = this.product.total_sum;
+            this.animatedTotal = this.product.total_sum_with_discount;
         },
         watch: {
             product(newValue, oldValue) {
