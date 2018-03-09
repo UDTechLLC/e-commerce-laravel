@@ -126,15 +126,10 @@ class CartController extends Controller
      */
     public function removeCoupon(RemoveCouponRequest $request)
     {
-        $code = $request->get('code');
-
         /** @var Cart $cart */
         $cart = $this->getCart($request);
 
-        /** @var Coupon $coupon */
-        $coupon = Coupon::where('code', $code)->first();
-
-        $coupon->forceDelete();
+        $cart->coupon()->dissociate();
 
         $this->calculateDiscount($cart);
 

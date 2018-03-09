@@ -24,7 +24,6 @@ class RemoveCouponRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => 'required',
             'hash' => 'required',
         ];
     }
