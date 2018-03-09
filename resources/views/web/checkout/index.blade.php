@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="{{ asset('web/css/select2.min.css') }}">
    @endsection--}}
 @section('content')
-   <checkout></checkout>
+   <checkout token="{{ $token }}"></checkout>
 @endsection
 
 @section('scripts')
