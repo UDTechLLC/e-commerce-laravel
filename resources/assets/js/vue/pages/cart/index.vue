@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="wrapper coupon-error" v-if="errorCoupon">
+            Coupon "{{ coupon }}" does not exist!
+        </div>
         <div class="cart-block-wrapper" v-if="products.length > 0">
             <div class="wrapper">
                 <form class="cart-form" action="" method="post">
@@ -33,10 +36,11 @@
                             <div class="promotional-code-form-wrapper">
                                 <form class="promotional-code-form" action="" name="" method="post">
                                     <div class="promotional-code-form-block">
-                                        <input name="coupon_code" class="cart-form-field" value="" placeholder="Coupon code"
-                                               type="text" v-model="coupon" />
+                                        <input name="coupon_code" class="cart-form-field" value=""
+                                               placeholder="Coupon code"
+                                               type="text" v-model="coupon"/>
                                         <input class="cart-submit-field promo-code-button" name="apply_coupon"
-                                               value="Apply Coupon" type="submit" @click.prevent="submitCoupon" />
+                                               value="Apply Coupon" type="submit" @click.prevent="submitCoupon"/>
                                     </div>
                                 </form>
                             </div>
@@ -96,7 +100,7 @@
                             </tbody>
                         </table>
                         <div class="proceed-to-checkout-button-wrapper">
-                            <a class="proceed-to-checkout" href="/checkout" >
+                            <a class="proceed-to-checkout" href="/checkout">
                                 Proceed to checkout
                             </a>
                         </div>
@@ -116,6 +120,7 @@
     export default ({
         data: () => ({
             products: [],
+            errorCoupon: false,
             coupon: "",
             discount: 0,
             isShipping: false,
@@ -132,9 +137,9 @@
             emptyCart
         },
         computed: {
-          total() {
-              return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
-          }
+            total() {
+                return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
+            }
         },
         watch: {
             total(newValue, oldValue) {
@@ -158,15 +163,16 @@
             },
             animateSum(newValue, oldValue, Variable) {
                 var vm = this;
-                function animate () {
+
+                function animate() {
                     if (TWEEN.update()) {
                         requestAnimationFrame(animate)
                     }
                 }
 
-                new TWEEN.Tween({ tweeningNumber: oldValue })
+                new TWEEN.Tween({tweeningNumber: oldValue})
                         .easing(TWEEN.Easing.Quadratic.Out)
-                        .to({ tweeningNumber: newValue }, 500)
+                        .to({tweeningNumber: newValue}, 500)
                         .onUpdate(function () {
                             vm[Variable] = this.tweeningNumber.toFixed(2)
                         })
@@ -177,13 +183,16 @@
             submitCoupon() {
                 let url = `api/carts/coupons`;
                 let data = {
-                        hash: Vue.localStorage.get('hash'),
-                        code: this.coupon
-                        };
+                    hash: Vue.localStorage.get('hash'),
+                    code: this.coupon
+                };
 
                 axios.post(url, data).then(
-                        response => this.$EventBus.$emit('updateProduct', response),
-                        error => console.log('error')
+                        response => {
+                            this.$EventBus.$emit('updateProduct', response);
+                            this.errorCoupon = false;
+                        },
+                        error => this.errorCoupon = true
                 )
             },
             deleteCoupon() {
@@ -202,3 +211,13 @@
     })
 
 </script>
+
+<style scoped lang="scss">
+    .coupon-error {
+        text-align: center;
+        background: #FFE8E8;
+        color: #D45D5D;
+        border: 1px solid #D45D5D;
+        padding: 15px;
+    }
+</style>
