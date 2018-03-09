@@ -66,7 +66,7 @@
                                 </th>
                                 <td class="product-subtotal">
                                             <span class="product-subtotal-amount">
-                                                111111
+                                                -${{discount}}
                                             </span>
                                     <a href="#"> [Remove] </a>
                                 </td>
@@ -117,6 +117,7 @@
         data: () => ({
             products: [],
             coupon: "",
+            discount: 0,
             isShipping: false,
             countItems: 0,
             subTotal: 0,
