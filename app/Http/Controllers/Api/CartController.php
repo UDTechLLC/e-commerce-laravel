@@ -129,7 +129,7 @@ class CartController extends Controller
         /** @var Cart $cart */
         $cart = $this->getCart($request);
 
-        $cart->coupon()->dissociate();
+        $cart->coupon()->dissociate()->save();
 
         $this->calculateDiscount($cart);
 
@@ -210,6 +210,8 @@ class CartController extends Controller
             if (null === $couponProducts) {
                 $cartProduct->pivot->discount = 0;
                 $cartProduct->pivot->discount_sum = 0;
+
+                $cartProduct->pivot->save();
 
                 continue;
             }
