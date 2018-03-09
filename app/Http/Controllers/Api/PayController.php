@@ -32,7 +32,9 @@ class PayController extends Controller
      */
     public function pay(Request $request, Order $order)
     {
-        $this->sendOrderToShipStation($order);
+        if ($order->isShipping()) {
+            $this->sendOrderToShipStation($order);
+        }
 
         $this->setCallbacks($order);
         $this->service->setAmount($order->total_cost);
@@ -64,7 +66,11 @@ class PayController extends Controller
 
         if ($response->isSuccessful()) {
             $this->updateOrderStatus($order);
-            $this->updateOrderStatusOnShipStation($order);
+
+            if ($order->isShipping()) {
+                $this->updateOrderStatusOnShipStation($order);
+            }
+
             $this->sendOrderToEmail($order);
 
             return view('web.checkout.checkout_thank_you', ['order' => $order]);

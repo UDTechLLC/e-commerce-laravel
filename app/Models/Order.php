@@ -55,6 +55,7 @@ class Order extends EloquentModel
         'coupon_id',
         'product_cost',
         'shipping_cost',
+        'discount_cost',
         'total_cost',
         'count',
         'state',
@@ -159,7 +160,7 @@ class Order extends EloquentModel
         return number_format($value / 100, 2);
     }
 
-    public function getShipping(): bool
+    public function isShipping(): bool
     {
         /** @var Product $product */
 
