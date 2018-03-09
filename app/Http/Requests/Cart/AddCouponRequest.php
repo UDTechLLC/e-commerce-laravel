@@ -24,6 +24,7 @@ class AddCouponRequest extends FormRequest
     public function rules()
     {
         return [
+            'hash' => 'required',
             'code' => 'required',
         ];
     }
