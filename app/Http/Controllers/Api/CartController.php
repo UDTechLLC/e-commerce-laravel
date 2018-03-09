@@ -204,7 +204,7 @@ class CartController extends Controller
         $cartProducts = $cart->products;
         $couponProducts = $coupon->products ?? null;
 
-        $discount = $coupon->coupon_amount;
+        $discount = $coupon->coupon_amount ?? null;
 
         foreach ($cartProducts as $cartProduct) {
             if (null === $couponProducts) {
