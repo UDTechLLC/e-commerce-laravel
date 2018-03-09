@@ -68,7 +68,9 @@ class Cart extends EloquentModel
      */
     public function products()
     {
-        return $this->belongsToMany(Product::class)->withPivot(['count', 'discount']);
+        return $this
+            ->belongsToMany(Product::class)
+            ->withPivot(['count', 'discount', 'discount_sum']);
     }
 
     /**

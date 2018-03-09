@@ -18,6 +18,7 @@ class CreateCartProductTable extends Migration
             $table->unsignedInteger('product_id');
             $table->smallInteger('count');
             $table->smallInteger('discount')->default('0');
+            $table->smallInteger('discount_sum')->default('0');
 
             $table->foreign('cart_id')->references('id')->on('carts');
             $table->foreign('product_id')->references('id')->on('products');
