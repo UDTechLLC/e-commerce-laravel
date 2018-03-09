@@ -1399,6 +1399,12 @@ ul {
         padding: 70px 0 200px; }
         .parallax-section--queen-of-the-hill img {
           max-width: 300px; } }
+    @media screen and (max-width: 400px) {
+      .parallax-section--queen-of-the-hill {
+        padding: 70px 0 270px; } }
+    @media screen and (max-width: 360px) {
+      .parallax-section--queen-of-the-hill {
+        padding: 70px 0 380px; } }
     @media screen and (max-width: 990px) {
       .parallax-section--queen-of-the-hill .block-in-section-wrapper {
         -webkit-box-orient: vertical !important;
