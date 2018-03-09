@@ -85,7 +85,10 @@ Route::group([
     'as'     => '.pay',
     'prefix' => 'pay',
 ], function () {
-    Route::post('/braintree', [
+    Route::get('braintree/token', [
+        'uses' => 'Api\PayController@getBraintreeToken',
+    ]);
+    Route::post('braintree/{order}', [
        'uses' => 'Api\PayController@payBraintree'
     ]);
     Route::get('{order}', [
