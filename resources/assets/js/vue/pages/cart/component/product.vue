@@ -13,12 +13,12 @@
             </div>
         </td>
         <td class="product-price">
-                    <span v-if="product.discount != '0.00'">
+                    <span v-if="product.discount_amount != '0.00'">
                         <del>$ {{product.amount}}</del>
-                        <span class="product-subtotal-amount"> ${{ product.discount_amount }} </span>
+                        <span class="product-subtotal-amount"> ${{ product.amount_with_discount }} </span>
                     </span>
                      <span v-else class="product-amount">
-                          ${{ product.amount }}
+                          ${{ product.amount_with_discount }}
                      </span>
         </td>
         <td class="product-quantity">
@@ -51,7 +51,7 @@
             product: Object
         },
         created() {
-            this.animatedTotal = this.product.total_sum;
+            this.animatedTotal = this.product.total_sum_with_discount;
         },
         watch: {
             product(newValue, oldValue) {
@@ -63,9 +63,9 @@
                     }
                 }
 
-                new TWEEN.Tween({tweeningNumber: oldValue.total_sum})
+                new TWEEN.Tween({tweeningNumber: oldValue.total_sum_with_discount})
                         .easing(TWEEN.Easing.Quadratic.Out)
-                        .to({tweeningNumber: newValue.total_sum}, 500)
+                        .to({tweeningNumber: newValue.total_sum_with_discount}, 500)
                         .onUpdate(function () {
                             vm.animatedTotal = this.tweeningNumber.toFixed(2)
                         })

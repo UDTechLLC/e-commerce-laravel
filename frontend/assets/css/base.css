@@ -336,6 +336,12 @@ img {
 .amazingcarousel-play-video {
   background-image: url("../carouselengine/playvideo-64-64-0.png") !important; }
 
+.shop-item .product-amount {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+
 .add-to-cart-btn {
   -webkit-transition: .2s;
   -o-transition: .2s;
@@ -1374,15 +1380,6 @@ ul {
   padding: 70px 0 0;
   height: 770px;
   position: relative; }
-  .parallax-section--never-stop {
-    height: 931px; }
-    @media screen and (max-width: 990px) {
-      .parallax-section--never-stop .block-in-section-wrapper {
-        -webkit-box-orient: vertical !important;
-        -webkit-box-direction: normal !important;
-        -webkit-flex-direction: column !important;
-            -ms-flex-direction: column !important;
-                flex-direction: column !important; } }
   @media screen and (max-width: 990px) {
     .parallax-section {
       padding: 70px 0 420px; } }
@@ -1392,6 +1389,46 @@ ul {
   @media screen and (max-width: 400px) {
     .parallax-section {
       padding: 30px 15px 650px; } }
+  .parallax-section--queen-of-the-hill {
+    height: 931px; }
+    @media screen and (max-width: 990px) {
+      .parallax-section--queen-of-the-hill {
+        padding: 70px 0 200px; } }
+    @media screen and (max-width: 550px) {
+      .parallax-section--queen-of-the-hill {
+        padding: 70px 0 200px; }
+        .parallax-section--queen-of-the-hill img {
+          max-width: 300px; } }
+    @media screen and (max-width: 400px) {
+      .parallax-section--queen-of-the-hill {
+        padding: 70px 0 270px; } }
+    @media screen and (max-width: 360px) {
+      .parallax-section--queen-of-the-hill {
+        padding: 70px 0 380px; } }
+    @media screen and (max-width: 990px) {
+      .parallax-section--queen-of-the-hill .block-in-section-wrapper {
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: normal !important;
+        -webkit-flex-direction: column !important;
+            -ms-flex-direction: column !important;
+                flex-direction: column !important; } }
+  .parallax-section--never-stop {
+    height: 931px; }
+    @media screen and (max-width: 990px) {
+      .parallax-section--never-stop .block-in-section-wrapper {
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: normal !important;
+        -webkit-flex-direction: column !important;
+            -ms-flex-direction: column !important;
+                flex-direction: column !important; } }
+    @media screen and (max-width: 990px) {
+      .parallax-section--never-stop {
+        padding: 70px 0 250px; } }
+    @media screen and (max-width: 550px) {
+      .parallax-section--never-stop {
+        padding: 70px 0 450px; }
+        .parallax-section--never-stop img {
+          max-width: 300px; } }
   .parallax-section .section__text {
     max-width: 700px;
     margin: 50px auto; }

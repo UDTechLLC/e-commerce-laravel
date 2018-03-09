@@ -60,15 +60,15 @@
                                             </span>
                                 </td>
                             </tr>
-                            <tr class="cart-subtotal" v-if="coupon">
+                            <tr class="cart-subtotal" v-if="discount != '0.00'">
                                 <th>
                                     Coupon: {{ coupon }}
                                 </th>
                                 <td class="product-subtotal">
                                             <span class="product-subtotal-amount">
-                                                111111
+                                                -${{discount}}
                                             </span>
-                                    <a href="#"> [Remove] </a>
+                                    <a href="#" @click.prevent="deleteCoupon"> [Remove] </a>
                                 </td>
                             </tr>
 
@@ -117,6 +117,7 @@
         data: () => ({
             products: [],
             coupon: "",
+            discount: 0,
             isShipping: false,
             countItems: 0,
             subTotal: 0,
@@ -174,9 +175,25 @@
                 animate()
             },
             submitCoupon() {
-                let url = `api/carts/coupons/add?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
+                let url = `api/carts/coupons`;
+                let data = {
+                        hash: Vue.localStorage.get('hash'),
+                        code: this.coupon
+                        };
 
-                axios.get(url).then(
+                axios.post(url, data).then(
+                        response => this.$EventBus.$emit('updateProduct', response),
+                        error => console.log('error')
+                )
+            },
+            deleteCoupon() {
+                let url = `api/carts/coupons/remove?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
+                let data = {
+                    hash: Vue.localStorage.get('hash'),
+                    code: this.coupon
+                };
+
+                axios.delete(url).then(
                         response => this.$EventBus.$emit('updateProduct', response),
                         error => console.log('error')
                 )
