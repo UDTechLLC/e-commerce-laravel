@@ -123,7 +123,8 @@
             subTotal: String,
             total: String,
             shipping: Number,
-            isShipping: Boolean
+            isShipping: Boolean,
+            token: String
         },
         components: {
             cartTotals,
@@ -132,7 +133,7 @@
         },
         created() {
             braintree.client.create({
-                authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b'
+                authorization: this.token
             }, function(err, clientInstance) {
                 if (err) {
                     console.error(err);
@@ -229,7 +230,21 @@
                             }
                             console.log(payload);
                             // This is where you would submit payload.nonce to your server
-                            alert('Submit your nonce to your server here!');
+                            let method = "post";
+                            let path = '/api/pay/braintree';
+                            var form = document.createElement("form");
+                            form.setAttribute("method", method);
+                            form.setAttribute("action", path);
+
+                                    var hiddenField = document.createElement("input");
+                                    hiddenField.setAttribute("type", "hidden");
+                                    hiddenField.setAttribute("name", 'nonce');
+                                    hiddenField.setAttribute("value", payload.nonce);
+
+                                    form.appendChild(hiddenField);
+
+                            document.body.appendChild(form);
+                            form.submit();
                         });
                     });
                 });

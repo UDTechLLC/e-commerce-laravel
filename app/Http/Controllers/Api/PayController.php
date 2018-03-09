@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Services\Orders\ShipStationService;
 use App\Services\PayPal\PayPalService;
+use Braintree\Gateway;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -143,5 +144,25 @@ class PayController extends Controller
         $service = new ShipStationService($order);
 
         $service->update();
+    }
+
+    public function payBraintree(Request $request)
+    {
+        $gateway = new Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 'fqgkkgjbh2z5tjdj',
+            'publicKey' => '97t2sjk9hk8smkf8',
+            'privateKey' => '18659380deb1ced28908b9059e755ba0'
+        ]);
+
+        $result = $gateway->transaction()->sale([
+            'amount' => '10.00',
+            'paymentMethodNonce' => $request->get('nonce'),
+            'options' => [
+                'submitForSettlement' => True
+            ]
+        ]);
+
+        dd($result);
     }
 }

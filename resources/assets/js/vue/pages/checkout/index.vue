@@ -50,6 +50,7 @@
                            :total="total"
                            :shipping="shipping"
                            :isShipping="isShipping"
+                           :token="token"
                            @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
@@ -86,6 +87,9 @@
                 billing: {},
                 isShipping: false
             }
+        },
+        props: {
+          token: String
         },
         components: {
             first,

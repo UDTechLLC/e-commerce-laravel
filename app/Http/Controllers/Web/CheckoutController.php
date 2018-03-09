@@ -3,6 +3,7 @@ declare (strict_types = 1);
 
 namespace App\Http\Controllers\Web;
 
+use Braintree\Gateway;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,17 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('web.checkout.index');
+        $gateway = new Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 'fqgkkgjbh2z5tjdj',
+            'publicKey' => '97t2sjk9hk8smkf8',
+            'privateKey' => '18659380deb1ced28908b9059e755ba0'
+        ]);
+
+
+        return view('web.checkout.index', [
+            'token' => $clientToken = $gateway->clientToken()->generate()
+        ]);
     }
 
     /**
