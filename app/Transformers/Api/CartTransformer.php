@@ -84,11 +84,26 @@ class CartTransformer extends TransformerAbstract
         return false;
     }
 
+    /**
+     * Get discount sum.
+     *
+     * @param Cart $cart
+     *
+     * @return string
+     */
     private function getDiscountSum(Cart $cart)
     {
         return number_format($cart->products()->withPivot('discount_sum')->sum('discount_sum'), 2);
     }
 
+    /**
+     * Get sum without discount.
+     *
+     * @param $productsSum
+     * @param $discountSum
+     *
+     * @return string
+     */
     private function getWithDiscountSum($productsSum, $discountSum)
     {
         return number_format($productsSum - $discountSum, 2);

@@ -153,6 +153,8 @@ class CartController extends Controller
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
         }
 
+        $this->calculateDiscount($cart);
+
         return fractal($cart, new CartTransformer())->respond();
     }
 
