@@ -73,7 +73,7 @@
                 axios.post('/admin/coupons/store', data).then(
                         result => {
                             this.notifySuccess("Done", "Coupon create");
-                            setTimeout(() => location.href = "/admin/coupons", 1500);
+                            setTimeout(() => location.href = `/admin/coupons/attach-product/${result.data.id}`, 1500);
                         },
                         error => {
                             this.notifyError(
