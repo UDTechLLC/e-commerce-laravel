@@ -118,7 +118,7 @@ class CheckoutController extends Controller
             'user_id'       => null !== $user ? $user->getKey() : null,
             'billing_id'    => $billing->getKey(),
             'cart_id'       => $cart->getKey(),
-            'coupon_id'     => $cart->coupon->getKey(),
+            'coupon_id'     => $cart->coupon ? $cart->coupon->getKey() : null,
             'product_cost'  => $productCost,
             'shipping_cost' => $shippingCost,
             'discount_cost' => $cart->getDiscountSum(),
