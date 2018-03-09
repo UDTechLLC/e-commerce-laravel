@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('coupon_id')->nullable();
             $table->integer('product_cost')->nullable();
             $table->integer('shipping_cost')->nullable();
+            $table->integer('discount_cost')->default('0');
             $table->integer('total_cost')->nullable();
             $table->integer('count');
             $table->enum('state', Order::ORDER_STATES)->nullable();

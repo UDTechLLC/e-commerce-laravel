@@ -118,9 +118,11 @@ class CheckoutController extends Controller
             'user_id'       => null !== $user ? $user->getKey() : null,
             'billing_id'    => $billing->getKey(),
             'cart_id'       => $cart->getKey(),
+            'coupon_id'     => $cart->coupon->getKey(),
             'product_cost'  => $productCost,
             'shipping_cost' => $shippingCost,
-            'total_cost'    => $productCost + $shippingCost,
+            'discount_cost' => $cart->getDiscountSum(),
+            'total_cost'    => $cart->getWithDiscountSum(),
             'count'         => $count,
             'state'         => Order::ORDER_STATE_PENDING_PAYMENT,
         ]);

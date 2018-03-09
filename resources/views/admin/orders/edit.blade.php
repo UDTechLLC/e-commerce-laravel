@@ -35,7 +35,7 @@
     <div class="col-lg-3">
         <h3>Billing details</h3>
         <p style="text-transform: capitalize">Name: {{ $order->billing->first_name}} {{$order->billing->last_name}}</p>
-        @if($order->getShipping())
+        @if($order->isShipping())
         <p style="font-weight: bold;">Address: </p>
         <p> {{$order->billing->company_name}}  {{ $order-> billing->street }} str, {{$order->billing->apartment}} <br>
             {{ $order->billing->country }}, {{ $order->billing->city }} <br>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="col-lg-3">
-        @if($order->getShipping())
+        @if($order->isShipping())
         <h3>Shipping details</h3>
         @if($order->shipping_id)
         <p style="text-transform: capitalize">Name: {{ $order->shipping->first_name}} {{$order->shipping->last_name}}</p>
