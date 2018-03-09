@@ -9,8 +9,11 @@
 @section('content')
    <checkout></checkout>
 @endsection
-{{--
+
 @section('scripts')
    @parent
-   <script src="{{ asset('web/js/select2.min.js') }}"></script>
-@endsection--}}
+   <script src="https://js.braintreegateway.com/web/3.31.0/js/client.min.js"></script>
+
+   <!-- Load Hosted Fields component. -->
+   <script src="https://js.braintreegateway.com/web/3.31.0/js/hosted-fields.min.js"></script>
+@endsection
