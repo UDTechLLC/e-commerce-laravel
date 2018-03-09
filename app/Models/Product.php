@@ -162,6 +162,16 @@ class Product extends EloquentModel implements HasMedia
         }
     }
 
+    public function getDiscountAmountAttribute()
+    {
+        return number_format($this->pivot->discount, 2);
+    }
+
+    public function getDiscountAmountSumAttribute()
+    {
+        return number_format($this->pivot->discount_sum, 2);
+    }
+
     /**
      * Entity public methods go below
      */
@@ -238,5 +248,15 @@ class Product extends EloquentModel implements HasMedia
     public function isVirtual(): bool
     {
         return $this->isVirtual;
+    }
+
+    public function getTotalSumWithDiscount()
+    {
+        return number_format($this->total_sum - $this->pivot->discount_sum, 2);
+    }
+
+    public function getAmountWithDiscount()
+    {
+        return number_format($this->amount - $this->pivot->discount, 2);
     }
 }
