@@ -184,6 +184,8 @@
                                         :subTotal="subTotal"
                                         :total="total"
                                         :shipping="shipping"
+                                        :discount="discount"
+                                        :coupon="coupon"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -240,7 +242,9 @@
             subTotal: String,
             total: String,
             shipping: Number,
-            selectedShippingCountry: String
+            selectedShippingCountry: String,
+            discount: String,
+            coupon: String
         },
         created() {
             this.shippingInfo.country = this.selectedShippingCountry;

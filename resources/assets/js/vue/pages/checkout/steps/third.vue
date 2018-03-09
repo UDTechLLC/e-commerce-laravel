@@ -90,6 +90,8 @@
                                         :total="total"
                                         :shipping="shipping"
                                         :isShipping="isShipping"
+                                        :discount="discount"
+                                        :coupon="coupon"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -124,7 +126,9 @@
             total: String,
             shipping: Number,
             isShipping: Boolean,
-            token: String
+            token: String,
+            discount: String,
+            coupon: String
         },
         components: {
             cartTotals,
