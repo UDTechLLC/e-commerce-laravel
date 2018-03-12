@@ -184,6 +184,8 @@
                                         :total="total"
                                         :shipping="shipping"
                                         :isShipping="isShipping"
+                                        :discount="discount"
+                                        :coupon="coupon"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -230,7 +232,9 @@
             countries: Array,
             states: Array,
             selectedBillingCountry: String,
-            isShipping: Boolean
+            isShipping: Boolean,
+            discount: String,
+            coupon: String
         },
         components: {
             cartTotals,

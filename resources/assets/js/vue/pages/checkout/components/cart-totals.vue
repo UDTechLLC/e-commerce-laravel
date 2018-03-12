@@ -35,6 +35,7 @@
                             ${{ product.total_sum }}
                         </span>
                 </td>
+
             </tr>
             </tbody>
             <tfoot>
@@ -46,6 +47,16 @@
                         <span class="product-subtotal-amount">
                             ${{ subTotal }}
                         </span>
+                </td>
+            </tr>
+            <tr class="cart-subtotal" v-if="discount != '0.00'">
+                <th>
+                    Coupon: {{ coupon }}
+                </th>
+                <td class="product-subtotal">
+                      <span class="product-subtotal-amount">
+                        -${{discount}}
+                    </span>
                 </td>
             </tr>
             <tr class="shipping" v-if="isShipping">
@@ -76,14 +87,16 @@
 </template>
 <script type="text/babel">
 
-  export default ({
-    props: {
-      products: Array,
-      subTotal: String,
-      total: String,
-      shipping: Number,
-      isShipping: Boolean
-    }
-  })
+    export default ({
+        props: {
+            products: Array,
+            subTotal: String,
+            total: String,
+            shipping: Number,
+            isShipping: Boolean,
+            discount: String,
+            coupon: String
+        }
+    })
 
 </script>
