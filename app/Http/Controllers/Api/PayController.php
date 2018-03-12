@@ -156,6 +156,7 @@ class PayController extends Controller
     public function payBraintree(Request $request, Order $order)
     {
         $token = $request->get('nonce');
+
         $amount = $order->total_cost;
 
         if ($order->isShipping()) {
