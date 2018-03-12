@@ -11,24 +11,26 @@
                 <div style="padding: 10px 50px;">
                 <h3>Your order has been received and is now being processed. Your order details are shown below for your reference:</h3>
                 <h1 style="color: red;">Order #{{ $order->id }}</h1>
-                        <table class="shop-table">
+                        <table style="background-color: transparent;border-collapse: collapse;border-spacing: 0;margin: 0;max-width: 100%;
+text-align: left;
+  width: 100%;">
                         <thead>
-                        <tr>
-                            <th class="product-name">
+                        <tr style="border-bottom: 1px solid #eaeaea;padding: 10px 0;">
+                            <th class="product-name" style="padding: 20px 0;">
                                 Product
                             </th>
-                            <th class="product-quantity">
+                            <th class="product-quantity" style="padding: 20px 0;">
                                 Quantity
                             </th>
-                            <th class="product-price">
+                            <th class="product-price" style="padding: 20px 0;">
                                 Price
                             </th>
                         </thead>
                         <tbody>
                         @foreach($order->products as $product)
 
-                        <tr>
-                            <td>
+                        <tr style="border-bottom: 1px solid #eaeaea;padding: 10px 0;">
+                            <td style="padding: 20px 0;">
                                 {{$product->title}}
                                 @if ($product->isVirtual())
                                 <br>
@@ -55,7 +57,7 @@
                         </tbody>
                         <tfoot>
                         <tr class="cart-subtotal">
-                            <td colspan="2">
+                            <td colspan="2" style="padding: 20px 0;">
 
                                 Subtotal:
                             </td>
