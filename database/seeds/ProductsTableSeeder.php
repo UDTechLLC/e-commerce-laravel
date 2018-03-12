@@ -281,13 +281,13 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/12_week_cutom_meal_plan.png';
+        $pathToFile = 'resources/assets/web/seed_products/never+meal_icon.png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/meal_free_icon.png';
+        $pathToFile = 'resources/assets/web/seed_products/preview/12_week_custom_meal_plan_shop_preview.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
 
@@ -315,7 +315,7 @@ class ProductsTableSeeder extends Seeder
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/queen_icon.png';
+        $pathToFile = 'resources/assets/web/seed_products/preview/12_week_custom_meal_plan_shop_preview.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
     }
