@@ -18,6 +18,12 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->attachRole(2);
+
+        $user = factory(User::class)->create([
+            'email'    => 'ceo@shedyourfat.com',
+            'password' =>  bcrypt('5Htsfoi435')
+        ]);
+        $user->attachRole(2);
         factory(User::class, 10)->create();
     }
 }
