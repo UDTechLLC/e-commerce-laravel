@@ -291,5 +291,32 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
 
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => '12 Week Custom Meal Plan',
+            'sub_title'   => '100% Personalized Meal Program',
+            'description' => 'Training is important but nutrition is what can make or break you! Our dedicated team
+             knows that reaching any health and fitness goal starts with a solid nutrition plan. 
+             We do want not look at this as a diet, we want you to look at this as an opportunity to lay a strong 
+             foundation for years to come. That is why we offer various meal plan options that can be tailored
+              to any lifestyle.',
+
+            'old_amount'  => '100.00',
+            'amount'      => '80.00',
+            'slug'        => '12week-custom-meal-plan+queen',
+            'published'   => false,
+            'parent_id'   => 8,
+            'isVirtual'   => true,
+
+        ]);
+
+        $pathToFile = 'resources/assets/web/seed_products/queen_icon.png';
+        $product
+            ->addMedia($pathToFile)
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/queen_icon.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
     }
 }
