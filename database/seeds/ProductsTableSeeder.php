@@ -263,5 +263,6 @@ class ProductsTableSeeder extends Seeder
             ->preservingOriginal()
             ->toMediaCollection('preview');
 
+
     }
 }

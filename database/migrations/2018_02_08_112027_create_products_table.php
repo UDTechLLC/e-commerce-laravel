@@ -27,7 +27,10 @@ class CreateProductsTable extends Migration
             $table->boolean('published')->default(true);
             $table->string('slug');
             $table->boolean('isVirtual')->default(true);
+            $table->unsignedInteger('parent_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('parent_id')->references('id')->on('products');
         });
     }
 

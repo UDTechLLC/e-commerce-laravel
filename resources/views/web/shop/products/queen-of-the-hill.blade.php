@@ -42,6 +42,7 @@
                     </div>
                     <add-to-cart
                             product-slug="{{ $product->slug }}"
+                            data-title="12 Week Custom Meal Plan"
                     >
                     </add-to-cart>
                 </div>
@@ -65,49 +66,98 @@
             </div>
 
             <div class="section__icons inline-block text-center">
-                <div class="section__icon-wrapper">
-                    <div class="section__icon-img flex flex-a--center flex-j--center">
-                        <img src="{{ asset('web/images/full-product/queen-of-the-hill/full_weekly.svg')}}" alt="">
-                    </div>
-                    <div class="text-center">
-                        <h3 class="section__icon-text">
-                            FULL WEEKLY BREAK DOWN
-                        </h3>
-                        <p class="section__icon-info">
-                            What to do and when to do it!
-                        </p>
-                    </div>
-                </div>
-                <div class="section__icon-wrapper">
-                    <div class="section__icon-img flex flex-a--center flex-j--center">
-                        <img src="{{ asset('web/images/full-product/queen-of-the-hill/icon_Get-Toned-1.svg')}}" alt="">
-                    </div>
-                    <div class="text-center">
-                        <h3 class="section__icon-text">
-                            GET TONED
-                        </h3>
-                        <p class="section__icon-info">
-                            We concentrate on fat loss over weight loss
-                        </p>
-                    </div>
-                </div>
-                <div class="section__icon-wrapper">
-                    <div class="section__icon-img flex flex-a--center flex-j--center">
-                        <img src="{{ asset('web/images/full-product/queen-of-the-hill/recovery.svg')}}" alt="">
-                    </div>
-                    <div class="text-center">
-                        <h3 class="section__icon-text">
-                            RECOVERY TIPS
-                        </h3>
-                        <p class="section__icon-info">
-                            Rest allows the body to change
-                        </p>
-                    </div>
-                </div>
+                {{--<div class="section__icon-wrapper">--}}
+                    {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
+                        {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/full_weekly.svg')}}" alt="">--}}
+                    {{--</div>--}}
+                    {{--<div class="text-center">--}}
+                        {{--<h3 class="section__icon-text">--}}
+                            {{--FULL WEEKLY BREAK DOWN--}}
+                        {{--</h3>--}}
+                        {{--<p class="section__icon-info">--}}
+                            {{--What to do and when to do it!--}}
+                        {{--</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="section__icon-wrapper">--}}
+                    {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
+                        {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/icon_Get-Toned-1.svg')}}" alt="">--}}
+                    {{--</div>--}}
+                    {{--<div class="text-center">--}}
+                        {{--<h3 class="section__icon-text">--}}
+                            {{--GET TONED--}}
+                        {{--</h3>--}}
+                        {{--<p class="section__icon-info">--}}
+                            {{--We concentrate on fat loss over weight loss--}}
+                        {{--</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="section__icon-wrapper">--}}
+                    {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
+                        {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/recovery.svg')}}" alt="">--}}
+                    {{--</div>--}}
+                    {{--<div class="text-center">--}}
+                        {{--<h3 class="section__icon-text">--}}
+                            {{--RECOVERY TIPS--}}
+                        {{--</h3>--}}
+                        {{--<p class="section__icon-info">--}}
+                            {{--Rest allows the body to change--}}
+                        {{--</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
 
             </div>
 
+
+        </div>
+    </section>
+    <section class="parallax-section parallax-section--queen-of-the-hill" data-speed=".7" data-size="100vw" data-parallax="scroll" data-image-src="{{ asset('web/images/full-product/parallax/maximize_bg.jpg')}}" data-relative-input="true">
+
+        <div class="wrapper">
+            <h2 class="section__title section__title--white after-lines after-lines--large after-lines--red text-center section__title--what-eat">
+                MAXIMIZE YOUR RESULTS
+            </h2>
+            <p class="section__text section__text--white text-center">Combine Queen Of The Hill and our Custom Meal Plan to achieve greater results</p>
+
+
+            <div class="block-in-section-wrapper flex flex-j--between">
+                <div class="block-in-section  block-in-section--40 text-center">
+                    <img src="{{ asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">
+                </div>
+                <div class="block-in-section block-in-section--60">
+                    <h2 class="parallax-section__title  parallax-section__title--red">12 WEEK CUSTOM MEAL PLAN</h2>
+                    <h4 class="parallax-section__subTitle parallax-section__subTitle--white">100% Personalized Meal Plan</h4>
+                    <p class="parallax-section__info parallax-section__info--white">
+                        Training is important but nutrition is what can make or break you! Our dedicated team knows that reaching any health and fitness goal starts with a solid nutrition plan. We do want not look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation for years to come. That is why we offer various meal plan options that can be tailored to any lifestyle.
+                    </p>
+                    <ul class="parallax-section__list parallax-section__list--white">
+                        <li>Intermittent Fasting</li>
+                        <li>Ketogenic</li>
+                        <li>Carb Cycling</li>
+                        <li>Vegan/Vegetarian</li>
+                    </ul>
+                    <div class="product-price-block">
+                        <div class="product-price has-old-price">
+                            <span class="product-amount product-amount--old product-amount--white">
+                                 <span class="currency">$</span>
+                                <span>150.00</span>
+                            </span>
+                            <span class="product-amount">
+                                <span class="currency">$</span>
+                                <span>80.00</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="product-button-block">
+                        <div class="add-to-cart-wrapper">
+                            <a class="add-to-cart-btn" href="#">
+                                Add to cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </section>
@@ -136,7 +186,7 @@
             </div>
             <div class="training-plan-faqs-block">
                 <h4 class="training-plan-faqs-title">
-                    NUTRITION FAQS
+                     FAQS
                 </h4>
                 <ul class="training-plan-faqs-list">
                     <li class="training-plan-faqs-list-item">
@@ -176,6 +226,45 @@
     </div>
 
 </main>
+<div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
+    <div class="popUp__wrapper">
+        <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+        <h2 class="popUp__title">MAXIMIZE YOUR RESULTS</h2>
+        <p class="popUp__subTitle">Combine Queen Of The Hill and our Custom Meal Plan to achieve greater results</p>
+        <div class="popUp__img-info">
+            <div class="popUp__img">
+                <img src="{{asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">
+            </div>
+            <div class="popUp__info">
+                <div class="popUp__name">12 Week Custom Meal Plan</div>
+                <p class="popUp__description">Training is only 20% of the battle. 80% of results come from consistent and proper nutrition!</p>
+
+                <div class="popUp__productPriceBlock">
+
+                    <div class="product-amount">
+                        <div class="flex flex-a--center">
+                            <div class="old-price line-throw">
+                                <span class="currency">$</span>
+                                <span>150.00</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="currency">$</span>
+                                <span>80.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
+                    <a href="#" class="btn add-to-cart-btn">ADD TO CART</a>
+                    <a href="#" class="no-thanks">NO, THANKS</a>
+                </div>
+                <a href="#" class="learn-more">learn more</a>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <add-to-cart-mobile
         product-slug="{{ $product->slug }}"
