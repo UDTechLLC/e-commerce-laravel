@@ -52,7 +52,6 @@
                            :isShipping="isShipping"
                            :discount="discount"
                            :coupon="coupon"
-                           :token="token"
                            @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
