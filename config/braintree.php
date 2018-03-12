@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'environment' => 'sandbox',
-    'merchantId'  => 'fqgkkgjbh2z5tjdj',
-    'publicKey'   => '97t2sjk9hk8smkf8',
-    'privateKey'  => '18659380deb1ced28908b9059e755ba0',
+    'environment' => env('BRAINTREE_ENV'),
+    'merchant_id' => env('BRAINTREE_MERCHANT_ID'),
+    'public_key'  => env('BRAINTREE_PUBLIC_KEY'),
+    'private_key' => env('BRAINTREE_PRIVATE_KEY'),
 ];

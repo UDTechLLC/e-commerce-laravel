@@ -10,12 +10,8 @@ use App\Models\Order;
 use App\Models\OrderBilling;
 use App\Models\OrderShipping;
 use App\Models\User;
-use App\Services\PayPal\PayPalService;
 use App\Transformers\Api\OrderTransformer;
-use App\Transformers\Api\UserTransformer;
-use Illuminate\Http\Request;
 use PragmaRX\Countries\Package\Countries;
-use Stripe\Product;
 
 class CheckoutController extends Controller
 {
@@ -79,6 +75,11 @@ class CheckoutController extends Controller
     private function createOrUpdateBilling($request, $billing)
     {
         $billingId = $billing->getKey();
+        $country = $request->get('country');
+
+        $iso3166 = $country
+            ? $this->getIso3166($country)
+            : null;
 
         return OrderBilling::updateOrCreate(['id' => $billingId], [
             'first_name'   => $request->get('firstName'),
@@ -87,8 +88,8 @@ class CheckoutController extends Controller
             'company_name' => $request->get('company'),
             'street'       => $request->get('street'),
             'apartment'    => $request->get('apartment'),
-            'country'      => $request->get('country'),
-            'iso_3166'     => $this->getIso3166($request->get('country')),
+            'country'      => $country,
+            'iso_3166'     => $iso3166,
             'city'         => $request->get('city'),
             'state'        => $request->get('state'),
             'postcode'     => $request->get('postcode'),
@@ -170,7 +171,7 @@ class CheckoutController extends Controller
      */
     private function updateOrder($order, $shipping, $country)
     {
-        $shippingCost = $this->getShippingSum($country);
+        $shippingCost = $this->getShippingSum($order->cart, $country);
 
         $order->update([
             'shipping_id'   => $shipping->getKey(),
@@ -257,6 +258,6 @@ class CheckoutController extends Controller
      */
     private function getIso3166(string $name)
     {
-        return Countries::where('name.common', 'Ukraine')->first()->iso_3166_1_alpha2;
+        return Countries::where('name.common', $name)->first()->iso_3166_1_alpha2;
     }
 }

@@ -162,6 +162,8 @@ class PayController extends Controller
             $this->sendOrderToShipStation($order);
         }
 
+        $this->clearCart($order->cart);
+
         $service = new BraintreeService();
 
         $service->setAuthToken($token);
