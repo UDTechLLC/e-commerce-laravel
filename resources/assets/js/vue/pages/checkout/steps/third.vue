@@ -90,6 +90,8 @@
                                         :total="total"
                                         :shipping="shipping"
                                         :isShipping="isShipping"
+                                        :discount="discount"
+                                        :coupon="coupon"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -115,7 +117,9 @@
     import billingBlock from './../components/billing-block';
 
     export default ({
-        data: () => ({}),
+        data: () => ({
+            token: ""
+        }),
         props: {
             orderId: Number,
             billing: Object,
@@ -124,7 +128,8 @@
             total: String,
             shipping: Number,
             isShipping: Boolean,
-            token: String
+            discount: String,
+            coupon: String
         },
         components: {
             cartTotals,
@@ -132,123 +137,134 @@
             billingBlock
         },
         created() {
-            braintree.client.create({
-                authorization: this.token
-            }, function(err, clientInstance) {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
 
-                braintree.hostedFields.create({
-                    client: clientInstance,
-                    styles: {
-                        'input': {
-                            'font-size': '16px',
-                            'font-family': 'roboto, verdana, sans-serif',
-                            'font-weight': 'lighter',
-                            'color': 'black'
-                        },
-                        ':focus': {
-                            'color': 'black'
-                        },
-                        '.valid': {
-                            'color': 'black'
-                        },
-                        '.invalid': {
-                            'color': 'black'
-                        }
-                    },
-                    fields: {
-                        number: {
-                            selector: '#card-number',
-                            placeholder: '1111 1111 1111 1111'
-                        },
-                        cvv: {
-                            selector: '#cvv',
-                            placeholder: '111'
-                        },
-                        expirationDate: {
-                            selector: '#expiration-date',
-                            placeholder: 'MM/YY'
-                        }
-                    }
-                }, function(err, hostedFieldsInstance) {
-                    if (err) {
-                        console.error(err);
-                        return;
-                    }
+            axios.get('/api/pay/braintree/token').then(
+                    response => {
+                        this.token = response.data.token;
 
-                    function findLabel(field) {
-                        return $('.hosted-field--label[for="' + field.container.id + '"]');
-                    }
-
-                    hostedFieldsInstance.on('focus', function (event) {
-                        var field = event.fields[event.emittedBy];
-
-                        findLabel(field).addClass('label-float').removeClass('filled');
-                    });
-
-                    // Emulates floating label pattern
-                    hostedFieldsInstance.on('blur', function (event) {
-                        var field = event.fields[event.emittedBy];
-                        var label = findLabel(field);
-
-                        if (field.isEmpty) {
-                            label.removeClass('label-float');
-                        } else if (field.isValid) {
-                            label.addClass('filled');
-                        } else {
-                            label.addClass('invalid');
-                        }
-                    });
-
-                    hostedFieldsInstance.on('empty', function (event) {
-                        var field = event.fields[event.emittedBy];
-
-                        findLabel(field).removeClass('filled').removeClass('invalid');
-                    });
-
-                    hostedFieldsInstance.on('validityChange', function (event) {
-                        var field = event.fields[event.emittedBy];
-                        var label = findLabel(field);
-
-                        if (field.isPotentiallyValid) {
-                            label.removeClass('invalid');
-                        } else {
-                            label.addClass('invalid');
-                        }
-                    });
-
-                    $('#cardForm').submit(function (event) {
-                        event.preventDefault();
-
-                        hostedFieldsInstance.tokenize(function (err, payload) {
+                        braintree.client.create({
+                            authorization: this.token
+                        }, (err, clientInstance) => {
                             if (err) {
                                 console.error(err);
                                 return;
                             }
-                            console.log(payload);
-                            // This is where you would submit payload.nonce to your server
-                            let method = "post";
-                            let path = '/api/pay/braintree';
-                            var form = document.createElement("form");
-                            form.setAttribute("method", method);
-                            form.setAttribute("action", path);
 
-                                    var hiddenField = document.createElement("input");
-                                    hiddenField.setAttribute("type", "hidden");
-                                    hiddenField.setAttribute("name", 'nonce');
-                                    hiddenField.setAttribute("value", payload.nonce);
+                            braintree.hostedFields.create({
+                                client: clientInstance,
+                                styles: {
+                                    'input': {
+                                        'font-size': '16px',
+                                        'font-family': 'roboto, verdana, sans-serif',
+                                        'font-weight': 'lighter',
+                                        'color': 'black'
+                                    },
+                                    ':focus': {
+                                        'color': 'black'
+                                    },
+                                    '.valid': {
+                                        'color': 'black'
+                                    },
+                                    '.invalid': {
+                                        'color': 'black'
+                                    }
+                                },
+                                fields: {
+                                    number: {
+                                        selector: '#card-number',
+                                        placeholder: '1111 1111 1111 1111'
+                                    },
+                                    cvv: {
+                                        selector: '#cvv',
+                                        placeholder: '111'
+                                    },
+                                    expirationDate: {
+                                        selector: '#expiration-date',
+                                        placeholder: 'MM/YY'
+                                    }
+                                }
+                            }, (err, hostedFieldsInstance) => {
+                                if (err) {
+                                    console.error(err);
+                                    return;
+                                }
 
-                                    form.appendChild(hiddenField);
+                                function findLabel(field) {
+                                    return $('.hosted-field--label[for="' + field.container.id + '"]');
+                                }
 
-                            document.body.appendChild(form);
-                            form.submit();
+                                hostedFieldsInstance.on('focus', function (event) {
+                                    var field = event.fields[event.emittedBy];
+
+                                    findLabel(field).addClass('label-float').removeClass('filled');
+                                });
+
+                                // Emulates floating label pattern
+                                hostedFieldsInstance.on('blur', function (event) {
+                                    var field = event.fields[event.emittedBy];
+                                    var label = findLabel(field);
+
+                                    if (field.isEmpty) {
+                                        label.removeClass('label-float');
+                                    } else if (field.isValid) {
+                                        label.addClass('filled');
+                                    } else {
+                                        label.addClass('invalid');
+                                    }
+                                });
+
+                                hostedFieldsInstance.on('empty', function (event) {
+                                    var field = event.fields[event.emittedBy];
+
+                                    findLabel(field).removeClass('filled').removeClass('invalid');
+                                });
+
+                                hostedFieldsInstance.on('validityChange', function (event) {
+                                    var field = event.fields[event.emittedBy];
+                                    var label = findLabel(field);
+
+                                    if (field.isPotentiallyValid) {
+                                        label.removeClass('invalid');
+                                    } else {
+                                        label.addClass('invalid');
+                                    }
+                                });
+
+                                $('#cardForm').submit( (event) => {
+                                    event.preventDefault();
+
+                                    hostedFieldsInstance.tokenize( (err, payload) => {
+                                        if (err) {
+                                            console.error(err);
+                                            return;
+                                        }
+
+                                        // This is where you would submit payload.nonce to your server
+                                        let method = "post";
+                                        let path = `/api/pay/braintree/${this.orderId}`;
+                                        var form = document.createElement("form");
+                                        form.setAttribute("method", method);
+                                        form.setAttribute("action", path);
+
+                                        var hiddenField = document.createElement("input");
+                                        hiddenField.setAttribute("type", "hidden");
+                                        hiddenField.setAttribute("name", 'nonce');
+                                        hiddenField.setAttribute("value", payload.nonce);
+
+                                        form.appendChild(hiddenField);
+
+                                        document.body.appendChild(form);
+                                        form.submit();
+                                    });
+                                });
+                            });
                         });
-                    });
-                });
-            });
+                    },
+                        error => console.log('error')
+
+            );
+
+
         },
         methods: {
             next() {

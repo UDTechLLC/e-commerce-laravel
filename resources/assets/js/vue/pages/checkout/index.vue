@@ -50,7 +50,8 @@
                            :total="total"
                            :shipping="shipping"
                            :isShipping="isShipping"
-                           :token="token"
+                           :discount="discount"
+                           :coupon="coupon"
                            @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
@@ -83,6 +84,8 @@
                 products: [],
                 subTotal: "0",
                 shipping: 0,
+                discount: "0",
+                coupon: "",
                 currentComponent: "first",
                 billing: {},
                 isShipping: false
