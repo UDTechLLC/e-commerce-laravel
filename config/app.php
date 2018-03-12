@@ -185,6 +185,7 @@ return [
         Laratrust\LaratrustServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         LaravelShipStation\ShipStationServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
 
     ],
 
