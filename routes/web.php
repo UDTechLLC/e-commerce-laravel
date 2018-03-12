@@ -13,8 +13,9 @@
 Route::get('/checkout', function () {
     return view('checkout_thank_you');
 });
-//Route::get('/', function () {
-//    return view('welcome');
+//Route::get('test', function () {
+//    $order = \App\Models\Order::find(1);
+//    return view('email.product',compact('order') );
 //});
 require_once 'web/shop.php';
 require_once 'admin/admin.php';
