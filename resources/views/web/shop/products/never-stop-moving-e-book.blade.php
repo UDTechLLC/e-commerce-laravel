@@ -245,7 +245,8 @@
             <p class="popUp__subTitle">Combine Never Stop Moving and our Custom Meal Plan to achieve greater results.</p>
             <div class="popUp__img-info">
                 <div class="popUp__img">
-                    <img src="{{asset('web/images/popUp/meal_free_icon.png')}}" alt="meal_free_icon">
+                    {{--<img src="{{asset('web/images/popUp/meal_free_icon.png')}}" alt="meal_free_icon">--}}
+                    <img src="{!! $product->bandls->getFirstMediaUrl('preview') !!}" />
                 </div>
                 <div class="popUp__info">
                     <div class="popUp__name">{!! $product->bandls->title !!}</div>

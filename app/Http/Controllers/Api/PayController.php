@@ -158,6 +158,7 @@ class PayController extends Controller
     public function payBraintree(Request $request, Order $order)
     {
         $token = $request->get('nonce');
+
         $amount = $order->total_cost;
 
         $user = User::find(1);
@@ -188,7 +189,7 @@ class PayController extends Controller
             }
 
             $this->sendOrderToEmail($order);
-
+            //dd($order);
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         }
     }

@@ -123,10 +123,14 @@
 
             <div class="block-in-section-wrapper flex flex-j--between">
                 <div class="block-in-section  block-in-section--40 text-center">
-                    <img src="{{ asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">
+                    {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">--}}
+                    <img src="{!! $product->bandls->getFirstMediaUrl('products') !!}" />
                 </div>
                 <div class="block-in-section block-in-section--60">
-                    <h2 class="parallax-section__title  parallax-section__title--red">12 WEEK CUSTOM MEAL PLAN</h2>
+                    <h2 class="parallax-section__title  parallax-section__title--red" style="text-transform: uppercase;">
+                        {{--12 WEEK CUSTOM MEAL PLAN--}}
+                        {!! $product->bandls->title !!}
+                    </h2>
                     <h4 class="parallax-section__subTitle parallax-section__subTitle--white">100% Personalized Meal Plan</h4>
                     <p class="parallax-section__info parallax-section__info--white">
                         Training is important but nutrition is what can make or break you! Our dedicated team knows that reaching any health and fitness goal starts with a solid nutrition plan. We do want not look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation for years to come. That is why we offer various meal plan options that can be tailored to any lifestyle.
@@ -141,11 +145,11 @@
                         <div class="product-price has-old-price">
                             <span class="product-amount product-amount--old product-amount--white">
                                  <span class="currency">$</span>
-                                <span>150.00</span>
+                                <span> {!! $product->bandls->old_amount !!}</span>
                             </span>
                             <span class="product-amount">
                                 <span class="currency">$</span>
-                                <span>80.00</span>
+                                <span> {!! $product->bandls->amount !!}</span>
                             </span>
                         </div>
                     </div>
@@ -245,18 +249,22 @@
                         <div class="flex flex-a--center">
                             <div class="old-price line-throw">
                                 <span class="currency">$</span>
-                                <span>150.00</span>
+                                <span>{{ $product->bandls->old_amount }}</span>
                             </div>
                             <div class="product-price">
                                 <span class="currency">$</span>
-                                <span>80.00</span>
+                                <span>{{ $product->bandls->amount }}</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
-                    <a href="#" class="btn add-to-cart-btn">ADD TO CART</a>
+                    <add-to-cart
+                            product-slug="{{ $product->bandls->slug }}"
+                    >
+                    </add-to-cart>
+                    {{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}
                     <a href="#" class="no-thanks">NO, THANKS</a>
                 </div>
                 <a href="#" class="learn-more">learn more</a>
