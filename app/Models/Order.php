@@ -120,6 +120,11 @@ class Order extends EloquentModel
         return $this->belongsToMany(Product::class)->withPivot('count');
     }
 
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class);
+    }
+
     /**
      * Entity scopes go below
      */

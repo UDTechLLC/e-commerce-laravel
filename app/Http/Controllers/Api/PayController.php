@@ -179,7 +179,7 @@ class PayController extends Controller
             }
 
             $this->sendOrderToEmail($order);
-
+            //dd($order);
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         }
     }

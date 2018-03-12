@@ -122,18 +122,33 @@
                                                 </span>
                                                 </td>
                                             </tr>
-                                            <tr class="shipping">
-                                                <td></td>
-                                                <th>
-                                                    Shipping:
-                                                </th>
-                                                <td>
+                                            @if($order->coupon_id)
+                                                <tr class="cart-subtotal">
+                                                    <td></td>
+                                                    <th>
+                                                        Coupon: {{ $order->coupon->code }}
+                                                    </th>
+                                                    <td>
+                                                <span class="product-subtotal-amount">
+                                                    -${{$order->discount_cost}}
+                                                </span>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                            @if ($order->shipping_cost != '0.00')
+                                                <tr class="shipping">
+                                                    <td></td>
+                                                    <th>
+                                                        Shipping:
+                                                    </th>
+                                                    <td>
                                                 <span class="product-subtotal-amount">
                                                     ${{ $order->shipping_cost }} via Flat Rate
                                                 </span>
-                                                </td>
-                                            </tr>
-                                            <tr class="order-payment-method">
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                            {{--<tr class="order-payment-method">
                                                 <td></td>
                                                 <th>
                                                     Payment method:
@@ -141,7 +156,7 @@
                                                 <td>
                                                     PayPal
                                                 </td>
-                                            </tr>
+                                            </tr>--}}
                                             <tr class="order-total">
                                                 <td></td>
                                                 <th>
@@ -167,7 +182,7 @@
                                                         </div>
                                                         <div class="product-info">
                                                             <a class="product-title" href="#">
-                                                               {{ $product->title }}
+                                                                {{ $product->title }}
                                                             </a>
                                                         </div>
                                                     </td>
@@ -176,7 +191,7 @@
                                                     </td>
                                                     <td class="product-subtotal">
                                                     <span class="product-subtotal-amount">
-                                                        $ {{ $product->pivot->count * $product->amount }}
+                                                        $ {{$product->pivot->count * $product->amount}}
                                                     </span>
                                                     </td>
                                                 </tr>
