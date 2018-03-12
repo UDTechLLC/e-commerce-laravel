@@ -108,6 +108,10 @@ class Product extends EloquentModel implements HasMedia
     {
         return $this->belongsToMany(Coupon::class);
     }
+    public function bandls()
+    {
+        return $this->hasOne(Product::class,'parent_id','id');
+    }
 
     /**
      * Entity scopes go below
