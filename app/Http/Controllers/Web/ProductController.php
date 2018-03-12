@@ -60,7 +60,9 @@ class ProductController extends Controller
 //        return view('web.shop.products.14-day-detox-guide',compact('product'));
 //        return view('web.shop.products.queen-of-the-hill', compact('product'));
         if($product->view_name)
+        {
         return view('web.shop.products.'.$product->view_name.'',compact('product'));
+        }
         else
         return view('web.shop.products.show', compact('product'));
     }
