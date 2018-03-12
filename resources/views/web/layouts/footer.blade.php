@@ -5,7 +5,7 @@
                 <ul class="first-footer__menu">
                     <li><a href="{{url('/')}}">Home</a></li>
                     <li><a href="{{url('about-us')}}">About us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{url('contact')}}">Contact</a></li>
                     <li><a href="{{url('return-policy')}}">Return Policy</a></li>
                     <li><a href="{{url('privacy-policy')}}">Privacy Policy</a></li>
                     <li><a href="{{url('weight-loss-disclaimer')}}">Weight Loss Disclaimer</a></li>
