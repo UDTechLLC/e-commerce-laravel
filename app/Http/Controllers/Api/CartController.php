@@ -153,6 +153,9 @@ class CartController extends Controller
 
         if ($all || 1 === $countProduct) {
             $cart->products()->detach($product);
+            if ($product->bandls != null) {
+                $cart->products()->detach($product->bandls);
+            }
         } else {
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => --$countProduct]);
         }
