@@ -26,22 +26,58 @@
                                 {{--SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase your weight loss, provide clean smooth energy and help you get past your fitness plateaus.--}}
                             </p>
                         </div>
-                        <div class="product-price-block">
-                            <div class="product-price">
-                            <span class="product-amount">
-                                <span class="currency">$</span>
-                                <span>  {!! $product->amount !!}</span>
-                            </span>
-                            </div>
-                        </div>
-                        <div class="product-button-block">
-                            <div class="flex flex-a--center wrapper-btns-buy-count">
+                        <div class="product-price-block product-price-block--radio">
+                            {{--<div class="product-price">--}}
+                            {{--<span class="product-amount">--}}
+                                {{--<span class="currency">$</span>--}}
+                                {{--<span>  {!! $product->amount !!}</span>--}}
+                            {{--</span>--}}
+                            {{--</div>--}}
+                            <div class="price-radio-block">
 
-                                {{--<div class="btn-wrapper-product-count flex flex-a--center">--}}
-                                    {{--<button class="btn">-</button>--}}
-                                    {{--<input type="number" class="product-count" value="1">--}}
-                                    {{--<button class="btn">+</button>--}}
-                                {{--</div>--}}
+                                <label class="price-radio flex flex-a--center">
+                                    <input type="radio" value="34.00" name="product-price" checked>
+                                    <span class="custom-input"></span>
+                                    <span class="product-amount">
+                                        <span class="currency">$</span>
+                                        <span>{!! $product->amount !!}</span>
+                                    </span>
+
+
+                                    <span class="price-radio-block__desc">
+                                        I want to make a one-time purchase.
+                                    </span>
+
+                                </label>
+                                <label class="price-radio flex flex-a--center">
+                                    <input type="radio" value="59.99" name="product-price">
+                                    <span class="custom-input"></span>
+                                    <span>
+                                    <span class="old-price">
+                                        <span class="currency">$</span>
+                                        <span>{!! $product->old_amount !!}</span>
+                                    </span>
+                                    <span class="product-amount">
+                                        <span class="currency">$</span>
+                                        <span>{!! $product->amount !!}</span>
+                                    </span>
+                                </span>
+
+                                    <span class="price-radio-block__desc">
+                                        I want auto-shipping for every 30 days.
+                                </span>
+                                </label>
+                            </div>
+
+                        </div>
+                            <div class="product-button-block">
+                                <div class="flex flex-a--center wrapper-btns-buy-count">
+
+                                    <div class="btn-wrapper-product-count flex flex-a--center">
+                                        <button class="btn">-</button>
+                                        <input type="number" class="product-count" value="1">
+                                        <button class="btn">+</button>
+                                    </div>
 
                                 <div class="add-to-cart-wrapper">
                                 <add-to-cart
