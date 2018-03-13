@@ -179,7 +179,7 @@ class CartController extends Controller
 
         return null === $user
             ? Cart::where('hash', $hash)->first() ?? $this->createCart($hash)
-            : $user->cart();
+            : $user->cart;
     }
 
     /**

@@ -161,13 +161,13 @@ class PayController extends Controller
 
         $amount = $order->total_cost;
 
-        $user = User::find(1);
+//        $user = User::find(2);
 
-        if (true) {
-            $user->newSubscription('main', '59qr')->create($token);
-
-            return view('web.checkout.checkout_thank_you', ['order' => $order]);
-        }
+//        if (true) {
+//            $user->newSubscription('main', '59qr')->create($token);
+//            $user->charge(33);
+//            return view('web.checkout.checkout_thank_you', ['order' => $order]);
+//        }
 
         if ($order->isShipping()) {
             $this->sendOrderToShipStation($order);
