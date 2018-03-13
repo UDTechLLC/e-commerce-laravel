@@ -22,6 +22,8 @@ class CreatePlansTable extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
         });
+
+        \Artisan::call('braintree:sync-plans');
     }
 
     /**

@@ -128,7 +128,7 @@ class CheckoutController extends Controller
             'product_cost'  => $productCost,
             'shipping_cost' => $shippingCost,
             'discount_cost' => $cart->getDiscountSum(),
-            'total_cost'    => $cart->getWithDiscountSum(),
+            'total_cost'    => $cart->getWithDiscountSum() + $shippingCost,
             'count'         => $count,
             'state'         => Order::ORDER_STATE_PENDING_PAYMENT,
         ]);
