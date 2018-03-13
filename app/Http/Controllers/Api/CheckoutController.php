@@ -30,6 +30,11 @@ class CheckoutController extends Controller
     {
         /** @var User $user */
         $user = \Auth::user();
+
+        if (null === $user && null !== $request->get('password')) {
+            $user = $this->createUser($request);
+        }
+
         $country = $request->get('country');
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);
@@ -190,5 +195,23 @@ class CheckoutController extends Controller
     private function getIso3166(string $name)
     {
         return Countries::where('name.common', $name)->first()->iso_3166_1_alpha2;
+    }
+
+    /**
+     * Create user.
+     *
+     * @param $request
+     *
+     * @return $this|\Illuminate\Database\Eloquent\Model
+     */
+    private function createUser($request)
+    {
+        return User::create([
+            'first_name' => $request->get('firstName'),
+            'last_name'  => $request->get('lastName'),
+            'email'      => $request->get('email'),
+            'phone'      => $request->get('phone'),
+            'password'   => bcrypt($request->get('password')),
+        ]);
     }
 }
