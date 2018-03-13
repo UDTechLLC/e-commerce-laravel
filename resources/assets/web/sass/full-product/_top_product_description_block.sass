@@ -90,8 +90,73 @@
       font-weight: 700
       line-height: 26px
       margin: 0 5px 30px
+    &--radio
+      .product-amount
+        margin: 0 20px
+        @media screen and (max-width: 350px)
+          margin: 0 20px
+          font-size: 25px
       @media (max-width: $breakpoint-mobile)
         justify-content: center
+    .price-radio-block
+      @media screen and (max-width: $breakpoint-mobile)
+        text-align: left
+        margin: auto
+        width: 300px
+        box-sizing: border-box
+      @media screen and (max-width: 340px)
+        max-width: 250px
+
+      &__desc
+        max-width: 130px
+        font-size: 16px
+        color: #29282e
+        font-weight: 300
+        line-height: 24px
+        @media screen and (max-width: 350px)
+          font-size: 14px
+          max-width: 100px
+          line-height: 18px
+      .old-price
+        margin: 0 0 5px 20px
+        display: block
+        font-size: 17px
+        font-family: $Montserrat
+        color: #494949
+        text-decoration: line-through
+
+    .price-radio
+      margin-bottom: 20px
+      cursor: pointer
+      &:nth-child(2)
+        margin-bottom: 0
+      input
+        position: absolute
+        display: none
+      .custom-input
+        width: 30px
+        height: 30px
+        border: 1px solid #7c787e
+        position: relative
+        border-radius: 50%
+        display: block
+        &:after
+          content: ''
+          position: absolute
+          display: none
+          width: 14px
+          height: 14px
+          border-radius: 50%
+          background: $red
+          left: 50%
+          top: 50%
+          margin-left: -7px
+          margin-top: -7px
+      input[type=radio]:checked
+        & + .custom-input
+          &:after
+            display: block
+
   .product-button-block
     .add-to-cart-wrapper
       margin: 30px 0 25px
