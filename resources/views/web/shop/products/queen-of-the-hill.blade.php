@@ -112,6 +112,67 @@
 
         </div>
     </section>
+    <div class="training-plan-faqs-block-wrapper">
+        <div class="wrapper">
+            <div class="video-block-wrapper">
+                <div class="video-block">
+                    <div id="amazingcarousel-container-1">
+                        <div id="amazingcarousel-1" style="display: block; position: relative; width: 100%; max-width: 990px; margin: 0px auto; direction: ltr;">
+                            <div class="amazingcarousel-list-container" style="position: relative; margin: 0px auto; overflow: visible;">
+                                <div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><ul class="amazingcarousel-list" style="display: block; position: relative; list-style-type: none; list-style-image: none; background-image: none; background-color: transparent; padding: 0px; margin: 0px;">
+                                            <li class="amazingcarousel-item amazingcarousel-item-0" style="display: block; position: relative; background-image: none; background-color: transparent; margin: 0px; padding: 0px; float: left;">
+                                                <div class="amazingcarousel-item-container" style="position: relative; margin: 0px 4px;">
+                                                    <div class="amazingcarousel-image">
+                                                        <a href="https://player.vimeo.com/video/197558254" title="Rauve workout plan GYM" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ asset('web/images/610809299_640.jpg')}}" alt="Rauve workout plan GYM"></a>
+                                                        <div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div><div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div></div>
+                                                </div>
+                                            </li>
+                                            <div style="clear:both;"></div><div style="clear:both;"></div></ul></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="training-plan-faqs-block">
+                <h4 class="training-plan-faqs-title">
+                    FAQS
+                </h4>
+                <ul class="training-plan-faqs-list">
+                    <li class="training-plan-faqs-list-item">
+                        <p class="item-title">
+                            <strong>
+                                Can my meal plan work for my family?
+                            </strong>
+                        </p>
+                        <p class="item-description">
+                            Yes! We can implement food selections that take feeding your family into consideration.
+                        </p>
+                    </li>
+                    <li class="training-plan-faqs-list-item">
+                        <p class="item-title">
+                            <strong>
+                                I can only eat snacks at my desk, can you accommodate for that?
+                            </strong>
+                        </p>
+                        <p class="item-description">
+                            Yes! We personalize eating you fit your schedule.
+                        </p>
+                    </li>
+                    <li class="training-plan-faqs-list-item">
+                        <p class="item-title">
+                            <strong>
+                                I am a very picky eater, is that a problem?
+                            </strong>
+                        </p>
+                        <p class="item-description">
+                            No! We consider all food preferences as well as food allergies when creating your customized meal plan.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
     <section class="parallax-section parallax-section--queen-of-the-hill" data-speed=".7" data-size="100vw" data-parallax="scroll" data-image-src="{{ asset('web/images/full-product/parallax/maximize_bg.jpg')}}" data-relative-input="true">
 
         <div class="wrapper">
@@ -167,67 +228,7 @@
     </section>
 
 
-    <div class="training-plan-faqs-block-wrapper">
-        <div class="wrapper">
-            <div class="video-block-wrapper">
-                <div class="video-block">
-                    <div id="amazingcarousel-container-1">
-                        <div id="amazingcarousel-1" style="display: block; position: relative; width: 100%; max-width: 990px; margin: 0px auto; direction: ltr;">
-                            <div class="amazingcarousel-list-container" style="position: relative; margin: 0px auto; overflow: visible;">
-                                <div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><ul class="amazingcarousel-list" style="display: block; position: relative; list-style-type: none; list-style-image: none; background-image: none; background-color: transparent; padding: 0px; margin: 0px;">
-                                            <li class="amazingcarousel-item amazingcarousel-item-0" style="display: block; position: relative; background-image: none; background-color: transparent; margin: 0px; padding: 0px; float: left;">
-                                                <div class="amazingcarousel-item-container" style="position: relative; margin: 0px 4px;">
-                                                    <div class="amazingcarousel-image">
-                                                        <a href="https://player.vimeo.com/video/197558254" title="Rauve workout plan GYM" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ asset('web/images/610809299_640.jpg')}}" alt="Rauve workout plan GYM"></a>
-                                                        <div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div><div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div></div>
-                                                </div>
-                                            </li>
-                                            <div style="clear:both;"></div><div style="clear:both;"></div></ul></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="training-plan-faqs-block">
-                <h4 class="training-plan-faqs-title">
-                     FAQS
-                </h4>
-                <ul class="training-plan-faqs-list">
-                    <li class="training-plan-faqs-list-item">
-                        <p class="item-title">
-                            <strong>
-                                Can my meal plan work for my family?
-                            </strong>
-                        </p>
-                        <p class="item-description">
-                            Yes! We can implement food selections that take feeding your family into consideration.
-                        </p>
-                    </li>
-                    <li class="training-plan-faqs-list-item">
-                        <p class="item-title">
-                            <strong>
-                                I can only eat snacks at my desk, can you accommodate for that?
-                            </strong>
-                        </p>
-                        <p class="item-description">
-                            Yes! We personalize eating you fit your schedule.
-                        </p>
-                    </li>
-                    <li class="training-plan-faqs-list-item">
-                        <p class="item-title">
-                            <strong>
-                                I am a very picky eater, is that a problem?
-                            </strong>
-                        </p>
-                        <p class="item-description">
-                            No! We consider all food preferences as well as food allergies when creating your customized meal plan.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
+
 
 </main>
 <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->

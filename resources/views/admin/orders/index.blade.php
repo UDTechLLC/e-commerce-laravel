@@ -21,6 +21,7 @@
          <tbody>
          @foreach($orders as $order)
          <tr>
+            {{--{{$order->coupon->code}}--}}
             <td><a href="{{url('admin/orders/'.$order->id)}}"> #{{ $order->id }}</a></td>
 
             @if($order->user_id)

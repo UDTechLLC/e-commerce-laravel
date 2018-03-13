@@ -26,6 +26,11 @@ Route::group([
         'as'   => 'challenge',
         'uses' => 'ProductController@challenge'
     ]);
+    Route::get('contact', [
+        'as' => 'contact',
+        'uses' => 'ContactController@index'
+    ]);
+    Route::post('contact','ContactController@sendContactToEmail');
 
 //   require_once 'products.php';
 
