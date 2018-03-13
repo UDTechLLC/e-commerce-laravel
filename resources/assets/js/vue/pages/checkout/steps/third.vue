@@ -19,7 +19,7 @@
                         <div class="billing-details-info-wrapper">
                             <div class="contacts-block-wrapper">
                                 <div id="payment" class="payment-block-wrapper">
-                                    <div class="paypal-method payment-method-block">
+                                 <!--   <div class="paypal-method payment-method-block">
                                         <div class="paypal-header-block">
                                             <div class="payment-method-title">
                                                 <img src="/web/images/checkout/img-paypal.png"/>
@@ -34,7 +34,7 @@
                                                 PayPal account.
                                             </p>
                                         </div>
-                                    </div>
+                                    </div>-->
 
                                     <div id="dropin-container"></div>
 
