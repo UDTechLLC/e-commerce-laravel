@@ -6,7 +6,8 @@
     <main class="contact">
         <section class="contact__section">
             <div class="wrapper">
-                <form action="" class="validate-form not-valid" id="contact_form">
+                <form action="" class="validate-form not-valid" id="contact_form" method="POST">
+                    {{ csrf_field() }}
                     <div class="contact__wrapper">
                         <div class="contact__form-group">
                             <input class="" type="text" name="name" placeholder="Name (required)" tabindex="1" required>
@@ -15,7 +16,7 @@
                             <input class="" type="email" name="email" id="contactEmail"  placeholder="Email (required)" tabindex="2" required>
                         </div>
                         <div class="contact__form-group">
-                            <input class="" type="text"   placeholder="Subject" tabindex="3">
+                            <input class="" type="text" name="subject"  placeholder="Subject" tabindex="3">
                         </div>
                     </div>
                     <div class="contact__form-group">
