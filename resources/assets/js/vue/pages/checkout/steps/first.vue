@@ -155,26 +155,30 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your phone.</span>
                                     </div>
-                                    <!--<div class="form-field-wrapper">-->
-                                        <!--<input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"-->
-                                               <!--type="checkbox"/>-->
-                                        <!--<label for="bdCreateAccount" class="checkbox">-->
-                                            <!--Create an account?-->
-                                        <!--</label>-->
-                                    <!--</div>-->
-                                    <!--<div class="create-account-block" style="display: none">-->
-                                        <!--<p>-->
-                                            <!--Create an account by entering the information below. If you are a returning-->
-                                            <!--customer please login at the top of the page.-->
-                                        <!--</p>-->
-                                        <!--<div class="form-field-wrapper">-->
-                                            <!--<label for="bdCreatePass">-->
-                                                <!--Create account password-->
-                                            <!--</label>-->
-                                            <!--<input id="bdCreatePass" class="form-field" name="bd_create_pass"-->
-                                                   <!--type="text" placeholder="Password"/>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                                    <div class="form-field-wrapper">
+                                        <input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"
+                                               type="checkbox" @change="createUser = !createUser"/>
+                                        <label for="bdCreateAccount" class="checkbox">
+                                            Create an account?
+                                        </label>
+                                    </div>
+                                    <div class="create-account-block" v-if="createUser">
+                                        <p>
+                                            Create an account by entering the information below. If you are a returning
+                                            customer please login at the top of the page.
+                                        </p>
+                                        <div class="form-field-wrapper"
+                                             :class="{'error': errors.has('bd_create_pass')}">
+                                            <label for="bdCreatePass">
+                                                Create account password
+                                            </label>
+                                            <input id="bdCreatePass" class="form-field" name="bd_create_pass"
+                                                   type="text" placeholder="Password"
+                                                   v-model="password" v-validate data-vv-rules="required"/>
+                                            <span class="error-massage"
+                                                  style="display: none">Please enter your password.</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="cart-review-block-wrapper">
@@ -209,6 +213,8 @@
     export default ({
         data: () => ({
             billingId: "",
+            createUser: false,
+            password: "",
             billingInfo: {
                 firstName: "",
                 lastName: "",
@@ -253,19 +259,23 @@
 
                         let url = `/api/checkout/billing/${this.cartId}`;
                         if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
-
-                        axios.post(url, this.billingInfo).then(
-                            response => {
-                                this.billingId = response.data.data.billing.data.id;
-                                let data = {
-                                    step: 'second',
-                                    billing: this.billingInfo,
-                                    orderId: response.data.data.id
-                                };
-                                this.$emit('next', data);
-                                return;
-                            },
-                            error => console.log('error')
+                        let body = {
+                            ...this.billingInfo,
+                            password: this.password
+                        };
+                        axios.post(url, body).then(
+                                response => {
+                                    this.billingId = response.data.data.billing.data.id;
+                                    let data = {
+                                        step: 'second',
+                                        billing: this.billingInfo,
+                                        orderId: response.data.data.id,
+                                        password: this.password
+                                    };
+                                    this.$emit('next', data);
+                                    return;
+                                },
+                                error => console.log('error')
                         );
                     }
                 });
