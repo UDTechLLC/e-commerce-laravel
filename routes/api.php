@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group([
-    'as'     => '.carts',
+    'as'     => 'carts',
     'prefix' => 'carts',
 ], function () {
     Route::group([
@@ -58,7 +58,7 @@ Route::group([
 });
 
 Route::group([
-    'as'     => '.countries',
+    'as'     => 'countries',
     'prefix' => 'countries',
 ], function () {
     Route::get('/', [
@@ -68,7 +68,7 @@ Route::group([
 });
 
 Route::group([
-    'as'     => '.checkout',
+    'as'     => 'checkout',
     'prefix' => 'checkout',
 ], function () {
     Route::post('billing/{cart}/{orderBilling?}', [
@@ -82,7 +82,7 @@ Route::group([
 });
 
 Route::group([
-    'as'     => '.pay',
+    'as'     => 'pay',
     'prefix' => 'pay',
 ], function () {
     Route::get('braintree/token', [
@@ -102,5 +102,15 @@ Route::group([
     Route::get('cancel/{order}', [
         'as'   => '.cancel',
         'uses' => 'Api\PayController@cancelUrl',
+    ]);
+});
+
+Route::group([
+    'as' => 'auth',
+    'prefix' => 'auth',
+], function () {
+    Route::post('login', [
+        'as' => '.login',
+        'uses' => 'Api\Auth\LoginController@login',
     ]);
 });
