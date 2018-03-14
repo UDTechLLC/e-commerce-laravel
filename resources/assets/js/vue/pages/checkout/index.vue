@@ -38,6 +38,7 @@
         <transition name="component-fade" mode="out-in">
             <keep-alive>
                 <component :is="currentComponent"
+                           :userAuth="userAuth"
                            :cartId="cartId"
                            :orderId="orderId"
                            :products="products"
@@ -68,6 +69,7 @@
     export default ({
         data() {
             return {
+                userAuth: false,
                 orderId: "",
                 progress: 1,
                 cartId: 0,
@@ -84,7 +86,7 @@
             }
         },
         props: {
-          token: String
+          userAuthProps: String
         },
         components: {
             first,
@@ -98,10 +100,16 @@
             }
         },
         created() {
+            this.userAuth = this.userAuthProps;
             this.getProducts();
             setTimeout(this.getCountries, 500);
+            this.$EventBus.$on('login', this.login);
         },
         methods: {
+            login(value) {
+                console.log('Aaaaa');
+                this.userAuth = '1';
+            },
             nextStep(value) {
                 this.currentComponent = !this.isShipping && value.step === 'second' ? 'third' :value.step;
                 this.billing = value.billing;
