@@ -35,6 +35,7 @@ class CheckoutController extends Controller
             $user = $this->createUser($request);
         }
 
+        // todo: Check shipping
         $country = $request->get('country');
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);

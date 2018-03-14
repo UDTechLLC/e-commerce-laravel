@@ -10,6 +10,7 @@
                                 Billing Details
                             </h3>
                         </div>
+
                         <div class="billing-details-info-wrapper">
                             <div class="contacts-block-wrapper">
                                 <div class="contacts-block">
@@ -63,13 +64,24 @@
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
-                                        <input id="bdStreetAddress" class="form-field" name="bg_street_address"
+                                        <!--<input id="bdStreetAddress" class="form-field" name="bg_street_address"
                                                type="text" placeholder="House number and street name"
                                                v-validate data-vv-rules="required" v-model="billingInfo.street"
-                                        />
+                                        />-->
+                                        <vue-google-autocomplete
+                                                ref="street"
+                                                id="map"
+                                                :country="googleCountry"
+                                                type="text"
+                                                classname="form-field"
+                                                placeholder="House number and street name"
+                                                @placechanged="getAddressData"
+                                        >
+                                        </vue-google-autocomplete>
                                         <span class="error-massage"
                                               style="display: none">Please enter your address</span>
                                     </div>
+
                                     <div class="form-field-wrapper"
                                          v-if="this.isShipping">
                                         <label for="bdApartments">
@@ -89,10 +101,10 @@
                                         </label>
                                         <!-- <input id="bdCountry" class="form-field" name="bd_country" type="text" /> -->
                                         <select id="bdCountry" class="form-field" name="bd_country"
-                                                v-model="billingInfo.country" @change="getCountries">
+                                                v-model="billingInfo.country" @change="saveCountries">
                                             <option value="">Select a country...</option>
-                                            <option value="" v-for="country in countries" :value="country">{{
-                                                country }}
+                                            <option value="" v-for="country in countries" :value="country">
+                                                {{ country.name }}
                                             </option>
                                         </select>
                                     </div>
@@ -115,12 +127,12 @@
                                             State / County
                                         </label>
 
-                                        <div v-if="states.length == 0">
+                                        <div>
                                             <input id="bdState" class="form-field" name="bd_state" type="text"
                                                    v-model="billingInfo.state"
                                             />
                                         </div>
-                                        <div v-else>
+                                        <!--<div v-else>
                                             <select id="bdState" class="form-field" name="bd_state"
                                                     v-validate data-vv-rules="required"
                                                     v-model="billingInfo.state">
@@ -128,7 +140,7 @@
                                                 <option value="" v-for="state in states" :value="state">{{ state }}
                                                 </option>
                                             </select>
-                                        </div>
+                                        </div>-->
                                         <span class="error-massage"
                                               style="display: none">Please enter your state.</span>
                                     </div>
@@ -209,9 +221,12 @@
 
     import cartTotals from './../components/cart-totals';
     import login from './../components/login';
+    import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
     export default ({
+
         data: () => ({
+            result: "",
             billingId: "",
             createUser: false,
             password: "",
@@ -222,7 +237,10 @@
                 company: "",
                 street: "",
                 apartment: "",
-                country: "",
+                country: {
+                    code: (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "",
+                    name: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
+                },
                 state: "",
                 city: "",
                 postcode: "",
@@ -237,21 +255,44 @@
             shipping: Number,
             countries: Array,
             states: Array,
-            selectedBillingCountry: String,
             isShipping: Boolean,
             discount: String,
             coupon: String
         },
         components: {
             cartTotals,
-            login
+            login,
+            VueGoogleAutocomplete
         },
-        created() {
-            this.billingInfo.country = this.selectedBillingCountry;
+        computed: {
+           googleCountry() {
+               return this.billingInfo.country.code;
+           }
         },
         methods: {
-            getCountries() {
-                this.$emit('updateCountry', this.billingInfo.country);
+            saveCountries() {
+                Vue.localStorage.set('shippingCountryName', this.billingInfo.country.name);
+                Vue.localStorage.set('shippingCountryCode', this.billingInfo.country.code);
+            },
+            getAddressData(value) {
+                console.log(value);
+
+                this.billingInfo.street = value.route;
+                this.billingInfo.apartment = value.street_number;
+                this.billingInfo.country.name = value.country;
+                this.countries.forEach(key => {
+                    if(key.name == value.country) {
+                        this.billingInfo.country.code = key.code;
+                    }
+                });
+                this.saveCountries();
+                this.billingInfo.state = value.administrative_area_level_1;
+                this.billingInfo.city = value.locality;
+                this.billingInfo.postcode = value.postal_code;
+
+                this.$nextTick(() => {
+                    this.$refs.street.update(value.route)
+                })
             },
             next() {
                 this.$validator.validateAll().then((result) => {

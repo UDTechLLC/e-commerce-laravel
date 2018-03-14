@@ -44,15 +44,12 @@
                            :billing="billing"
                            :countries="countries"
                            :states="states"
-                           :selectedBillingCountry="selectedBillingCountry"
-                           :selectedShippingCountry="selectedShippingCountry"
                            :subTotal="subTotal"
                            :total="total"
                            :shipping="shipping"
                            :isShipping="isShipping"
                            :discount="discount"
                            :coupon="coupon"
-                           @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
                            @editBilling="editBilling"
@@ -70,15 +67,10 @@
 
     export default ({
         data() {
-            let countryDefault = (Vue.localStorage.get('shippingCountry')) ? Vue.localStorage.get('shippingCountry') : "";
-
             return {
                 orderId: "",
                 progress: 1,
                 cartId: 0,
-                selectedCountry: countryDefault,
-                selectedBillingCountry: countryDefault,
-                selectedShippingCountry: countryDefault,
                 countries: [],
                 states: [],
                 products: [],
@@ -121,9 +113,8 @@
                 this.progress = this.isShipping && value.step === 'second' ? this.progress-- : this.progress - 2;
             },
             getCountries() {
-                console.log(this.isShipping);
-
-                if (this.isShipping) {
+                this.countries = require("./components/countries.js");
+                /*if (this.isShipping) {
                     axios.get(`/api/countries?country=${this.selectedCountry}`).then(
                         response => {
                             this.countries = response.data.countries;
@@ -135,11 +126,7 @@
                         },
                         error => console.log('error')
                     )
-                }
-            },
-            updateCountry(value) {
-                this.selectedCountry = value;
-                this.getCountries();
+                }*/
             },
             editBilling() {
                 this.currentComponent = 'first';
