@@ -318,5 +318,21 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/preview/12_week_custom_meal_plan_shop_preview.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Shedfat Maxx Subscription',
+            'plan_id'     => 2,
+            'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
+             your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
+            'old_amount'  => '24.99',
+            'amount'      => '19.99',
+            'slug'        => 'shedfat-maxx-subscription',
+            'view_name'   => 'shedfat-maxx-subscription',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/maxx_icon.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }

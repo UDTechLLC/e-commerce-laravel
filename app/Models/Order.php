@@ -97,7 +97,7 @@ class Order extends EloquentModel
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function shipping()
@@ -165,6 +165,10 @@ class Order extends EloquentModel
         return number_format($value / 100, 2);
     }
 
+    /**
+     * Entity public methods go below
+     */
+
     public function isShipping(): bool
     {
         /** @var Product $product */
@@ -179,8 +183,15 @@ class Order extends EloquentModel
     }
 
     /**
-     * Entity public methods go below
+     * @return Product
      */
-
-    // @todo:
+    public function getSubscriptionProduct()
+    {
+        /** @var Product $product */
+        foreach ($this->products as $product) {
+            if ($product->hasPlan()) {
+                return $product;
+            }
+        }
+    }
 }
