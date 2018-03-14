@@ -6,6 +6,7 @@ use App\Mail\OrderSent;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use App\Services\Braintree\BraintreeService;
 use App\Services\Orders\ShipStationService;
 use App\Services\PayPal\PayPalService;
@@ -152,6 +153,7 @@ class PayController extends Controller
      * @param Order $order
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
      */
     public function payBraintree(Request $request, Order $order)
     {
@@ -163,15 +165,30 @@ class PayController extends Controller
             $this->sendOrderToShipStation($order);
         }
 
-        $this->clearCart($order->cart);
+        /** @var User $user */
+        $user = \Auth::user() ?? $order->user;
 
-        $service = new BraintreeService();
+        if ($user) {
+            $subscriptionProduct = $order->getSubscriptionProduct();
+            $plan = $subscriptionProduct
+                ? $subscriptionProduct->plan
+                : null;
 
-        $service->setAuthToken($token);
+            if (null !== $plan) {
+                $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
 
-        $result = $service->pay($amount);
+                $amount -= $subscriptionProduct->amount;
+            }
+
+            if (0 !== $amount) {
+                $result = $user->charge($amount);
+            }
+//            return view('web.checkout.checkout_thank_you', ['order' => $order]);
+        }
 
         if ($result->success) {
+            $this->clearCart($order->cart);
+
             $this->updateOrderStatus($order);
 
             if ($order->isShipping()) {

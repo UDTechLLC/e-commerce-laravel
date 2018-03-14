@@ -21,6 +21,4 @@ Route::get('weight-loss-disclaimer', function () {
 Route::get('faq', function () {
     return view('web.page.faq');
 });
-Route::get('contact', function () {
-    return view('web.page.contact');
-});
+

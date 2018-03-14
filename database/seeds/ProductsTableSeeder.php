@@ -318,5 +318,39 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/preview/12_week_custom_meal_plan_shop_preview.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Shedfat Maxx Subscription',
+            'plan_id'     => 2,
+            'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
+             your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
+            'old_amount'  => '24.99',
+            'amount'      => '19.99',
+            'slug'        => 'shedfat-maxx-subscription',
+            'view_name'   => 'shedfat-maxx-subscription',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/maxx_icon.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Shedfat Dad Hat',
+            'description' => 'It does not matter where you are or what you are doing, a well-fitting hat 
+            can always make you feel good. The perfect blend of style and function makes this hat perfectly 
+            suited for going out with friends or training both indoors and outdoors.',
+
+            'old_amount'  => '50.00',
+            'amount'      => '25.00',
+            'slug'        => 'shedfat-dad-hat',
+            'view_name'   => 'shedfat-dad-hat',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/cap.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }

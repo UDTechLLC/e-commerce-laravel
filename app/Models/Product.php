@@ -28,6 +28,7 @@ class Product extends EloquentModel implements HasMedia
     const VIEW_NAME_INFUSER_BOTTLE = 'shedfat-infuser-bottle';
     const VIEW_NAME_SHEDFAT_MAX = 'shedfat-maxx';
     const VIEW_NAME_WHAT_TO_EAT = 'what-to-eat-in-the-streets';
+    const VIEW_NAME_DAD_HAT = 'shedfat-dad-hat';
 
     const VIEW_NAMES = [
         self::VIEW_NAME_SHOW,
@@ -39,7 +40,8 @@ class Product extends EloquentModel implements HasMedia
         self::VIEW_NAME_RESISTANCE_BANDS,
         self::VIEW_NAME_INFUSER_BOTTLE,
         self::VIEW_NAME_SHEDFAT_MAX,
-        self::VIEW_NAME_WHAT_TO_EAT
+        self::VIEW_NAME_WHAT_TO_EAT,
+        self::VIEW_NAME_DAD_HAT,
     ];
 
     protected $table = 'products';
@@ -48,7 +50,8 @@ class Product extends EloquentModel implements HasMedia
      * The attributes that are mass assignable.
      * @var array
      */
-    protected $fillable = array(
+    protected $fillable = [
+        'plan_id',
         'title',
         'category',
         'description',
@@ -58,8 +61,8 @@ class Product extends EloquentModel implements HasMedia
         'view_name',
         'position',
         'isVirtual',
-        'slug'
-    );
+        'slug',
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -104,13 +107,20 @@ class Product extends EloquentModel implements HasMedia
     {
         return $this->belongsToMany(Order::class);
     }
+
     public function coupons()
     {
         return $this->belongsToMany(Coupon::class);
     }
+
     public function bandls()
     {
-        return $this->hasOne(Product::class,'parent_id','id');
+        return $this->hasOne(Product::class, 'parent_id', 'id');
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
     }
 
     /**
@@ -187,8 +197,9 @@ class Product extends EloquentModel implements HasMedia
      */
     public function setAmountAttribute($value)
     {
-        $this->attributes['amount']  = $value * 100;
+        $this->attributes['amount'] = $value * 100;
     }
+
     /**
      *   /**
      * @param $value
@@ -197,8 +208,9 @@ class Product extends EloquentModel implements HasMedia
      */
     public function setOldAmountAttribute($value)
     {
-        $this->attributes['old_amount']  = $value * 100;
+        $this->attributes['old_amount'] = $value * 100;
     }
+
     /**
      * @param $image
      * @param $collect
@@ -212,7 +224,7 @@ class Product extends EloquentModel implements HasMedia
         $imageParts = explode(";base64,", $image);
         $imageTypeAux = explode("image/", $imageParts[0]);
         $imageType = $imageTypeAux[1];
-        
+
         return $this->addMediaFromBase64($image)
             ->usingFileName($this->slug . "." . $imageType)
             ->toMediaCollection($collect);
@@ -237,6 +249,7 @@ class Product extends EloquentModel implements HasMedia
     }
 
     // @todo:
+
     /**
      * @return string
      */
@@ -262,5 +275,10 @@ class Product extends EloquentModel implements HasMedia
     public function getAmountWithDiscount()
     {
         return number_format($this->amount - $this->pivot->discount, 2);
+    }
+
+    public function hasPlan()
+    {
+        return null !== $this->plan;
     }
 }

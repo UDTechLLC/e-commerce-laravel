@@ -30,11 +30,17 @@ class CheckoutController extends Controller
     {
         /** @var User $user */
         $user = \Auth::user();
+
+        if (null === $user && null !== $request->get('password')) {
+            $user = $this->createUser($request);
+        }
+
+        // todo: Check shipping
         $country = $request->get('country');
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);
 
-        $shippingCost = $this->getShippingSum($cart, $country);
+        $shippingCost = $cart->getShippingSum($country);
 
         $order = $this->createOrder($user, $cart, $billing, $shippingCost);
 
@@ -110,8 +116,8 @@ class CheckoutController extends Controller
      */
     private function createOrder($user, Cart $cart, OrderBilling $billing, $shippingCost)
     {
-        $productCost = $this->getProductsCost($cart);
-        $count = $this->getProductsCount($cart);
+        $productCost = $cart->getProductsSum();
+        $count = $cart->getProductsCount();
 
         /** @var Order $order */
         $order = Order::create([
@@ -123,7 +129,7 @@ class CheckoutController extends Controller
             'product_cost'  => $productCost,
             'shipping_cost' => $shippingCost,
             'discount_cost' => $cart->getDiscountSum(),
-            'total_cost'    => $cart->getWithDiscountSum(),
+            'total_cost'    => $cart->getWithDiscountSum() + $shippingCost,
             'count'         => $count,
             'state'         => Order::ORDER_STATE_PENDING_PAYMENT,
         ]);
@@ -165,88 +171,19 @@ class CheckoutController extends Controller
     /**
      * Update order.
      *
-     * @param $order
-     * @param $shipping
-     * @param $country
+     * @param Order $order
+     * @param OrderShipping $shipping
+     * @param string $country
      */
-    private function updateOrder($order, $shipping, $country)
+    private function updateOrder(Order $order, OrderShipping $shipping, string $country)
     {
-        $shippingCost = $this->getShippingSum($order->cart, $country);
+        $shippingCost = $order->cart->getShippingSum($country);
 
         $order->update([
             'shipping_id'   => $shipping->getKey(),
             'shipping_cost' => $shippingCost,
             'total_cost'    => $order->product_cost + $shippingCost,
         ]);
-    }
-
-    /**
-     * Get product count in cart.
-     *
-     * @param Cart $cart
-     *
-     * @return int
-     */
-    private function getProductsCount(Cart $cart): int
-    {
-        $count = 0;
-
-        foreach ($cart->products as $product) {
-            $count += $product->pivot->count;
-        }
-
-        return $count;
-    }
-
-    /**
-     * @param Cart $cart
-     *
-     * @return string
-     */
-    private function getProductsCost(Cart $cart): string
-    {
-        $sum = 0;
-
-        foreach ($cart->products as $product) {
-            $sum += $product->pivot->count * $product->amount;
-        }
-
-        return number_format($sum, 2);
-    }
-
-    /**
-     * Get shipping sum by country.
-     *
-     * @param null $country
-     *
-     * @return float
-     */
-    private function getShippingSum($cart, $country)
-    {
-        return $this->isShipping($cart)
-            ? $country === 'United States' || $country === 'Canada'
-                ? 6.99
-                : 17.99
-            : 0;
-    }
-
-    /**
-     * Check shipping.
-     *
-     * @param Cart $cart
-     *
-     * @return bool
-     */
-    private function isShipping(Cart $cart): bool
-    {
-        /** @var Product $product */
-        foreach ($cart->products as $product) {
-            if (!$product->isVirtual()) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
@@ -259,5 +196,23 @@ class CheckoutController extends Controller
     private function getIso3166(string $name)
     {
         return Countries::where('name.common', $name)->first()->iso_3166_1_alpha2;
+    }
+
+    /**
+     * Create user.
+     *
+     * @param $request
+     *
+     * @return $this|\Illuminate\Database\Eloquent\Model
+     */
+    private function createUser($request)
+    {
+        return User::create([
+            'first_name' => $request->get('firstName'),
+            'last_name'  => $request->get('lastName'),
+            'email'      => $request->get('email'),
+            'phone'      => $request->get('phone'),
+            'password'   => bcrypt($request->get('password')),
+        ]);
     }
 }
