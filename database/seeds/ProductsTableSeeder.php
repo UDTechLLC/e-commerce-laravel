@@ -352,5 +352,21 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'ShedFat Shaker',
+            'description' => ' ',
+
+            'old_amount'  => '50.00',
+            'amount'      => '30.00',
+            'slug'        => 'shedFat-shaker',
+            'view_name'   => 'shedfat-infuser-bottle',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/shaker.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/shaker_2.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }
