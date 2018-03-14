@@ -32,11 +32,20 @@ class CheckoutController extends Controller
         $user = \Auth::user();
 
         if (null === $user && null !== $request->get('password')) {
+            $validator = $this->validator([
+                'email'     => $request->get('email'),
+                'password'  => $request->get('password'),
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()], 422);
+            }
+
             $user = $this->createUser($request);
         }
 
         // todo: Check shipping
-        $country = $request->get('country');
+        $country = $request->get('country')['name'];
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);
 
@@ -81,7 +90,7 @@ class CheckoutController extends Controller
     private function createOrUpdateBilling($request, $billing)
     {
         $billingId = $billing->getKey();
-        $country = $request->get('country');
+        $country = $request->get('country')['name'];
 
         $iso3166 = $country
             ? $this->getIso3166($country)
@@ -213,6 +222,21 @@ class CheckoutController extends Controller
             'email'      => $request->get('email'),
             'phone'      => $request->get('phone'),
             'password'   => bcrypt($request->get('password')),
+        ]);
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array $data
+     *
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return \Validator::make($data, [
+            'email'     => 'required|string|email|max:255|unique:users',
+            'password'  => 'required|string|min:6',
         ]);
     }
 }

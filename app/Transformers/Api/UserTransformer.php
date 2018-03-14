@@ -21,15 +21,15 @@ class UserTransformer extends TransformerAbstract
             'first_name' => $user->first_name,
             'last_name'  => $user->last_name,
             'email'      => $user->email,
-            'company'    => $user->company_name,
-            'address'    => $user->address,
-            'apartment'  => $user->apartment,
-            'country'    => $user->country,
-            'city'       => $user->city,
-            'state'      => $user->state,
-            'postcode'   => $user->postcode,
+//            'company'    => $user->company_name,
+//            'address'    => $user->address,
+//            'apartment'  => $user->apartment,
+//            'country'    => $user->country,
+//            'city'       => $user->city,
+//            'state'      => $user->state,
+//            'postcode'   => $user->postcode,
             'phone'      => $user->phone,
-            'shipping'   => fractal($user->shipping, new ShippingTransformer()),
+//            'shipping'   => fractal($user->shipping, new ShippingTransformer()),
         ];
     }
 }
