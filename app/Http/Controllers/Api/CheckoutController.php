@@ -30,6 +30,7 @@ class CheckoutController extends Controller
     {
         /** @var User $user */
         $user = \Auth::user();
+        $shippingCost = 0;
 
         if (null === $user && null !== $request->get('password')) {
             $validator = $this->validator([
@@ -44,12 +45,12 @@ class CheckoutController extends Controller
             $user = $this->createUser($request);
         }
 
-        // todo: Check shipping
-        $country = $request->get('country');
+        if ($cart->isShipping()) {
+            $country = $request->get('country');
+            $shippingCost = $cart->getShippingSum($country);
+        }
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);
-
-        $shippingCost = $cart->getShippingSum($country);
 
         $order = $this->createOrder($user, $cart, $billing, $shippingCost);
 
@@ -125,9 +126,6 @@ class CheckoutController extends Controller
      */
     private function createOrder($user, Cart $cart, OrderBilling $billing, $shippingCost)
     {
-        $productCost = $cart->getProductsSum();
-        $count = $cart->getProductsCount();
-
         /** @var Order $order */
         $order = Order::create([
             'order_key'     => rand(111111111, 999999999),
@@ -135,11 +133,11 @@ class CheckoutController extends Controller
             'billing_id'    => $billing->getKey(),
             'cart_id'       => $cart->getKey(),
             'coupon_id'     => $cart->coupon ? $cart->coupon->getKey() : null,
-            'product_cost'  => $productCost,
+            'product_cost'  => $cart->getProductsCost(),
             'shipping_cost' => $shippingCost,
-            'discount_cost' => $cart->getDiscountSum(),
-            'total_cost'    => $cart->getWithDiscountSum() + $shippingCost,
-            'count'         => $count,
+            'discount_cost' => $cart->getDiscountCost(),
+            'total_cost'    => $cart->getWithDiscountCost() + $shippingCost,
+            'count'         => $cart->getProductsCount(),
             'state'         => Order::ORDER_STATE_PENDING_PAYMENT,
         ]);
 
