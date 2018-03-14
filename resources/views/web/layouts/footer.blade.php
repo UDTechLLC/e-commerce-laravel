@@ -19,6 +19,23 @@
                 </div>
             </div>
         </div>
+        <div class="wrapper">
+            <form action="" class="validate-form not-valid" id="contact_form" method="">
+                <div class="contact__wrapper">
+                    <div class="contact__form-group">
+                        <input class="" type="text" name="name" placeholder="Your Name " tabindex="1" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <input class="" type="email" name="email" id="contactEmail"  placeholder="enter your email" tabindex="2" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <button class="submit" tabindex="3" style="padding: 14px; color: white;background-color: red;width: 100%;"><span>JOIN US</span></button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
     </div>
 
         {{--<div class="wrapper">--}}
@@ -31,7 +48,7 @@
                         {{--<input class="" type="email" name="email" id="contactEmail"  placeholder="enter your email" tabindex="2" required>--}}
                     {{--</div>--}}
                     {{--<div class="contact__form-group">--}}
-                        {{--<button class="contact__submit submit" tabindex="3">Join US</button>--}}
+                        {{--<button class="submit" tabindex="3" style="padding: 14px; color: white;background-color: red;width: 100%;">Join US</button>--}}
                     {{--</div>--}}
                 {{--</div>--}}
 

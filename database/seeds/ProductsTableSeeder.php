@@ -17,8 +17,8 @@ class ProductsTableSeeder extends Seeder
             'sub_title'   => '100% Personalized Training Program',
             'description' => 'Our dedicated team will develop a personalized training plan that not only makes sense, 
             but makes a real difference. Let us show you what a difference 12 weeks can actually make!',
-            'old_amount'  => '100.00',
-            'amount'      => '50.00',
+            'old_amount'  => '200.00',
+            'amount'      => '100.00',
             'slug'        => '12week-custom-training-plan',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
@@ -46,8 +46,8 @@ class ProductsTableSeeder extends Seeder
              you to look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation
               for years to come.',
 
-            'old_amount'  => '100.00',
-            'amount'      => '50.00',
+            'old_amount'  => '200.00',
+            'amount'      => '100.00',
             'slug'        => '12week-custom-meal-plan',
             'view_name'   => '12week-custom-meal-plan',
             'isVirtual'   => true,
