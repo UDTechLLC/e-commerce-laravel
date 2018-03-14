@@ -18,9 +18,6 @@ require_once 'web/shop.php';
 require_once 'admin/admin.php';
 require_once 'web/paypal.php';
 require_once 'web/page.php';
+require_once 'web/subscribe.php';
 
 Auth::routes();
-
-Route::get('test', [
-    'uses' => 'Web\SubscribeController@addMail',
-]);

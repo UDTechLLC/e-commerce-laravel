@@ -8,11 +8,15 @@ use App\Http\Requests\Subscribe\SubscribeRequest;
 
 class SubscribeController extends Controller
 {
-    public function addMail(/**MailChimpRequest $request*/)
-    {
-//        $response = Newsletter::subscribe('polik.palam@gmail.com', [], 'shedfat');
-//        $isSubscribed = Newsletter::isSubscribed('polik.palam@gmail.com', 'shedfat');
+    const SHEDFAT_LIST = 'shedfat';
 
-        $api = Newsletter::getApi();
+    public function addToFooterForm(SubscribeRequest $request)
+    {
+        $name = $request->get('name');
+        $email = $request->get('email');
+
+        $response = Newsletter::subscribeOrUpdate($email, ['FNAME' => $name], self::SHEDFAT_LIST);
+
+        return back();
     }
 }
