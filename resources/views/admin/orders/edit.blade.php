@@ -109,6 +109,20 @@
                                                 </span>
                                            </td>
                                        </tr>
+                                       @if($order->coupon_id)
+                                       <tr class="cart-subtotal" >
+                                           <td></td>
+                                           <th>
+                                               Coupon: {{ $order->coupon->code }}
+                                           </th>
+                                           <td>
+                                            <span class="product-subtotal-amount">
+                                                -${{$order->product_cost-$order->total_cost}}
+                                            </span>
+
+                                           </td>
+                                       </tr>
+                                       @endif
                                        <tr class="shipping">
                                            <td></td>
                                            <th>
