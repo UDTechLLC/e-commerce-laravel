@@ -17,8 +17,8 @@ class ProductsTableSeeder extends Seeder
             'sub_title'   => '100% Personalized Training Program',
             'description' => 'Our dedicated team will develop a personalized training plan that not only makes sense, 
             but makes a real difference. Let us show you what a difference 12 weeks can actually make!',
-            'old_amount'  => '100.00',
-            'amount'      => '50.00',
+            'old_amount'  => '200.00',
+            'amount'      => '100.00',
             'slug'        => '12week-custom-training-plan',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
@@ -46,8 +46,8 @@ class ProductsTableSeeder extends Seeder
              you to look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation
               for years to come.',
 
-            'old_amount'  => '100.00',
-            'amount'      => '50.00',
+            'old_amount'  => '200.00',
+            'amount'      => '100.00',
             'slug'        => '12week-custom-meal-plan',
             'view_name'   => '12week-custom-meal-plan',
             'isVirtual'   => true,
@@ -351,6 +351,24 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/cap.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'ShedFat Shaker',
+            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
+            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
+             a more enjoyable process.',
+
+            'old_amount'  => '50.00',
+            'amount'      => '30.00',
+            'slug'        => 'shedFat-shaker',
+            'view_name'   => 'shedfat-infuser-bottle',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/shaker.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/shaker_2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }
