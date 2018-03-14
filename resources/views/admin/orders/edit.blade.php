@@ -117,7 +117,7 @@
                                            </th>
                                            <td>
                                             <span class="product-subtotal-amount">
-                                                -${{$order->product_cost-$order->total_cost}}
+                                                -${{$order->discount_cost}}
                                             </span>
 
                                            </td>
