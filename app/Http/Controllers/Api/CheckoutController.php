@@ -34,21 +34,22 @@ class CheckoutController extends Controller
 
         if (null === $user && null !== $request->get('password')) {
             $validator = $this->validator([
-                'email'     => $request->get('email'),
-                'password'  => $request->get('password'),
+                'email'    => $request->get('email'),
+                'password' => $request->get('password'),
             ]);
 
             if ($validator->fails()) {
-                return response()->json($validator->errors(), 422);
+                return response()->json(['error' => $validator->errors()], 422);
             }
 
             $user = $this->createUser($request);
         }
 
         if ($cart->isShipping()) {
-            $country = $request->get('country');
+            $country = $request->get('country')['name'];
             $shippingCost = $cart->getShippingSum($country);
         }
+        // todo: Check shipping
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);
 
@@ -91,11 +92,8 @@ class CheckoutController extends Controller
     private function createOrUpdateBilling($request, $billing)
     {
         $billingId = $billing->getKey();
-        $country = $request->get('country');
-
-        $iso3166 = $country
-            ? $this->getIso3166($country)
-            : null;
+        $country = $request->get('country')['name'];
+        $iso3166 = $request->get('country')['code'];
 
         return OrderBilling::updateOrCreate(['id' => $billingId], [
             'first_name'   => $request->get('firstName'),
@@ -168,7 +166,7 @@ class CheckoutController extends Controller
             'street'       => $request->get('street'),
             'apartment'    => $request->get('apartment'),
             'country'      => $request->get('country'),
-            'iso_3166'     => $this->getIso3166($request->get('country')),
+            'iso_3166'     => $request->get('country')['code'],
             'city'         => $request->get('city'),
             'state'        => $request->get('state'),
             'postcode'     => $request->get('postcode'),
@@ -191,18 +189,6 @@ class CheckoutController extends Controller
             'shipping_cost' => $shippingCost,
             'total_cost'    => $order->product_cost + $shippingCost,
         ]);
-    }
-
-    /**
-     * Get iso_3166_1_alpha2 by country name.
-     *
-     * @param string $name
-     *
-     * @return mixed
-     */
-    private function getIso3166(string $name)
-    {
-        return Countries::where('name.common', $name)->first()->iso_3166_1_alpha2;
     }
 
     /**
@@ -233,8 +219,8 @@ class CheckoutController extends Controller
     protected function validator(array $data)
     {
         return \Validator::make($data, [
-            'email'     => 'required|string|email|max:255|unique:users',
-            'password'  => 'required|string|min:6',
+            'email'    => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6',
         ]);
     }
 }
