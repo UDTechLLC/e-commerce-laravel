@@ -1,0 +1,24 @@
+.main-youtube-feed
+  margin-bottom: 20px
+  padding-top: 0
+  @media screen and (max-width: $breakpoint-mobile)
+    padding-top: 20px
+  .wrapper
+    .success-stories-block,
+    .separate-heading-block
+      margin-bottom: 0
+      padding: 0
+      @media screen and (max-width: $breakpoint-mobile)
+        margin-bottom: 20px
+  .iframe-wrapper
+    text-align: center
+    iframe
+      width: 32%
+      height: 300px
+      &:nth-child(2)
+        margin: 0 1%
+      @media screen and (max-width: 992px)
+        width: 100%
+        display: block
+        &:nth-child(2)
+          margin: 20px 0
