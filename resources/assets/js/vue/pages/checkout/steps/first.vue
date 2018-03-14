@@ -1,6 +1,6 @@
 <template>
     <div class="checkout">
-        <!--<login></login>-->
+        <login v-if="userAuth != '1'"></login>
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
@@ -167,30 +167,33 @@
                                         <span class="error-massage"
                                               style="display: none">Please enter your phone.</span>
                                     </div>
-                                    <div class="form-field-wrapper">
+
+                                    <div class="form-field-wrapper" v-if="userAuth != '1'">
                                         <input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"
                                                type="checkbox" @change="createUser = !createUser"/>
                                         <label for="bdCreateAccount" class="checkbox">
                                             Create an account?
                                         </label>
                                     </div>
-                                    <div class="create-account-block" v-if="createUser">
-                                        <p>
-                                            Create an account by entering the information below. If you are a returning
-                                            customer please login at the top of the page.
-                                        </p>
-                                        <div class="form-field-wrapper"
-                                             :class="{'error': errors.has('bd_create_pass')}">
-                                            <label for="bdCreatePass">
-                                                Create account password
-                                            </label>
-                                            <input id="bdCreatePass" class="form-field" name="bd_create_pass"
-                                                   type="text" placeholder="Password"
-                                                   v-model="password" v-validate data-vv-rules="required"/>
+
+                                        <div class="create-account-block" v-if="createUser">
+                                            <p>
+                                                Create an account by entering the information below. If you are a
+                                                returning
+                                                customer please login at the top of the page.
+                                            </p>
+                                            <div class="form-field-wrapper"
+                                                 :class="{'error': errors.has('bd_create_pass')}">
+                                                <label for="bdCreatePass">
+                                                    Create account password
+                                                </label>
+                                                <input id="bdCreatePass" class="form-field" name="bd_create_pass"
+                                                       type="text" placeholder="Password"
+                                                       v-model="password" v-validate data-vv-rules="required"/>
                                             <span class="error-massage"
                                                   style="display: none">Please enter your password.</span>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="cart-review-block-wrapper">
@@ -248,6 +251,7 @@
             }
         }),
         props: {
+            userAuth: String,
             cartId: Number,
             products: Array,
             subTotal: String,
@@ -265,9 +269,9 @@
             VueGoogleAutocomplete
         },
         computed: {
-           googleCountry() {
-               return this.billingInfo.country.code;
-           }
+            googleCountry() {
+                return this.billingInfo.country.code;
+            }
         },
         methods: {
             saveCountries() {
@@ -275,13 +279,12 @@
                 Vue.localStorage.set('shippingCountryCode', this.billingInfo.country.code);
             },
             getAddressData(value) {
-                console.log(value);
 
                 this.billingInfo.street = value.route;
                 this.billingInfo.apartment = value.street_number;
                 this.billingInfo.country.name = value.country;
                 this.countries.forEach(key => {
-                    if(key.name == value.country) {
+                    if (key.name == value.country) {
                         this.billingInfo.country.code = key.code;
                     }
                 });
