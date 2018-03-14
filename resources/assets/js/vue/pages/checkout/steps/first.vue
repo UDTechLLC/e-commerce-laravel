@@ -316,7 +316,7 @@
                                     this.$emit('next', data);
                                     return;
                                 },
-                                error => console.log('error')
+                                error => alert(error.response.data.error.email)
                         );
                     }
                 });
