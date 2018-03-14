@@ -370,5 +370,23 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/shaker_2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Gym Bag',
+            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
+            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
+             a more enjoyable process.',
+
+            'old_amount'  => '300.00',
+            'amount'      => '200.00',
+            'slug'        => 'gym-bag',
+            'view_name'   => 'shedfat-infuser-bottle',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/bag.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/bag_2.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }
