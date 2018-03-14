@@ -20,7 +20,25 @@
             </div>
         </div>
     </div>
+    <section class="contact__section">
+        <div class="wrapper">
+            <form action="" class="validate-form not-valid" id="contact_form" method="">
+                <div class="contact__wrapper">
+                    <div class="contact__form-group">
+                        <input class="" type="text" name="name" placeholder="Your Name " tabindex="1" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <input class="" type="email" name="email" id="contactEmail"  placeholder="enter your email" tabindex="2" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <button class="contact__submit submit" tabindex="5">Join US</button>
+                    </div>
+                </div>
 
+
+            </form>
+        </div>
+    </section>
     <div class="second-footer">
         <div class="wrapper">
             <div class="flex flex-j--between flex-a--center flex--m-block">

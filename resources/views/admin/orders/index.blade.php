@@ -12,6 +12,7 @@
             <th>Billing_id</th>
             <th>Date</th>
             <th>Product_cost</th>
+            <th>Coupon code</th>
             <th>Shipping_cost</th>
             <th>Total_cost</th>
             <th>Count</th>
@@ -21,7 +22,6 @@
          <tbody>
          @foreach($orders as $order)
          <tr>
-            {{--{{$order->coupon->code}}--}}
             <td><a href="{{url('admin/orders/'.$order->id)}}"> #{{ $order->id }}</a></td>
 
             @if($order->user_id)
@@ -59,6 +59,11 @@
 
             <td>{{ $order->created_at->format('M j, Y') }}</td>
             <td>{{ $order->product_cost }}</td>
+            @if( $order->coupon_id)
+               <td> {{$order->coupon->code}}</td>
+               @else
+               <td> - </td>
+               @endif
             <td>{{ $order->shipping_cost }}</td>
             <td>{{ $order->total_cost }}</td>
             <td>{{ $order->count }}</td>
