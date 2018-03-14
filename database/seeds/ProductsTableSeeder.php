@@ -355,7 +355,9 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'ShedFat Shaker',
-            'description' => ' ',
+            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
+            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
+             a more enjoyable process.',
 
             'old_amount'  => '50.00',
             'amount'      => '30.00',
