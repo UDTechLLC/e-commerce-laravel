@@ -2,16 +2,80 @@
 @section('title')
     Checkout -@parent
 @endsection
-{{--@section('style')
+@section('style')
    @parent
-   <link rel="stylesheet" href="{{ asset('web/css/select2.min.css') }}">
-   @endsection--}}
+  {{-- <link rel="stylesheet" href="{{ asset('web/css/select2.min.css') }}">--}}
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Sn2lYqVhyliicyaBpl0au9740MjTiK4&libraries=places"></script>
+   @endsection
 @section('content')
-     <checkout></checkout>
+    {{--<div id="locationField">
+        <input id="autocomplete" placeholder="Enter your address"
+               onFocus="geolocate()" type="text" />
+    </div>--}}
+
+    <checkout></checkout>
 @endsection
 
 @section('scripts')
     @parent
 {{--    <script src="https://js.braintreegateway.com/web/dropin/1.9.4/js/dropin.min.js"></script>--}}
+   {{-- <script>
+        var placeSearch, autocomplete;
+        var componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+        };
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                    {types: ['geocode']});
 
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+        }
+
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Sn2lYqVhyliicyaBpl0au9740MjTiK4&libraries=places&callback=initAutocomplete"
+            async defer></script>--}}
 @endsection
