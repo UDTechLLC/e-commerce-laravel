@@ -32,6 +32,15 @@ class CheckoutController extends Controller
         $user = \Auth::user();
 
         if (null === $user && null !== $request->get('password')) {
+            $validator = $this->validator([
+                'email'     => $request->get('email'),
+                'password'  => $request->get('password'),
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 422);
+            }
+            
             $user = $this->createUser($request);
         }
 
@@ -213,6 +222,21 @@ class CheckoutController extends Controller
             'email'      => $request->get('email'),
             'phone'      => $request->get('phone'),
             'password'   => bcrypt($request->get('password')),
+        ]);
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array $data
+     *
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return \Validator::make($data, [
+            'email'     => 'required|string|email|max:255|unique:users',
+            'password'  => 'required|string|min:6',
         ]);
     }
 }
