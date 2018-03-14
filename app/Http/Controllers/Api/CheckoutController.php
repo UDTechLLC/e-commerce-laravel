@@ -36,7 +36,7 @@ class CheckoutController extends Controller
         }
 
         // todo: Check shipping
-        $country = $request->get('country');
+        $country = $request->get('country')['name'];
 
         $billing = $this->createOrUpdateBilling($request, $orderBilling);
 
@@ -81,7 +81,7 @@ class CheckoutController extends Controller
     private function createOrUpdateBilling($request, $billing)
     {
         $billingId = $billing->getKey();
-        $country = $request->get('country');
+        $country = $request->get('country')['name'];
 
         $iso3166 = $country
             ? $this->getIso3166($country)

@@ -18,7 +18,7 @@
                         <span id="baTown" v-if="billing.city" class="billing-user-info"> {{ billing.city }} </span>
                         <span id="baState" v-if="billing.state" class="billing-user-info"> {{billing.state }} </span>
                         <span id="baZipCode" v-if="billing.postcode" class="billing-user-info"> {{ billing.postcode }}, </span>
-                        <span id="baCountry" v-if="billing.country" class="billing-user-info"> {{ billing.country }} </span>
+                        <span id="baCountry" v-if="billing.country" class="billing-user-info"> {{ billing.country.name }} </span>
                     </div>
                 </div>
             </div>
