@@ -334,5 +334,23 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/maxx_icon.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Shedfat Dad Hat',
+            'description' => 'It does not matter where you are or what you are doing, a well-fitting hat 
+            can always make you feel good. The perfect blend of style and function makes this hat perfectly 
+            suited for going out with friends or training both indoors and outdoors.',
+
+            'old_amount'  => '50.00',
+            'amount'      => '25.00',
+            'slug'        => 'shedfat-dad-hat',
+            'view_name'   => 'shedfat-dad-hat',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/cap.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }
