@@ -69,7 +69,7 @@ class CheckoutController extends Controller
      */
     public function shipping(ShippingRequest $request, Order $order, OrderShipping $orderShipping)
     {
-        $country = $request->get('country');
+        $country = $request->get('country')['name'];
 
         $shipping = $this->createOrUpdateShipping($request, $orderShipping);
 
@@ -169,8 +169,8 @@ class CheckoutController extends Controller
             'company_name' => $request->get('company'),
             'street'       => $request->get('street'),
             'apartment'    => $request->get('apartment'),
-            'country'      => $request->get('country'),
-            'iso_3166'     => $this->getIso3166($request->get('country')),
+            'country'      => $request->get('country')['name'],
+            'iso_3166'     => $this->getIso3166($request->get('country')['name']),
             'city'         => $request->get('city'),
             'state'        => $request->get('state'),
             'postcode'     => $request->get('postcode'),

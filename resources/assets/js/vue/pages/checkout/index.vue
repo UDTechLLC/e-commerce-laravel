@@ -51,6 +51,7 @@
                            :isShipping="isShipping"
                            :discount="discount"
                            :coupon="coupon"
+                           @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
                            @editBilling="editBilling"
@@ -107,7 +108,6 @@
         },
         methods: {
             login(value) {
-                console.log('Aaaaa');
                 this.userAuth = '1';
             },
             nextStep(value) {
@@ -122,19 +122,20 @@
             },
             getCountries() {
                 this.countries = require("./components/countries.js");
-                /*if (this.isShipping) {
-                    axios.get(`/api/countries?country=${this.selectedCountry}`).then(
+                if (this.isShipping) {
+                    let selectedCountry = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
+                    axios.get(`/api/countries?country=${selectedCountry}`).then(
                         response => {
-                            this.countries = response.data.countries;
-                            this.selectedCountry = response.data.selected;
-                            this.states = response.data.states;
                             // this.shipping = this.isShipping ? response.data.shipping : 0;
                             this.shipping = response.data.shipping;
-                            Vue.localStorage.set('shippingCountry', this.selectedCountry);
                         },
                         error => console.log('error')
                     )
-                }*/
+                }
+            },
+            updateCountry(value) {
+                this.selectedCountry = value;
+                this.getCountries();
             },
             editBilling() {
                 this.currentComponent = 'first';
