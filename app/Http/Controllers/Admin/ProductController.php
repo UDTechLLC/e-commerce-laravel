@@ -65,7 +65,8 @@ class ProductController extends Controller
             'description' => $request->get('description'),
             'view_name'   => $request->get('view_name'),
             'old_amount'  => $request->get('oldPrice') ?? 0,
-            'amount'      => $request->get('price')
+            'amount'      => $request->get('price'),
+            'published'   => $request->get('published')
         ]);
 
         $product->saveImageBase64($request->input('image'), 'products');

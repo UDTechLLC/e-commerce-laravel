@@ -96,6 +96,14 @@
                     <span class="text-danger" v-if="errors.has('price')">{{ errors.first('price') }}</span>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="published">Published
+
+                </label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="checkbox" class="published-checkbox" id="published" name="published" v-model="published" />
+                </div>
+            </div>
 
             <div class="ln_solid"></div>
             <div class="form-group">
@@ -116,6 +124,7 @@
             title: "",
             subtitle: "",
             description: "",
+            published: true,
             view_name: "show",
             viewArray:[],
             oldPrice: null,
@@ -165,7 +174,8 @@
                     description: this.description,
                     view_name: this.view_name,
                     oldPrice: this.oldPrice,
-                    price: this.price
+                    price: this.price,
+                    published: this.published
                 };
 
                 axios.post('/admin/products/store', data).then(
@@ -205,3 +215,8 @@
         }
     });
 </script>
+<style scoped>
+    #published {
+        margin-top: 10px;
+    }
+</style>
