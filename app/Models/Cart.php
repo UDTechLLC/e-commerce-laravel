@@ -113,7 +113,7 @@ class Cart extends EloquentModel
             $sum += $product->pivot->count * $product->amount;
         }
 
-        return number_format($sum, 2);
+        return number_format($sum, 2,  ".", "");
     }
 
     /**
@@ -121,7 +121,7 @@ class Cart extends EloquentModel
      */
     public function getDiscountCost()
     {
-        return number_format((float)$this->products()->withPivot('discount_sum')->sum('discount_sum'), 2);
+        return number_format((float)$this->products()->withPivot('discount_sum')->sum('discount_sum'), 2, ".", "");
     }
 
     /**
@@ -129,7 +129,7 @@ class Cart extends EloquentModel
      */
     public function getWithDiscountCost()
     {
-        return number_format($this->getProductsCost() - $this->getDiscountCost(), 2);
+        return number_format($this->getProductsCost() - $this->getDiscountCost(), 2, ".", "");
     }
 
     /**

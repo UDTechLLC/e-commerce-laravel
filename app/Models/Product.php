@@ -144,7 +144,7 @@ class Product extends EloquentModel implements HasMedia
      */
     public function getAmountAttribute($value)
     {
-        return number_format($value / 100, 2);
+        return number_format($value / 100, 2, ".", "");
     }
 
     /**
@@ -152,7 +152,7 @@ class Product extends EloquentModel implements HasMedia
      */
     public function getTotalSumAttribute()
     {
-        return number_format($this->attributes['amount'] * $this->pivot->count / 100, 2);
+        return number_format($this->attributes['amount'] * $this->pivot->count / 100, 2, ".", "");
     }
 
     /**
@@ -162,7 +162,7 @@ class Product extends EloquentModel implements HasMedia
      */
     public function getOldAmountAttribute($value)
     {
-        return number_format($value / 100, 2);
+        return number_format($value / 100, 2, ".", "");
     }
 
     public function getProductLinkAttribute()
@@ -178,12 +178,12 @@ class Product extends EloquentModel implements HasMedia
 
     public function getDiscountAmountAttribute()
     {
-        return number_format($this->pivot->discount, 2);
+        return number_format($this->pivot->discount, 2, ".", "");
     }
 
     public function getDiscountAmountSumAttribute()
     {
-        return number_format($this->pivot->discount_sum, 2);
+        return number_format($this->pivot->discount_sum, 2, ".", "");
     }
 
     /**
@@ -269,13 +269,12 @@ class Product extends EloquentModel implements HasMedia
 
     public function getTotalSumWithDiscount()
     {
-        dd($this->pivot->discount_sum);
-        return number_format($this->total_sum - $this->pivot->discount_sum, 2);
+        return number_format($this->total_sum - $this->pivot->discount_sum, 2, ".", "");
     }
 
     public function getAmountWithDiscount()
     {
-        return number_format($this->amount - $this->pivot->discount, 2);
+        return number_format($this->amount - $this->pivot->discount, 2, ".", "");
     }
 
     public function hasPlan()
