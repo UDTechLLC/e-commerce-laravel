@@ -114,11 +114,12 @@
                 this.currentComponent = !this.isShipping && value.step === 'second' ? 'third' :value.step;
                 this.billing = value.billing;
                 this.orderId = value.orderId;
-                this.progress = this.isShipping && value.step === 'second' ? this.progress++ : this.progress + 2;
+                this.progress = !this.isShipping && value.step === 'second' ? this.progress + 2 : this.progress + 1;
             },
             backStep(value) {
                 this.currentComponent = !this.isShipping && value.step === 'second' ? 'first' :value.step;
-                this.progress = this.isShipping && value.step === 'second' ? this.progress-- : this.progress - 2;
+                this.progress = !this.isShipping && value.step === 'second' ? this.progress - 2: this.progress - 1;
+                console.log(this.progress);
             },
             getCountries() {
                 this.countries = require("./components/countries.js");
