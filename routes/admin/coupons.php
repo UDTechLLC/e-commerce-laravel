@@ -32,6 +32,11 @@ Route::group([
         'uses' => 'CouponController@update'
     ]);
 
+    Route::delete('/delete/{coupon}', [
+        'as'   => '.delete',
+        'uses' => 'CouponController@destroy'
+    ]);
+
     Route::get('/attach-product/{coupon}', [
         'as'   => '.attach-product',
         'uses' => 'CouponController@attachProduct'

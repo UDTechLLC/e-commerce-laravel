@@ -110,12 +110,12 @@ class CouponController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Coupon $coupon
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Coupon $coupon)
     {
-        //
+        $coupon->delete();
     }
 
     public function attachProduct(Coupon $coupon)

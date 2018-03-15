@@ -17,8 +17,8 @@ class CreateProductCouponsTable extends Migration
             $table->unsignedInteger('coupon_id');
             $table->unsignedInteger('product_id');
 
-            $table->foreign('coupon_id')->references('id')->on('coupons');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
