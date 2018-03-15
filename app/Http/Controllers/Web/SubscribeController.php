@@ -12,10 +12,10 @@ class SubscribeController extends Controller
 
     public function addToFooterForm(SubscribeRequest $request)
     {
-        $name = $request->get('name');
+
         $email = $request->get('email');
 
-        $response = Newsletter::subscribeOrUpdate($email, ['FNAME' => $name], self::SHEDFAT_LIST);
+        $response = Newsletter::subscribeOrUpdate($email, [], self::SHEDFAT_LIST);
 
         return back();
     }
