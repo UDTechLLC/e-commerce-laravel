@@ -96,9 +96,9 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => false,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/legs_on.png';
+        $pathToFile = 'resources/assets/web/seed_products/desktop_1.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/legs_on.png';
+        $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
@@ -411,7 +411,7 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
-        
+
 
     }
 }
