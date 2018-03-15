@@ -247,7 +247,7 @@
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     {{--<img src="{{asset('web/images/popUp/meal_free_icon.png')}}" alt="meal_free_icon">--}}
-                    <img src="{!! $product->bandls->getFirstMediaUrl('preview') !!}" />
+                    <img src="{!! $product->bandls->getFirstMediaUrl('products') !!}" />
                 </div>
                 <div class="popUp__info">
                     <div class="popUp__name">{!! $product->bandls->title !!}</div>
