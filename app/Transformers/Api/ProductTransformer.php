@@ -33,6 +33,7 @@ class ProductTransformer extends TransformerAbstract
             'total_sum_with_discount' => $product->getTotalSumWithDiscount(),
             'total_sum'               => $product->total_sum,
             'image'                   => $product->getFirstMediaUrl('preview'),
+            'subscribe'               => $product->hasPlan()
         ];
     }
 }

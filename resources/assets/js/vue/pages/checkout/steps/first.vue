@@ -185,7 +185,7 @@
                                             <div class="form-field-wrapper"
                                                  :class="{'error': errors.has('bd_create_pass')}">
                                                 <label for="bdCreatePass">
-                                                    Create account password
+                                                    Create account password *
                                                 </label>
                                                 <input id="bdCreatePass" class="form-field" name="bd_create_pass"
                                                        type="text" placeholder="Password"
@@ -259,6 +259,7 @@
             shipping: Number,
             countries: Array,
             isShipping: Boolean,
+            isSubscribe: Boolean,
             discount: String,
             coupon: String
         },
@@ -300,7 +301,10 @@
             next() {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-
+                        if(this.isSubscribe && this.userAuth != '1') {
+                            alert("You may need to login or register");
+                            return false;
+                        }
                         let url = `/api/checkout/billing/${this.cartId}`;
                         if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
                         let body = {

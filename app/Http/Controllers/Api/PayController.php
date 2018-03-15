@@ -116,7 +116,7 @@ class PayController extends Controller
     private function updateOrderStatus(Order $order)
     {
         $order->update([
-            'state' => Order::ORDER_STATE_PROCESSING
+            'state' => Order::ORDER_STATE_PROCESSING,
         ]);
     }
 
@@ -169,11 +169,7 @@ class PayController extends Controller
             if (null !== $plan) {
                 $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
 
-                if ($result->success) {
-                    $amount -= $subscriptionProduct->amount;
-                } else {
-                    return response()->json(['error' => 'Error payment']);
-                }
+                $amount -= $subscriptionProduct->amount;
             } else {
                 return response()->json(['error' => 'No plan found for this product'], 404);
             }

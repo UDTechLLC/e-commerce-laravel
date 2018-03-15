@@ -34,7 +34,8 @@ return [
              */
             'id' => env('MAILCHIMP_LIST_ID'),
         ],
-        'shedfat' => ['id' => '2d2c6ddaea'],
+        'footer_list' => ['id' => '2d2c6ddaea'],
+        'challenge_list' => ['id' => '833bbb8828']
     ],
 
     /*

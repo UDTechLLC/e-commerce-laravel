@@ -25,6 +25,7 @@ Vue.mixin({
           this.discount = response.data.data.sum.discount_sum;
           this.cartId = response.data.data.id;
           this.coupon = response.data.data.coupon;
+          this.isSubscribe = response.data.data.isSubscribe;
         },
         error => console.log('error')
       )

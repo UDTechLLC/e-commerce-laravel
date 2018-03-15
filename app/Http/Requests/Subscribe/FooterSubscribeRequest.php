@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Subscribe;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCouponRequest extends FormRequest
+class FooterSubscribeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,7 @@ class CreateCouponRequest extends FormRequest
     public function rules()
     {
         return [
-            'code'          => 'required',
-            'description'   => 'required',
-//                'limit' => 'required',
-            'coupon_amount' => 'required|between:0,100',
+            'email' => 'required',
         ];
     }
 }

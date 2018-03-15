@@ -428,9 +428,10 @@
                     <div class="popUp__name">SPRING CHALLENGE</div>
                     <p class="popUp__description">Get on the list and we will keep you in the loop on upcoming 2018 challenges.</p>
 
-                    <form action="" class="popUp__form">
-                        <input type="text" placeholder="Your First Name" required>
-                        <input type="email" placeholder="Your Email Adress" required>
+                    <form action="{{ route('subscribe.challenge') }}" method="POST" class="popUp__form">
+                        {{ csrf_field() }}
+                        <input type="text" name="name" placeholder="Your First Name" required>
+                        <input type="email" name="email" placeholder="Your Email Address" required>
                         <button class="btn popUp__form-btn-submit">submit</button>
                     </form>
 

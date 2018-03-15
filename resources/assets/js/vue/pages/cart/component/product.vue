@@ -22,7 +22,7 @@
                      </span>
         </td>
         <td class="product-quantity">
-            <div class="quantity buttons_added">
+            <div class="quantity buttons_added" v-if="!product.subscribe">
                 <input value="-" class="minus" type="button" @click="deleteProduct(product.slug)"/>
                 <input id="" class="input-text qty text" step="1" min="0" max="" name="" :value="product.count"
                        title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number"/>

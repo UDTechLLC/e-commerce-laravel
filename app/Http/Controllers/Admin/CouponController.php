@@ -116,7 +116,7 @@ class CouponController extends Controller
         return view('admin.coupons.coupons-product', [
             'coupon' => $coupon,
             'productIds' => $coupon->products->pluck('id')->toArray(),
-            'products' => Product::all()
+            'products' => Product::where('published', true)->get()
         ]);
     }
     
