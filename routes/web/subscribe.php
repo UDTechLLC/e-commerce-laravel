@@ -10,4 +10,8 @@ Route::group([
         'as' => '.footer',
         'uses' => 'Web\SubscribeController@addToFooterForm',
     ]);
+    Route::post('challenge', [
+        'as' => '.challenge',
+        'uses' => 'Web\SubscribeController@addToChallengeList',
+    ]);
 });

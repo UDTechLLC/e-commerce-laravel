@@ -695,7 +695,7 @@ ul {
           background: #ed555a; }
 
 .training-plan-faqs-block-wrapper .wrapper {
-  padding: 80px 0; }
+  padding: 50px 0; }
   @media screen and (max-width: 992px) {
     .training-plan-faqs-block-wrapper .wrapper {
       padding-left: 30px !important;
@@ -1362,6 +1362,9 @@ ul {
   text-transform: uppercase;
   color: #29282e;
   font-family: Montserrat, Arial, Helvetica, sans-serif; }
+  @media (max-width: 500px) {
+    .section__title {
+      padding: 0 !important; } }
   .section__title--white {
     color: white; }
   @media (min-width: 801px) {
@@ -1455,7 +1458,7 @@ ul {
     .parallax-section {
       padding: 30px 15px 650px; } }
   .parallax-section--queen-of-the-hill {
-    height: 931px; }
+    height: 890px; }
     @media screen and (max-width: 990px) {
       .parallax-section--queen-of-the-hill {
         padding: 70px 0 200px; } }
@@ -1478,7 +1481,7 @@ ul {
             -ms-flex-direction: column !important;
                 flex-direction: column !important; } }
   .parallax-section--never-stop {
-    height: 931px; }
+    height: 890px; }
     @media screen and (max-width: 990px) {
       .parallax-section--never-stop .block-in-section-wrapper {
         -webkit-box-orient: vertical !important;
@@ -1494,6 +1497,9 @@ ul {
         padding: 70px 0 450px; }
         .parallax-section--never-stop img {
           max-width: 300px; } }
+    @media screen and (max-width: 400px) {
+      .parallax-section--never-stop {
+        padding: 70px 0 220px; } }
   .parallax-section .section__text {
     max-width: 700px;
     margin: 50px auto; }
@@ -1786,7 +1792,8 @@ ul {
 .queen-of-the-hill__bg {
   margin-bottom: 35px;
   padding-left: 15px;
-  padding-right: 15px; }
+  padding-right: 15px;
+  padding-bottom: 0; }
   @media screen and (max-width: 800px) {
     .queen-of-the-hill__bg .wrapper .section__title {
       padding: 0; } }
@@ -4656,6 +4663,85 @@ section .training-plan-faqs-block-wrapper .wrapper {
     font-weight: 700; }
     .popUp .learn-more:hover {
       color: #ed1c24; }
+  .popUp--challenge .popUp__close {
+    color: #656565;
+    opacity: .6; }
+    .popUp--challenge .popUp__close:hover {
+      opacity: 1; }
+  .popUp--challenge .popUp__wrapper {
+    background: url("../images/new-images/bg-popUp-challenge.jpg") no-repeat center/cover; }
+    @media screen and (max-width: 800px) {
+      .popUp--challenge .popUp__wrapper {
+        background: url("../images/new-images/bg-popUp-challenge-mobile.jpg") no-repeat top/cover;
+        max-width: 300px;
+        overflow-x: hidden;
+        padding: 0px 20px 300px; } }
+  .popUp--challenge .popUp__info {
+    max-width: 450px; }
+  .popUp--challenge .popUp__name {
+    font-size: 37px;
+    color: #ed1c24;
+    text-transform: uppercase; }
+    @media screen and (max-width: 830px) {
+      .popUp--challenge .popUp__name {
+        font-size: 32px; } }
+    @media screen and (max-width: 800px) {
+      .popUp--challenge .popUp__name {
+        font-size: 26px;
+        line-height: 32px; } }
+  @media screen and (min-width: 801px) {
+    .popUp--challenge .popUp__description {
+      margin-top: 30px;
+      margin-bottom: 30px; } }
+  .popUp--challenge .popUp__form input {
+    display: block;
+    width: 100%;
+    -webkit-border-radius: 3.5px;
+            border-radius: 3.5px;
+    height: 48px;
+    border: #e1e1e1;
+    font-size: 15px;
+    color: #929292;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    margin: 20px 0;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px; }
+    .popUp--challenge .popUp__form input::-webkit-input-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp--challenge .popUp__form input::-moz-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp--challenge .popUp__form input:-ms-input-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp--challenge .popUp__form input::-ms-input-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp--challenge .popUp__form input::placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+  .popUp--challenge .popUp__form-btn-submit {
+    background: #ed1c24;
+    color: white;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    -webkit-border-radius: 3.5px;
+            border-radius: 3.5px;
+    width: 140px;
+    height: 48px;
+    margin: auto; }
+    .popUp--challenge .popUp__form-btn-submit:hover {
+      background: #c61017; }
 
 .main-youtube-feed {
   margin-bottom: 20px;

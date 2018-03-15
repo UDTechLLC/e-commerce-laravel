@@ -61,8 +61,8 @@
             </p>
 
             <div class="section__img">
-                <img src="{{ asset('web/images/full-product/queen-of-the-hill/books-90days.png')}}" alt="book" class="full-width desktop-image" />
-                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book-mobile-90days.png')}}" alt="book" class="full-width mobile-image" />
+                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book-1.png')}}" alt="book" class="full-width desktop-image" />
+                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book_mob-1.png')}}" alt="book" class="full-width mobile-image" />
             </div>
 
             <div class="section__icons inline-block text-center">
@@ -238,7 +238,7 @@
         <p class="popUp__subTitle">Combine Queen Of The Hill and our Custom Meal Plan to achieve greater results</p>
         <div class="popUp__img-info">
             <div class="popUp__img">
-                <img src="{{asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">
+                <img src="{{asset('web/images/full-product/queen-of-the-hill/queen+12week.png')}}" alt="product_icon">
             </div>
             <div class="popUp__info">
                 <div class="popUp__name">12 Week Custom Meal Plan</div>
