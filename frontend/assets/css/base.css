@@ -1362,6 +1362,9 @@ ul {
   text-transform: uppercase;
   color: #29282e;
   font-family: Montserrat, Arial, Helvetica, sans-serif; }
+  @media (max-width: 500px) {
+    .section__title {
+      padding: 0 !important; } }
   .section__title--white {
     color: white; }
   @media (min-width: 801px) {
@@ -1494,6 +1497,9 @@ ul {
         padding: 70px 0 450px; }
         .parallax-section--never-stop img {
           max-width: 300px; } }
+    @media screen and (max-width: 400px) {
+      .parallax-section--never-stop {
+        padding: 70px 0 220px; } }
   .parallax-section .section__text {
     max-width: 700px;
     margin: 50px auto; }
