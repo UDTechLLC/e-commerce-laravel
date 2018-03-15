@@ -169,4 +169,9 @@ class Cart extends EloquentModel
                 : number_format(17.99, 2)
             : number_format(0, 2);
     }
+
+    public function clear()
+    {
+        $this->products()->detach();
+    }
 }
