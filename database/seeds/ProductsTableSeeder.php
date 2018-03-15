@@ -25,14 +25,14 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (1).png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan_2.png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (1).jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (2).jpg';
         $product
             ->addMedia($pathToFile)
             ->preservingOriginal()
@@ -384,7 +384,7 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => false,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/bag_1.png';
+        $pathToFile = 'resources/assets/web/seed_products/bag2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/bag_2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
