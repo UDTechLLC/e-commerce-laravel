@@ -269,6 +269,7 @@ class Product extends EloquentModel implements HasMedia
 
     public function getTotalSumWithDiscount()
     {
+        dd($this->pivot->discount_sum);
         return number_format($this->total_sum - $this->pivot->discount_sum, 2);
     }
 

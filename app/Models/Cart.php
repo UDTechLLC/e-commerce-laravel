@@ -161,7 +161,7 @@ class Cart extends EloquentModel
     public function isSubscribe(): bool 
     {
         foreach ($this->products as $product) {
-            if ($product->plan_id != null) {
+            if ($product->hasPlan()) {
                 return true;
             }
         }
