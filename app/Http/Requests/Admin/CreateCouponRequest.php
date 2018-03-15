@@ -23,14 +23,11 @@ class CreateCouponRequest extends FormRequest
      */
     public function rules()
     {
-
-            return [
-                'code' => 'required',
-                'description' => 'required',
+        return [
+            'code'          => 'required',
+            'description'   => 'required',
 //                'limit' => 'required',
-                'coupon_amount' => 'required',
-
-
+            'coupon_amount' => 'required|between:0,100',
         ];
     }
 }
