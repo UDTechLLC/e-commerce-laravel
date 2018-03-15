@@ -105,7 +105,7 @@ class Cart extends EloquentModel
     /**
      * @return string
      */
-    public function getProductsSum()
+    public function getProductsCost()
     {
         $sum = 0;
 
@@ -119,7 +119,7 @@ class Cart extends EloquentModel
     /**
      * @return string
      */
-    public function getDiscountSum()
+    public function getDiscountCost()
     {
         return number_format((float)$this->products()->withPivot('discount_sum')->sum('discount_sum'), 2);
     }
@@ -127,9 +127,9 @@ class Cart extends EloquentModel
     /**
      * @return string
      */
-    public function getWithDiscountSum()
+    public function getWithDiscountCost()
     {
-        return number_format($this->getProductsSum() - $this->getDiscountSum(), 2);
+        return number_format($this->getProductsCost() - $this->getDiscountCost(), 2);
     }
 
     /**
@@ -156,17 +156,22 @@ class Cart extends EloquentModel
     }
 
     /**
-     * @param $country
+     * @param null $country
      *
-     * @return float|int
+     * @return string
      */
-    public function getShippingSum($country)
+    public function getShippingSum($country = null)
     {
         //todo: It is possible to add to config
         return $this->isShipping()
             ? $country === 'United States' || $country === 'Canada'
-                ? 6.99
-                : 17.99
-            : 0;
+                ? number_format(6.99, 2)
+                : number_format(17.99, 2)
+            : number_format(0, 2);
+    }
+
+    public function clear()
+    {
+        $this->products()->detach();
     }
 }

@@ -47,7 +47,7 @@ class PayController extends Controller
             return route('/');  //todo: Add error
         }
 
-        $this->clearCart($order->cart);
+        $order->cart->clear();
 
         return $response->redirect();
     }
@@ -109,14 +109,6 @@ class PayController extends Controller
     }
 
     /**
-     * @param Cart $cart
-     */
-    private function clearCart(Cart $cart)
-    {
-        $cart->products()->detach();
-    }
-
-    /**
      * Update order status.
      *
      * @param Order $order
@@ -175,29 +167,42 @@ class PayController extends Controller
                 : null;
 
             if (null !== $plan) {
-                $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
+                $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
 
-                $amount -= $subscriptionProduct->amount;
+                if ($result->success) {
+                    $amount -= $subscriptionProduct->amount;
+                } else {
+                    return response()->json(['error' => 'Error payment']);
+                }
+            } else {
+                return response()->json(['error' => 'No plan found for this product'], 404);
             }
 
             if (0 !== $amount) {
                 $result = $user->charge($amount);
             }
-//            return view('web.checkout.checkout_thank_you', ['order' => $order]);
+
+            if ($result->success) {
+                $this->clearing($order);
+
+                return view('web.checkout.checkout_thank_you', ['order' => $order]);
+            } else {
+                return response()->json(['error' => 'Error payment']);
+            }
         }
 
+        $service = new BraintreeService();
+
+        $service->setAuthToken($token);
+
+        $result = $service->pay($amount);
+
         if ($result->success) {
-            $this->clearCart($order->cart);
+            $this->clearing($order);
 
-            $this->updateOrderStatus($order);
-
-            if ($order->isShipping()) {
-                $this->updateOrderStatusOnShipStation($order);
-            }
-
-            $this->sendOrderToEmail($order);
-            //dd($order);
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
+        } else {
+            return response()->json(['error' => 'Error payment']);
         }
     }
 
@@ -209,5 +214,21 @@ class PayController extends Controller
     public function getBraintreeToken()
     {
         return response()->json(['token' => (new BraintreeService())->getToken()]);
+    }
+
+    /**
+     * @param $order
+     */
+    private function clearing($order)
+    {
+        $order->cart->clear();
+
+        $this->updateOrderStatus($order);
+
+        if ($order->isShipping()) {
+            $this->updateOrderStatusOnShipStation($order);
+        }
+
+        $this->sendOrderToEmail($order);
     }
 }
