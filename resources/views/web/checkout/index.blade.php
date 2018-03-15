@@ -13,7 +13,7 @@
                onFocus="geolocate()" type="text" />
     </div>--}}
 
-    <checkout></checkout>
+    <checkout user-auth-props="{{ Auth::check() }}"></checkout>
 @endsection
 
 @section('scripts')

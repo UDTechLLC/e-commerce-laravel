@@ -105,12 +105,4 @@ Route::group([
     ]);
 });
 
-Route::group([
-    'as' => 'auth',
-    'prefix' => 'auth',
-], function () {
-    Route::post('login', [
-        'as' => '.login',
-        'uses' => 'Api\Auth\LoginController@login',
-    ]);
-});
+

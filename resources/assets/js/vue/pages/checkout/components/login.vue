@@ -18,18 +18,18 @@
                             Username or email
                             <span class="required">*</span>
                         </label>
-                        <input id="userEmail" class="form-field" type="text" />
+                        <input id="userEmail" class="form-field" type="text" v-model="email"/>
                     </div>
                     <div class="form-field-wrapper">
                         <label for="userPassword">
                             Password
                             <span class="required">*</span>
                         </label>
-                        <input id="userPassword" class="form-field" type="password" />
+                        <input id="userPassword" class="form-field" type="password" v-model="password" />
                     </div>
                     <div class="clear"></div>
                     <div class="form-submit-wrapper">
-                        <input class="login-button button" name="login" value="Login" type="submit" />
+                        <input class="login-button button" name="login" value="Login" type="submit" @click.prevent="login" />
                         <label class="rememberme-wrapper">
                             <input class="remember-me-checkbox" name="rememberme" id="rememberme" value="forever" type="checkbox" />
                             <span>Remember me</span>
@@ -49,8 +49,23 @@
 
     export default ({
         data: () => ({
-            show: false
-        })
+            show: false,
+            email: "",
+            password: ""
+        }),
+        methods: {
+            login() {
+                let data = {
+                    email: this.email,
+                    password: this.password
+                };
+
+                axios.post(`/api/auth/login`, data).then(
+                        response => this.$EventBus.$emit('login', response),
+                        error => console.log(error)
+                )
+            }
+        }
     })
 
 </script>

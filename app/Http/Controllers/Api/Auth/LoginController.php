@@ -11,6 +11,6 @@ class LoginController extends Login
 {
     protected function authenticated(Request $request, $user)
     {
-        return fractal($user, new UserTransformer())->respond();
+       return fractal($user, new UserTransformer())->respond();
     }
 }

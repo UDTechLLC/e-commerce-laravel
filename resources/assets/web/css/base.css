@@ -4657,6 +4657,34 @@ section .training-plan-faqs-block-wrapper .wrapper {
     .popUp .learn-more:hover {
       color: #ed1c24; }
 
+.main-youtube-feed {
+  margin-bottom: 20px;
+  padding-top: 0; }
+  @media screen and (max-width: 800px) {
+    .main-youtube-feed {
+      padding-top: 20px; } }
+  .main-youtube-feed .wrapper .success-stories-block,
+  .main-youtube-feed .wrapper .separate-heading-block {
+    margin-bottom: 0;
+    padding: 0; }
+    @media screen and (max-width: 800px) {
+      .main-youtube-feed .wrapper .success-stories-block,
+      .main-youtube-feed .wrapper .separate-heading-block {
+        margin-bottom: 20px; } }
+  .main-youtube-feed .iframe-wrapper {
+    text-align: center; }
+    .main-youtube-feed .iframe-wrapper iframe {
+      width: 32%;
+      height: 300px; }
+      .main-youtube-feed .iframe-wrapper iframe:nth-child(2) {
+        margin: 0 1%; }
+      @media screen and (max-width: 992px) {
+        .main-youtube-feed .iframe-wrapper iframe {
+          width: 100%;
+          display: block; }
+          .main-youtube-feed .iframe-wrapper iframe:nth-child(2) {
+            margin: 20px 0; } }
+
 header {
   border-top: 3px solid #ed1c24; }
   header a {

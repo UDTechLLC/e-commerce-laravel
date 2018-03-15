@@ -32,7 +32,7 @@ i
                         redirect="/"
                         @deleteItem="deleteItem"
                 ></delete>
-                <a :href="entry.action.attach">Attach product</a>
+                <a :href="entry.action.attach" v-if="entry.action.attach">Attach product</a>
             </td>
         </tr>
         </tbody>

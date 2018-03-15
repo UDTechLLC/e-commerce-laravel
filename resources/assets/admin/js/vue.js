@@ -11,20 +11,25 @@ Vue.use(Notifications);
 
 Vue.use(Notifications, { velocity });
 
-Vue.component('table-vue', require('./vue/components/table'));
+import tableVue from './vue/components/table';
+import deleteComponent from './vue/components/delete';
+import modal from './vue/components/modal';
+import uploadImage from './vue/components/upload-image';
+
+Vue.component('table-vue', tableVue);
 Vue.component('paginate', Paginate);
-Vue.component('delete', require('./vue/components/delete'));
-Vue.component('modal', require('./vue/components/modal'));
-Vue.component('upload-image', require('./vue/components/upload-image'));
+Vue.component('delete', deleteComponent);
+Vue.component('modal', modal);
+Vue.component('uploadImage', uploadImage);
 
-Vue.component('products-index', require('./vue/pages/products/index'));
-Vue.component('products-create', require('./vue/pages/products/create.vue'));
-Vue.component('products-edit', require('./vue/pages/products/edit.vue'));
+import productsIndex from './vue/pages/products/index';
+import productsCreate from './vue/pages/products/create';
+import productsEdit from './vue/pages/products/edit';
 
-Vue.component('coupons-index', require('./vue/pages/coupons/index'));
-Vue.component('coupons-create', require('./vue/pages/coupons/create.vue'));
+import couponsIndex from './vue/pages/coupons/index';
+import couponsCreate from './vue/pages/coupons/create';
 
-Vue.component('users-index', require('./vue/pages/users/index'));
+import usersIndex from './vue/pages/users/index';
 
 
 require('./vue/mixins');
@@ -32,4 +37,12 @@ require('./vue/mixins');
 
 const app = new Vue({
     el: '#app',
+    components: {
+        productsIndex,
+        productsCreate,
+        productsEdit,
+        couponsIndex,
+        couponsCreate,
+        usersIndex
+    }
 });
