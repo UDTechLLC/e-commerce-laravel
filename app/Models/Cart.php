@@ -156,6 +156,20 @@ class Cart extends EloquentModel
     }
 
     /**
+     * @return bool
+     */
+    public function isSubscribe(): bool 
+    {
+        foreach ($this->products as $product) {
+            if ($product->plan_id != null) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    /**
      * @param null $country
      *
      * @return string

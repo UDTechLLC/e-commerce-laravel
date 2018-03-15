@@ -23,13 +23,15 @@ class CartTransformer extends TransformerAbstract
         $withDiscountSum = $cart->getWithDiscountCost();
         $productCount = $cart->getProductsCount();
         $isShipping = $cart->isShipping();
+        $isSubscribe = $cart->isSubscribe();
 
         return [
-            'id'         => $cart->getKey(),
-            'products'   => fractal($cart->products, new ProductTransformer()),
-            'isShipping' => $isShipping,
-            'coupon'     => $cart->coupon ? $cart->coupon->code : null,
-            'sum'        => [
+            'id'          => $cart->getKey(),
+            'products'    => fractal($cart->products, new ProductTransformer()),
+            'isShipping'  => $isShipping,
+            'isSubscribe' => $isSubscribe,
+            'coupon'      => $cart->coupon ? $cart->coupon->code : null,
+            'sum'         => [
                 'products_counts'   => $productCount,
                 'products_sum'      => $productsSum,
                 'discount_sum'      => $discountSum,

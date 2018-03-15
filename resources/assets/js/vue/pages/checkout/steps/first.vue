@@ -259,6 +259,7 @@
             shipping: Number,
             countries: Array,
             isShipping: Boolean,
+            isSubscribe: Boolean,
             discount: String,
             coupon: String
         },
@@ -300,7 +301,10 @@
             next() {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-
+                        if(this.isSubscribe && this.userAuth != '1') {
+                            alert("You may need to login or register");
+                            return false;
+                        }
                         let url = `/api/checkout/billing/${this.cartId}`;
                         if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
                         let body = {
