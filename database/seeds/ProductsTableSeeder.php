@@ -328,7 +328,7 @@ class ProductsTableSeeder extends Seeder
             'slug'        => 'shedfat-maxx-subscription',
             'view_name'   => 'shedfat-maxx-subscription',
             'isVirtual'   => false,
-
+            'published'   => false
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
