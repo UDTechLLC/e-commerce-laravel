@@ -1106,6 +1106,10 @@ ul {
       line-height: 41px !important;
       margin: 0;
       text-transform: uppercase; }
+      @media (max-width: 450px) {
+        .top-product-description-block .product-title-block .product-title.custom-w {
+          max-width: 270px;
+          margin: auto; } }
       @media screen and (max-width: 800px) {
         .top-product-description-block .product-title-block .product-title {
           font-size: 30px;
