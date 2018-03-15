@@ -28,6 +28,7 @@ import productsEdit from './vue/pages/products/edit';
 
 import couponsIndex from './vue/pages/coupons/index';
 import couponsCreate from './vue/pages/coupons/create';
+import couponsEdit from './vue/pages/coupons/edit';
 
 import usersIndex from './vue/pages/users/index';
 
@@ -43,6 +44,7 @@ const app = new Vue({
         productsEdit,
         couponsIndex,
         couponsCreate,
+        couponsEdit,
         usersIndex
     }
 });

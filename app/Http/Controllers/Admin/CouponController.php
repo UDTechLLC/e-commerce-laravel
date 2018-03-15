@@ -63,6 +63,7 @@ class CouponController extends Controller
             'coupon_amount'=>$request->get('coupon_amount')
 
         ]);
+        
         return $coupon;
     }
 
@@ -80,24 +81,30 @@ class CouponController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Coupon $coupon
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Coupon $coupon)
     {
-        //
+        return view('admin.coupons.edit', ['coupon' => $coupon]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  CreateCouponRequest  $request
+     * @param  Coupon $coupon
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateCouponRequest $request, Coupon $coupon)
     {
-        //
+        $coupon->update([
+            'code'        => $request->get('code'),
+            'description' => $request->get('description'),
+            'coupon_amount'=>$request->get('coupon_amount')
+        ]);
+        
+        return $coupon;
     }
 
     /**
