@@ -26,68 +26,10 @@
                                 {{--SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase your weight loss, provide clean smooth energy and help you get past your fitness plateaus.--}}
                             </p>
                         </div>
-                        <div class="product-price-block product-price-block--radio">
-                            {{--<div class="product-price">--}}
-                            {{--<span class="product-amount">--}}
-                                {{--<span class="currency">$</span>--}}
-                                {{--<span>  {!! $product->amount !!}</span>--}}
-                            {{--</span>--}}
-                            {{--</div>--}}
-                            <div class="price-radio-block">
-
-                                <label class="price-radio flex flex-a--center">
-                                    <input type="radio" value="34.00" name="product-price" checked>
-                                    <span class="custom-input"></span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>{!! $product->amount !!}</span>
-                                    </span>
-
-
-                                    <span class="price-radio-block__desc">
-                                        I want to make a one-time purchase.
-                                    </span>
-
-                                </label>
-                                <label class="price-radio flex flex-a--center">
-                                    <input type="radio" value="59.99" name="product-price">
-                                    <span class="custom-input"></span>
-                                    <span>
-                                    <span class="old-price">
-                                        <span class="currency">$</span>
-                                        <span>{!! $product->old_amount !!}</span>
-                                    </span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>{!! $product->amount !!}</span>
-                                    </span>
-                                </span>
-
-                                    <span class="price-radio-block__desc">
-                                        I want auto-shipping for every 30 days.
-                                </span>
-                                </label>
-                            </div>
-
-                        </div>
-                            <div class="product-button-block">
-                                <div class="flex flex-a--center wrapper-btns-buy-count">
-
-                                    <div class="btn-wrapper-product-count flex flex-a--center">
-                                        <button class="btn">-</button>
-                                        <input type="number" class="product-count" value="1">
-                                        <button class="btn">+</button>
-                                    </div>
-
-                                <div class="add-to-cart-wrapper">
-                                <add-to-cart
-                                        product-slug="{{ $product->slug }}"
-                                >
-                                </add-to-cart>
-                                </div>
-                            </div>
-
-                        </div>
+                        <shedfat-maxx
+                                product-props="{{$product}}"
+                                subscribe-product-props="{{ \App\Models\Product::where('slug', 'shedfat-maxx-subscription')->first() }}"
+                        ></shedfat-maxx>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -216,7 +158,6 @@
                         <h3 class="ingredients__other-title">Other Ingredients</h3>
                         <p class="ingredients__other-text">Magnesium stearate & Silicon Dioxide, Hypromellose (Vegetable Shell).</p>
 
-
                         <h3 class="ingredients__other-title">Additional Information</h3>
                         <p class="ingredients__other-text">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnoze, treat, cure, or prevent any disease.</p>
                     </div>
@@ -232,7 +173,6 @@
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </section>
@@ -271,12 +211,7 @@
                             <img src="{{ asset('web/images/full-product/shedfat-maxx/txt.png')}}" alt="get-more">
                         </div>
 
-
-
-
                     </div>
-
-
 
                     <div class="training-plan-faqs-block">
 
@@ -423,7 +358,6 @@
         </section>
 
     </main>
-
 
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
