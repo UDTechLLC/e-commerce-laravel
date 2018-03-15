@@ -285,5 +285,11 @@
 
         CallPopUp('12 Week Custom Training Plan');
         CallPopUp('12 Week Custom Meal Plan');
+        CallPopUp('SPRING CHALLENGE');
+
+
+        setTimeout(function () {
+            $('.callPopUp').click();
+        },2000)
     });
 })( jQuery );

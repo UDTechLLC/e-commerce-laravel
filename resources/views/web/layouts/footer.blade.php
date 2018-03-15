@@ -1,4 +1,14 @@
 <footer>
+    <div class="subscribe">
+        <div class="wrapper">
+            <form action="{{ route('subscribe.footer') }}" class="subscribe__form" method="POST">
+                {{ csrf_field() }}
+                <h2 class="subscribe__title">Be part of our community</h2>
+                <input type="email" name="email" required placeholder="Enter your email">
+                <button class="btn subscribe__btn">Join Now</button>
+            </form>
+        </div>
+    </div>
     <div class="first-footer">
         <div class="wrapper">
             <div class="flex flex-j--between flex-a--center flex--m-block">
@@ -19,46 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="wrapper">
-            <form action="{{ route('subscribe.footer') }}" class="validate-form not-valid" id="contact_form" method="POST">
-                {{ csrf_field() }}
-                <div class="contact__wrapper">
-                    <div class="contact__form-group">
-                        <input class="" type="text" name="name" placeholder="Your Name " tabindex="1" required>
-                    </div>
-                    <div class="contact__form-group">
-                        <input class="" type="email" name="email" id="contactEmail"  placeholder="enter your email" tabindex="2" required>
-                    </div>
-                    <div class="contact__form-group">
-                        <button class="submit" tabindex="3" style="padding: 14px; color: white;background-color: red;width: 100%;"><span>JOIN US</span></button>
-                    </div>
-                </div>
-
-
-            </form>
-        </div>
     </div>
-    {{--<section class="contact__section">--}}
-        {{--<div class="wrapper">--}}
-            {{--<form action="{{ route('subscribe.footer') }}" class="validate-form not-valid" id="contact_form" method="POST">--}}
-                {{--{{ csrf_field() }}--}}
-                {{--<div class="contact__wrapper">--}}
-                    {{--<div class="contact__form-group">--}}
-                        {{--<input class="" type="text" name="name" placeholder="Your Name " tabindex="1" required>--}}
-                    {{--</div>--}}
-                    {{--<div class="contact__form-group">--}}
-                        {{--<input class="" type="email" name="email" id="contactEmail"  placeholder="enter your email" tabindex="2" required>--}}
-                    {{--</div>--}}
-                    {{--<div class="contact__form-group">--}}
-                        {{--<button class="submit" tabindex="5">Join US</button>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</form>--}}
-        {{--</div>--}}
-    {{--</section>--}}
-
-
-
     <div class="second-footer">
         <div class="wrapper">
             <div class="flex flex-j--between flex-a--center flex--m-block">

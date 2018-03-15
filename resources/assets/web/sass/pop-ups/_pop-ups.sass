@@ -182,3 +182,64 @@
     font-weight: 700
     &:hover
       color: $red
+  &--challenge
+    .popUp
+      &__close
+        color: #656565
+        opacity: .6
+        &:hover
+          opacity: 1
+
+      &__wrapper
+        background: url("../images/new-images/bg-popUp-challenge.jpg") no-repeat center / cover
+        @media screen and (max-width: $breakpoint-mobile)
+          background: url("../images/new-images/bg-popUp-challenge-mobile.jpg") no-repeat top / cover
+          max-width: 300px
+          overflow-x: hidden
+          padding: 0px 20px 300px
+      &__info
+        max-width: 450px
+      &__name
+        font-size: 37px
+        color: $red
+        text-transform: uppercase
+        @media screen and (max-width: 830px)
+          font-size: 32px
+        @media screen and (max-width: $breakpoint-mobile)
+          font-size: 26px
+          line-height: 32px
+      &__description
+        @media screen and (min-width: $breakpoint-mobile + 1)
+          margin-top: 30px
+          margin-bottom: 30px
+      &__form
+        input
+          display: block
+          width: 100%
+          border-radius: 3.5px
+          height: 48px
+          border: #e1e1e1
+          font-size: 15px
+          color: #929292
+          font-family: $Montserrat
+          margin: 20px 0
+          outline: 0
+          box-sizing: border-box
+          padding: 10px
+          &::placeholder
+            font-size: 15px
+            color: #929292
+            font-family: $Montserrat
+      &__form-btn-submit
+        background: $red
+        color: white
+        text-transform: uppercase
+        font-size: 23px
+        font-family: $Montserrat
+        font-weight: bold
+        border-radius: 3.5px
+        width: 140px
+        height: 48px
+        margin: auto
+        &:hover
+          background: darken($red,10)

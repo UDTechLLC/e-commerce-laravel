@@ -25,14 +25,14 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan.png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (1).png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/icons.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (1).jpg';
         $product
             ->addMedia($pathToFile)
             ->preservingOriginal()
@@ -54,14 +54,14 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan.png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (2).png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
@@ -143,9 +143,9 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/never-stop-icon.png';
+        $pathToFile = 'resources/assets/web/seed_products/devices_never.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/never_stop_moving_Sales.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/Never stop moving Sales .jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/Never_stop moving e-book.pdf';
         $product->addMedia($pathToPdfFile)->preservingOriginal()->toMediaCollection('download');
@@ -281,7 +281,7 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/never+meal_icon.png';
+        $pathToFile = 'resources/assets/web/seed_products/never+12meal.png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
@@ -309,7 +309,7 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/queen_icon.png';
+        $pathToFile = 'resources/assets/web/seed_products/queen+12week.png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
@@ -366,9 +366,45 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => false,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/shaker.png';
+        $pathToFile = 'resources/assets/web/seed_products/shaker-1.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/shaker_2.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Gym Bag',
+            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
+            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
+             a more enjoyable process.',
+
+            'old_amount'  => '300.00',
+            'amount'      => '200.00',
+            'slug'        => 'gym-bag',
+            'view_name'   => 'shedfat-infuser-bottle',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/bag_1.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/bag_2.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Legs On Fire',
+            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
+            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
+             a more enjoyable process.',
+
+            'old_amount'  => '30.00',
+            'amount'      => '20.00',
+            'slug'        => 'legs-on-fire',
+            'view_name'   => 'shedfat-infuser-bottle',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/legs_on.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/legs_on.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }
