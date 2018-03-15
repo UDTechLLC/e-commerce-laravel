@@ -101,6 +101,7 @@ class ProductController extends Controller
             'image'        => $product->getFirstMediaUrl('products'),
             'imagePreview' => $product->getFirstMediaUrl('preview'),
             'price'        => $product->amount,
+            'published'    => $product->published,
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
             'slug'         => $product->slug
@@ -118,7 +119,6 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //  dd($request->all());
         $product->update([
             'title'       => $request->get('title'),
             'subtitle'    => $request->get('subtitle'),
@@ -126,7 +126,8 @@ class ProductController extends Controller
             'view_name'   => $request->get('view_name'),
             'old_amount'  => $request->get('oldPrice') ?? "0",
             'amount'      => $request->get('price'),
-            'slug'        => $request->get('slug')
+            'slug'        => $request->get('slug'),
+            'published'   => $request->get('published')
         ]);
 
         if ($request->has('image') && $this->checkImage($request->get('image'))) {
