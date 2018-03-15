@@ -15,7 +15,7 @@
             <div class="product-info-block">
                 <div class="product-info">
                     <div class="product-title-block">
-                        <h2 class="product-title">
+                        <h2 class="product-title custom-w">
                             {{--14 DAY DETOX SMOOTHIE--}}
                             {{--CLEANSE--}}
                             {!! $product->title !!}
