@@ -367,7 +367,7 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => false,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/shaker.png';
+        $pathToFile = 'resources/assets/web/seed_products/shaker-1.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/shaker_2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
@@ -385,7 +385,7 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => false,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/bag.png';
+        $pathToFile = 'resources/assets/web/seed_products/bag_1.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/bag_2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
@@ -403,9 +403,9 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => false,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/kickstarter.png';
+        $pathToFile = 'resources/assets/web/seed_products/legs_on.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/legs_on_fire.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/legs_on.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }

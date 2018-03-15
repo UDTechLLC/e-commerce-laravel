@@ -45,7 +45,7 @@
                     <div class="sc-prizes-columns-wrapper">
                         <div class="sc-prizes-column-single">
                             <h3 class="sc-prizes-column-title">
-                                2<sup>st</sup> PLACE
+                                2<sup>nd</sup> PLACE
                             </h3>
                             <ul class="sc-prizes-list">
                                 <li class="sc-prizes-item">
@@ -138,7 +138,7 @@
                         </div>
                         <div class="sc-prizes-column-single">
                             <h3 class="sc-prizes-column-title">
-                                3<sup>st</sup> PLACE
+                                3<sup>rd</sup> PLACE
                             </h3>
                             <ul class="sc-prizes-list">
                                 <li class="sc-prizes-item">
