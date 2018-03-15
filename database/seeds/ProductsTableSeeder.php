@@ -325,7 +325,6 @@ class ProductsTableSeeder extends Seeder
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
             'old_amount'  => '24.99',
             'amount'      => '19.99',
-            'published'   => false,
             'slug'        => 'shedfat-maxx-subscription',
             'view_name'   => 'shedfat-maxx-subscription',
             'isVirtual'   => false,
