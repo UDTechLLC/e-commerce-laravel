@@ -185,7 +185,7 @@
                                             <div class="form-field-wrapper"
                                                  :class="{'error': errors.has('bd_create_pass')}">
                                                 <label for="bdCreatePass">
-                                                    Create account password
+                                                    Create account password *
                                                 </label>
                                                 <input id="bdCreatePass" class="form-field" name="bd_create_pass"
                                                        type="text" placeholder="Password"
