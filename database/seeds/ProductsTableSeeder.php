@@ -143,9 +143,9 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/never-stop-icon.png';
+        $pathToFile = 'resources/assets/web/seed_products/devices_never.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/never_stop_moving_Sales.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/Never stop moving Sales .jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/Never_stop moving e-book.pdf';
         $product->addMedia($pathToPdfFile)->preservingOriginal()->toMediaCollection('download');
@@ -281,7 +281,7 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/never+meal_icon.png';
+        $pathToFile = 'resources/assets/web/seed_products/never+12meal.png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
@@ -325,6 +325,7 @@ class ProductsTableSeeder extends Seeder
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
             'old_amount'  => '24.99',
             'amount'      => '19.99',
+            'published'   => false,
             'slug'        => 'shedfat-maxx-subscription',
             'view_name'   => 'shedfat-maxx-subscription',
             'isVirtual'   => false,
@@ -387,6 +388,24 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/bag.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/bag_2.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Legs On Fire',
+            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
+            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
+             a more enjoyable process.',
+
+            'old_amount'  => '30.00',
+            'amount'      => '20.00',
+            'slug'        => 'legs-on-fire',
+            'view_name'   => 'shedfat-infuser-bottle',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/kickstarter.png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/legs_on_fire.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }

@@ -64,7 +64,7 @@
                 <div class="shop-item">
                     <div class="image-wrapper">
                         <a href="{{url('challenge')}}">
-                            <img src="{{ asset('web/images/30_day_challenge_shop_preview.png') }}" />
+                            <img src="{{ asset('web/images/Spring_Challenge_icon.png') }}" />
                         </a>
                     </div>
                     <div class="product-details">
