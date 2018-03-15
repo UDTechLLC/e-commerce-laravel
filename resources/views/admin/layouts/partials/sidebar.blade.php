@@ -41,7 +41,7 @@
                         <a href="{{route('admin.orders')}}"><i class="fa fa-shopping-bag"></i> Orders </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.coupons')}}"><i class="fa fa-shopping-bag"></i> Coupons </a>
+                        <a href="{{route('admin.coupons')}}"><i class="fa fa-tags"></i> Coupons </a>
                     </li>
                 </ul>
             </div>

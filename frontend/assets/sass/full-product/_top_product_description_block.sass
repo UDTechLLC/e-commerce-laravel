@@ -54,6 +54,10 @@
       margin: 0
       text-transform: uppercase
 
+      @media (max-width: 450px)
+        &.custom-w
+          max-width: 270px
+          margin: auto
       @media screen and (max-width: $breakpoint-mobile)
         font-size: 30px
         line-height: 30px !important

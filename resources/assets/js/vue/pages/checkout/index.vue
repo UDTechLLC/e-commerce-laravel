@@ -49,6 +49,7 @@
                            :total="total"
                            :shipping="shipping"
                            :isShipping="isShipping"
+                           :isSubscribe="isSubscribe"
                            :discount="discount"
                            :coupon="coupon"
                            @updateCountry="updateCountry"
@@ -83,7 +84,8 @@
                 coupon: "",
                 currentComponent: "first",
                 billing: {},
-                isShipping: false
+                isShipping: false,
+                isSubscribe: false
             }
         },
         props: {

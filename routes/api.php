@@ -105,4 +105,19 @@ Route::group([
     ]);
 });
 
-
+Route::group([
+    'as' => 'webhooks',
+    'prefix' => 'webhooks',
+], function () {
+    Route::group([
+        'as' => 'braintree',
+        'prefix' => 'braintree',
+    ], function () {
+        Route::post('successfully', [
+            'uses' => 'Api\WebhookController@handleSubscriptionChargedSuccessfully',
+        ]);
+        Route::post('active', [
+            'uses' => 'Api\WebhookController@handleSubscriptionWentActive',
+        ]);
+    });
+});
