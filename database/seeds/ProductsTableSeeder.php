@@ -96,7 +96,7 @@ class ProductsTableSeeder extends Seeder
 //        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title'       => 'Shadfat Infuser Bottle',
+            'title'       => 'Shedfat Infuser Bottle',
             'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
             overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
              a more enjoyable process.',
