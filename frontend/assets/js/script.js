@@ -292,4 +292,10 @@
             $('.callPopUp').click();
         },2000)
     });
+
+
+    if ($('.popUp[data-modal="12 Week Custom Training Plan"]').length){
+        console.log(1)
+    }
+
 })( jQuery );
