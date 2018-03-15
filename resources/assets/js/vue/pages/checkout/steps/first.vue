@@ -64,10 +64,10 @@
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
-                                        <!--<input id="bdStreetAddress" class="form-field" name="bg_street_address"
-                                               type="text" placeholder="House number and street name"
+                                        <input id="bdStreetAddress" class="form-field" name="bg_street_address"
+                                               type="hidden" placeholder="House number and street name"
                                                v-validate data-vv-rules="required" v-model="billingInfo.street"
-                                        />-->
+                                        />
                                         <vue-google-autocomplete
                                                 ref="street"
                                                 id="map"
@@ -258,7 +258,6 @@
             total: String,
             shipping: Number,
             countries: Array,
-            states: Array,
             isShipping: Boolean,
             discount: String,
             coupon: String
@@ -277,6 +276,7 @@
             saveCountries() {
                 Vue.localStorage.set('shippingCountryName', this.billingInfo.country.name);
                 Vue.localStorage.set('shippingCountryCode', this.billingInfo.country.code);
+                this.$emit('updateCountry', this.billingInfo.country.name);
             },
             getAddressData(value) {
 

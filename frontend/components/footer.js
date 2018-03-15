@@ -1,5 +1,15 @@
 document.getElementsByTagName('footer')[0].innerHTML = `
 
+    <div class="subscribe">
+        <div class="wrapper">
+            <form action="" class="subscribe__form">
+                <h2 class="subscribe__title">Be part of our community</h2>
+                <input type="email" required placeholder="Enter your email">
+                <button class="btn subscribe__btn">Join Now</button>
+            </form>
+        </div>
+    </div>
+
  <div class="first-footer">
      <div class="wrapper">
          <div class="flex flex-j--between flex-a--center flex--m-block">

@@ -9,6 +9,9 @@ import cart from './pages/cart';
 import addToCart from './component/addToCart';
 import checkout from './pages/checkout';
 import addToCartMobile from  './component/addToCartMobile';
+import shedfatMaxx from './pages/products/shedfat-maxx';
+
+Vue.component('add-to-cart', addToCart);
 
 require('./mixins');
 Vue.prototype.$EventBus = new Vue();
@@ -19,9 +22,9 @@ const app = new Vue({
     miniCart,
     modalCart,
     cart,
-    addToCart,
     checkout,
-    addToCartMobile
+    addToCartMobile,
+    shedfatMaxx
 },
   created() {
     if (!Vue.localStorage.get('hash')) {
