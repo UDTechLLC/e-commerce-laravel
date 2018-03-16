@@ -29,6 +29,8 @@ class Product extends EloquentModel implements HasMedia
     const VIEW_NAME_SHEDFAT_MAX = 'shedfat-maxx';
     const VIEW_NAME_WHAT_TO_EAT = 'what-to-eat-in-the-streets';
     const VIEW_NAME_DAD_HAT = 'shedfat-dad-hat';
+    const VIEW_NAME_LEGS_ON_FIRE ='legs-on-fire';
+    const VIEW_NAME_SHAKER = 'shedFat-shaker';
 
     const VIEW_NAMES = [
         self::VIEW_NAME_SHOW,
@@ -42,6 +44,8 @@ class Product extends EloquentModel implements HasMedia
         self::VIEW_NAME_SHEDFAT_MAX,
         self::VIEW_NAME_WHAT_TO_EAT,
         self::VIEW_NAME_DAD_HAT,
+        self::VIEW_NAME_LEGS_ON_FIRE,
+        self::VIEW_NAME_SHAKER
     ];
 
     protected $table = 'products';
