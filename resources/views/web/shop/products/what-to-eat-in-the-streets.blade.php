@@ -192,7 +192,7 @@
             </div>
         </section>
 
-        
+
         <section class="grey-section">
             <div class="training-plan-faqs-block-wrapper">
                 <div class="wrapper">
