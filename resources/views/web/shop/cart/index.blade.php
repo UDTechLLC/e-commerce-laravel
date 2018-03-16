@@ -3,13 +3,9 @@
     Shopping Cart -@parent
 @endsection
 @section('content')
+    
 <div class="main">
     <cart></cart>
-
 </div>
 
 @endsection
-@section('scripts')
-    @parent
-
-    @endsection
