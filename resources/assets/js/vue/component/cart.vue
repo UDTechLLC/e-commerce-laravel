@@ -47,15 +47,18 @@
     </div>
 </template>
 <script type="text/babel">
+
+    import { mapGetters, mapActions } from 'vuex'
+
     export default ({
-        data: () => ({
-            products: [],
-            countItems: 0,
-            subTotal: 0
+        computed: mapGetters({
+            products: 'products',
+            countItems: 'countItems',
+            subTotal: 'subTotal'
         }),
         created() {
-            this.getProducts();
-            this.$EventBus.$on('updateProduct', this.updateProducts);
+           // this.getProducts();
+           // this.$EventBus.$on('updateProduct', this.updateProducts);
         }
     });
 </script>

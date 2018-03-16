@@ -13,11 +13,20 @@ import shedfatMaxx from './pages/products/shedfat-maxx';
 
 Vue.component('add-to-cart', addToCart);
 
-require('./mixins');
+import store from './store';
+
+//require('./mixins');
 Vue.prototype.$EventBus = new Vue();
+
+import testComponent from './test';
+Vue.component('test-component', testComponent);
 
 const app = new Vue({
   el: '#app',
+  store,
+  data: {
+    products: store.state.products
+  },
   components: {
     miniCart,
     modalCart,
@@ -27,6 +36,8 @@ const app = new Vue({
     shedfatMaxx
 },
   created() {
+    store.commit('getProducts');
+    
     if (!Vue.localStorage.get('hash')) {
       let hash = this.makeCardHash();
       Vue.localStorage.set('hash', hash);
