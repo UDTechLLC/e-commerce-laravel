@@ -74,25 +74,6 @@
             </div>
             <div class="training-plan-faqs-block-wrapper">
                 <div class="wrapper">
-                    {{--<div class="video-block-wrapper">--}}
-                        {{--<div class="video-block">--}}
-                            {{--<div id="amazingcarousel-container-1">--}}
-                                {{--<div id="amazingcarousel-1" style="display:none;position:relative;width:100%;max-width:650px;margin:0px auto 0px;">--}}
-                                    {{--<div class="amazingcarousel-list-container">--}}
-                                        {{--<ul class="amazingcarousel-list">--}}
-                                            {{--<li class="amazingcarousel-item">--}}
-                                                {{--<div class="amazingcarousel-item-container">--}}
-                                                    {{--<div class="amazingcarousel-image">--}}
-                                                        {{--<a href="https://player.vimeo.com/video/197577248" title="Rauve workout plan GYM"  class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ asset('web/images/197577248.jpg') }}"  alt="Rauve workout plan GYM" /></a>--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
-                                            {{--</li>--}}
-                                        {{--</ul>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                     <div class="video-block-wrapper">
 
                         <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
@@ -110,7 +91,7 @@
 
                         </div><!--custom-video-block-->
                     </div>
-               
+
 
                     <div class="training-plan-faqs-block">
                         <h4 class="training-plan-faqs-title">
