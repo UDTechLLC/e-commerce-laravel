@@ -3,7 +3,7 @@
     <div class="product-button-block">
         <div class="add-to-cart-wrapper">
             <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct(productSlug, productBundleSlug)"
-               :data-title="dataTitle" data-toggle="modal" data-target="#sideCartModal">
+               :data-title="dataTitle" data-target="#sideCartModal">
                 Add to cart
             </a>
             <a v-else class="add-to-cart-btn" href="/cart" >

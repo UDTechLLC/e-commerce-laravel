@@ -92,7 +92,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount'  => '30.00',
             'amount'      => '20.00',
             'slug'        => 'legs-on-fire',
-            'view_name'   => 'shedfat-infuser-bottle',
+            'view_name'   => 'legs-on-fire',
             'isVirtual'   => false,
 
         ]);
@@ -367,7 +367,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount'  => '50.00',
             'amount'      => '30.00',
             'slug'        => 'shedFat-shaker',
-            'view_name'   => 'shedfat-infuser-bottle',
+            'view_name'   => 'shedFat-shaker',
             'isVirtual'   => false,
 
         ]);
