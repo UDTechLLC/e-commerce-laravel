@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div class="cart-block-wrapper" v-if="products.length > 0">
+        <div class="cart-block-wrapper" v-if="countItems > 0">
             <div class="wrapper">
                 <form class="cart-form" action="" method="post">
                     <div class="cart-block">
@@ -117,6 +117,7 @@
     import productList from './component/product-list';
     import shipping from './component/shipping';
     import emptyCart from './component/empty-cart';
+    import {mapGetters} from 'vuex'
 
     export default ({
         data: () => ({
@@ -136,19 +137,31 @@
         },
 
         computed: {
-            products() {
-                return this.$store.state.products;
-            },
-            countItems() {
-                return this.$store.state.countItems;
-            },
-            subTotal() {
-                return this.$store.state.subTotal;
-            },
+            ...mapGetters([
+                'products',
+                'subTotal',
+                'countItems'
+            ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
             }
         },
+
+
+        /*computed: {
+         products() {
+         return this.$store.state.products.products;
+         },
+         countItems() {
+         return this.$store.state.products.countItems;
+         },
+         subTotal() {
+         return this.$store.state.products.subTotal;
+         },
+         total() {
+         return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
+         }
+         },*/
         watch: {
             total(newValue, oldValue) {
                 this.animateSum(newValue, oldValue, 'animatedTotal')
