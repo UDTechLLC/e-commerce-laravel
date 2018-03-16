@@ -1465,21 +1465,19 @@ ul {
     .parallax-section {
       padding: 30px 15px 650px; } }
   .parallax-section--queen-of-the-hill {
-    height: 890px; }
+    height: auto;
+    padding-bottom: 70px; }
     @media screen and (max-width: 990px) {
       .parallax-section--queen-of-the-hill {
-        padding: 70px 0 200px; } }
+        padding: 70px 0 70px; } }
     @media screen and (max-width: 550px) {
       .parallax-section--queen-of-the-hill {
-        padding: 70px 0 200px; }
+        padding: 40px 0; }
         .parallax-section--queen-of-the-hill img {
-          max-width: 300px; } }
-    @media screen and (max-width: 400px) {
-      .parallax-section--queen-of-the-hill {
-        padding: 70px 0 270px; } }
-    @media screen and (max-width: 360px) {
-      .parallax-section--queen-of-the-hill {
-        padding: 70px 0 380px; } }
+          max-width: 300px; }
+        .parallax-section--queen-of-the-hill .parallax-section__title {
+          max-width: 300px;
+          margin: auto; } }
     @media screen and (max-width: 990px) {
       .parallax-section--queen-of-the-hill .block-in-section-wrapper {
         -webkit-box-orient: vertical !important;
@@ -1487,8 +1485,11 @@ ul {
         -webkit-flex-direction: column !important;
             -ms-flex-direction: column !important;
                 flex-direction: column !important; } }
+    .parallax-section--queen-of-the-hill .parallax-section__list {
+      display: none; }
   .parallax-section--never-stop {
-    height: 890px; }
+    height: auto;
+    padding-bottom: 70px; }
     @media screen and (max-width: 990px) {
       .parallax-section--never-stop .block-in-section-wrapper {
         -webkit-box-orient: vertical !important;
@@ -1498,15 +1499,20 @@ ul {
                 flex-direction: column !important; } }
     @media screen and (max-width: 990px) {
       .parallax-section--never-stop {
-        padding: 70px 0 250px; } }
+        padding: 70px 0 70px; } }
     @media screen and (max-width: 550px) {
       .parallax-section--never-stop {
-        padding: 70px 0 450px; }
+        padding: 40px 0; }
+        .parallax-section--never-stop .parallax-section__title {
+          max-width: 300px;
+          margin: auto; }
         .parallax-section--never-stop img {
           max-width: 300px; } }
     @media screen and (max-width: 400px) {
       .parallax-section--never-stop {
         padding: 70px 0 220px; } }
+    .parallax-section--never-stop .parallax-section__list {
+      display: none; }
   .parallax-section .section__text {
     max-width: 700px;
     margin: 50px auto; }
@@ -3023,7 +3029,8 @@ ul {
   margin: 0 0 30px;
   padding: 20px 0 20px 18px;
   text-align: left;
-  width: 100%; }
+  width: 100%;
+  display: none; }
   .empty-cart .cart-message:before {
     position: absolute;
     margin-left: -18px;
