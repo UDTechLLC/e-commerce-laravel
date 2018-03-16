@@ -27,7 +27,7 @@ class CreateCouponRequest extends FormRequest
             'code'          => 'required',
             'description'   => 'required',
 //                'limit' => 'required',
-            'coupon_amount' => 'required|between:0,100',
+            'coupon_amount' => 'required|numeric|between:0,100',
         ];
     }
 }

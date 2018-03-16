@@ -30,7 +30,7 @@
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="number" id="old-price" v-model="coupon_amount"
-                           v-validate data-vv-rules="required|decimal|between:0,100"
+                           v-validate data-vv-rules="required|numeric|between:0,100"
                            :class="{'is-danger': errors.has('coupon_amount')}"
                            name="coupon_amount" class="form-control col-md-7 col-xs-12">
                     <span class="text-danger"

@@ -223,13 +223,10 @@
                             </span>
                             </div>
                         </div>
-                        <div class="product-button-block">
-                            <div class="add-to-cart-wrapper">
-                                <a class="add-to-cart-btn" href="#">
-                                    Add to cart
-                                </a>
-                            </div>
-                        </div>
+                        <add-to-cart
+                                product-slug="{{ $product->slug }}"
+                                product-bundle-slug="{{ $product->bandls->slug }}"
+                        ></add-to-cart>
                     </div>
                 </div>
 
