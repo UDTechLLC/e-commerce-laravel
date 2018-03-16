@@ -89,13 +89,21 @@
 
     export default ({
         props: {
-            products: Array,
-            subTotal: String,
-            total: String,
             shipping: Number,
             isShipping: Boolean,
             discount: String,
             coupon: String
+        },
+        computed: {
+            products() {
+                return this.$store.state.products;
+            },
+            subTotal() {
+                return this.$store.state.subTotal;
+            },
+            total() {
+                return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
+            }
         }
     })
 

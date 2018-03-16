@@ -41,12 +41,10 @@
                            :userAuth="userAuth"
                            :cartId="cartId"
                            :orderId="orderId"
-                           :products="products"
                            :billing="billing"
                            :countries="countries"
                            :states="states"
-                           :subTotal="subTotal"
-                           :total="total"
+
                            :shipping="shipping"
                            :isShipping="isShipping"
                            :isSubscribe="isSubscribe"
@@ -77,8 +75,6 @@
                 cartId: 0,
                 countries: [],
                 states: [],
-                products: [],
-                subTotal: "0",
                 shipping: 0,
                 discount: "0",
                 coupon: "",
@@ -97,11 +93,7 @@
             third,
             fourth
         },
-        computed: {
-            total() {
-                return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
-            }
-        },
+
         created() {
             this.userAuth = this.userAuthProps;
             this.getProducts();

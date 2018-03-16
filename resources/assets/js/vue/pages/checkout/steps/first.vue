@@ -198,9 +198,6 @@
                             </div>
                             <div class="cart-review-block-wrapper">
                                 <cart-totals
-                                        :products="products"
-                                        :subTotal="subTotal"
-                                        :total="total"
                                         :shipping="shipping"
                                         :isShipping="isShipping"
                                         :discount="discount"
@@ -257,9 +254,6 @@
         props: {
             userAuth: String,
             cartId: Number,
-            products: Array,
-            subTotal: String,
-            total: String,
             shipping: Number,
             countries: Array,
             isShipping: Boolean,
