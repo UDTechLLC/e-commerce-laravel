@@ -1510,7 +1510,7 @@ ul {
           max-width: 300px; } }
     @media screen and (max-width: 400px) {
       .parallax-section--never-stop {
-        padding: 70px 0 220px; } }
+        padding: 40px 0; } }
     .parallax-section--never-stop .parallax-section__list {
       display: none; }
   .parallax-section .section__text {
