@@ -117,7 +117,6 @@
     import productList from './component/product-list';
     import shipping from './component/shipping';
     import emptyCart from './component/empty-cart';
-    import {mapGetters, mapActions} from 'vuex';
 
     export default ({
         data: () => ({
