@@ -5,7 +5,7 @@ Vue.mixin({
       this.$store.dispatch('addProduct', productSlug, productBundleSlug);
     },
 
-    getProducts() {
+   /* getProducts() {
       axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
         response => {
           this.products = response.data.data.products.data;
@@ -19,7 +19,7 @@ Vue.mixin({
         },
         error => console.log('error')
       )
-    },
+    },*/
 
     updateProducts(response) {
       this.products = response.data.data.products.data;

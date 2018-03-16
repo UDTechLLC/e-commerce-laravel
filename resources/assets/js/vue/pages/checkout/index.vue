@@ -96,7 +96,7 @@
 
         created() {
             this.userAuth = this.userAuthProps;
-            this.getProducts();
+            //this.getProducts();
             setTimeout(this.getCountries, 500);
             this.$EventBus.$on('login', this.login);
         },
