@@ -86,7 +86,8 @@
     </div>
 </template>
 <script type="text/babel">
-
+    import {mapGetters} from 'vuex'
+    
     export default ({
         props: {
             shipping: Number,
@@ -95,12 +96,10 @@
             coupon: String
         },
         computed: {
-            products() {
-                return this.$store.state.products;
-            },
-            subTotal() {
-                return this.$store.state.subTotal;
-            },
+            ...mapGetters([
+                'products',
+                'subTotal'
+            ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
             }
