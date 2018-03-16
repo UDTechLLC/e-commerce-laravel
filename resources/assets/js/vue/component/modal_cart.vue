@@ -1,5 +1,7 @@
 <template>
-    <div id="sideCartModal" class="side-cart-screen-block modal right fade" role="dialog">
+    <div>
+    <div class="sideCartModal__bg"> </div>
+    <div id="sideCartModal" class="side-cart-screen-block modal right">
         <div class="modal-dialog">
             <div class="side-cart-block-wrapper modal-content">
                 <div class="side-cart-block">
@@ -84,6 +86,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 <script type="text/babel">

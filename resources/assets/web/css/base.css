@@ -2682,7 +2682,12 @@ ul {
 .side-cart-screen-block {
   background: black; }
   .side-cart-screen-block .modal-dialog {
-    right: 0; }
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    right: -394px; }
+    .side-cart-screen-block .modal-dialog.active {
+      right: 0; }
   .side-cart-screen-block.fade {
     -webkit-transition: opacity .15s linear;
     -o-transition: opacity .15s linear;
@@ -2943,6 +2948,15 @@ ul {
             text-decoration: underline; }
           .side-cart-screen-block .modal-dialog .side-cart-block-wrapper .side-cart-block .side-cart-footer-wrapper .label {
             font-weight: bold; }
+
+.sideCartModal__bg {
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; }
 
 .empty-cart-wrapper .wrapper {
   padding: 0 !important; }
