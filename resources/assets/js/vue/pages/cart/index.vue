@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div class="wrapper coupon-error" v-if="errorCoupon">
-            Coupon "{{ coupon }}" does not exist!
-        </div>
+
         <div class="cart-block-wrapper" v-if="products.length > 0">
             <div class="wrapper">
                 <form class="cart-form" action="" method="post">
@@ -43,6 +41,9 @@
                                                value="Apply Coupon" type="submit" @click.prevent="submitCoupon"/>
                                     </div>
                                 </form>
+                                <div class="wrapper coupon-error" v-if="errorCoupon">
+                                    Coupon "{{ coupon }}" does not exist!
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -215,9 +216,7 @@
 <style scoped lang="scss">
     .coupon-error {
         text-align: center;
-        background: #FFE8E8;
         color: #D45D5D;
-        border: 1px solid #D45D5D;
         padding: 15px;
     }
 </style>

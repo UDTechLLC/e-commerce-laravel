@@ -61,8 +61,8 @@
                     <img src="{{ asset('web/images/full-product/never-stop-moving/book_mob.png')}}" alt="book" class="full-width mobile-image" />
                 </div>
 
-                <div class="total-results__icons inline-block text-center">
-                    {{--<div class="total-results__icon-wrapper">--}}
+                {{-- <div class="total-results__icons inline-block text-center">
+                     <div class="total-results__icon-wrapper">--}}
                         {{--<div class="total-results__icon-img flex flex-a--center flex-j--center">--}}
                             {{--<img src="{{ asset('web/images/full-product/total-results/icon-calendar.svg')}}" alt="calendar">--}}
                         {{--</div>--}}
@@ -111,13 +111,13 @@
                                 {{--Smart Grocery Shopping List--}}
                             {{--</h3>--}}
                         {{--</div>--}}
-                    {{--</div>--}}
+                    {{--</div>
 
 
-                </div>
+                </div>--}}
             </div>
         </section>
-        <div class="training-plan-faqs-block-wrapper">
+        <div class="training-plan-faqs-block-wrapper reset-p-top">
             <div class="wrapper">
                 <div class="video-block-wrapper">
                     <div class="video-block">

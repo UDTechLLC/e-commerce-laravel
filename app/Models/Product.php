@@ -62,6 +62,7 @@ class Product extends EloquentModel implements HasMedia
         'position',
         'isVirtual',
         'slug',
+        'published'
     ];
 
     /**

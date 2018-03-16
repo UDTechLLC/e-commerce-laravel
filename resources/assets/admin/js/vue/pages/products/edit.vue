@@ -98,6 +98,14 @@
                     <span class="text-danger" v-if="errors.has('price')">{{ errors.first('price') }}</span>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="published">Published
+
+                </label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="checkbox" class="published-checkbox" id="published" name="published" v-model="entry.published" />
+                </div>
+            </div>
 
             <div class="ln_solid"></div>
             <div class="form-group">
@@ -190,3 +198,8 @@
     })
 
 </script>
+<style scoped>
+    #published {
+        margin-top: 10px;
+    }
+</style>
