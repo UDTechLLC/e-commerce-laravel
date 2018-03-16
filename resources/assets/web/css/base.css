@@ -1796,6 +1796,57 @@ ul {
   .comments__text p {
     margin: 0; }
 
+.custom-video-block {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  border: 1px solid #eaeaea;
+  padding: 30px;
+  position: relative; }
+  .custom-video-block--red {
+    border-color: #ed1c24; }
+  @media screen and (max-width: 800px) {
+    .custom-video-block {
+      padding: 0;
+      border: 0; } }
+  .custom-video-block__inner {
+    position: relative;
+    width: 100%;
+    height: 100%; }
+  .custom-video-block__coverImg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    position: relative; }
+  .custom-video-block iframe, .custom-video-block object, .custom-video-block embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .custom-video-block__playImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+    z-index: 2;
+    cursor: pointer;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s; }
+  .custom-video-block__wrapper-click {
+    cursor: pointer;
+    position: relative; }
+    .custom-video-block__wrapper-click.active {
+      z-index: -1; }
+    @media screen and (min-width: 801px) {
+      .custom-video-block__wrapper-click:hover .custom-video-block__playImg {
+        opacity: .5; } }
+
 .queen-of-the-hill__bg {
   margin-bottom: 35px;
   padding-left: 15px;
