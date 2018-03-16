@@ -720,7 +720,7 @@ ul {
         width: 100%; } }
     @media screen and (max-width: 550px) {
       .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper {
-        margin-bottom: 0; } }
+        margin-bottom: 30px; } }
     @media screen and (max-width: 990px) {
       .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper .amazingcarousel-item {
         width: 100% !important; } }
@@ -1944,9 +1944,7 @@ ul {
     display: -ms-flexbox;
     display: flex; }
     .detox-section__wrapperVideo img {
-      margin: auto; }
-    .detox-section__wrapperVideo .get-more__text {
-      margin-top: 0; } }
+      margin: auto; } }
 
 @media screen and (max-width: 800px) {
   .grey-section {
