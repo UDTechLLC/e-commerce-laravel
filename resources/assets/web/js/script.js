@@ -343,6 +343,18 @@
           $(this).addClass('active');
           $(this).parent('.custom-video-block__inner').find('iframe')[0].src += '?autoplay=1';
         });
+
+
+        var mobile = {
+            btnSub: $('.has-submenu span')
+        };
+
+        mobile.btnSub.click(function () {
+            $(this).parents('.has-submenu')
+                .toggleClass('open')
+                .find('ul').slideToggle();
+        })
+
     });
 
 
