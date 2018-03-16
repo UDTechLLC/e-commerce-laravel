@@ -60,12 +60,12 @@
                         <div class="custom-video-block__inner">
 
                             <div class="custom-video-block__wrapper-click">
-                                <img src="{{ asset('web/images/610809299_640.jpg')}}" alt="mainImage" class="custom-video-block__coverImg">
+                                <img src="{{ asset('web/images/662939626_640.jpg')}}" alt="mainImage" class="custom-video-block__coverImg">
                                 <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt="" class="custom-video-block__playImg">
                             </div>
 
 
-                            <iframe src="https://player.vimeo.com/video/197558254" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/239845376" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                         </div><!--custom-video-block__inner-->
 
