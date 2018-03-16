@@ -115,23 +115,21 @@
     <div class="training-plan-faqs-block-wrapper">
         <div class="wrapper">
             <div class="video-block-wrapper">
-                <div class="video-block">
-                    <div id="amazingcarousel-container-1">
-                        <div id="amazingcarousel-1" style="display: block; position: relative; width: 100%; max-width: 990px; margin: 0px auto; direction: ltr;">
-                            <div class="amazingcarousel-list-container" style="position: relative; margin: 0px auto; overflow: visible;">
-                                <div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><ul class="amazingcarousel-list" style="display: block; position: relative; list-style-type: none; list-style-image: none; background-image: none; background-color: transparent; padding: 0px; margin: 0px;">
-                                            <li class="amazingcarousel-item amazingcarousel-item-0" style="display: block; position: relative; background-image: none; background-color: transparent; margin: 0px; padding: 0px; float: left;">
-                                                <div class="amazingcarousel-item-container" style="position: relative; margin: 0px 4px;">
-                                                    <div class="amazingcarousel-image">
-                                                        <a href="https://player.vimeo.com/video/197558254" title="Rauve workout plan GYM" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ asset('web/images/610809299_640.jpg')}}" alt="Rauve workout plan GYM"></a>
-                                                        <div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div><div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div></div>
-                                                </div>
-                                            </li>
-                                            <div style="clear:both;"></div><div style="clear:both;"></div></ul></div></div>
-                            </div>
+
+                <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
+                    <div class="custom-video-block__inner">
+
+                        <div class="custom-video-block__wrapper-click">
+                            <img src="{{ asset('web/images/610809299_640.jpg')}}" alt="mainImage" class="custom-video-block__coverImg">
+                            <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt="" class="custom-video-block__playImg">
                         </div>
-                    </div>
-                </div>
+
+
+                        <iframe src="https://player.vimeo.com/video/197558254" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                    </div><!--custom-video-block__inner-->
+
+                </div><!--custom-video-block-->
             </div>
             <div class="training-plan-faqs-block">
                 <h4 class="training-plan-faqs-title">

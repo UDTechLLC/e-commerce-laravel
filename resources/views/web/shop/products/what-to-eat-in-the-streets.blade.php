@@ -201,7 +201,7 @@
 
                         <div class="video-block-wrapper">
 
-                            <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
+                            <div class="custom-video-block custom-video-block--red"> <!--add class  'custom-video-block--red' for red border -->
                                 <div class="custom-video-block__inner">
 
                                     <div class="custom-video-block__wrapper-click">
