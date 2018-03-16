@@ -1,5 +1,10 @@
 (function( $ ) {
+    var body = $('body');
+
     $( document ).ready( function() {
+
+
+
         if ( 0 < $( '#successStories' ).length ) {
             $( '#successStories' ).slick({
                 autoplay: true,
@@ -47,9 +52,14 @@
         if ( 0 < $( '#bdCountry' ).length ) {
             $( '#bdCountry' ).select2();
         }
-        if ( 0 < $( '.deliver-select' ).length ) {
+       /* if ( 0 < $( '.deliver-select' ).length ) {
             $( '.deliver-select' ).select2();
-        }
+        }*/
+
+
+
+
+
         /*if ( 0 < $( '.add-to-cart-btn' ).length ) {
             $( '.add-to-cart-btn' ).on( 'click', function () {
                 $( '.side-cart-block-wrapper' ).slideToggle(500,"swing");
@@ -229,6 +239,38 @@
              }
             });
 
+        var cart = {
+                btnBuy: $('.add-to-cart-btn'),
+                wrap: $('.modal-dialog'),
+                btnClose: $('.close-cart'),
+                bg: $('.sideCartModal__bg'),
+                fnCall: function () {
+                    console.log($(this));
+                    cart.wrap.addClass('active');
+                    cart.bg.fadeIn();
+                    body.css('overflow','hidden');
+                },
+                fnClose: function () {
+                    cart.wrap.removeClass('active');
+                    cart.bg.fadeOut();
+                    body.css('overflow','auto');
+                }
+
+            };
+
+
+        cart.btnBuy.click(function () {
+            if(!$(this).data('title')) cart.fnCall();
+        });
+
+        cart.btnClose.click(function () {
+            cart.fnClose();
+        });
+
+        cart.bg.click(function () {
+            cart.fnClose();
+        });
+
 
 
         var CallPopUp = function (name) {
@@ -239,6 +281,9 @@
                 blockInfo       =   PopUpWrapepr.find('.popUp__wrapper'),
                 btnNoThanks     =   PopUpWrapepr.find('.no-thanks'),
                 btnLearnMore    =   PopUpWrapepr.find('.learn-more');
+
+
+
 
             btnAddToCart.click(function () {
 
@@ -252,7 +297,6 @@
                 $(this).addClass('added');
 
             });
-
 
             PopUpWrapepr.click(function (e) {
                 if( $(e.target).is('.popUp')){
@@ -269,18 +313,15 @@
                             scrollTop: $('.parallax-section').offset().top - 45},
                         'slow');
                 },600);
-
             });
             btnPopUpClose.click(function () {
-                $('body').css('overflow','auto');
+                body.css('overflow','auto');
                 blockInfo.removeClass('popUp__wrapper--show');
                 setTimeout(function () {
                     PopUpWrapepr.removeClass('popUp--open');
-                },500)
+                },500);
+                cart.fnCall();
             });
-
-
-
         };
 
         CallPopUp('12 Week Custom Training Plan');
@@ -294,8 +335,5 @@
     });
 
 
-    if ($('.popUp[data-modal="12 Week Custom Training Plan"]').length){
-        console.log(1)
-    }
 
 })( jQuery );
