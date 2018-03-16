@@ -1,7 +1,8 @@
 Vue.mixin({
   methods: {
     addProduct(productSlug, productBundleSlug = null) {
-      this.$store.dispatch('addProduct', productSlug, productBundleSlug)
+      this.addedToCart = true;
+      this.$store.dispatch('addProduct', productSlug, productBundleSlug);
     },
 
     getProducts() {
