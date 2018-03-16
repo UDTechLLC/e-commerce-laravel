@@ -22,38 +22,51 @@ export default new Vuex.Store({
       return state.subTotal
     }
   },
-  
+
   actions: {
-    test (context, productSlug) {
-      this.commit('addedProduct', productSlug)
-    }
-  },
-  
-  mutations: {
-    getProducts(state) {
+    getProducts(context) {
       axios.get(`/api/carts/products?hash=${Vue.localStorage.get('hash')}`).then(
-        response => {
-          state.products = response.data.data.products.data;
-          state.countItems = response.data.data.sum.products_counts;
-          state.subTotal = response.data.data.sum.with_discount_sum;
-        },
+        response => this.commit('updateState', response),
         error => console.log('error')
       )
     },
-
-    addedProduct(state, productSlug) {
-
+    
+    deleteProduct(context, productSlug) {
+      axios.delete(`/api/carts/products/remove/${productSlug}?hash=${Vue.localStorage.get('hash')}`).then(
+        response => this.commit('updateState', response),
+        error => console.log('error')
+      )
+    },
+    
+    addProduct(context, productSlug, productBundleSlug) {
       let data = {
         hash: Vue.localStorage.get('hash')
       };
       axios.post(`/api/carts/products/add/${productSlug}`, data).then(
         response => {
-          state.products = response.data.data.products.data;
-          state.countItems = response.data.data.sum.products_counts;
-          state.subTotal = response.data.data.sum.with_discount_sum;
+          this.commit('updateState', response);
+          //this.addedToCart = true;
         },
         error => console.log('error')
       );
+
+      if (productBundleSlug != null) {
+        axios.post(`/api/carts/products/add/${productBundleSlug}`, data).then(
+          response => {
+            this.commit('updateState', response);
+            //this.addedToCart = true;
+          },
+          error => console.log('error')
+        )
+      }
+    }
+  },
+  
+  mutations: {
+    updateState(state, responseApi) {
+      state.products = responseApi.data.data.products.data;
+      state.countItems = responseApi.data.data.sum.products_counts;
+      state.subTotal = responseApi.data.data.sum.with_discount_sum;
     }
   }
 

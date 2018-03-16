@@ -55,10 +55,6 @@
             products: 'products',
             countItems: 'countItems',
             subTotal: 'subTotal'
-        }),
-        created() {
-           // this.getProducts();
-           // this.$EventBus.$on('updateProduct', this.updateProducts);
-        }
+        })
     });
 </script>

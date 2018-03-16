@@ -1,27 +1,7 @@
 Vue.mixin({
   methods: {
     addProduct(productSlug, productBundleSlug = null) {
-
-      let data = {
-        hash: Vue.localStorage.get('hash')
-      };
-      axios.post(`/api/carts/products/add/${productSlug}`, data).then(
-        response => {
-          this.$EventBus.$emit('updateProduct', response);
-          this.addedToCart = true;
-        },
-        error => console.log('error')
-      );
-
-      if (productBundleSlug != null) {
-        axios.post(`/api/carts/products/add/${productBundleSlug}`, data).then(
-          response => {
-            this.$EventBus.$emit('updateProduct', response);
-            this.addedToCart = true;
-          },
-          error => console.log('error')
-        )
-      }
+      this.$store.dispatch('addProduct', productSlug, productBundleSlug)
     },
 
     getProducts() {
@@ -50,14 +30,8 @@ Vue.mixin({
       this.coupon = response.data.data.coupon;
     },
 
-    makeCardHash() {
-      var text = "";
-      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-      for (var i = 0; i < 10; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-      return text;
-    }
+    deleteProduct(slug) {
+      this.$store.dispatch('deleteProduct', slug);
+    },
   }
 });
