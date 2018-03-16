@@ -16,22 +16,15 @@
                         <div class="product-info">
                             <div class="product-title-block">
                                 <h2 class="product-title custom-w">
-                                    {{--12 Week Custom--}}
-
-                                    {{--<br>--}}
-                                    {{--<!--<wbr>-->--}}
-                                    {{--Training Plan--}}
                                     {!! $product->title !!}
                                 </h2>
                                 <p class="product-title-sub-line">
-                                    {{--100% Personalized Training Program--}}
                                     {{$product->sub_title}}
                                 </p>
                             </div>
                             <div class="product-description-block">
                                 <p class="product-description">
                                     {!! $product->description !!}
-                                    {{--Our dedicated team will develop a personalized training plan that not only makes sense, but makes a real difference. Let us show you what a difference 12 weeks can actually make!--}}
                                 </p>
                                 <ul class="product-description-list check-icon-list">
                                     <li class="product-description-list-item">

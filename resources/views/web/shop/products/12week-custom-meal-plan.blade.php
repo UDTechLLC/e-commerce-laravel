@@ -25,7 +25,6 @@
                         <div class="product-description-block">
                             <p class="product-description">
                                 {!! $product->description !!}
-                                {{--Our dedicated team will develop a personalized training plan that not only makes sense, but makes a real difference. Let us show you what a difference 12 weeks can actually make!--}}
                             </p>
                             <ul class="product-description-list check-icon-list">
                                 <li class="product-description-list-item">
