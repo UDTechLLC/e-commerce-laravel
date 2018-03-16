@@ -48,7 +48,7 @@
 </template>
 <script type="text/babel">
 
-    import mapGetters from 'vuex'
+    import { mapGetters } from 'vuex'
 
     export default ({
         computed: mapGetters({

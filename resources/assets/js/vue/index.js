@@ -14,6 +14,7 @@ import shedfatMaxx from './pages/products/shedfat-maxx';
 Vue.component('add-to-cart', addToCart);
 
 import store from './store';
+window.TWEEN = require('tween.js');
 
 require('./mixins');
 Vue.prototype.$EventBus = new Vue();

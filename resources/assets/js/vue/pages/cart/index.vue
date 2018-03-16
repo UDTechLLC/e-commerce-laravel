@@ -117,16 +117,14 @@
     import productList from './component/product-list';
     import shipping from './component/shipping';
     import emptyCart from './component/empty-cart';
+    import {mapGetters, mapActions} from 'vuex';
 
     export default ({
         data: () => ({
-            products: [],
             errorCoupon: false,
             coupon: "",
             discount: 0,
             isShipping: false,
-            countItems: 0,
-            subTotal: 0,
             shipping: 0,
             animatedTotal: 0,
             animatedSubTotal: 0,
@@ -137,7 +135,17 @@
             shipping,
             emptyCart
         },
+
         computed: {
+            products() {
+                return this.$store.state.products;
+            },
+            countItems() {
+                return this.$store.state.countItems;
+            },
+            subTotal() {
+                return this.$store.state.subTotal;
+            },
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
             }
@@ -154,8 +162,8 @@
             }
         },
         created() {
-            this.getProducts();
-            this.$EventBus.$on('updateProduct', this.updateProducts);
+            //this.getProducts();
+            //this.$EventBus.$on('updateProduct', this.updateProducts);
             this.$EventBus.$on('updateShipping', this.updateShipping);
         },
         methods: {
