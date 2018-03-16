@@ -208,6 +208,9 @@
                                 ></cart-totals>
                             </div>
                         </div>
+                        <div class="auth-error" v-if="authError">
+                            You need to login or register
+                        </div>
                         <div class="buttons-area">
                             <a href="#" class="continue-checkout" @click.prevent="next">
                                 Continue
@@ -232,6 +235,7 @@
             result: "",
             billingId: "",
             createUser: false,
+            authError: false,
             password: "",
             billingInfo: {
                 firstName: "",
@@ -301,8 +305,9 @@
             next() {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
+                        this.authError = false;
                         if(this.isSubscribe && this.userAuth != '1') {
-                            alert("You may need to login or register");
+                            this.authError = true;
                             return false;
                         }
                         let url = `/api/checkout/billing/${this.cartId}`;
@@ -332,3 +337,11 @@
     })
 
 </script>
+<style scoped>
+    .auth-error {
+        text-align: center;
+        background: #FFE8E8;
+        color: #CE4747;
+        padding: 15px;
+    }
+</style>

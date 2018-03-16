@@ -1,8 +1,7 @@
 Vue.mixin({
   methods: {
+    addProduct(productSlug, productBundleSlug = null) {
 
-    addProduct(productSlug) {
-      this.$EventBus.$emit('test');
       let data = {
         hash: Vue.localStorage.get('hash')
       };
@@ -12,7 +11,17 @@ Vue.mixin({
           this.addedToCart = true;
         },
         error => console.log('error')
-      )
+      );
+
+      if (productBundleSlug != null) {
+        axios.post(`/api/carts/products/add/${productBundleSlug}`, data).then(
+          response => {
+            this.$EventBus.$emit('updateProduct', response);
+            this.addedToCart = true;
+          },
+          error => console.log('error')
+        )
+      }
     },
 
     getProducts() {

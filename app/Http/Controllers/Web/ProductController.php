@@ -52,6 +52,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        if(!$product->published) {
+            return abort(404);
+        }
 //        return view('web.shop.products.12week-custom-training-plan', compact('product'));
 //        return view('web.shop.products.never-stop-moving-e-book', compact('product'));
 //        return view('web.shop.products.shedfat-infuser-bottle', compact('product'));
