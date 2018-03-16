@@ -93,26 +93,10 @@
     import {mapGetters, mapActions} from 'vuex'
 
     export default ({
-
         computed: mapGetters({
             products: 'products',
             subTotal: 'subTotal'
-        }),
-        created() {
-           // this.getProducts();
-           // this.$EventBus.$on('updateProduct', this.updateProducts);
-        },
-        methods: {
-            /*deleteProduct(slug) {
-                axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
-                        response => {
-                            console.log(response);
-                            this.$EventBus.$emit('updateProduct', response);
-                        },
-                        error => console.log('error')
-                )
-            },*/
-        }
+        })
     })
 </script>
 <style scoped>
