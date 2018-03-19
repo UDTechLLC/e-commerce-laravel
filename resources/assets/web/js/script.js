@@ -332,6 +332,29 @@
         setTimeout(function () {
             $('.callPopUp').click();
         },2000)
+
+
+
+        var vimeo = {
+            btn: $('.custom-video-block__wrapper-click'),
+        };
+
+        vimeo.btn.click(function () {
+          $(this).addClass('active');
+          $(this).parent('.custom-video-block__inner').find('iframe')[0].src += '?autoplay=1';
+        });
+
+
+        var mobile = {
+            btnSub: $('.has-submenu span')
+        };
+
+        mobile.btnSub.click(function () {
+            $(this).parents('.has-submenu')
+                .toggleClass('open')
+                .find('ul').slideToggle();
+        })
+
     });
 
 

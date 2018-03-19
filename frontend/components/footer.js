@@ -10,6 +10,7 @@ document.getElementsByTagName('footer')[0].innerHTML = `
         </div>
     </div>
 
+<div class="footer-desktop">
  <div class="first-footer">
      <div class="wrapper">
          <div class="flex flex-j--between flex-a--center flex--m-block">
@@ -40,6 +41,37 @@ document.getElementsByTagName('footer')[0].innerHTML = `
          </div>
      </div>
  </div>
- 
+</div>
+
+
+<div class="footer-mobile">
+    <ul class="footer-mobile__links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="has-submenu">
+            <span>Company info</span>
+            <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Return Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Weight Loss Disclaimer</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="footer-mobile__social-links flex flex-a--center flex-j--center">
+         <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+         <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+         <a href="#" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+    </div>
+    <div class="footer-mobile__footer">
+        <p>©2015 - 2018  ShedFat® - Do not copy. <br>
+            All rights reserved.
+        </p>
+    </div>
+</div>
  
 `;
+
+
+

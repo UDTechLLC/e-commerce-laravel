@@ -50,6 +50,7 @@
                            :isSubscribe="isSubscribe"
 
                            :coupon="coupon"
+                           :token="token"
                            @updateCountry="updateCountry"
                            @next="nextStep"
                            @back="backStep"
@@ -84,7 +85,8 @@
             }
         },
         props: {
-          userAuthProps: String
+          userAuthProps: String,
+            token: String
         },
         components: {
             first,

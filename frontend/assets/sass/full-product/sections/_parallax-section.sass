@@ -16,34 +16,42 @@ $width-screen-600: 600px
   @media screen and (max-width: 400px)
     padding: 30px 15px 650px
   &--queen-of-the-hill
-    height: 890px
+    height: auto
+    padding-bottom: 70px
     @media screen and (max-width: $width-screen-990)
-      padding: 70px 0 200px
+      padding: 70px 0 70px
     @media screen and (max-width: 550px)
-      padding: 70px 0 200px
+      padding: 40px 0
       img
         max-width: 300px
-    @media screen and (max-width: 400px)
-      padding: 70px 0 270px
-    @media screen and (max-width: 360px)
-      padding: 70px 0 380px
+      .parallax-section__title
+        max-width: 300px
+        margin: auto
     .block-in-section-wrapper
       @media screen and (max-width: $width-screen-990)
         flex-direction: column !important
-
+    .parallax-section__list
+      display: none
   &--never-stop
-    height: 890px
+    height: auto
+    padding-bottom: 70px
     .block-in-section-wrapper
       @media screen and (max-width: $width-screen-990)
         flex-direction: column !important
     @media screen and (max-width: $width-screen-990)
-      padding: 70px 0 250px
+      padding: 70px 0 70px
     @media screen and (max-width: 550px)
-      padding: 70px 0 450px
+      padding: 40px 0
+      .parallax-section__title
+        max-width: 300px
+        margin: auto
       img
         max-width: 300px
     @media screen and (max-width: 400px)
-      padding: 70px 0 220px
+      padding: 40px 0
+
+    .parallax-section__list
+      display: none
   .section
     &__text
       max-width: 700px

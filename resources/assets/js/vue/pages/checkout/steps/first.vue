@@ -276,9 +276,7 @@
                 this.$emit('updateCountry', this.billingInfo.country.name);
             },
             getAddressData(value) {
-
-                this.billingInfo.street = value.route;
-                this.billingInfo.apartment = value.street_number;
+                this.billingInfo.street = (value.street_number) ? `${value.street_number} ${value.route}` : `${value.route}`;
                 this.billingInfo.country.name = value.country;
                 this.countries.forEach(key => {
                     if (key.name == value.country) {
@@ -291,7 +289,7 @@
                 this.billingInfo.postcode = value.postal_code;
 
                 this.$nextTick(() => {
-                    this.$refs.street.update(value.route)
+                    this.$refs.street.update(this.billingInfo.street)
                 })
             },
             next() {

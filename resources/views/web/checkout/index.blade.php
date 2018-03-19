@@ -13,7 +13,9 @@
                onFocus="geolocate()" type="text" />
     </div>--}}
 
-    <checkout user-auth-props="{{ Auth::check() }}"></checkout>
+    <checkout user-auth-props="{{ Auth::check() }}"
+                token="{{ $token }}"
+    ></checkout>
 @endsection
 
 @section('scripts')
