@@ -1,6 +1,6 @@
 .shop-items-wrapper
   display: flex
-  justify-content: space-between
+  justify-content: flex-start
   flex-wrap: wrap
   padding-top: 30px
 
@@ -10,6 +10,8 @@
   .shop-item
     border: 1px solid #eaeaea
     box-sizing: border-box
+    display: flex
+    flex-wrap: wrap
     margin: 0 15px 30px
     padding: 30px
     width: calc( 100%/3 - 20px )
@@ -18,8 +20,6 @@
       width: calc( 100%/2 - 30px )
 
     @media screen and (max-width: 768px)
-      display: flex
-      flex-wrap: wrap
       margin: 0
       padding: 30px 15px 15px
       width: calc( 100%/2 )
@@ -74,10 +74,10 @@
         text-align: left
 
     .product-price-block
+      margin-top: auto
+      width: 100%
 
-      @media screen and (max-width: 768px)
-        margin-top: auto
-        width: 100%
+      //@media screen and (max-width: 768px)
 
       .product-price
         margin: 0 0 15px
@@ -103,9 +103,11 @@
             text-decoration: none
 
     .product-button-block
-      @media screen and (max-width: 768px)
-        margin-top: auto
-        width: 100%
+      margin-top: auto
+      width: 100%
+
+      //@media screen and (max-width: 768px)
+
 
       .add-to-cart-wrapper
         .add-to-cart-btn
