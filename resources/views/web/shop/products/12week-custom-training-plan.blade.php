@@ -79,7 +79,6 @@
 
 
                                 <iframe src="https://player.vimeo.com/video/258652601" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                {{--https://vimeo.com/258652601--}}
                             </div><!--custom-video-block__inner-->
 
                         </div><!--custom-video-block-->
