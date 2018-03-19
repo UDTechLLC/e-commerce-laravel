@@ -85,9 +85,10 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Legs On Fire',
-            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
-            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
-             a more enjoyable process.',
+            'description' => 'Nothing beats a great pair of legs.
+             The key to sculpted, lean legs is to hit those muscles from every angle. 
+             Legs on Fire will guide you through this process for 30 days straight giving you both size 
+             and strength in your lower body.',
 
             'old_amount'  => '30.00',
             'amount'      => '20.00',

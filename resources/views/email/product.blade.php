@@ -5,8 +5,8 @@
         <div class="main" style="margin: 20px; width: 100%;">
             <div class="wrapper">
     <img src="{{asset('web/images/logos/Shedfat-logo.png')}}" alt="logo">
-                <div style="background-color: #ff1000;text-align: center;" >
-                    <h1 style="color: white; padding: 40px;">Thank you for your order</h1>
+                <div style="background-color: #ff1000;text-align: center; margin-right: 35px; " >
+                    <h1 style="color: white; padding: 35px;">Thank you for your order</h1>
                 </div>
                 <div style="padding: 10px 50px;">
                 <h3>Your order has been received and is now being processed. Your order details are shown below for your reference:</h3>
