@@ -36,9 +36,9 @@ class ProductController extends Controller
         $sortField = $request->get('sortField') ?? 'id';
         $sortType = $request->get('sortType') ?? 'asc';
 
-        $users = Product::orderBy($sortField, $sortType)->paginate(20);
+        $products = Product::orderBy($sortField, $sortType)->paginate(20);
 
-        return ProductsResource::collection($users);
+        return ProductsResource::collection($products);
     }
 
     /**
@@ -158,5 +158,31 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+    }
+
+    /**
+     * @return View
+     */
+    public function order()
+    {
+        $products = Product::where('published', true)->orderBy('position')->get();
+       
+        return view('admin.products.order', [
+            'products' => ProductsResource::collection($products)
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function orderSave(Request $request)
+    {
+        $i = 1;
+        foreach($request->all() as $item) {
+            Product::find($item['id'])->update([
+                'position' => $i
+            ]);
+            $i++;
+        }
     }
 }

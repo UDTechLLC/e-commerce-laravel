@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        $product = Product::where('published', true)->get();
+        $product = Product::where('published', true)->orderBy('position')->get();
         return view("web.shop.products.index", [
             'products'=>$product
         ]);
