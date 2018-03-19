@@ -245,7 +245,6 @@
                 btnClose: $('.close-cart'),
                 bg: $('.sideCartModal__bg'),
                 fnCall: function () {
-                    console.log($(this));
                     cart.wrap.addClass('active');
                     cart.bg.fadeIn();
                     body.css('overflow','hidden');
@@ -257,21 +256,6 @@
                 }
 
             };
-
-
-        cart.btnBuy.click(function () {
-            if(!$(this).data('title')) cart.fnCall();
-        });
-
-        cart.btnClose.click(function () {
-            cart.fnClose();
-        });
-
-        cart.bg.click(function () {
-            cart.fnClose();
-        });
-
-
 
         var CallPopUp = function (name) {
 
@@ -286,7 +270,6 @@
 
 
             btnAddToCart.click(function () {
-
                 if (!$(this).hasClass('added')){
                     $('body').css('overflow','hidden');
                     PopUpWrapepr.addClass('popUp--open');
@@ -295,6 +278,7 @@
                     },100)
                 }
                 $(this).addClass('added');
+
 
             });
 
@@ -327,6 +311,26 @@
         CallPopUp('12 Week Custom Training Plan');
         CallPopUp('12 Week Custom Meal Plan');
         CallPopUp('SPRING CHALLENGE');
+
+        cart.btnBuy.click(function () {
+            if(!$(this).data('title')) cart.fnCall();
+
+            if(!$('.popUp__wrapper').is(':visible')) cart.fnCall();
+    });
+
+        cart.btnClose.click(function () {
+            cart.fnClose();
+        });
+
+        cart.bg.click(function () {
+            cart.fnClose();
+        });
+
+
+
+
+
+
 
 
         setTimeout(function () {
