@@ -109,8 +109,8 @@ class ProductsTableSeeder extends Seeder
             is right here in our 90 Day, total body, gym based program. It can be accessed at
              any time from any smart device!',
 
-            'old_amount'  => '99.00',
-            'amount'      => '50.00',
+            'old_amount'  => '50.00',
+            'amount'      => '24.99',
             'slug'        => 'queen-of-the-hill',
             'view_name'   => 'queen-of-the-hill',
             'isVirtual'   => true,
@@ -130,7 +130,7 @@ class ProductsTableSeeder extends Seeder
               toned physique from head to toe.',
 
             'old_amount'  => '50.00',
-            'amount'      => '30.00',
+            'amount'      => '24.99',
             'slug'        => 'never-stop-moving-e-book',
             'view_name'   => 'never-stop-moving-e-book',
             'isVirtual'   => true,
@@ -200,8 +200,8 @@ class ProductsTableSeeder extends Seeder
             'description' => 'The list of popular “fast food” chains with meal options that will keep you on the right 
             track with your diet guilt free.',
 
-            'old_amount'  => '50.00',
-            'amount'      => '19.00',
+            'old_amount'  => '39.99',
+            'amount'      => '19.99',
             'slug'        => 'what-to-eat-in-the-streets',
             'view_name'   => 'what-to-eat-in-the-streets',
             'isVirtual'   => true,
@@ -217,7 +217,7 @@ class ProductsTableSeeder extends Seeder
 
 
         $product = factory(App\Models\Product::class)->create([
-            'title'       => '14 Day Detox Smoothie Cleanse',
+            'title'       => '14 Day Detox Smoothie',
             'description' => 'The Power of Juice! This is the fast lane on the health highway. Whether you are 
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
 

@@ -277,7 +277,12 @@
                         blockInfo.addClass('popUp__wrapper--show');
                     },100)
                 }
-                $(this).addClass('added');
+
+
+                const title = $(this).data('title');
+
+                if (title!=='SPRING CHALLENGE')
+                    $(this).addClass('added');
 
 
             });
@@ -305,6 +310,10 @@
                     PopUpWrapepr.removeClass('popUp--open');
                 },500);
                 cart.fnCall();
+
+                var title = $(this).parents().find('.callPopUp').data('title');
+                if (title==='SPRING CHALLENGE')
+                    body.css('overflow','auto');
             });
         };
 
@@ -332,12 +341,17 @@
 
 
 
-
+/*
         setTimeout(function () {
             $('.callPopUp').click();
-        },2000)
+        },2000)*/
 
 
+
+        $('.sc-register-button').click(function (e) {
+            e.preventDefault();
+            $('.callPopUp').click();
+        });
 
         var vimeo = {
             btn: $('.custom-video-block__wrapper-click'),
