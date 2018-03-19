@@ -200,7 +200,6 @@
                                 <cart-totals
                                         :shipping="shipping"
                                         :isShipping="isShipping"
-                                        :discount="discount"
                                         :coupon="coupon"
                                 ></cart-totals>
                             </div>
@@ -258,7 +257,6 @@
             countries: Array,
             isShipping: Boolean,
             isSubscribe: Boolean,
-            discount: String,
             coupon: String
         },
         components: {

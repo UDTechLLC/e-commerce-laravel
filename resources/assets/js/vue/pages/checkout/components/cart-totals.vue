@@ -92,13 +92,13 @@
         props: {
             shipping: Number,
             isShipping: Boolean,
-            discount: String,
             coupon: String
         },
         computed: {
             ...mapGetters([
                 'products',
-                'subTotal'
+                'subTotal',
+                'discount'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);

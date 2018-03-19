@@ -48,7 +48,7 @@
                            :shipping="shipping"
                            :isShipping="isShipping"
                            :isSubscribe="isSubscribe"
-                           :discount="discount"
+
                            :coupon="coupon"
                            @updateCountry="updateCountry"
                            @next="nextStep"
@@ -76,7 +76,6 @@
                 countries: [],
                 states: [],
                 shipping: 0,
-                discount: "0",
                 coupon: "",
                 currentComponent: "first",
                 billing: {},

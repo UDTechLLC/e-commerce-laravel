@@ -3,7 +3,8 @@
 const state = {
   products: [],
   countItems: 0,
-  subTotal: 0
+  subTotal: 0,
+  discount: 0
 };
 
 // getters
@@ -16,6 +17,9 @@ const getters = {
   },
   subTotal: state => {
     return state.subTotal
+  },
+  discount: state => {
+    return state.discount
   }
 };
 
@@ -65,6 +69,7 @@ const mutations = {
     state.products = responseApi.data.data.products.data;
     state.countItems = responseApi.data.data.sum.products_counts;
     state.subTotal = responseApi.data.data.sum.with_discount_sum;
+    state.discount = responseApi.data.data.sum.discount_sum;
   }
 };
 
