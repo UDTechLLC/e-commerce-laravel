@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="get-more__text">
-                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/refresh-and-reset.png')}}" alt="get-more">
+                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/14 Day Detox Smoothie Cleanse.svg')}}" alt="get-more">
                     </div>
 
 
