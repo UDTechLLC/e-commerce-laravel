@@ -97,7 +97,7 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/desktop_1.png';
+        $pathToFile = 'resources/assets/web/seed_products/legs.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
