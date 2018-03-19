@@ -179,7 +179,7 @@ class PayController extends Controller
             }
 
             if ($result->success) {
-                $this->clearing($order);
+                $this->clearing($result, $order);
 
                 return view('web.checkout.checkout_thank_you', ['order' => $order]);
             } else {
@@ -194,7 +194,7 @@ class PayController extends Controller
         $result = $service->pay($amount);
 
         if ($result->success) {
-            $this->clearing($order);
+            $this->clearing($result, $order);
 
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         } else {
@@ -213,18 +213,29 @@ class PayController extends Controller
     }
 
     /**
-     * @param $order
+     * @param $result
+     * @param Order $order
      */
-    private function clearing($order)
+    private function clearing($result, $order)
     {
         $order->cart->clear();
 
         $this->updateOrderStatus($order);
+        $this->setOrderPaymentMethod($order, $result->transaction->paymentInstrumentType);
 
         if ($order->isShipping()) {
             $this->updateOrderStatusOnShipStation($order);
         }
 
         $this->sendOrderToEmail($order);
+    }
+
+    /**
+     * @param Order $order
+     * @param string $paymentMethod
+     */
+    private function setOrderPaymentMethod(Order $order, string $paymentMethod)
+    {
+        $order->update(['payment_method' => $paymentMethod]);
     }
 }
