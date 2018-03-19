@@ -245,7 +245,6 @@
                 btnClose: $('.close-cart'),
                 bg: $('.sideCartModal__bg'),
                 fnCall: function () {
-                    console.log($(this));
                     cart.wrap.addClass('active');
                     cart.bg.fadeIn();
                     body.css('overflow','hidden');
@@ -257,21 +256,6 @@
                 }
 
             };
-
-
-        cart.btnBuy.click(function () {
-            if(!$(this).data('title')) cart.fnCall();
-        });
-
-        cart.btnClose.click(function () {
-            cart.fnClose();
-        });
-
-        cart.bg.click(function () {
-            cart.fnClose();
-        });
-
-
 
         var CallPopUp = function (name) {
 
@@ -286,7 +270,6 @@
 
 
             btnAddToCart.click(function () {
-
                 if (!$(this).hasClass('added')){
                     $('body').css('overflow','hidden');
                     PopUpWrapepr.addClass('popUp--open');
@@ -294,7 +277,13 @@
                         blockInfo.addClass('popUp__wrapper--show');
                     },100)
                 }
-                $(this).addClass('added');
+
+
+                const title = $(this).data('title');
+
+                if (title!=='SPRING CHALLENGE')
+                    $(this).addClass('added');
+
 
             });
 
@@ -321,6 +310,10 @@
                     PopUpWrapepr.removeClass('popUp--open');
                 },500);
                 cart.fnCall();
+
+                var title = $(this).parents().find('.callPopUp').data('title');
+                if (title==='SPRING CHALLENGE')
+                    body.css('overflow','auto');
             });
         };
 
@@ -328,12 +321,37 @@
         CallPopUp('12 Week Custom Meal Plan');
         CallPopUp('SPRING CHALLENGE');
 
+        cart.btnBuy.click(function () {
+            if(!$(this).data('title')) cart.fnCall();
 
+            if(!$('.popUp__wrapper').is(':visible')) cart.fnCall();
+    });
+
+        cart.btnClose.click(function () {
+            cart.fnClose();
+        });
+
+        cart.bg.click(function () {
+            cart.fnClose();
+        });
+
+
+
+
+
+
+
+/*
         setTimeout(function () {
             $('.callPopUp').click();
-        },2000)
+        },2000)*/
 
 
+
+        $('.sc-register-button').click(function (e) {
+            e.preventDefault();
+            $('.callPopUp').click();
+        });
 
         var vimeo = {
             btn: $('.custom-video-block__wrapper-click'),

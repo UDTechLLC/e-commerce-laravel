@@ -190,12 +190,7 @@
                             </div>
                             <div class="cart-review-block-wrapper">
                                 <cart-totals
-                                        :products="products"
-                                        :subTotal="subTotal"
-                                        :total="total"
                                         :shipping="shipping"
-                                        :isShipping="isShipping"
-                                        :discount="discount"
                                         :coupon="coupon"
                                 ></cart-totals>
                             </div>
@@ -253,13 +248,8 @@
             userAuth: String,
             orderId: Number,
             billing: Object,
-            products: Array,
             countries: Array,
-            subTotal: String,
-            total: String,
             shipping: Number,
-            isShipping: Boolean,
-            discount: String,
             coupon: String
         },
         computed: {
@@ -269,7 +259,9 @@
         },
         methods: {
             saveCountries() {
-                this.$emit('updateCountry', this.shippingInfo.country.name);
+                Vue.localStorage.set('shippingCountryName', this.shippingInfo.country.name);
+                Vue.localStorage.set('shippingCountryCode', this.shippingInfo.country.code);
+                this.$emit('updateCountry');
             },
             getAddressData(value) {
 

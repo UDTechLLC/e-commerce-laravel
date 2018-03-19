@@ -71,8 +71,8 @@ class ProductsTableSeeder extends Seeder
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
 
-            'old_amount'  => '59.99',
-            'amount'      => '24.99',
+            'old_amount'  => '39.99',
+            'amount'      => '39.99',
             'slug'        => 'shedfat-maxx',
             'view_name'   => 'shedfat-maxx',
             'isVirtual'   => false,
@@ -85,12 +85,13 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Legs On Fire',
-            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
-            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
-             a more enjoyable process.',
+            'description' => 'Nothing beats a great pair of legs.
+             The key to sculpted, lean legs is to hit those muscles from every angle. 
+             Legs on Fire will guide you through this process for 30 days straight giving you both size 
+             and strength in your lower body.',
 
-            'old_amount'  => '30.00',
-            'amount'      => '20.00',
+            'old_amount'  => '50.00',
+            'amount'      => '30.00',
             'slug'        => 'legs-on-fire',
             'view_name'   => 'legs-on-fire',
             'isVirtual'   => true,
@@ -108,8 +109,8 @@ class ProductsTableSeeder extends Seeder
             is right here in our 90 Day, total body, gym based program. It can be accessed at
              any time from any smart device!',
 
-            'old_amount'  => '99.00',
-            'amount'      => '50.00',
+            'old_amount'  => '50.00',
+            'amount'      => '24.99',
             'slug'        => 'queen-of-the-hill',
             'view_name'   => 'queen-of-the-hill',
             'isVirtual'   => true,
@@ -129,7 +130,7 @@ class ProductsTableSeeder extends Seeder
               toned physique from head to toe.',
 
             'old_amount'  => '50.00',
-            'amount'      => '30.00',
+            'amount'      => '24.99',
             'slug'        => 'never-stop-moving-e-book',
             'view_name'   => 'never-stop-moving-e-book',
             'isVirtual'   => true,
@@ -175,9 +176,11 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Shedfat Infuser Bottle',
-            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
-            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
-             a more enjoyable process.',
+            'description' => 'Our triple chamber shaker bottles offer a main fluid 
+            compartment with a removable blender ball, a three section supplement 
+            compartment and an additional 16oz (1 Cup) storage compartment. 
+            Whether you are in the gym or out for the day you can be sure that your nutrition will not 
+            be compromised.',
 
             'old_amount'  => '40.00',
             'amount'      => '25.00',
@@ -197,8 +200,8 @@ class ProductsTableSeeder extends Seeder
             'description' => 'The list of popular “fast food” chains with meal options that will keep you on the right 
             track with your diet guilt free.',
 
-            'old_amount'  => '50.00',
-            'amount'      => '19.00',
+            'old_amount'  => '39.99',
+            'amount'      => '19.99',
             'slug'        => 'what-to-eat-in-the-streets',
             'view_name'   => 'what-to-eat-in-the-streets',
             'isVirtual'   => true,
@@ -214,7 +217,7 @@ class ProductsTableSeeder extends Seeder
 
 
         $product = factory(App\Models\Product::class)->create([
-            'title'       => '14 Day Detox Smoothie Cleanse',
+            'title'       => '14 Day Detox Smoothie',
             'description' => 'The Power of Juice! This is the fast lane on the health highway. Whether you are 
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
 
@@ -346,8 +349,8 @@ class ProductsTableSeeder extends Seeder
             'plan_id'     => 2,
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
-            'old_amount'  => '24.99',
-            'amount'      => '19.99',
+            'old_amount'  => '39.99',
+            'amount'      => '24.99',
             'slug'        => 'shedfat-maxx-subscription',
             'view_name'   => 'shedfat-maxx-subscription',
             'isVirtual'   => false,
@@ -364,8 +367,8 @@ class ProductsTableSeeder extends Seeder
             overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
              a more enjoyable process.',
 
-            'old_amount'  => '50.00',
-            'amount'      => '30.00',
+            'old_amount'  => '24.99',
+            'amount'      => '19.99',
             'slug'        => 'shedFat-shaker',
             'view_name'   => 'shedFat-shaker',
             'isVirtual'   => false,
@@ -378,9 +381,10 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Gym Bag',
-            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
-            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
-             a more enjoyable process.',
+            'description' => 'Leaving the house for work, the gym or for a short trip is not as simple as it
+             once was. Now a days, we have our wallet, electronics, gym equipment...101 items to take with us.
+              Our conveniently sized bags will give you somewhere to keep all of those things so that you never 
+              have to worry about needing an extra hand again',
 
             'old_amount'  => '300.00',
             'amount'      => '200.00',
@@ -396,9 +400,9 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Shedfat Dad Hat',
-            'description' => 'It does not matter where you are or what you are doing, a well-fitting hat 
-            can always make you feel good. The perfect blend of style and function makes this hat perfectly 
-            suited for going out with friends or training both indoors and outdoors.',
+            'description' => 'It does not matter where you are or what you are doing, a well-fitting hat can 
+            always make you feel good. The perfect blend of style and function makes this hat perfectly suited 
+            for going out with friends or training both indoors and outdoors.',
 
             'old_amount'  => '50.00',
             'amount'      => '25.00',

@@ -31,3 +31,7 @@ Route::group([
         'uses' => 'Api\Auth\LoginController@login',
     ]);
 });
+
+Route::get('/test', function () {
+    return view('test');
+});

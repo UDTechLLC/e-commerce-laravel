@@ -55,7 +55,7 @@
         },
         watch: {
             product(newValue, oldValue) {
-                var vm = this;
+                let vm = this;
 
                 function animate() {
                     if (TWEEN.update()) {
@@ -76,18 +76,10 @@
             }
         },
         methods: {
-            deleteProduct(slug) {
-                axios.delete(`/api/carts/products/remove/${slug}?hash=${Vue.localStorage.get('hash')}`).then(
-                        response => {
-                            this.$EventBus.$emit('updateProduct', response);
-                        },
-                        error => console.log('error')
-                )
-            },
             deleteAllProduct(slug) {
                 axios.delete(`/api/carts/products/remove/${slug}/all?hash=${Vue.localStorage.get('hash')}`).then(
                         response => {
-                            this.$EventBus.$emit('updateProduct', response);
+                            this.$store.commit('updateState', response);
                         },
                         error => console.log('error')
                 )
