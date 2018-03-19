@@ -47,15 +47,14 @@
     </div>
 </template>
 <script type="text/babel">
+
+    import { mapGetters } from 'vuex'
+
     export default ({
-        data: () => ({
-            products: [],
-            countItems: 0,
-            subTotal: 0
-        }),
-        created() {
-            this.getProducts();
-            this.$EventBus.$on('updateProduct', this.updateProducts);
-        }
+        computed: mapGetters({
+            products: 'products',
+            countItems: 'countItems',
+            subTotal: 'subTotal'
+        })
     });
 </script>

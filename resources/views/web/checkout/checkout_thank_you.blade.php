@@ -33,7 +33,7 @@
                             </li>
                             <li class="method">
                                 <h4>Payment Method:</h4>
-                                <strong>PayPal</strong>
+                                <strong>{{ $order->payment_method_slug }}</strong>
                             </li>
                         </ul>
                     </div>

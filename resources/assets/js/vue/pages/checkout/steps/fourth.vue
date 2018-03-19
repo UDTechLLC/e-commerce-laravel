@@ -31,12 +31,7 @@
                         <div class="billing-details-info-wrapper finish-order-step">
                             <div class="cart-review-block-wrapper finish-order-step">
                                 <cart-totals
-                                        :products="products"
-                                        :subTotal="subTotal"
-                                        :total="total"
                                         :shipping="shipping"
-                                        :isShipping="isShipping"
-                                        :discount="discount"
                                         :coupon="coupon"
                                 ></cart-totals>
                             </div>
@@ -63,17 +58,11 @@
     import billingBlock from './../components/billing-block';
 
     export default ({
-        data: () => ({
-        }),
+
         props: {
             orderId: Number,
             billing: Object,
-            products: Array,
-            subTotal: String,
-            total: String,
             shipping: Number,
-            isShipping: Boolean,
-            discount: String,
             coupon: String
         },
         components: {

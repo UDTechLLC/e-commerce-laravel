@@ -27,6 +27,10 @@ class Order extends EloquentModel
     const ORDER_STATE_REFUNDED = 'REFUNDED';
     const ORDER_STATE_SHIPPED = 'SHIPPED';
 
+    const ORDER_PAYPAL_PAYMENT_METHOD = 'paypal_account';
+    const ORDER_CREDIT_CARD_PAYMENT_METHOD = 'credit_card';
+    const ORDER_UNKNOWN_PAYMENT_METHOD = 'unknown_payment_method';
+
     const ORDER_STATES = [
         self::ORDER_STATE_CANCELED,
         self::ORDER_STATE_COMPLETED,
@@ -39,6 +43,12 @@ class Order extends EloquentModel
         self::ORDER_STATE_SHIPPED,
 
     ];
+
+    const ORDER_PAYMENT_METHODS = [
+        self::ORDER_PAYPAL_PAYMENT_METHOD,
+        self::ORDER_CREDIT_CARD_PAYMENT_METHOD,
+    ];
+
     protected $table = 'orders';
 
     /**
@@ -53,6 +63,7 @@ class Order extends EloquentModel
         'billing_id',
         'cart_id',
         'coupon_id',
+        'payment_method',
         'product_cost',
         'shipping_cost',
         'discount_cost',
@@ -193,5 +204,15 @@ class Order extends EloquentModel
                 return $product;
             }
         }
+    }
+
+    public function getPaymentMethodSlugAttribute()
+    {
+        $map = [
+            Order::ORDER_PAYPAL_PAYMENT_METHOD => 'Pay Pal',
+            Order::ORDER_CREDIT_CARD_PAYMENT_METHOD => 'Credit Card',
+        ];
+
+        return $map[$this->attributes['payment_method']] ?? Order::ORDER_UNKNOWN_PAYMENT_METHOD;
     }
 }

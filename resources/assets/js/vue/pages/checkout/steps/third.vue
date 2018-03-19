@@ -42,12 +42,7 @@
                             </div>
                             <div class="cart-review-block-wrapper">
                                 <cart-totals
-                                        :products="products"
-                                        :subTotal="subTotal"
-                                        :total="total"
                                         :shipping="shipping"
-                                        :isShipping="isShipping"
-                                        :discount="discount"
                                         :coupon="coupon"
                                 ></cart-totals>
                             </div>
@@ -76,18 +71,12 @@
 
     export default ({
         data: () => ({
-           // token: "",
             braintree: ""
         }),
         props: {
             orderId: Number,
             billing: Object,
-            products: Array,
-            subTotal: String,
-            total: String,
             shipping: Number,
-            isShipping: Boolean,
-            discount: String,
             coupon: String,
             token: String
         },
