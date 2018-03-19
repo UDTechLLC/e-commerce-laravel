@@ -23,6 +23,7 @@ class ProductsResource extends Resource
             'id'          => $this->getKey(),
             'title'       => "<a href='" . route('products.show', $this->slug) . "'>" . $this->title . "</a>",
             'description' => substr($this->description, 0, 50) . "...",
+            'image'       => $this->getFirstMediaUrl('preview'),
             'action'      => [
                 'edit'   => route('admin.products.edit', $this->slug),
                 'delete' => route('admin.products.delete', $this->slug)
