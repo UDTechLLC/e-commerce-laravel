@@ -123,8 +123,6 @@
         data: () => ({
             errorCoupon: false,
             coupon: "",
-            discount: 0,
-            isShipping: false,
             shipping: 0,
             animatedTotal: 0,
             animatedSubTotal: 0,
@@ -140,28 +138,15 @@
             ...mapGetters([
                 'products',
                 'subTotal',
-                'countItems'
+                'countItems',
+                'isShipping',
+                'discount'
+
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
             }
         },
-
-
-        /*computed: {
-         products() {
-         return this.$store.state.products.products;
-         },
-         countItems() {
-         return this.$store.state.products.countItems;
-         },
-         subTotal() {
-         return this.$store.state.products.subTotal;
-         },
-         total() {
-         return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
-         }
-         },*/
         watch: {
             total(newValue, oldValue) {
                 this.animateSum(newValue, oldValue, 'animatedTotal')
@@ -210,7 +195,8 @@
 
                 axios.post(url, data).then(
                         response => {
-                            this.$EventBus.$emit('updateProduct', response);
+                           // this.$EventBus.$emit('updateProduct', response);
+                            this.$store.commit('updateState', response);
                             this.errorCoupon = false;
                         },
                         error => this.errorCoupon = true
@@ -218,13 +204,9 @@
             },
             deleteCoupon() {
                 let url = `api/carts/coupons/remove?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
-                let data = {
-                    hash: Vue.localStorage.get('hash'),
-                    code: this.coupon
-                };
 
                 axios.delete(url).then(
-                        response => this.$EventBus.$emit('updateProduct', response),
+                        response => this.$store.commit('updateState', response),
                         error => console.log('error')
                 )
             }
