@@ -176,30 +176,29 @@
                                         </label>
                                     </div>
 
-                                        <div class="create-account-block" v-if="createUser">
-                                            <p>
-                                                Create an account by entering the information below. If you are a
-                                                returning
-                                                customer please login at the top of the page.
-                                            </p>
-                                            <div class="form-field-wrapper"
-                                                 :class="{'error': errors.has('bd_create_pass')}">
-                                                <label for="bdCreatePass">
-                                                    Create account password *
-                                                </label>
-                                                <input id="bdCreatePass" class="form-field" name="bd_create_pass"
-                                                       type="text" placeholder="Password"
-                                                       v-model="password" v-validate data-vv-rules="required"/>
+                                    <div class="create-account-block" v-if="createUser">
+                                        <p>
+                                            Create an account by entering the information below. If you are a
+                                            returning
+                                            customer please login at the top of the page.
+                                        </p>
+                                        <div class="form-field-wrapper"
+                                             :class="{'error': errors.has('bd_create_pass')}">
+                                            <label for="bdCreatePass">
+                                                Create account password *
+                                            </label>
+                                            <input id="bdCreatePass" class="form-field" name="bd_create_pass"
+                                                   type="text" placeholder="Password"
+                                                   v-model="password" v-validate data-vv-rules="required"/>
                                             <span class="error-massage"
                                                   style="display: none">Please enter your password.</span>
-                                            </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="cart-review-block-wrapper">
                                 <cart-totals
                                         :shipping="shipping"
-                                        :isShipping="isShipping"
                                         :coupon="coupon"
                                 ></cart-totals>
                             </div>
@@ -224,6 +223,7 @@
     import cartTotals from './../components/cart-totals';
     import login from './../components/login';
     import VueGoogleAutocomplete from 'vue-google-autocomplete';
+    import {mapGetters} from 'vuex';
 
     export default ({
 
@@ -252,10 +252,8 @@
         }),
         props: {
             userAuth: String,
-            cartId: Number,
             shipping: Number,
             countries: Array,
-            isShipping: Boolean,
             isSubscribe: Boolean,
             coupon: String
         },
@@ -265,6 +263,10 @@
             VueGoogleAutocomplete
         },
         computed: {
+            ...mapGetters([
+                'isShipping',
+                'cartId'
+            ]),
             googleCountry() {
                 return this.billingInfo.country.code;
             }
@@ -273,7 +275,7 @@
             saveCountries() {
                 Vue.localStorage.set('shippingCountryName', this.billingInfo.country.name);
                 Vue.localStorage.set('shippingCountryCode', this.billingInfo.country.code);
-                this.$emit('updateCountry', this.billingInfo.country.name);
+                this.$emit('updateCountry');
             },
             getAddressData(value) {
                 this.billingInfo.street = (value.street_number) ? `${value.street_number} ${value.route}` : `${value.route}`;
@@ -296,7 +298,7 @@
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         this.authError = false;
-                        if(this.isSubscribe && this.userAuth != '1') {
+                        if (this.isSubscribe && this.userAuth != '1') {
                             this.authError = true;
                             return false;
                         }

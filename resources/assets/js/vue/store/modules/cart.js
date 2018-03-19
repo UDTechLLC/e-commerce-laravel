@@ -4,7 +4,9 @@ const state = {
   products: [],
   countItems: 0,
   subTotal: 0,
-  discount: 0
+  discount: 0,
+  isShipping: false,
+  cartId: 0
 };
 
 // getters
@@ -20,6 +22,12 @@ const getters = {
   },
   discount: state => {
     return state.discount
+  },
+  isShipping: state => {
+    return state.isShipping
+  },
+  cartId: state => {
+    return state.cartId
   }
 };
 
@@ -70,6 +78,8 @@ const mutations = {
     state.countItems = responseApi.data.data.sum.products_counts;
     state.subTotal = responseApi.data.data.sum.with_discount_sum;
     state.discount = responseApi.data.data.sum.discount_sum;
+    state.isShipping = responseApi.data.data.isShipping;
+    state.cartId = responseApi.data.data.id;
   }
 };
 

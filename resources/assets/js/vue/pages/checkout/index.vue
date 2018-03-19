@@ -26,12 +26,12 @@
                         <span>5. Finish Order</span></li>
                 </ul>
                 <!--<div id="reservation-order" class="reservation-order">-->
-                    <!--<p>Your order is reserved for-->
-                            <!--<span id="timer">-->
-                                    <!--00:28-->
-                                <!--</span>-->
-                        <!--minutes!-->
-                    <!--</p>-->
+                <!--<p>Your order is reserved for-->
+                <!--<span id="timer">-->
+                <!--00:28-->
+                <!--</span>-->
+                <!--minutes!-->
+                <!--</p>-->
                 <!--</div>-->
             </div>
         </div>
@@ -39,19 +39,15 @@
             <keep-alive>
                 <component :is="currentComponent"
                            :userAuth="userAuth"
-                           :cartId="cartId"
                            :orderId="orderId"
                            :billing="billing"
                            :countries="countries"
                            :states="states"
-
                            :shipping="shipping"
-                           :isShipping="isShipping"
                            :isSubscribe="isSubscribe"
-
                            :coupon="coupon"
                            :token="token"
-                           @updateCountry="updateCountry"
+                           @updateCountry="getCountries"
                            @next="nextStep"
                            @back="backStep"
                            @editBilling="editBilling"
@@ -66,6 +62,7 @@
     import second from './steps/second';
     import third from './steps/third';
     import fourth from './steps/fourth';
+    import {mapGetters} from 'vuex';
 
     export default ({
         data() {
@@ -73,19 +70,17 @@
                 userAuth: false,
                 orderId: "",
                 progress: 1,
-                cartId: 0,
                 countries: [],
                 states: [],
                 shipping: 0,
                 coupon: "",
                 currentComponent: "first",
                 billing: {},
-                isShipping: false,
                 isSubscribe: false
             }
         },
         props: {
-          userAuthProps: String,
+            userAuthProps: String,
             token: String
         },
         components: {
@@ -93,6 +88,12 @@
             second,
             third,
             fourth
+        },
+        computed: {
+            ...mapGetters([
+                'isShipping',
+                'cartId'
+            ])
         },
 
         created() {
@@ -106,32 +107,27 @@
                 this.userAuth = '1';
             },
             nextStep(value) {
-                this.currentComponent = !this.isShipping && value.step === 'second' ? 'third' :value.step;
+                this.currentComponent = !this.isShipping && value.step === 'second' ? 'third' : value.step;
                 this.billing = value.billing;
                 this.orderId = value.orderId;
                 this.progress = !this.isShipping && value.step === 'second' ? this.progress + 2 : this.progress + 1;
             },
             backStep(value) {
-                this.currentComponent = !this.isShipping && value.step === 'second' ? 'first' :value.step;
-                this.progress = !this.isShipping && value.step === 'second' ? this.progress - 2: this.progress - 1;
-                console.log(this.progress);
+                this.currentComponent = !this.isShipping && value.step === 'second' ? 'first' : value.step;
+                this.progress = !this.isShipping && value.step === 'second' ? this.progress - 2 : this.progress - 1;
             },
             getCountries() {
                 this.countries = require("./components/countries.js");
                 if (this.isShipping) {
                     let selectedCountry = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
                     axios.get(`/api/countries?country=${selectedCountry}`).then(
-                        response => {
-                            // this.shipping = this.isShipping ? response.data.shipping : 0;
-                            this.shipping = response.data.shipping;
-                        },
-                        error => console.log('error')
+                            response => {
+                                // this.shipping = this.isShipping ? response.data.shipping : 0;
+                                this.shipping = response.data.shipping;
+                            },
+                            error => console.log('error')
                     )
                 }
-            },
-            updateCountry(value) {
-                this.selectedCountry = value;
-                this.getCountries();
             },
             editBilling() {
                 this.currentComponent = 'first';
@@ -145,8 +141,10 @@
     .component-fade-enter-active, .component-fade-leave-active {
         transition: opacity .3s ease;
     }
+
     .component-fade-enter, .component-fade-leave-to
-        /* .component-fade-leave-active до версии 2.1.8 */ {
+        /* .component-fade-leave-active до версии 2.1.8 */
+    {
         opacity: 0;
     }
 </style>

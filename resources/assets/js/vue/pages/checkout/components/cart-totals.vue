@@ -91,14 +91,14 @@
     export default ({
         props: {
             shipping: Number,
-            isShipping: Boolean,
             coupon: String
         },
         computed: {
             ...mapGetters([
                 'products',
                 'subTotal',
-                'discount'
+                'discount',
+                'isShipping'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
