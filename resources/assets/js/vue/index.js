@@ -13,11 +13,21 @@ import shedfatMaxx from './pages/products/shedfat-maxx';
 
 Vue.component('add-to-cart', addToCart);
 
+import store from './store';
+window.TWEEN = require('tween.js');
+
 require('./mixins');
 Vue.prototype.$EventBus = new Vue();
 
+import testComponent from './test';
+Vue.component('test-component', testComponent);
+
 const app = new Vue({
   el: '#app',
+  store,
+  data: {
+    products: store.state.products
+  },
   components: {
     miniCart,
     modalCart,
@@ -30,6 +40,18 @@ const app = new Vue({
     if (!Vue.localStorage.get('hash')) {
       let hash = this.makeCardHash();
       Vue.localStorage.set('hash', hash);
+    }
+    store.dispatch('getProducts');
+  },
+  methods: {
+    makeCardHash() {
+      var text = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+      for (var i = 0; i < 10; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+      return text;
     }
   }
 });

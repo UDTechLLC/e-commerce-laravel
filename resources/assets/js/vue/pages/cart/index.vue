@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div class="cart-block-wrapper" v-if="products.length > 0">
+        <div class="cart-block-wrapper" v-if="countItems > 0">
             <div class="wrapper">
                 <form class="cart-form" action="" method="post">
                     <div class="cart-block">
@@ -117,16 +117,12 @@
     import productList from './component/product-list';
     import shipping from './component/shipping';
     import emptyCart from './component/empty-cart';
+    import {mapGetters} from 'vuex'
 
     export default ({
         data: () => ({
-            products: [],
             errorCoupon: false,
             coupon: "",
-            discount: 0,
-            isShipping: false,
-            countItems: 0,
-            subTotal: 0,
             shipping: 0,
             animatedTotal: 0,
             animatedSubTotal: 0,
@@ -137,7 +133,16 @@
             shipping,
             emptyCart
         },
+
         computed: {
+            ...mapGetters([
+                'products',
+                'subTotal',
+                'countItems',
+                'isShipping',
+                'discount'
+
+            ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
             }
@@ -154,8 +159,8 @@
             }
         },
         created() {
-            this.getProducts();
-            this.$EventBus.$on('updateProduct', this.updateProducts);
+            //this.getProducts();
+            //this.$EventBus.$on('updateProduct', this.updateProducts);
             this.$EventBus.$on('updateShipping', this.updateShipping);
         },
         methods: {
@@ -190,7 +195,8 @@
 
                 axios.post(url, data).then(
                         response => {
-                            this.$EventBus.$emit('updateProduct', response);
+                           // this.$EventBus.$emit('updateProduct', response);
+                            this.$store.commit('updateState', response);
                             this.errorCoupon = false;
                         },
                         error => this.errorCoupon = true
@@ -198,13 +204,9 @@
             },
             deleteCoupon() {
                 let url = `api/carts/coupons/remove?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
-                let data = {
-                    hash: Vue.localStorage.get('hash'),
-                    code: this.coupon
-                };
 
                 axios.delete(url).then(
-                        response => this.$EventBus.$emit('updateProduct', response),
+                        response => this.$store.commit('updateState', response),
                         error => console.log('error')
                 )
             }

@@ -14,6 +14,8 @@
 </div>
 </template>
 <script type="text/babel">
+    import  mapActions from 'vuex'
+
     export default ({
         data: () => ({
            addedToCart: false
