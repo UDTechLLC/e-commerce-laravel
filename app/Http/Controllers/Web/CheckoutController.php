@@ -3,6 +3,7 @@ declare (strict_types = 1);
 
 namespace App\Http\Controllers\Web;
 
+use App\Services\Braintree\BraintreeService;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('web.checkout.index');
+        return view('web.checkout.index',['token' => (new BraintreeService())->getToken()]);
     }
 
     /**
