@@ -97,7 +97,7 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/desktop_1.png';
+        $pathToFile = 'resources/assets/web/seed_products/legs.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
@@ -176,11 +176,9 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Shedfat Infuser Bottle',
-            'description' => 'Our triple chamber shaker bottles offer a main fluid 
-            compartment with a removable blender ball, a three section supplement 
-            compartment and an additional 16oz (1 Cup) storage compartment. 
-            Whether you are in the gym or out for the day you can be sure that your nutrition will not 
-            be compromised.',
+            'description' => 'Proper hydration is extremely important. 
+            It effects energy levels, performance and overall well-being.  Add flavor, increase the nutritional
+             value and make staying hydrated and healthy a more enjoyable process.',
 
             'old_amount'  => '40.00',
             'amount'      => '25.00',
@@ -363,9 +361,11 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'ShedFat Shaker',
-            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
-            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
-             a more enjoyable process.',
+            'description' => 'Our triple chamber shaker bottles offer a main fluid 
+            compartment with a removable blender ball, a three section supplement 
+            compartment and an additional 16oz (1 Cup) storage compartment. 
+            Whether you are in the gym or out for the day you can be sure that your nutrition will not 
+            be compromised.',
 
             'old_amount'  => '24.99',
             'amount'      => '19.99',
