@@ -90,8 +90,8 @@ class ProductsTableSeeder extends Seeder
              Legs on Fire will guide you through this process for 30 days straight giving you both size 
              and strength in your lower body.',
 
-            'old_amount'  => '30.00',
-            'amount'      => '20.00',
+            'old_amount'  => '50.00',
+            'amount'      => '30.00',
             'slug'        => 'legs-on-fire',
             'view_name'   => 'legs-on-fire',
             'isVirtual'   => true,
