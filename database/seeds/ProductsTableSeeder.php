@@ -93,7 +93,7 @@ class ProductsTableSeeder extends Seeder
             'amount'      => '20.00',
             'slug'        => 'legs-on-fire',
             'view_name'   => 'legs-on-fire',
-            'isVirtual'   => false,
+            'isVirtual'   => true,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/desktop_1.png';

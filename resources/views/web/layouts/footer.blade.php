@@ -1,4 +1,5 @@
 <footer>
+    <div class="footer-desktop">
     <div class="first-footer">
         <div class="wrapper">
             <div class="flex flex-j--between flex-a--center flex--m-block">
@@ -28,4 +29,31 @@
             </div>
         </div>
     </div>
+    </div>
+        <div class="footer-mobile">
+            <ul class="footer-mobile__links">
+                <li><a href="{{url('/')}}">Home</a></li>
+                <li><a href="{{url('contact')}}">Contact</a></li>
+                <li class="has-submenu">
+                    <span>Company info</span>
+                    <ul>
+                        <li><a href="{{url('about-us')}}">About us</a></li>
+                        <li><a href="{{url('return-policy')}}">Return Policy</a></li>
+                        <li><a href="{{url('privacy-policy')}}">Privacy Policy</a></li>
+                        <li><a href="{{url('weight-loss-disclaimer')}}">Weight Loss Disclaimer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="footer-mobile__social-links flex flex-a--center flex-j--center">
+                <a href="https://www.facebook.com/shedfatnow" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/channel/UCEALCddkV4XQR-6qiJaA70Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/shedfat/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.snapchat.com/add/shedfat" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+            </div>
+            <div class="footer-mobile__footer">
+                <p>©2015 - 2018  ShedFat® - Do not copy. <br>
+                    All rights reserved.
+                </p>
+            </div>
+        </div>
 </footer>
