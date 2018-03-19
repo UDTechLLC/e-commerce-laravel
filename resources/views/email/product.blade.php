@@ -72,7 +72,7 @@ text-align: left;
                             Payment method:
                             </td>
                             <td>
-                                PayPal
+                                {{ $order->payment_method_slug }}
                             </td>
                         </tr>
                         @if($order->shipping_cost)
