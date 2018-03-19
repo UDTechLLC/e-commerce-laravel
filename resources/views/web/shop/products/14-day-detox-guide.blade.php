@@ -140,12 +140,10 @@
         <div class="training-plan-faqs-block-wrapper">
             <div class="wrapper">
 
-                <div class="flex flex-a--center flex--m-block detox-section__wrapperVideo">
+                <div class="flex flex-a--center flex--m-block">
 
 
-                    <div class="get-more__text">
-                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/refresh-and-reset.png')}}" alt="get-more">
-                    </div>
+
                     <div class="video-block-wrapper">
 
                         <div class="custom-video-block custom-video-block--red"> <!--add class  'custom-video-block--red' for red border -->
@@ -164,7 +162,9 @@
                         </div><!--custom-video-block-->
                     </div>
 
-
+                    <div class="get-more__text">
+                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/refresh-and-reset.png')}}" alt="get-more">
+                    </div>
 
 
 
