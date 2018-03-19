@@ -15,7 +15,7 @@
                     <div class="product-info-block">
                         <div class="product-info">
                             <div class="product-title-block">
-                                <h2 class="product-title custom-w" style="max-width: 210px">
+                                <h2 class="product-title custom-w custom-w--210">
                                     {{ $product->title }}
                                 </h2>
                             </div>
