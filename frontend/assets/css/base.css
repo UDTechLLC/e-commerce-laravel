@@ -972,7 +972,7 @@ ul {
 
 .custom-guarantee-block-wrapper {
   background-color: #ffffff;
-  background-image: url("../images/custom_guarantee_block_bg.jpg");
+  background-image: none !important;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
