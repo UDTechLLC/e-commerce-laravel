@@ -76,7 +76,7 @@
 
     export default ({
         data: () => ({
-            token: "",
+           // token: "",
             braintree: ""
         }),
         props: {
@@ -88,18 +88,19 @@
             shipping: Number,
             isShipping: Boolean,
             discount: String,
-            coupon: String
+            coupon: String,
+            token: String
         },
         components: {
             cartTotals,
             login,
             billingBlock
         },
-        created() {
+        mounted() {
 
-            axios.get('/api/pay/braintree/token').then(
-                    response => {
-                        this.token = response.data.token;
+           // axios.get('/api/pay/braintree/token').then(
+             //       response => {
+                        //this.token = response.data.token;
 
                         var button = document.querySelector('#submit-button');
 
@@ -141,10 +142,10 @@
                                 });
                             });
                         });
-                    },
-                        error => console.log('error')
+                 //   },
+                  //      error => console.log('error')
 
-            );
+         //   );
 
 
         },
