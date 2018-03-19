@@ -188,7 +188,7 @@
                                                 Create account password *
                                             </label>
                                             <input id="bdCreatePass" class="form-field" name="bd_create_pass"
-                                                   type="text" placeholder="Password"
+                                                   type="password" placeholder="Password"
                                                    v-model="password" v-validate data-vv-rules="required"/>
                                             <span class="error-massage"
                                                   style="display: none">Please enter your password.</span>
