@@ -375,7 +375,7 @@
                 </div>
             </div>
         </div>
-        <div class="custom-guarantee-block-wrapper" style="background-image: url('{{ asset('web/images/full-product/12_week_custom_meal_plan/custom_guarantee_block_bg.jpg')}}')">
+        <div class="custom-guarantee-block-wrapper" >
             <div class="wrapper">
                 <div class="custom-guarantee-block">
                     <div class="stiker-wrapper">
