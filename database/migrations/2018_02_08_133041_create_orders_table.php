@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('billing_id')->nullable();
             $table->unsignedInteger('cart_id');
             $table->unsignedInteger('coupon_id')->nullable();
+            $table->string('subscription_id')->nullable();
             $table->enum('payment_method', Order::ORDER_PAYMENT_METHODS);
             $table->integer('product_cost')->nullable();
             $table->integer('shipping_cost')->nullable();

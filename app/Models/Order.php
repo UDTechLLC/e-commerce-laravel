@@ -63,6 +63,7 @@ class Order extends EloquentModel
         'billing_id',
         'cart_id',
         'coupon_id',
+        'subscription_id',
         'payment_method',
         'product_cost',
         'shipping_cost',
