@@ -61,8 +61,8 @@
             </p>
 
             <div class="section__img">
-                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book-1.png')}}" alt="book" class="full-width desktop-image" />
-                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book_mob-1.png')}}" alt="book" class="full-width mobile-image" />
+                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book@2x-2.png')}}" alt="book" class="full-width desktop-image" />
+                <img src="{{ asset('web/images/full-product/queen-of-the-hill/book_mob@2x-1.png')}}" alt="book" class="full-width mobile-image" />
             </div>
 
             <div class="section__icons inline-block text-center">
