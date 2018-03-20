@@ -29,7 +29,7 @@ class Order extends EloquentModel
 
     const ORDER_PAYPAL_PAYMENT_METHOD = 'paypal_account';
     const ORDER_CREDIT_CARD_PAYMENT_METHOD = 'credit_card';
-    const ORDER_UNKNOWN_PAYMENT_METHOD = 'unknown_payment_method';
+    const ORDER_UNKNOWN_PAYMENT_METHOD = 'Unknown Payment Method';
 
     const ORDER_STATES = [
         self::ORDER_STATE_CANCELED,
@@ -63,6 +63,7 @@ class Order extends EloquentModel
         'billing_id',
         'cart_id',
         'coupon_id',
+        'subscription_id',
         'payment_method',
         'product_cost',
         'shipping_cost',
