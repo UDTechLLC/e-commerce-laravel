@@ -230,9 +230,9 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/14_day_detox_smoothie_cleanse.png';
+        $pathToFile = 'resources/assets/web/seed_products/detox_product.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/14_day_detox_smoothie_cleanse_shop_preview.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/detox.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/14-Day-Smoothie-Detox-Cleanse.pdf';
         $product->addMedia($pathToPdfFile)->preservingOriginal()->toMediaCollection('download');
