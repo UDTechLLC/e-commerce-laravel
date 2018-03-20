@@ -21,10 +21,10 @@
                     <input type="radio" :value="subscribeProduct.slug" name="product-price" v-model="slug">
                     <span class="custom-input"></span>
                                     <span>
-                                    <span class="old-price">
-                                        <span class="currency">$</span>
-                                        <span>{{ subscribeProduct.old_amount }}</span>
-                                    </span>
+                                    <!--<span class="old-price">-->
+                                        <!--<span class="currency">$</span>-->
+                                        <!--<span>{{ subscribeProduct.old_amount }}</span>-->
+                                    <!--</span>-->
                                     <span class="product-amount">
                                         <span class="currency">$</span>
                                         <span>{{ subscribeProduct.amount }}</span>

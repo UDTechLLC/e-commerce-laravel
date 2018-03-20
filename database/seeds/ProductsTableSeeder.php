@@ -71,7 +71,7 @@ class ProductsTableSeeder extends Seeder
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
 
-            'old_amount'  => '39.99',
+//            'old_amount'  => '39.99',
             'amount'      => '39.99',
             'slug'        => 'shedfat-maxx',
             'view_name'   => 'shedfat-maxx',
@@ -98,7 +98,11 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/legs.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product
+            ->addMedia($pathToFile)
+            ->withCustomProperties(['external_link' => 'http://www.shedyourfat.com/legs-on-fire-downloads/'])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
@@ -389,7 +393,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount'  => '300.00',
             'amount'      => '200.00',
             'slug'        => 'gym-bag',
-            'view_name'   => 'shedfat-infuser-bottle',
+            'view_name'   => 'gym-bag',
             'isVirtual'   => false,
 
         ]);

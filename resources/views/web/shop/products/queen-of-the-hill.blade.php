@@ -139,31 +139,31 @@
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                Can my meal plan work for my family?
+                                I am new to working out, is this program to advanced for me?
                             </strong>
                         </p>
                         <p class="item-description">
-                            Yes! We can implement food selections that take feeding your family into consideration.
+                            NO! This guide is a progressive program that has been designed to improve upon any fitness level.
                         </p>
                     </li>
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                I can only eat snacks at my desk, can you accommodate for that?
+                                I do not want to spend 2 hours in the gym, is this program time efficient?
                             </strong>
                         </p>
                         <p class="item-description">
-                            Yes! We personalize eating you fit your schedule.
+                            YES! With this guide, you will be able to complete comprehensive and extremely effective workouts in less than an hour.
                         </p>
                     </li>
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                I am a very picky eater, is that a problem?
+                                Is this a program that I can complete more than once?
                             </strong>
                         </p>
                         <p class="item-description">
-                            No! We consider all food preferences as well as food allergies when creating your customized meal plan.
+                            Absolutely! The guide can be completed once, twice...ten times through. Each successful completion of the program will make you better than the last.
                         </p>
                     </li>
                 </ul>
