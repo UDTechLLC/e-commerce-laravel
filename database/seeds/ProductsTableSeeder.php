@@ -393,7 +393,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount'  => '300.00',
             'amount'      => '200.00',
             'slug'        => 'gym-bag',
-            'view_name'   => 'shedfat-infuser-bottle',
+            'view_name'   => 'gym-bag',
             'isVirtual'   => false,
 
         ]);
