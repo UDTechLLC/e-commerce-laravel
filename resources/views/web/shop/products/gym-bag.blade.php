@@ -53,7 +53,7 @@
         </div>
 
     </main>
-    
+
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >
