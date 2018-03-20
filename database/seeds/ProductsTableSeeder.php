@@ -419,7 +419,5 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
-
-
     }
 }
