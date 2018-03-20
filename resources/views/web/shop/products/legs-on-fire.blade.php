@@ -65,7 +65,7 @@
                             </div>
 
 
-                            <iframe src="https://player.vimeo.com/video/239845376" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/260809554" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                         </div><!--custom-video-block__inner-->
 

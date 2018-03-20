@@ -98,7 +98,11 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/legs.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product
+            ->addMedia($pathToFile)
+            ->withCustomProperties(['external_link' => 'http://www.shedyourfat.com/legs-on-fire-downloads/'])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
