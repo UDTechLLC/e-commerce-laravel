@@ -57,8 +57,8 @@
                 <h2 class="section__title after-lines after-lines--black text-center">THE TOTAL PACKAGE FOR TOTAL RESULTS</h2>
                 <p class="section__text text-center">Getting in shape can be overwhelming. That is why we provide you with everything that you need to make the a complete transformation. We tell you what exercises to perform, how to perform them, what meals to eat, what ingredients you should be shopping for and how what you should be doing to recover.</p>
                 <div class="total-results__img">
-                    <img src="{{ asset('web/images/full-product/never-stop-moving/book.png')}}" alt="book" class="full-width desktop-image" />
-                    <img src="{{ asset('web/images/full-product/never-stop-moving/book_mob.png')}}" alt="book" class="full-width mobile-image" />
+                    <img src="{{ asset('web/images/full-product/never-stop-moving/book@2x-3.png')}}" alt="book" class="full-width desktop-image" />
+                    <img src="{{ asset('web/images/full-product/never-stop-moving/book_mob@2x-2.png')}}" alt="book" class="full-width mobile-image" />
                 </div>
 
                 {{-- <div class="total-results__icons inline-block text-center">
