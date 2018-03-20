@@ -63,13 +63,15 @@
             @endforeach
                 <div class="shop-item">
                     <div class="image-wrapper">
-                        <a href="{{url('challenge')}}">
+                        {{--<a href="{{url('challenge')}}">--}}
+                        <a href="#scRegistration">
                             <img src="{{ asset('web/images/Spring_Challenge_icon.png') }}" />
                         </a>
                     </div>
-                    <div class="product-details">
+                    <div class="product-details" style="padding-top: 10px;">
                         <h2 class="product-title">
-                            <a href="{{url('challenge')}}">
+                            <a  href="#scRegistration">
+                            {{--<a href="{{url('challenge')}}">--}}
                                 Spring Challenge </a>
                         </h2>
                     </div>
@@ -78,9 +80,12 @@
                         <div class="add-to-cart-wrapper">
                             <div class="product-button-block">
                                 <div class="add-to-cart-wrapper">
-                                    <a class="add-to-cart-btn" href="{{url('challenge')}}">
+                                    <a class="add-to-cart-btn"  href="#scRegistration" data-title='SPRING CHALLENGE'>
                                         Register
                                     </a>
+                                    {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}" data-title='SPRING CHALLENGE'>
+                                        Register
+                                    </a>--}}
                                 </div>
                             </div>
                         </div>
@@ -147,6 +152,31 @@
                         </span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popUp popUp--challenge" data-modal="SPRING CHALLENGE"><!-- popUp--open -->
+        <input type="hidden" class="add-to-cart-btn callPopUp" data-title='SPRING CHALLENGE'>
+        <div class="popUp__wrapper">
+            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+
+            <div class="popUp__img-info">
+                <div class="popUp__img">
+
+                </div>
+                <div class="popUp__info">
+                    <div class="popUp__name">SPRING CHALLENGE</div>
+                    <p class="popUp__description">Get on the list and we will keep you in the loop on upcoming 2018 challenges.</p>
+
+                    <form action="{{ route('subscribe.challenge') }}" method="POST" class="popUp__form">
+                        {{ csrf_field() }}
+                        <input type="text" name="name" placeholder="Your First Name" required>
+                        <input type="email" name="email" placeholder="Your Email Address" required>
+                        <button class="btn popUp__form-btn-submit">submit</button>
+                    </form>
+
+
                 </div>
             </div>
         </div>
