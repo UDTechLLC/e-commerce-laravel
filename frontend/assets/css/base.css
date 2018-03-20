@@ -4763,10 +4763,10 @@ ul {
     background: url("../images/new-images/bg-popUp-challenge.jpg") no-repeat center/cover; }
     @media screen and (max-width: 800px) {
       .popUp--challenge .popUp__wrapper {
-        background: url("../images/new-images/bg-popUp-challenge-mobile.jpg") no-repeat top/cover;
+        background: #ebebeb url("../images/new-images/bg-popUp-challenge-mobile.jpg") no-repeat top 63% right/cover;
         max-width: 300px;
-        overflow-x: hidden;
-        padding: 0px 20px 300px; } }
+        overflow: hidden;
+        padding: 0px 20px 200px; } }
   .popUp--challenge .popUp__info {
     max-width: 450px; }
   .popUp--challenge .popUp__name {
@@ -4778,12 +4778,14 @@ ul {
         font-size: 32px; } }
     @media screen and (max-width: 800px) {
       .popUp--challenge .popUp__name {
-        font-size: 26px;
+        font-size: 18px;
         line-height: 32px; } }
-  @media screen and (min-width: 801px) {
-    .popUp--challenge .popUp__description {
-      margin-top: 30px;
-      margin-bottom: 30px; } }
+  .popUp--challenge .popUp__description {
+    margin-top: 0; }
+    @media screen and (min-width: 801px) {
+      .popUp--challenge .popUp__description {
+        margin-top: 30px;
+        margin-bottom: 30px; } }
   .popUp--challenge .popUp__form input {
     display: block;
     width: 100%;
@@ -4819,6 +4821,21 @@ ul {
       font-size: 15px;
       color: #929292;
       font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    @media screen and (max-width: 800px) {
+      .popUp--challenge .popUp__form input {
+        height: 35px;
+        font-size: 14px;
+        margin: 10px 0; }
+        .popUp--challenge .popUp__form input::-webkit-input-placeholder {
+          font-size: 14px; }
+        .popUp--challenge .popUp__form input::-moz-placeholder {
+          font-size: 14px; }
+        .popUp--challenge .popUp__form input:-ms-input-placeholder {
+          font-size: 14px; }
+        .popUp--challenge .popUp__form input::-ms-input-placeholder {
+          font-size: 14px; }
+        .popUp--challenge .popUp__form input::placeholder {
+          font-size: 14px; } }
   .popUp--challenge .popUp__form-btn-submit {
     background: #ed1c24;
     color: white;
@@ -4833,6 +4850,126 @@ ul {
     margin: auto; }
     .popUp--challenge .popUp__form-btn-submit:hover {
       background: #c61017; }
+    @media screen and (max-width: 800px) {
+      .popUp--challenge .popUp__form-btn-submit {
+        height: 35px;
+        font-size: 18px; } }
+  .popUp.popUp-register .popUp__close {
+    color: #656565;
+    opacity: .6; }
+    .popUp.popUp-register .popUp__close:hover {
+      opacity: 1; }
+  @media screen and (max-width: 800px) {
+    .popUp.popUp-register .popUp__wrapper {
+      max-width: 300px;
+      overflow: hidden;
+      padding: 0 20px 200px; } }
+  .popUp.popUp-register .popUp__info {
+    max-width: 450px; }
+  .popUp.popUp-register .popUp__name {
+    font-size: 37px;
+    color: #ed1c24;
+    text-transform: uppercase; }
+    @media screen and (max-width: 830px) {
+      .popUp.popUp-register .popUp__name {
+        font-size: 32px; } }
+    @media screen and (max-width: 800px) {
+      .popUp.popUp-register .popUp__name {
+        font-size: 18px;
+        line-height: 32px; } }
+  .popUp.popUp-register .popUp__description {
+    margin-top: 0; }
+    @media screen and (min-width: 801px) {
+      .popUp.popUp-register .popUp__description {
+        margin-top: 30px;
+        margin-bottom: 30px; } }
+  .popUp.popUp-register .popUp__form input {
+    display: block;
+    width: 100%;
+    -webkit-border-radius: 3.5px;
+            border-radius: 3.5px;
+    height: 48px;
+    border: #e1e1e1;
+    font-size: 15px;
+    color: #929292;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    margin: 20px 0;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px; }
+    .popUp.popUp-register .popUp__form input::-webkit-input-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp.popUp-register .popUp__form input::-moz-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp.popUp-register .popUp__form input:-ms-input-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp.popUp-register .popUp__form input::-ms-input-placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    .popUp.popUp-register .popUp__form input::placeholder {
+      font-size: 15px;
+      color: #929292;
+      font-family: Montserrat, Arial, Helvetica, sans-serif; }
+    @media screen and (max-width: 800px) {
+      .popUp.popUp-register .popUp__form input {
+        height: 35px;
+        font-size: 14px;
+        margin: 10px 0; }
+        .popUp.popUp-register .popUp__form input::-webkit-input-placeholder {
+          font-size: 14px; }
+        .popUp.popUp-register .popUp__form input::-moz-placeholder {
+          font-size: 14px; }
+        .popUp.popUp-register .popUp__form input:-ms-input-placeholder {
+          font-size: 14px; }
+        .popUp.popUp-register .popUp__form input::-ms-input-placeholder {
+          font-size: 14px; }
+        .popUp.popUp-register .popUp__form input::placeholder {
+          font-size: 14px; } }
+  .popUp.popUp-register .popUp__form-btn-submit {
+    background: #ed1c24;
+    color: white;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    -webkit-border-radius: 3.5px;
+            border-radius: 3.5px;
+    width: 140px;
+    height: 48px;
+    margin: auto; }
+    .popUp.popUp-register .popUp__form-btn-submit:hover {
+      background: #c61017; }
+    @media screen and (max-width: 800px) {
+      .popUp.popUp-register .popUp__form-btn-submit {
+        height: 35px;
+        font-size: 18px; } }
+  .popUp.popUp-register--dad-hat .popUp__wrapper {
+    max-width: 870px;
+    background: #ebebeb url("../images/new-images/dadhat.jpg") no-repeat left/cover; }
+    @media screen and (max-width: 800px) {
+      .popUp.popUp-register--dad-hat .popUp__wrapper {
+        max-width: 300px;
+        background: #ebebeb url("../images/new-images/mobile-dadhat.jpg") no-repeat top 85% right/cover;
+        padding: 0 20px 250px; } }
+  .popUp.popUp-register--dad-hat .popUp__name {
+    line-height: 45px;
+    text-transform: none;
+    text-align: center; }
+    @media screen and (max-width: 800px) {
+      .popUp.popUp-register--dad-hat .popUp__name {
+        line-height: 27px;
+        max-width: 200px;
+        margin: auto; } }
+  .popUp.popUp-register--dad-hat .popUp__img {
+    width: 45%; }
 
 .main-youtube-feed {
   margin-bottom: 20px;
