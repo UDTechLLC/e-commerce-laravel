@@ -144,31 +144,31 @@
                         <li class="training-plan-faqs-list-item">
                             <p class="item-title">
                                 <strong>
-                                    Can my meal plan work for my family?
+                                    I have tried other set programs in the past, is Never Stop Moving complicated?
                                 </strong>
                             </p>
                             <p class="item-description">
-                                Yes! We can implement food selections that take feeding your family into consideration.
+                                NO! This guide is very straightforward and very easy to understand.
                             </p>
                         </li>
                         <li class="training-plan-faqs-list-item">
                             <p class="item-title">
                                 <strong>
-                                    I can only eat snacks at my desk, can you accommodate for that?
+                                    I struggle with falling off the wagon. Am I going to have a hard time completing the program?
                                 </strong>
                             </p>
                             <p class="item-description">
-                                Yes! We personalize eating you fit your schedule.
+                                This guide is exactly what you need! In addition to the workouts, this program offers recovery tips as well as tips for staying on track when the weekends arrive.
                             </p>
                         </li>
                         <li class="training-plan-faqs-list-item">
                             <p class="item-title">
                                 <strong>
-                                    I am a very picky eater, is that a problem?
+                                    My best friend and I are training partners, will we be able to complete this program together?
                                 </strong>
                             </p>
                             <p class="item-description">
-                                No! We consider all food preferences as well as food allergies when creating your customized meal plan.
+                                YES! Actually, that is one of the greatest things about this guide. It is an investment that not only you, but your friends and family can take advantage of as well.
                             </p>
                         </li>
                     </ul>
