@@ -5315,3 +5315,9 @@ footer .second-footer {
         width: 100%;
         margin: auto;
         max-width: 394px; } }
+
+@media screen and (max-width: 801px) {
+  .zopim {
+    margin-bottom: 65px !important;
+  }
+}
