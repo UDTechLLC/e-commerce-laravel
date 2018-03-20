@@ -33,7 +33,7 @@
                                          {{--@if($products -> category)--}}
                                         {{--<p>Category {{ $product->category }}</p>--}}
                                         {{--@endif--}}
-                                        @if($product->old_amount)
+                                        @if($product->old_amount>0)
                                         <del>
                                             ${{$product->old_amount}}
                                         </del>

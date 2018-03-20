@@ -71,7 +71,7 @@ class ProductsTableSeeder extends Seeder
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
 
-            'old_amount'  => '39.99',
+//            'old_amount'  => '39.99',
             'amount'      => '39.99',
             'slug'        => 'shedfat-maxx',
             'view_name'   => 'shedfat-maxx',
