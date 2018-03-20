@@ -53,18 +53,7 @@
         </div>
 
     </main>
-    <section class="get-more">
-        <div class="wrapper">
-            <div class="flex flex-a--center flex--m-block">
-                <div class="get-more__img">
-                    <img src="{{ asset('web/images/full-product/pr-get-more.png')}}" alt="pr-get-more">
-                </div>
-                <div class="get-more__text">
-                    <img src="{{ asset('web/images/full-product/infuser_bottle_desktop.svg')}}" alt="get-more">
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >
