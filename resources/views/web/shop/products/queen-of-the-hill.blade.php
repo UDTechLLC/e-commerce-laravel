@@ -42,7 +42,7 @@
                     </div>
                     <add-to-cart
                             product-slug="{{ $product->slug }}"
-                            data-title="12 Week Custom Meal Plan"
+                            {{--data-title="12 Week Custom Meal Plan"--}}
                     >
                     </add-to-cart>
                 </div>
@@ -139,31 +139,31 @@
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                Can my meal plan work for my family?
+                                I am new to working out, is this program to advanced for me?
                             </strong>
                         </p>
                         <p class="item-description">
-                            Yes! We can implement food selections that take feeding your family into consideration.
+                            NO! This guide is a progressive program that has been designed to improve upon any fitness level.
                         </p>
                     </li>
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                I can only eat snacks at my desk, can you accommodate for that?
+                                I do not want to spend 2 hours in the gym, is this program time efficient?
                             </strong>
                         </p>
                         <p class="item-description">
-                            Yes! We personalize eating you fit your schedule.
+                            YES! With this guide, you will be able to complete comprehensive and extremely effective workouts in less than an hour.
                         </p>
                     </li>
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                I am a very picky eater, is that a problem?
+                                Is this a program that I can complete more than once?
                             </strong>
                         </p>
                         <p class="item-description">
-                            No! We consider all food preferences as well as food allergies when creating your customized meal plan.
+                            Absolutely! The guide can be completed once, twice...ten times through. Each successful completion of the program will make you better than the last.
                         </p>
                     </li>
                 </ul>
@@ -171,57 +171,57 @@
             <div class="clear"></div>
         </div>
     </div>
-    <section class="parallax-section parallax-section--queen-of-the-hill" data-speed=".7" data-size="100vw" data-parallax="scroll" data-image-src="{{ asset('web/images/full-product/parallax/maximize_bg.jpg')}}" data-relative-input="true">
+    {{--<section class="parallax-section parallax-section--queen-of-the-hill" data-speed=".7" data-size="100vw" data-parallax="scroll" data-image-src="{{ asset('web/images/full-product/parallax/maximize_bg.jpg')}}" data-relative-input="true">--}}
 
-        <div class="wrapper">
-            <h2 class="section__title section__title--white after-lines after-lines--large after-lines--red text-center section__title--what-eat">
-                MAXIMIZE YOUR RESULTS
-            </h2>
-            <p class="section__text section__text--white text-center">Combine Queen Of The Hill and our Custom Meal Plan to achieve greater results</p>
+        {{--<div class="wrapper">--}}
+            {{--<h2 class="section__title section__title--white after-lines after-lines--large after-lines--red text-center section__title--what-eat">--}}
+                {{--MAXIMIZE YOUR RESULTS--}}
+            {{--</h2>--}}
+            {{--<p class="section__text section__text--white text-center">Combine Queen Of The Hill and our Custom Meal Plan to achieve greater results</p>--}}
 
 
-            <div class="block-in-section-wrapper flex flex-j--between">
-                <div class="block-in-section  block-in-section--40 text-center">
+            {{--<div class="block-in-section-wrapper flex flex-j--between">--}}
+                {{--<div class="block-in-section  block-in-section--40 text-center">--}}
                     {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">--}}
-                    <img src="{!! $product->bandls->getFirstMediaUrl('products') !!}" />
-                </div>
-                <div class="block-in-section block-in-section--60">
-                    <h2 class="parallax-section__title  parallax-section__title--red" style="text-transform: uppercase;">
+                    {{--<img src="{!! $product->bandls->getFirstMediaUrl('products') !!}" />--}}
+                {{--</div>--}}
+                {{--<div class="block-in-section block-in-section--60">--}}
+                    {{--<h2 class="parallax-section__title  parallax-section__title--red" style="text-transform: uppercase;">--}}
                         {{--12 WEEK CUSTOM MEAL PLAN--}}
-                        {!! $product->bandls->title !!}
-                    </h2>
-                    <h4 class="parallax-section__subTitle parallax-section__subTitle--white">100% Personalized Meal Plan</h4>
-                    <p class="parallax-section__info parallax-section__info--white">
-                        Training is important but nutrition is what can make or break you! Our dedicated team knows that reaching any health and fitness goal starts with a solid nutrition plan. We do want not look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation for years to come. That is why we offer various meal plan options that can be tailored to any lifestyle.
-                    </p>
-                    <ul class="parallax-section__list parallax-section__list--white">
-                        <li>Intermittent Fasting</li>
-                        <li>Ketogenic</li>
-                        <li>Carb Cycling</li>
-                        <li>Vegan/Vegetarian</li>
-                    </ul>
-                    <div class="product-price-block">
-                        <div class="product-price has-old-price">
-                            <span class="product-amount product-amount--old product-amount--white">
-                                 <span class="currency">$</span>
-                                <span> {!! $product->bandls->old_amount !!}</span>
-                            </span>
-                            <span class="product-amount">
-                                <span class="currency">$</span>
-                                <span> {!! $product->bandls->amount !!}</span>
-                            </span>
-                        </div>
-                    </div>
+                        {{--{!! $product->bandls->title !!}--}}
+                    {{--</h2>--}}
+                    {{--<h4 class="parallax-section__subTitle parallax-section__subTitle--white">100% Personalized Meal Plan</h4>--}}
+                    {{--<p class="parallax-section__info parallax-section__info--white">--}}
+                        {{--Training is important but nutrition is what can make or break you! Our dedicated team knows that reaching any health and fitness goal starts with a solid nutrition plan. We do want not look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation for years to come. That is why we offer various meal plan options that can be tailored to any lifestyle.--}}
+                    {{--</p>--}}
+                    {{--<ul class="parallax-section__list parallax-section__list--white">--}}
+                        {{--<li>Intermittent Fasting</li>--}}
+                        {{--<li>Ketogenic</li>--}}
+                        {{--<li>Carb Cycling</li>--}}
+                        {{--<li>Vegan/Vegetarian</li>--}}
+                    {{--</ul>--}}
+                    {{--<div class="product-price-block">--}}
+                        {{--<div class="product-price has-old-price">--}}
+                            {{--<span class="product-amount product-amount--old product-amount--white">--}}
+                                 {{--<span class="currency">$</span>--}}
+                                {{--<span> {!! $product->bandls->old_amount !!}</span>--}}
+                            {{--</span>--}}
+                            {{--<span class="product-amount">--}}
+                                {{--<span class="currency">$</span>--}}
+                                {{--<span> {!! $product->bandls->amount !!}</span>--}}
+                            {{--</span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     {{--product-slug="{{ $product->bandls->slug }}"--}}
-                    <add-to-cart
-                            product-slug="{{ $product->slug }}"
-                            product-bundle-slug="{{ $product->bandls->slug }}"
-                    ></add-to-cart>
-                </div>
-            </div>
+                    {{--<add-to-cart--}}
+                            {{--product-slug="{{ $product->slug }}"--}}
+                            {{--product-bundle-slug="{{ $product->bandls->slug }}"--}}
+                    {{--></add-to-cart>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-        </div>
-    </section>
+        {{--</div>--}}
+    {{--</section>--}}
 
 
 

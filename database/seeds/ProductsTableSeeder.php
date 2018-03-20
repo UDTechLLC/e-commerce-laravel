@@ -71,7 +71,7 @@ class ProductsTableSeeder extends Seeder
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
 
-            'old_amount'  => '39.99',
+//            'old_amount'  => '39.99',
             'amount'      => '39.99',
             'slug'        => 'shedfat-maxx',
             'view_name'   => 'shedfat-maxx',
@@ -97,8 +97,12 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/desktop_1.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/legs.png';
+        $product
+            ->addMedia($pathToFile)
+            ->withCustomProperties(['external_link' => 'http://www.shedyourfat.com/legs-on-fire-downloads/'])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
@@ -176,11 +180,9 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Shedfat Infuser Bottle',
-            'description' => 'Our triple chamber shaker bottles offer a main fluid 
-            compartment with a removable blender ball, a three section supplement 
-            compartment and an additional 16oz (1 Cup) storage compartment. 
-            Whether you are in the gym or out for the day you can be sure that your nutrition will not 
-            be compromised.',
+            'description' => 'Proper hydration is extremely important. 
+            It effects energy levels, performance and overall well-being.  Add flavor, increase the nutritional
+             value and make staying hydrated and healthy a more enjoyable process.',
 
             'old_amount'  => '40.00',
             'amount'      => '25.00',
@@ -228,9 +230,9 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'   => true,
 
         ]);
-        $pathToFile = 'resources/assets/web/seed_products/14_day_detox_smoothie_cleanse.png';
+        $pathToFile = 'resources/assets/web/seed_products/detox_product.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/preview/14_day_detox_smoothie_cleanse_shop_preview.jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/detox.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/14-Day-Smoothie-Detox-Cleanse.pdf';
         $product->addMedia($pathToPdfFile)->preservingOriginal()->toMediaCollection('download');
@@ -363,9 +365,11 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'ShedFat Shaker',
-            'description' => 'Proper hydration is extremely important. It effects energy levels, performance and 
-            overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy
-             a more enjoyable process.',
+            'description' => 'Our triple chamber shaker bottles offer a main fluid 
+            compartment with a removable blender ball, a three section supplement 
+            compartment and an additional 16oz (1 Cup) storage compartment. 
+            Whether you are in the gym or out for the day you can be sure that your nutrition will not 
+            be compromised.',
 
             'old_amount'  => '24.99',
             'amount'      => '19.99',
@@ -389,7 +393,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount'  => '300.00',
             'amount'      => '200.00',
             'slug'        => 'gym-bag',
-            'view_name'   => 'shedfat-infuser-bottle',
+            'view_name'   => 'gym-bag',
             'isVirtual'   => false,
 
         ]);
@@ -415,7 +419,5 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
-
-
     }
 }

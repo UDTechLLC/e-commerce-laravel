@@ -25,6 +25,7 @@ Vue.component('uploadImage', uploadImage);
 import productsIndex from './vue/pages/products/index';
 import productsCreate from './vue/pages/products/create';
 import productsEdit from './vue/pages/products/edit';
+import productsOrder from './vue/pages/products/order';
 
 import couponsIndex from './vue/pages/coupons/index';
 import couponsCreate from './vue/pages/coupons/create';
@@ -42,6 +43,7 @@ const app = new Vue({
         productsIndex,
         productsCreate,
         productsEdit,
+        productsOrder,
         couponsIndex,
         couponsCreate,
         couponsEdit,

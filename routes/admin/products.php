@@ -38,4 +38,14 @@ Route::group([
         'as'   => '.delete',
         'uses' => 'ProductController@destroy'
     ]);
+
+    Route::get('/order', [
+        'as' => '.order',
+        'uses' => 'ProductController@order'
+    ]);
+
+    Route::post('/order', [
+        'as' => '.orderSave',
+        'uses' => 'ProductController@orderSave'
+    ]);
 });

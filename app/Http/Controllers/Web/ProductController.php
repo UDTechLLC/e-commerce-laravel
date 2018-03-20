@@ -17,9 +17,10 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        $product = Product::where('published', true)->get();
+        $product = Product::where('published', true)->orderBy('position')->get();
+
         return view("web.shop.products.index", [
-            'products'=>$product
+            'products' => $product,
         ]);
     }
 
@@ -36,7 +37,8 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -48,11 +50,12 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  Product $product
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
     {
-        if(!$product->published) {
+        if (!$product->published) {
             return abort(404);
         }
 //        return view('web.shop.products.12week-custom-training-plan', compact('product'));
@@ -62,26 +65,27 @@ class ProductController extends Controller
 //        return view('web.shop.products.what-to-eat-in-the-streets',compact('product'));
 //        return view('web.shop.products.14-day-detox-guide',compact('product'));
 //        return view('web.shop.products.queen-of-the-hill', compact('product'));
-        if($product->view_name)
-        {
-        return view('web.shop.products.'.$product->view_name.'',compact('product'));
+        if ($product->view_name) {
+            return view('web.shop.products.' . $product->view_name . '', compact('product'));
+        } else {
+            return view('web.shop.products.show', compact('product'));
         }
-        else
-        return view('web.shop.products.show', compact('product'));
     }
 
     public function challenge(): View
     {
-        $product = Product::where('category','Limited-Time Offer')->get();
+        $product = Product::where('category', 'Limited-Time Offer')->get();
+
         return view("web.shop.challenges.spring", [
-            'products'=>$product
+            'products' => $product,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -92,8 +96,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -104,7 +109,8 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

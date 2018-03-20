@@ -29,6 +29,7 @@ class ProductController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function getProducts(Request $request)
@@ -36,9 +37,9 @@ class ProductController extends Controller
         $sortField = $request->get('sortField') ?? 'id';
         $sortType = $request->get('sortType') ?? 'asc';
 
-        $users = Product::orderBy($sortField, $sortType)->paginate(20);
+        $products = Product::orderBy($sortField, $sortType)->paginate(20);
 
-        return ProductsResource::collection($users);
+        return ProductsResource::collection($products);
     }
 
     /**
@@ -55,6 +56,7 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  CreateProductRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CreateProductRequest $request)
@@ -66,7 +68,7 @@ class ProductController extends Controller
             'view_name'   => $request->get('view_name'),
             'old_amount'  => $request->get('oldPrice') ?? 0,
             'amount'      => $request->get('price'),
-            'published'   => $request->get('published')
+            'published'   => $request->get('published'),
         ]);
 
         $product->saveImageBase64($request->input('image'), 'products');
@@ -79,6 +81,7 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -90,6 +93,7 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  Product $product
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -104,7 +108,7 @@ class ProductController extends Controller
             'published'    => $product->published,
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
-            'slug'         => $product->slug
+            'slug'         => $product->slug,
         ];
 
         return view('admin.products.edit', ['product' => $data]);
@@ -115,6 +119,7 @@ class ProductController extends Controller
      *
      * @param UpdateProductRequest $request
      * @param Product $product
+     *
      * @return Product
      */
     public function update(UpdateProductRequest $request, Product $product)
@@ -127,7 +132,7 @@ class ProductController extends Controller
             'old_amount'  => $request->get('oldPrice') ?? "0",
             'amount'      => $request->get('price'),
             'slug'        => $request->get('slug'),
-            'published'   => $request->get('published')
+            'published'   => $request->get('published'),
         ]);
 
         if ($request->has('image') && $this->checkImage($request->get('image'))) {
@@ -142,6 +147,7 @@ class ProductController extends Controller
 
     /**
      * @param $value
+     *
      * @return bool
      */
     private function checkImage($value): bool
@@ -153,10 +159,37 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Product $product
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
     {
         $product->delete();
+    }
+
+    /**
+     * @return View
+     */
+    public function order()
+    {
+        $products = Product::where('published', true)->orderBy('position')->get();
+
+        return view('admin.products.order', [
+            'products' => ProductsResource::collection($products),
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function orderSave(Request $request)
+    {
+        $i = 1;
+        foreach ($request->all() as $item) {
+            Product::find($item['id'])->update([
+                'position' => $i,
+            ]);
+            $i++;
+        }
     }
 }
