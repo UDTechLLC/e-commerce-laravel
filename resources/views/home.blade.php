@@ -15,11 +15,11 @@
             <div class="secondary-products">
                 <div class="tabs-flex">
                     <a class="top" href="{{url('product/queen-of-the-hill')}}">
-                        <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/desktop_2.jpg')}}" />
+                        <img class="desktop-image" src="{{ asset('web/images/new-images/queen_of_the_hill_banner.jpg')}}" />
                         <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/mobile_2.jpg')}}">
                     </a>
                     <a class="bottom" href="{{url('product/shedfat-maxx')}}">
-                        <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/desktop_3.jpg')}}" />
+                        <img class="desktop-image" src="{{ asset('web/images/new-images/shedfat_max.jpg')}}" />
                         <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/mobile_3.jpg')}}">
                     </a>
                 </div>
