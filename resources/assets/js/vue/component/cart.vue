@@ -1,6 +1,6 @@
 <template>
     <div class="header-cart-wrapper">
-        <a href="#" class="header-cart"  data-toggle="modal" data-target="#sideCartModal">
+        <a href="#" class="header-cart">
             <!-- <span class="header-cart__text">Cart</span>-->
                         <span class="header-cart__text">
                                 <span class="flex">
