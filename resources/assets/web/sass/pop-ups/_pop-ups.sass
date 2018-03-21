@@ -192,14 +192,13 @@
         opacity: .6
         &:hover
           opacity: 1
-
       &__wrapper
         background: url("../images/new-images/bg-popUp-challenge.jpg") no-repeat center / cover
         @media screen and (max-width: $breakpoint-mobile)
-          background: url("../images/new-images/bg-popUp-challenge-mobile.jpg") no-repeat top / cover
+          background: #ebebeb url("../images/new-images/bg-popUp-challenge-mobile.jpg") no-repeat top 63% right / cover
           max-width: 300px
-          overflow-x: hidden
-          padding: 0px 20px 300px
+          overflow: hidden
+          padding: 0px 20px 200px
       &__info
         max-width: 450px
       &__name
@@ -209,9 +208,10 @@
         @media screen and (max-width: 830px)
           font-size: 32px
         @media screen and (max-width: $breakpoint-mobile)
-          font-size: 26px
+          font-size: 18px
           line-height: 32px
       &__description
+        margin-top: 0
         @media screen and (min-width: $breakpoint-mobile + 1)
           margin-top: 30px
           margin-bottom: 30px
@@ -233,6 +233,12 @@
             font-size: 15px
             color: #929292
             font-family: $Montserrat
+          @media screen and (max-width: $breakpoint-mobile)
+            height: 35px
+            font-size: 14px
+            margin: 10px 0
+            &::placeholder
+              font-size: 14px
       &__form-btn-submit
         background: $red
         color: white
@@ -246,3 +252,93 @@
         margin: auto
         &:hover
           background: darken($red,10)
+        @media screen and (max-width: $breakpoint-mobile)
+          height: 35px
+          font-size: 18px
+  &.popUp-register
+    .popUp
+      &__close
+        color: #656565
+        opacity: .6
+        &:hover
+          opacity: 1
+      &__wrapper
+        @media screen and (max-width: $breakpoint-mobile)
+          max-width: 300px
+          overflow: hidden
+          padding: 0 20px 200px
+      &__info
+        max-width: 450px
+      &__name
+        font-size: 37px
+        color: $red
+        text-transform: uppercase
+        @media screen and (max-width: 830px)
+          font-size: 32px
+        @media screen and (max-width: $breakpoint-mobile)
+          font-size: 18px
+          line-height: 32px
+      &__description
+        margin-top: 0
+        @media screen and (min-width: $breakpoint-mobile + 1)
+          margin-top: 30px
+          margin-bottom: 30px
+      &__form
+        input
+          display: block
+          width: 100%
+          border-radius: 3.5px
+          height: 48px
+          border: #e1e1e1
+          font-size: 15px
+          color: #929292
+          font-family: $Montserrat
+          margin: 20px 0
+          outline: 0
+          box-sizing: border-box
+          padding: 10px
+          &::placeholder
+            font-size: 15px
+            color: #929292
+            font-family: $Montserrat
+          @media screen and (max-width: $breakpoint-mobile)
+            height: 35px
+            font-size: 14px
+            margin: 10px 0
+            &::placeholder
+              font-size: 14px
+      &__form-btn-submit
+        background: $red
+        color: white
+        text-transform: uppercase
+        font-size: 23px
+        font-family: $Montserrat
+        font-weight: bold
+        border-radius: 3.5px
+        width: 140px
+        height: 48px
+        margin: auto
+        &:hover
+          background: darken($red,10)
+        @media screen and (max-width: $breakpoint-mobile)
+          height: 35px
+          font-size: 18px
+    &--dad-hat
+      .popUp__wrapper
+        max-width: 870px
+        background: #ebebeb url("../images/new-images/dadhat.jpg") no-repeat left / cover
+        @media screen and (max-width: $breakpoint-mobile)
+          max-width: 300px
+          background: #ebebeb url("../images/new-images/mobile-dadhat.jpg") no-repeat top 85% right / cover
+          padding: 0 20px 250px
+
+      .popUp__name
+        line-height: 45px
+        text-transform: none
+        text-align: center
+        @media screen and (max-width: $breakpoint-mobile)
+          line-height: 27px
+          max-width: 200px
+          margin: auto
+      .popUp__img
+        width: 45%

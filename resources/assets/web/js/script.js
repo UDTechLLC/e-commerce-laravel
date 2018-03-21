@@ -320,6 +320,7 @@
         CallPopUp('12 Week Custom Training Plan');
         CallPopUp('12 Week Custom Meal Plan');
         CallPopUp('SPRING CHALLENGE');
+        CallPopUp('Shedfat Dad Hat');
 
         cart.btnBuy.click(function () {
             if(!$(this).data('title')) cart.fnCall();
