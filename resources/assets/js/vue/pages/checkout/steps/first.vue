@@ -241,8 +241,8 @@
                 street: "",
                 apartment: "",
                 country: {
-                    code: (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "",
-                    name: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
+                    code: "",
+                    name: ""
                 },
                 state: "",
                 city: "",
@@ -269,6 +269,12 @@
             ]),
             googleCountry() {
                 return this.billingInfo.country.code;
+            }
+        },
+        created() {
+            if (this.isShipping) {
+                this.billingInfo.country.name = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
+                this.billingInfo.code = (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "";
             }
         },
         methods: {
