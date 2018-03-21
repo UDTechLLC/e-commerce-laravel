@@ -35,25 +35,65 @@
                 <!--</div>-->
             </div>
         </div>
+
+        <!--  <keep-alive>
+              <component :is="currentComponent"
+                         :userAuth="userAuth"
+                         :orderId="orderId"
+                         :billing="billing"
+                         :countries="countries"
+                         :states="states"
+                         :shipping="shipping"
+                         :isSubscribe="isSubscribe"
+                         :coupon="coupon"
+                         :token="token"
+                         @updateCountry="getCountries"
+                         @next="nextStep"
+                         @back="backStep"
+                         @editBilling="editBilling"
+              ></component>
+
+          </keep-alive>-->
         <transition name="component-fade" mode="out-in">
-            <keep-alive>
-                <component :is="currentComponent"
-                           :userAuth="userAuth"
-                           :orderId="orderId"
-                           :billing="billing"
-                           :countries="countries"
-                           :states="states"
-                           :shipping="shipping"
-                           :isSubscribe="isSubscribe"
-                           :coupon="coupon"
-                           :token="token"
-                           @updateCountry="getCountries"
-                           @next="nextStep"
-                           @back="backStep"
-                           @editBilling="editBilling"
-                ></component>
-            </keep-alive>
+            <first v-show="currentComponent == 'first'"
+                   :userAuth="userAuth"
+                   :countries="countries"
+                   :shipping="shipping"
+                   :isSubscribe="isSubscribe"
+                   :coupon="coupon"
+                   @updateCountry="getCountries"
+                   @next="nextStep"
+            ></first>
         </transition>
+
+        <transition name="component-fade" mode="out-in">
+            <second v-show="currentComponent == 'second'"
+                   :userAuth="userAuth"
+                   :orderId="orderId"
+                   :billing="billing"
+                   :countries="countries"
+                   :shipping="shipping"
+                   :coupon="coupon"
+                   @updateCountry="getCountries"
+                   @next="nextStep"
+                   @back="backStep"
+                   @editBilling="editBilling"
+            ></second>
+        </transition>
+
+        <transition name="component-fade" mode="out-in">
+            <third v-show="currentComponent == 'third'"
+                   :orderId="orderId"
+                   :billing="billing"
+                   :shipping="shipping"
+                   :coupon="coupon"
+                   :token="token"
+                   @next="nextStep"
+                   @back="backStep"
+                   @editBilling="editBilling"
+            ></third>
+        </transition>
+
     </div>
 </template>
 <script type="text/babel">
@@ -68,7 +108,7 @@
         data() {
             return {
                 userAuth: false,
-                orderId: "",
+                orderId: 0,
                 progress: 1,
                 countries: [],
                 states: [],
