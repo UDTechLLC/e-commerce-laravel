@@ -245,9 +245,11 @@
                 btnClose: $('.close-cart'),
                 bg: $('.sideCartModal__bg'),
                 fnCall: function () {
-                    cart.wrap.addClass('active');
-                    cart.bg.fadeIn();
-                    body.css('overflow','hidden');
+                    setTimeout(function () {
+                        cart.wrap.addClass('active');
+                        cart.bg.fadeIn();
+                        body.css('overflow','hidden');
+                    },400);
                 },
                 fnClose: function () {
                     cart.wrap.removeClass('active');
@@ -256,6 +258,7 @@
                 }
 
             };
+
         $('.header-cart').click(function () {
             cart.fnCall();
         });
