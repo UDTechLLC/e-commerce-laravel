@@ -80,7 +80,7 @@
                                             />
                                             <vue-google-autocomplete
                                                     ref="street"
-                                                    id="map"
+                                                    id="map2"
                                                     :country="googleCountry"
                                                     type="text"
                                                     classname="form-field"
@@ -136,15 +136,7 @@
                                                        v-model="shippingInfo.state"
                                                 />
                                             </div>
-                                            <!--<div v-else>
-                                                <select id="bdState" class="form-field" name="bd_state"
-                                                        v-model="shippingInfo.state"
-                                                        v-validate data-vv-rules="required">
-                                                    <option value="">Select a option...</option>
-                                                    <option v-for="state in states" :value="state">{{ state }}
-                                                    </option>
-                                                </select>
-                                            </div>-->
+
                                             <span class="error-massage"
                                                   style="display: none">Please enter your state.</span>
                                         </div>
