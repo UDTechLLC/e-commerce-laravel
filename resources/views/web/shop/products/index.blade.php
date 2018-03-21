@@ -67,13 +67,12 @@
                             <img src="{{ asset('web/images/icon_Shedfat Dad Hat Sales.jpg')}}" />
                         </a>
                     </div>
-                    <div class="product-details" style="padding-top: 10px">
+                    <div class="product-details" style="padding-top: 38px">
                         <h3 class="product-title">
                             <a href="#">
                                 Shedfat Dad Hat
                             </a>
                         </h3>
-                        <p class="product-category-label"></p>
                     </div>
                     <div class="product-price-block">
                         <div class="product-price">
@@ -97,16 +96,13 @@
                             <img src="{{ asset('web/images/Spring_Challenge_icon.png') }}" />
                         </a>
                     </div>
-                    <div class="product-details" style="padding-top: 10px;">
-                        <h2 class="product-title">
+                    <div class="product-details" style="padding-top: 20px">
+                        <h3 class="product-title">
                             <a  href="#scRegistration">
                             {{--<a href="{{url('challenge')}}">--}}
                                 Spring Challenge </a>
-                        </h2>
+                        </h3>
                     </div>
-
-                    <div class="product-button-block">
-                        <div class="add-to-cart-wrapper">
                             <div class="product-button-block">
                                 <div class="add-to-cart-wrapper">
                                     <a class="add-to-cart-btn"  href="#scRegistration" data-title='SPRING CHALLENGE'>
@@ -115,8 +111,6 @@
                                     {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}" data-title='SPRING CHALLENGE'>
                                         Register
                                     </a>--}}
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
