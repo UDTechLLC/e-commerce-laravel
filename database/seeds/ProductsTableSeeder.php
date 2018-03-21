@@ -413,6 +413,7 @@ class ProductsTableSeeder extends Seeder
             'slug'        => 'shedfat-dad-hat',
             'view_name'   => 'shedfat-dad-hat',
             'isVirtual'   => false,
+            'published'   => false
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/cap.png';
