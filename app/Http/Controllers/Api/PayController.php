@@ -160,8 +160,9 @@ class PayController extends Controller
         /** @var User $user */
         $user = \Auth::user() ?? $order->user;
 
-        if ($user) {
+        if ($user && $order->hasSubscriptionProduct()) {
             $subscriptionProduct = $order->getSubscriptionProduct();
+
             $plan = $subscriptionProduct
                 ? $subscriptionProduct->plan
                 : null;
@@ -177,21 +178,13 @@ class PayController extends Controller
             if (0 !== $amount) {
                 $result = $user->charge($amount);
             }
+        } else {
+            $service = new BraintreeService();
 
-            if ($result->success) {
-                $this->clearing($result, $order);
+            $service->setAuthToken($token);
 
-                return view('web.checkout.checkout_thank_you', ['order' => $order]);
-            } else {
-                return response()->json(['error' => 'Error payment']);
-            }
+            $result = $service->pay($amount);
         }
-
-        $service = new BraintreeService();
-
-        $service->setAuthToken($token);
-
-        $result = $service->pay($amount);
 
         if ($result->success) {
             $this->clearing($result, $order);

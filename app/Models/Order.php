@@ -207,6 +207,21 @@ class Order extends EloquentModel
         }
     }
 
+    /**
+     * @return bool
+     */
+    public function hasSubscriptionProduct()
+    {
+        /** @var Product $product */
+        foreach ($this->products as $product) {
+            if ($product->hasPlan()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function getPaymentMethodSlugAttribute()
     {
         $map = [
