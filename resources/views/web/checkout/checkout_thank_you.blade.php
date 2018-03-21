@@ -61,24 +61,26 @@
                                     <dd>{{ $order->billing->phone }}</dd>
                                 </dl>
                             </div>
-                            <div class="cd-billing-details">
-                                <h3>Billing address</h3>
-                                <address>
-                                    <p>
-                                        {{ $order->billing->apartment }}
-                                        <br>
-                                        {{ $order->billing->street }}
-                                        <br>
-                                        {{ $order->billing->city }}
-                                        <br>
-                                        {{ $order->billing->state }}
-                                        <br>
-                                        {{ $order->billing->postcode }}
-                                        <br>
-                                        {{ $order->billing->country }}
-                                    </p>
-                                </address>
-                            </div>
+                            @if($order->billing->country)
+                                <div class="cd-billing-details">
+                                    <h3>Billing address</h3>
+                                    <address>
+                                        <p>
+                                            {{ $order->billing->apartment }}
+                                            <br>
+                                            {{ $order->billing->street }}
+                                            <br>
+                                            {{ $order->billing->city }}
+                                            <br>
+                                            {{ $order->billing->state }}
+                                            <br>
+                                            {{ $order->billing->postcode }}
+                                            <br>
+                                            {{ $order->billing->country }}
+                                        </p>
+                                    </address>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
