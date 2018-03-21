@@ -256,6 +256,9 @@
                 }
 
             };
+        $('.header-cart').click(function () {
+            cart.fnCall();
+        });
 
         var CallPopUp = function (name) {
 

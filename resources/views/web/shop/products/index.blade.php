@@ -67,7 +67,7 @@
                             <img src="{{ asset('web/images/icon_Shedfat Dad Hat Sales.jpg')}}" />
                         </a>
                     </div>
-                    <div class="product-details" style="padding-top: 38px">
+                    <div class="product-details" style="padding-top: 28px">
                         <h3 class="product-title">
                             <a href="#">
                                 Shedfat Dad Hat
@@ -96,7 +96,7 @@
                             <img src="{{ asset('web/images/Spring_Challenge_icon.png') }}" />
                         </a>
                     </div>
-                    <div class="product-details" style="padding-top: 20px">
+                    <div class="product-details" style="padding-top: 10px;">
                         <h3 class="product-title">
                             <a  href="#scRegistration">
                             {{--<a href="{{url('challenge')}}">--}}
