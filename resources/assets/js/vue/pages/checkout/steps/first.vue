@@ -192,6 +192,11 @@
                                                    v-model="password" v-validate data-vv-rules="required"/>
                                             <span class="error-massage"
                                                   style="display: none">Please enter your password.</span>
+                                            <div v-if="registerErrorShow" class="registerError">
+                                                <span class="error-massage" v-for="error in registerError">
+                                                    {{ error }}
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -233,6 +238,8 @@
             createUser: false,
             authError: false,
             password: "",
+            registerError: [],
+            registerErrorShow: true,
             billingInfo: {
                 firstName: "",
                 lastName: "",
@@ -326,7 +333,12 @@
                                     this.$emit('next', data);
                                     return;
                                 },
-                                error => alert(error.response.data.error.email)
+                                error => {
+                                    for (let key in error.response.data.error){
+                                        this.registerError.push(...error.response.data.error[key]);
+                                    }
+                                    this.registerErrorShow = true;
+                                }
                         );
                     }
                 });
@@ -335,7 +347,13 @@
     })
 
 </script>
-<style scoped>
+<style scoped lang="scss">
+    .registerError {
+        color: #CE4747;
+        span {
+            display: block;
+        }
+    }
     .auth-error {
         text-align: center;
         background: #FFE8E8;
