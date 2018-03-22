@@ -20,11 +20,11 @@ require 'web/subscribe.php';
 Auth::routes();
 
 Route::group([
-    'as' => 'auth',
+    'as'     => 'auth',
     'prefix' => 'api/auth',
 ], function () {
     Route::post('login', [
-        'as' => '.login',
+        'as'   => '.login',
         'uses' => 'Api\Auth\LoginController@login',
     ]);
 });
