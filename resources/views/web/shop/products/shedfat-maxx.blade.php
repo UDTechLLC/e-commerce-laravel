@@ -190,12 +190,12 @@
                                 <div class="custom-video-block__inner">
 
                                     <div class="custom-video-block__wrapper-click">
-                                        <img src="{{ asset('web/images/full-product/shedfat-maxx/672144082_640.jpg')}}" alt="mainImage" class="custom-video-block__coverImg">
+                                        <img src="{{ asset('web/images/new-images/cap.png')}}" alt="mainImage" class="custom-video-block__coverImg">
                                         <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt="" class="custom-video-block__playImg">
                                     </div>
 
 
-                                    <iframe src="https://player.vimeo.com/video/247015617" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <iframe src="https://player.vimeo.com/video/260858063" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                                 </div><!--custom-video-block__inner-->
 

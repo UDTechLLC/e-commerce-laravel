@@ -61,7 +61,7 @@
                                     </a>
                                 </div>
                                 <div class="cart-button keep-shoping-button-wrapper">
-                                    <a href="#" data-dismiss="modal" aria-label="Close" class="keep-shoping-button">
+                                    <a href="/shop" class="keep-shoping-button">
                                         Keep Shoping
                                     </a>
                                 </div>

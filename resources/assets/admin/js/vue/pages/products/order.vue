@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Order</h1>
+        <h1>Products order on the Shop Page</h1>
         <draggable :list="products" class="dragArea">
             <div v-for="product in products">
                 <div class="col-md-55">

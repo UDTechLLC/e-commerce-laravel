@@ -13,15 +13,15 @@
 
                         <div class="billing-details-info-wrapper">
                             <div class="contacts-block-wrapper">
-                                <div class="contacts-block">
+                                <div class="contacts-block display-block">
                                     <h4 class="contacts-block-title">
                                         Contacts
                                     </h4>
-                                    <div class="form-field-wrapper" :class="{'error': errors.has('bg_first_name') }">
-                                        <label for="bdFirstName">
+                                    <div class="form-field-wrapper" :class="{'error': errors.has('b_first_name') }">
+                                        <label for="bFirstName">
                                             First name
                                         </label>
-                                        <input id="bdFirstName" class="form-field" name="bg_first_name" type="text"
+                                        <input id="bFirstName" class="form-field" name="b_first_name" type="text"
                                                v-validate data-vv-rules="required" v-model="billingInfo.firstName"
                                         />
                                         <span class="error-massage"
@@ -241,8 +241,8 @@
                 street: "",
                 apartment: "",
                 country: {
-                    code: (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "",
-                    name: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
+                    code: "",
+                    name: ""
                 },
                 state: "",
                 city: "",
@@ -269,6 +269,12 @@
             ]),
             googleCountry() {
                 return this.billingInfo.country.code;
+            }
+        },
+        updated() {
+            if (this.isShipping) {
+                this.billingInfo.country.name = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
+                this.billingInfo.country.code = (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "";
             }
         },
         methods: {
@@ -335,5 +341,8 @@
         background: #FFE8E8;
         color: #CE4747;
         padding: 15px;
+    }
+    .display-block {
+        display: flex!important;
     }
 </style>

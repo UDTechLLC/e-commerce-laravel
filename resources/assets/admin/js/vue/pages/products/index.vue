@@ -13,6 +13,11 @@
                                 <i class="fa fa-plus"></i> Add product
                             </button>
                         </a>
+                        <a href="/admin/products/order">
+                            <button class="btn btn-sm btn-primary btn-block">
+                                <i class="fa fa-sort-amount-asc"></i> Products placement
+                            </button>
+                        </a>
                     </div>
                     <div class="clearfix"></div>
                 </div>

@@ -63,21 +63,46 @@
             @endforeach
                 <div class="shop-item">
                     <div class="image-wrapper">
+                        <a href="#">
+                            <img src="{{ asset('web/images/icon_Shedfat Dad Hat Sales.jpg')}}" />
+                        </a>
+                    </div>
+                    <div class="product-details" style="padding-top: 28px">
+                        <h3 class="product-title">
+                            <a href="#">
+                                Shedfat Dad Hat
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="product-price-block">
+                        <div class="product-price">
+                                        <span class="product-amount">
+
+                                        </span>
+                        </div>
+                    </div>
+                    <div class="product-button-block">
+                        <div class="add-to-cart-wrapper">
+                            <a class="add-to-cart-btn" href="javascript:void(0)" data-title="Shedfat Dad Hat">
+                                Register
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <div class="image-wrapper">
                         {{--<a href="{{url('challenge')}}">--}}
                         <a href="#scRegistration">
                             <img src="{{ asset('web/images/Spring_Challenge_icon.png') }}" />
                         </a>
                     </div>
                     <div class="product-details" style="padding-top: 10px;">
-                        <h2 class="product-title">
+                        <h3 class="product-title">
                             <a  href="#scRegistration">
                             {{--<a href="{{url('challenge')}}">--}}
                                 Spring Challenge </a>
-                        </h2>
+                        </h3>
                     </div>
-
-                    <div class="product-button-block">
-                        <div class="add-to-cart-wrapper">
                             <div class="product-button-block">
                                 <div class="add-to-cart-wrapper">
                                     <a class="add-to-cart-btn"  href="#scRegistration" data-title='SPRING CHALLENGE'>
@@ -86,8 +111,6 @@
                                     {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}" data-title='SPRING CHALLENGE'>
                                         Register
                                     </a>--}}
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -173,6 +196,30 @@
                         {{ csrf_field() }}
                         <input type="text" name="name" placeholder="Your First Name" required>
                         <input type="email" name="email" placeholder="Your Email Address" required>
+                        <button class="btn popUp__form-btn-submit">submit</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popUp popUp-register popUp-register--dad-hat" data-modal="Shedfat Dad Hat"><!-- popUp--open -->
+        <!--   <input type="hidden" class="add-to-cart-btn callPopUp" data-title='Shedfat Dad Hat'>-->
+        <div class="popUp__wrapper">
+            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+
+            <div class="popUp__img-info">
+                <div class="popUp__img">
+
+                </div>
+                <div class="popUp__info">
+                    <div class="popUp__name">Be the first to know
+                        when its Available </div>
+                    <form action="{{ route('subscribe.challenge') }}" method="POST" class="popUp__form">
+                        {{ csrf_field() }}
+                        <input type="text" name="name" placeholder="Your First Name" required>
+                        <input type="email" name="email" placeholder="Your Email Adress" required>
                         <button class="btn popUp__form-btn-submit">submit</button>
                     </form>
 
