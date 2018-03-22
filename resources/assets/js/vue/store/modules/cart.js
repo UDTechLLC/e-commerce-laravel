@@ -6,6 +6,7 @@ const state = {
   subTotal: 0,
   discount: 0,
   isShipping: false,
+  isSubscribe: false,
   cartId: 0
 };
 
@@ -25,6 +26,9 @@ const getters = {
   },
   isShipping: state => {
     return state.isShipping
+  },
+  isSubscribe: state => {
+    return state.isSubscribe
   },
   cartId: state => {
     return state.cartId
@@ -79,6 +83,7 @@ const mutations = {
     state.subTotal = responseApi.data.data.sum.with_discount_sum;
     state.discount = responseApi.data.data.sum.discount_sum;
     state.isShipping = responseApi.data.data.isShipping;
+    state.isSubscribe = responseApi.data.data.isSubscribe;
     state.cartId = responseApi.data.data.id;
   }
 };

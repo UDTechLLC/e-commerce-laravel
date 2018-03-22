@@ -6,19 +6,23 @@
  * Time: 11:11
  */
 
-Route::get('about-us', function () {
-    return view('web.page.about_us');
-});
-Route::get('return-policy', function () {
-    return view('web.page.return_policy');
-});
-Route::get('privacy-policy', function () {
-    return view('web.page.privacy_policy');
-});
-Route::get('weight-loss-disclaimer', function () {
-    return view('web.page.weight_loss_disclaimer');
-});
-Route::get('faq', function () {
-    return view('web.page.faq');
-});
-
+Route::get('about-us', [
+    'as'   => 'about-us',
+    'uses' => 'Web\StaticController@aboutUs',
+]);
+Route::get('return-policy', [
+    'as'   => 'return-policy',
+    'uses' => 'Web\StaticController@returnPolicy',
+]);
+Route::get('privacy-policy', [
+    'as'   => 'privacy-policy',
+    'uses' => 'Web\StaticController@privacyPolicy',
+]);
+Route::get('weight-loss-disclaimer', [
+    'as'   => 'weight-loss-disclaimer',
+    'uses' => 'Web\StaticController@weightLossDisclaimer',
+]);
+Route::get('faq', [
+    'as'   => 'faq',
+    'uses' => 'Web\StaticController@faq',
+]);

@@ -11,20 +11,20 @@
 |
 */
 
-require_once 'web/shop.php';
-require_once 'admin/admin.php';
-require_once 'web/paypal.php';
-require_once 'web/page.php';
-require_once 'web/subscribe.php';
+require 'web/shop.php';
+require 'admin/admin.php';
+require 'web/paypal.php';
+require 'web/page.php';
+require 'web/subscribe.php';
 
 Auth::routes();
 
 Route::group([
-    'as' => 'auth',
+    'as'     => 'auth',
     'prefix' => 'api/auth',
 ], function () {
     Route::post('login', [
-        'as' => '.login',
+        'as'   => '.login',
         'uses' => 'Api\Auth\LoginController@login',
     ]);
 });
