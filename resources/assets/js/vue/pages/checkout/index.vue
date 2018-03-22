@@ -68,16 +68,16 @@
 
         <transition name="component-fade" mode="out-in">
             <second v-show="currentComponent == 'second'"
-                   :userAuth="userAuth"
-                   :orderId="orderId"
-                   :billing="billing"
-                   :countries="countries"
-                   :shipping="shipping"
-                   :coupon="coupon"
-                   @updateCountry="getCountries"
-                   @next="nextStep"
-                   @back="backStep"
-                   @editBilling="editBilling"
+                    :userAuth="userAuth"
+                    :orderId="orderId"
+                    :billing="billing"
+                    :countries="countries"
+                    :shipping="shipping"
+                    :coupon="coupon"
+                    @updateCountry="getCountries"
+                    @next="nextStep"
+                    @back="backStep"
+                    @editBilling="editBilling"
             ></second>
         </transition>
 
@@ -115,9 +115,8 @@
                 shipping: 0,
                 coupon: "",
                 currentComponent: "first",
-                billing: {},
-                isSubscribe: false
-            }
+                billing: {}
+        }
         },
         props: {
             userAuthProps: String,
@@ -132,7 +131,8 @@
         computed: {
             ...mapGetters([
                 'isShipping',
-                'cartId'
+                'cartId',
+                'isSubscribe'
             ])
         },
 
