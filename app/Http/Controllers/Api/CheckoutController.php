@@ -30,12 +30,14 @@ class CheckoutController extends Controller
     {
         /** @var User $user */
         $user = \Auth::user();
+        
         $shippingCost = 0;
 
         if (null === $user && null !== $request->get('password')) {
             $validator = $this->validator([
                 'email'    => $request->get('email'),
                 'password' => $request->get('password'),
+                'phone'    => $request->get('phone'),
             ]);
 
             if ($validator->fails()) {
@@ -221,6 +223,7 @@ class CheckoutController extends Controller
         return \Validator::make($data, [
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
+            'phone'    => 'required|unique:users',
         ]);
     }
 }

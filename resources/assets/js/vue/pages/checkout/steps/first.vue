@@ -192,11 +192,6 @@
                                                    v-model="password" v-validate data-vv-rules="required"/>
                                             <span class="error-massage"
                                                   style="display: none">Please enter your password.</span>
-                                            <div v-if="registerErrorShow" class="registerError">
-                                                <span class="error-massage" v-for="error in registerError">
-                                                    {{ error }}
-                                                </span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -210,6 +205,11 @@
                         </div>
                         <div class="auth-error" v-if="authError">
                             You need to login or register
+                        </div>
+                        <div class="auth-error" v-if="registerErrorShow">
+                            <span class="error-massage" v-for="error in registerError">
+                                {{ error }}
+                            </span>
                         </div>
                         <div class="buttons-area">
                             <a href="#" class="continue-checkout" @click.prevent="next">
@@ -239,7 +239,7 @@
             authError: false,
             password: "",
             registerError: [],
-            registerErrorShow: true,
+            registerErrorShow: false,
             billingInfo: {
                 firstName: "",
                 lastName: "",
@@ -308,6 +308,8 @@
                 })
             },
             next() {
+                this.registerErrorShow = false;
+                this.registerError = [];
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         this.authError = false;
@@ -315,8 +317,8 @@
                             this.authError = true;
                             return false;
                         }
-                        let url = `/api/checkout/billing/${this.cartId}`;
-                        if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
+                        let url = `/checkout/billing/${this.cartId}`;
+                        if (this.billingId != "") url = `/checkout/billing/${this.cartId}/${this.billingId}`;
                         let body = {
                             ...this.billingInfo,
                             password: this.password
@@ -334,7 +336,7 @@
                                     return;
                                 },
                                 error => {
-                                    for (let key in error.response.data.error){
+                                    for (let key in error.response.data.error) {
                                         this.registerError.push(...error.response.data.error[key]);
                                     }
                                     this.registerErrorShow = true;
@@ -348,19 +350,20 @@
 
 </script>
 <style scoped lang="scss">
-    .registerError {
-        color: #CE4747;
-        span {
-            display: block;
-        }
-    }
+
     .auth-error {
         text-align: center;
         background: #FFE8E8;
         color: #CE4747;
         padding: 15px;
+
+    span {
+        display: block;
     }
+
+    }
+
     .display-block {
-        display: flex!important;
+        display: flex !important;
     }
 </style>
