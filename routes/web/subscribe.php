@@ -3,15 +3,15 @@
 declare(strict_types = 1);
 
 Route::group([
-    'as' => 'subscribe',
+    'as'     => 'subscribe',
     'prefix' => 'subscribe',
 ], function () {
     Route::post('footer', [
-        'as' => '.footer',
+        'as'   => '.footer',
         'uses' => 'Web\SubscribeController@addToFooterForm',
     ]);
     Route::post('challenge', [
-        'as' => '.challenge',
+        'as'   => '.challenge',
         'uses' => 'Web\SubscribeController@addToChallengeList',
     ]);
 });

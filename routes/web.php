@@ -10,9 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/checkout', function () {
-    return view('checkout_thank_you');
-});
 
 require_once 'web/shop.php';
 require_once 'admin/admin.php';
@@ -30,10 +27,6 @@ Route::group([
         'as' => '.login',
         'uses' => 'Api\Auth\LoginController@login',
     ]);
-});
-
-Route::get('/test', function () {
-    return view('test');
 });
 
 Route::group([
