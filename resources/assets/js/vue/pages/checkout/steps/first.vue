@@ -206,6 +206,11 @@
                         <div class="auth-error" v-if="authError">
                             You need to login or register
                         </div>
+                        <div class="auth-error" v-if="registerErrorShow">
+                            <span class="error-massage" v-for="error in registerError">
+                                {{ error }}
+                            </span>
+                        </div>
                         <div class="buttons-area">
                             <a href="#" class="continue-checkout" @click.prevent="next">
                                 Continue
@@ -233,6 +238,8 @@
             createUser: false,
             authError: false,
             password: "",
+            registerError: [],
+            registerErrorShow: false,
             billingInfo: {
                 firstName: "",
                 lastName: "",
@@ -301,6 +308,8 @@
                 })
             },
             next() {
+                this.registerErrorShow = false;
+                this.registerError = [];
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         this.authError = false;
@@ -308,8 +317,8 @@
                             this.authError = true;
                             return false;
                         }
-                        let url = `/api/checkout/billing/${this.cartId}`;
-                        if (this.billingId != "") url = `/api/checkout/billing/${this.cartId}/${this.billingId}`;
+                        let url = `/checkout/billing/${this.cartId}`;
+                        if (this.billingId != "") url = `/checkout/billing/${this.cartId}/${this.billingId}`;
                         let body = {
                             ...this.billingInfo,
                             password: this.password
@@ -326,7 +335,12 @@
                                     this.$emit('next', data);
                                     return;
                                 },
-                                error => alert(error.response.data.error.email)
+                                error => {
+                                    for (let key in error.response.data.error) {
+                                        this.registerError.push(...error.response.data.error[key]);
+                                    }
+                                    this.registerErrorShow = true;
+                                }
                         );
                     }
                 });
@@ -335,14 +349,21 @@
     })
 
 </script>
-<style scoped>
+<style scoped lang="scss">
+
     .auth-error {
         text-align: center;
         background: #FFE8E8;
         color: #CE4747;
         padding: 15px;
+
+    span {
+        display: block;
     }
+
+    }
+
     .display-block {
-        display: flex!important;
+        display: flex !important;
     }
 </style>
