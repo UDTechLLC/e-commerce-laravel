@@ -203,7 +203,7 @@
                                 ></cart-totals>
                             </div>
                         </div>
-                        <div class="auth-error" v-if="authError">
+                        <div class="auth-error" v-if="authErrorShow">
                             You need to login or register
                         </div>
                         <div class="auth-error" v-if="registerErrorShow">
@@ -236,10 +236,10 @@
             result: "",
             billingId: "",
             createUser: false,
-            authError: false,
             password: "",
             registerError: [],
             registerErrorShow: false,
+            authErrorShow: false,
             billingInfo: {
                 firstName: "",
                 lastName: "",
@@ -276,6 +276,12 @@
             ]),
             googleCountry() {
                 return this.billingInfo.country.code;
+            },
+            authError() {
+                let authEr = true;
+                if(this.userAuth == "1" || this.password != "") authEr = false;
+
+                return authEr;
             }
         },
         updated() {
@@ -312,11 +318,12 @@
                 this.registerError = [];
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-                        this.authError = false;
-                        if (this.isSubscribe && this.userAuth != '1' || this.isSubscribe && this.password == '') {
-                            this.authError = true;
-                            return false;
+                        this.authErrorShow = false;
+                        if (this.isSubscribe && this.authError) {
+                            this.authErrorShow = true;
+                                return false;
                         }
+
                         let url = `/checkout/billing/${this.cartId}`;
                         if (this.billingId != "") url = `/checkout/billing/${this.cartId}/${this.billingId}`;
                         let body = {
