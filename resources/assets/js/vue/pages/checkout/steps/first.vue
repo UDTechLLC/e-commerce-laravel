@@ -313,7 +313,7 @@
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         this.authError = false;
-                        if (this.isSubscribe && this.userAuth != '1') {
+                        if (this.isSubscribe && this.userAuth != '1' || this.isSubscribe && this.password == '') {
                             this.authError = true;
                             return false;
                         }
