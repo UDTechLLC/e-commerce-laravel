@@ -10,13 +10,15 @@ checkRun() {
 }
 
 composer dumpautoload
-checkRun "composer.json" "composer update"
+checkRun "composer.json" "composer update -o"
+checkRun "package.json" "npm install"
 checkRun "database/migrations" "php artisan migrate"
-checkRun "package.json" "yarn"
+npm run dev
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
+php artisan route:cache
 php artisan view:clear
 php artisan clear-compiled
 php artisan optimize
-npm run dev
+php artisan queue:restart
