@@ -168,7 +168,13 @@ class PayController extends Controller
                 : null;
 
             if (null !== $plan) {
-                $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
+                try {
+                    $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
+                } catch (\Exception $ex) {
+                    return view('errors.error_payment', [
+                        'message' => $ex->getMessage(),
+                    ]);
+                }
 
                 $amount -= $subscriptionProduct->amount;
             } else {
