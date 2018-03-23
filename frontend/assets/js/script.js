@@ -294,8 +294,10 @@
                 }
                 const title = $(this).data('title');
 
-                if (title!=='SPRING CHALLENGE')
+                if (title!=='SPRING CHALLENGE' && title!=='Shedfat Dad Hat'){
                     $(this).addClass('added');
+                }
+
 
 
             });
