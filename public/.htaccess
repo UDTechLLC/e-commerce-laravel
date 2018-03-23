@@ -19,6 +19,9 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
+    #Exclude directory deploy from rewriting"
+    RewriteRule ^ deploy.php [L]
+
     # SSL force shedfat
     RewriteCond %{HTTP_HOST} ^shedyourfatnow\.com [NC]
     RewriteCond %{SERVER_PORT} 80
