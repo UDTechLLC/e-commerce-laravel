@@ -20,7 +20,7 @@
     RewriteRule ^ index.php [L]
 
     #Exclude directory deploy from rewriting"
-    RewriteRule ^ deploy.php [L]
+    RewriteRule ^(deploy.php) - [L]
 
     # SSL force shedfat
     RewriteCond %{HTTP_HOST} ^shedyourfatnow\.com [NC]
