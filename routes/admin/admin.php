@@ -11,8 +11,8 @@ Route::group([
         'uses' => 'HomeController@index'
     ]);
 
-    require_once 'products.php';
-    require_once 'users.php';
-    require_once 'orders.php';
-    require_once 'coupons.php';
+    require 'products.php';
+    require 'users.php';
+    require 'orders.php';
+    require 'coupons.php';
 });
