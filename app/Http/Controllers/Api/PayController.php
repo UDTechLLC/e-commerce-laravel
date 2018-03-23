@@ -191,7 +191,9 @@ class PayController extends Controller
 
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         } else {
-            return response()->json(['error' => 'Error payment']);
+            return view('errors.error_payment', [
+                'message' => $result->message,
+            ]);
         }
     }
 
