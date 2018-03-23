@@ -42,3 +42,6 @@ Route::group([
         'uses' => 'Api\CheckoutController@shipping',
     ]);
 });
+Route::get('test', function () {
+    return view('errors.error_payment');
+});
