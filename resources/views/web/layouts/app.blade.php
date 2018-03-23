@@ -19,6 +19,7 @@
         {{-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">--}}
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick-theme.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('web/css/chat.css') }}">
         <!--[if lt IE 9]!!>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
