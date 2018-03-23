@@ -266,14 +266,17 @@
         var CallPopUp = function (name) {
 
             var btnAddToCart    =   $('.add-to-cart-btn[data-title="'+ name +'"]'),
-                btnPopUpClose   =   $('.popUp__close'),
+
                 PopUpWrapepr    =   $('.popUp[data-modal="'+ name +'"]'),
+                btnPopUpClose   =   PopUpWrapepr.find('.popUp__close'),
                 blockInfo       =   PopUpWrapepr.find('.popUp__wrapper'),
                 btnNoThanks     =   PopUpWrapepr.find('.no-thanks'),
                 btnLearnMore    =   PopUpWrapepr.find('.learn-more');
 
 
 
+
+            let showPopUp = true;
 
             btnAddToCart.click(function () {
                 if (!$(this).hasClass('added')){
@@ -284,7 +287,11 @@
                     },100)
                 }
 
-
+                let btnText = $(this).text();
+                btnText = btnText.replace(/(\r\n|\n|\r| )/gm ,'').toLowerCase();
+                if (btnText==='register'){
+                    showPopUp = false;
+                }
                 const title = $(this).data('title');
 
                 if (title!=='SPRING CHALLENGE')
@@ -315,7 +322,9 @@
                 setTimeout(function () {
                     PopUpWrapepr.removeClass('popUp--open');
                 },500);
-                cart.fnCall();
+                console.log(showPopUp);
+                if(showPopUp)
+                    cart.fnCall();
 
                 var title = $(this).parents().find('.callPopUp').data('title');
                 if (title==='SPRING CHALLENGE')
