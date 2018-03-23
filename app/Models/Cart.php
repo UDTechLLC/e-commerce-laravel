@@ -4,7 +4,7 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\{
-    Builder
+    Model
 };
 use App\Models\EloquentModel;
 
@@ -70,7 +70,8 @@ class Cart extends EloquentModel
     {
         return $this
             ->belongsToMany(Product::class)
-            ->withPivot(['count', 'discount', 'discount_sum']);
+            ->withPivot(['count', 'discount', 'discount_sum'])
+            ->using(CartProductPivot::class);
     }
 
     /**
@@ -113,7 +114,7 @@ class Cart extends EloquentModel
             $sum += $product->pivot->count * $product->amount;
         }
 
-        return number_format($sum, 2,  ".", "");
+        return number_format($sum, 2, ".", "");
     }
 
     /**
@@ -121,7 +122,13 @@ class Cart extends EloquentModel
      */
     public function getDiscountCost()
     {
-        return number_format((float)$this->products()->withPivot('discount_sum')->sum('discount_sum'), 2, ".", "");
+        $discount = 0;
+        foreach ($this->products as $product) {
+            $discount += $product->pivot->discount_sum;
+        }
+
+        //return number_format((float)$this->products()->withPivot('discount_sum')->sum('discount_sum'), 2, ".", "");
+        return number_format($discount, 2, ".", "");
     }
 
     /**
@@ -158,14 +165,14 @@ class Cart extends EloquentModel
     /**
      * @return bool
      */
-    public function isSubscribe(): bool 
+    public function isSubscribe(): bool
     {
         foreach ($this->products as $product) {
             if ($product->hasPlan()) {
                 return true;
             }
         }
-        
+
         return false;
     }
 
