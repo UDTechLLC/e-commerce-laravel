@@ -32,7 +32,6 @@
                             <div class="cart-review-block-wrapper finish-order-step">
                                 <cart-totals
                                         :shipping="shipping"
-                                        :coupon="coupon"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -62,8 +61,7 @@
         props: {
             orderId: Number,
             billing: Object,
-            shipping: Number,
-            coupon: String
+            shipping: Number
         },
         components: {
             cartTotals,

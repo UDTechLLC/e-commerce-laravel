@@ -60,7 +60,6 @@
                    :countries="countries"
                    :shipping="shipping"
                    :isSubscribe="isSubscribe"
-                   :coupon="coupon"
                    @updateCountry="getCountries"
                    @next="nextStep"
             ></first>
@@ -73,7 +72,6 @@
                     :billing="billing"
                     :countries="countries"
                     :shipping="shipping"
-                    :coupon="coupon"
                     @updateCountry="getCountries"
                     @next="nextStep"
                     @back="backStep"
@@ -86,7 +84,6 @@
                    :orderId="orderId"
                    :billing="billing"
                    :shipping="shipping"
-                   :coupon="coupon"
                    :token="token"
                    @next="nextStep"
                    @back="backStep"
@@ -113,7 +110,6 @@
                 countries: [],
                 states: [],
                 shipping: 0,
-                coupon: "",
                 currentComponent: "first",
                 billing: {}
         }
