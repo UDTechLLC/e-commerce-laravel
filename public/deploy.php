@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-$scriptPath = base_path('bin/deploy.sh');
+$scriptPath = __DIR__ . '/bin/deploy.sh';
 
 if (file_exists($scriptPath)) {
     exec('chmod +x ' . $scriptPath);
