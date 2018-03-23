@@ -19,8 +19,13 @@ class ContactController extends Controller
         return view('web.page.contact');
     }
 
-    //
-
+    /**
+     * Send contact email.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\View\Factory|View
+     */
     public function sendContactToEmail(Request $request)
     {
         $name = $request->name;
