@@ -122,7 +122,6 @@
     export default ({
         data: () => ({
             errorCoupon: false,
-            coupon: "",
             shipping: 0,
             animatedTotal: 0,
             animatedSubTotal: 0,
@@ -140,8 +139,8 @@
                 'subTotal',
                 'countItems',
                 'isShipping',
-                'discount'
-
+                'discount',
+                'coupon'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
@@ -195,7 +194,7 @@
 
                 axios.post(url, data).then(
                         response => {
-                           // this.$EventBus.$emit('updateProduct', response);
+                            // this.$EventBus.$emit('updateProduct', response);
                             this.$store.commit('updateState', response);
                             this.errorCoupon = false;
                         },
