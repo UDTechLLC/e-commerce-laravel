@@ -34,9 +34,9 @@
                             <div class="promotional-code-form-wrapper">
                                 <form class="promotional-code-form" action="" name="" method="post">
                                     <div class="promotional-code-form-block">
-                                        <input name="coupon_code" class="cart-form-field" value=""
+                                        <input name="coupon_code" class="cart-form-field" :value="coupon"
                                                placeholder="Coupon code"
-                                               type="text" v-model="coupon"/>
+                                               type="text" @input="updateCoupon"/>
                                         <input class="cart-submit-field promo-code-button" name="apply_coupon"
                                                value="Apply Coupon" type="submit" @click.prevent="submitCoupon"/>
                                     </div>
@@ -208,6 +208,9 @@
                         response => this.$store.commit('updateState', response),
                         error => console.log('error')
                 )
+            },
+            updateCoupon (e) {
+                this.$store.commit('updateCoupon', e.target.value)
             }
         }
     })

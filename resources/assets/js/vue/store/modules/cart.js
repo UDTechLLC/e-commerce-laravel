@@ -90,6 +90,9 @@ const mutations = {
     state.isSubscribe = responseApi.data.data.isSubscribe;
     state.cartId = responseApi.data.data.id;
     state.coupon = responseApi.data.data.coupon;
+  },
+  updateCoupon (state, value) {
+    state.coupon = value
   }
 };
 
