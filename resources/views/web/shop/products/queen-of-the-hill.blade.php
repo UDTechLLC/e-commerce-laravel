@@ -139,21 +139,21 @@
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                I am new to working out, is this program to advanced for me?
+                                Is this program to advanced for me?
                             </strong>
                         </p>
                         <p class="item-description">
-                            NO! This guide is a progressive program that has been designed to improve upon any fitness level.
+                            NO! This is a progressive program that has been designed to improve upon any fitness level.
                         </p>
                     </li>
                     <li class="training-plan-faqs-list-item">
                         <p class="item-title">
                             <strong>
-                                I do not want to spend 2 hours in the gym, is this program time efficient?
+                                I do not want to spend 2 hours in the gym!
                             </strong>
                         </p>
                         <p class="item-description">
-                            YES! With this guide, you will be able to complete comprehensive and extremely effective workouts in less than an hour.
+                            With this guide, you will be able to complete comprehensive and extremely effective workouts in less than an hour.
                         </p>
                     </li>
                     <li class="training-plan-faqs-list-item">
