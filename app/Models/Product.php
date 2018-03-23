@@ -4,7 +4,7 @@ declare(strict_types = 1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\{
-    Builder
+    Builder, Model
 };
 use App\Models\EloquentModel;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -14,7 +14,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * Class Product
  * @package App\Models
  */
-class Product extends EloquentModel implements HasMedia
+class Product extends Model implements HasMedia
 {
     use HasMediaTrait;
 
@@ -107,7 +107,7 @@ class Product extends EloquentModel implements HasMedia
 
     public function carts()
     {
-        return $this->belongsToMany(Cart::class);
+        return $this->belongsToMany(Cart::class)->using(CartProductPivot::class);
     }
 
     public function orders()

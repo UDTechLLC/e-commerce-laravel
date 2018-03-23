@@ -183,7 +183,6 @@
                             <div class="cart-review-block-wrapper">
                                 <cart-totals
                                         :shipping="shipping"
-                                        :coupon="coupon"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -241,8 +240,7 @@
             orderId: Number,
             billing: Object,
             countries: Array,
-            shipping: Number,
-            coupon: String
+            shipping: Number
         },
         computed: {
             googleCountry() {

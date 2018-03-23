@@ -34,9 +34,9 @@
                             <div class="promotional-code-form-wrapper">
                                 <form class="promotional-code-form" action="" name="" method="post">
                                     <div class="promotional-code-form-block">
-                                        <input name="coupon_code" class="cart-form-field" value=""
+                                        <input name="coupon_code" class="cart-form-field" :value="coupon"
                                                placeholder="Coupon code"
-                                               type="text" v-model="coupon"/>
+                                               type="text" @input="updateCoupon"/>
                                         <input class="cart-submit-field promo-code-button" name="apply_coupon"
                                                value="Apply Coupon" type="submit" @click.prevent="submitCoupon"/>
                                     </div>
@@ -122,7 +122,6 @@
     export default ({
         data: () => ({
             errorCoupon: false,
-            coupon: "",
             shipping: 0,
             animatedTotal: 0,
             animatedSubTotal: 0,
@@ -140,8 +139,8 @@
                 'subTotal',
                 'countItems',
                 'isShipping',
-                'discount'
-
+                'discount',
+                'coupon'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
@@ -195,7 +194,7 @@
 
                 axios.post(url, data).then(
                         response => {
-                           // this.$EventBus.$emit('updateProduct', response);
+                            // this.$EventBus.$emit('updateProduct', response);
                             this.$store.commit('updateState', response);
                             this.errorCoupon = false;
                         },
@@ -209,6 +208,9 @@
                         response => this.$store.commit('updateState', response),
                         error => console.log('error')
                 )
+            },
+            updateCoupon (e) {
+                this.$store.commit('updateCoupon', e.target.value)
             }
         }
     })

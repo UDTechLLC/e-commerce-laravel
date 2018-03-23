@@ -31,9 +31,13 @@
                     </div>
                 </td>
                 <td class="product-subtotal">
-                        <span class="product-subtotal-amount">
-                            ${{ product.total_sum }}
-                        </span>
+                    <span v-if="product.discount_amount != '0.00'">
+                        <del>$ {{product.amount}}</del>
+                        <span class="product-subtotal-amount"> ${{ product.amount_with_discount }} </span>
+                    </span>
+                     <span v-else class="product-amount">
+                          ${{ product.amount_with_discount }}
+                     </span>
                 </td>
 
             </tr>
@@ -90,15 +94,15 @@
 
     export default ({
         props: {
-            shipping: Number,
-            coupon: String
+            shipping: Number
         },
         computed: {
             ...mapGetters([
                 'products',
                 'subTotal',
                 'discount',
-                'isShipping'
+                'isShipping',
+                'coupon'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);

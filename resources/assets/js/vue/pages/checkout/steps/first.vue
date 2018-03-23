@@ -199,7 +199,6 @@
                             <div class="cart-review-block-wrapper">
                                 <cart-totals
                                         :shipping="shipping"
-                                        :coupon="coupon"
                                 ></cart-totals>
                             </div>
                         </div>
@@ -261,8 +260,7 @@
             userAuth: String,
             shipping: Number,
             countries: Array,
-            isSubscribe: Boolean,
-            coupon: String
+            isSubscribe: Boolean
         },
         components: {
             cartTotals,

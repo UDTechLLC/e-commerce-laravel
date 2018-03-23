@@ -7,7 +7,8 @@ const state = {
   discount: 0,
   isShipping: false,
   isSubscribe: false,
-  cartId: 0
+  cartId: 0,
+  coupon: ""
 };
 
 // getters
@@ -32,6 +33,9 @@ const getters = {
   },
   cartId: state => {
     return state.cartId
+  },
+  coupon: state => {
+    return state.coupon
   }
 };
 
@@ -85,6 +89,10 @@ const mutations = {
     state.isShipping = responseApi.data.data.isShipping;
     state.isSubscribe = responseApi.data.data.isSubscribe;
     state.cartId = responseApi.data.data.id;
+    state.coupon = responseApi.data.data.coupon;
+  },
+  updateCoupon (state, value) {
+    state.coupon = value
   }
 };
 
