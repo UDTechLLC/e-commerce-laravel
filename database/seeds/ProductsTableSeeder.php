@@ -100,7 +100,7 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/legs.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'http://www.shedyourfat.com/legs-on-fire-downloads/'])
+            ->withCustomProperties(['external_link' => 'https://shedyourfat.com/videolibrary/legs-fire-downloads/'])
             ->preservingOriginal()
             ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
