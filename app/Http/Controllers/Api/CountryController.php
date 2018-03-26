@@ -22,7 +22,7 @@ class CountryController extends Controller
 
         $country = $name ?? $this->getCountry($ip);
         
-        $shippingSum = $this->getShippingSum($country);
+        $shippingSum = getShippingCost($country);
 
         return response()->json([
             'countries' => $countries,
@@ -77,19 +77,5 @@ class CountryController extends Controller
     private function decodeResponse($response)
     {
         return json_decode((string)$response->getBody());
-    }
-
-    /**
-     * Get shipping sum by country.
-     *
-     * @param null $country
-     *
-     * @return float
-     */
-    private function getShippingSum($country)
-    {
-        return $country === 'United States'
-            ? 6.99
-            : 17.99;
     }
 }
