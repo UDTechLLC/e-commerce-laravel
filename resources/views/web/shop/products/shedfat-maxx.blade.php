@@ -2,6 +2,12 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
+@section('style')
+    @parent
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
+    <!--End of Zendesk Chat Script-->
+@endsection
 @section('content')
     <main>
 
@@ -195,7 +201,7 @@
                                     </div>
 
 
-                                    <iframe src="https://player.vimeo.com/video/261638450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <iframe src="https://player.vimeo.com/video/260858063" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                                 </div><!--custom-video-block__inner-->
 

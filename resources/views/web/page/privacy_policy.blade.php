@@ -2,6 +2,12 @@
 @section('title')
    Privacy Policy -@parent
 @endsection
+@section('style')
+    @parent
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
+    <!--End of Zendesk Chat Script-->
+@endsection
 @section('content')
     <main style="margin: 20px;">
         <div class="main">

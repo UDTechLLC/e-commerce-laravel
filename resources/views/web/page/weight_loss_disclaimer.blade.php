@@ -2,6 +2,12 @@
 @section('title')
     Weight Loss Disclaimer -@parent
 @endsection
+@section('style')
+    @parent
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
+    <!--End of Zendesk Chat Script-->
+@endsection
 @section('content')
     <main>
         <div class="main" style="margin: 20px 20px 0px 20px;">
