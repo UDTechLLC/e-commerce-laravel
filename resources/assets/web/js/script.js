@@ -125,10 +125,13 @@
 
             curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
 
-
-            curScroll >= showBtnAfter ? mobileAddToCard.addClass('active'): mobileAddToCard.removeClass('active');
-
-
+            if (curScroll >= showBtnAfter) {
+                mobileAddToCard.addClass('active');
+                $('.zopim').css('margin-bottom', "55px")
+            } else {
+                mobileAddToCard.removeClass('active');
+                $('.zopim').css('margin-bottom', "0px")
+            }
         });
 
         var faq_item = $('.faq__item>.flex');

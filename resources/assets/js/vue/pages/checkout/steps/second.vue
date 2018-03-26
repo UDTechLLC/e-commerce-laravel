@@ -247,6 +247,12 @@
                 return this.shippingInfo.country.code;
             }
         },
+        updated() {
+            if (this.isShipping) {
+                this.shippingInfo.country.name = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
+                this.shippingInfo.country.code = (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "";
+            }
+        },
         methods: {
             saveCountries() {
                 Vue.localStorage.set('shippingCountryName', this.shippingInfo.country.name);

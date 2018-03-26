@@ -31,6 +31,7 @@ mix.sass('resources/assets/admin/sass/app.scss', 'public/admin_panel/css')
     .copy('resources/assets/admin/fonts', 'public/admin_panel/fonts')
 
     .js('resources/assets/js/app.js', 'public/web/js').version()
+    .copy('resources/assets/js/chat.js', 'public/web/js')
     .sass('resources/assets/sass/app.scss', 'public/web/css').version()
     .sass('resources/assets/web/sass/base.sass', 'public/web/css').version()
     .copy('resources/assets/web/css/', 'public/web/css')
