@@ -71,8 +71,19 @@ class ProductController extends Controller
             'published'   => $request->get('published'),
         ]);
 
-        $product->saveImageBase64($request->input('image'), 'products');
+        $product->saveImageBase64(
+            $request->input('image'),
+            'products',
+            ['name'=> 'view_video', 'value'=> $request->get('viewVideo')]
+        );
         $product->saveImageBase64($request->input('imagePreview'), 'preview');
+
+       /* if ($request->get('viewVideo')) {
+            $product
+                ->withCustomProperties(['video_link' => $request->get('viewVideo')])
+                ->preservingOriginal()
+                ->toMediaCollection('products');
+        }*/
 
         return $product;
     }
