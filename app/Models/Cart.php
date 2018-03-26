@@ -181,11 +181,11 @@ class Cart extends EloquentModel
      *
      * @return string
      */
-    public function getShippingSum($country = null)
+    public function getShippingSum($country)
     {
         //todo: It is possible to add to config
         return $this->isShipping()
-            ? $country === 'United States' || $country === 'Canada'
+            ? $country === 'United States'
                 ? number_format(6.99, 2)
                 : number_format(17.99, 2)
             : number_format(0, 2);
