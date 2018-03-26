@@ -2,6 +2,13 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/chat.css') }}">
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
+    <!--End of Zendesk Chat Script-->
+@endsection
 @section('content')
     <main>
 

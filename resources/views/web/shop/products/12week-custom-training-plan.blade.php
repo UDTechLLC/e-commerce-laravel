@@ -2,6 +2,13 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/chat.css') }}">
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
+    <!--End of Zendesk Chat Script-->
+@endsection
 @section('content')
     <main>
         <div class="main">
@@ -9,7 +16,7 @@
                 <div class="wrapper">
                     <div class="product-preview-wrapper">
                         <div class="image-wrapper">
-                            <img src="{!! $product->getFirstMediaUrl('products') !!}" />
+                            <img src="{!! $product->getFirstMediaUrl('products') !!}"/>
                         </div>
                     </div>
                     <div class="product-info-block">
@@ -73,12 +80,15 @@
                             <div class="custom-video-block__inner">
 
                                 <div class="custom-video-block__wrapper-click">
-                                    <img src="{{ asset('web/images/197577248.jpg')}}" alt="mainImage" class="custom-video-block__coverImg">
-                                    <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt="" class="custom-video-block__playImg">
+                                    <img src="{{ asset('web/images/197577248.jpg')}}" alt="mainImage"
+                                         class="custom-video-block__coverImg">
+                                    <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
+                                         class="custom-video-block__playImg">
                                 </div>
 
 
-                                <iframe src="https://player.vimeo.com/video/258652601" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                <iframe src="https://player.vimeo.com/video/258652601" frameborder="0"
+                                        webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                             </div><!--custom-video-block__inner-->
 
                         </div><!--custom-video-block-->
@@ -142,14 +152,14 @@
                         <div class="custom-plan-content">
                             <div class="custom-plan-image-block">
                                 <div class="image-wrapper">
-                                    <img src="{{ asset('web/images/custom-training-program.png') }}" />
+                                    <img src="{{ asset('web/images/custom-training-program.png') }}"/>
                                 </div>
                             </div>
                             <div class="custom-plan-description-block">
                                 <ul class="custom-plan-description-list">
                                     <li class="custom-plan-description-list-item">
                                         <div class="item-icon-wrapper">
-                                            <img src="{{ asset('web/images/workout-program-1.svg') }}" />
+                                            <img src="{{ asset('web/images/workout-program-1.svg') }}"/>
                                         </div>
                                         <div class="item-content">
                                             <h3 class="item-title">
@@ -163,7 +173,7 @@
                                     </li>
                                     <li class="custom-plan-description-list-item">
                                         <div class="item-icon-wrapper">
-                                            <img src="{{asset('web/images/workout-program-2.svg')}}" />
+                                            <img src="{{asset('web/images/workout-program-2.svg')}}"/>
                                         </div>
                                         <div class="item-content">
                                             <h3 class="item-title">
@@ -177,7 +187,7 @@
                                     </li>
                                     <li class="custom-plan-description-list-item">
                                         <div class="item-icon-wrapper">
-                                            <img src="{{asset('web/images/workout-program-3.svg')}}" />
+                                            <img src="{{asset('web/images/workout-program-3.svg')}}"/>
                                         </div>
                                         <div class="item-content">
                                             <h3 class="item-title">
@@ -213,28 +223,28 @@
                         <div class="success-story-slider-wrapper">
                             <div id="successStories" class="success-story-slider">
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_5611.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_5611.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2421.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2421.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2810.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2810.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_7519.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_7519.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_6252.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_6252.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2811.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2811.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_9363.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_9363.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_4745.jpg')}}" />
+                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_4745.jpg')}}"/>
                                 </div>
                             </div>
                         </div>
@@ -260,19 +270,19 @@
                                 <div class="star-rating-wrapper">
                                     <ul class="star-rating">
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -281,26 +291,29 @@
                                     “I can stream them on any device”
                                 </h5>
                                 <p class="cr-content">
-                                    I travel all around the world for work, so sticking to a routine and exercise plan is hard for me. Until I found the Total Body Burn program. The best thing is I can stream them on any device and just workout in my hotel room if there is no gym accessible. I stick to a workout plan and continue to see results*
+                                    I travel all around the world for work, so sticking to a routine and exercise plan
+                                    is hard for me. Until I found the Total Body Burn program. The best thing is I can
+                                    stream them on any device and just workout in my hotel room if there is no gym
+                                    accessible. I stick to a workout plan and continue to see results*
                                 </p>
                             </div>
                             <div class="customer-preview-single-block">
                                 <div class="star-rating-wrapper">
                                     <ul class="star-rating">
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -309,7 +322,10 @@
                                     “I’ve lost 15 pounds the first 30 days”
                                 </h5>
                                 <p class="cr-content">
-                                    This is my second round on Total Body Burn and I’m still loving it. I’ve lost 15 pounds the first 30 days and inches too. My husband noticed the changes and decided he wanted to join in as well. Now we look forward to completing the challenge of the day. It has become our routine and he is seeing changes too!*
+                                    This is my second round on Total Body Burn and I’m still loving it. I’ve lost 15
+                                    pounds the first 30 days and inches too. My husband noticed the changes and decided
+                                    he wanted to join in as well. Now we look forward to completing the challenge of the
+                                    day. It has become our routine and he is seeing changes too!*
                                 </p>
                             </div>
                             <div class="clear"></div>
@@ -317,19 +333,19 @@
                                 <div class="star-rating-wrapper">
                                     <ul class="star-rating">
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -338,26 +354,30 @@
                                     “My jeans are too loose”
                                 </h5>
                                 <p class="cr-content">
-                                    I never thought that I could complete a full 30 day challenge, let alone a week challenge. Well I thought wrong! This has been such a whirlwind and amazing 30 days. I pushed my self past limits I didn’t even know existed and have seen changes in my overall physique. My jeans are too loose and keep falling and all of my friends and family notice a difference too.*
+                                    I never thought that I could complete a full 30 day challenge, let alone a week
+                                    challenge. Well I thought wrong! This has been such a whirlwind and amazing 30 days.
+                                    I pushed my self past limits I didn’t even know existed and have seen changes in my
+                                    overall physique. My jeans are too loose and keep falling and all of my friends and
+                                    family notice a difference too.*
                                 </p>
                             </div>
                             <div class="customer-preview-single-block">
                                 <div class="star-rating-wrapper">
                                     <ul class="star-rating">
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                         <li class="single-star-wrapper">
-                                            <img src="{{ asset('web/images/icon-star.svg')}}" />
+                                            <img src="{{ asset('web/images/icon-star.svg')}}"/>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -366,7 +386,10 @@
                                     “I have completely transformed!”
                                 </h5>
                                 <p class="cr-content">
-                                    30 days seemed like a long time when I first started, but now I’m on my third round and still loving it. I thought body weight exercises were not going to help me achieve the results I wanted, but boy was I wrong. I have completely transformed! Thank you Rauve and the Shed Fat Team. I’m a new me!*
+                                    30 days seemed like a long time when I first started, but now I’m on my third round
+                                    and still loving it. I thought body weight exercises were not going to help me
+                                    achieve the results I wanted, but boy was I wrong. I have completely transformed!
+                                    Thank you Rauve and the Shed Fat Team. I’m a new me!*
                                 </p>
                             </div>
                             <div class="clear"></div>
@@ -379,7 +402,7 @@
                     <div class="custom-guarantee-block">
                         <div class="stiker-wrapper">
                             <div class="image-wrapper">
-                                <img src="{{ asset('web/images/custom_guarantee_sticker.png')}} " />
+                                <img src="{{ asset('web/images/custom_guarantee_sticker.png')}} "/>
                             </div>
                         </div>
                         <div class="custom-guarantee-content-wrapper">
@@ -388,10 +411,11 @@
                                     Still not sure? We are!
                                 </h2>
                                 <div class="image-wrapper">
-                                    <img src="{{asset('web/images/custom_guarantee_sticker.png')}}" />
+                                    <img src="{{asset('web/images/custom_guarantee_sticker.png')}}"/>
                                 </div>
                                 <p class="cg-content">
-                                    Follow one of our personalized exercise plans for 30 days. If after the 30 days is up and you do not feel like you are any closer to reaching your goals simply email
+                                    Follow one of our personalized exercise plans for 30 days. If after the 30 days is
+                                    up and you do not feel like you are any closer to reaching your goals simply email
                                     <a href="mailto:info@shedyourfat.com">info@shedyourfat.com</a>
                                     and get a full refund.
                                 </p>
