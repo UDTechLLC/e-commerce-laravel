@@ -88,7 +88,7 @@ class CountryController extends Controller
      */
     private function getShippingSum($country)
     {
-        return $country === 'United States' || $country === 'Canada'
+        return $country === 'United States'
             ? 6.99
             : 17.99;
     }
