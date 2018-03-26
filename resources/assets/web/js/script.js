@@ -111,7 +111,8 @@
             fixedTop = 53,
             mobileAddToCard = $('.add-to-cart-btn--mobile'),
             wrapperAddToCard = $('.add-to-cart-wrapper'),
-            showBtnAfter = 1000;
+            showBtnAfter = 1000,
+            chat = $('.zopim');
 
         if ( 0 < wrapperAddToCard ) {
             setTimeout(function () {
@@ -126,9 +127,13 @@
             curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
 
 
-            curScroll >= showBtnAfter ? mobileAddToCard.addClass('active'): mobileAddToCard.removeClass('active');
-
-
+            if (curScroll >= showBtnAfter) {
+                mobileAddToCard.addClass('active');
+                chat.css('margin-bottom', 55)
+            } else {
+                mobileAddToCard.removeClass('active');
+                chat.css('margin-bottom', 0)
+            }
         });
 
         var faq_item = $('.faq__item>.flex');
