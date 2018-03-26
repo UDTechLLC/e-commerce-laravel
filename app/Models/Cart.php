@@ -181,7 +181,7 @@ class Cart extends EloquentModel
      *
      * @return string
      */
-    public function getShippingSum($country = null)
+    public function getShippingSum($country)
     {
         //todo: It is possible to add to config
         return $this->isShipping()
