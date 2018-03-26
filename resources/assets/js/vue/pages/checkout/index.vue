@@ -104,6 +104,10 @@
     export default ({
         data() {
             return {
+                defaultCountry: {
+                    name: "",
+                    code: ""
+                },
                 userAuth: false,
                 orderId: 0,
                 progress: 1,
@@ -158,6 +162,13 @@
                     let selectedCountry = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
                     axios.get(`/api/countries?country=${selectedCountry}`).then(
                             response => {
+                                this.countries.forEach((value)=> {
+                                   if(value.name == response.data.selected) {
+                                       Vue.localStorage.set('shippingCountryName', value.name);
+                                       Vue.localStorage.set('shippingCountryCode', value.code);
+                                   }
+                                });
+                                console.log(response.data.selected);
                                 // this.shipping = this.isShipping ? response.data.shipping : 0;
                                 this.shipping = response.data.shipping;
                             },
