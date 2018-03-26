@@ -126,13 +126,13 @@
 
             curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
 
-
+            console.log(chat);
             if (curScroll >= showBtnAfter) {
                 mobileAddToCard.addClass('active');
-                chat.css('margin-bottom', 55)
+                chat.css('margin-bottom', "55px")
             } else {
                 mobileAddToCard.removeClass('active');
-                chat.css('margin-bottom', 0)
+                chat.css('margin-bottom', "0px")
             }
         });
 
