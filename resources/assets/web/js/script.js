@@ -111,8 +111,7 @@
             fixedTop = 53,
             mobileAddToCard = $('.add-to-cart-btn--mobile'),
             wrapperAddToCard = $('.add-to-cart-wrapper'),
-            showBtnAfter = 1000,
-            chat = $('.zopim');
+            showBtnAfter = 1000;
 
         if ( 0 < wrapperAddToCard ) {
             setTimeout(function () {
@@ -126,13 +125,12 @@
 
             curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
 
-            console.log(chat);
             if (curScroll >= showBtnAfter) {
                 mobileAddToCard.addClass('active');
-                chat.css('margin-bottom', "55px")
+                $('.zopim').css('margin-bottom', "55px")
             } else {
                 mobileAddToCard.removeClass('active');
-                chat.css('margin-bottom', "0px")
+                $('.zopim').css('margin-bottom', "0px")
             }
         });
 
