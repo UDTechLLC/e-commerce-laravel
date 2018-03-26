@@ -9,6 +9,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderBilling;
 use App\Models\OrderShipping;
+use App\Models\Role;
 use App\Models\User;
 use App\Transformers\Api\OrderTransformer;
 use PragmaRX\Countries\Package\Countries;
@@ -202,13 +203,16 @@ class CheckoutController extends Controller
      */
     private function createUser($request)
     {
-        return User::create([
+        $user = User::create([
             'first_name' => $request->get('firstName'),
             'last_name'  => $request->get('lastName'),
             'email'      => $request->get('email'),
             'phone'      => $request->get('phone'),
             'password'   => bcrypt($request->get('password')),
         ]);
+        $user->attachRole(Role::where('name', 'user')->first());
+
+        return $user;
     }
 
     /**
