@@ -12,17 +12,17 @@
                         <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state"
                                 v-model="selectedCountry" @change="getCountries">
                             <option value="">Select a country…</option>
-                            <option value="" v-for="country in countries" :value="country" >{{ country }}</option>
+                            <option value="" v-for="country in countries" :value="country.name" >{{ country.name }}</option>
                         </select>
                         <div class="select-arrow" style="height: 36px; width: 36px; line-height: 36px;"></div>
                     </div>
                 </div>
                 <div class="cart-form-field-wrapper left-wrapper">
-                    <div v-if="states.length == 0">
+                    <div >
                     <input class="cart-form-field" value="" placeholder="State / county" name="calc_shipping_state"
                            id="calc_shipping_state" type="text"/>
                     </div>
-                    <div class="cart-form-row" v-else>
+             <!--       <div class="cart-form-row" v-else>
                         <div class="shiping-select-wrapper">
                             <select name="calc_shipping_country" class="country_to_state"
                                     v-model="selectedState">
@@ -31,7 +31,7 @@
                             </select>
                             <div class="select-arrow" style="height: 36px; width: 36px; line-height: 36px;"></div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="cart-form-field-wrapper right-wrapper">
                     <input class="cart-form-field" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode"
@@ -53,21 +53,21 @@
         data: () => ({
             countries: [],
             states: [],
-            selectedCountry: '',
+            selectedCountry: "",
             selectedState: ''
         }),
         created() {
             this.getCountries();
+            this.countries = require("./../../checkout/components/countries.js");
         },
         methods: {
             getCountries() {
                 axios.get(`/api/countries?country=${this.selectedCountry}`).then(
                         response => {
-                            this.countries = response.data.countries;
+                            //this.countries = response.data.countries;
                             this.selectedCountry = response.data.selected;
-                            this.states = response.data.states;
+                           // this.states = response.data.states;
                             this.$EventBus.$emit('updateShipping', response.data.shipping);
-                            Vue.localStorage.set('shippingCountry', this.selectedCountry);
                         },
                         error => console.log('error')
                 )

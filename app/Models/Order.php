@@ -162,7 +162,17 @@ class Order extends EloquentModel
         $this->attributes['total_cost'] = $value * 100;
     }
 
+    public function setDiscountCostAttribute($value)
+    {
+        $this->attributes['discount_cost'] = $value * 100;
+    }
+
     public function getProductCostAttribute($value)
+    {
+        return  number_format($value / 100, 2, ".", "");
+    }
+
+    public function getDiscountCostAttribute($value)
     {
         return  number_format($value / 100, 2, ".", "");
     }

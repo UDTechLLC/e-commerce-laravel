@@ -16,7 +16,7 @@ class CountryController extends Controller
      */
     public function index(Request $request)
     {
-        $countries = Countries::all()->pluck('name.common');
+       // $countries = Countries::all()->pluck('name.common');
         $name = $request->get('country');
         $ip = $request->ip();
 
@@ -25,8 +25,8 @@ class CountryController extends Controller
         $shippingSum = getShippingCost($country);
 
         return response()->json([
-            'countries' => $countries,
-            'states'    => $this->getStates($country),
+         //   'countries' => $countries,
+         //   'states'    => $this->getStates($country),
             'shipping'  => $shippingSum,
             'selected'  => $country,
         ]);
