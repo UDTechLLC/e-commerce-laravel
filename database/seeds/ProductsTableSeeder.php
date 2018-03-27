@@ -22,11 +22,11 @@ class ProductsTableSeeder extends Seeder
              you to look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation
               for years to come.',
 
-            'old_amount'  => '200.00',
-            'amount'      => '100.00',
-            'slug'        => '12week-custom-meal-plan',
-            'view_name'   => '12week-custom-meal-plan',
-            'isVirtual'   => true,
+            'old_amount' => '200.00',
+            'amount'     => '100.00',
+            'slug'       => '12week-custom-meal-plan',
+            'view_name'  => '12week-custom-meal-plan',
+            'isVirtual'  => true,
 
         ]);
 
@@ -90,11 +90,11 @@ class ProductsTableSeeder extends Seeder
              Legs on Fire will guide you through this process for 30 days straight giving you both size 
              and strength in your lower body.',
 
-            'old_amount'  => '50.00',
-            'amount'      => '30.00',
-            'slug'        => 'legs-on-fire',
-            'view_name'   => 'legs-on-fire',
-            'isVirtual'   => true,
+            'old_amount' => '50.00',
+            'amount'     => '30.00',
+            'slug'       => 'legs-on-fire',
+            'view_name'  => 'legs-on-fire',
+            'isVirtual'  => true,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/legs.png';
@@ -113,11 +113,11 @@ class ProductsTableSeeder extends Seeder
             is right here in our 90 Day, total body, gym based program. It can be accessed at
              any time from any smart device!',
 
-            'old_amount'  => '50.00',
-            'amount'      => '24.99',
-            'slug'        => 'queen-of-the-hill',
-            'view_name'   => 'queen-of-the-hill',
-            'isVirtual'   => true,
+            'old_amount' => '50.00',
+            'amount'     => '24.99',
+            'slug'       => 'queen-of-the-hill',
+            'view_name'  => 'queen-of-the-hill',
+            'isVirtual'  => true,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/Queen_of_the_Hill_90_Day_icon_2.png';
@@ -133,11 +133,11 @@ class ProductsTableSeeder extends Seeder
              total body tutorial! We teach you how to achieve and more importantly how to maintain a tighter and more
               toned physique from head to toe.',
 
-            'old_amount'  => '50.00',
-            'amount'      => '24.99',
-            'slug'        => 'never-stop-moving-e-book',
-            'view_name'   => 'never-stop-moving-e-book',
-            'isVirtual'   => true,
+            'old_amount' => '50.00',
+            'amount'     => '24.99',
+            'slug'       => 'never-stop-moving-e-book',
+            'view_name'  => 'never-stop-moving-e-book',
+            'isVirtual'  => true,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/devices_never.png';
@@ -152,11 +152,11 @@ class ProductsTableSeeder extends Seeder
             'description' => 'Versatility and simplicity. The addition of resistance bands to your routine, whether
              it is in the gym or in your living room, can take both your workouts and your results to the next level.',
 
-            'old_amount'  => '40.00',
-            'amount'      => '25.00',
-            'slug'        => 'resistance-bands',
-            'view_name'   => 'resistance-bands',
-            'isVirtual'   => false,
+            'old_amount' => '40.00',
+            'amount'     => '25.00',
+            'slug'       => 'resistance-bands',
+            'view_name'  => 'resistance-bands',
+            'isVirtual'  => false,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/resistance_bands.png';
@@ -184,11 +184,11 @@ class ProductsTableSeeder extends Seeder
             It effects energy levels, performance and overall well-being.  Add flavor, increase the nutritional
              value and make staying hydrated and healthy a more enjoyable process.',
 
-            'old_amount'  => '40.00',
-            'amount'      => '25.00',
-            'slug'        => 'shedfat-infuser-bottle',
-            'view_name'   => 'shedfat-infuser-bottle',
-            'isVirtual'   => false,
+            'old_amount' => '40.00',
+            'amount'     => '25.00',
+            'slug'       => 'shedfat-infuser-bottle',
+            'view_name'  => 'shedfat-infuser-bottle',
+            'isVirtual'  => false,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/infuser_bottle.png';
@@ -202,11 +202,11 @@ class ProductsTableSeeder extends Seeder
             'description' => 'The list of popular “fast food” chains with meal options that will keep you on the right 
             track with your diet guilt free.',
 
-            'old_amount'  => '39.99',
-            'amount'      => '19.99',
-            'slug'        => 'what-to-eat-in-the-streets',
-            'view_name'   => 'what-to-eat-in-the-streets',
-            'isVirtual'   => true,
+            'old_amount' => '39.99',
+            'amount'     => '19.99',
+            'slug'       => 'what-to-eat-in-the-streets',
+            'view_name'  => 'what-to-eat-in-the-streets',
+            'isVirtual'  => true,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/what_to_eat_in_the_streets.png';
@@ -217,17 +217,16 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToPdfFile)->preservingOriginal()->toMediaCollection('download');
 
 
-
         $product = factory(App\Models\Product::class)->create([
             'title'       => '14 Day Detox Smoothie',
             'description' => 'The Power of Juice! This is the fast lane on the health highway. Whether you are 
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
 
-            'old_amount'  => '40.00',
-            'amount'      => '20.00',
-            'slug'        => '14-day-detox-guide',
-            'view_name'   => '14-day-detox-guide',
-            'isVirtual'   => true,
+            'old_amount' => '40.00',
+            'amount'     => '20.00',
+            'slug'       => '14-day-detox-guide',
+            'view_name'  => '14-day-detox-guide',
+            'isVirtual'  => true,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/detox_product.png';
@@ -239,7 +238,7 @@ class ProductsTableSeeder extends Seeder
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Custom Meal & Workout Plan',
-            'description'       => 'Custom Meal & Workout Plan',
+            'description' => 'Custom Meal & Workout Plan',
             'amount'      => '99.99',
             'slug'        => 'Custom-Meal-&-Workout-Plan',
             'category'    => 'Limited-Time Offer',
@@ -251,27 +250,35 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/preview/challenge1.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('preview');
+        $product
+            ->addMedia($pathToFile)
+            ->preservingOriginal()
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->toMediaCollection('product');
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Custom Meal & Workout Plan + email support',
-            'description'       => 'Custom Meal & Workout Plan + email support',
+            'description' => 'Custom Meal & Workout Plan + email support',
             'amount'      => '139.99',
             'slug'        => 'Custom-Meal-&-Workout-Plan-+-email_support',
             'category'    => 'Limited-Time Offer',
             'published'   => false,
             'isVirtual'   => true,
-
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/preview/challenge2.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
             ->toMediaCollection('preview');
+
+        $product
+            ->addMedia($pathToFile)
+            ->preservingOriginal()
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->toMediaCollection('product');
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => 'Custom Meal & Workout Plan + email support + Maxx',
@@ -300,12 +307,12 @@ class ProductsTableSeeder extends Seeder
              foundation for years to come. That is why we offer various meal plan options that can be tailored
               to any lifestyle.',
 
-            'old_amount'  => '80.00',
-            'amount'      => '30.00',
-            'slug'        => '12week-custom-meal-plan+never',
-            'published'   => false,
-            'parent_id'   => 6,
-            'isVirtual'   => true,
+            'old_amount' => '80.00',
+            'amount'     => '30.00',
+            'slug'       => '12week-custom-meal-plan+never',
+            'published'  => false,
+            'parent_id'  => 6,
+            'isVirtual'  => true,
 
         ]);
 
@@ -328,12 +335,12 @@ class ProductsTableSeeder extends Seeder
              foundation for years to come. That is why we offer various meal plan options that can be tailored
               to any lifestyle.',
 
-            'old_amount'  => '100.00',
-            'amount'      => '80.00',
-            'slug'        => '12week-custom-meal-plan+queen',
-            'published'   => false,
-            'parent_id'   => 5,
-            'isVirtual'   => true,
+            'old_amount' => '100.00',
+            'amount'     => '80.00',
+            'slug'       => '12week-custom-meal-plan+queen',
+            'published'  => false,
+            'parent_id'  => 5,
+            'isVirtual'  => true,
 
         ]);
 
@@ -356,7 +363,7 @@ class ProductsTableSeeder extends Seeder
             'slug'        => 'shedfat-maxx-subscription',
             'view_name'   => 'shedfat-maxx-subscription',
             'isVirtual'   => false,
-            'published'   => false
+            'published'   => false,
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -371,11 +378,11 @@ class ProductsTableSeeder extends Seeder
             Whether you are in the gym or out for the day you can be sure that your nutrition will not 
             be compromised.',
 
-            'old_amount'  => '24.99',
-            'amount'      => '19.99',
-            'slug'        => 'shedFat-shaker',
-            'view_name'   => 'shedFat-shaker',
-            'isVirtual'   => false,
+            'old_amount' => '24.99',
+            'amount'     => '19.99',
+            'slug'       => 'shedFat-shaker',
+            'view_name'  => 'shedFat-shaker',
+            'isVirtual'  => false,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shaker-1.png';
@@ -390,11 +397,11 @@ class ProductsTableSeeder extends Seeder
               Our conveniently sized bags will give you somewhere to keep all of those things so that you never 
               have to worry about needing an extra hand again',
 
-            'old_amount'  => '300.00',
-            'amount'      => '200.00',
-            'slug'        => 'gym-bag',
-            'view_name'   => 'gym-bag',
-            'isVirtual'   => false,
+            'old_amount' => '300.00',
+            'amount'     => '200.00',
+            'slug'       => 'gym-bag',
+            'view_name'  => 'gym-bag',
+            'isVirtual'  => false,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/bag2.png';
@@ -408,12 +415,12 @@ class ProductsTableSeeder extends Seeder
             always make you feel good. The perfect blend of style and function makes this hat perfectly suited 
             for going out with friends or training both indoors and outdoors.',
 
-            'old_amount'  => '50.00',
-            'amount'      => '25.00',
-            'slug'        => 'shedfat-dad-hat',
-            'view_name'   => 'shedfat-dad-hat',
-            'isVirtual'   => false,
-            'published'   => false
+            'old_amount' => '50.00',
+            'amount'     => '25.00',
+            'slug'       => 'shedfat-dad-hat',
+            'view_name'  => 'shedfat-dad-hat',
+            'isVirtual'  => false,
+            'published'  => false,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/cap.png';

@@ -113,7 +113,7 @@
                 progress: 1,
                 countries: [],
                 states: [],
-                shipping: 0,
+                shipping: "0",
                 currentComponent: "first",
                 billing: {}
         }
@@ -168,7 +168,6 @@
                                        Vue.localStorage.set('shippingCountryCode', value.code);
                                    }
                                 });
-                                console.log(response.data.selected);
                                 // this.shipping = this.isShipping ? response.data.shipping : 0;
                                 this.shipping = response.data.shipping;
                             },

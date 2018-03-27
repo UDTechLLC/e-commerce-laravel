@@ -140,7 +140,9 @@
                                                Payment method:
                                            </th>
                                            <td>
-                                               PayPal
+
+                                               {{ $order->payment_method_slug }}
+
                                            </td>
                                        </tr>
                                        <tr class="order-total">

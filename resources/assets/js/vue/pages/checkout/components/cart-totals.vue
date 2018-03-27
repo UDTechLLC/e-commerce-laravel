@@ -94,7 +94,7 @@
 
     export default ({
         props: {
-            shipping: Number
+            shipping: String
         },
         computed: {
             ...mapGetters([

@@ -258,7 +258,7 @@
         }),
         props: {
             userAuth: String,
-            shipping: Number,
+            shipping: String,
             countries: Array,
             isSubscribe: Boolean
         },

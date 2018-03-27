@@ -16,17 +16,17 @@ class CountryController extends Controller
      */
     public function index(Request $request)
     {
-        $countries = Countries::all()->pluck('name.common');
+       // $countries = Countries::all()->pluck('name.common');
         $name = $request->get('country');
         $ip = $request->ip();
 
         $country = $name ?? $this->getCountry($ip);
         
-        $shippingSum = $this->getShippingSum($country);
+        $shippingSum = getShippingCost($country);
 
         return response()->json([
-            'countries' => $countries,
-            'states'    => $this->getStates($country),
+         //   'countries' => $countries,
+         //   'states'    => $this->getStates($country),
             'shipping'  => $shippingSum,
             'selected'  => $country,
         ]);
@@ -77,19 +77,5 @@ class CountryController extends Controller
     private function decodeResponse($response)
     {
         return json_decode((string)$response->getBody());
-    }
-
-    /**
-     * Get shipping sum by country.
-     *
-     * @param null $country
-     *
-     * @return float
-     */
-    private function getShippingSum($country)
-    {
-        return $country === 'United States'
-            ? 6.99
-            : 17.99;
     }
 }
