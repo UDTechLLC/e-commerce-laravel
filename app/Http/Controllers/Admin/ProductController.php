@@ -74,16 +74,16 @@ class ProductController extends Controller
         $product->saveImageBase64(
             $request->input('image'),
             'products',
-            ['name'=> 'view_video', 'value'=> $request->get('viewVideo')]
+            ['name' => 'view_video', 'value' => $request->get('viewVideo')]
         );
         $product->saveImageBase64($request->input('imagePreview'), 'preview');
 
-       /* if ($request->get('viewVideo')) {
-            $product
-                ->withCustomProperties(['video_link' => $request->get('viewVideo')])
-                ->preservingOriginal()
-                ->toMediaCollection('products');
-        }*/
+        /* if ($request->get('viewVideo')) {
+             $product
+                 ->withCustomProperties(['video_link' => $request->get('viewVideo')])
+                 ->preservingOriginal()
+                 ->toMediaCollection('products');
+         }*/
 
         return $product;
     }
@@ -120,6 +120,7 @@ class ProductController extends Controller
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
             'slug'         => $product->slug,
+            'viewVideo'    => $product->getFirstMedia('products')->getCustomProperty('view_video')
         ];
 
         return view('admin.products.edit', ['product' => $data]);
@@ -135,6 +136,7 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
+        //  dd($request->all());
         $product->update([
             'title'       => $request->get('title'),
             'subtitle'    => $request->get('subtitle'),
@@ -151,6 +153,9 @@ class ProductController extends Controller
         }
         if ($request->has('imagePreview') && $this->checkImage($request->get('imagePreview'))) {
             $product->updateImageBase64($request->get('imagePreview'), 'preview');
+        }
+        if ($request->get('viewVideo') != $product->getFirstMedia('products')->getCustomProperty('view_video')) {
+            $product->getFirstMedia('products')->setCustomProperty('view_video', $request->get('viewVideo'))->save();
         }
 
         return $product;

@@ -77,7 +77,7 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="video"> View Video
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <iframe :src="videoLink" frameborder="0" v-if="!errors.has('video')"
+                    <iframe :src="videoLink" frameborder="0" v-if="!errors.has('video') && videoLink.length > 0"
                             webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                     <input type="text" id="video" v-model="videoLink" class="form-control col-md-7 col-xs-12"

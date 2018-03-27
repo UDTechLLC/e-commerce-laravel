@@ -75,11 +75,25 @@
                     <span class="text-danger" v-if="errors.has('view_name')">{{ errors.first('view_name') }}</span>
                 </div>
             </div>
+            <div class="form-group" :class="{'has-error': errors.has('video') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="video"> View Video
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <iframe :src="entry.viewVideo" frameborder="0" v-if="!errors.has('video') && entry.viewVideo"
+                            webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                    <input type="text" id="video" v-model="entry.viewVideo" class="form-control col-md-7 col-xs-12"
+
+                           v-validate data-vv-rules="url|linkVimeo"  name="video"
+                    />
+                    <span class="text-danger" v-if="errors.has('video')">{{ errors.first('video') }}</span>
+                </div>
+            </div>
             <div class="form-group" :class="{'has-error': errors.has('old-price') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="text" id="old-price" v-model="entry.oldPrice"
+                    <input type="number" id="old-price" v-model="entry.oldPrice"
                            v-validate data-vv-rules="decimal"
                            :class="{'is-danger': errors.has('old-price')}"
                            name="old-price" class="form-control col-md-7 col-xs-12">
@@ -136,6 +150,18 @@
             this.entry = JSON.parse(this.product);
             this.viewArray = JSON.parse(this.viewList);
             this.oldSlug = this.entry.slug;
+
+            this.$validator.extend('linkVimeo', {
+
+                getMessage: field => 'Url is not valid.',
+                validate: (value) => {
+                    let url = new URL(value);
+
+                    return url.hostname == "player.vimeo.com"
+                            || url.hostname == "www.youtube.com"
+                            || url.hostname == "youtube.com";
+                }
+            });
         },
         computed: {
             renderSlug() {
@@ -201,5 +227,10 @@
 <style scoped>
     #published {
         margin-top: 10px;
+    }
+    iframe {
+        display: block;
+        margin: 25px 0;
+        width: 100%;
     }
 </style>
