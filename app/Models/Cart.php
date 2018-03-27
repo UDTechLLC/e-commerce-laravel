@@ -176,21 +176,6 @@ class Cart extends EloquentModel
         return false;
     }
 
-    /**
-     * @param null $country
-     *
-     * @return string
-     */
-    public function getShippingSum($country)
-    {
-        //todo: It is possible to add to config
-        return $this->isShipping()
-            ? $country === 'United States'
-                ? number_format(6.99, 2)
-                : number_format(17.99, 2)
-            : number_format(0, 2);
-    }
-
     public function clear()
     {
         $this->products()->detach();
