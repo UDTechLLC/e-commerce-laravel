@@ -76,7 +76,7 @@
         props: {
             orderId: Number,
             billing: Object,
-            shipping: Number,
+            shipping: String,
             coupon: String,
             token: String
         },

@@ -240,7 +240,7 @@
             orderId: Number,
             billing: Object,
             countries: Array,
-            shipping: Number
+            shipping: String
         },
         computed: {
             googleCountry() {
