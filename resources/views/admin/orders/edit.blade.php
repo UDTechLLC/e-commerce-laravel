@@ -140,7 +140,7 @@
                                                Payment method:
                                            </th>
                                            <td>
-                                               
+
                                                {{ $order->payment_method_slug }}
 
                                            </td>
