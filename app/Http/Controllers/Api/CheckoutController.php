@@ -190,7 +190,8 @@ class CheckoutController extends Controller
         $order->update([
             'shipping_id'   => $shipping->getKey(),
             'shipping_cost' => $shippingCost,
-            'total_cost'    => $order->product_cost + $shippingCost,
+//            'total_cost'    => $order->product_cost + $shippingCost,
+            'total_cost'    => $order->total_cost - $order->shipping_cost + $shippingCost,
         ]);
     }
 

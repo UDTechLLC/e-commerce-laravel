@@ -179,5 +179,7 @@ class Cart extends EloquentModel
     public function clear()
     {
         $this->products()->detach();
+        $this->coupon()->dissociate();
+        $this->save();
     }
 }
