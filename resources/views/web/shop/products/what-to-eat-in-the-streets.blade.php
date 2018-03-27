@@ -216,7 +216,7 @@
                                     </div>
 
 
-                                    <iframe src="https://player.vimeo.com/video/261629163" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                                 </div><!--custom-video-block__inner-->
 
