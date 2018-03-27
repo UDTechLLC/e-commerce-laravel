@@ -177,6 +177,11 @@ class Order extends EloquentModel
         return number_format($value / 100, 2, ".", "");
     }
 
+    public function getDiscountCostAttribute($value)
+    {
+        return number_format($value / 100, 2, ".", "");
+    }
+
     /**
      * Entity public methods go below
      */
