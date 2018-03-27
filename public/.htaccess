@@ -23,7 +23,7 @@
     RewriteRule ^(deploy.php) - [L]
 
     # SSL force shedfat
-    RewriteCond %{HTTP_HOST} ^shedyourfatnow\.com [NC]
+    RewriteCond %{HTTP_HOST} ^shedyourfat\.com [NC]
     RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://www.shedyourfatnow.com/$1 [R=301,L]
+    RewriteRule ^(.*)$ https://www.shedyourfat.com/$1 [R=301,L]
 </IfModule>
