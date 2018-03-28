@@ -129,7 +129,6 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //  dd($request->all());
         $product->update([
             'title'       => $request->get('title'),
             'subtitle'    => $request->get('subtitle'),

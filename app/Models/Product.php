@@ -257,20 +257,6 @@ class Product extends Model implements HasMedia
         $this->updateMedia([$arr], $collect);
     }
 
-    private function getFormatCustomProperty($property)
-    {
-        $result = [];
-
-        foreach ($property as $key => $value) {
-            $result[] = [
-                'name' => $key,
-                'value' => $value
-            ];
-        }
-
-        return $result;
-    }
-
     // @todo:
 
     /**
