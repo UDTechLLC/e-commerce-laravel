@@ -10,59 +10,62 @@
 @endsection
 @section('content')
     <main>
-            <div class="top-product-description-block">
-                <div class="wrapper">
-                    <div class="product-preview-wrapper">
-                        <div class="image-wrapper">
-                            {{--<img src="assets/images/full-product/what-to-eat-mainimage.png">--}}
-                            <img src="{!! $product->getFirstMediaUrl('products') !!}" />
-                        </div>
+        <div class="top-product-description-block">
+            <div class="wrapper">
+                <div class="product-preview-wrapper">
+                    <div class="image-wrapper">
+                        {{--<img src="assets/images/full-product/what-to-eat-mainimage.png">--}}
+                        <img src="{!! $product->getFirstMediaUrl('products') !!}"/>
                     </div>
-                    <div class="product-info-block">
-                        <div class="product-info">
-                            <div class="product-title-block">
-                                <h2 class="product-title custom-w custom-w--210">
-                                    {{ $product->title }}
-                                </h2>
-                            </div>
-                            <div class="product-description-block">
-                                <p class="product-description">
-                                   {{ $product->description }}
-                                </p>
-                            </div>
-                            <div class="product-price-block">
-                                <div class="product-price has-old-price">
-                                  @if($product->old_amount)
+                </div>
+                <div class="product-info-block">
+                    <div class="product-info">
+                        <div class="product-title-block">
+                            <h2 class="product-title custom-w custom-w--210">
+                                {{ $product->title }}
+                            </h2>
+                        </div>
+                        <div class="product-description-block">
+                            <p class="product-description">
+                                {{ $product->description }}
+                            </p>
+                        </div>
+                        <div class="product-price-block">
+                            <div class="product-price has-old-price">
+                                @if($product->old_amount)
                                     <span class="product-amount product-amount--old">
                                 <span class="currency">$</span>
                                 <span>{{ $product->old_amount }}</span>
                             </span>
                                 @endif
-                                    <span class="product-amount">
+                                <span class="product-amount">
                                 <span class="currency">$</span>
                                 <span>{{ $product->amount }}</span>
                             </span>
-                                </div>
                             </div>
-                            <add-to-cart
-                                    product-slug="{{ $product->slug }}"
-                            >
-                            </add-to-cart>
                         </div>
+                        <add-to-cart
+                                product-slug="{{ $product->slug }}"
+                        >
+                        </add-to-cart>
                     </div>
-                    <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
             </div>
+        </div>
 
 
-        <section class="parallax-section" data-speed=".7" data-size="100vw" data-parallax="scroll" data-image-src="{{ asset('web/images/full-product/parallax/on-the-go-bg.jpg')}}" data-relative-input="true">
+        <section class="parallax-section" data-speed=".7" data-size="100vw" data-parallax="scroll"
+                 data-image-src="{{ asset('web/images/full-product/parallax/on-the-go-bg.jpg')}}"
+                 data-relative-input="true">
 
             <div class="wrapper">
                 <h2 class="section__title after-lines after-lines--white text-center section__title--what-eat">
                     ON THE GO? FORGET YOUR LUNCH <br>
                     AT HOME? NO TIME TO COOK?
                 </h2>
-                <p class="section__text section__text--white text-center">Grabbing food on the go can be tricky. How can you stay on track with your
+                <p class="section__text section__text--white text-center">Grabbing food on the go can be tricky. How can
+                    you stay on track with your
                     health and fitness goals when you can’t get to the kitchen?</p>
 
 
@@ -74,18 +77,20 @@
                         <div class="flex flex-j--between">
                             <div class="block-in-section__icon-wr">
                                 <div class="block-in-section__icon">
-                                    <img src="{{ asset('web/images/full-product/icons/user-friendly.svg')}}" alt="user-friendly">
+                                    <img src="{{ asset('web/images/full-product/icons/user-friendly.svg')}}"
+                                         alt="user-friendly">
                                 </div>
                                 <h3 class="block-in-section__title">
                                     USER FRIENDLY
                                 </h3>
                                 <p class="block-in-section__info">
-                                    Clear and  Concise, Eliminating Confusion
+                                    Clear and Concise, Eliminating Confusion
                                 </p>
                             </div>
                             <div class="block-in-section__icon-wr">
                                 <div class="block-in-section__icon">
-                                    <img src="{{ asset('web/images/full-product/icons/menu-guide.svg')}}" alt="menu-guide">
+                                    <img src="{{ asset('web/images/full-product/icons/menu-guide.svg')}}"
+                                         alt="menu-guide">
                                 </div>
                                 <h3 class="block-in-section__title">
                                     MENU GUIDE
@@ -98,7 +103,8 @@
                         <div class="flex flex-j--between">
                             <div class="block-in-section__icon-wr">
                                 <div class="block-in-section__icon">
-                                    <img src="{{ asset('web/images/full-product/icons/mobile-friendly.svg')}}" alt="mobile-friendly">
+                                    <img src="{{ asset('web/images/full-product/icons/mobile-friendly.svg')}}"
+                                         alt="mobile-friendly">
                                 </div>
                                 <h3 class="block-in-section__title">
                                     MOBILE FRIENDLY
@@ -109,7 +115,8 @@
                             </div>
                             <div class="block-in-section__icon-wr">
                                 <div class="block-in-section__icon">
-                                    <img src="{{ asset('web/images/full-product/icons/places-to-eat.svg')}}" alt="places-to-eat">
+                                    <img src="{{ asset('web/images/full-product/icons/places-to-eat.svg')}}"
+                                         alt="places-to-eat">
                                 </div>
                                 <h3 class="block-in-section__title">
                                     PLACES TO EAT
@@ -133,18 +140,18 @@
 
 
                 <div class="restaurants__wrap inline-block text-center">
-                    <div class="restaurants__item"> <span>CAVA</span></div>
-                    <div class="restaurants__item"> <span>PANDA EXPRESS</span> </div>
-                    <div class="restaurants__item"> <span>PANERA BREAD</span> </div>
-                    <div class="restaurants__item"> <span>IHOP</span> </div>
-                    <div class="restaurants__item"> <span>STARBUCKS</span> </div>
-                    <div class="restaurants__item"> <span>JIMMY JOHNS</span> </div>
-                    <div class="restaurants__item"> <span>NANDOS</span> </div>
-                    <div class="restaurants__item"> <span>HARVEYS</span> </div>
-                    <div class="restaurants__item"> <span>TIM HORTONS</span> </div>
-                    <div class="restaurants__item"> <span>QDOBA</span> </div>
-                    <div class="restaurants__item"> <span>CHICK-FILA-A</span> </div>
-                    <div class="restaurants__item"> <span>CHIPOLTE</span> </div>
+                    <div class="restaurants__item"><span>CAVA</span></div>
+                    <div class="restaurants__item"><span>PANDA EXPRESS</span></div>
+                    <div class="restaurants__item"><span>PANERA BREAD</span></div>
+                    <div class="restaurants__item"><span>IHOP</span></div>
+                    <div class="restaurants__item"><span>STARBUCKS</span></div>
+                    <div class="restaurants__item"><span>JIMMY JOHNS</span></div>
+                    <div class="restaurants__item"><span>NANDOS</span></div>
+                    <div class="restaurants__item"><span>HARVEYS</span></div>
+                    <div class="restaurants__item"><span>TIM HORTONS</span></div>
+                    <div class="restaurants__item"><span>QDOBA</span></div>
+                    <div class="restaurants__item"><span>CHICK-FILA-A</span></div>
+                    <div class="restaurants__item"><span>CHIPOLTE</span></div>
                 </div>
 
             </div>
@@ -206,35 +213,37 @@
                     <div class="flex flex-a--center flex--m-block">
 
                         <div class="video-block-wrapper">
+                            @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
+                                <div class="custom-video-block custom-video-block--red">
+                                    <!--add class  'custom-video-block--red' for red border -->
+                                    <div class="custom-video-block__inner">
 
-                            <div class="custom-video-block custom-video-block--red"> <!--add class  'custom-video-block--red' for red border -->
-                                <div class="custom-video-block__inner">
+                                        <div class="custom-video-block__wrapper-click">
+                                            <img src="{{ asset('web/images/new-images/cap.png')}}" alt="mainImage"
+                                                 class="custom-video-block__coverImg">
+                                            <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
+                                                 class="custom-video-block__playImg">
+                                        </div>
 
-                                    <div class="custom-video-block__wrapper-click">
-                                        <img src="{{ asset('web/images/new-images/cap.png')}}" alt="mainImage" class="custom-video-block__coverImg">
-                                        <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt="" class="custom-video-block__playImg">
-                                    </div>
 
+                                        <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}"
+                                                frameborder="0" webkitallowfullscreen mozallowfullscreen
+                                                allowfullscreen></iframe>
 
-                                    <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    </div><!--custom-video-block__inner-->
 
-                                </div><!--custom-video-block__inner-->
-
-                            </div><!--custom-video-block-->
-
+                                </div><!--custom-video-block-->
+                            @endif
                         </div>
-
 
 
                         <div class="get-more__text">
-                            <img src="{{ asset('web/images/full-product/what_to_eat_in_the_streets_desktop.svg')}}" alt="get-more">
+                            <img src="{{ asset('web/images/full-product/what_to_eat_in_the_streets_desktop.svg')}}"
+                                 alt="get-more">
                         </div>
 
 
-
-
                     </div>
-
 
 
                     <div class="training-plan-faqs-block">
@@ -251,4 +260,4 @@
             product-slug="{{ $product->slug }}"
     >
     </add-to-cart-mobile>
-     @endsection
+@endsection

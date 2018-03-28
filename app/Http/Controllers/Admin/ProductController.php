@@ -113,7 +113,9 @@ class ProductController extends Controller
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
             'slug'         => $product->slug,
-            'viewVideo'    => $product->getFirstMedia('products')->getCustomProperty('view_video')
+            'viewVideo'    => ($product->getFirstMedia('products'))
+                ? $product->getFirstMedia('products')->getCustomProperty('view_video')
+                : ""
         ];
 
         return view('admin.products.edit', ['product' => $data]);

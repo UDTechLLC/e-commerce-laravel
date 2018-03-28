@@ -74,7 +74,7 @@
             <div class="training-plan-faqs-block-wrapper">
                 <div class="wrapper">
                     <div class="video-block-wrapper">
-
+                        @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
                         <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
                             <div class="custom-video-block__inner">
 
@@ -91,6 +91,7 @@
                             </div><!--custom-video-block__inner-->
 
                         </div><!--custom-video-block-->
+                        @endif
                     </div>
 
 

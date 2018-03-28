@@ -15,7 +15,7 @@
                 <div class="product-preview-wrapper">
                     <div class="image-wrapper">
                         {{--<img src="assets/images/full-product/resistance_bands.png">--}}
-                        <img src="{!! $product->getFirstMediaUrl('products') !!}" />
+                        <img src="{!! $product->getFirstMediaUrl('products') !!}"/>
                     </div>
                 </div>
                 <div class="product-info-block">
@@ -61,21 +61,26 @@
         <div class="wrapper">
             <div class="flex flex-a--center flex--m-block">
                 <div class="video-block-wrapper">
+                    @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
+                        <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
+                            <div class="custom-video-block__inner">
 
-                    <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
-                        <div class="custom-video-block__inner">
+                                <div class="custom-video-block__wrapper-click">
+                                    <img src="{{ asset('web/images/610809299_640.jpg')}}" alt="mainImage"
+                                         class="custom-video-block__coverImg">
+                                    <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
+                                         class="custom-video-block__playImg">
+                                </div>
 
-                            <div class="custom-video-block__wrapper-click">
-                                <img src="{{ asset('web/images/610809299_640.jpg')}}" alt="mainImage" class="custom-video-block__coverImg">
-                                <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt="" class="custom-video-block__playImg">
-                            </div>
 
+                                <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}"
+                                        frameborder="0" webkitallowfullscreen mozallowfullscreen
+                                        allowfullscreen></iframe>
 
-                            <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div><!--custom-video-block__inner-->
 
-                        </div><!--custom-video-block__inner-->
-
-                    </div><!--custom-video-block-->
+                        </div><!--custom-video-block-->
+                    @endif
                 </div>
                 <div class="get-more__text">
                     <img src="{{ asset('web/images/full-product/1.svg')}}" alt="get-more">
