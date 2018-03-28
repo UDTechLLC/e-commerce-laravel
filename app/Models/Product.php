@@ -227,7 +227,7 @@ class Product extends Model implements HasMedia
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
      */
-    public function saveImageBase64($image, $collect, $properties = null)
+    public function saveImageBase64($image, $collect, $properties = [])
     {
         $imageParts = explode(";base64,", $image);
         $imageTypeAux = explode("image/", $imageParts[0]);
@@ -235,7 +235,7 @@ class Product extends Model implements HasMedia
 
         return $this->addMediaFromBase64($image)
             ->usingFileName($this->slug . "." . $imageType)
-            ->withCustomProperties([$properties['name'] => $properties['value']])
+            ->withCustomProperties($properties)
             ->toMediaCollection($collect);
     }
 
@@ -252,9 +252,23 @@ class Product extends Model implements HasMedia
      */
     public function updateImageBase64($image, $collect)
     {
-        $newMedia = $this->saveImageBase64($image, $collect);
+        $newMedia = $this->saveImageBase64($image, $collect, $this->getFirstMedia('products')->custom_properties);
         $arr = ['id' => $newMedia->id];
         $this->updateMedia([$arr], $collect);
+    }
+
+    private function getFormatCustomProperty($property)
+    {
+        $result = [];
+
+        foreach ($property as $key => $value) {
+            $result[] = [
+                'name' => $key,
+                'value' => $value
+            ];
+        }
+
+        return $result;
     }
 
     // @todo:

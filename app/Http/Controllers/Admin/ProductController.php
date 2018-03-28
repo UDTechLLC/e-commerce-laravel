@@ -74,16 +74,9 @@ class ProductController extends Controller
         $product->saveImageBase64(
             $request->input('image'),
             'products',
-            ['name' => 'view_video', 'value' => $request->get('viewVideo')]
+            ['view_video' => $request->get('viewVideo')]
         );
         $product->saveImageBase64($request->input('imagePreview'), 'preview');
-
-        /* if ($request->get('viewVideo')) {
-             $product
-                 ->withCustomProperties(['video_link' => $request->get('viewVideo')])
-                 ->preservingOriginal()
-                 ->toMediaCollection('products');
-         }*/
 
         return $product;
     }
@@ -148,15 +141,22 @@ class ProductController extends Controller
             'published'   => $request->get('published'),
         ]);
 
+        $viewVideo = $product->getFirstMedia('products')->getCustomProperty('view_video');
+        if ($request->get('viewVideo') != $viewVideo) {
+            $product->getFirstMedia('products')->setCustomProperty('view_video', $request->get('viewVideo'))->save();
+        }
         if ($request->has('image') && $this->checkImage($request->get('image'))) {
             $product->updateImageBase64($request->get('image'), 'products');
         }
         if ($request->has('imagePreview') && $this->checkImage($request->get('imagePreview'))) {
             $product->updateImageBase64($request->get('imagePreview'), 'preview');
         }
-        if ($request->get('viewVideo') != $product->getFirstMedia('products')->getCustomProperty('view_video')) {
-            $product->getFirstMedia('products')->setCustomProperty('view_video', $request->get('viewVideo'))->save();
-        }
+        
+       /* dd('sa');
+        foreach ($property as $key => $value) {
+            $product->getFirstMedia('products')->setCustomProperty($key, $value)->save();
+        }*/
+
 
         return $product;
     }
