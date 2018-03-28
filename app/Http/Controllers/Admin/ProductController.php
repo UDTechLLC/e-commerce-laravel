@@ -151,12 +151,6 @@ class ProductController extends Controller
         if ($request->has('imagePreview') && $this->checkImage($request->get('imagePreview'))) {
             $product->updateImageBase64($request->get('imagePreview'), 'preview');
         }
-        
-       /* dd('sa');
-        foreach ($property as $key => $value) {
-            $product->getFirstMedia('products')->setCustomProperty($key, $value)->save();
-        }*/
-
 
         return $product;
     }
