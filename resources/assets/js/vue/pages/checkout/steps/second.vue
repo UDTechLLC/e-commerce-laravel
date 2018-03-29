@@ -3,7 +3,7 @@
         <billing-block
                 :billing="billing"
         ></billing-block>
-        <login v-if="userAuth != '1'"></login>
+        <!--<login v-if="userAuth != '1'"></login>-->
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
