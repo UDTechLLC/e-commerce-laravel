@@ -30,14 +30,17 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (2).png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->withCustomProperties([
+                'external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT',
+                'view_video'    => 'https://player.vimeo.com/video/197558254'
+            ])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
@@ -53,14 +56,17 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan_2.png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->withCustomProperties([
+                'external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT',
+                'view_video'    => 'https://player.vimeo.com/video/258652601'
+            ])
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (2).jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (3).jpg';
         $product
             ->addMedia($pathToFile)
             ->preservingOriginal()
@@ -79,7 +85,12 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/260858063'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/maxx_icon.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
@@ -100,7 +111,10 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/legs.png';
         $product
             ->addMedia($pathToFile)
-            ->withCustomProperties(['external_link' => 'https://shedyourfat.com/videolibrary/legs-fire-downloads/'])
+            ->withCustomProperties([
+                'external_link' => 'https://shedyourfat.com/videolibrary/legs-fire-downloads/',
+                'view_video'    => 'https://player.vimeo.com/video/261638450'
+            ])
             ->preservingOriginal()
             ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/kickstarter_shop_preview.png';
@@ -121,7 +135,12 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/Queen_of_the_Hill_90_Day_icon_2.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/261500084'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/Queen_of_the_Hill_90_Day_icon_1.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/E-book_queen_of_the_hill.pdf';
@@ -141,7 +160,12 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/devices_never.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/197558254'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/Never stop moving Sales .jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/Never_stop moving e-book.pdf';
@@ -210,7 +234,12 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/what_to_eat_in_the_streets.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/261629163'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/what_to_eat_in_the_streets_shop_preview.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/what_to_eat_in_the_streets-1.pdf';
@@ -229,8 +258,14 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'  => true,
 
         ]);
+
         $pathToFile = 'resources/assets/web/seed_products/detox_product.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/261520306'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/detox.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
         $pathToPdfFile = 'resources/assets/web/seed_products/pdf/14-Day-Smoothie-Detox-Cleanse.pdf';
@@ -385,8 +420,14 @@ class ProductsTableSeeder extends Seeder
             'isVirtual'  => false,
 
         ]);
+
         $pathToFile = 'resources/assets/web/seed_products/shaker-1.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/197558254'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/shaker_2.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
@@ -426,6 +467,44 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/cap.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => '12 Week Custom Training Plan',
+            'description' => 'Proper diet is key to achieving your health and fitness goals.
+                        A 100% customized training plan will make you look better, feel better and maximize results!',
+
+            'old_amount' => '100.00',
+            'amount'     => '40.00',
+            'parent_id'  => 1,
+            'slug'       => '12-week-custom-training-plan+12week-custom-meal-plan',
+            'isVirtual'  => true,
+            'published'  => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (3).jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => '12 Week Custom Meal Plan',
+            'description' => 'Proper diet is key to achieving your health and fitness goals.
+                        A 100% customized training plan will make you look better, feel better and maximize results!',
+
+            'old_amount' => '100.00',
+            'amount'     => '40.00',
+            'parent_id'  => 2,
+            'slug'       => '12-week-custom-meal-plan+12-week-custom-training-plan',
+            'isVirtual'  => true,
+            'published'  => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }

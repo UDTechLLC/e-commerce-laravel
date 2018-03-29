@@ -74,7 +74,7 @@
     <div class="training-plan-faqs-block-wrapper">
         <div class="wrapper">
             <div class="video-block-wrapper">
-
+                @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
                 <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
                     <div class="custom-video-block__inner">
 
@@ -84,11 +84,12 @@
                         </div>
 
 
-                        <iframe src="https://player.vimeo.com/video/197577248" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video')}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
                     </div><!--custom-video-block__inner-->
 
                 </div><!--custom-video-block-->
+                    @endif
             </div>
 
             <div class="training-plan-faqs-block">
