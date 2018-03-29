@@ -101,8 +101,8 @@ class ProductsTableSeeder extends Seeder
              Legs on Fire will guide you through this process for 30 days straight giving you both size 
              and strength in your lower body.',
 
-            'old_amount' => '50.00',
-            'amount'     => '30.00',
+            'old_amount' => '80.00',
+            'amount'     => '50.00',
             'slug'       => 'legs-on-fire',
             'view_name'  => 'legs-on-fire',
             'isVirtual'  => true,
@@ -127,8 +127,8 @@ class ProductsTableSeeder extends Seeder
             is right here in our 90 Day, total body, gym based program. It can be accessed at
              any time from any smart device!',
 
-            'old_amount' => '50.00',
-            'amount'     => '24.99',
+            'old_amount' => '100.00',
+            'amount'     => '49.00',
             'slug'       => 'queen-of-the-hill',
             'view_name'  => 'queen-of-the-hill',
             'isVirtual'  => true,
@@ -153,7 +153,7 @@ class ProductsTableSeeder extends Seeder
               toned physique from head to toe.',
 
             'old_amount' => '50.00',
-            'amount'     => '24.99',
+            'amount'     => '34.00',
             'slug'       => 'never-stop-moving-e-book',
             'view_name'  => 'never-stop-moving-e-book',
             'isVirtual'  => true,
@@ -176,8 +176,8 @@ class ProductsTableSeeder extends Seeder
             'description' => 'Versatility and simplicity. The addition of resistance bands to your routine, whether
              it is in the gym or in your living room, can take both your workouts and your results to the next level.',
 
-            'old_amount' => '40.00',
-            'amount'     => '25.00',
+            'old_amount' => '24.99',
+            'amount'     => '19.00',
             'slug'       => 'resistance-bands',
             'view_name'  => 'resistance-bands',
             'isVirtual'  => false,
@@ -208,8 +208,8 @@ class ProductsTableSeeder extends Seeder
             It effects energy levels, performance and overall well-being.  Add flavor, increase the nutritional
              value and make staying hydrated and healthy a more enjoyable process.',
 
-            'old_amount' => '40.00',
-            'amount'     => '25.00',
+            'old_amount' => '34.99',
+            'amount'     => '24.00',
             'slug'       => 'shedfat-infuser-bottle',
             'view_name'  => 'shedfat-infuser-bottle',
             'isVirtual'  => false,
@@ -252,7 +252,7 @@ class ProductsTableSeeder extends Seeder
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
 
             'old_amount' => '40.00',
-            'amount'     => '20.00',
+            'amount'     => '19.00',
             'slug'       => '14-day-detox-guide',
             'view_name'  => '14-day-detox-guide',
             'isVirtual'  => true,
@@ -414,7 +414,7 @@ class ProductsTableSeeder extends Seeder
             be compromised.',
 
             'old_amount' => '24.99',
-            'amount'     => '19.99',
+            'amount'     => '20.00',
             'slug'       => 'shedFat-shaker',
             'view_name'  => 'shedFat-shaker',
             'isVirtual'  => false,
@@ -438,8 +438,8 @@ class ProductsTableSeeder extends Seeder
               Our conveniently sized bags will give you somewhere to keep all of those things so that you never 
               have to worry about needing an extra hand again',
 
-            'old_amount' => '300.00',
-            'amount'     => '200.00',
+            'old_amount' => '39.99',
+            'amount'     => '20.00',
             'slug'       => 'gym-bag',
             'view_name'  => 'gym-bag',
             'isVirtual'  => false,
