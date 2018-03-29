@@ -182,14 +182,14 @@ class PayController extends Controller
             }
 
             if (0 !== $amount) {
-                $result = $user->charge($amount);
+                $result = $user->charge($amount, ['orderId' => $order->getKey()]);
             }
         } else {
             $service = new BraintreeService();
 
             $service->setAuthToken($token);
 
-            $result = $service->pay($amount);
+            $result = $service->pay($amount, ['orderId' => $order->getKey()]);
         }
 
         if ($result->success) {
