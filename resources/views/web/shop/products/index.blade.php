@@ -5,7 +5,7 @@
 @section('content')
     <main>
 <div class="main">
-    <div class="wrapper" style="background-color: #efea48;text-align: center;"><h2 style="padding: 15px;">60% OFF <span style="font-weight: lighter;">THE ENTIRE STORE</span></h2></div>
+    <div class="wrapper" style="background-color: #efea48;text-align: center;"><h3 style="padding: 15px;">60% OFF <span style="font-weight: lighter;">THE ENTIRE STORE</span></h3></div>
         <div class="shop-grid-wrapper">
             <div class="wrapper">
                 <div class="shop-items-wrapper">
