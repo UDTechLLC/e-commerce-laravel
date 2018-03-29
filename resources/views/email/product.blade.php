@@ -32,9 +32,9 @@ text-align: left;
                         <tr style="border-bottom: 1px solid #eaeaea;padding: 10px 0;">
                             <td style="padding: 20px 0;">
                                 {{$product->title}}
-                                @if ($product->isVirtual())
+                                @if ($product->isVirtual() && !$product->parent_id)
                                 <br>
-                                <a href="{{ $product->product_link }}">
+                                <a href="{{ $product->generateProductLink($order) }}">
                                     @if (strpos($product->title, 'Week'))
                                         <u style="color:red">Click here to fill out your questionnaire</u>
                                     @else

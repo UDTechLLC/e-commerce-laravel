@@ -176,9 +176,6 @@ class Product extends Model implements HasMedia
     {
         if ($this->isVirtual()) {
             $media = $this->getMedia('products')->first();
-            if ($this->bandls) {
-                $media = $this->bandls->getFirstMedia('products');
-            }
 
             return $media->hasCustomProperty('external_link')
                 ? $media->getCustomProperty('external_link')
@@ -219,6 +216,20 @@ class Product extends Model implements HasMedia
     public function setOldAmountAttribute($value)
     {
         $this->attributes['old_amount'] = $value * 100;
+    }
+
+    /**
+     * @param $order
+     * @return mixed
+     */
+    public function generateProductLink($order)
+    {
+        $product = $this;
+        if ($this->bandls) {
+            $product = $order->products()->wherePivot('product_id', $this->bandls->id)->first();
+        }
+
+        return $product->product_link;
     }
 
     /**
