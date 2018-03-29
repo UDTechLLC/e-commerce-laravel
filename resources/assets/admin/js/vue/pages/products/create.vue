@@ -73,6 +73,20 @@
                     <span class="text-danger" v-if="errors.has('view_name')">{{ errors.first('view_name') }}</span>
                 </div>
             </div>
+            <div class="form-group" :class="{'has-error': errors.has('video') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="video"> View Video
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <iframe :src="videoLink" frameborder="0" v-if="!errors.has('video') && videoLink.length > 0"
+                            webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                    <input type="text" id="video" v-model="videoLink" class="form-control col-md-7 col-xs-12"
+
+                           v-validate data-vv-rules="url|linkVimeo"  name="video"
+                    />
+                    <span class="text-danger" v-if="errors.has('video')">{{ errors.first('video') }}</span>
+                </div>
+            </div>
             <div class="form-group" :class="{'has-error': errors.has('old-price') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Old price
                 </label>
@@ -133,13 +147,26 @@
             imagePreview: "",
             slug: "",
             errorImage: false,
-            errorPreviewImage: false
+            errorPreviewImage: false,
+            videoLink: ""
         }),
         props: {
             viewList: String
         },
         created() {
             this.viewArray = JSON.parse(this.viewList);
+
+            this.$validator.extend('linkVimeo', {
+
+                getMessage: field => 'Url is not valid.',
+                validate: (value) => {
+                    let url = new URL(value);
+
+                    return url.hostname == "player.vimeo.com"
+                            || url.hostname == "www.youtube.com"
+                            || url.hostname == "youtube.com";
+                }
+            });
         },
         computed: {
             renderSlug() {
@@ -158,7 +185,7 @@
                 this.errorPreviewImage = false;
             },
             validateBeforeSubmit() {
-                this.$validator.validateAll().then((result) => {
+                   this.$validator.validateAll().then((result) => {
                     if (this.image == "") this.errorImage = true;
                     if (this.imagePreview == "") this.errorPreviewImage = true;
                     if (result && this.image && this.imagePreview)  this.submitForm();
@@ -175,7 +202,8 @@
                     view_name: this.view_name,
                     oldPrice: this.oldPrice,
                     price: this.price,
-                    published: this.published
+                    published: this.published,
+                    viewVideo: this.videoLink
                 };
 
                 axios.post('/admin/products/store', data).then(
@@ -218,5 +246,10 @@
 <style scoped>
     #published {
         margin-top: 10px;
+    }
+    iframe {
+        display: block;
+        margin: 25px 0;
+        width: 100%;
     }
 </style>

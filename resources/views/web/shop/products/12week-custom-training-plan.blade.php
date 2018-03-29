@@ -74,7 +74,7 @@
             <div class="training-plan-faqs-block-wrapper">
                 <div class="wrapper">
                     <div class="video-block-wrapper">
-
+                        @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
                         <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
                             <div class="custom-video-block__inner">
 
@@ -86,11 +86,12 @@
                                 </div>
 
 
-                                <iframe src="https://player.vimeo.com/video/258652601" frameborder="0"
+                                <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}" frameborder="0"
                                         webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                             </div><!--custom-video-block__inner-->
 
                         </div><!--custom-video-block-->
+                        @endif
                     </div>
 
 
@@ -425,7 +426,7 @@
             </div>
         </div>
     </main>
-    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+{{--    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT</h2>
@@ -450,6 +451,50 @@
                         </span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>--}}
+    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+        <div class="popUp__wrapper">
+            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+            <h2 class="popUp__title">ALSO RECOMMENDED11</h2>
+            <div class="popUp__img-info">
+                <div class="popUp__img">
+                    <img src="{{asset('/storage/1/icon_12_week_custom_training_plan%20%283%29.png')}}"
+                         alt="product_icon">
+                </div>
+                <div class="popUp__info">
+                    <div class="popUp__name">12 Week Custom Meal Plan</div>
+                    <p class="popUp__description">Training is only 20% of the battle. 80% of results come from
+                        consistent and proper nutrition!</p>
+
+                    <div class="popUp__productPriceBlock">
+
+                        <div class="product-price-block">
+                            <div class="product-price has-old-price">
+                                <div class="product-amount product-amount--old">
+                                    <span class="currency">$</span>
+                                    <span>100</span>
+                                </div>
+                                <div class="product-amount">
+                                    <span class="currency">$</span>
+                                    <span>40</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
+                        <add-to-cart
+                                product-slug="12-week-custom-meal-plan+12-week-custom-training-plan"
+                        >
+                        </add-to-cart>
+                        {{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}
+                        <a href="#" class="no-thanks">NO, THANKS</a>
+                    </div>
+                    {{--<a href="#" class="learn-more">learn more</a>--}}
+
                 </div>
             </div>
         </div>

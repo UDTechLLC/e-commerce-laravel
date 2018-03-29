@@ -71,7 +71,11 @@ class ProductController extends Controller
             'published'   => $request->get('published'),
         ]);
 
-        $product->saveImageBase64($request->input('image'), 'products');
+        $product->saveImageBase64(
+            $request->input('image'),
+            'products',
+            ['view_video' => $request->get('viewVideo')]
+        );
         $product->saveImageBase64($request->input('imagePreview'), 'preview');
 
         return $product;
@@ -109,6 +113,9 @@ class ProductController extends Controller
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
             'slug'         => $product->slug,
+            'viewVideo'    => ($product->getFirstMedia('products'))
+                ? $product->getFirstMedia('products')->getCustomProperty('view_video')
+                : ""
         ];
 
         return view('admin.products.edit', ['product' => $data]);
@@ -135,6 +142,10 @@ class ProductController extends Controller
             'published'   => $request->get('published'),
         ]);
 
+        $viewVideo = $product->getFirstMedia('products')->getCustomProperty('view_video');
+        if ($request->get('viewVideo') != $viewVideo) {
+            $product->getFirstMedia('products')->setCustomProperty('view_video', $request->get('viewVideo'))->save();
+        }
         if ($request->has('image') && $this->checkImage($request->get('image'))) {
             $product->updateImageBase64($request->get('image'), 'products');
         }
