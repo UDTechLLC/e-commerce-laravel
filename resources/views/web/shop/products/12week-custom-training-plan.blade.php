@@ -471,13 +471,13 @@
 
                     <div class="popUp__productPriceBlock">
 
-                        <div class="product-amount">
-                            <div class="flex flex-a--center">
-                                <div class="old-price line-throw">
+                        <div class="product-price-block">
+                            <div class="product-price has-old-price">
+                                <div class="product-amount product-amount--old">
                                     <span class="currency">$</span>
                                     <span>100</span>
                                 </div>
-                                <div class="product-price">
+                                <div class="product-amount">
                                     <span class="currency">$</span>
                                     <span>40</span>
                                 </div>
