@@ -32,14 +32,14 @@ class BraintreeService
         $this->authToken = $token;
     }
 
-    public function pay($amount)
+    public function pay($amount, array $options = [])
     {
-        return $this->gateway->transaction()->sale([
+        return $this->gateway->transaction()->sale(array_merge([
             'amount' => $amount,
             'paymentMethodNonce' => $this->authToken,
             'options' => [
                 'submitForSettlement' => true
             ]
-        ]);
+        ], $options));
     }
 }
