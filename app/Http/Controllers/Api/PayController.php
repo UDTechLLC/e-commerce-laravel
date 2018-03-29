@@ -16,130 +16,6 @@ use App\Http\Controllers\Controller;
 
 class PayController extends Controller
 {
-    /** @var PayPalService */
-    protected $service;
-
-    public function __construct()
-    {
-        $this->service = new PayPalService();
-    }
-
-    /**
-     * Pay order.
-     *
-     * @param Request $request
-     *
-     * @param Order $order
-     *
-     * @return mixed
-     */
-    public function pay(Request $request, Order $order)
-    {
-        if ($order->isShipping()) {
-            $this->sendOrderToShipStation($order);
-        }
-
-        $this->setCallbacks($order);
-        $this->service->setAmount($order->total_cost);
-        $response = $this->service->purchase();
-
-        if (!$response->isRedirect()) {
-            return route('/');  //todo: Add error
-        }
-
-        $order->cart->clear();
-
-        return $response->redirect();
-    }
-
-    /**
-     * Success pay callback function.
-     *
-     * @param Request $request
-     * @param Order $order
-     *
-     * @return mixed
-     */
-    public function returnUrl(Request $request, Order $order)
-    {
-        $this->setCallbacks($order);
-        $this->service->setAmount($order->total_cost);
-
-        $response = $this->service->completePurchase();
-
-        if ($response->isSuccessful()) {
-            $this->updateOrderStatus($order);
-
-            if ($order->isShipping()) {
-                $this->updateOrderStatusOnShipStation($order);
-            }
-
-            $this->sendOrderToEmail($order);
-
-            return view('web.checkout.checkout_thank_you', ['order' => $order]);
-        }
-    }
-
-    /**
-     * Cancel pay callback function.
-     */
-    public function cancelUrl()
-    {
-    }
-
-    /**
-     * Set callbacks for paypal answer.
-     *
-     * @param $order
-     */
-    private function setCallbacks($order)
-    {
-        $this->service->setReturnUrl(route('.pay.success', ['order' => $order->getKey()]));
-        $this->service->setCancelUrl(route('paypal.cancel', ['order' => $order->getKey()]));
-    }
-
-    /**
-     * Send products.
-     *
-     * @param Order $order
-     */
-    private function sendOrderToEmail(Order $order)
-    {
-        \Mail::to($order->billing->email)->send(new OrderSent($order));
-    }
-
-    /**
-     * Update order status.
-     *
-     * @param Order $order
-     */
-    private function updateOrderStatus(Order $order)
-    {
-        $order->update([
-            'state' => Order::ORDER_STATE_PROCESSING,
-        ]);
-    }
-
-    /**
-     * @param Order $order
-     */
-    private function sendOrderToShipStation($order)
-    {
-        $service = new ShipStationService($order);
-
-        $service->create();
-    }
-
-    /**
-     * @param $order
-     */
-    private function updateOrderStatusOnShipStation($order)
-    {
-        $service = new ShipStationService($order);
-
-        $service->update();
-    }
-
     /**
      * @param Request $request
      * @param Order $order
@@ -147,7 +23,7 @@ class PayController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Exception
      */
-    public function payBraintree(Request $request, Order $order)
+    public function pay(Request $request, Order $order)
     {
         $token = $request->get('nonce');
 
@@ -201,6 +77,48 @@ class PayController extends Controller
                 'message' => $result->message,
             ]);
         }
+    }
+
+    /**
+     * Send products.
+     *
+     * @param Order $order
+     */
+    private function sendOrderToEmail(Order $order)
+    {
+        \Mail::to($order->billing->email)->send(new OrderSent($order));
+    }
+
+    /**
+     * Update order status.
+     *
+     * @param Order $order
+     */
+    private function updateOrderStatus(Order $order)
+    {
+        $order->update([
+            'state' => Order::ORDER_STATE_PROCESSING,
+        ]);
+    }
+
+    /**
+     * @param Order $order
+     */
+    private function sendOrderToShipStation($order)
+    {
+        $service = new ShipStationService($order);
+
+        $service->create();
+    }
+
+    /**
+     * @param $order
+     */
+    private function updateOrderStatusOnShipStation($order)
+    {
+        $service = new ShipStationService($order);
+
+        $service->update();
     }
 
     /**

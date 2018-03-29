@@ -80,19 +80,11 @@ Route::group([
         'uses' => 'Api\PayController@getBraintreeToken',
     ]);
     Route::post('braintree/{order}', [
-       'uses' => 'Api\PayController@payBraintree'
+       'uses' => 'Api\PayController@pay'
     ]);
     Route::get('{order}', [
         'as'   => '.payment',
         'uses' => 'Api\PayController@pay',
-    ]);
-    Route::get('success/{order}', [
-        'as'   => '.success',
-        'uses' => 'Api\PayController@returnUrl',
-    ]);
-    Route::get('cancel/{order}', [
-        'as'   => '.cancel',
-        'uses' => 'Api\PayController@cancelUrl',
     ]);
 });
 
