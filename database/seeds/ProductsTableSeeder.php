@@ -30,7 +30,7 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (2).png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties([
@@ -40,7 +40,7 @@ class ProductsTableSeeder extends Seeder
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
@@ -56,7 +56,7 @@ class ProductsTableSeeder extends Seeder
 
         ]);
 
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan_2.png';
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties([
@@ -66,7 +66,7 @@ class ProductsTableSeeder extends Seeder
             ->preservingOriginal()
             ->toMediaCollection('products');
 
-        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (2).jpg';
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (3).jpg';
         $product
             ->addMedia($pathToFile)
             ->preservingOriginal()
@@ -467,6 +467,44 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/cap.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_Shedfat Dad Hat Sales.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => '12 Week Custom Training Plan',
+            'description' => 'Proper diet is key to achieving your health and fitness goals.
+                        A 100% customized training plan will make you look better, feel better and maximize results!',
+
+            'old_amount' => '100.00',
+            'amount'     => '40.00',
+            'parent_id'  => 1,
+            'slug'       => '12-week-custom-training-plan+12week-custom-meal-plan',
+            'isVirtual'  => true,
+            'published'  => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (3).jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => '12 Week Custom Meal Plan',
+            'description' => 'Proper diet is key to achieving your health and fitness goals.
+                        A 100% customized training plan will make you look better, feel better and maximize results!',
+
+            'old_amount' => '100.00',
+            'amount'     => '40.00',
+            'parent_id'  => 2,
+            'slug'       => '12-week-custom-meal-plan+12-week-custom-training-plan',
+            'isVirtual'  => true,
+            'published'  => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }

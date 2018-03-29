@@ -426,7 +426,7 @@
             </div>
         </div>
     </main>
-    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+{{--    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT</h2>
@@ -451,6 +451,50 @@
                         </span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>--}}
+    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+        <div class="popUp__wrapper">
+            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+            <h2 class="popUp__title">ALSO RECOMMENDED11</h2>
+            <div class="popUp__img-info">
+                <div class="popUp__img">
+                    <img src="{{asset('/storage/1/icon_12_week_custom_training_plan%20%283%29.png')}}"
+                         alt="product_icon">
+                </div>
+                <div class="popUp__info">
+                    <div class="popUp__name">12 Week Custom Meal Plan</div>
+                    <p class="popUp__description">Training is only 20% of the battle. 80% of results come from
+                        consistent and proper nutrition!</p>
+
+                    <div class="popUp__productPriceBlock">
+
+                        <div class="product-amount">
+                            <div class="flex flex-a--center">
+                                <div class="old-price line-throw">
+                                    <span class="currency">$</span>
+                                    <span>100</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="currency">$</span>
+                                    <span>40</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
+                        <add-to-cart
+                                product-slug="12-week-custom-meal-plan+12-week-custom-training-plan"
+                        >
+                        </add-to-cart>
+                        {{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}
+                        <a href="#" class="no-thanks">NO, THANKS</a>
+                    </div>
+                    {{--<a href="#" class="learn-more">learn more</a>--}}
+
                 </div>
             </div>
         </div>
