@@ -5,7 +5,7 @@
 @section('style')
    @parent
   {{-- <link rel="stylesheet" href="{{ asset('web/css/select2.min.css') }}">--}}
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Sn2lYqVhyliicyaBpl0au9740MjTiK4&libraries=places"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyfUaCPt3B8POkaRaP3HIvzpy4KKGbY2Y&language=us&libraries=places"></script>
 
     <!--Start of Zendesk Chat Script-->
     <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
