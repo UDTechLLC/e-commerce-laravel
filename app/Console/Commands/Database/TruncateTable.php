@@ -43,9 +43,9 @@ class TruncateTable extends Command
         if ($foreign === 'enabled') {
             \DB::table($table)->truncate();
         } elseif ($foreign === 'disabled') {
-            \DB::statement('SET FOREIGN_KEY_CHECKS=0');
+            \Schema::disableForeignKeyConstraints();
             \DB::table($table)->truncate();
-            \DB::statement('SET FOREIGN_KEY_CHECKS=1');
+            \Schema::enableForeignKeyConstraints();
         }
     }
 }
