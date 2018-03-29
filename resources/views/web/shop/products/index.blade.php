@@ -165,13 +165,13 @@
 
                     <div class="popUp__productPriceBlock">
 
-                        <div class="product-amount">
-                            <div class="flex flex-a--center">
-                                <div class="old-price line-throw">
+                        <div class="product-price-block">
+                            <div class="product-price has-old-price">
+                                <div class="product-amount product-amount--old">
                                     <span class="currency">$</span>
                                     <span>100</span>
                                 </div>
-                                <div class="product-price">
+                                <div class="product-amount">
                                     <span class="currency">$</span>
                                     <span>40</span>
                                 </div>
@@ -227,7 +227,7 @@
     <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">ALSO RECOMMENDED11</h2>
+            <h2 class="popUp__title">ALSO RECOMMENDED</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     <img src="{{asset('/storage/1/icon_12_week_custom_training_plan%20%283%29.png')}}"
@@ -240,13 +240,13 @@
 
                     <div class="popUp__productPriceBlock">
 
-                        <div class="product-amount">
-                            <div class="flex flex-a--center">
-                                <div class="old-price line-throw">
+                        <div class="product-price-block">
+                            <div class="product-price has-old-price">
+                                <div class="product-amount product-amount--old">
                                     <span class="currency">$</span>
                                     <span>100</span>
                                 </div>
-                                <div class="product-price">
+                                <div class="product-amount">
                                     <span class="currency">$</span>
                                     <span>40</span>
                                 </div>

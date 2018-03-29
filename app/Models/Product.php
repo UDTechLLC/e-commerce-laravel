@@ -219,6 +219,20 @@ class Product extends Model implements HasMedia
     }
 
     /**
+     * @param $order
+     * @return mixed
+     */
+    public function generateProductLink($order)
+    {
+        $product = $this;
+        if ($this->bandls && $order->products()->wherePivot('product_id', $this->bandls->id)->first()) {
+            $product = $order->products()->wherePivot('product_id', $this->bandls->id)->first();
+        }
+
+        return $product->product_link;
+    }
+
+    /**
      * @param $image
      * @param $collect
      * @param $properties
