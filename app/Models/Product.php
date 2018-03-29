@@ -176,6 +176,9 @@ class Product extends Model implements HasMedia
     {
         if ($this->isVirtual()) {
             $media = $this->getMedia('products')->first();
+            if ($this->bandls) {
+                $media = $this->bandls->getFirstMedia('products');
+            }
 
             return $media->hasCustomProperty('external_link')
                 ? $media->getCustomProperty('external_link')

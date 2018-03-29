@@ -34,7 +34,7 @@ class ProductsTableSeeder extends Seeder
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties([
-                'external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT',
+                'external_link' => 'https://airtable.com/shr0jIVi7hXwcM0dz',
                 'view_video'    => 'https://player.vimeo.com/video/197558254'
             ])
             ->preservingOriginal()
@@ -60,7 +60,7 @@ class ProductsTableSeeder extends Seeder
         $product
             ->addMedia($pathToFile)
             ->withCustomProperties([
-                'external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT',
+                'external_link' => 'https://airtable.com/shrnGkDNeGxWGmxBV',
                 'view_video'    => 'https://player.vimeo.com/video/258652601'
             ])
             ->preservingOriginal()
@@ -483,8 +483,12 @@ class ProductsTableSeeder extends Seeder
             'published'  => false,
 
         ]);
+
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (3).jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
@@ -503,7 +507,11 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->preservingOriginal()
+            ->preservingOriginal()
+            ->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
