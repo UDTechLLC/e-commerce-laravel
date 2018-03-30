@@ -1,11 +1,19 @@
 <template>
     <div class="dashboard_graph">
-        <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="col-md-6 col-sm-9 col-xs-12">
             <div class="demo-placeholder">
                 <line-chart
                         :chart-data="datacollection"
                         :options="{responsive: true, maintainAspectRatio: false}"
                 ></line-chart>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-9 col-xs-12">
+            <div class="demo-placeholder">
+                <bar-chart
+                        :chart-data="datacollection"
+                        :options="{responsive: true, maintainAspectRatio: false}"
+                ></bar-chart>
                 <button @click="fillData()">Randomize</button>
             </div>
         </div>
@@ -13,10 +21,12 @@
 </template>
 <script type="text/babel">
     import LineChart from './lineCharts.js'
+    import BarChart from './barCharts'
 
     export default {
         components: {
-            LineChart
+            LineChart,
+            BarChart
         },
         data () {
             return {
@@ -25,64 +35,27 @@
         },
         mounted () {
             this.fillData();
-            let timer = setInterval(() => {
+            /*let timer = setInterval(() => {
                 this.fillData();
-            }, 500);
+            }, 500);*/
 
-            clearInterval(timer);
+            //clearInterval(timer);
         },
         methods: {
             fillData () {
                 this.datacollection = {
                     labels: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
-                    datasets: [
-                        {
-                            label: 'Data One',
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 0.2)'
-                            ],
-                            borderColor: [
+                    datasets: [{
+                        label: 'Bar Dataset',
+                        data: [10, 20, 30, 40]
+                    }, {
+                        label: 'Line Dataset',
+                        data: [5, 25, 40, 10],
 
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
-                        },
-                        {
-                            label: 'Data One',
-                            backgroundColor: [
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
-                        },
-                        {
-                            label: 'Data One',
-                            backgroundColor: [
-                                'rgba(255, 206, 86, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 206, 86, 1)'
-                            ],
-                            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
-                        },
-                        {
-                            label: 'Data One',
-                            backgroundColor: [
-                                'rgba(153, 102, 255, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(153, 102, 255, 1)'
-                            ],
-                            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
-                        },
-
-                    ]
+                        // Changes this dataset to become a line
+                        type: 'line'
+                    }],
+                    labels: ['January', 'February', 'March', 'April']
                 }
             },
             getRandomInt () {
