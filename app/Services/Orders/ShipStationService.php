@@ -73,7 +73,7 @@ class ShipStationService
         $address = new Address();
 
         $address->name = $destination->full_name;
-        $address->street1 = $destination->street;
+        $address->street1 = "{$destination->street} {$destination->apartment}";
         $address->city = $destination->city;
         $address->state = $destination->state;
         $address->postalCode = $destination->postcode;
