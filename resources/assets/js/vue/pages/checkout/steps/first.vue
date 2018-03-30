@@ -82,17 +82,17 @@
                                               style="display: none">Please enter your address</span>
                                     </div>
 
-                                    <div class="form-field-wrapper"  :class="{'error': errors.has('bd_apartments') }"
+                                    <div class="form-field-wrapper"
                                          v-if="this.isShipping">
                                         <label for="bdApartments">
                                             Apartment, suite, unit etc.
+                                            <span>
+                                                    (optional)
+                                                </span>
                                         </label>
                                         <input id="bdApartments" class="form-field" name="bd_apartments" type="text"
-                                               placeholder="Apartment, suite, unit etc."
-                                               v-validate data-vv-rules="required"
+                                               placeholder="Apartment, suite, unit etc. (optional)"
                                                v-model="billingInfo.apartment"/>
-                                         <span class="error-massage"
-                                               style="display: none">Please enter your apartment</span>
                                     </div>
                                     <div class="form-field-wrapper half-field"
                                          v-if="this.isShipping">
