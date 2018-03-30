@@ -15,6 +15,7 @@
                     <div class="billing-user-info-block">
                         <span id="baCompName" v-if="billing.company" class="billing-user-info">{{ billing.company}}, </span>
                         <span id="baStreetAddress" v-if="billing.street" class="billing-user-info">{{ billing.street }}, </span>
+                        <span id="baApartment" v-if="billing.street" class="billing-user-info">{{ billing.apartment }}, </span>
                         <span id="baTown" v-if="billing.city" class="billing-user-info"> {{ billing.city }} </span>
                         <span id="baState" v-if="billing.state" class="billing-user-info"> {{billing.state }} </span>
                         <span id="baZipCode" v-if="billing.postcode" class="billing-user-info"> {{ billing.postcode }}, </span>
