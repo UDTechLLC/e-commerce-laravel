@@ -57,7 +57,7 @@
             @endif
             </td>
 
-            <td>{{ $order->created_at->format('M j, Y') }}</td>
+            <td>{{ $order->created_at->format('M j, Y H:i') }}</td>
             <td>{{ $order->product_cost }}</td>
             @if( $order->coupon_id)
                <td> {{$order->coupon->code}}</td>
