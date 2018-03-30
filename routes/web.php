@@ -42,3 +42,8 @@ Route::group([
         'uses' => 'Api\CheckoutController@shipping',
     ]);
 });
+
+Route::get('videolibrary/legs-fire-downloads', [
+    'as' => '.videolibrary',
+    'uses' => 'Web\VideoLibraryController@awayToWp',
+]);
