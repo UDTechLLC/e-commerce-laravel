@@ -166,7 +166,7 @@
         computed: {
             renderSlug() {
                 let slug = this.sanitizeTitle(this.entry.title);
-                this.slug = slug;
+                this.entry.slug = slug;
                 return `${location.hostname}/${slug}`;
             }
         },
@@ -187,7 +187,6 @@
                 });
             },
             submitForm() {
-
                 axios.put(`/admin/products/update/${this.oldSlug}`, this.entry).then(
                         result => {
                             this.notifySuccess("Done", "Product update");
