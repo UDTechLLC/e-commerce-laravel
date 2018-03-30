@@ -35,7 +35,8 @@
                         <shedfat-maxx
                                 product-props="{{$product}}"
                                 subscribe-product-props="{{ \App\Models\Product::where('slug', 'shedfat-maxx-subscription')->first() }}"
-                        ></shedfat-maxx>
+                        >
+                        </shedfat-maxx>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -385,5 +386,6 @@
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >
+        preorder
     </add-to-cart-mobile>
 @endsection
