@@ -386,6 +386,6 @@
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >
-        preorder
+        pre-order
     </add-to-cart-mobile>
 @endsection
