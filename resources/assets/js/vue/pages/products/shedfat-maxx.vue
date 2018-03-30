@@ -17,24 +17,25 @@
                                     </span>
 
                 </label>
-                <label class="price-radio flex flex-a--center">
-                    <input type="radio" :value="subscribeProduct.slug" name="product-price" v-model="slug">
-                    <span class="custom-input"></span>
-                                    <span>
-                                    <!--<span class="old-price">-->
+                <!--<label class="price-radio flex flex-a&#45;&#45;center">-->
+                    <!--<input type="radio" :value="subscribeProduct.slug" name="product-price" v-model="slug">-->
+                    <!--<span class="custom-input"></span>-->
+                                    <!--<span>-->
+                                    <!--&lt;!&ndash;<span class="old-price">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<span class="currency">$</span>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<span>{{ subscribeProduct.old_amount }}</span>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                                    <!--<span class="product-amount">-->
                                         <!--<span class="currency">$</span>-->
-                                        <!--<span>{{ subscribeProduct.old_amount }}</span>-->
+                                        <!--<span>{{ subscribeProduct.amount }}</span>-->
                                     <!--</span>-->
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>{{ subscribeProduct.amount }}</span>
-                                    </span>
-                                </span>
+                                <!--</span>-->
 
-                                    <span class="price-radio-block__desc">
-                                        I want auto-shipping for every 30 days.
-                                </span>
-                </label>
+                                    <!--<span class="price-radio-block__desc">-->
+                                        <!--I want auto-shipping for every 30 days.-->
+                                <!--</span>-->
+                <!--</label>-->
+                
             </div>
 
         </div>
