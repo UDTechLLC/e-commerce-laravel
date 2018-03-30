@@ -10,7 +10,14 @@
     <!--Start of Zendesk Chat Script-->
     <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
     <!--End of Zendesk Chat Script-->
-   @endsection
+   <script>
+       fbq('track', 'InitiateCheckout', {
+           value: 10,
+           currency: 'USD'
+       });
+   </script>
+
+@endsection
 @section('content')
     {{--<div id="locationField">
         <input id="autocomplete" placeholder="Enter your address"
