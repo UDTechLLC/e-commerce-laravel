@@ -1,7 +1,7 @@
 <template>
     <div>
         <a v-if="!addedToCart" class="btn add-to-cart-btn add-to-cart-btn--mobile" href="#" @click.prevent="addProduct(productSlug)">
-            Add to cart
+            <slot>Add to cart</slot>
         </a>
         <a v-else class="btn add-to-cart-btn add-to-cart-btn--mobile" href="/cart" >
             View cart
