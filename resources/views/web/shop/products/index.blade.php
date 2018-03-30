@@ -53,7 +53,7 @@
                                     product-slug="{{ $product->slug }}"
                                     data-title="{{ $product->title }}"
                                     >
-                                        @if($product->id == 22) preorder @endif
+                                        @if($product->slug == 'shedfat-maxx') preorder @endif
                                     </add-to-cart>
                                 </div>
                             </div>
