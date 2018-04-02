@@ -86,6 +86,8 @@
                                                     classname="form-field"
                                                     placeholder="House number and street name"
                                                     @placechanged="getAddressData"
+                                                    @no-results-found="getCustomAddress"
+                                                    @inputChange="getCustomAddress"
                                             >
                                             </vue-google-autocomplete>
                                          <span class="error-massage"
@@ -133,7 +135,7 @@
                                             </label>
                                             <div>
                                                 <input id="bdState" class="form-field" name="bd_state" type="text"
-                                                       v-model="shippingInfo.state"
+                                                       v-validate data-vv-rules="required" v-model="shippingInfo.state"
                                                 />
                                             </div>
 
@@ -280,6 +282,10 @@
             },
             getCountries() {
                 this.$emit('updateCountry', this.shippingInfo.country);
+            },
+            getCustomAddress(value) {
+                console.log(value);
+                this.shippingInfo.street = value.name ? value.name : value.newVal;
             },
             next() {
                 let data = {
