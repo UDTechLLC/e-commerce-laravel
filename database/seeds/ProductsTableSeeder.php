@@ -184,7 +184,11 @@ class ProductsTableSeeder extends Seeder
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/resistance_bands.png';
-        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/261500216'
+            ])
+            ->preservingOriginal()->toMediaCollection('products');
         $pathToFile = 'resources/assets/web/seed_products/preview/resistance_bands_shop_preview.jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
