@@ -86,22 +86,24 @@
                                                     classname="form-field"
                                                     placeholder="House number and street name"
                                                     @placechanged="getAddressData"
+                                                    @no-results-found="getCustomAddress"
+                                                    @inputChange="getCustomAddress"
                                             >
                                             </vue-google-autocomplete>
                                          <span class="error-massage"
                                                style="display: none">Please enter your address</span>
                                         </div>
-                                        <div class="form-field-wrapper" :class="{'error': errors.has('bd_apartments') }">
+                                        <div class="form-field-wrapper">
                                             <label for="bdApartments">
                                                 Apartment, suite, unit etc.
+                                                    <span>
+                                                        (optional)
+                                                    </span>
                                             </label>
                                             <input id="bdApartments" class="form-field" name="bd_apartments" type="text"
-                                                   placeholder="Apartment, suite, unit etc."
+                                                   placeholder="Apartment, suite, unit etc. (optional)"
                                                    v-model="shippingInfo.apartment"
-                                                   v-validate data-vv-rules="required"
                                             />
-                                            <span class="error-massage"
-                                                  style="display: none">Please enter your apartment</span>
                                         </div>
                                         <div class="form-field-wrapper half-field">
                                             <label for="bdCountry">
@@ -133,7 +135,7 @@
                                             </label>
                                             <div>
                                                 <input id="bdState" class="form-field" name="bd_state" type="text"
-                                                       v-model="shippingInfo.state"
+                                                       v-validate data-vv-rules="required" v-model="shippingInfo.state"
                                                 />
                                             </div>
 
@@ -280,6 +282,9 @@
             },
             getCountries() {
                 this.$emit('updateCountry', this.shippingInfo.country);
+            },
+            getCustomAddress(value) {
+                this.shippingInfo.street = value.name ? value.name : value.newVal;
             },
             next() {
                 let data = {

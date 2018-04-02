@@ -60,9 +60,35 @@
     <section class="get-more">
         <div class="wrapper">
             <div class="flex flex-a--center flex--m-block">
+
+                    @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
+                        <div class="video-block-wrapper">
+                        <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
+                            <div class="custom-video-block__inner">
+
+                                <div class="custom-video-block__wrapper-click">
+                                    <img src="{{ asset('web/images/new-images/cap.png')}}" alt="mainImage"
+                                         class="custom-video-block__coverImg">
+                                    <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
+                                         class="custom-video-block__playImg">
+                                </div>
+
+
+                                <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}"
+                                        frameborder="0" webkitallowfullscreen mozallowfullscreen
+                                        allowfullscreen></iframe>
+
+                            </div><!--custom-video-block__inner-->
+
+                        </div><!--custom-video-block-->
+                        </div>
+
+                @else
+
                 <div class="get-more__img get-more__img--red-border">
                     <img src="{{ asset('web/images/full-product/resistance_bands-bottom.png')}}" alt="pr-get-more">
                 </div>
+                        @endif
                 <div class="get-more__text">
                     <img src="{{ asset('web/images/full-product/1.svg')}}" alt="get-more">
                 </div>
