@@ -27,6 +27,7 @@ class ProductsTableSeeder extends Seeder
             'slug'       => '12week-custom-meal-plan',
             'view_name'  => '12week-custom-meal-plan',
             'isVirtual'  => true,
+            'published'  => 0
 
         ]);
 
@@ -53,7 +54,7 @@ class ProductsTableSeeder extends Seeder
             'slug'        => '12week-custom-training-plan',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
-
+            'published'   => 0
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
@@ -510,9 +511,67 @@ class ProductsTableSeeder extends Seeder
         $product->addMedia($pathToFile)
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->preservingOriginal()
+            ->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => '12 Week Custom Meal Plan',
+            'sub_title'   => '100% Personalized Meal Program',
+            'description' => 'Training is important but nutrition is what can make or break you! Our dedicated
+             team knows that reaching any health and fitness goal starts with a solid nutrition plan. We do not want 
+             you to look at this as a diet, we want you to look at this as an opportunity to lay a strong foundation
+              for years to come.',
+
+            'old_amount' => '200.00',
+            'amount'     => '100.00',
+            'slug'       => 'bogo-12week-custom-meal-plan',
+            'view_name'  => '12week-custom-meal-plan',
+            'isVirtual'  => true,
+
+        ]);
+
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (2).png';
+        $product
+            ->addMedia($pathToFile)
+            ->withCustomProperties([
+                'external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT',
+                'view_video'    => 'https://player.vimeo.com/video/197558254'
+            ])
             ->preservingOriginal()
             ->toMediaCollection('products');
-        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
+
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
+
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => '12 Week Custom Training Plan',
+            'sub_title'   => '100% Personalized Training Program',
+            'description' => 'Our dedicated team will develop a personalized training plan that not only makes sense, 
+            but makes a real difference. Let us show you what a difference 12 weeks can actually make!',
+            'old_amount'  => '200.00',
+            'amount'      => '100.00',
+            'slug'        => 'bogo-12week-custom-training-plan',
+            'view_name'   => '12week-custom-training-plan',
+            'isVirtual'   => true,
+
+        ]);
+
+        $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan_2.png';
+        $product
+            ->addMedia($pathToFile)
+            ->withCustomProperties([
+                'external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT',
+                'view_video'    => 'https://player.vimeo.com/video/258652601'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
+
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_meal_plan (2).jpg';
+        $product
+            ->addMedia($pathToFile)
+            ->preservingOriginal()
+            ->toMediaCollection('preview');
     }
 }
