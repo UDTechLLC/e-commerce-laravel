@@ -11,10 +11,7 @@
     <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
     <!--End of Zendesk Chat Script-->
    <script>
-       fbq('track', 'InitiateCheckout', {
-           value: 10,
-           currency: 'USD'
-       });
+       fbq('track', 'InitiateCheckout');
    </script>
 
 @endsection

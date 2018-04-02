@@ -37,8 +37,8 @@
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-<!-- Facebook Pixel Code -->
-    {{--<script>
+<!-- Facebook Pixel Code production-->
+    <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function()
 
@@ -54,11 +54,11 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
                    src="https://www.facebook.com/tr?id=252804818530741&ev=PageView&noscript=1"
-        /></noscript>--}}
+        /></noscript>
     <!-- End Facebook Pixel Code -->
         <!-- Facebook Pixel Code -->
 
-        <script>
+       {{-- <script>
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -72,8 +72,10 @@
         </script>
         <noscript><img height="1" width="1" style="display:none"
                        src="https://www.facebook.com/tr?id=182179075753618&ev=PageView&noscript=1"
-            /></noscript>
+            /></noscript>--}}
         <!-- End Facebook Pixel Code -->
+
+
 
     @show
 </head>
