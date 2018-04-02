@@ -27,8 +27,7 @@ class ProductsTableSeeder extends Seeder
             'slug'       => '12week-custom-meal-plan',
             'view_name'  => '12week-custom-meal-plan',
             'isVirtual'  => true,
-            'published'  => 0
-
+            'visible'    => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
@@ -54,7 +53,7 @@ class ProductsTableSeeder extends Seeder
             'slug'        => '12week-custom-training-plan',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
-            'published'   => 0
+            'visible'     => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
@@ -284,7 +283,7 @@ class ProductsTableSeeder extends Seeder
             'category'    => 'Limited-Time Offer',
             'published'   => false,
             'isVirtual'   => true,
-
+            'visible'     => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/preview/challenge1.png';
@@ -306,6 +305,7 @@ class ProductsTableSeeder extends Seeder
             'category'    => 'Limited-Time Offer',
             'published'   => false,
             'isVirtual'   => true,
+            'visible' => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/preview/challenge2.png';
@@ -328,6 +328,7 @@ class ProductsTableSeeder extends Seeder
             'category'    => 'Limited-Time Offer',
             'published'   => false,
             'isVirtual'   => false,
+            'visible' => false
 
         ]);
 
@@ -353,6 +354,7 @@ class ProductsTableSeeder extends Seeder
             'published'  => false,
             'parent_id'  => 6,
             'isVirtual'  => true,
+            'visible' => false
 
         ]);
 
@@ -381,7 +383,7 @@ class ProductsTableSeeder extends Seeder
             'published'  => false,
             'parent_id'  => 5,
             'isVirtual'  => true,
-
+            'visible' => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/queen+12week.png';
@@ -404,6 +406,7 @@ class ProductsTableSeeder extends Seeder
             'view_name'   => 'shedfat-maxx-subscription',
             'isVirtual'   => false,
             'published'   => false,
+            'visible' => false
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -467,7 +470,7 @@ class ProductsTableSeeder extends Seeder
             'view_name'  => 'shedfat-dad-hat',
             'isVirtual'  => false,
             'published'  => false,
-
+            'visible' => false
         ]);
         $pathToFile = 'resources/assets/web/seed_products/cap.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -486,7 +489,7 @@ class ProductsTableSeeder extends Seeder
             'slug'       => '12-week-custom-training-plan+12week-custom-meal-plan',
             'isVirtual'  => true,
             'published'  => false,
-
+            'visible' => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
@@ -509,7 +512,7 @@ class ProductsTableSeeder extends Seeder
             'slug'       => '12-week-custom-meal-plan+12-week-custom-training-plan',
             'isVirtual'  => true,
             'published'  => false,
-
+            'visible' => false
         ]);
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
         $product->addMedia($pathToFile)
@@ -531,7 +534,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '200.00',
             'amount'     => '100.00',
             'slug'       => 'bogo-12week-custom-meal-plan',
-            'view_name'  => '12week-custom-meal-plan',
+            'view_name'  => 'bogo-12week-custom-meal-plan',
             'isVirtual'  => true,
 
         ]);
@@ -557,7 +560,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount'  => '200.00',
             'amount'      => '100.00',
             'slug'        => 'bogo-12week-custom-training-plan',
-            'view_name'   => '12week-custom-training-plan',
+            'view_name'   => 'bogo-12week-custom-training-plan',
             'isVirtual'   => true,
 
         ]);
