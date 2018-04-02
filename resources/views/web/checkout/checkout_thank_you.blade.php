@@ -1,4 +1,14 @@
 @extends('web.layouts.app')
+@section('style')
+    @parent
+    <script>
+        fbq('track', 'Purchase', {
+            currency: 'USD',
+            value: "{{$order->total_cost}}",
+            content_ids: "{{ $order->id }}"
+        });
+    </script>
+@endsection
 @section('content')
     <main class="checkout checkout-thank-you">
         <div class="main thank-you-page-template">
