@@ -7,7 +7,7 @@
     <div class="top-home-banner-block-wrapper">
         <div class="top-home-banner-block">
             <div class="main-product">
-                <a href="{{url('product/bogo-12week-custom-meal-plan')}}">
+                <a href="{{url('product/bogo-12-week-custom-meal-plan')}}">
                     <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/banner_12_week_custom_plan.jpg')}}" />
                     <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/banner_12_week_custom_plan_mob.jpg')}}">
                 </a>
