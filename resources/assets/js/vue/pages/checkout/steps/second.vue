@@ -284,7 +284,6 @@
                 this.$emit('updateCountry', this.shippingInfo.country);
             },
             getCustomAddress(value) {
-                console.log(value);
                 this.shippingInfo.street = value.name ? value.name : value.newVal;
             },
             next() {

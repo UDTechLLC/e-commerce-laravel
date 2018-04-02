@@ -314,7 +314,6 @@
                 })
             },
             getCustomAddress(value) {
-                console.log(value);
                 this.billingInfo.street = value.name ? value.name : value.newVal;
             },
             next() {
