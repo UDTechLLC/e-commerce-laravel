@@ -30,7 +30,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="slug" name="slug"
-                           :value="renderSlug"
+                           v-model="slug"
                            class="form-control col-md-7 col-xs-12">
                 </div>
             </div>
@@ -168,11 +168,11 @@
             });
         },
         computed: {
-            renderSlug() {
+            /*renderSlug() {
                 let slug = this.sanitizeTitle(this.title);
                 this.slug = slug;
                 return `${location.hostname}/${slug}`;
-            }
+            }*/
         },
         methods: {
             getFile(file) {
