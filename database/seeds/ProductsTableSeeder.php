@@ -73,15 +73,17 @@ class ProductsTableSeeder extends Seeder
             ->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title'       => 'Shedfat Maxx',
+            'title'       => 'Shedfat Maxx in stock',
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
 
 //            'old_amount'  => '39.99',
             'amount'      => '19.00',
-            'slug'        => 'shedfat-maxx',
+            'slug'        => 'in-stock-shedfat-maxx',
             'view_name'   => 'shedfat-maxx',
             'isVirtual'   => false,
+            'published' => false,
+            'visible' => false
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
@@ -522,6 +524,27 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Shedfat Maxx',
+            'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
+             your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
+
+//            'old_amount'  => '39.99',
+            'amount'      => '19.00',
+            'slug'        => 'shedfat-maxx',
+            'view_name'   => 'shedfat-maxx',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/260858063'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/maxx_icon.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => '12 Week Custom Meal Plan',
