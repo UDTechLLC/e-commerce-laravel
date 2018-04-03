@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class StatisticService
 {
+    const DAY_FORMAT = 'd';
     /**
      * @var
      */
