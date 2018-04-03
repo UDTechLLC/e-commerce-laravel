@@ -33,6 +33,7 @@
                     ></line-chart>
                 </div>
             </div>
+            <button @click="fillData()">Randomize</button>
         </div>
         </div>
 
@@ -62,14 +63,14 @@
         methods: {
             fillData () {
                 this.datacollection = {
-                    labels: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
+                    labels: [1, 2 ,3, 4, 5],
                     datasets: [{
                         label: 'Bar Dataset',
                         borderColor: '#eeccbb',
-                        data: [10, 20, 30, 4, 11]
+                        data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()]
                     }, {
                         label: 'Line Dataset',
-                        data: [5, 25, 40, 10, 32],
+                        data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
 
                         // Changes this dataset to become a line
                         type: 'line'

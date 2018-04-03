@@ -17,6 +17,9 @@
             <span>Custom: </span>
             <datepicker v-model="startDate"></datepicker> -
             <datepicker v-model="endDate"></datepicker>
+            <button type="button" class="btn btn-primary">
+                Go
+            </button>
         </div>
             <test></test>
     </div>
@@ -36,7 +39,7 @@
             Datepicker
         },
         created() {
-            console.log(moment().startOf('week').isoWeekday(0));
+            console.log(moment().startOf('week').isoWeekday(1));
         }
     })
 </script>
