@@ -62,7 +62,7 @@ class StatisticsController extends Controller
                 return $statisticService->getMonthStats();
                 break;
             case 'year':
-                return '';
+                return $statisticService->getYearStats();
                 break;
         }
     }
