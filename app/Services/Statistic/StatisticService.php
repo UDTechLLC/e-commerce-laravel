@@ -66,8 +66,10 @@ class StatisticService
 
     /**
      * Get statistic for week period.
+     *
+     * @return array
      */
-    public function getWeekStats()
+    public function getWeekStats(): array
     {
         /** @var Carbon $today */
         $now = now();
@@ -83,9 +85,30 @@ class StatisticService
             $result[] = $orders->filter(function ($item) use ($startOfWeek) {
                 return $item->created_at->between($startOfWeek, $startOfWeek->copy()->addDay());
             })->sum('total_cost');
-        } while ($startOfWeek->addDay()->dayOfWeek <= $today->dayOfWeek);
+        } while ($startOfWeek->addDay() <= $today);
 
         return array_combine($this->getWeekLabels(count($result)), $result);
+    }
+
+    /**
+     * Get statistic for month period.
+     *
+     * @return array
+     */
+    public function getMonthStats(): array
+    {
+        $today = today();
+        $startOfMonth = $today->copy()->startOfMonth();
+
+        $orders = Order::whereMonth('created_at', $today->month)->get();
+
+        do {
+            $result[] = $orders->filter(function ($item) use ($startOfMonth) {
+                return $item->created_at->between($startOfMonth, $startOfMonth->copy()->addDay());
+            })->sum('total_cost');
+        } while ($startOfMonth->addDay() <= $today);
+
+        return array_combine($this->getDaysOfMonthLabels(count($result)), $result);
     }
 
     /**
@@ -127,7 +150,7 @@ class StatisticService
 
         do {
             $result[] = $startOfMonth->format('Y-m-d');
-        } while ($startOfMonth->addDay()->diffInMonths($lastOfMonth) !== 0);
+        } while ($startOfMonth->addDay()->diffInDays($lastOfMonth) !== 0);
 
         return array_slice($result, 0, $count);
     }
