@@ -74,9 +74,7 @@
                        src="https://www.facebook.com/tr?id=182179075753618&ev=PageView&noscript=1"
             /></noscript>--}}
         <!-- End Facebook Pixel Code -->
-
-
-
+        
     @show
 </head>
 <body>
