@@ -69,6 +69,7 @@ class ProductController extends Controller
             'old_amount'  => $request->get('oldPrice') ?? 0,
             'amount'      => $request->get('price'),
             'published'   => $request->get('published'),
+            'visible'     => $request->get('visible'),
         ]);
 
         $product->saveImageBase64(
@@ -110,6 +111,7 @@ class ProductController extends Controller
             'imagePreview' => $product->getFirstMediaUrl('preview'),
             'price'        => $product->amount,
             'published'    => $product->published,
+            'visible'      => $product->visible,
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
             'slug'         => $product->slug,
@@ -140,6 +142,7 @@ class ProductController extends Controller
             'amount'      => $request->get('price'),
             'slug'        => $request->get('slug'),
             'published'   => $request->get('published'),
+            'visible'     => $request->get('visible'),
         ]);
 
         $viewVideo = $product->getFirstMedia('products')->getCustomProperty('view_video');
@@ -183,7 +186,7 @@ class ProductController extends Controller
      */
     public function order()
     {
-        $products = Product::where('published', true)->orderBy('position')->get();
+        $products = Product::where('visible', true)->where('published', true)->orderBy('position')->get();
 
         return view('admin.products.order', [
             'products' => ProductsResource::collection($products),

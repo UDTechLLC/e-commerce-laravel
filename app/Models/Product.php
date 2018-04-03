@@ -70,7 +70,8 @@ class Product extends Model implements HasMedia
         'position',
         'isVirtual',
         'slug',
-        'published'
+        'published',
+        'visible'
     ];
 
     /**
