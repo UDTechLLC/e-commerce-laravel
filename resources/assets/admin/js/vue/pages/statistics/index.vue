@@ -15,13 +15,14 @@
                 Day
             </button>
             <span>Custom: </span>
-            <datepicker v-model="startDate" input-class="form-control"></datepicker> -
+            <datepicker v-model="startDate" input-class="form-control"></datepicker>
+            -
             <datepicker v-model="endDate" input-class="form-control"></datepicker>
             <button type="button" class="btn btn-primary">
                 Go
             </button>
         </div>
-            <test></test>
+        <test v-if="show" :datacollection="datacollection"></test>
     </div>
 </template>
 <script type="text/babel">
@@ -31,17 +32,48 @@
 
     export default({
         data: () => ({
+            show: false,
             startDate: moment().subtract(1, "days").format(),
-            endDate: moment().format()
+            endDate: moment().format(),
+            datacollection: {
+                //labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00"],
+                labels: [],
+                datasets: [],
+            }
         }),
         components: {
             test,
             Datepicker
         },
+        created() {
+            this.test()
+        },
+        methods: {
+            test() {
+                axios.get('/admin/statistics/orders/sum/period/fixed?period=day').then(
+                        response => {
+                            console.log(response);
+                            let dataTmp = []
+                            for (var prop in response.data) {
+                                  this.datacollection.labels.push(prop)
+                                dataTmp.push(response.data[prop]);
+                            }
+
+                            this.datacollection.datasets.push({
+                                label: 'Bar Dataset',
+                                borderColor: '#eeccbb',
+                                data: dataTmp
+                            })
+                            this.show = true
+                        },
+                        error => console.log('error')
+                )
+            }
+        }
     })
 </script>
 <style scoped>
     .vdp-datepicker {
-        display: inline-block!important;
+        display: inline-block !important;
     }
 </style>

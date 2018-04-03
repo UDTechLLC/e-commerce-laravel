@@ -33,7 +33,7 @@
                     ></line-chart>
                 </div>
             </div>
-            <button @click="fillData()">Randomize</button>
+
         </div>
         </div>
 
@@ -47,13 +47,11 @@
             LineChart,
             BarChart
         },
-        data () {
-            return {
-                datacollection: null
-            }
+        props: {
+            datacollection: Object
         },
         mounted () {
-            this.fillData();
+           // this.fillData();
             /*let timer = setInterval(() => {
                 this.fillData();
             }, 500);*/
@@ -67,10 +65,10 @@
                     datasets: [{
                         label: 'Bar Dataset',
                         borderColor: '#eeccbb',
-                        data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()]
+                        data: [1,2,3]
                     }, {
                         label: 'Line Dataset',
-                        data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()],
+                        data: [1,2,3],
 
                         // Changes this dataset to become a line
                         type: 'line'
