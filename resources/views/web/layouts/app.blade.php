@@ -75,8 +75,6 @@
             /></noscript>--}}
         <!-- End Facebook Pixel Code -->
 
-
-
     @show
 </head>
 <body>
