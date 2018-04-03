@@ -37,7 +37,8 @@ class OrdersResource extends Resource
 
     private function getShipping()
     {
-        return ($this->shipping_id && $this->isShipping()) ? "{$this->shipping->full_name} {$this->shipping->company_name},
+        return ($this->shipping_id && $this->isShipping()) ?
+            "{$this->shipping->full_name} {$this->shipping->company_name},
                   {$this->shipping->street} str,
                   {$this->shipping->country}, {$this->shipping->city} ,
                   {$this->shipping->state}, {$this->shipping->postcode}" : "-";
@@ -54,6 +55,5 @@ class OrdersResource extends Resource
         }
 
         return $billing;
-
     }
 }
