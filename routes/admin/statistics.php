@@ -2,7 +2,7 @@
 
 Route::group([
     'prefix' => 'statistics',
-    'as'     => 'statistics'
+    'as'     => '.statistics'
 ], function () {
     Route::get('/', [
         'uses' => 'StatisticsController@index'
