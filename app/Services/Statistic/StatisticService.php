@@ -14,10 +14,6 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class StatisticService
 {
-    const DAY_FORMAT = 'd';
-    const MONTH_FORMAT = 'm';
-    const YEAR_FORMAT = 'Y';
-
     /**
      * @var
      */
@@ -111,6 +107,22 @@ class StatisticService
         return array_combine($this->getDaysOfMonthLabels(count($result)), $result);
     }
 
+    public function getYearStats()
+    {
+        $lastOfMonth = today()->lastOfMonth();
+        $startOfYear = today()->startOfYear();
+
+        $orders = Order::whereYear('created_at', $lastOfMonth->year)->get();
+
+        do {
+            $result[] = $orders->filter(function ($item) use ($startOfYear) {
+                return $item->created_at->between($startOfYear, $startOfYear->copy()->addMonth());
+            })->sum('total_cost');
+        } while ($startOfYear->addMonth() <= $lastOfMonth);
+
+        return array_combine($this->getMonthsOfYearLabels(count($result)), $result);
+    }
+
     /**
      * Get hours labels.
      *
@@ -126,6 +138,13 @@ class StatisticService
         ], 0, $count);
     }
 
+    /**
+     * Get week labels.
+     *
+     * @param $count
+     *
+     * @return array
+     */
     private function getWeekLabels($count): array
     {
         return array_slice([
@@ -134,7 +153,7 @@ class StatisticService
     }
 
     /**
-     * Get date of month list.
+     * Get days of month labels.
      *
      * @param $count
      *
@@ -150,8 +169,23 @@ class StatisticService
 
         do {
             $result[] = $startOfMonth->format('Y-m-d');
-        } while ($startOfMonth->addDay()->diffInDays($lastOfMonth) !== 0);
+        } while ($startOfMonth->addDay() <= $lastOfMonth);
 
         return array_slice($result, 0, $count);
+    }
+
+    /**
+     * Get Months labels.
+     *
+     * @param $count
+     *
+     * @return array
+     */
+    private function getMonthsOfYearLabels($count): array
+    {
+        return array_slice([
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December',
+        ], 0, $count);
     }
 }
