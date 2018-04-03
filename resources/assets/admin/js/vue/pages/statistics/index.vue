@@ -15,8 +15,8 @@
                 Day
             </button>
             <span>Custom: </span>
-            <datepicker v-model="startDate"></datepicker> -
-            <datepicker v-model="endDate"></datepicker>
+            <datepicker v-model="startDate" input-class="form-control"></datepicker> -
+            <datepicker v-model="endDate" input-class="form-control"></datepicker>
             <button type="button" class="btn btn-primary">
                 Go
             </button>
@@ -31,16 +31,13 @@
 
     export default({
         data: () => ({
-            startDate: moment().format(),
+            startDate: moment().subtract(1, "days").format(),
             endDate: moment().format()
         }),
         components: {
             test,
             Datepicker
         },
-        created() {
-            console.log(moment().startOf('week').isoWeekday(1));
-        }
     })
 </script>
 <style scoped>
