@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Services\Statistic\StatisticService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class StatisticsController extends Controller
 {
@@ -18,68 +21,49 @@ class StatisticsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Get orders sum for fixed period.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     *
+     * @return JsonResponse
+     * @throws \Throwable
      */
-    public function create()
+    public function totalSumFixedPeriod(Request $request): JsonResponse
     {
-        //
+        throw_if(!($period = $request->get('period')), new NotFoundHttpException());
+
+        return response()->json($this->getTotalSumFixedPeriod($period));
+    }
+
+    public function totalSumCustomPeriod()
+    {
+        //todo::
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Get total orders sum for custom period.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param string $period
+     *
+     * @return array|string
      */
-    public function store(Request $request)
+    private function getTotalSumFixedPeriod(string $period)
     {
-        //
-    }
+        $statisticService = new StatisticService();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        switch ($period) {
+            case 'day':
+                return $statisticService->getDayStats();
+                break;
+            case 'week':
+                return '';
+                break;
+            case 'month':
+                return '';
+                break;
+            case 'year':
+                return '';
+                break;
+        }
     }
 }
