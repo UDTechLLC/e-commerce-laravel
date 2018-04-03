@@ -2,10 +2,17 @@
 @section('style')
     @parent
     <script>
+        var locations = [
+                @foreach ($order->products as $product)
+            [ "{{ $product->slug }}" ],
+            @endforeach
+        ];
+        console.log(locations);
         fbq('track', 'Purchase', {
             currency: 'USD',
             value: "{{$order->total_cost}}",
-            content_ids: "{{ $order->id }}"
+            content_ids: locations,
+            content_type: 'product'
         });
     </script>
 @endsection
