@@ -2,13 +2,11 @@
     <div>
         <div class="container">
             <h2>Orders</h2>
-        <table-vue
-                @sort="sort"
+        <orders-table
                 :data="gridData"
                 :columns="gridColumns"
-                :filter-key="searchQuery"
         >
-        </table-vue>
+        </orders-table>
 
         <div v-if="pagination.totalPage > 1">
             <paginate
@@ -21,26 +19,22 @@
     </div>
 </template>
 <script type="text/babel">
+import ordersTable from './components/orders-table';
 
     export default ({
         data() {
             return {
                 searchQuery: '',
-                actionField: true,
                 gridColumns: [
                     'id',
-                    'user',
-                    'shipping',
-                    'billing',
-                    'date',
-                    'product cost',
+                    'full name',
+                    'email',
+                    'ship to',
                     'coupon code',
-                    'shipping cost',
                     'total cost',
-                    'count',
-                    'state'
+                    'state',
+                    'date'
                 ],
-
                 gridData: [],
                 pagination: {
                     totalPage: 1,
@@ -52,7 +46,9 @@
                 }
             }
         },
-
+        components: {
+          ordersTable
+        },
         mounted() {
             this.getOrders();
         },
