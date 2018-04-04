@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <orders></orders>
+    <orders states-props="{{$states}}"></orders>
 {{--   <div class="container">
       <h2>Orders</h2>
       <table class="table table-bordered">
