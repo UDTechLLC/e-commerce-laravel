@@ -30,28 +30,18 @@ class OrderController extends Controller
      */
     public function filter(Request $request)
     {
-        $field = $request->get('field');
-        $value = $request->get('value');
+        $search = $request->get('search_field');
+        $searchValue = $request->get('search_value');
+        $filter = $request->get('filter_field');
+        $filterValue = $request->get('filter_value');
 
-        $orders = Order::paginate(20);
+        $query = $this->search($search, $searchValue);
 
-        switch ($field) {
-            case 'id':
-                $orders = Order::where('id', $value)->paginate(20);
-                break;
-            case 'email':
-                $orders = Order::whereHas('billing', function ($query) use ($value) {
-                    $query->where('email', $value);
-                })->paginate(20);
-                break;
-            case 'name':
-                $orders = Order::whereHas('billing', function ($query) use ($value) {
-                    $query->where('first_name', 'LIKE', $value . '%')
-                        ->orWhere('last_name', 'LIKE', '%' . $value . '%');
-                })->paginate(20);
+        if ($filter) {
+            $query->whehe($filter, $filterValue);
         }
 
-        return OrdersResource::collection($orders);
+        return OrdersResource::collection($query->paginate(20));
     }
 
     public function getOrders(Request $request)
@@ -144,5 +134,34 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param string $field
+     * @param string $value
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    private function search(string $field, string $value)
+    {
+        $query = Order::query();
+
+        switch ($field) {
+            case 'id':
+                $query = Order::where('id', $value);
+                break;
+            case 'email':
+                $query = Order::whereHas('billing', function ($query) use ($value) {
+                    $query->where('email', $value);
+                });
+                break;
+            case 'name':
+                $query = Order::whereHas('billing', function ($query) use ($value) {
+                    $query->where('first_name', 'LIKE', $value . '%')
+                        ->orWhere('last_name', 'LIKE', '%' . $value . '%');
+                });
+        }
+
+        return $query;
     }
 }
