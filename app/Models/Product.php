@@ -182,7 +182,7 @@ class Product extends Model implements HasMedia
 
             return $media->hasCustomProperty('external_link')
                 ? $media->getCustomProperty('external_link')
-                : config('app.url') . $this->getFirstMediaUrl('download');
+                : $this->getFirstMediaUrl('download');
         }
     }
 
