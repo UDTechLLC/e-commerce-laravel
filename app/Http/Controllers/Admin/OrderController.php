@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\UpdateOrderStatusRequest;
+use App\Http\Resources\Admin\OrdersResource;
 use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -17,10 +18,40 @@ class OrderController extends Controller
      */
     public function index(): View
     {
-        $order = Order::paginate(15);
         return view("admin.orders.index", [
-            'orders' => $order
+             'states' => json_encode(Order::ORDER_STATES)
         ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return
+     */
+    public function filter(Request $request)
+    {
+        $search = $request->get('searchField');
+        $searchValue = $request->get('searchValue');
+        $filter = $request->get('filterField');
+        $filterValue = $request->get('filterValue');
+
+        $query = $this->search($search, $searchValue);
+
+        if ($filterValue) {
+            $query->where($filter, $filterValue);
+        }
+
+        return OrdersResource::collection($query->paginate(20));
+    }
+
+    public function getOrders(Request $request)
+    {
+        $sortField = $request->get('sortField') ?? 'id';
+        $sortType = $request->get('sortType') ?? 'asc';
+
+        $orders = Order::orderBy($sortField, $sortType)->paginate(20);
+
+        return OrdersResource::collection($orders);
     }
 
     /**
@@ -36,7 +67,8 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,7 +79,8 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -59,12 +92,14 @@ class OrderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  Order $order
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Order $order)
     {
         $state = Order::ORDER_STATES;
-        return view('admin.orders.edit', compact('order','state'));
+
+        return view('admin.orders.edit', compact('order', 'state'));
     }
 
     /**
@@ -72,6 +107,7 @@ class OrderController extends Controller
      *
      * @param  Request $request
      * @param Order $order
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
@@ -82,19 +118,50 @@ class OrderController extends Controller
     public function updateStatus(UpdateOrderStatusRequest $request, Order $order)
     {
         $order->update([
-              'state' => $request->get('state')
+            'state' => $request->get('state'),
         ]);
+
         return redirect()->route('admin.orders');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param string $field
+     * @param string $value
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    private function search($field, $value)
+    {
+        $query = Order::query();
+
+        switch ($field) {
+            case 'id':
+                $query = Order::where('id', $value);
+                break;
+            case 'email':
+                $query = Order::whereHas('billing', function ($query) use ($value) {
+                    $query->where('email', $value);
+                });
+                break;
+            case 'name':
+                $query = Order::whereHas('billing', function ($query) use ($value) {
+                    $query->where('first_name', 'LIKE', $value . '%')
+                        ->orWhere('last_name', 'LIKE', '%' . $value . '%');
+                });
+        }
+
+        return $query;
     }
 }
