@@ -6,6 +6,15 @@ Route::group([
     Route::get('/', [
         'uses' => 'OrderController@index',
     ]);
+    Route::group([
+        'as'     => '.filters',
+        'prefix' => 'filters',
+    ], function () {
+        Route::get('/', [
+            'as'   => '.filter',
+            'uses' => 'OrderController@filter',
+        ]);
+    });
     Route::get('/list', [
         'as'   => '.list',
         'uses' => 'OrderController@getOrders',
@@ -18,14 +27,4 @@ Route::group([
         'as'   => '.update',
         'uses' => 'OrderController@updateStatus',
     ]);
-
-    Route::group([
-        'as'     => '.filters',
-        'prefix' => 'filters',
-    ], function () {
-        Route::get('/', [
-            'as'   => '.filter',
-            'uses' => 'OrderController@filter',
-        ]);
-    });
 });

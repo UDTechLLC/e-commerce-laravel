@@ -30,15 +30,15 @@ class OrderController extends Controller
      */
     public function filter(Request $request)
     {
-        $search = $request->get('search_field');
-        $searchValue = $request->get('search_value');
-        $filter = $request->get('filter_field');
-        $filterValue = $request->get('filter_value');
+        $search = $request->get('searchField');
+        $searchValue = $request->get('searchValue');
+        $filter = $request->get('filterField');
+        $filterValue = $request->get('filterValue');
 
         $query = $this->search($search, $searchValue);
 
-        if ($filter) {
-            $query->whehe($filter, $filterValue);
+        if ($filterValue) {
+            $query->where($filter, $filterValue);
         }
 
         return OrdersResource::collection($query->paginate(20));
@@ -142,7 +142,7 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    private function search(string $field, string $value)
+    private function search($field, $value)
     {
         $query = Order::query();
 
