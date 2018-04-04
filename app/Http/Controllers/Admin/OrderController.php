@@ -32,7 +32,9 @@ class OrderController extends Controller
     {
         $field = $request->get('field');
         $value = $request->get('value');
-        
+
+        $orders = Order::paginate(20);
+
         switch ($field) {
             case 'id':
                 $orders = Order::where('id', $value)->paginate(20);
