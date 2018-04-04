@@ -1,11 +1,13 @@
 <template>
     <div>
-      <table-vue
+        <div class="container">
+            <h2>Orders</h2>
+        <table-vue
                 @sort="sort"
                 :data="gridData"
                 :columns="gridColumns"
                 :filter-key="searchQuery"
-      >
+        >
         </table-vue>
 
         <div v-if="pagination.totalPage > 1">
@@ -16,6 +18,7 @@
             </paginate>
         </div>
     </div>
+    </div>
 </template>
 <script type="text/babel">
 
@@ -25,7 +28,17 @@
                 searchQuery: '',
                 actionField: true,
                 gridColumns: [
-                    'id'
+                    'id',
+                    'user',
+                    'shipping',
+                    'billing',
+                    'date',
+                    'product cost',
+                    'coupon code',
+                    'shipping cost',
+                    'total cost',
+                    'count',
+                    'state'
                 ],
 
                 gridData: [],

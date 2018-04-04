@@ -2,7 +2,7 @@
     <div>
         <h1>Analytics</h1>
         <div class="bs-example-popovers">
-            <button type="button" class="btn btn-default active">
+            <button type="button" class="btn btn-default active" @click.prevent="getData('year')">
                 Year
             </button>
             <button type="button" class="btn btn-default">
@@ -46,11 +46,14 @@
             Datepicker
         },
         created() {
-            this.test()
+            this.getData()
         },
         methods: {
-            test() {
-                axios.get('/admin/statistics/orders/sum/period/fixed?period=day').then(
+            getData(period = 'day') {
+                this.datacollection.labels = [];
+                this.datacollection.datasets = [];
+
+                axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
                         response => {
                             console.log(response);
                             let dataTmp = []
@@ -63,7 +66,7 @@
                                 label: 'Bar Dataset',
                                 borderColor: '#eeccbb',
                                 data: dataTmp
-                            })
+                            });
                             this.show = true
                         },
                         error => console.log('error')

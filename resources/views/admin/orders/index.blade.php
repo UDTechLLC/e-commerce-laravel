@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
 
 @section('content')
-   <div class="container">
+    <orders></orders>
+{{--   <div class="container">
       <h2>Orders</h2>
       <table class="table table-bordered">
          <thead>
@@ -27,7 +28,7 @@
             @if($order->user_id)
             <td>{{ $order->user->first_name }} , {{ $order->user->email }} </td>
                @else
-            {{--<td>Unregister user</td>--}}
+            --}}{{--<td>Unregister user</td>--}}{{--
                <td>{{ $order->billing->first_name}} {{ $order->billing->last_name}}, <br> {{$order->billing->email}}</td>
 
             @endif
@@ -49,7 +50,7 @@
             @endif
 
             <td style="text-transform: capitalize">{{ $order->billing->first_name}} {{ $order->billing->last_name}}
-               {{--@if($order->isShipping)--}}
+               --}}{{--@if($order->isShipping)--}}{{--
                @if($order->isShipping()),
                {{$order->billing->company_name}}, {{ $order-> billing->street }} str,
                {{ $order->billing->country }}, {{ $order->billing->city }} ,
@@ -67,18 +68,18 @@
             <td>{{ $order->shipping_cost }}</td>
             <td>{{ $order->total_cost }}</td>
             <td>{{ $order->count }}</td>
-            <td>{{ $order->state }}</td>
+            <td>{{ $order->state }}</td>--}}
 {{--<td><select>--}}
       {{--@foreach(\App\Models\Order::ORDER_STATES as order)--}}
       {{--<option value="{{ $order }}"></option>--}}
          {{--@endforeach--}}
    {{--</select></td>--}}
             {{--{{dump($orders->state )}}--}}
-            </tr>
+{{--            </tr>
          @endforeach
          </tbody>
       </table>
       {{ $orders->links() }}
-   </div>
+   </div>--}}
 
 @endsection
