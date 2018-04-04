@@ -95,7 +95,7 @@
         },
         methods: {
             getOrders() {
-                let url = `/admin/filters?page=${this.pagination.currentPage}&field=${this.searchField}&value=${this.searchQuery}&filter=${this.state}`;
+                let url = `/admin/orders/filters?page=${this.pagination.currentPage}&searchField=${this.searchField}&searchValue=${this.searchQuery}&filterField=state&filterValue=${this.state}`;
                 axios.get(url).then(
                         response => {
                             this.gridData = response.data.data;
