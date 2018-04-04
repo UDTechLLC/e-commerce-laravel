@@ -8,7 +8,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Search field</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="select2_single form-control" v-model="searchField" tabindex="-1">
-                            <option  v-for="item in searchFields">{{item.toUpperCase()}}</option>
+                            <option  v-for="item in searchFields">{{item}}</option>
                         </select>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
             return {
                 states: [],
                 searchQuery: '',
-                searchField: 'ID',
+                searchField: 'id',
                 searchFields: [
                   'id', 'email', 'name'
                 ],
@@ -94,7 +94,7 @@
         },
         methods: {
             getOrders() {
-                let url = `/admin/orders/list?page=${this.pagination.currentPage}&field=${this.searchField}&value=${this.searchQuery}&filter=${this.state}`;
+                let url = `/admin/filters?page=${this.pagination.currentPage}&field=${this.searchField}&value=${this.searchQuery}&filter=${this.state}`;
                 axios.get(url).then(
                         response => {
                             this.gridData = response.data.data;
