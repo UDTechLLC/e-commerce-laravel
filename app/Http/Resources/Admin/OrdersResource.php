@@ -21,8 +21,8 @@ class OrdersResource extends Resource
     {
         return [
             'id'          => "<a href='" .
-                route('admin.orders.edit', $this->getKey())
-                . "'>" . $this->getKey() . "</a>",
+                            route('admin.orders.edit', $this->getKey())
+                            . "'>" . $this->getKey() . "</a>",
             'user name'   => $this->billing->full_name,
             'email'       => $this->billing->email,
             'ship to'     => $this->getShipping(),
