@@ -50,6 +50,9 @@
         },
         methods: {
             getData(period = 'day') {
+                this.datacollection.labels = [];
+                this.datacollection.datasets = [];
+
                 axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
                         response => {
                             console.log(response);
