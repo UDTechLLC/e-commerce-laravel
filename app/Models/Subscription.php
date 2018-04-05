@@ -14,17 +14,24 @@ use App\Models\EloquentModel;
  */
 class Subscription extends EloquentModel
 {
+    const SUBSCRIPTION_ACTIVE = 'Active';
+    const SUBSCRIPTION_CANCELED = 'Canceled';
+    const SUBSCRIPTION_EXPIRED = 'Expired';
+    const SUBSCRIPTION_PAST_DUE = 'Past due';
+    const SUBSCRIPTION_PENDING = 'Pending';
+
     /**
      * @var string
      */
-    protected $table = 'subscriptons';
+    protected $table = 'subscriptions';
 
     /**
      * The attributes that are mass assignable.
      * @var array
      */
     protected $fillable = [
-        // @todo:
+        'name', 'braintree_id', 'braintree_plan', 'quantity',
+        'trial_ends_at', 'ends_at', 'status'
     ];
 
     /**
@@ -56,6 +63,14 @@ class Subscription extends EloquentModel
      * @var array
      */
     protected $appends = [];
+
+    public static $statuses = [
+        self::SUBSCRIPTION_ACTIVE,
+        self::SUBSCRIPTION_CANCELED,
+        self::SUBSCRIPTION_EXPIRED,
+        self::SUBSCRIPTION_PAST_DUE,
+        self::SUBSCRIPTION_PENDING,
+    ];
 
     /**
      * Entity relations go below
