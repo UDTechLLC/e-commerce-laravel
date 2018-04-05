@@ -2,16 +2,20 @@
     <div>
         <h1>Analytics</h1>
         <div class="bs-example-popovers">
-            <button type="button" class="btn btn-default active" @click.prevent="getData('year')">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'year'}"
+                    @click.prevent="getData('year')">
                 Year
             </button>
-            <button type="button" class="btn btn-default" @click.prevent="getData('month')">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'month'}"
+                    @click.prevent="getData('month')">
                 Month
             </button>
-            <button type="button" class="btn btn-default" @click.prevent="getData('week')">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'week'}"
+                    @click.prevent="getData('week')">
                 Week
             </button>
-            <button type="button" class="btn btn-default" @click.prevent="getData('day')">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'day'}"
+                    @click.prevent="getData('day')">
                 Day
             </button>
             <span>Custom: </span>
@@ -38,10 +42,10 @@
 
     export default({
         data: () => ({
-            show: false,
             startDate: moment().subtract(1, "days").format(),
             endDate: moment().format(),
-            datacollection: null
+            datacollection: null,
+            activeButton: 'day'
         }),
         components: {
             test,
@@ -53,7 +57,7 @@
         },
         methods: {
             getData(period = 'day') {
-
+                this.activeButton = period;
                 axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
                         response => {
                             let dataTmp = [];
