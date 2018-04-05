@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="{{ mix('web/css/app.css') }}">
 
         <link rel="stylesheet" href="{{ mix('web/css/base.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">
+        {{--<link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">--}}
         {{-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">--}}
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick-theme.css') }}">
@@ -97,8 +97,8 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
     <script src="{{ asset('web/js/script.js') }}"></script>
     <script src="{{ asset('web/js/modal.js')}}"></script>
-    <script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>
-    <script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>
+    {{--<script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>--}}
+    {{--<script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>--}}
 @show
 </body>
 </html>
