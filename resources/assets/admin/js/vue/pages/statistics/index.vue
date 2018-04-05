@@ -5,13 +5,13 @@
             <button type="button" class="btn btn-default active" @click.prevent="getData('year')">
                 Year
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" @click.prevent="getData('month')">
                 Month
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" @click.prevent="getData('week')">
                 Week
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" @click.prevent="getData('day')">
                 Day
             </button>
             <span>Custom: </span>
@@ -22,27 +22,30 @@
                 Go
             </button>
         </div>
-        <test v-if="show" :datacollection="datacollection"></test>
+        <div class="col-xs-6">
+        <line-chart
+                :chart-data="datacollection"
+                :options="{responsive: true, maintainAspectRatio: false}"
+        ></line-chart>
+        </div>
     </div>
 </template>
 <script type="text/babel">
     import test from './components/test'
     import Datepicker from 'vuejs-datepicker'
     import moment from 'moment'
+    import LineChart from './components/lineCharts'
 
     export default({
         data: () => ({
             show: false,
             startDate: moment().subtract(1, "days").format(),
             endDate: moment().format(),
-            datacollection: {
-                //labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00"],
-                labels: [],
-                datasets: [],
-            }
+            datacollection: null
         }),
         components: {
             test,
+            LineChart,
             Datepicker
         },
         created() {
@@ -50,24 +53,26 @@
         },
         methods: {
             getData(period = 'day') {
-                this.datacollection.labels = [];
-                this.datacollection.datasets = [];
 
                 axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
                         response => {
-                            console.log(response);
-                            let dataTmp = []
+                            let dataTmp = [];
+                            let labelsTmp = [];
                             for (var prop in response.data) {
-                                  this.datacollection.labels.push(prop)
+                                labelsTmp.push(prop);
                                 dataTmp.push(response.data[prop]);
                             }
-
-                            this.datacollection.datasets.push({
-                                label: 'Bar Dataset',
-                                borderColor: '#eeccbb',
-                                data: dataTmp
-                            });
-                            this.show = true
+                            this.datacollection = {
+                                labels: labelsTmp,
+                                datasets: [
+                                    {
+                                        label: 'Orders total',
+                                        borderColor: 'rgba(0, 174, 255)',
+                                        backgroundColor: 'rgba(130, 196, 214, 0.5)',
+                                        data: dataTmp
+                                    }
+                                ]
+                            }
                         },
                         error => console.log('error')
                 )
