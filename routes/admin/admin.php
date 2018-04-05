@@ -15,4 +15,5 @@ Route::group([
     require 'users.php';
     require 'orders.php';
     require 'coupons.php';
+    require 'statistics.php';
 });
