@@ -45,7 +45,7 @@
                         <ul class="order_details">
                             <li class="order">
                                 <h4>Order ID</h4>
-                                <strong>{{ $order->id }}</strong>
+                                <strong>{{ $order->order_id }}</strong>
                             </li>
                             <li class="date">
                                 <h4>Date:</h4>
