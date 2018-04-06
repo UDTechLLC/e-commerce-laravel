@@ -129,7 +129,6 @@ class CheckoutController extends Controller
     {
         /** @var Order $order */
         $order = Order::create([
-            'order_key'     => rand(111111111, 999999999),
             'user_id'       => null !== $user ? $user->getKey() : null,
             'billing_id'    => $billing->getKey(),
             'cart_id'       => $cart->getKey(),

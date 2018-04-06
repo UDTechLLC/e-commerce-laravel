@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Mail\OrderSent;
 use App\Models\Order;
+use App\Models\Subscription;
 use App\Models\User;
 use App\Services\Orders\ShipStationService;
 use Braintree\WebhookNotification;
@@ -57,7 +58,6 @@ class WebhookController extends CashierController
         $product = $order->products()->whereNotNull('plan_id')->first();
 
         $newOrder = Order::create([
-            'order_key'      => rand(111111111, 999999999),
             'user_id'        => $order->user->getKey(),
             'billing_id'     => $order->billing_id,
             'shipping_id'    => $order->shipping_id,
@@ -96,5 +96,18 @@ class WebhookController extends CashierController
     private function sendOrderToEmail(Order $order)
     {
         \Mail::to($order->billing->email)->send(new OrderSent($order));
+    }
+
+    /**
+     * Update subscription status.
+     *
+     * @param $braintreeId
+     * @param $status
+     */
+    private function updateSubscriptionStatus($braintreeId, $status)
+    {
+        Subscription::where('braintree_id', $braintreeId)
+            ->first()
+            ->update(['status' => $status]);
     }
 }

@@ -57,7 +57,7 @@ class Order extends EloquentModel
      */
     protected $fillable = [
         // @todo:
-        'order_key',
+        'order_id',
         'user_id',
         'shipping_id',
         'billing_id',
