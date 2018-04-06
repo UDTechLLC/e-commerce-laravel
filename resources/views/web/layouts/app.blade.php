@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="{{ mix('web/css/app.css') }}">
 
         <link rel="stylesheet" href="{{ mix('web/css/base.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">
+        {{--<link rel="stylesheet" type="text/css" href="{{ asset('web/carouselengine/initcarousel-1.css') }}">--}}
         {{-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">--}}
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick-theme.css') }}">
@@ -37,7 +37,7 @@
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-<!-- Facebook Pixel Code -->
+<!-- Facebook Pixel Code production-->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function()
@@ -56,6 +56,24 @@
                    src="https://www.facebook.com/tr?id=252804818530741&ev=PageView&noscript=1"
         /></noscript>
     <!-- End Facebook Pixel Code -->
+        <!-- Facebook Pixel Code -->
+
+       {{-- <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '182179075753618');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+                       src="https://www.facebook.com/tr?id=182179075753618&ev=PageView&noscript=1"
+            /></noscript>--}}
+        <!-- End Facebook Pixel Code -->
 
     @show
 </head>
@@ -79,8 +97,8 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
     <script src="{{ asset('web/js/script.js') }}"></script>
     <script src="{{ asset('web/js/modal.js')}}"></script>
-    <script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>
-    <script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>
+    {{--<script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>--}}
+    {{--<script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>--}}
 @show
 </body>
 </html>

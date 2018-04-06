@@ -131,7 +131,7 @@
 
                                         <div>
                                             <input id="bdState" class="form-field" name="bd_state" type="text"
-                                                   v-model="billingInfo.state"
+                                                   v-validate data-vv-rules="required" v-model="billingInfo.state"
                                             />
                                         </div>
                                         <!--<div v-else>

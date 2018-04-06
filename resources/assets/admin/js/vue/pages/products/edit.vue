@@ -27,13 +27,17 @@
                     <span class="text-danger" v-if="errors.has('title')">{{ errors.first('title') }}</span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" :class="{'has-error': errors.has('slug') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Slug
+                    <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="slug" name="slug"
-                           :value="renderSlug"
+                           v-model="entry.slug"
+                           v-validate data-vv-rules="required"
+                           :class="{'is-danger': errors.has('slug')}"
                            class="form-control col-md-7 col-xs-12">
+                    <span class="text-danger" v-if="errors.has('slug')">{{ errors.first('slug') }}</span>
                 </div>
             </div>
             <div class="form-group" :class="{'has-error': errors.has('subtitle') }">
@@ -119,6 +123,14 @@
                     <input type="checkbox" class="published-checkbox" id="published" name="published" v-model="entry.published" />
                 </div>
             </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="visible"> Add to the Shop Page
+
+                </label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="checkbox" class="published-checkbox" id="visible" name="visible" v-model="entry.visible" />
+                </div>
+            </div>
 
             <div class="ln_solid"></div>
             <div class="form-group">
@@ -163,11 +175,11 @@
             });
         },
         computed: {
-            renderSlug() {
+            /*renderSlug() {
                 let slug = this.sanitizeTitle(this.entry.title);
                 this.entry.slug = slug;
                 return `${location.hostname}/${slug}`;
-            }
+            }*/
         },
         methods: {
             getFile(file) {
@@ -223,7 +235,7 @@
 
 </script>
 <style scoped>
-    #published {
+    #published, #visible {
         margin-top: 10px;
     }
     iframe {

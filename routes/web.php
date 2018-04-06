@@ -16,6 +16,7 @@ require 'admin/admin.php';
 require 'web/paypal.php';
 require 'web/page.php';
 require 'web/subscribe.php';
+require 'web/checkout.php';
 
 Auth::routes();
 
@@ -26,20 +27,6 @@ Route::group([
     Route::post('login', [
         'as'   => '.login',
         'uses' => 'Api\Auth\LoginController@login',
-    ]);
-});
-
-Route::group([
-    'as'     => 'checkout',
-    'prefix' => 'checkout',
-], function () {
-    Route::post('billing/{cart}/{orderBilling?}', [
-        'as'   => '.billing',
-        'uses' => 'Api\CheckoutController@billing',
-    ]);
-    Route::post('shipping/{order}/{orderShipping?}', [
-        'as'   => '.shipping',
-        'uses' => 'Api\CheckoutController@shipping',
     ]);
 });
 

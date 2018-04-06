@@ -27,9 +27,10 @@
                 searchQuery: '',
                 actionField: true,
                 gridColumns: [
-                     'id',
-                     'title',
-                     'description'
+                    'id',
+                    'title',
+                    'slug',
+                    'description'
                 ],
 
                 gridData: [],
@@ -51,11 +52,11 @@
             getProducts() {
                 let url = `/admin/products/list?page=${this.pagination.currentPage}&sortType=${this.sortParam.type}&sortField=${this.sortParam.field}`;
                 axios.get(url).then(
-                    response => {
-                        this.gridData = response.data.data;
-                        this.pagination.totalPage = response.data.meta.last_page;
-                    },
-                    error => console.log('errors')
+                        response => {
+                            this.gridData = response.data.data;
+                            this.pagination.totalPage = response.data.meta.last_page;
+                        },
+                        error => console.log('errors')
                 )
             },
             clickCallback(page) {

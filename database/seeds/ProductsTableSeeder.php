@@ -27,8 +27,7 @@ class ProductsTableSeeder extends Seeder
             'slug'       => '12week-custom-meal-plan',
             'view_name'  => '12week-custom-meal-plan',
             'isVirtual'  => true,
-            'published'  => 0
-
+            'visible'    => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (3).png';
@@ -54,7 +53,7 @@ class ProductsTableSeeder extends Seeder
             'slug'        => '12week-custom-training-plan',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
-            'published'   => 0
+            'visible'     => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
@@ -74,15 +73,17 @@ class ProductsTableSeeder extends Seeder
             ->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
-            'title'       => 'Shedfat Maxx',
+            'title'       => 'Shedfat Maxx in stock',
             'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
              your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
 
 //            'old_amount'  => '39.99',
-            'amount'      => '39.99',
-            'slug'        => 'shedfat-maxx',
+            'amount'      => '19.00',
+            'slug'        => 'in-stock-shedfat-maxx',
             'view_name'   => 'shedfat-maxx',
             'isVirtual'   => false,
+            'published' => false,
+            'visible' => false
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
@@ -103,7 +104,7 @@ class ProductsTableSeeder extends Seeder
              and strength in your lower body.',
 
             'old_amount' => '80.00',
-            'amount'     => '50.00',
+            'amount'     => '19.00',
             'slug'       => 'legs-on-fire',
             'view_name'  => 'legs-on-fire',
             'isVirtual'  => true,
@@ -129,7 +130,7 @@ class ProductsTableSeeder extends Seeder
              any time from any smart device!',
 
             'old_amount' => '100.00',
-            'amount'     => '49.00',
+            'amount'     => '19.00',
             'slug'       => 'queen-of-the-hill',
             'view_name'  => 'queen-of-the-hill',
             'isVirtual'  => true,
@@ -154,7 +155,7 @@ class ProductsTableSeeder extends Seeder
               toned physique from head to toe.',
 
             'old_amount' => '50.00',
-            'amount'     => '34.00',
+            'amount'     => '19.00',
             'slug'       => 'never-stop-moving-e-book',
             'view_name'  => 'never-stop-moving-e-book',
             'isVirtual'  => true,
@@ -178,7 +179,7 @@ class ProductsTableSeeder extends Seeder
              it is in the gym or in your living room, can take both your workouts and your results to the next level.',
 
             'old_amount' => '24.99',
-            'amount'     => '19.00',
+            'amount'     => '9.99',
             'slug'       => 'resistance-bands',
             'view_name'  => 'resistance-bands',
             'isVirtual'  => false,
@@ -214,7 +215,7 @@ class ProductsTableSeeder extends Seeder
              value and make staying hydrated and healthy a more enjoyable process.',
 
             'old_amount' => '34.99',
-            'amount'     => '24.00',
+            'amount'     => '9.99',
             'slug'       => 'shedfat-infuser-bottle',
             'view_name'  => 'shedfat-infuser-bottle',
             'isVirtual'  => false,
@@ -232,7 +233,7 @@ class ProductsTableSeeder extends Seeder
             track with your diet guilt free.',
 
             'old_amount' => '39.99',
-            'amount'     => '19.99',
+            'amount'     => '9.99',
             'slug'       => 'what-to-eat-in-the-streets',
             'view_name'  => 'what-to-eat-in-the-streets',
             'isVirtual'  => true,
@@ -257,7 +258,7 @@ class ProductsTableSeeder extends Seeder
             looking to lose weight, boost mental function or feel lighter on your feet juicing can help get you there!',
 
             'old_amount' => '40.00',
-            'amount'     => '19.00',
+            'amount'     => '9.99',
             'slug'       => '14-day-detox-guide',
             'view_name'  => '14-day-detox-guide',
             'isVirtual'  => true,
@@ -284,7 +285,7 @@ class ProductsTableSeeder extends Seeder
             'category'    => 'Limited-Time Offer',
             'published'   => false,
             'isVirtual'   => true,
-
+            'visible'     => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/preview/challenge1.png';
@@ -306,6 +307,7 @@ class ProductsTableSeeder extends Seeder
             'category'    => 'Limited-Time Offer',
             'published'   => false,
             'isVirtual'   => true,
+            'visible' => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/preview/challenge2.png';
@@ -328,6 +330,7 @@ class ProductsTableSeeder extends Seeder
             'category'    => 'Limited-Time Offer',
             'published'   => false,
             'isVirtual'   => false,
+            'visible' => false
 
         ]);
 
@@ -353,6 +356,7 @@ class ProductsTableSeeder extends Seeder
             'published'  => false,
             'parent_id'  => 6,
             'isVirtual'  => true,
+            'visible' => false
 
         ]);
 
@@ -381,7 +385,7 @@ class ProductsTableSeeder extends Seeder
             'published'  => false,
             'parent_id'  => 5,
             'isVirtual'  => true,
-
+            'visible' => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/queen+12week.png';
@@ -404,6 +408,7 @@ class ProductsTableSeeder extends Seeder
             'view_name'   => 'shedfat-maxx-subscription',
             'isVirtual'   => false,
             'published'   => false,
+            'visible' => false
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -419,7 +424,7 @@ class ProductsTableSeeder extends Seeder
             be compromised.',
 
             'old_amount' => '24.99',
-            'amount'     => '20.00',
+            'amount'     => '9.99',
             'slug'       => 'shedFat-shaker',
             'view_name'  => 'shedFat-shaker',
             'isVirtual'  => false,
@@ -444,7 +449,7 @@ class ProductsTableSeeder extends Seeder
               have to worry about needing an extra hand again',
 
             'old_amount' => '39.99',
-            'amount'     => '20.00',
+            'amount'     => '9.99',
             'slug'       => 'gym-bag',
             'view_name'  => 'gym-bag',
             'isVirtual'  => false,
@@ -467,7 +472,7 @@ class ProductsTableSeeder extends Seeder
             'view_name'  => 'shedfat-dad-hat',
             'isVirtual'  => false,
             'published'  => false,
-
+            'visible' => false
         ]);
         $pathToFile = 'resources/assets/web/seed_products/cap.png';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('products');
@@ -486,7 +491,7 @@ class ProductsTableSeeder extends Seeder
             'slug'       => '12-week-custom-training-plan+12week-custom-meal-plan',
             'isVirtual'  => true,
             'published'  => false,
-
+            'visible' => false
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan (2).png';
@@ -509,7 +514,7 @@ class ProductsTableSeeder extends Seeder
             'slug'       => '12-week-custom-meal-plan+12-week-custom-training-plan',
             'isVirtual'  => true,
             'published'  => false,
-
+            'visible' => false
         ]);
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
         $product->addMedia($pathToFile)
@@ -519,6 +524,27 @@ class ProductsTableSeeder extends Seeder
         $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
         $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
+        $product = factory(App\Models\Product::class)->create([
+            'title'       => 'Shedfat Maxx',
+            'description' => 'SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase
+             your weight loss, provide clean smooth energy and help you get past your fitness plateaus.',
+
+//            'old_amount'  => '39.99',
+            'amount'      => '19.00',
+            'slug'        => 'shedfat-maxx',
+            'view_name'   => 'shedfat-maxx',
+            'isVirtual'   => false,
+
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
+        $product->addMedia($pathToFile)
+            ->withCustomProperties([
+                'view_video' => 'https://player.vimeo.com/video/260858063'
+            ])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/maxx_icon.jpg';
+        $product->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
 
         $product = factory(App\Models\Product::class)->create([
             'title'       => '12 Week Custom Meal Plan',
@@ -531,7 +557,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount' => '200.00',
             'amount'     => '100.00',
             'slug'       => 'bogo-12week-custom-meal-plan',
-            'view_name'  => '12week-custom-meal-plan',
+            'view_name'  => 'bogo-12week-custom-meal-plan',
             'isVirtual'  => true,
 
         ]);
@@ -557,7 +583,7 @@ class ProductsTableSeeder extends Seeder
             'old_amount'  => '200.00',
             'amount'      => '100.00',
             'slug'        => 'bogo-12week-custom-training-plan',
-            'view_name'   => '12week-custom-training-plan',
+            'view_name'   => 'bogo-12week-custom-training-plan',
             'isVirtual'   => true,
 
         ]);
