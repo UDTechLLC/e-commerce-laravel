@@ -18,15 +18,15 @@ class SubscriptionTransformer extends TransformerAbstract
     {
         return [
             'id'            => $subscription->getKey(),
-            'name'          => $subscription->name,
+            'subscription'  => $subscription->name,
             'braintree_id'  => $subscription->braintree_id,
             'plan'          => $subscription->braintree_plan,
             'status'        => $subscription->status,
             'trial_ends_at' => $subscription->trial_ends_at,
-            'ends_at'       => $subscription->ends_at,
-            'user_name'     => $subscription->user->full_name,
-            'user_email'    => $subscription->user->email,
-            'user_phone'    => $subscription->user->phone,
+            'end date'      => $subscription->ends_at,
+            'user name'     => $subscription->user->full_name,
+            'user email'    => $subscription->user->email,
+            'user phone'    => $subscription->user->phone,
         ];
     }
 }

@@ -29,8 +29,11 @@
             subscribs: [],
             columns: [
                 'id',
-                'name',
+                'subscription',
                 'plan',
+                'user name',
+                'user email',
+                'user phone',
                 'status'
             ],
         }),
