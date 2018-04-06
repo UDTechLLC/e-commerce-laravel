@@ -76,7 +76,10 @@ class Subscription extends EloquentModel
      * Entity relations go below
      */
 
-    // @todo:
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /**
      * Entity scopes go below

@@ -99,7 +99,6 @@ class ShipStationService
             $item->name = $product->title;
             $item->quantity = $product->pivot->count;
             $item->unitPrice = $product->amount;
-//            $item->warehouseLocation = 'Warehouse A';
 
             $items[] = $item;
         }
