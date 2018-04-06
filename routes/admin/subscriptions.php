@@ -5,7 +5,6 @@ Route::group([
     'prefix' => 'subscriptions'
 ], function () {
     Route::get('/', [
-        'as' => '.index',
         'uses' => 'SubscriptionController@index'
     ]);
     
