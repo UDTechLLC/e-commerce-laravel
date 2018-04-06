@@ -39,10 +39,6 @@ class WebhookController extends CashierController
 
             $this->sendOrderToShipStation($newOrder);
             $this->sendOrderToEmail($newOrder);
-        } elseif ($notification->subscription->currentBillingCycle === 1) {
-            $user = User::where('braintree_id', $notification->subscription->transactions[0]->customer['id'])->first();
-            $order = $user->orders()->orderByDesc('id')->first();
-            $order->update(['subscription_id' => $notification->subscription->id]);
         }
     }
 
