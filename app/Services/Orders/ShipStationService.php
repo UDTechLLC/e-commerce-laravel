@@ -111,8 +111,8 @@ class ShipStationService
     {
         $order = new Order();
 
-        $order->orderNumber = $this->order->getKey();
-        $order->orderKey = $this->order->order_key;
+        $order->orderNumber = $this->order->order_id;
+        $order->orderKey = $this->order->order_id;
         $order->orderDate = now()->toDateString();
         $order->orderStatus = $this->mapStatus($this->order->state);
         $order->amountPaid = $this->order->total_cost;

@@ -58,7 +58,6 @@ class WebhookController extends CashierController
         $product = $order->products()->whereNotNull('plan_id')->first();
 
         $newOrder = Order::create([
-            'order_key'      => rand(111111111, 999999999),
             'user_id'        => $order->user->getKey(),
             'billing_id'     => $order->billing_id,
             'shipping_id'    => $order->shipping_id,
