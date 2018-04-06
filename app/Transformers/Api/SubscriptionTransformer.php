@@ -24,7 +24,9 @@ class SubscriptionTransformer extends TransformerAbstract
             'status'        => $subscription->status,
             'trial_ends_at' => $subscription->trial_ends_at,
             'ends_at'       => $subscription->ends_at,
-            'user'          => fractal($subscription->user, new UserTransformer()),
+            'user_name'     => $subscription->user->full_name,
+            'user_email'    => $subscription->user->email,
+            'user_phone'    => $subscription->user->phone,
         ];
     }
 }
