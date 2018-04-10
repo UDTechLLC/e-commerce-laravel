@@ -34,6 +34,8 @@
                 'user name',
                 'user email',
                 'user phone',
+                'start date',
+                'next payment',
                 'status'
             ],
         }),
