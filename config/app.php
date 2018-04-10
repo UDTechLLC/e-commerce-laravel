@@ -186,6 +186,7 @@ return [
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         LaravelShipStation\ShipStationServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class
 
     ],
 

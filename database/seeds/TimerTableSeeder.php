@@ -11,6 +11,8 @@ class TimerTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Timer::class)->create();
+        factory(\App\Models\Timer::class)->create([
+            'description' => "60% OFF SALE ENDS IN"
+        ]);
     }
 }
