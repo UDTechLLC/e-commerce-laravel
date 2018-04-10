@@ -32,7 +32,6 @@
         {{-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">--}}
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick-theme.css') }}">
-
         <!--[if lt IE 9]!!>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -79,6 +78,10 @@
 </head>
 <body>
 <div id="app">
+    <section class="timer">
+        <h2>60% OFF SALE ENDS IN</h2>
+        <div id="flipdown" class="flipdown"></div>
+    </section>
     @include('web.layouts.header')
     @yield('content')
     <modal-cart></modal-cart>
@@ -95,8 +98,14 @@
     <script type="text/javascript" src="{{ asset('web/slick/slick.min.js')}} "></script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
+    <script src="{{ asset('web/flipdown/js/flipdown.js')}}"></script>
     <script src="{{ asset('web/js/script.js') }}"></script>
     <script src="{{ asset('web/js/modal.js')}}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var flipdown = new FlipDown(1523902200, 'flipdown').start();
+        });
+    </script>
     {{--<script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>--}}
     {{--<script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>--}}
 @show
