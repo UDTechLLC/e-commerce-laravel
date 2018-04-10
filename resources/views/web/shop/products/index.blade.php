@@ -108,12 +108,12 @@
                         </div>
                         <div class="product-button-block">
                             <div class="add-to-cart-wrapper">
-                                <a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
-                                    Register
-                                </a>
-                                {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}" data-title='SPRING CHALLENGE'>
+                                {{--<a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
                                     Register
                                 </a>--}}
+                                <a class="add-to-cart-btn"  href="{{url('challenge')}}" data-title='SPRING CHALLENGE'>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -17,17 +17,21 @@ header
         opacity: .7
 
 
+
+
 .fixed-header
   .header-logo
     width: 90px
   .second-header
     position: fixed
     left: 0
-    top: 0
+    top: 122px
     width: 100%
     z-index: 999
     box-shadow: 0 0 15px rgba(#000,.2)
     transition: .2s
+    @media screen and (max-width: 450px)
+      top: 112px
   //  &__menu-item
   //    a
   //      padding: 20px
@@ -35,3 +39,6 @@ header
   //        padding: 20px 0
   //.btn__mobile-menu
   //  top: 27px
+.disabled-timer
+  .second-header
+    top: 0

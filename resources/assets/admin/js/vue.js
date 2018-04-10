@@ -39,6 +39,8 @@ import orders from './vue/pages/orders';
 
 import subscriptions from './vue/pages/subscriptions';
 
+import timer from './vue/pages/timer/edit';
+
 require('./vue/mixins');
 
 
@@ -55,6 +57,7 @@ const app = new Vue({
         usersIndex,
         statistics,
         orders,
-        subscriptions
+        subscriptions,
+        timer
     }
 });
