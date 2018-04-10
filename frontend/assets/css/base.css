@@ -5231,7 +5231,7 @@ body {
     margin: auto; }
 
 body {
-  padding-top: 70px; }
+  padding-top: 120px; }
   body.disabled-timer {
     padding: 0; }
     body.disabled-timer .timer {
@@ -5266,7 +5266,7 @@ header {
 .fixed-header .second-header {
   position: fixed;
   left: 0;
-  top: 124px;
+  top: 122px;
   width: 100%;
   z-index: 999;
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
