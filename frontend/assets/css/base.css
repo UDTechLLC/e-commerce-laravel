@@ -5208,7 +5208,7 @@ body {
   position: fixed;
   width: 100%;
   padding: 5px 0 10px;
-  z-index: 9999;
+  z-index: 9998;
   background: #ed1c24;
   top: 0;
   text-align: center;
@@ -5232,9 +5232,15 @@ body {
 
 body {
   padding-top: 70px; }
+  body.disabled-timer {
+    padding: 0; }
+    body.disabled-timer .timer {
+      display: none; }
   @media screen and (max-width: 450px) {
     body {
-      top: 50px; } }
+      top: 50px; }
+      body.disabled-timer {
+        padding: 0; } }
 
 header {
   border-top: 3px solid #ed1c24; }
@@ -5271,6 +5277,9 @@ header {
   @media screen and (max-width: 450px) {
     .fixed-header .second-header {
       top: 112px; } }
+
+.disabled-timer .second-header {
+  top: 0; }
 
 header .header-cart {
   padding: 16px 0;
