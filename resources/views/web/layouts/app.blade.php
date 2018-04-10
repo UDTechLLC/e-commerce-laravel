@@ -87,14 +87,15 @@
 
     @show
 </head>
-<body>
+<body @if(Request::is('/') && $timer->home_page || Request::is('shop') && $timer->shop_page) class=""
+        @else class="disabled-timer"
+        @endif>
 <div id="app">
-    @if(Request::is('/') && $timer->home_page || Request::is('shop') && $timer->shop_page)
-        <section class="timer">
-            <h2>{{$timer->description}}</h2>
-            <div id="flipdown" class="flipdown"></div>
-        </section>
-    @endif
+    <section class="timer">
+        <h2>{{$timer->description}}</h2>
+        <div id="flipdown" class="flipdown"></div>
+    </section>
+
     @include('web.layouts.header')
     @yield('content')
     <modal-cart></modal-cart>
@@ -114,13 +115,13 @@
     <script src="{{ asset('web/flipdown/js/flipdown.js')}}"></script>
     <script src="{{ asset('web/js/script.js') }}"></script>
     <script src="{{ asset('web/js/modal.js')}}"></script>
-    @if(Request::is('/') && $timer->home_page || Request::is('shop') && $timer->shop_page)
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var flipdown = new FlipDown({{\Carbon\Carbon::parse($timer->value)->timestamp}}, 'flipdown').start();
         });
     </script>
-    @endif
+
     {{--<script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>--}}
     {{--<script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>--}}
 @show
