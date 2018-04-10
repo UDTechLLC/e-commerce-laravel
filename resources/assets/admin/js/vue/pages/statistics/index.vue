@@ -27,7 +27,7 @@
             </button>
         </div>
             <ordersCharts :datacollection="datacollection"></ordersCharts>
-
+            <productsCharts :datacollection="datacollection"></productsCharts>
     </div>
 </template>
 <script type="text/babel">
