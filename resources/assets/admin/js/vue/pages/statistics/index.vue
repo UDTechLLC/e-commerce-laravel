@@ -27,11 +27,14 @@
             </button>
         </div>
         <div class="col-xs-6">
-        <line-chart
-                :chart-data="datacollection"
-                :options="{responsive: true, maintainAspectRatio: false}"
-        ></line-chart>
+            <line-chart
+                    :chart-data="datacollection"
+                    :options="{responsive: true, maintainAspectRatio: false}"
+            ></line-chart>
         </div>
+
+                <productsCharts></productsCharts>
+
     </div>
 </template>
 <script type="text/babel">
@@ -39,6 +42,7 @@
     import Datepicker from 'vuejs-datepicker'
     import moment from 'moment'
     import LineChart from './components/lineCharts'
+    import productsCharts from './components/productsCharts'
 
     export default({
         data: () => ({
@@ -50,7 +54,8 @@
         components: {
             test,
             LineChart,
-            Datepicker
+            Datepicker,
+            productsCharts
         },
         created() {
             this.getData()
@@ -72,7 +77,7 @@
                                     {
                                         label: 'Orders total',
                                         borderColor: 'rgba(0, 174, 255)',
-                                        backgroundColor: 'rgba(130, 196, 214, 0.5)',
+                                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
                                         data: dataTmp
                                     }
                                 ]
