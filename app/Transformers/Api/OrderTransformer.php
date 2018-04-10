@@ -18,6 +18,7 @@ class OrderTransformer extends TransformerAbstract
     {
         return [
             'id' => $order->getKey(),
+            'order_id' => $order->order_id,
             'product_cost' => $order->product_cost,
             'shipping_cost' => $order->shipping_cost,
             'total_cost' => $order->total_cost,

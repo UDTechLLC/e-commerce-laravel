@@ -383,4 +383,15 @@
   });
 
 
+
+
+  //timer
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        var flipdown = new FlipDown(1523902200, 'flipdown').start();
+    });
+
+
 })(jQuery);

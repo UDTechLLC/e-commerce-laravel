@@ -46,6 +46,7 @@ class PayController extends Controller
             if (null !== $plan) {
                 try {
                     $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
+                    $this->updateOrderSubscription($order, $result);
                 } catch (\Exception $ex) {
                     return view('errors.error_payment', [
                         'message' => $ex->getMessage(),
@@ -58,14 +59,14 @@ class PayController extends Controller
             }
 
             if (0 !== $amount) {
-                $result = $user->charge($amount, ['orderId' => $order->getKey()]);
+                $result = $user->charge($amount, ['orderId' => $order->order_id]);
             }
         } else {
             $service = new BraintreeService();
 
             $service->setAuthToken($token);
 
-            $result = $service->pay($amount, ['orderId' => $order->getKey()]);
+            $result = $service->pay($amount, ['orderId' => $order->order_id]);
         }
 
         if ($result->success) {
@@ -98,6 +99,13 @@ class PayController extends Controller
     {
         $order->update([
             'state' => Order::ORDER_STATE_PROCESSING,
+        ]);
+    }
+
+    private function updateOrderSubscription($order, $subscription)
+    {
+        $order->update([
+            'subscription_id' => $subscription->getKey(),
         ]);
     }
 
