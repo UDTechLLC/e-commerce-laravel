@@ -114,11 +114,13 @@
     <script src="{{ asset('web/flipdown/js/flipdown.js')}}"></script>
     <script src="{{ asset('web/js/script.js') }}"></script>
     <script src="{{ asset('web/js/modal.js')}}"></script>
+    @if(Request::is('/') && $timer->home_page || Request::is('shop') && $timer->shop_page)
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var flipdown = new FlipDown({{\Carbon\Carbon::parse($timer->value)->timestamp}}, 'flipdown').start();
         });
     </script>
+    @endif
     {{--<script src="{{ asset('web/carouselengine/amazingcarousel.js') }}"></script>--}}
     {{--<script src="{{ asset('web/carouselengine/initcarousel-1.js') }}"></script>--}}
 @show
