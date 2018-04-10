@@ -1,0 +1,193 @@
+.flipdown 
+  overflow: visible
+  width: 320px
+  @media screen and (max-width: 450px)
+    width: 268px
+.flipdown .rotor-group 
+  overflow: visible
+  position: relative
+  float: left
+  padding-right: 30px
+  @media screen and (max-width: 450px)
+    padding-right: 15px
+.flipdown .rotor-group-heading 
+  height: 30px
+  margin-bottom: 0px
+  text-align: center
+  color: black
+
+
+.flipdown .rotor-group-heading:before 
+  content: 'Days'
+  width: 100px
+  height: 30px
+  line-height: 30px
+  text-align: center
+  @media screen and (max-width: 450px)
+    font-size: 12px
+
+
+.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before 
+  content: 'Days'
+
+
+.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before 
+  content: 'Hours'
+
+
+.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before 
+  content: 'Minutes'
+
+
+.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before 
+  content: 'Seconds'
+
+
+.flipdown .rotor-group:last-child 
+  padding-right: 0
+
+
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before 
+  content: ''
+  position: absolute
+  bottom: 10px
+  left: 68px
+  width: 5px
+  height: 5px
+  border-radius: 50%
+  background-color: #151515
+  @media screen and (max-width: 450px)
+    left: 60px
+
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after 
+  content: ''
+  position: absolute
+  bottom: 20px
+  left: 68px
+  width: 5px
+  height: 5px
+  border-radius: 50%
+  background-color: #151515
+  @media screen and (max-width: 450px)
+    left: 60px
+
+.flipdown .rotor 
+  position: relative
+  float: left
+  width: 25px
+  height: 40px
+  margin: 0px 5px 0px 0px
+  border-radius: 4px
+  font-size: 1.4em
+  text-align: center
+  background-color: #151515
+  color: white
+  perspective: 100px
+
+
+.flipdown .rotor:last-child 
+  margin-right: 0
+
+
+.flipdown .rotor-top, .flipdown .rotor-bottom 
+  overflow: hidden
+  position: absolute
+  width: 25px
+  height: 20px
+
+
+.flipdown .rotor-leaf 
+  z-index: 1
+  position: absolute
+  width: 25px
+  height: 40px
+  transform-style: preserve-3d
+  transition: transform 0s
+
+
+.flipdown .rotor-leaf.flipped 
+  transform: rotateX(-180deg)
+  transition: all 0.5s ease-in-out
+
+
+.flipdown .rotor-leaf-front, .flipdown .rotor-leaf-rear 
+  overflow: hidden
+  position: absolute
+  width: 25px
+  height: 20px
+  margin: 0
+  transform: rotateX(0deg)
+  backface-visibility: hidden
+
+
+.flipdown .rotor-leaf-front 
+  line-height: 40px
+  background-color: #151515
+  border-radius: 4px 4px 0px 0px
+
+
+.flipdown .rotor-leaf-rear 
+  line-height: 0px
+  background-color: #202020
+  color: #E0E0E0
+  border-radius: 0px 0px 4px 4px
+  transform: rotateX(-180deg)
+  transition: background-color 0.5s
+
+
+.flipdown .rotor-leaf.flipped .rotor-leaf-rear 
+  background-color: #202020
+  color: #EFEFEF
+  transition: background-color 0.5s
+
+
+.flipdown .rotor-top 
+  line-height: 40px
+  background-color: #151515
+  border-radius: 4px 4px 0px 0px
+
+
+.flipdown .rotor-bottom 
+  bottom: 0
+  line-height: 0px
+  background-color: #202020
+  color: #EFEFEF
+  border-radius: 0px 0px 4px 4px
+
+
+.flipdown .rotor:after 
+  content: ''
+  z-index: 2
+  position: absolute
+  bottom: 0px
+  left: 0px
+  width: 25px
+  height: 20px
+  border-top: solid 1px #151515
+  border-radius: 0px 0px 4px 4px
+
+.timer
+  position: fixed
+  width: 100%
+  padding: 5px 0 10px
+  z-index: 9999
+  background: $red
+  top: 0
+  text-align: center
+  color: white
+  //display: flex
+  align-items: center
+  justify-content: center
+
+  h2
+    font-size: 2em
+    margin: 0 0 0 0
+    @media screen and (max-width: 450px)
+      font-size: 1.4em
+  .flipdown
+    margin: auto
+
+body
+  padding-top: 70px
+  @media screen and (max-width: 450px)
+    top: 50px

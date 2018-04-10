@@ -22,7 +22,7 @@ class WebhookController extends CashierController
      */
     public function handleSubscriptionChargedSuccessfully(Request $request)
     {
-        $notification = WebhookNotification::parse($request->bt_signature, $request->bt_payload);
+        $notification = $this->parseBraintreeNotification($request);
     }
 
     /**
@@ -30,7 +30,7 @@ class WebhookController extends CashierController
      */
     public function handleSubscriptionWentActive(Request $request)
     {
-        $notification = WebhookNotification::parse($request->bt_signature, $request->bt_payload);
+        $notification = $this->parseBraintreeNotification($request);
 
         if ($notification->subscription->currentBillingCycle > 1) {
             $order = Order::where('subscription_id', $notification->subscription->id)->first();
@@ -39,11 +39,51 @@ class WebhookController extends CashierController
 
             $this->sendOrderToShipStation($newOrder);
             $this->sendOrderToEmail($newOrder);
-        } elseif ($notification->subscription->currentBillingCycle === 1) {
-            $user = User::where('braintree_id', $notification->subscription->transactions[0]->customer['id'])->first();
-            $order = $user->orders()->orderByDesc('id')->first();
-            $order->update(['subscription_id' => $notification->subscription->id]);
         }
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function handleSubscriptionCustomCanceled(Request $request)
+    {
+        $webhook = $this->parseBraintreeNotification($request);
+
+        parent::handleSubscriptionCanceled($webhook);
+
+        $this->updateSubscriptionStatus($webhook->subscription->id, Subscription::SUBSCRIPTION_CANCELED);
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function handleSubscriptionCustomExpired(Request $request)
+    {
+        $webhook = $this->parseBraintreeNotification($request);
+
+        parent::handleSubscriptionExpired($webhook);
+
+        $this->updateSubscriptionStatus($webhook->subscription->id, Subscription::SUBSCRIPTION_EXPIRED);
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function handleSubscriptionPastDue(Request $request)
+    {
+        $webhook = $this->parseBraintreeNotification($request);
+
+        $this->updateSubscriptionStatus($webhook->subscription->id, Subscription::SUBSCRIPTION_PAST_DUE);
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function handleSubscriptionPending(Request $request)
+    {
+        $webhook = $this->parseBraintreeNotification($request);
+
+        $this->updateSubscriptionStatus($webhook->subscription->id, Subscription::SUBSCRIPTION_PENDING);
     }
 
     /**

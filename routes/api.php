@@ -102,5 +102,8 @@ Route::group([
         Route::post('active', [
             'uses' => 'Api\WebhookController@handleSubscriptionWentActive',
         ]);
+        Route::post('canceled', [
+            'uses' => 'Api\WebhookController@handleSubscriptionCustomCanceled'
+        ]);
     });
 });

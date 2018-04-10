@@ -9,7 +9,7 @@
         "arcanedev/log-viewer": "^4.4",
         "braintree/braintree_php": "3.29.0",
         "campo/laravel-shipstation": "~3.0",
-        "doctrine/dbal": "^2.7",
+        "doctrine/dbal": "2.5.13",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/cashier-braintree": "~2.0",

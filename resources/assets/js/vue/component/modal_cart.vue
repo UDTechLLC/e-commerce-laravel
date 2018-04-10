@@ -46,7 +46,7 @@
 											<span class="sub-total-label">
 												Subtotal:
 											</span>
-                                <span class="sub-total-amount">
+                                    <span class="sub-total-amount">
 												${{ subTotal }}
 								</span>
                                 </div>
@@ -74,14 +74,14 @@
                             </span>
                                 100% INDUSTRY STANDARD SSL
                             </p>
-                            <p class="subscribe-save-wrapper">
+ <!--                           <p class="subscribe-save-wrapper">
                             <span class="label">
                                 SUBSCRIBE AND SAVE 15%:
                             </span>
                                 <a id="subsSaveMoreInf" href="#" class="subs-save-more-info">
                                     MORE INFO
                                 </a>
-                            </p>
+                            </p>-->
                         </div>
                     </div>
                 </div>

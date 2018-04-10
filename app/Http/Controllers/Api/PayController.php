@@ -46,6 +46,7 @@ class PayController extends Controller
             if (null !== $plan) {
                 try {
                     $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
+                    $this->updateOrderSubscription($order, $result);
                 } catch (\Exception $ex) {
                     return view('errors.error_payment', [
                         'message' => $ex->getMessage(),
@@ -98,6 +99,13 @@ class PayController extends Controller
     {
         $order->update([
             'state' => Order::ORDER_STATE_PROCESSING,
+        ]);
+    }
+
+    private function updateOrderSubscription($order, $subscription)
+    {
+        $order->update([
+            'subscription_id' => $subscription->getKey(),
         ]);
     }
 

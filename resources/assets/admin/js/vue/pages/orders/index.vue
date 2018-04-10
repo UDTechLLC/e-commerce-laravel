@@ -64,6 +64,7 @@
                 state: "",
                 gridColumns: [
                     'id',
+                    'order id',
                     'user name',
                     'email',
                     'ship to',
