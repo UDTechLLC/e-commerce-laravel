@@ -52,6 +52,8 @@
                                     <span class="sc-prizes-list-icon"></span>
                                     <p>
                                         $500 cash
+                                        <img src="{{asset('web/images/spring_challenges/prizes_list_icons/cash.png')}}"
+                                             width="30px">
                                     </p>
                                 </li>
                                 <li class="sc-prizes-item">
@@ -84,6 +86,8 @@
                                     <span class="sc-prizes-list-icon"></span>
                                     <p>
                                         $1000 cash
+                                        <img src="{{asset('web/images/spring_challenges/prizes_list_icons/cash.png')}}"
+                                             width="30px">
                                     </p>
                                 </li>
                                 <li class="sc-prizes-item">
@@ -118,6 +122,8 @@
                                     <span class="sc-prizes-list-icon"></span>
                                     <p>
                                         Workout with ShedFat coaches
+                                        <img src="{{asset('web/images/spring_challenges/prizes_list_icons/hand.png')}}"
+                                        width="30px">
                                     </p>
                                 </li>
                                 <li class="sc-prizes-item">
