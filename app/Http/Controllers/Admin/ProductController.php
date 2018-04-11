@@ -70,12 +70,14 @@ class ProductController extends Controller
             'amount'      => $request->get('price'),
             'published'   => $request->get('published'),
             'visible'     => $request->get('visible'),
+            'isVirtual'   => $request->get('isVirtual')
         ]);
 
         $product->saveImageBase64(
             $request->input('image'),
             'products',
-            ['view_video' => $request->get('viewVideo')]
+            ['view_video' => $request->get('viewVideo'),
+            'external_link' => $request->get('externalLink')]
         );
         $product->saveImageBase64($request->input('imagePreview'), 'preview');
 
