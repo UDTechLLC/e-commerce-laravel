@@ -241,4 +241,9 @@ class Order extends EloquentModel
 
         return $map[$this->attributes['payment_method']] ?? Order::ORDER_UNKNOWN_PAYMENT_METHOD;
     }
+
+    public function getProductsCountAttribute()
+    {
+        return $this->products->sum('pivot.count');
+    }
 }
