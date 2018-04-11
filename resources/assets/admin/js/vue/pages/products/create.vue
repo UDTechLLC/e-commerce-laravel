@@ -114,14 +114,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isVirtual">isVirtual
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isVirtual">Virtual
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <input type="checkbox" class="published-checkbox" id="isVirtual" name="isVirtual" v-model="isVirtual" />
                 </div>
             </div>
             <div class="form-group" :class="{'has-error': errors.has('externalLink') }" v-if="isVirtual">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">External link
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Purchase note
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="externalLink" v-model="externalLink"
