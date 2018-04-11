@@ -8,23 +8,25 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Search field</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="select2_single form-control" v-model="searchField" tabindex="-1">
-                            <option ></option>
-                            <option  v-for="item in searchFields">{{item}}</option>
+                            <option></option>
+                            <option v-for="item in searchFields">{{item}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                    <input type="text" id="search" v-model="searchQuery" class="form-control" placeholder="Search for...">
+                    <input type="text" id="search" v-model="searchQuery" @keyup.enter="getOrders"
+                           class="form-control" placeholder="Search for...">
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                     <button class="btn btn-success" @click="getOrders">Go</button>
+                    <button class="btn btn-warning" @click="clearFilter">Clear filter</button>
                 </div>
                 <div class="form-group col-md-4 col-sm-3 col-xs-12">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Filter Status</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="select2_single form-control" v-model="state" tabindex="-1" @change="getOrders">
                             <option></option>
-                            <option  v-for="item in states">{{item}}</option>
+                            <option v-for="item in states">{{item}}</option>
                         </select>
                     </div>
                 </div>
@@ -57,17 +59,18 @@
                 searchQuery: '',
                 searchField: '',
                 searchFields: [
-                  'id', 'email', 'name'
+                    'id', 'email', 'name'
                 ],
                 state: "",
                 gridColumns: [
                     'id',
-                    'full name',
+                    'order id',
+                    'user name',
                     'email',
                     'ship to',
                     'coupon code',
                     'total cost',
-                    'state',
+                    'status',
                     'date'
                 ],
                 gridData: [],
@@ -75,17 +78,17 @@
                     totalPage: 1,
                     currentPage: 1
                 },
-               /* sortParam: {
-                    field: 'id',
-                    type: 'asc'
-                }*/
+                /* sortParam: {
+                 field: 'id',
+                 type: 'asc'
+                 }*/
             }
         },
         props: {
-          statesProps: String
+            statesProps: String
         },
         created() {
-          this.states = JSON.parse(this.statesProps);
+            this.states = JSON.parse(this.statesProps);
         },
         components: {
             ordersTable
@@ -104,12 +107,14 @@
                         error => console.log('errors')
                 )
             },
-            clickCallback(page) {
-                this.pagination.currentPage = page;
+            clearFilter() {
+                this.searchQuery = '';
+                this.searchField = '';
+                this.state = "";
                 this.getOrders();
             },
-            sort(sortParam) {
-                this.sortParam = sortParam;
+            clickCallback(page) {
+                this.pagination.currentPage = page;
                 this.getOrders();
             }
         }
@@ -120,6 +125,7 @@
     .control-label {
         margin: 0;
     }
+
     #search {
         border: solid 1px #dddddd;
         -webkit-border-radius: 15px;

@@ -37,6 +37,9 @@ import statistics from './vue/pages/statistics';
 
 import orders from './vue/pages/orders';
 
+import subscriptions from './vue/pages/subscriptions';
+
+import timer from './vue/pages/timer/edit';
 
 require('./vue/mixins');
 
@@ -53,6 +56,8 @@ const app = new Vue({
         couponsEdit,
         usersIndex,
         statistics,
-        orders
+        orders,
+        subscriptions,
+        timer
     }
 });

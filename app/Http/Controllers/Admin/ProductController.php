@@ -69,12 +69,15 @@ class ProductController extends Controller
             'old_amount'  => $request->get('oldPrice') ?? 0,
             'amount'      => $request->get('price'),
             'published'   => $request->get('published'),
+            'visible'     => $request->get('visible'),
+            'isVirtual'   => $request->get('isVirtual')
         ]);
 
         $product->saveImageBase64(
             $request->input('image'),
             'products',
-            ['view_video' => $request->get('viewVideo')]
+            ['view_video'    => $request->get('viewVideo'),
+             'external_link' => $request->get('externalLink')]
         );
         $product->saveImageBase64($request->input('imagePreview'), 'preview');
 
@@ -110,12 +113,17 @@ class ProductController extends Controller
             'imagePreview' => $product->getFirstMediaUrl('preview'),
             'price'        => $product->amount,
             'published'    => $product->published,
+            'visible'      => $product->visible,
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
             'slug'         => $product->slug,
             'viewVideo'    => ($product->getFirstMedia('products'))
                 ? $product->getFirstMedia('products')->getCustomProperty('view_video')
-                : ""
+                : "",
+            'externalLink' => ($product->getFirstMedia('products'))
+                ? $product->getFirstMedia('products')->getCustomProperty('external_link')
+                : "",
+            'isVirtual'    => $product->isVirtual
         ];
 
         return view('admin.products.edit', ['product' => $data]);
@@ -140,11 +148,19 @@ class ProductController extends Controller
             'amount'      => $request->get('price'),
             'slug'        => $request->get('slug'),
             'published'   => $request->get('published'),
+            'visible'     => $request->get('visible'),
+            'isVirtual'   => $request->get('isVirtual')
         ]);
 
         $viewVideo = $product->getFirstMedia('products')->getCustomProperty('view_video');
         if ($request->get('viewVideo') != $viewVideo) {
             $product->getFirstMedia('products')->setCustomProperty('view_video', $request->get('viewVideo'))->save();
+        }
+        $externalLink = $product->getFirstMedia('products')->getCustomProperty('external_link');
+        if ($request->get('externalLink') != $externalLink) {
+            $product->getFirstMedia('products')
+                ->setCustomProperty('external_link', $request->get('externalLink'))
+                ->save();
         }
         if ($request->has('image') && $this->checkImage($request->get('image'))) {
             $product->updateImageBase64($request->get('image'), 'products');
@@ -183,7 +199,7 @@ class ProductController extends Controller
      */
     public function order()
     {
-        $products = Product::where('published', true)->orderBy('position')->get();
+        $products = Product::where('visible', true)->where('published', true)->orderBy('position')->get();
 
         return view('admin.products.order', [
             'products' => ProductsResource::collection($products),

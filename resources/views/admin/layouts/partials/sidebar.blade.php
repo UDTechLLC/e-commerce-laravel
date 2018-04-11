@@ -46,6 +46,12 @@
                     {{--<li>
                         <a href="{{route('admin.statistics')}}"><i class="fa fa-line-chart"></i> Analytics </a>
                     </li>--}}
+                    <li>
+                        <a href="{{route('admin.subscriptions')}}"><i class="fa fa-tags"></i> Subscriptions </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.timer.edit')}}"><i class="fa fa-clock-o"></i> Countdown Clock </a>
+                    </li>
                 </ul>
             </div>
         </div>

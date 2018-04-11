@@ -1,6 +1,11 @@
 Vue.mixin({
   methods: {
     addProduct(productSlug, productBundleSlug = null) {
+      fbq('track', 'AddToCart', {
+        //value: 10,
+        currency: 'USD',
+        product: productSlug
+      });
       this.addedToCart = true;
       this.$store.dispatch('addProduct', productSlug, productBundleSlug);
     },

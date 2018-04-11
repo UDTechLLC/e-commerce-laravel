@@ -10,7 +10,7 @@
                 </div>
                 <div style="padding: 10px 50px;">
                 <h3>Your order has been received and is now being processed. Your order details are shown below for your reference:</h3>
-                <h1 style="color: red;">Order #{{ $order->id }}</h1>
+                <h1 style="color: red;">Order #{{ $order->order_id }}</h1>
                         <table style="background-color: transparent;border-collapse: collapse;border-spacing: 0;margin: 0;max-width: 100%;
 text-align: left;
   width: 100%;">

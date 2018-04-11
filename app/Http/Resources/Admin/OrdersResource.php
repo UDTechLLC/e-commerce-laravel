@@ -20,13 +20,16 @@ class OrdersResource extends Resource
     public function toArray($request):array
     {
         return [
-            'id'          => "<a href='" . route('admin.orders.edit', $this->getKey()) . "'>" . $this->getKey() ."</a>",
-            'full name'   => $this->billing->full_name,
+            'id'          => "<a href='" .
+                route('admin.orders.edit', $this->getKey())
+                . "'>" . $this->getKey() . "</a>",
+            'order id'    => $this->order_id,
+            'user name'   => $this->billing->full_name,
             'email'       => $this->billing->email,
             'ship to'     => $this->getShipping(),
             'coupon code' => ($this->coupon_id) ? $this->coupon->code : "-",
             'total cost'  => $this->total_cost,
-            'state'       => $this->state,
+            'status'      => $this->state,
             'date'        => $this->created_at->format('M j, Y H:i'),
         ];
     }
@@ -37,26 +40,23 @@ class OrdersResource extends Resource
      */
     private function getShipping():string
     {
-        return ($this->shipping_id && $this->isShipping()) ?
-            "{$this->shipping->full_name} {$this->shipping->company_name},
-                {$this->shipping->street} str,
-                {$this->shipping->country}, {$this->shipping->city} ,
-                {$this->shipping->state}, {$this->shipping->postcode}" : "-";
+        if ($this->shipping_id) {
+            return $this->getAddress($this->shipping);
+        } elseif ($this->isShipping()) {
+            return $this->getAddress($this->billing);
+        } else {
+            return '-';
+        }
     }
 
     /**
+     * @param $address
      * @return string
      */
-    private function getBilling():string
+    private function getAddress($address)
     {
-        $billing = $this->billing->full_name;
-
-        if ($this->isShipping()) {
-            $billing .= "{$this->billing->company_name}, {$this->billing->street} str,
-                        {$this->billing->country}, {$this->billing->city} ,
-                        {$this->billing->state}, {$this->billing->postcode}</td>";
-        }
-
-        return $billing;
+        return "{$address->street} str, {$address->apartment}
+                {$address->country}, {$address->city} ,
+                {$address->state}, {$address->postcode}";
     }
 }

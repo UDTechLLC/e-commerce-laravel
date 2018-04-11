@@ -1,4 +1,24 @@
 @extends('web.layouts.app')
+@section('style')
+    @parent
+    <script>
+
+        fbq('track', 'Purchase', {
+            currency: 'USD',
+            value: "{{$order->total_cost}}",
+            contents: [
+                    @foreach($order->products as $product)
+                {
+                    'id': '{{$product->id}}',
+                    'quantity': '{{$product->pivot->count}}',
+                    'item_price': '{{$product->pivot->count * $product->amount}}'
+                },
+                @endforeach
+            ],
+            content_type: 'product'
+        });
+    </script>
+@endsection
 @section('content')
     <main class="checkout checkout-thank-you">
         <div class="main thank-you-page-template">
@@ -25,7 +45,7 @@
                         <ul class="order_details">
                             <li class="order">
                                 <h4>Order ID</h4>
-                                <strong>{{ $order->id }}</strong>
+                                <strong>{{ $order->order_id }}</strong>
                             </li>
                             <li class="date">
                                 <h4>Date:</h4>

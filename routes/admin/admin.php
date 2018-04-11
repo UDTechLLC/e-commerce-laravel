@@ -16,4 +16,6 @@ Route::group([
     require 'orders.php';
     require 'coupons.php';
     require 'statistics.php';
+    require 'subscriptions.php';
+    require 'timer.php';
 });

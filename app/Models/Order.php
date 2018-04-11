@@ -57,7 +57,7 @@ class Order extends EloquentModel
      */
     protected $fillable = [
         // @todo:
-        'order_key',
+        'order_id',
         'user_id',
         'shipping_id',
         'billing_id',
@@ -129,7 +129,9 @@ class Order extends EloquentModel
 
     public function products()
     {
-        return $this->belongsToMany(Product::class)->withPivot('count');
+        return $this->belongsToMany(Product::class)
+            ->withPivot(['count', 'product_price'])
+            ->using(OrderProduct::class);
     }
 
     public function coupon()

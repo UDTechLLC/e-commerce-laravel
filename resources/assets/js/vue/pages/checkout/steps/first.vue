@@ -76,6 +76,8 @@
                                                 classname="form-field"
                                                 placeholder="House number and street name"
                                                 @placechanged="getAddressData"
+                                                @no-results-found="getCustomAddress"
+                                                @inputChange="getCustomAddress"
                                         >
                                         </vue-google-autocomplete>
                                         <span class="error-massage"
@@ -310,6 +312,9 @@
                 this.$nextTick(() => {
                     this.$refs.street.update(this.billingInfo.street)
                 })
+            },
+            getCustomAddress(value) {
+                this.billingInfo.street = value.name ? value.name : value.newVal;
             },
             next() {
                 this.registerErrorShow = false;
