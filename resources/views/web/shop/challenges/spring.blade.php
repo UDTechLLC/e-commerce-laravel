@@ -7,16 +7,16 @@
         <div class="sc-top-banner-block-wrapper">
             <div class="sc-top-banner-block">
                 <h2 class="first-line">
-                    SUMMER IS HERE!
+                    SPRING IS HERE!
                 </h2>
                 <h2 class="second-line red">
                     30 DAYS CHALLENGE
                 </h2>
                 <p class="red">
                     <strong>
-                        Monday, August 7
+                        April 30
                         <sup>th</sup>
-                        – Monday, September 4
+                        – May 30
                         <sup>th</sup>
                     </strong>
                 </p>
@@ -201,7 +201,7 @@
                             </p>
                             <p>
                                 <strong>
-                                    9pm: Sunday, July 9
+                                    9am: Thursday, April 12
                                     <sup>th</sup>
                                 </strong>
                             </p>
@@ -210,7 +210,8 @@
                             </p>
                             <p>
                                 <strong>
-                                    12:59pm: Sunday, July 30th
+                                    12:59pm: Wednesday, April 18
+                                    <sup>th</sup>
                                 </strong>
                             </p>
                         </div>
@@ -327,9 +328,9 @@
                                 <li class="sc-rules-regulations-list-item">
                                     The challenge will run from
                                     <strong>
-                                        Monday, August 7
+                                        Monday, April 30
                                         <sup>th</sup>
-                                        through Monday, September 4
+                                        through Wednesday, May 30
                                         <sup>th</sup>
                                     </strong>
                                     .
@@ -340,10 +341,10 @@
                                 <li class="sc-rules-regulations-list-item">
                                     Before and After photos need to be submitted both in one email to
                                     <a href="mailto:30day@shedyourfat.com">30day@shedyourfat.com</a>
-                                    September 5
-                                    <sup>th</sup>
-                                    - 6
-                                    <sup>th</sup>
+                                    May 31
+                                    <sup>st</sup>
+                                    - June 2
+                                    <sup>nd</sup>
                                     . Anything outside this window will not be accepted.
                                 </li>
                                 <li class="sc-rules-regulations-list-item">
@@ -358,9 +359,10 @@
                                 Previous Winners
                             </p>
                             <div id="prevWinnersSlider" class="rule-reg-slider">
-                                <img src="{{asset('web/images/spring_challenges/prev_winners/previous_winner_1.png')}}" />
-                                <img src="{{asset('web/images/spring_challenges/prev_winners/previous_winner_1.png')}}" />
-                                <img src="{{asset('web/images/spring_challenges/prev_winners/previous_winner_1.png')}}" />
+                                <img src="{{asset('web/images/spring_challenges/prev_winners/win1.jpg')}}" />
+                                <img src="{{asset('web/images/spring_challenges/prev_winners/win 2.jpg')}}" />
+                                <img src="{{asset('web/images/spring_challenges/prev_winners/win 3.jpg')}}" />
+                                <img src="{{asset('web/images/spring_challenges/prev_winners/win 4.jpg')}}" />
                             </div>
                         </div>
                     </div>
@@ -391,11 +393,11 @@
                         <p>
                             In order to qualify for cash prizes, you must take your before photo
                             <br>
-                            holding a newspaper dated August 7
+                            holding a newspaper dated April 30
                             <sup>th</sup>
                             and you must take your after photo
                             <br>
-                            holding a newspaper dated September 4
+                            holding a newspaper dated May 30
                             <sup>th</sup>
                             .
                         </p>
