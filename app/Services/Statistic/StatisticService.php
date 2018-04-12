@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Collection;
 class StatisticService
 {
     const DAY_FORMAT = 'd';
+
     /**
      * @var
      */
@@ -108,7 +109,12 @@ class StatisticService
         return array_combine($this->getDaysOfMonthLabels(count($result)), $result);
     }
 
-    public function getYearStats()
+    /**
+     * Get statistic for year period.
+     *
+     * @return array
+     */
+    public function getYearStats(): array
     {
         $lastOfMonth = today()->lastOfMonth();
         $startOfYear = today()->startOfYear();
