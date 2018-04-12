@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     public function challenge(): View
     {
-        $product = Product::where('category', 'Limited-Time Offer')->get();
+        $product = Product::where('category', 'Limited-Time Offer')->orderBy('position')->get();
 
         return view("web.shop.challenges.spring", [
             'products' => $product,
