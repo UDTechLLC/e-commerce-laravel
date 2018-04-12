@@ -94,15 +94,15 @@
                     </div>
                     <div class="shop-item">
                         <div class="image-wrapper">
-                            {{--<a href="{{url('challenge')}}">--}}
-                            <a href="#scRegistration">
-                                <img src="{{ asset('web/images/Spring_Challenge_icon.png') }}"/>
+                           <a href="{{url('challenge')}}">
+                            {{--<a href="#scRegistration">--}}
+                                <img src="{{ asset('web/images/Spring Challenge_icon.jpg') }}"/>
                             </a>
                         </div>
                         <div class="product-details" style="padding-top: 10px;">
                             <h3 class="product-title">
-                                <a href="#scRegistration">
-                                    {{--<a href="{{url('challenge')}}">--}}
+                               {{-- <a href="#scRegistration">--}}
+                                    <a href="{{url('challenge')}}">
                                     Spring Challenge </a>
                             </h3>
                         </div>
@@ -111,7 +111,7 @@
                                 {{--<a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
                                     Register
                                 </a>--}}
-                                <a class="add-to-cart-btn"  href="{{url('challenge')}}" data-title='SPRING CHALLENGE'>
+                                <a class="add-to-cart-btn"  href="{{url('challenge')}}">
                                     Register
                                 </a>
                             </div>

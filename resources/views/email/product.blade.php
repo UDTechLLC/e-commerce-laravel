@@ -32,7 +32,7 @@ text-align: left;
                         <tr style="border-bottom: 1px solid #eaeaea;padding: 10px 0;">
                             <td style="padding: 20px 0;">
                                 {{$product->title}}
-                                @if ($product->isVirtual() && !$product->parent_id)
+                                @if (!$product->parent_id)
                                 <br>
                                 <a href="{{ $product->generateProductLink($order) }}">
                                     @if (strpos($product->title, 'Week'))

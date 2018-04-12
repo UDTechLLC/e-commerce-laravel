@@ -60,7 +60,12 @@ class ShipStationService
         $items = $this->createItems();
         $order = $this->createOrder($billingAddress, $shippingAddress, $items);
 
-        return $this->shipStation->post($order, 'createorder');
+        try {
+            return $this->shipStation->post($order, 'createorder');
+        } catch (\Exception $ex) {
+            \Log::info($ex->getMessage());
+            return new \stdClass();
+        }
     }
 
     /**

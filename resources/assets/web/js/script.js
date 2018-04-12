@@ -354,11 +354,11 @@
      $('.callPopUp').click();
      },2000)*/
 
-
-    $('.sc-register-button').click(function (e) {
+    /// challenge
+   /* $('.sc-register-button').click(function (e) {
       e.preventDefault();
       $('.callPopUp').click();
-    });
+    });*/
 
     var vimeo = {
       btn: $('.custom-video-block__wrapper-click'),

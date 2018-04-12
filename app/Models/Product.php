@@ -179,13 +179,13 @@ class Product extends Model implements HasMedia
 
     public function getProductLinkAttribute()
     {
-        if ($this->isVirtual()) {
+        //if ($this->isVirtual()) {
             $media = $this->getMedia('products')->first();
 
             return $media->hasCustomProperty('external_link')
                 ? $media->getCustomProperty('external_link')
                 : asset($this->getFirstMediaUrl('download'));
-        }
+      //  }
     }
 
     public function getDiscountAmountAttribute()
