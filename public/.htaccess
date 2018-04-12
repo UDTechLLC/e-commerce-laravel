@@ -30,3 +30,8 @@
     RewriteCond %{HTTPS} !=on [NC]
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
+
+AuthType Basic
+AuthName "public"
+AuthUserFile "/home/shedyourfat/.htpasswds/stage.shedyourfat.com/public_html/public/passwd"
+require valid-user
