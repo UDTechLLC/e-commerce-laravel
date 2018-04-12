@@ -94,6 +94,17 @@
         },
         components: {
             LineChart
+        },
+        created(){
+          this.getProducts()
+        },
+        methods: {
+            getProducts() {
+                axios.get('/admin/statistics/products/total/period/fixed?period=year').then(
+                        response => console.log(response),
+                        error => console.log('error')
+                )
+            }
         }
     })
 </script>
