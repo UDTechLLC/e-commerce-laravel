@@ -18,4 +18,5 @@ Route::group([
     require 'statistics.php';
     require 'subscriptions.php';
     require 'timer.php';
+    require 'posts.php';
 });
