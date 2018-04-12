@@ -10,6 +10,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ProductStatisticController extends Controller
 {
     /**
+     * Get fixed period statistic for all product.
+     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -22,19 +24,66 @@ class ProductStatisticController extends Controller
         return response()->json($this->getAllProductsStatisticFixedPeriod($period));
     }
 
-    private function getAllProductsStatisticFixedPeriod(string $period)
+    /**
+     * Get fixed period statistic for specific product.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
+     */
+    public function productStatisticFixedPeriod(Request $request)
+    {
+        throw_if(!($period = $request->get('period')), new NotFoundHttpException());
+        throw_if(!($product = $request->get('product')), new NotFoundHttpException());
+
+        return response()->json($this->getProductsStatisticFixedPeriod($period, $product));
+    }
+
+    /**
+     * Get statistics by period for all products.
+     *
+     * @param string $period
+     *
+     * @return array
+     */
+    private function getAllProductsStatisticFixedPeriod(string $period): array
     {
         $statisticService = new ProductsStatisticService();
 
         switch ($period) {
             case 'week':
-                return $statisticService->getWeekStats();
+                return $statisticService->getTotalWeekStats();
                 break;
             case 'month':
-                return $statisticService->getMonthStats();
+                return $statisticService->getTotalMonthStats();
                 break;
             case 'year':
-                return $statisticService->getYearStats();
+                return $statisticService->getTotalYearStats();
+                break;
+        }
+    }
+
+    /**
+     * @param string $period
+     *
+     * @param $product
+     *
+     * @return array
+     */
+    private function getProductsStatisticFixedPeriod(string $period, $product): array
+    {
+        $statisticService = new ProductsStatisticService();
+
+        switch ($period) {
+            case 'week':
+                return $statisticService->getProductWeekStats($product);
+                break;
+            case 'month':
+                return $statisticService->getProductMonthStats($product);
+                break;
+            case 'year':
+                return $statisticService->getProductYearStats($product);
                 break;
         }
     }
