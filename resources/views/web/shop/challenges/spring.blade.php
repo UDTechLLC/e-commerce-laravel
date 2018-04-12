@@ -368,7 +368,7 @@
                                 <li class="sc-rules-regulations-list-item">
                                     Winners will be selected by the Shedfat Team and will be determined by what we
                                     consider to be the most drastic, most impressive overall change in body composition
-                                    and will be announced at 9pm on Friday, September 8
+                                    and will be announced at 9pm on Monday, June 4
                                     <sup>th</sup>
                                     .
                                 </li>
