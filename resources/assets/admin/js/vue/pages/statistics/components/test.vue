@@ -1,80 +1,73 @@
 <template>
-  <!--  <div class="dashboard_graph">
-        <div class="col-md-6 col-sm-9 col-xs-12">
-            <div class="demo-placeholder">
-                <line-chart
-                        :chart-data="datacollection"
-                        :options="{responsive: true, maintainAspectRatio: false}"
-                ></line-chart>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-9 col-xs-12">
-            <div class="demo-placeholder">
-                <bar-chart
-                        :chart-data="datacollection"
-                        :options="{responsive: true, maintainAspectRatio: false}"
-                ></bar-chart>
-                <button @click="fillData()">Randomize</button>
-            </div>
-        </div>
-    </div>-->
-
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Line graph<small>Sessions</small></h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <line-chart
-                            :chart-data="datacollection"
-                            :options="{responsive: true, maintainAspectRatio: false}"
-                    ></line-chart>
-                </div>
-            </div>
-
-        </div>
-        </div>
-
+    <div class="small">
+        <line-chart :chart-data="datacollection"></line-chart>
+        <button @click="getData('year')">Randomize</button>
+    </div>
 </template>
+
 <script type="text/babel">
-    import LineChart from './lineCharts.js'
-    import BarChart from './barCharts'
+    import LineChart from './lineCharts'
 
     export default {
         components: {
-            LineChart,
-            BarChart
+            LineChart
         },
-        props: {
-            datacollection: Object
+        data () {
+            return {
+                datacollection: null
+            }
         },
         mounted () {
-           // this.fillData();
-            /*let timer = setInterval(() => {
-                this.fillData();
-            }, 500);*/
-
-            //clearInterval(timer);
+            this.getData()
         },
         methods: {
             fillData () {
                 this.datacollection = {
-                    labels: [1, 2 ,3, 4, 5],
-                    datasets: [{
-                        label: 'Bar Dataset',
-                        borderColor: '#eeccbb',
-                        data: [1,2,3]
-                    }, {
-                        label: 'Line Dataset',
-                        data: [1,2,3],
-
-                        // Changes this dataset to become a line
-                        type: 'line'
-                    }],
-                   // labels: ['January', 'February', 'March', 'April']
+                    labels: [this.getRandomInt(), this.getRandomInt()],
+                    datasets: [
+                        {
+                            label: 'Data One',
+                            backgroundColor: '#f87979',
+                            data: [this.getRandomInt(), this.getRandomInt()]
+                        }, {
+                            label: 'Data One',
+                            backgroundColor: '#f87979',
+                            data: [this.getRandomInt(), this.getRandomInt()]
+                        }
+                    ]
                 }
+            },
+            getData(period = 'day') {
+
+                axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
+                        response => {
+                    console.log(response);
+                let dataTmp = [];
+                let collectTmp = [];
+                for (var prop in response.data) {
+                    collectTmp.push(prop);
+                    dataTmp.push(response.data[prop]);
+                }
+                /*this.datacollection.labels.push(...collectTmp);
+                this.datacollection.datasets.push({
+                    label: 'Bar Dataset',
+                    borderColor: '#eeccbb',
+                    data: dataTmp
+                });*/
+
+                            this.datacollection = {
+                                labels: collectTmp,
+                                datasets: [
+                                    {
+                                        label: 'Data One',
+                                        backgroundColor: '#f87979',
+                                        data: dataTmp
+                                    }
+                                ]
+                            }
+            },
+                error => console.log('error')
+            )
             },
             getRandomInt () {
                 return Math.floor(Math.random() * (50 - 5 + 1)) + 5
@@ -82,3 +75,10 @@
         }
     }
 </script>
+
+<style>
+    .small {
+        max-width: 600px;
+        margin:  150px auto;
+    }
+</style>
