@@ -27,9 +27,6 @@ class ProductStatisticController extends Controller
         $statisticService = new ProductsStatisticService();
 
         switch ($period) {
-            case 'day':
-                return $statisticService->getDayStats();
-                break;
             case 'week':
                 return $statisticService->getWeekStats();
                 break;

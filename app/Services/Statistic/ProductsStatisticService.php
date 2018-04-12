@@ -20,27 +20,20 @@ class ProductsStatisticService
 
     /**
      * Get statistic for day period.
-     *
-     * @return array
      */
-    public function getDayStats(): array
+    public function getWeekStats()
     {
-        /** @var Carbon $now */
-        $now = now();
-        $startOfDay = now()->copy()->startOfDay();
-        $result = [];
-        $sum = 0;
+        $date = today()->startOfWeek()->format('Y-m-d');
 
-        /** @var $orders Collection */
-        $orders = Order::with('products')->whereDay('created_at', $now->format(self::DAY_FORMAT))->get();
+        $result = \DB::select(\DB::raw('
+            select p.slug, sum(op.count) as "count" 
+              from products as p 
+              left join (select * from order_product where created_at > ' . $date .') as op
+              on p.id = op.product_id
+              group by p.slug
+              '));
 
-        do {
-            $result[] = $orders->filter(function ($item) use ($startOfDay) {
-                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
-            })->sum('count');
-        } while ($startOfDay->addHour()->diffInHours($now) !== 0);
-
-        return array_combine($this->getHoursLabels(count($result)), $result);
+        return $result;
     }
 
     /**

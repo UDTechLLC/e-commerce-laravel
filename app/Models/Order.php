@@ -131,6 +131,7 @@ class Order extends EloquentModel
     {
         return $this->belongsToMany(Product::class)
             ->withPivot(['count', 'product_price'])
+            ->withTimestamps()
             ->using(OrderProduct::class);
     }
 
