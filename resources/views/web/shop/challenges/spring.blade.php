@@ -267,7 +267,7 @@
                                     <h3 class="sc-bandle-title">
 
                                         @if(strpos($product->title, 'Maxx'))
-                                            Optional
+                                            Optimal
                                         @elseif (strpos($product->title, 'email'))
                                             Enhanced
                                         @else
