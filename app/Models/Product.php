@@ -38,7 +38,9 @@ class Product extends Model implements HasMedia
     const VIEW_NAMES = [
         self::VIEW_NAME_SHOW,
         self::VIEW_NAME_12WEEK_MEAL,
+        self::VIEW_NAME_BOGO_12WEEK_MEAL,
         self::VIEW_NAME_12WEEK_TRAINING,
+        self::VIEW_NAME_BOGO_12WEEK_TRAINING ,
         self::VIEW_NAME_14DAY_DETOX,
         self::VIEW_NAME_NEVER_STOP,
         self::VIEW_NAME_QUEEN_OF_THE_HILL,

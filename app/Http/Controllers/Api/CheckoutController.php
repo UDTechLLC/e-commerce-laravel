@@ -142,7 +142,10 @@ class CheckoutController extends Controller
         ]);
 
         foreach ($cart->products as $product) {
-            $order->products()->attach($product->id, ['count' => $product->pivot->count]);
+            $order->products()->attach($product->id, [
+                'count' => $product->pivot->count,
+                'product_price' => $product->amount,
+            ]);
         }
 
         return $order;

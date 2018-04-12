@@ -116,6 +116,24 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isVirtual">Virtual
+                </label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="checkbox" class="published-checkbox" id="isVirtual" name="isVirtual" v-model="entry.isVirtual" />
+                </div>
+            </div>
+            <div class="form-group" :class="{'has-error': errors.has('externalLink') }" v-if="entry.isVirtual">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old-price">Purchase note
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="externalLink" v-model="entry.externalLink"
+                           v-validate data-vv-rules="required|url"
+                           :class="{'is-danger': errors.has('externalLink')}"
+                           name="externalLink" class="form-control col-md-7 col-xs-12">
+                    <span class="text-danger" v-if="errors.has('externalLink')">{{ errors.first('externalLink') }}</span>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="published">Published
 
                 </label>
@@ -235,7 +253,7 @@
 
 </script>
 <style scoped>
-    #published, #visible {
+    #published, #visible, #isVirtual {
         margin-top: 10px;
     }
     iframe {
