@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Services\Statistic;
 
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
 use Carbon\Carbon;
@@ -28,14 +29,15 @@ class ProductsStatisticService
         $now = now();
         $startOfDay = now()->copy()->startOfDay();
         $result = [];
+        $sum = 0;
 
-        /** @var $products Collection */
-        $products = Product::whereDay('created_at', $now->format(self::DAY_FORMAT))->get();
+        /** @var $orders Collection */
+        $orders = Order::with('products')->whereDay('created_at', $now->format(self::DAY_FORMAT))->get();
 
         do {
-            $result[] = $products->filter(function ($item) use ($startOfDay) {
+            $result[] = $orders->filter(function ($item) use ($startOfDay) {
                 return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
-            })->sum('total_cost');
+            })->sum('count');
         } while ($startOfDay->addHour()->diffInHours($now) !== 0);
 
         return array_combine($this->getHoursLabels(count($result)), $result);

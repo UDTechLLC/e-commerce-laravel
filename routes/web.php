@@ -34,3 +34,8 @@ Route::get('videolibrary/legs-fire-downloads', [
     'as' => '.videolibrary',
     'uses' => 'Web\VideoLibraryController@awayToWp',
 ]);
+
+Route::get('test', function () {
+    $service = new \App\Services\Statistic\ProductsStatisticService();
+    dd($service->getDayStats());
+});
