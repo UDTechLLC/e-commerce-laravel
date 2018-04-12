@@ -24,6 +24,9 @@
 
       .sc-products-block-wrapper
         .shop-items-wrapper
+          @media screen and (max-width: 800px)
+            padding-bottom: 0
+
           .shop-item-wrapper
             display: flex
             flex-wrap: wrap
@@ -57,3 +60,7 @@
               .product-details, .product-price-block, .product-button-block
                 margin-top: auto
                 width: 100%
+
+              .product-details
+                .product-title
+                  min-height: 47px
