@@ -31,9 +31,10 @@
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
 
-SetEnvIf Host ^stage.shedyourfat.com pass
+SetEnvIf Host ^stage.shedyourfat.com !no-auth-required
 AuthType Basic
 AuthName "public"
 AuthUserFile "/home/shedyourfat/.htpasswds/stage.shedyourfat.com/public_html/public/passwd"
-require valid-user
-Deny from env=pass
+Require valid-user
+Allow env no-auth-required
+Satisfy Any
