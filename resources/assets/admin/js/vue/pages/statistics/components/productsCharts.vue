@@ -11,57 +11,9 @@
                     <div class="x_content">
                         <div class="col-md-3">
                             <ul class="list-unstyled top_profiles scroll-view">
-                                <li class="media event">
+                                <li class="media event" v-for="product in products">
                                     <a class="pull-left border-aero profile_thumb">
                                         <i class="fa fa-user aero"></i>
-                                    </a>
-                                    <div class="media-body">
-                                        <a class="title" href="#">Ms. Mary Jane</a>
-                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                        <p>
-                                            <small>12 Sales Today</small>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="media event">
-                                    <a class="pull-left border-green profile_thumb">
-                                        <i class="fa fa-user green"></i>
-                                    </a>
-                                    <div class="media-body">
-                                        <a class="title" href="#">Ms. Mary Jane</a>
-                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                        <p>
-                                            <small>12 Sales Today</small>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="media event">
-                                    <a class="pull-left border-blue profile_thumb">
-                                        <i class="fa fa-user blue"></i>
-                                    </a>
-                                    <div class="media-body">
-                                        <a class="title" href="#">Ms. Mary Jane</a>
-                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                        <p>
-                                            <small>12 Sales Today</small>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="media event">
-                                    <a class="pull-left border-aero profile_thumb">
-                                        <i class="fa fa-user aero"></i>
-                                    </a>
-                                    <div class="media-body">
-                                        <a class="title" href="#">Ms. Mary Jane</a>
-                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                                        <p>
-                                            <small>12 Sales Today</small>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="media event">
-                                    <a class="pull-left border-green profile_thumb">
-                                        <i class="fa fa-user green"></i>
                                     </a>
                                     <div class="media-body">
                                         <a class="title" href="#">Ms. Mary Jane</a>
@@ -81,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
@@ -89,6 +42,9 @@
     import LineChart from './lineCharts'
 
     export default ({
+        data: () => ({
+           products: []
+        }),
         props: {
             datacollection: null | Object
         },
@@ -101,10 +57,17 @@
         methods: {
             getProducts() {
                 axios.get('/admin/statistics/products/total/period/fixed?period=year').then(
-                        response => console.log(response),
+                        response => {
+                            this.products = response.data
+                        },
                         error => console.log('error')
                 )
             }
         }
     })
 </script>
+<style scoped>
+    .media {
+        overflow: inherit;
+    }
+</style>
