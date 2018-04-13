@@ -15,4 +15,8 @@ Route::group([
         'as' => '.products.total.period.fixed',
         'uses' => 'ProductStatisticController@allProductsStatisticFixedPeriod'
     ]);
+    Route::get('products/specific/period/fixed', [
+        'as' => '.products.specific.period.fixed',
+        'uses' => 'ProductStatisticController@productStatisticFixedPeriod'
+    ]);
 });
