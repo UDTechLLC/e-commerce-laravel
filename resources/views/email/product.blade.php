@@ -4,14 +4,15 @@
     <main>
         <div class="main" style="margin: 20px; width: 100%;">
             <div class="wrapper">
-    <img src="{{asset('web/images/logos/Shedfat-logo.png')}}" alt="logo">
-                <div style="background-color: #ff1000;text-align: center; margin-right: 35px; " >
+                <img src="{{asset('web/images/logos/Shedfat-logo.png')}}" alt="logo">
+                <div style="background-color: #ff1000;text-align: center; margin-right: 35px; ">
                     <h1 style="color: white; padding: 35px;">Thank you for your order</h1>
                 </div>
                 <div style="padding: 10px 50px;">
-                <h3>Your order has been received and is now being processed. Your order details are shown below for your reference:</h3>
-                <h1 style="color: red;">Order #{{ $order->order_id }}</h1>
-                        <table style="background-color: transparent;border-collapse: collapse;border-spacing: 0;margin: 0;max-width: 100%;
+                    <h3>Your order has been received and is now being processed. Your order details are shown below for
+                        your reference:</h3>
+                    <h1 style="color: red;">Order #{{ $order->order_id }}</h1>
+                    <table style="background-color: transparent;border-collapse: collapse;border-spacing: 0;margin: 0;max-width: 100%;
 text-align: left;
   width: 100%;">
                         <thead>
@@ -29,31 +30,34 @@ text-align: left;
                         <tbody>
                         @foreach($order->products as $product)
 
-                        <tr style="border-bottom: 1px solid #eaeaea;padding: 10px 0;">
-                            @if($product->getMedia('download')->first() || $product->getMedia('products')->first()->hasCustomProperty('external_link'))
-                            <td style="padding: 20px 0;">
-                                {{$product->title}}
-                                @if (!$product->parent_id)
-                                <br>
-                                <a href="{{ $product->generateProductLink($order) }}">
-                                    @if ($product->getMedia('download')->first())
-                                        <u style="color:red">Click here to download</u>
-                                    @else
-                                        <u style="color:red">Fill out your questionnaire by clicking here</u>
-                                    @endif
-                                </a>
+                            <tr style="border-bottom: 1px solid #eaeaea;padding: 10px 0;">
+
+                                <td style="padding: 20px 0;">
+                                    {{$product->title}}
+                                    @if($product->getMedia('download')->first() || $product->getMedia('products')->first()->hasCustomProperty('external_link'))
+                                        @if (!$product->parent_id)
+                                            <br>
+                                            <a href="{{ $product->generateProductLink($order) }}">
+                                                @if ($product->getMedia('download')->first())
+                                                    <u style="color:red">Click here to download</u>
+                                                @else
+                                                    <u style="color:red">Fill out your questionnaire by clicking
+                                                        here</u>
+                                                @endif
+                                                @endif
+                                            </a>
+
+                                </td>
                                 @endif
-                            </td>
-                            @endif
-                            <td class="product-quantity">
-                                {{ $product->pivot->count }}
-                            </td>
-                            <td class="product-subtotal">
+                                <td class="product-quantity">
+                                    {{ $product->pivot->count }}
+                                </td>
+                                <td class="product-subtotal">
                                                     <span class="product-subtotal-amount">
                                                         $ {{  $product->amount }}
                                                     </span>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
 
                         @endforeach
                         </tbody>
@@ -71,23 +75,23 @@ text-align: left;
                         </tr>
                         <tr class="order-payment-method">
                             <td colspan="2">
-                            Payment method:
+                                Payment method:
                             </td>
                             <td>
                                 {{ $order->payment_method_slug }}
                             </td>
                         </tr>
                         @if($order->shipping_cost)
-                        <tr class="shipping">
-                            <td colspan="2">
-                                Shipping:
-                            </td>
-                            <td>
+                            <tr class="shipping">
+                                <td colspan="2">
+                                    Shipping:
+                                </td>
+                                <td>
                                                 <span class="product-subtotal-amount">
                                                     ${{ $order->shipping_cost }}
                                                 </span>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         @endif
                         <tr class="order-total">
                             <td colspan="2">
@@ -107,10 +111,10 @@ text-align: left;
                     </table>
                     <h1 style="color: red;">Customer details</h1>
                     <ul style="list-style: outside;box-sizing: border-box; padding-left: 30px;">
-                        <li> <strong>Email: </strong> <u style="color:blue">{{ $order->billing->email }}</u></li>
+                        <li><strong>Email: </strong> <u style="color:blue">{{ $order->billing->email }}</u></li>
                         <li><strong> Phone: </strong><u style="color:blue">{{ $order->billing->phone }}</u></li>
                     </ul>
-            </div>
+                </div>
             </div>
         </div>
     </main>
