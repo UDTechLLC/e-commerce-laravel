@@ -146,14 +146,15 @@ class ProductsStatisticService
     {
         return \DB::select(\DB::raw('
             select p.title, p.slug, res.count from products as p inner join (
-              select title, sum(order_product.count) as `count`
-               from `products`
-                left join `order_product`
-                  on `products`.`id` = `order_product`.`product_id`
-                  and `order_product`.`created_at` >= ' . $period . '
-                group by `title`
-            ) res on p.title = res.title
-            order by res.count desc;'));
+                select title, sum(opres.count) as `count`
+                    from products
+                        left join (select op.* from orders o 
+                            inner join order_product op on o.id = op.order_id and o.state = "PROCESSING") opres
+                                on products.id = opres.product_id
+                                and opres.created_at >= ' . $period .'
+                    group by title
+                ) res on p.title = res.title
+                order by res.count desc;'));
     }
 
     /**
