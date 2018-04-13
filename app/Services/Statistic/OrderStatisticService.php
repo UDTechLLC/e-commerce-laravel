@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Collection;
  * Class StatisticService
  * @package App\Services\Statistic
  */
-class StatisticService
+class OrderStatisticService
 {
     const DAY_FORMAT = 'd';
 
