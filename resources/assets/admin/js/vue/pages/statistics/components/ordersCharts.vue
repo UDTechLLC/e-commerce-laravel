@@ -25,11 +25,51 @@
     import LineChart from './lineCharts'
 
     export default ({
-        props: {
-            datacollection: null | Object
-        },
+        data: () => ({
+            datacollection: null
+        }),
         components: {
             LineChart
+        },
+        created() {
+            this.$EventBus.$on('updateCharts', this.getData);
+            this.getData()
+        },
+        methods: {
+            updateChart(period) {
+              console.log(period)
+            },
+            getData(period = 'day') {
+                this.activeButton = period;
+                axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
+                        response => {
+                            this.datacollection = {
+                                labels: response.data.labels,
+                                datasets: [
+                                    {
+                                        label: 'Products',
+                                        borderColor: 'rgba(0, 174, 255)',
+                                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
+                                        data: response.data.products
+                                    },
+                                    {
+                                        label: 'Shipping',
+                                        borderColor: 'rgba(206, 14, 14)',
+                                        backgroundColor: 'rgba(206, 14, 14, 0.35)',
+                                        data: response.data.shipping
+                                    },
+                                    {
+                                        label: 'Total',
+                                        borderColor: 'rgba(5, 175, 8)',
+                                        backgroundColor: 'rgba(5, 175, 8, 0.35)',
+                                        data: response.data.total
+                                    }
+                                ]
+                            }
+                        },
+                        error => console.log('error')
+                )
+            }
         }
     })
 </script>

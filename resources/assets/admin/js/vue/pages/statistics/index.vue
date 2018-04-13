@@ -3,19 +3,19 @@
         <h1>Analytics</h1>
         <div class="bs-example-popovers">
             <button type="button" class="btn btn-default" :class="{ active: activeButton == 'year'}"
-                    @click.prevent="getData('year')">
+                    @click.prevent="selectPeriod('year')">
                 Year
             </button>
             <button type="button" class="btn btn-default" :class="{ active: activeButton == 'month'}"
-                    @click.prevent="getData('month')">
+                    @click.prevent="selectPeriod('month')">
                 Month
             </button>
             <button type="button" class="btn btn-default" :class="{ active: activeButton == 'week'}"
-                    @click.prevent="getData('week')">
+                    @click.prevent="selectPeriod('week')">
                 Week
             </button>
             <button type="button" class="btn btn-default" :class="{ active: activeButton == 'day'}"
-                    @click.prevent="getData('day')">
+                    @click.prevent="selectPeriod('day')">
                 Day
             </button>
             <span>Custom: </span>
@@ -26,12 +26,12 @@
                 Go
             </button>
         </div>
-            <ordersCharts :datacollection="datacollection"></ordersCharts>
-            <productsCharts :datacollection="datacollection"></productsCharts>
+            <ordersCharts></ordersCharts>
+            <!--<productsCharts></productsCharts>-->
     </div>
 </template>
 <script type="text/babel">
-    import test from './components/test'
+
     import Datepicker from 'vuejs-datepicker'
     import moment from 'moment'
 
@@ -42,43 +42,17 @@
         data: () => ({
             startDate: moment().subtract(1, "days").format(),
             endDate: moment().format(),
-            datacollection: null,
             activeButton: 'day'
         }),
         components: {
-            test,
             Datepicker,
             ordersCharts,
             productsCharts,
         },
-        created() {
-            this.getData()
-        },
         methods: {
-            getData(period = 'day') {
-                this.activeButton = period;
-                axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
-                        response => {
-                            let dataTmp = [];
-                            let labelsTmp = [];
-                            for (var prop in response.data) {
-                                labelsTmp.push(prop);
-                                dataTmp.push(response.data[prop]);
-                            }
-                            this.datacollection = {
-                                labels: labelsTmp,
-                                datasets: [
-                                    {
-                                        label: 'Orders total',
-                                        borderColor: 'rgba(0, 174, 255)',
-                                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
-                                        data: dataTmp
-                                    }
-                                ]
-                            }
-                        },
-                        error => console.log('error')
-                )
+            selectPeriod(period) {
+                this.$EventBus.$emit('updateCharts', period)
+                this.activeButton = period
             }
         }
     })
