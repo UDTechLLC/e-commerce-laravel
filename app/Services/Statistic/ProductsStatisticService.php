@@ -169,6 +169,7 @@ class ProductsStatisticService
     {
         $result = OrderProduct::where('product_id', Product::where('slug', $product)->pluck('id'))
             ->where('created_at', '>=', $period)
+            ->whereIn('order_id', Order::where('state', Order::ORDER_STATE_PROCESSING)->pluck('id'))
             ->get();
 
         return $result;
