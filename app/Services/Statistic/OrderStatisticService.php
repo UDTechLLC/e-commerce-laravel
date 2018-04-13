@@ -67,11 +67,10 @@ class OrderStatisticService
         } while ($startOfDay->addHour()->diffInHours($now) !== 0);
 
         $result['labels'] = $this->getHoursLabels(count($total));
-        $result['total'] = $total;
-        $result['shipping'] = $shipping;
-        $result['products'] = $products;
+        $result['total'] = array_combine($this->getHoursLabels(count($total)), $total);
+        $result['shipping'] = array_combine($this->getHoursLabels(count($shipping)), $shipping);
+        $result['products'] = array_combine($this->getHoursLabels(count($products)), $products);
 
-//        return array_combine($this->getHoursLabels(count($result)), $result);
         return $result;
     }
 
