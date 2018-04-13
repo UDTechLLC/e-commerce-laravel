@@ -30,19 +30,21 @@ text-align: left;
                         @foreach($order->products as $product)
 
                         <tr style="border-bottom: 1px solid #eaeaea;padding: 10px 0;">
+                            @if($product->getMedia('download')->first() || $product->getMedia('products')->first()->hasCustomProperty('external_link'))
                             <td style="padding: 20px 0;">
                                 {{$product->title}}
                                 @if (!$product->parent_id)
                                 <br>
                                 <a href="{{ $product->generateProductLink($order) }}">
-                                    @if (strpos($product->title, 'Week'))
-                                        <u style="color:red">Click here to fill out your questionnaire</u>
-                                    @else
+                                    @if ($product->getMedia('download')->first())
                                         <u style="color:red">Click here to download</u>
+                                    @else
+                                        <u style="color:red">Fill out your questionnaire by clicking here</u>
                                     @endif
                                 </a>
                                 @endif
                             </td>
+                            @endif
                             <td class="product-quantity">
                                 {{ $product->pivot->count }}
                             </td>
