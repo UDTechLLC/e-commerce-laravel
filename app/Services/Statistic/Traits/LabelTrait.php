@@ -78,4 +78,32 @@ trait LabelTrait
             'July', 'August', 'September', 'October', 'November', 'December',
         ], 0, $count);
     }
+
+    private function getCustomPeriodDaysLabels($startDate, $endDate)
+    {
+        $result = [];
+
+        do {
+            $result[] = $startDate->format('Y-m-d');
+        } while ($startDate->addDay() <= $endDate);
+
+        return $result;
+    }
+
+    /**
+     * @param Carbon $startDate
+     * @param Carbon $endDate
+     *
+     * @return array
+     */
+    private function getCustomPeriodMonthsLabels($startDate, $endDate)
+    {
+        $startOfMonth = $startDate->startOfMonth();
+
+        do {
+            $result[] = $startOfMonth->format('Y-m-d');
+        } while ($startDate->addMonth() <= $endDate);
+
+        return $result;
+    }
 }
