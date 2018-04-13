@@ -158,7 +158,8 @@ class ProductsStatisticService
                   on `products`.`id` = `order_product`.`product_id`
                   and `order_product`.`created_at` >= ' . $period . '
                 group by `title`
-            ) res on p.title = res.title;'));
+            ) res on p.title = res.title
+            order by res.count desc;'));
     }
 
     /**
