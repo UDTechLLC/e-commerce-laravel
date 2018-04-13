@@ -35,10 +35,10 @@ text-align: left;
                                 @if (!$product->parent_id)
                                 <br>
                                 <a href="{{ $product->generateProductLink($order) }}">
-                                    @if (strpos($product->title, 'Week'))
-                                        <u style="color:red">Click here to fill out your questionnaire</u>
-                                    @else
+                                    @if ($product->getMedia('download')->first())
                                         <u style="color:red">Click here to download</u>
+                                    @else
+                                        <u style="color:red">Fill out your questionnaire by clicking here</u>
                                     @endif
                                 </a>
                                 @endif
