@@ -22,8 +22,8 @@
                         </div>
                         <div class="col-md-9">
                             <bar-chart
-                                       :chart-data="datacollection"
-                                       :options="{responsive: true, maintainAspectRatio: false}"
+                                    :chart-data="datacollection"
+                                    :options="{responsive: true, maintainAspectRatio: false}"
                             ></bar-chart>
                             <!--<div v-else>
                                 <h1>Select Product</h1>
@@ -43,6 +43,7 @@
         data: () => ({
             products: [],
             activeProduct: "",
+            period: 'day',
             datacollection: {
                 labels: [],
                 datasets: [
@@ -60,11 +61,11 @@
         },
         created(){
             this.getProducts();
-            this.$EventBus.$on('updateCharts', this.productStats);
+            this.$EventBus.$on('updateCharts', this.updateProductStats);
         },
         methods: {
-            getProducts(period = 'day') {
-                axios.get(`/admin/statistics/products/total/period/fixed?period=${period}`).then(
+            getProducts() {
+                axios.get(`/admin/statistics/products/total/period/fixed?period=${this.period}`).then(
                         response => {
                             this.products = response.data;
                             this.activeProduct = this.products[0].slug;
@@ -77,8 +78,12 @@
                 this.activeProduct = slug;
                 this.productStats()
             },
-            productStats (period) {
-                axios.get(`/admin/statistics/products/specific/period/fixed/${this.activeProduct}?period=${period}`).then(
+            updateProductStats(period) {
+                this.period = period;
+                this.productStats();
+            },
+            productStats () {
+                axios.get(`/admin/statistics/products/specific/period/fixed/${this.activeProduct}?period=${this.period}`).then(
                         response => {
                             this.datacollection = {
                                 labels: response.data.labels,

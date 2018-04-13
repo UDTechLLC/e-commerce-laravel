@@ -60,6 +60,8 @@ class ProductStatisticController extends Controller
                 return $statisticService->getTotalMonthStats();
             case 'year':
                 return $statisticService->getTotalYearStats();
+            case 'day':
+                return $statisticService->getTotalDayStats();
         }
     }
 
