@@ -82,7 +82,10 @@ class ProductsStatisticService
             })->sum('count');
         } while ($startOfWeek->addDay() <= $today);
 
-        return array_combine($this->getWeekLabels(count($result)), $result);
+        return [
+            'labels' => $this->getWeekLabels(count($result)),
+            'data' => array_combine($this->getWeekLabels(count($result)), $result),
+        ];
     }
 
     /**
@@ -107,7 +110,10 @@ class ProductsStatisticService
             })->sum('count');
         } while ($startOfMonth->addDay() <= $today);
 
-        return array_combine($this->getDaysOfMonthLabels(count($result)), $result);
+        return [
+            'labels' => $this->getDaysOfMonthLabels(count($result)),
+            'data' => array_combine($this->getDaysOfMonthLabels(count($result)), $result),
+        ];
     }
 
     /**
@@ -132,7 +138,10 @@ class ProductsStatisticService
             })->sum('count');
         } while ($startOfYear->addMonth() <= $lastOfMonth);
 
-        return array_combine($this->getMonthsOfYearLabels(count($result)), $result);
+        return [
+            'labels' => $this->getMonthsOfYearLabels(count($result)),
+            'data' => array_combine($this->getMonthsOfYearLabels(count($result)), $result),
+        ];
     }
 
     /**
@@ -151,7 +160,7 @@ class ProductsStatisticService
                         left join (select op.* from orders o 
                             inner join order_product op on o.id = op.order_id and o.state = "PROCESSING") opres
                                 on products.id = opres.product_id
-                                and opres.created_at >= ' . $period .'
+                                and opres.created_at >= ' . $period . '
                     group by title
                 ) res on p.title = res.title
                 order by res.count desc;'));
