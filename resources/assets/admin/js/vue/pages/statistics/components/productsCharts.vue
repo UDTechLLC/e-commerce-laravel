@@ -43,7 +43,17 @@
         data: () => ({
             products: [],
             activeProduct: "",
-            datacollection: null
+            datacollection: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Orders total',
+                        borderColor: 'rgba(0, 174, 255)',
+                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
+                        data: []
+                    }
+                ]
+            }
         }),
         components: {
             BarChart
@@ -53,12 +63,12 @@
             this.$EventBus.$on('updateCharts', this.productStats);
         },
         methods: {
-            getProducts(period = 'year') {
+            getProducts(period = 'day') {
                 axios.get(`/admin/statistics/products/total/period/fixed?period=${period}`).then(
                         response => {
                             this.products = response.data;
                             this.activeProduct = this.products[0].slug;
-                            this.productStats();
+                            this.productStats('day');
                         },
                         error => console.log('error')
                 )
@@ -67,8 +77,8 @@
                 this.activeProduct = slug;
                 this.productStats()
             },
-            productStats (period = 'week') {
-                axios.get(`/admin/statistics/products/specific/period/fixed?period=${period}&product=${this.activeProduct}`).then(
+            productStats (period) {
+                axios.get(`/admin/statistics/products/specific/period/fixed/${this.activeProduct}?period=${period}`).then(
                         response => {
                             this.datacollection = {
                                 labels: response.data.labels,

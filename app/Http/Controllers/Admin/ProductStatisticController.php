@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
 use App\Services\Statistic\ProductsStatisticService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,14 +29,15 @@ class ProductStatisticController extends Controller
      * Get fixed period statistic for specific product.
      *
      * @param Request $request
+     * @param Product $product
      *
      * @return \Illuminate\Http\JsonResponse
      * @throws \Throwable
      */
-    public function productStatisticFixedPeriod(Request $request)
+    public function productStatisticFixedPeriod(Request $request, Product $product)
     {
         throw_if(!($period = $request->get('period')), new NotFoundHttpException());
-        throw_if(!($product = $request->get('product')), new NotFoundHttpException());
+        $product = $product->slug;
 
         return response()->json($this->getProductsStatisticFixedPeriod($period, $product));
     }
