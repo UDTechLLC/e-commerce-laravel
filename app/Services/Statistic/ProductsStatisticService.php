@@ -58,6 +58,29 @@ class ProductsStatisticService
         return $this->getTotalPeriodStats($period);
     }
 
+    public function getProductDayStats(string $product): array
+    {
+        $period = now()->copy()->startOfDay()->format('Y-m-d');
+
+        /** @var Carbon $now */
+        $now = now();
+        $startOfDay = now()->copy()->startOfDay();
+        $result = [];
+
+        $products = $this->getProductPeriodStats($period, $product);
+
+        do {
+            $result[] = $products->filter(function ($item) use ($startOfDay) {
+                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
+            })->sum('count');
+        } while ($startOfDay->addHour()->diffInHours($now) !== 0);
+
+        return [
+            'labels' => $this->getHoursLabels(count($result)),
+            'data' => $result,
+        ];
+    }
+
     /**
      * Get specific product stats for week period.
      *
