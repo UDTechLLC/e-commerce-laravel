@@ -11,25 +11,23 @@
                     <div class="x_content">
                         <div class="col-md-3">
                             <ul class="list-unstyled top_profiles scroll-view">
-                                <li class="media event" v-for="product in products">
-                                    <a class="pull-left border-aero profile_thumb">
-                                        <i class="fa fa-user aero"></i>
-                                    </a>
+                                <li class="media event" v-for="product in products" @click="selectProduct(product.slug)"
+                                    :class="{active: activeProduct == product.slug}">
                                     <div class="media-body">
-                                        <a class="title" href="#">Ms. Mary Jane</a>
-                                        <p><strong>{{ product.count }} </strong> Agent Avarage Sales </p>
-                                        <p>
-                                            <small>Sales Today</small>
-                                        </p>
+                                        <a class="title" href="#">{{product.title}}</a>
+                                        <p><strong>{{ product.count }} </strong> Sales </p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-9">
-                            <line-chart
+                            <bar-chart
                                     :chart-data="datacollection"
                                     :options="{responsive: true, maintainAspectRatio: false}"
-                            ></line-chart>
+                            ></bar-chart>
+                          <!--  <div v-else>
+                                <h1>Select Product</h1>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -39,20 +37,20 @@
     </div>
 </template>
 <script type="text/babel">
-    import LineChart from './lineCharts'
+    import BarChart from './barCharts'
 
     export default ({
         data: () => ({
-           products: []
+            products: [],
+            activeProduct: "bogo-12week-custom-training-plan",
+            datacollection: null
         }),
-        props: {
-            datacollection: null | Object
-        },
         components: {
-            LineChart
+            BarChart
         },
         created(){
-          this.getProducts()
+            this.productStats();
+            this.getProducts()
         },
         methods: {
             getProducts() {
@@ -62,12 +60,42 @@
                         },
                         error => console.log('error')
                 )
+            },
+            selectProduct(slug) {
+                this.activeProduct = slug;
+                this.productStats()
+            },
+            productStats () {
+                axios.get(`/admin/statistics/products/specific/period/fixed?period=year&&product=${this.activeProduct}`).then(
+                        response => {
+                            this.datacollection = {
+                                labels: response.data.labels,
+                                datasets: [
+                                    {
+                                        label: 'Orders total',
+                                        borderColor: 'rgba(0, 174, 255)',
+                                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
+                                        data: response.data.data
+                                    }
+                                ]
+                            }
+                        },
+                        error => console.log('error')
+                )
             }
         }
     })
 </script>
 <style scoped>
-    .media {
-        overflow: inherit;
+    ul.top_profiles {
+        overflow: auto;
+    }
+
+    li {
+        cursor: pointer;
+    }
+
+    li.active {
+        background: #acc8d8 !important;
     }
 </style>
