@@ -43,9 +43,9 @@
                     <li>
                         <a href="{{route('admin.coupons')}}"><i class="fa fa-tags"></i> Coupons </a>
                     </li>
-                    {{--<li>
+                    <li>
                         <a href="{{route('admin.statistics')}}"><i class="fa fa-line-chart"></i> Analytics </a>
-                    </li>--}}
+                    </li>
                     <li>
                         <a href="{{route('admin.subscriptions')}}"><i class="fa fa-tags"></i> Subscriptions </a>
                     </li>

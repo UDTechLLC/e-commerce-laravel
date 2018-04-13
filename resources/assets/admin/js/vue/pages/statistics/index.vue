@@ -2,16 +2,20 @@
     <div>
         <h1>Analytics</h1>
         <div class="bs-example-popovers">
-            <button type="button" class="btn btn-default active" @click.prevent="getData('year')">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'year'}"
+                    @click.prevent="selectPeriod('year')">
                 Year
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'month'}"
+                    @click.prevent="selectPeriod('month')">
                 Month
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'week'}"
+                    @click.prevent="selectPeriod('week')">
                 Week
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" :class="{ active: activeButton == 'day'}"
+                    @click.prevent="selectPeriod('day')">
                 Day
             </button>
             <span>Custom: </span>
@@ -22,55 +26,33 @@
                 Go
             </button>
         </div>
-        <test v-if="show" :datacollection="datacollection"></test>
+            <ordersCharts></ordersCharts>
+            <productsCharts></productsCharts>
     </div>
 </template>
 <script type="text/babel">
-    import test from './components/test'
+
     import Datepicker from 'vuejs-datepicker'
     import moment from 'moment'
 
+    import ordersCharts from './components/ordersCharts'
+    import productsCharts from './components/productsCharts'
+
     export default({
         data: () => ({
-            show: false,
             startDate: moment().subtract(1, "days").format(),
             endDate: moment().format(),
-            datacollection: {
-                //labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00"],
-                labels: [],
-                datasets: [],
-            }
+            activeButton: 'day'
         }),
         components: {
-            test,
-            Datepicker
-        },
-        created() {
-            this.getData()
+            Datepicker,
+            ordersCharts,
+            productsCharts,
         },
         methods: {
-            getData(period = 'day') {
-                this.datacollection.labels = [];
-                this.datacollection.datasets = [];
-
-                axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(
-                        response => {
-                            console.log(response);
-                            let dataTmp = []
-                            for (var prop in response.data) {
-                                  this.datacollection.labels.push(prop)
-                                dataTmp.push(response.data[prop]);
-                            }
-
-                            this.datacollection.datasets.push({
-                                label: 'Bar Dataset',
-                                borderColor: '#eeccbb',
-                                data: dataTmp
-                            });
-                            this.show = true
-                        },
-                        error => console.log('error')
-                )
+            selectPeriod(period) {
+                this.$EventBus.$emit('updateCharts', period)
+                this.activeButton = period
             }
         }
     })
