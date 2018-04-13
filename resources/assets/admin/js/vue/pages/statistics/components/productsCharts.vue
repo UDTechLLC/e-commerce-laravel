@@ -89,6 +89,7 @@
 <style scoped>
     ul.top_profiles {
         overflow: auto;
+        height: 400px;
     }
 
     li {
