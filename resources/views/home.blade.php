@@ -8,7 +8,7 @@
         <div class="top-home-banner-block">
             <div class="main-product">
                 <a href="{{url('product/bogo-12-week-custom-meal-plan')}}">
-                    <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/banner_12_week_custom_plan.jpg')}}" />
+                    <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/12-week.jpg')}}" />
                     <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/banner_12_week_custom_plan_mob.jpg')}}">
                 </a>
             </div>
@@ -44,26 +44,39 @@
                 <div class="success-story-slider-wrapper">
                     <div id="successStories" class="success-story-slider">
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_2.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_2.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_3.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_3.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_4.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_4.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_5.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_5.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_6.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_6.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_7.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_7.jpg')}}" />
                         </div>
+                        <div class="slider-item">
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_8.jpg')}}" />
+                        </div>
+                        <div class="slider-item">
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_9.jpg')}}" />
+                        </div>
+                        <div class="slider-item">
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_10.jpg')}}" />
+                        </div>
+                        <div class="slider-item">
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_11.jpg')}}" />
+                        </div>
+
                     </div>
                 </div>
             </div>
