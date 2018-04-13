@@ -43,6 +43,7 @@ import timer from './vue/pages/timer/edit';
 
 require('./vue/mixins');
 
+Vue.prototype.$EventBus = new Vue();
 
 const app = new Vue({
     el: '#app',

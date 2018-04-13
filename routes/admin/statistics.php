@@ -5,7 +5,7 @@ Route::group([
     'as'     => '.statistics'
 ], function () {
     Route::get('/', [
-        'uses' => 'StatisticsController@index'
+        'uses' => 'OrderStatisticsController@index'
     ]);
     Route::get('orders/sum/period/fixed', [
         'as' => '.orders.sum.period.fixed',
