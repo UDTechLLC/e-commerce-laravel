@@ -57,12 +57,22 @@ class OrderStatisticService
         $orders = Order::whereDay('created_at', $now->format(self::DAY_FORMAT))->get();
 
         do {
-            $result[] = $orders->filter(function ($item) use ($startOfDay) {
+            $timeFilteredCollection = $orders->filter(function ($item) use ($startOfDay) {
                 return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
-            })->sum('total_cost');
+            });
+
+            $total[] = $timeFilteredCollection->sum('total_cost');
+            $shipping[] = $timeFilteredCollection->sum('shipping_cost');
+            $products[] = $timeFilteredCollection->sum('product_cost');
         } while ($startOfDay->addHour()->diffInHours($now) !== 0);
 
-        return array_combine($this->getHoursLabels(count($result)), $result);
+        $result['labels'] = $this->getHoursLabels(count($total));
+        $result['total'] = $total;
+        $result['shipping'] = $shipping;
+        $result['products'] = $products;
+
+//        return array_combine($this->getHoursLabels(count($result)), $result);
+        return $result;
     }
 
     /**
