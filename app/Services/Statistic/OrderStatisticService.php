@@ -54,7 +54,9 @@ class OrderStatisticService
         $result = [];
 
         /** @var $orders Collection */
-        $orders = Order::whereDay('created_at', $now->format(self::DAY_FORMAT))->get();
+        $orders = Order::whereDay('created_at', $now->format(self::DAY_FORMAT))
+            ->where('state', Order::ORDER_STATE_PROCESSING)
+            ->get();
 
         do {
             $timeFilteredCollection = $orders->filter(function ($item) use ($startOfDay) {
@@ -90,6 +92,7 @@ class OrderStatisticService
         /** @var $orders Collection */
         $orders = Order::whereDate('created_at', '>=', $startOfWeek)
             ->whereDate('created_at', '<=', $now)
+            ->where('state', Order::ORDER_STATE_PROCESSING)
             ->get();
 
         do {
@@ -121,7 +124,9 @@ class OrderStatisticService
         $startOfMonth = $today->copy()->startOfMonth();
 
         /** @var $orders Collection */
-        $orders = Order::whereMonth('created_at', $today->month)->get();
+        $orders = Order::whereMonth('created_at', $today->month)
+            ->where('state', Order::ORDER_STATE_PROCESSING)
+            ->get();
 
         do {
             $timeFilteredCollection = $orders->filter(function ($item) use ($startOfMonth) {
@@ -152,7 +157,9 @@ class OrderStatisticService
         $startOfYear = today()->startOfYear();
 
         /** @var $orders Collection */
-        $orders = Order::whereYear('created_at', $lastOfMonth->year)->get();
+        $orders = Order::whereYear('created_at', $lastOfMonth->year)
+            ->where('state', Order::ORDER_STATE_PROCESSING)
+            ->get();
 
         do {
             $timeFilteredCollection = $orders->filter(function ($item) use ($startOfYear) {
