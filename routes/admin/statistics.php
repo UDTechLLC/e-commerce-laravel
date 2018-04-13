@@ -9,7 +9,7 @@ Route::group([
     ]);
     Route::get('orders/sum/period/fixed', [
         'as' => '.orders.sum.period.fixed',
-        'uses' => 'StatisticsController@totalSumFixedPeriod',
+        'uses' => 'OrderStatisticsController@totalSumFixedPeriod',
     ]);
     Route::get('products/total/period/fixed', [
         'as' => '.products.total.period.fixed',

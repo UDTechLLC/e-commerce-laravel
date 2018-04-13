@@ -142,14 +142,15 @@ class ProductsStatisticService
     private function getTotalPeriodStats(string $period): array
     {
         return \DB::select(\DB::raw('
-            select p.slug, sum(op.count) as "count" 
-              from products as p 
-              left join order_product as op
-              on p.id = op.product_id
-              and op.created_at >= '. $period .'
-              group by p.slug
-              order by "count" desc
-              '));
+            select p.title, p.slug, res.count from products as p inner join (
+              select title, sum(order_product.count) as `count`
+               from `products`
+                left join `order_product`
+                  on `products`.`id` = `order_product`.`product_id`
+                  and `order_product`.`created_at` >= ' . $period . '
+                group by `title`
+            ) res on p.title = res.title
+            order by res.count desc;'));
     }
 
     /**

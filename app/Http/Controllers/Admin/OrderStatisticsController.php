@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Services\Statistic\StatisticService;
+use App\Services\Statistic\OrderStatisticService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class StatisticsController extends Controller
+class OrderStatisticsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -49,7 +49,7 @@ class StatisticsController extends Controller
      */
     private function getTotalSumFixedPeriod(string $period)
     {
-        $statisticService = new StatisticService();
+        $statisticService = new OrderStatisticService();
 
         switch ($period) {
             case 'day':
