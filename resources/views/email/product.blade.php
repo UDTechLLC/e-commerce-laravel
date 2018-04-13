@@ -34,7 +34,7 @@ text-align: left;
 
                                 <td style="padding: 20px 0;">
                                     {{$product->title}}
-                                    @if($product->getMedia('download')->first() || $product->getMedia('products')->first()->hasCustomProperty('external_link'))
+                                    @if($product->getMedia('download')->first() || $product->getMedia('products')->first()->getCustomProperty('external_link') != "")
                                         @if (!$product->parent_id)
                                             <br>
                                             <a href="{{ $product->generateProductLink($order) }}">
