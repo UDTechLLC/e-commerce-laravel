@@ -6,6 +6,7 @@ namespace App\Services\Statistic;
 
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Services\Statistic\Traits\LabelTrait;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
 use Carbon\Carbon;
@@ -17,6 +18,8 @@ use Carbon\Carbon;
  */
 class ProductsStatisticService
 {
+    use LabelTrait;
+
     const DAY_FORMAT = 'd';
 
     /**
@@ -168,56 +171,5 @@ class ProductsStatisticService
             ->get();
 
         return $result;
-    }
-
-    /**
-     * Get week labels.
-     *
-     * @param $count
-     *
-     * @return array
-     */
-    private function getWeekLabels($count): array
-    {
-        return array_slice([
-            'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
-        ], 0, $count);
-    }
-
-    /**
-     * Get days of month labels.
-     *
-     * @param $count
-     *
-     * @return array
-     */
-    private function getDaysOfMonthLabels($count): array
-    {
-        /** @var Carbon $month */
-        $startOfMonth = now()->startOfMonth();
-        $lastOfMonth = now()->lastOfMonth();
-
-        $result = [];
-
-        do {
-            $result[] = $startOfMonth->format('Y-m-d');
-        } while ($startOfMonth->addDay() <= $lastOfMonth);
-
-        return array_slice($result, 0, $count);
-    }
-
-    /**
-     * Get Months labels.
-     *
-     * @param $count
-     *
-     * @return array
-     */
-    private function getMonthsOfYearLabels($count): array
-    {
-        return array_slice([
-            'January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December',
-        ], 0, $count);
     }
 }
