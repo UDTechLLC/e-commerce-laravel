@@ -69,7 +69,7 @@
                         response => {
                             this.products = response.data;
                             this.activeProduct = this.products[0].slug;
-                            this.productStats('day');
+                            this.productStats();
                         },
                         error => console.log('error')
                 )
@@ -80,7 +80,7 @@
             },
             updateProductStats(period) {
                 this.period = period;
-                this.productStats();
+                this.getProducts()
             },
             productStats () {
                 axios.get(`/admin/statistics/products/specific/period/fixed/${this.activeProduct}?period=${this.period}`).then(
