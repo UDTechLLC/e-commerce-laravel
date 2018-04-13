@@ -54,14 +54,14 @@ class ProductStatisticController extends Controller
         $statisticService = new ProductsStatisticService();
 
         switch ($period) {
+            case 'day':
+                return $statisticService->getTotalDayStats();
             case 'week':
                 return $statisticService->getTotalWeekStats();
             case 'month':
                 return $statisticService->getTotalMonthStats();
             case 'year':
                 return $statisticService->getTotalYearStats();
-            case 'day':
-                return $statisticService->getTotalDayStats();
         }
     }
 

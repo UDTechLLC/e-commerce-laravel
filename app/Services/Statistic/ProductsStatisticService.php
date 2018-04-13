@@ -27,9 +27,21 @@ class ProductsStatisticService
      *
      * @return array
      */
+    public function getTotalDayStats(): array
+    {
+        $period = today()->startOfDay()->format('Y-m-d H:i:s');
+
+        return $this->getTotalPeriodStats($period);
+    }
+
+    /**
+     * Get statistic for week period.
+     *
+     * @return array
+     */
     public function getTotalWeekStats(): array
     {
-        $period = today()->startOfWeek()->format('Y-m-d');
+        $period = today()->startOfWeek()->format('Y-m-d H:i:s');
 
         return $this->getTotalPeriodStats($period);
     }
@@ -41,7 +53,7 @@ class ProductsStatisticService
      */
     public function getTotalMonthStats(): array
     {
-        $period = today()->startOfMonth()->format('Y-m-d');
+        $period = today()->startOfMonth()->format('Y-m-d H:i:s');
 
         return $this->getTotalPeriodStats($period);
     }
@@ -53,14 +65,7 @@ class ProductsStatisticService
      */
     public function getTotalYearStats(): array
     {
-        $period = today()->startOfYear()->format('Y-m-d');
-
-        return $this->getTotalPeriodStats($period);
-    }
-    
-    public function getTotalDayStats()
-    {
-        $period = today()->startOfDay()->format('Y-m-d');
+        $period = today()->startOfYear()->format('Y-m-d H:i:s');
 
         return $this->getTotalPeriodStats($period);
     }
