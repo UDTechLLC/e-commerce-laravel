@@ -58,6 +58,13 @@ class ProductsStatisticService
         return $this->getTotalPeriodStats($period);
     }
 
+    /**
+     * Get specific product stats for day period.
+     *
+     * @param string $product
+     *
+     * @return array
+     */
     public function getProductDayStats(string $product): array
     {
         $period = now()->copy()->startOfDay()->format('Y-m-d');
