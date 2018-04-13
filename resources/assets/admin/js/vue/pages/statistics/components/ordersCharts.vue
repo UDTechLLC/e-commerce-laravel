@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Transaction Summary
+                        <h2>Sales by date
                         </h2>
                         <div class="clearfix"></div>
                     </div>
@@ -44,19 +44,19 @@
                                 labels: response.data.labels,
                                 datasets: [
                                     {
-                                        label: 'Products',
+                                        label: 'Net sales in this period',
                                         borderColor: 'rgba(0, 174, 255)',
                                         backgroundColor: 'rgba(130, 196, 214, 0.35)',
                                         data: response.data.products
                                     },
                                     {
-                                        label: 'Shipping',
+                                        label: 'Charged for shipping',
                                         borderColor: 'rgba(206, 14, 14)',
                                         backgroundColor: 'rgba(206, 14, 14, 0.35)',
                                         data: response.data.shipping
                                     },
                                     {
-                                        label: 'Total',
+                                        label: 'Gross sales in this period',
                                         borderColor: 'rgba(5, 175, 8)',
                                         backgroundColor: 'rgba(5, 175, 8, 0.35)',
                                         data: response.data.total

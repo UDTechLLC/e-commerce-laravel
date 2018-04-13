@@ -4,7 +4,8 @@
             <div class="col-md-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Transaction Summary
+                        <h2>Sales by product
+                            <small>Top sellers</small>
                         </h2>
                         <div class="clearfix"></div>
                     </div>
@@ -48,7 +49,7 @@
                 labels: [],
                 datasets: [
                     {
-                        label: 'Orders total',
+                        label: 'Purchases for the selected items',
                         borderColor: 'rgba(0, 174, 255)',
                         backgroundColor: 'rgba(130, 196, 214, 0.35)',
                         data: []
@@ -89,7 +90,7 @@
                                 labels: response.data.labels,
                                 datasets: [
                                     {
-                                        label: 'Orders total',
+                                        label: 'Purchases for the selected items',
                                         borderColor: 'rgba(0, 174, 255)',
                                         backgroundColor: 'rgba(130, 196, 214, 0.35)',
                                         data: response.data.data
