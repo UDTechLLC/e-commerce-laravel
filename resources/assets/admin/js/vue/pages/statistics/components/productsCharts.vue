@@ -14,7 +14,7 @@
                                 <li class="media event" v-for="product in products" @click="selectProduct(product.slug)"
                                     :class="{active: activeProduct == product.slug}">
                                     <div class="media-body">
-                                        <a class="title" href="#">{{product.title}}</a>
+                                        <a class="title">{{product.title}}</a>
                                         <p><strong>{{ product.count }} </strong> Sales </p>
                                     </div>
                                 </li>
@@ -25,7 +25,7 @@
                                     :chart-data="datacollection"
                                     :options="{responsive: true, maintainAspectRatio: false}"
                             ></bar-chart>
-                          <!--  <div v-else>
+                            <!--<div v-else>
                                 <h1>Select Product</h1>
                             </div>-->
                         </div>
@@ -42,21 +42,34 @@
     export default ({
         data: () => ({
             products: [],
-            activeProduct: "bogo-12week-custom-training-plan",
-            datacollection: null
+            activeProduct: "",
+            period: 'day',
+            datacollection: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Orders total',
+                        borderColor: 'rgba(0, 174, 255)',
+                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
+                        data: []
+                    }
+                ]
+            }
         }),
         components: {
             BarChart
         },
         created(){
-            this.productStats();
-            this.getProducts()
+            this.getProducts();
+            this.$EventBus.$on('updateCharts', this.updateProductStats);
         },
         methods: {
             getProducts() {
-                axios.get('/admin/statistics/products/total/period/fixed?period=year').then(
+                axios.get(`/admin/statistics/products/total/period/fixed?period=${this.period}`).then(
                         response => {
-                            this.products = response.data
+                            this.products = response.data;
+                            this.activeProduct = this.products[0].slug;
+                            this.productStats('day');
                         },
                         error => console.log('error')
                 )
@@ -65,8 +78,12 @@
                 this.activeProduct = slug;
                 this.productStats()
             },
+            updateProductStats(period) {
+                this.period = period;
+                this.productStats();
+            },
             productStats () {
-                axios.get(`/admin/statistics/products/specific/period/fixed?period=year&&product=${this.activeProduct}`).then(
+                axios.get(`/admin/statistics/products/specific/period/fixed/${this.activeProduct}?period=${this.period}`).then(
                         response => {
                             this.datacollection = {
                                 labels: response.data.labels,

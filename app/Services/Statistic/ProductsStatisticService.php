@@ -57,6 +57,13 @@ class ProductsStatisticService
 
         return $this->getTotalPeriodStats($period);
     }
+    
+    public function getTotalDayStats()
+    {
+        $period = today()->startOfDay()->format('Y-m-d');
+
+        return $this->getTotalPeriodStats($period);
+    }
 
     /**
      * Get specific product stats for day period.
@@ -114,7 +121,7 @@ class ProductsStatisticService
 
         return [
             'labels' => $this->getWeekLabels(count($result)),
-            'data' => array_combine($this->getWeekLabels(count($result)), $result),
+            'data'   => $result,
         ];
     }
 
@@ -142,7 +149,7 @@ class ProductsStatisticService
 
         return [
             'labels' => $this->getDaysOfMonthLabels(count($result)),
-            'data' => array_combine($this->getDaysOfMonthLabels(count($result)), $result),
+            'data'   => $result,
         ];
     }
 
@@ -170,7 +177,7 @@ class ProductsStatisticService
 
         return [
             'labels' => $this->getMonthsOfYearLabels(count($result)),
-            'data' => array_combine($this->getMonthsOfYearLabels(count($result)), $result),
+            'data'   => $result,
         ];
     }
 

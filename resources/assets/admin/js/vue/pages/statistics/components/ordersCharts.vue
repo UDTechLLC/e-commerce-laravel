@@ -36,9 +36,6 @@
             this.getData()
         },
         methods: {
-            updateChart(period) {
-              console.log(period)
-            },
             getData(period = 'day') {
                 this.activeButton = period;
                 axios.get(`/admin/statistics/orders/sum/period/fixed?period=${period}`).then(

@@ -27,7 +27,7 @@
             </button>
         </div>
             <ordersCharts></ordersCharts>
-            <!--<productsCharts></productsCharts>-->
+            <productsCharts></productsCharts>
     </div>
 </template>
 <script type="text/babel">
