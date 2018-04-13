@@ -14,7 +14,7 @@
                                 <li class="media event" v-for="product in products" @click="selectProduct(product.slug)"
                                     :class="{active: activeProduct == product.slug}">
                                     <div class="media-body">
-                                        <a class="title" href="#">{{product.title}}</a>
+                                        <a class="title">{{product.title}}</a>
                                         <p><strong>{{ product.count }} </strong> Sales </p>
                                     </div>
                                 </li>
