@@ -26,7 +26,29 @@
 
     export default ({
         data: () => ({
-            datacollection: null
+            datacollection: {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Net sales in this period',
+                    borderColor: 'rgba(0, 174, 255)',
+                    backgroundColor: 'rgba(130, 196, 214, 0.35)',
+                    data: []
+                },
+                {
+                    label: 'Charged for shipping',
+                    borderColor: 'rgba(206, 14, 14)',
+                    backgroundColor: 'rgba(206, 14, 14, 0.35)',
+                    data: []
+                },
+                {
+                    label: 'Gross sales in this period',
+                    borderColor: 'rgba(5, 175, 8)',
+                    backgroundColor: 'rgba(5, 175, 8, 0.35)',
+                    data: []
+                }
+            ]
+        }
         }),
         components: {
             LineChart
