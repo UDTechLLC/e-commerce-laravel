@@ -197,7 +197,7 @@ class ProductsStatisticService
                         left join (select op.* from orders o 
                             inner join order_product op on o.id = op.order_id and o.state = "PROCESSING") opres
                                 on products.id = opres.product_id
-                                and opres.created_at >= ' . $period . '
+                                and opres.created_at >= \'' . $period . '\'
                     group by title
                 ) res on p.title = res.title
                 order by res.count desc;'));
