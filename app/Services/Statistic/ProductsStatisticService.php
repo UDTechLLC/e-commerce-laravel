@@ -84,7 +84,7 @@ class ProductsStatisticService
 
         return [
             'labels' => $this->getWeekLabels(count($result)),
-            'data' => array_combine($this->getWeekLabels(count($result)), $result),
+            'data'   => $result,
         ];
     }
 
@@ -112,7 +112,7 @@ class ProductsStatisticService
 
         return [
             'labels' => $this->getDaysOfMonthLabels(count($result)),
-            'data' => array_combine($this->getDaysOfMonthLabels(count($result)), $result),
+            'data'   => $result,
         ];
     }
 
@@ -140,7 +140,7 @@ class ProductsStatisticService
 
         return [
             'labels' => $this->getMonthsOfYearLabels(count($result)),
-            'data' => array_combine($this->getMonthsOfYearLabels(count($result)), $result),
+            'data'   => $result,
         ];
     }
 

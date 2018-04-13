@@ -22,10 +22,10 @@
                         </div>
                         <div class="col-md-9">
                             <bar-chart
-                                    :chart-data="datacollection"
-                                    :options="{responsive: true, maintainAspectRatio: false}"
+                                       :chart-data="datacollection"
+                                       :options="{responsive: true, maintainAspectRatio: false}"
                             ></bar-chart>
-                          <!--  <div v-else>
+                            <!--<div v-else>
                                 <h1>Select Product</h1>
                             </div>-->
                         </div>
@@ -42,21 +42,23 @@
     export default ({
         data: () => ({
             products: [],
-            activeProduct: "bogo-12week-custom-training-plan",
+            activeProduct: "",
             datacollection: null
         }),
         components: {
             BarChart
         },
         created(){
-            this.productStats();
-            this.getProducts()
+            this.getProducts();
+            this.$EventBus.$on('updateCharts', this.productStats);
         },
         methods: {
-            getProducts() {
-                axios.get('/admin/statistics/products/total/period/fixed?period=year').then(
+            getProducts(period = 'year') {
+                axios.get(`/admin/statistics/products/total/period/fixed?period=${period}`).then(
                         response => {
-                            this.products = response.data
+                            this.products = response.data;
+                            this.activeProduct = this.products[0].slug;
+                            this.productStats();
                         },
                         error => console.log('error')
                 )
@@ -65,8 +67,8 @@
                 this.activeProduct = slug;
                 this.productStats()
             },
-            productStats () {
-                axios.get(`/admin/statistics/products/specific/period/fixed?period=year&&product=${this.activeProduct}`).then(
+            productStats (period = 'week') {
+                axios.get(`/admin/statistics/products/specific/period/fixed?period=${period}&product=${this.activeProduct}`).then(
                         response => {
                             this.datacollection = {
                                 labels: response.data.labels,
