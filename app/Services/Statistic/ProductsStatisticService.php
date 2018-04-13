@@ -162,9 +162,9 @@ class ProductsStatisticService
      * @param string $period
      * @param string $product
      *
-     * @return array
+     * @return Collection
      */
-    private function getProductPeriodStats(string $period, string $product): array
+    private function getProductPeriodStats(string $period, string $product)
     {
         $result = OrderProduct::where('product_id', Product::where('slug', $product)->pluck('id'))
             ->where('created_at', '>=', $period)
