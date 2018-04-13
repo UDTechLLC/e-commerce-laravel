@@ -61,15 +61,15 @@ class OrderStatisticService
                 return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
             });
 
-            $total[] = $timeFilteredCollection->sum('total_cost');
-            $shipping[] = $timeFilteredCollection->sum('shipping_cost');
-            $products[] = $timeFilteredCollection->sum('product_cost');
+            $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
+            $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
+            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
         } while ($startOfDay->addHour()->diffInHours($now) !== 0);
 
         $result['labels'] = $this->getHoursLabels(count($total));
-        $result['total'] = array_combine($this->getHoursLabels(count($total)), $total);
-        $result['shipping'] = array_combine($this->getHoursLabels(count($shipping)), $shipping);
-        $result['products'] = array_combine($this->getHoursLabels(count($products)), $products);
+        $result['total'] = $total;
+        $result['shipping'] = $shipping;
+        $result['products'] = $products;
 
         return $result;
     }
@@ -87,17 +87,27 @@ class OrderStatisticService
         $startOfWeek = $today->copy()->startOfWeek();
         $result = [];
 
+        /** @var $orders Collection */
         $orders = Order::whereDate('created_at', '>=', $startOfWeek)
             ->whereDate('created_at', '<=', $now)
             ->get();
 
         do {
-            $result[] = $orders->filter(function ($item) use ($startOfWeek) {
+            $timeFilteredCollection = $orders->filter(function ($item) use ($startOfWeek) {
                 return $item->created_at->between($startOfWeek, $startOfWeek->copy()->addDay());
-            })->sum('total_cost');
+            });
+
+            $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
+            $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
+            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
         } while ($startOfWeek->addDay() <= $today);
 
-        return array_combine($this->getWeekLabels(count($result)), $result);
+        $result['labels'] = $this->getWeekLabels(count($total));
+        $result['total'] = $total;
+        $result['shipping'] = $shipping;
+        $result['products'] = $products;
+
+        return $result;
     }
 
     /**
@@ -110,15 +120,25 @@ class OrderStatisticService
         $today = today();
         $startOfMonth = $today->copy()->startOfMonth();
 
+        /** @var $orders Collection */
         $orders = Order::whereMonth('created_at', $today->month)->get();
 
         do {
-            $result[] = $orders->filter(function ($item) use ($startOfMonth) {
+            $timeFilteredCollection = $orders->filter(function ($item) use ($startOfMonth) {
                 return $item->created_at->between($startOfMonth, $startOfMonth->copy()->addDay());
-            })->sum('total_cost');
+            });
+
+            $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
+            $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
+            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
         } while ($startOfMonth->addDay() <= $today);
 
-        return array_combine($this->getDaysOfMonthLabels(count($result)), $result);
+        $result['labels'] = $this->getDaysOfMonthLabels(count($total));
+        $result['total'] = $total;
+        $result['shipping'] = $shipping;
+        $result['products'] = $products;
+
+        return $result;
     }
 
     /**
@@ -131,14 +151,24 @@ class OrderStatisticService
         $lastOfMonth = today()->lastOfMonth();
         $startOfYear = today()->startOfYear();
 
+        /** @var $orders Collection */
         $orders = Order::whereYear('created_at', $lastOfMonth->year)->get();
 
         do {
-            $result[] = $orders->filter(function ($item) use ($startOfYear) {
+            $timeFilteredCollection = $orders->filter(function ($item) use ($startOfYear) {
                 return $item->created_at->between($startOfYear, $startOfYear->copy()->addMonth());
-            })->sum('total_cost');
+            });
+
+            $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
+            $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
+            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
         } while ($startOfYear->addMonth() <= $lastOfMonth);
 
-        return array_combine($this->getMonthsOfYearLabels(count($result)), $result);
+        $result['labels'] = $this->getDaysOfMonthLabels(count($total));
+        $result['total'] = $total;
+        $result['shipping'] = $shipping;
+        $result['products'] = $products;
+
+        return $result;
     }
 }
