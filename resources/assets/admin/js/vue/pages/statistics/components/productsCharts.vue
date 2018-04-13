@@ -17,9 +17,9 @@
                                     </a>
                                     <div class="media-body">
                                         <a class="title" href="#">Ms. Mary Jane</a>
-                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                        <p><strong>{{ product.count }} </strong> Agent Avarage Sales </p>
                                         <p>
-                                            <small>12 Sales Today</small>
+                                            <small>Sales Today</small>
                                         </p>
                                     </div>
                                 </li>
