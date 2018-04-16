@@ -35,10 +35,10 @@ class OrderStatisticService
         $orders = Order::whereDay('created_at', $now->format(self::DAY_FORMAT))
             ->where('state', Order::ORDER_STATE_PROCESSING)
             ->get();
-
+       
         do {
             $timeFilteredCollection = $orders->filter(function ($item) use ($startOfDay) {
-                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
+                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour(2));
             });
 
             $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
