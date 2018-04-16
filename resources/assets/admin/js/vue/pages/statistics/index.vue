@@ -30,7 +30,10 @@
                     :start-date="startDate"
                     :end-date="endDate">
             </ordersCharts>
-            <productsCharts></productsCharts>
+            <productsCharts
+                    :start-date="startDate"
+                    :end-date="endDate">
+            </productsCharts>
     </div>
 </template>
 <script type="text/babel">

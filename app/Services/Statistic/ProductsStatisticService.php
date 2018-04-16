@@ -90,13 +90,13 @@ class ProductsStatisticService
 
         do {
             $result[] = $products->filter(function ($item) use ($startOfDay) {
-                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour(2));
+                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
             })->sum('count');
         } while ($startOfDay->addHour()->diffInHours($now) !== 0);
 
         return [
             'labels' => $this->getHoursLabels(count($result)),
-            'data' => $result,
+            'data'   => $result,
         ];
     }
 
@@ -220,6 +220,59 @@ class ProductsStatisticService
     {
         $result = OrderProduct::where('product_id', Product::where('slug', $product)->pluck('id'))
             ->where('created_at', '>=', $period)
+            ->whereIn('order_id', Order::where('state', Order::ORDER_STATE_PROCESSING)->pluck('id'))
+            ->get();
+
+        return $result;
+    }
+
+    public function getCustomPeriodStats($product, $startDate, $endDate)
+    {
+        /** @var Carbon $startDate */
+        $startDate = Carbon::createFromFormat('Y-m-d', $startDate);
+        /** @var Carbon $endDate */
+        $endDate = Carbon::createFromFormat('Y-m-d', $endDate);
+
+        /** @var $orders Collection */
+        $products = $this->getProductCustomPeriodStats($product, $startDate, $endDate);
+
+       // dd($products);
+        if ($startDate->diffInMonths($endDate) !== 0) {
+            $startDate = $startDate->startOfMonth();
+            $step = 'addMonth';
+            $labels = $this->getCustomPeriodMonthsLabels($startDate->copy(), $endDate->copy());
+        } else {
+            $step = 'addDay';
+            $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
+        }
+
+        do {
+            $result[] = $products->filter(function ($item) use ($startDate, $step) {
+                return $item->created_at->between($startDate, $startDate->copy()->$step());
+            })->sum('count');
+        } while ($startDate->$step() <= today());
+
+
+        return [
+            'labels' => $labels,
+            'data'   => $result
+        ];
+    }
+
+    /**
+     * Get stats for specific product by period.
+     *
+     * @param string $product
+     * @param string $start
+     * @param string $end
+     *
+     * @return Collection
+     */
+    private function getProductCustomPeriodStats(string $product, $start, $end)
+    {
+        $result = OrderProduct::where('product_id', Product::where('slug', $product)->pluck('id'))
+            ->where('created_at', '>=', $start)
+            ->where('created_at', '<=', $end)
             ->whereIn('order_id', Order::where('state', Order::ORDER_STATE_PROCESSING)->pluck('id'))
             ->get();
 

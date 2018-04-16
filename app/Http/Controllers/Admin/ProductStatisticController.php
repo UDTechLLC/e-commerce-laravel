@@ -38,8 +38,12 @@ class ProductStatisticController extends Controller
     {
         throw_if(!($period = $request->get('period')), new NotFoundHttpException());
         $product = $product->slug;
+        $custom = [
+            'start' => $request->get('start'),
+            'end'   => $request->get('end')
+        ];
 
-        return response()->json($this->getProductsStatisticFixedPeriod($period, $product));
+        return response()->json($this->getProductsStatisticFixedPeriod($period, $product, $custom));
     }
 
     /**
@@ -52,6 +56,9 @@ class ProductStatisticController extends Controller
     private function getAllProductsStatisticFixedPeriod(string $period): array
     {
         $statisticService = new ProductsStatisticService();
+        if ($period == 'custom') {
+            $period = 'day';            /// @FIXME
+        }
 
         switch ($period) {
             case 'day':
@@ -72,7 +79,7 @@ class ProductStatisticController extends Controller
      *
      * @return array
      */
-    private function getProductsStatisticFixedPeriod(string $period, $product): array
+    private function getProductsStatisticFixedPeriod(string $period, $product, array $custom = null): array
     {
         $statisticService = new ProductsStatisticService();
 
@@ -85,6 +92,9 @@ class ProductStatisticController extends Controller
                 return $statisticService->getProductMonthStats($product);
             case 'year':
                 return $statisticService->getProductYearStats($product);
+            case 'custom':
+                throw_if(!($custom['start'] && $custom['end']), new NotFoundHttpException());
+                return $statisticService->getCustomPeriodStats($product, $custom['start'], $custom['end']);
         }
     }
 }
