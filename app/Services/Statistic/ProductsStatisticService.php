@@ -82,7 +82,7 @@ class ProductsStatisticService
         $period = now()->copy()->startOfDay()->format('Y-m-d');
 
         /** @var Carbon $now */
-        $now = now();
+        $now = now()->addHour();
         $startOfDay = now()->copy()->startOfDay();
         $result = [];
 
@@ -96,7 +96,7 @@ class ProductsStatisticService
 
         return [
             'labels' => $this->getHoursLabels(count($result)),
-            'data' => $result,
+            'data'   => $result,
         ];
     }
 
@@ -196,15 +196,15 @@ class ProductsStatisticService
     private function getTotalPeriodStats(string $period): array
     {
         return \DB::select(\DB::raw('
-            select p.title, p.slug, res.count from products as p inner join (
-                select title, sum(opres.count) as `count`
+            select p.id, p.title, p.slug, res.count from products as p inner join (
+                select slug, sum(opres.count) as `count`
                     from products
                         left join (select op.* from orders o 
                             inner join order_product op on o.id = op.order_id and o.state = "PROCESSING") opres
                                 on products.id = opres.product_id
                                 and opres.created_at >= \'' . $period . '\'
-                    group by title
-                ) res on p.title = res.title
+                    group by slug
+                ) res on p.slug = res.slug
                 order by res.count desc;'));
     }
 
@@ -220,6 +220,59 @@ class ProductsStatisticService
     {
         $result = OrderProduct::where('product_id', Product::where('slug', $product)->pluck('id'))
             ->where('created_at', '>=', $period)
+            ->whereIn('order_id', Order::where('state', Order::ORDER_STATE_PROCESSING)->pluck('id'))
+            ->get();
+
+        return $result;
+    }
+
+    public function getCustomPeriodStats($product, $startDate, $endDate)
+    {
+        /** @var Carbon $startDate */
+        $startDate = Carbon::createFromFormat('Y-m-d', $startDate);
+        /** @var Carbon $endDate */
+        $endDate = Carbon::createFromFormat('Y-m-d', $endDate);
+
+        /** @var $orders Collection */
+        $products = $this->getProductCustomPeriodStats($product, $startDate, $endDate);
+
+       // dd($products);
+        if ($startDate->diffInMonths($endDate) !== 0) {
+            $startDate = $startDate->startOfMonth();
+            $step = 'addMonth';
+            $labels = $this->getCustomPeriodMonthsLabels($startDate->copy(), $endDate->copy());
+        } else {
+            $step = 'addDay';
+            $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
+        }
+
+        do {
+            $result[] = $products->filter(function ($item) use ($startDate, $step) {
+                return $item->created_at->between($startDate, $startDate->copy()->$step());
+            })->sum('count');
+        } while ($startDate->$step() <= today());
+
+
+        return [
+            'labels' => $labels,
+            'data'   => $result
+        ];
+    }
+
+    /**
+     * Get stats for specific product by period.
+     *
+     * @param string $product
+     * @param string $start
+     * @param string $end
+     *
+     * @return Collection
+     */
+    private function getProductCustomPeriodStats(string $product, $start, $end)
+    {
+        $result = OrderProduct::where('product_id', Product::where('slug', $product)->pluck('id'))
+            ->where('created_at', '>=', $start)
+            ->where('created_at', '<=', $end)
             ->whereIn('order_id', Order::where('state', Order::ORDER_STATE_PROCESSING)->pluck('id'))
             ->get();
 

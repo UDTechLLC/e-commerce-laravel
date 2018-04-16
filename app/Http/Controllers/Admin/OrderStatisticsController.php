@@ -31,8 +31,12 @@ class OrderStatisticsController extends Controller
     public function totalSumFixedPeriod(Request $request): JsonResponse
     {
         throw_if(!($period = $request->get('period')), new NotFoundHttpException());
+        $custom = [
+            'start' => $request->get('start'),
+            'end'   => $request->get('end')
+        ];
 
-        return response()->json($this->getTotalSumFixedPeriod($period));
+        return response()->json($this->getTotalSumFixedPeriod($period, $custom));
     }
 
     public function totalSumCustomPeriod()
@@ -44,10 +48,10 @@ class OrderStatisticsController extends Controller
      * Get total orders sum for custom period.
      *
      * @param string $period
-     *
+     * @param array|null $custom
      * @return array|string
      */
-    private function getTotalSumFixedPeriod(string $period)
+    private function getTotalSumFixedPeriod(string $period, array $custom = null)
     {
         $statisticService = new OrderStatisticService();
 
@@ -63,6 +67,10 @@ class OrderStatisticsController extends Controller
                 break;
             case 'year':
                 return $statisticService->getYearStats();
+                break;
+            case 'custom':
+                throw_if(!($custom['start'] && $custom['end']), new NotFoundHttpException());
+                return $statisticService->getCustomPeriodStats($custom['start'], $custom['end']);
                 break;
         }
     }

@@ -22,12 +22,18 @@
             <datepicker v-model="startDate" input-class="form-control"></datepicker>
             -
             <datepicker v-model="endDate" input-class="form-control"></datepicker>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" @click.prevent="selectPeriod('custom')">
                 Go
             </button>
         </div>
-            <ordersCharts></ordersCharts>
-            <productsCharts></productsCharts>
+            <ordersCharts
+                    :start-date="startDate"
+                    :end-date="endDate">
+            </ordersCharts>
+            <productsCharts
+                    :start-date="startDate"
+                    :end-date="endDate">
+            </productsCharts>
     </div>
 </template>
 <script type="text/babel">
@@ -40,18 +46,23 @@
 
     export default({
         data: () => ({
-            startDate: moment().subtract(1, "days").format(),
-            endDate: moment().format(),
+            startDate: moment().subtract(1, "days").format('YYYY-MM-DD'),
+            endDate: moment().format('YYYY-MM-DD'),
             activeButton: 'day'
         }),
         components: {
             Datepicker,
             ordersCharts,
-            productsCharts,
+            productsCharts
         },
         methods: {
             selectPeriod(period) {
-                this.$EventBus.$emit('updateCharts', period)
+                this.startDate = moment(this.startDate).format('YYYY-MM-DD');
+                this.endDate = moment(this.endDate).format('YYYY-MM-DD');
+                setTimeout(() => {
+                    this.$EventBus.$emit('updateCharts', period);
+                }, 100);
+
                 this.activeButton = period
             }
         }

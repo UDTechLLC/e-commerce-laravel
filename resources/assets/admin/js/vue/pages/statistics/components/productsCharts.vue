@@ -15,7 +15,8 @@
                                 <li class="media event" v-for="product in products" @click="selectProduct(product.slug)"
                                     :class="{active: activeProduct == product.slug}">
                                     <div class="media-body">
-                                        <a class="title">{{product.title}}</a>
+                                        <a class="title">{{product.title}} </a>
+                                        <p><i class="green">SKU {{product.id}}</i></p>
                                         <p><strong>{{ product.count }} </strong> Sales </p>
                                     </div>
                                 </li>
@@ -60,12 +61,17 @@
         components: {
             BarChart
         },
+        props: {
+            startDate: String | Date,
+            endDate: String | Date
+        },
         created(){
             this.getProducts();
             this.$EventBus.$on('updateCharts', this.updateProductStats);
         },
         methods: {
             getProducts() {
+
                 axios.get(`/admin/statistics/products/total/period/fixed?period=${this.period}`).then(
                         response => {
                             this.products = response.data;
@@ -84,7 +90,7 @@
                 this.getProducts()
             },
             productStats () {
-                axios.get(`/admin/statistics/products/specific/period/fixed/${this.activeProduct}?period=${this.period}`).then(
+                axios.get(`/admin/statistics/products/specific/period/fixed/${this.activeProduct}?period=${this.period}&start=${this.startDate}&end=${this.endDate}`).then(
                         response => {
                             this.datacollection = {
                                 labels: response.data.labels,
