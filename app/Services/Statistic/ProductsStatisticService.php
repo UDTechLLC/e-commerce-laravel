@@ -90,7 +90,7 @@ class ProductsStatisticService
 
         do {
             $result[] = $products->filter(function ($item) use ($startOfDay) {
-                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour());
+                return $item->created_at->between($startOfDay, $startOfDay->copy()->addHour(2));
             })->sum('count');
         } while ($startOfDay->addHour()->diffInHours($now) !== 0);
 
