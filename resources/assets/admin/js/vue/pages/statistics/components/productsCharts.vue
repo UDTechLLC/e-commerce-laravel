@@ -81,6 +81,9 @@
                 this.productStats()
             },
             updateProductStats(period) {
+                if(period == 'custom') {
+                    period = 'day'
+                }
                 this.period = period;
                 this.getProducts()
             },
