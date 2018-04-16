@@ -173,10 +173,10 @@ class OrderStatisticService
         if ($startDate->diffInMonths($endDate) !== 0) {
             $startDate = $startDate->startOfMonth();
             $step = 'addMonth';
-            $labels[] = $this->getCustomPeriodMonthsLabels($startDate->copy(), $endDate->copy());
+            $labels = $this->getCustomPeriodMonthsLabels($startDate->copy(), $endDate->copy());
         } else {
             $step = 'addDay';
-            $labels[] = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
+            $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
         }
 
         do {
@@ -190,6 +190,7 @@ class OrderStatisticService
         } while ($startDate->$step() <= today());
 
         $result['labels'] = $labels;
+
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
