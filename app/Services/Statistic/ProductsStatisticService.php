@@ -82,7 +82,7 @@ class ProductsStatisticService
         $period = now()->copy()->startOfDay()->format('Y-m-d');
 
         /** @var Carbon $now */
-        $now = now();
+        $now = now()->addHour();
         $startOfDay = now()->copy()->startOfDay();
         $result = [];
 
