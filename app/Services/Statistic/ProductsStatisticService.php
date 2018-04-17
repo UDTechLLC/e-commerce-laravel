@@ -235,13 +235,13 @@ class ProductsStatisticService
 
         /** @var $orders Collection */
         $products = $this->getProductCustomPeriodStats($product, $startDate, $endDate);
-
-       // dd($products);
+        
         if ($startDate->diffInMonths($endDate) !== 0) {
             $startDate = $startDate->startOfMonth();
             $step = 'addMonth';
             $labels = $this->getCustomPeriodMonthsLabels($startDate->copy(), $endDate->copy());
         } else {
+            $startDate = $startDate->startOfDay();
             $step = 'addDay';
             $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
         }
@@ -250,7 +250,7 @@ class ProductsStatisticService
             $result[] = $products->filter(function ($item) use ($startDate, $step) {
                 return $item->created_at->between($startDate, $startDate->copy()->$step());
             })->sum('count');
-        } while ($startDate->$step() <= today());
+        } while ($startDate->$step() <= $endDate);
 
 
         return [
