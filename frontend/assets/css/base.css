@@ -2823,7 +2823,7 @@ body {
           padding: 30px; }
           @media screen and (max-width: 480px) {
             .side-cart-screen-block .modal-dialog .side-cart-block-wrapper .side-cart-block .cart-products-wrapper {
-              max-height: 35%;
+              max-height: 31%;
               padding: 15px; } }
           .side-cart-screen-block .modal-dialog .side-cart-block-wrapper .side-cart-block .cart-products-wrapper .cart-single-product {
             border-bottom: 1px solid #d6d6d6;
