@@ -149,7 +149,7 @@ class OrderStatisticService
             $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
         } while ($startOfYear->addMonth() <= $lastOfMonth);
 
-        $result['labels'] = $this->getDaysOfMonthLabels(count($total));
+        $result['labels'] = $this->getMonthsOfYearLabels(count($total));
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
@@ -166,7 +166,7 @@ class OrderStatisticService
     {
         /** @var Carbon $startDate */
         $startDate = Carbon::createFromFormat('Y-m-d', $startDate);
-      
+
         /** @var Carbon $endDate */
         $endDate = Carbon::createFromFormat('Y-m-d', $endDate);
 
