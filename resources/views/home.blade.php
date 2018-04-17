@@ -44,37 +44,37 @@
                 <div class="success-story-slider-wrapper">
                     <div id="successStories" class="success-story-slider">
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_1-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_2.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_2-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_3.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_3-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_4.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_4-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_5.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_5-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_6.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_6-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_7.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_7-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_8.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_8-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_9.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_9-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_10.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_10-1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_11.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_11-1.jpg')}}" />
                         </div>
 
                     </div>
