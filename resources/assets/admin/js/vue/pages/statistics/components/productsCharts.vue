@@ -72,7 +72,7 @@
         methods: {
             getProducts() {
 
-                axios.get(`/admin/statistics/products/total/period/fixed?period=${this.period}`).then(
+                axios.get(`/admin/statistics/products/total/period/fixed?period=${this.period}&start=${this.startDate}&end=${this.endDate}`).then(
                         response => {
                             this.products = response.data;
                             this.activeProduct = this.products[0].slug;
