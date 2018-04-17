@@ -71,6 +71,16 @@ class ProductsStatisticService
     }
 
     /**
+     * @param $startDate
+     * @param $endDate
+     * @return array
+     */
+    public function getTotalCustomStats($startDate, $endDate):array
+    {
+        return $this->getTotalCustomPeriodStats($startDate, $endDate);
+    }
+
+    /**
      * Get specific product stats for day period.
      *
      * @param string $product
@@ -209,6 +219,27 @@ class ProductsStatisticService
     }
 
     /**
+     * @param string $startDate
+     * @param string $endDate
+     * @return array
+     */
+    private function getTotalCustomPeriodStats(string $startDate, string $endDate): array
+    {
+        return \DB::select(\DB::raw('
+            select p.id, p.title, p.slug, res.count from products as p inner join (
+                select slug, sum(opres.count) as `count`
+                    from products
+                        left join (select op.* from orders o 
+                            inner join order_product op on o.id = op.order_id and o.state = "PROCESSING") opres
+                                on products.id = opres.product_id
+                                and opres.created_at >= \'' . $startDate . '\'
+                                and opres.created_at <= \'' . $endDate . '\'
+                    group by slug
+                ) res on p.slug = res.slug
+                order by res.count desc;'));
+    }
+
+    /**
      * Get stats for specific product by period.
      *
      * @param string $period
@@ -226,6 +257,12 @@ class ProductsStatisticService
         return $result;
     }
 
+    /**
+     * @param $product
+     * @param $startDate
+     * @param $endDate
+     * @return array
+     */
     public function getCustomPeriodStats($product, $startDate, $endDate)
     {
         /** @var Carbon $startDate */
@@ -236,12 +273,12 @@ class ProductsStatisticService
         /** @var $orders Collection */
         $products = $this->getProductCustomPeriodStats($product, $startDate, $endDate);
 
-       // dd($products);
         if ($startDate->diffInMonths($endDate) !== 0) {
             $startDate = $startDate->startOfMonth();
             $step = 'addMonth';
             $labels = $this->getCustomPeriodMonthsLabels($startDate->copy(), $endDate->copy());
         } else {
+            $startDate = $startDate->startOfDay();
             $step = 'addDay';
             $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
         }
@@ -250,8 +287,7 @@ class ProductsStatisticService
             $result[] = $products->filter(function ($item) use ($startDate, $step) {
                 return $item->created_at->between($startDate, $startDate->copy()->$step());
             })->sum('count');
-        } while ($startDate->$step() <= today());
-
+        } while ($startDate->$step() <= $endDate);
 
         return [
             'labels' => $labels,

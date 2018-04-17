@@ -149,7 +149,7 @@ class OrderStatisticService
             $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
         } while ($startOfYear->addMonth() <= $lastOfMonth);
 
-        $result['labels'] = $this->getDaysOfMonthLabels(count($total));
+        $result['labels'] = $this->getMonthsOfYearLabels(count($total));
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
@@ -157,16 +157,21 @@ class OrderStatisticService
         return $result;
     }
 
+    /**
+     * @param $startDate
+     * @param $endDate
+     * @return mixed
+     */
     public function getCustomPeriodStats($startDate, $endDate)
     {
         /** @var Carbon $startDate */
         $startDate = Carbon::createFromFormat('Y-m-d', $startDate);
+
         /** @var Carbon $endDate */
         $endDate = Carbon::createFromFormat('Y-m-d', $endDate);
 
         /** @var $orders Collection */
-        $orders = Order::whereDate('created_at', '>=', $startDate)
-            ->whereDate('created_at', '<=', $endDate)
+        $orders = Order::whereBetween('created_at', [$startDate, $endDate])
             ->where('state', Order::ORDER_STATE_PROCESSING)
             ->get();
 
@@ -175,19 +180,20 @@ class OrderStatisticService
             $step = 'addMonth';
             $labels = $this->getCustomPeriodMonthsLabels($startDate->copy(), $endDate->copy());
         } else {
+            $startDate = $startDate->startOfDay();
             $step = 'addDay';
             $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
         }
 
         do {
             $timeFilteredCollection = $orders->filter(function ($item) use ($startDate, $endDate, $step) {
-                    return $item->created_at->between($startDate, $startDate->copy()->$step());
+                return $item->created_at->between($startDate, $startDate->copy()->$step());
             });
 
             $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
             $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
             $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
-        } while ($startDate->$step() <= today());
+        } while ($startDate->$step() <= $endDate);
 
         $result['labels'] = $labels;
 
