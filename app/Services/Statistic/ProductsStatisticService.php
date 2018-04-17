@@ -77,6 +77,9 @@ class ProductsStatisticService
      */
     public function getTotalCustomStats($startDate, $endDate):array
     {
+        $startDate = Carbon::parse($startDate)->startOfDay()->format('Y-m-d H:i:s');
+        $endDate = Carbon::parse($endDate)->endOfDay()->format('Y-m-d H:i:s');
+
         return $this->getTotalCustomPeriodStats($startDate, $endDate);
     }
 
