@@ -127,7 +127,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="externalLink" v-model="entry.externalLink"
-                           v-validate data-vv-rules="required|url"
+                           v-validate data-vv-rules="url"
                            :class="{'is-danger': errors.has('externalLink')}"
                            name="externalLink" class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('externalLink')">{{ errors.first('externalLink') }}</span>
