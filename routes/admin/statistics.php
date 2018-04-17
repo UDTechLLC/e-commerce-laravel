@@ -5,10 +5,18 @@ Route::group([
     'as'     => '.statistics'
 ], function () {
     Route::get('/', [
-        'uses' => 'StatisticsController@index'
+        'uses' => 'OrderStatisticsController@index'
     ]);
     Route::get('orders/sum/period/fixed', [
         'as' => '.orders.sum.period.fixed',
-        'uses' => 'StatisticsController@totalSumFixedPeriod',
+        'uses' => 'OrderStatisticsController@totalSumFixedPeriod',
+    ]);
+    Route::get('products/total/period/fixed', [
+        'as' => '.products.total.period.fixed',
+        'uses' => 'ProductStatisticController@allProductsStatisticFixedPeriod'
+    ]);
+    Route::get('products/specific/period/fixed/{product}', [
+        'as' => '.products.specific.period.fixed',
+        'uses' => 'ProductStatisticController@productStatisticFixedPeriod'
     ]);
 });

@@ -38,7 +38,9 @@ class Product extends Model implements HasMedia
     const VIEW_NAMES = [
         self::VIEW_NAME_SHOW,
         self::VIEW_NAME_12WEEK_MEAL,
+        self::VIEW_NAME_BOGO_12WEEK_MEAL,
         self::VIEW_NAME_12WEEK_TRAINING,
+        self::VIEW_NAME_BOGO_12WEEK_TRAINING ,
         self::VIEW_NAME_14DAY_DETOX,
         self::VIEW_NAME_NEVER_STOP,
         self::VIEW_NAME_QUEEN_OF_THE_HILL,
@@ -110,7 +112,10 @@ class Product extends Model implements HasMedia
 
     public function carts()
     {
-        return $this->belongsToMany(Cart::class)->using(CartProductPivot::class);
+        return $this->belongsToMany(Cart::class)
+            ->withPivot(['count', 'product_price'])
+            ->withTimestamps()
+            ->using(CartProductPivot::class);
     }
 
     public function orders()
@@ -177,13 +182,13 @@ class Product extends Model implements HasMedia
 
     public function getProductLinkAttribute()
     {
-        if ($this->isVirtual()) {
+        //if ($this->isVirtual()) {
             $media = $this->getMedia('products')->first();
 
             return $media->hasCustomProperty('external_link')
                 ? $media->getCustomProperty('external_link')
                 : asset($this->getFirstMediaUrl('download'));
-        }
+      //  }
     }
 
     public function getDiscountAmountAttribute()

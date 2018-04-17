@@ -20,6 +20,7 @@
         "vue": "^2.5.16"
     },
     "dependencies": {
+        "babel-polyfill": "^6.26.0",
         "braintree-web-drop-in": "^1.10.0",
         "chart.js": "^2.7.2",
         "gentelella": "^1.4.0",

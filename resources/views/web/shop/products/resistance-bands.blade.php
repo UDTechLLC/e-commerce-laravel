@@ -46,7 +46,7 @@
                         </div>
                         <add-to-cart
                                 product-slug="{{ $product->slug }}"
-                        >
+                        >pre-order
                         </add-to-cart>
                     </div>
                 </div>
@@ -97,6 +97,6 @@
     </section>
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
-    >
+    >pre-order
     </add-to-cart-mobile>
     @endsection
