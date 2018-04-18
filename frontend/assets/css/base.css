@@ -2991,7 +2991,10 @@ body {
                 height: 30px;
                 text-align: center;
                 text-transform: uppercase;
-                width: 185px; }
+                width: 185px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none; }
           .side-cart-screen-block .modal-dialog .side-cart-block-wrapper .side-cart-block .cart-button-area-wrapper .cart-sub-totals-block-wrapper {
             display: -webkit-box;
             display: -webkit-flex;
