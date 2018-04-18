@@ -1,0 +1,68 @@
+.shop-now-block-wrapper {
+  background-color: #ffffff;
+  background-image: url("../images/home_page/shop-now.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+          background-size: cover;
+  padding: 72.5px 30px; }
+  @media screen and (max-width: 767px) {
+    .shop-now-block-wrapper {
+      background-image: url("../images/home_page/shop-now_mob2.jpg"); } }
+  @media screen and (max-width: 396px) {
+    .shop-now-block-wrapper .wrapper {
+      padding-left: 0;
+      padding-right: 0; } }
+  .shop-now-block-wrapper .wrapper .shop-now-block {
+    margin: 15px 0; }
+    .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-title {
+      color: #ffffff;
+      display: block;
+      font-family: Montserrat, Arial, Helvetica, sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 5px 0 15px;
+      text-align: center; }
+      @media screen and (max-width: 800px) {
+        .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-title {
+          font-size: 40.5px;
+          line-height: 48.6px; } }
+    .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-sub-title {
+      color: #ffffff;
+      font-family: "PT Sans", Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 23px;
+      margin: 0 0 40px;
+      text-align: center; }
+      @media screen and (max-width: 767px) {
+        .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-sub-title {
+          margin: 0 0 10px; } }
+    .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-button-wrapper {
+      text-align: center; }
+      .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-button-wrapper .shop-now-button {
+        background: #fff;
+        -webkit-border-radius: 3px;
+                border-radius: 3px;
+        color: #2b2e32;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Montserrat,Arial,Helvetica,sans-serif;
+        font-size: 23px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        line-height: 1;
+        padding: 16px 60px;
+        text-align: center;
+        text-transform: uppercase;
+        -webkit-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+        width: auto; }
+        @media screen and (max-width: 396px) {
+          .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-button-wrapper .shop-now-button {
+            padding: 16px 0;
+            width: 100%; } }
+        .shop-now-block-wrapper .wrapper .shop-now-block .shop-now-button-wrapper .shop-now-button:hover {
+          background: #ed555a; }
