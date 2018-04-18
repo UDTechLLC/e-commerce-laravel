@@ -4,6 +4,9 @@
                 :billing="billing"
         ></billing-block>
         <!--<login></login>-->
+        <cart-totals-mobile
+                :shipping="shipping"
+        ></cart-totals-mobile>
         <div class="billing-address-info-block-wrapper">
             <div class="wrapper">
                 <div class="billing-address-info-block billing-address-edit-block">
@@ -11,6 +14,7 @@
                         <h2 class="cart-heading">
                             Payment
                         </h2>
+
                         <!--<a class="edit-block-link" href="#" @click.prevent="back">-->
                             <!--Edit-->
                         <!--</a>-->
@@ -55,6 +59,7 @@
     import cartTotals from './../components/cart-totals';
     import login from './../components/login';
     import billingBlock from './../components/billing-block';
+    import cartTotalsMobile from './../components/cart-totals-mobile';
 
     export default ({
 
@@ -65,6 +70,7 @@
         },
         components: {
             cartTotals,
+          cartTotalsMobile,
             login,
             billingBlock
         },

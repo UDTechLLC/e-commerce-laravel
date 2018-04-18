@@ -3,6 +3,9 @@
         <billing-block
                 :billing="billing"
         ></billing-block>
+        <cart-totals-mobile
+                :shipping="shipping"
+        ></cart-totals-mobile>
         <!--<login v-if="userAuth != '1'"></login>-->
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
@@ -206,6 +209,7 @@
 <script type="text/babel">
 
     import cartTotals from './../components/cart-totals';
+    import cartTotalsMobile from './../components/cart-totals-mobile';
     import login from './../components/login';
     import billingBlock from './../components/billing-block';
     import VueGoogleAutocomplete from 'vue-google-autocomplete';
@@ -233,6 +237,7 @@
         }),
         components: {
             cartTotals,
+            cartTotalsMobile,
             login,
             billingBlock,
             VueGoogleAutocomplete
