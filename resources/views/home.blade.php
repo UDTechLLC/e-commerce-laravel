@@ -8,8 +8,8 @@
         <div class="top-home-banner-block">
             <div class="main-product">
                 <a href="{{url('product/bogo-12-week-custom-meal-plan')}}">
-                    <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/12-week.jpg')}}" />
-                    <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/banner_12_week_custom_plan_mob.jpg')}}">
+                    <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/banner_12_week_custom_plan (3).jpg')}}" />
+                    <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/banner_12_week_custom_plan_mob (1).jpg')}}">
                 </a>
             </div>
             <div class="secondary-products">
@@ -44,37 +44,37 @@
                 <div class="success-story-slider-wrapper">
                     <div id="successStories" class="success-story-slider">
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_1-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/1.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_2-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/2.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_3-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/3.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_4-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/4.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_5-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/5.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_6-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/6.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_7-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/7.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_8-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/8.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_9-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/9.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_10-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/10.jpg')}}" />
                         </div>
                         <div class="slider-item">
-                            <img src="{{ asset('web/images/home_page/slider/Transformation Banners_11-1.jpg')}}" />
+                            <img src="{{ asset('web/images/home_page/slider/11.jpg')}}" />
                         </div>
 
                     </div>
