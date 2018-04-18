@@ -3,6 +3,9 @@
         <billing-block
                 :billing="billing"
         ></billing-block>
+        <cart-totals-mobile
+                :shipping="shipping"
+        ></cart-totals-mobile>
         <!--<login></login>-->
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
@@ -65,6 +68,7 @@
 <script type="text/babel">
 
     import cartTotals from './../components/cart-totals';
+    import cartTotalsMobile from './../components/cart-totals-mobile';
     import login from './../components/login';
     import billingBlock from './../components/billing-block';
     import dropin from 'braintree-web-drop-in';
@@ -82,6 +86,7 @@
         },
         components: {
             cartTotals,
+            cartTotalsMobile,
             login,
             billingBlock
         },
