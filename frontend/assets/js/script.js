@@ -3,6 +3,14 @@
 
   $(document).ready(function () {
 
+    var cartButtonAreaHeight = $( '.side-cart-block .cart-button-area-wrapper' ).outerHeight();
+    var cartFooterHeight = $( '.side-cart-block  .side-cart-footer-wrapper' ).outerHeight();
+    var cartProductsHeight = $( window ).height() - cartButtonAreaHeight - cartFooterHeight;
+    if ( 800 < $( window ).width() ) {
+        $('.side-cart-block .cart-products-wrapper').height(cartProductsHeight - 50);
+    } else {
+        $('.side-cart-block .cart-products-wrapper').height(cartProductsHeight);
+    }
 
     if (0 < $('#successStories').length) {
       $('#successStories').slick({
