@@ -5,10 +5,7 @@
 
     var cartButtonAreaHeight = $( '.side-cart-block .cart-button-area-wrapper' ).outerHeight();
     var cartFooterHeight = $( '.side-cart-block  .side-cart-footer-wrapper' ).outerHeight();
-    console.log(cartButtonAreaHeight);
-    console.log(cartFooterHeight);
     var cartProductsHeight = $( window ).height() - cartButtonAreaHeight - cartFooterHeight;
-    console.log( cartProductsHeight );
     if ( 800 < $( window ).width() ) {
         $('.side-cart-block .cart-products-wrapper').height(cartProductsHeight - 50);
     } else {
