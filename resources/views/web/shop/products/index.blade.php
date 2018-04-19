@@ -51,7 +51,7 @@
                                 <div class="add-to-cart-wrapper">
                                     <add-to-cart
                                             product-slug="{{ $product->slug }}"
-                                            data-title="{{ $product->title }}"
+                                            data-title="{{ $product->slug }}"
                                     >
                                         @if($product->slug == 'shedfat-maxx' || $product->slug == 'resistance-bands') pre-order @endif
                                     </add-to-cart>
@@ -122,7 +122,7 @@
         </div>
 
     </main>
- {{--   <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
+    <div class="popUp" data-modal="bogo-12week-custom-meal-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT</h2>
@@ -150,8 +150,8 @@
                 </div>
             </div>
         </div>
-    </div>--}}
-     <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
+    </div>
+     <div class="popUp" data-modal="12week-custom-meal-plan"><!-- popUp--open -->
           <div class="popUp__wrapper">
               <button type="button" class="popUp__close" data-dismiss="modal">×</button>
               <h2 class="popUp__title">ALSO RECOMMENDED</h2>
@@ -195,7 +195,7 @@
       </div>
 
 
- {{--   <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+   <div class="popUp" data-modal="bogo-12week-custom-training-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT</h2>
@@ -223,8 +223,8 @@
                 </div>
             </div>
         </div>
-    </div>--}}
-        <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+    </div>
+        <div class="popUp" data-modal="12week-custom-training-plan"><!-- popUp--open -->
             <div class="popUp__wrapper">
                 <button type="button" class="popUp__close" data-dismiss="modal">×</button>
                 <h2 class="popUp__title">ALSO RECOMMENDED</h2>
