@@ -96,7 +96,7 @@
                     <a href="{{ route('admin.products') }}">
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-cube"></i></div>
-                            <div class="count"> {{ $totalProducts }}</div>
+                            <div class="count"> {{ $totalTodayProducts }}</div>
                             <h3>Total products</h3>
                         </div>
                     </a>
@@ -148,7 +148,7 @@
                     <a href="{{ route('admin.products') }}">
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-cube"></i></div>
-                            <div class="count"> {{ $totalProducts }}</div>
+                            <div class="count"> {{ $totalMonthProducts }}</div>
                             <h3>Total products</h3>
                         </div>
                     </a>
@@ -200,7 +200,7 @@
                     <a href="{{ route('admin.products') }}">
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-cube"></i></div>
-                            <div class="count"> {{ $totalProducts }}</div>
+                            <div class="count"> {{ $totalYearProducts }}</div>
                             <h3>Total products</h3>
                         </div>
                     </a>

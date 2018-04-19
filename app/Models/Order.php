@@ -135,6 +135,11 @@ class Order extends EloquentModel
             ->using(OrderProduct::class);
     }
 
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
+
     public function coupon()
     {
         return $this->belongsTo(Coupon::class);
