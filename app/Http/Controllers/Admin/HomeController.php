@@ -22,7 +22,9 @@ class HomeController extends Controller
             'totalOrders'   => Order::count(),
             'totalUsers'    => User::count(),
             'totalProducts' => Product::count(),
-            'totalCoupons' => Coupon::count()
+            'totalCoupons' => Coupon::count(),
+            'totalSales' =>
+                number_format(Order::where('state', Order::ORDER_STATE_PROCESSING)->sum('total_cost') / 100, 2, ".", "")
         ]);
     }
 
