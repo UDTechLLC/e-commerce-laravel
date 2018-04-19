@@ -229,8 +229,8 @@ class ProductsStatisticService
     private function getTotalCustomPeriodStats(string $startDate, string $endDate): array
     {
         return \DB::select(\DB::raw('
-            select p.id, p.title, p.slug, res.count from products as p inner join (
-                select slug, sum(opres.count) as `count`
+            select p.id, p.title, p.slug, res.count, res.total from products as p inner join (
+                select slug, sum(opres.count) as `count`, sum(opres.product_price) as `total`
                     from products
                         left join (select op.* from orders o 
                             inner join order_product op on o.id = op.order_id and o.state = "PROCESSING") opres
