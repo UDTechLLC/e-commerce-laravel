@@ -34,3 +34,5 @@ Route::get('videolibrary/legs-fire-downloads', [
     'as' => '.videolibrary',
     'uses' => 'Web\VideoLibraryController@awayToWp',
 ]);
+
+Route::get('test', 'TestController@test');

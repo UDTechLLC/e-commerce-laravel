@@ -11,6 +11,7 @@
         "campo/laravel-shipstation": "~3.0",
         "doctrine/dbal": "2.5.13",
         "fideloper/proxy": "~3.3",
+        "google/apiclient": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/cashier-braintree": "~2.0",
         "laravel/framework": "5.5.*",
