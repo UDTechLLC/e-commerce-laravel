@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Coupon;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,13 +19,30 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $order = Order::where('state', Order::ORDER_STATE_PROCESSING);
+      //  dd($order->whereYear('created_at', now()->format('Y'))->count());
+        /*$product = OrderProduct::whereDay('created_at', now()->format('d'))->whereHas('orders', function($q) {
+            $q->where('state', Order::ORDER_STATE_PROCESSING);
+        })->get();*/
+
         return view('admin.dashboard', [
-            'totalOrders'   => Order::count(),
+            'totalOrders'   => $order->count(),
             'totalUsers'    => User::count(),
             'totalProducts' => Product::count(),
-            'totalCoupons' => Coupon::count(),
-            'totalSales' =>
-                number_format(Order::where('state', Order::ORDER_STATE_PROCESSING)->sum('total_cost') / 100, 2, ".", "")
+            'totalCoupons'  => Coupon::count(),
+            'totalSales'    => number_format($order->sum('total_cost') / 100, 2, ".", ""),
+
+            'yearOrders' => $order->whereYear('created_at', now()->format('Y'))->count(),
+            'yearSales'  =>
+                number_format($order->whereYear('created_at', now()->format('Y'))->sum('total_cost') / 100, 2, ".", ""),
+
+            'monthOrders' => $order->whereMonth('created_at', now()->format('m'))->count(),
+            'monthSales'  =>
+             number_format($order->whereMonth('created_at', now()->format('m'))->sum('total_cost') / 100, 2, ".", ""),
+
+            'todayOrders' => $order->whereDay('created_at', now()->format('d'))->count(),
+            'todaySales'  =>
+                number_format($order->whereDay('created_at', now()->format('d'))->sum('total_cost') / 100, 2, ".", ""),
         ]);
     }
 
