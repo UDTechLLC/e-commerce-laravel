@@ -336,6 +336,10 @@
       });
     };
 
+    CallPopUp('bogo-12week-custom-meal-plan');
+    CallPopUp('12week-custom-meal-plan');
+    CallPopUp('bogo-12week-custom-training-plan');
+    CallPopUp('12week-custom-training-plan');
     CallPopUp('12 Week Custom Training Plan');
     CallPopUp('12 Week Custom Meal Plan');
     CallPopUp('SPRING CHALLENGE');
