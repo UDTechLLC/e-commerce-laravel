@@ -18,6 +18,7 @@
                                         <a class="title">{{product.title}} </a>
                                         <p><i class="green">SKU {{product.id}}</i></p>
                                         <p><strong>{{ product.count }} </strong> Sales </p>
+                                        <p><strong>{{ product.total | dollars }} </strong> </p>
                                     </div>
                                 </li>
                             </ul>
@@ -68,6 +69,12 @@
         created(){
             this.getProducts();
             this.$EventBus.$on('updateCharts', this.updateProductStats);
+        },
+        filters: {
+            dollars(value) {
+                if (value > 0) return '$' + parseInt(value, 10) / 100;
+                else return `$0`
+            }
         },
         methods: {
             getProducts() {
