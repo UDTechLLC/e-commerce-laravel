@@ -8,8 +8,8 @@
         <div class="top-home-banner-block">
             <div class="main-product">
                 <a href="{{url('product/12week-custom-meal-plan')}}">
-                    <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/banner_12_week_custom_plan (3).jpg')}}" />
-                    <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/banner_12_week_custom_plan_mob (1).jpg')}}">
+                    <img class="desktop-image" src="{{ asset('web/images/home_page/top_banner/banner_12_week_custom_plan-2.jpg')}}" />
+                    <img class="mobile-image" src="{{ asset('web/images/home_page/top_banner/mobile/banner_12_week_custom_plan_mob.jpg')}}">
                 </a>
             </div>
             <div class="secondary-products">
