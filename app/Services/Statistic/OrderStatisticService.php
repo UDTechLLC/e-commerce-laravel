@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Services\Statistic;
 
 use App\Models\Order;
+use App\Services\GoogleAnalyticsService;
 use App\Services\Statistic\Traits\LabelTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
@@ -18,6 +19,13 @@ class OrderStatisticService
     use LabelTrait;
 
     const DAY_FORMAT = 'd';
+
+    private $googleService;
+
+    public function __construct()
+    {
+        $this->googleService = new GoogleAnalyticsService();
+    }
 
     /**
      * Get statistic for day period.
@@ -50,6 +58,7 @@ class OrderStatisticService
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
+        $result['visitors'] = $this->googleService->getVisitorsForDay();
 
         return $result;
     }
@@ -87,6 +96,7 @@ class OrderStatisticService
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
+        $result['visitors'] = $this->googleService->getVisitorsForWeek();
 
         return $result;
     }
@@ -120,6 +130,7 @@ class OrderStatisticService
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
+        $result['visitors'] = $this->googleService->getVisitorsForMonth();
 
         return $result;
     }
@@ -153,6 +164,7 @@ class OrderStatisticService
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
+        $result['visitors'] = $this->googleService->getVisitorsForYear();
 
         return $result;
     }
@@ -184,6 +196,8 @@ class OrderStatisticService
             $step = 'addDay';
             $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
         }
+        
+        $visitors = $this->googleService->getVisitorsForCustomPeriod($startDate, $endDate, $step);
 
         do {
             $timeFilteredCollection = $orders->filter(function ($item) use ($startDate, $endDate, $step) {
@@ -200,6 +214,7 @@ class OrderStatisticService
         $result['total'] = $total;
         $result['shipping'] = $shipping;
         $result['products'] = $products;
+        $result['visitors'] = $visitors;
 
         return $result;
     }

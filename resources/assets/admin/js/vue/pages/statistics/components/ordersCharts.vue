@@ -46,6 +46,12 @@
                         borderColor: 'rgba(0, 93, 255)',
                         backgroundColor: 'rgba(0, 93, 255, 0.35)',
                         data: []
+                    },
+                    {
+                        label: 'Visitors',
+                        borderColor: 'rgba(230, 93, 255)',
+                        backgroundColor: 'rgba(230, 93, 255, 0.35)',
+                        data: []
                     }
                 ]
             }
@@ -86,6 +92,12 @@
                                         borderColor: 'rgba(0, 93, 255)',
                                         backgroundColor: 'rgba(0, 93, 255, 0.35)',
                                         data: response.data.total
+                                    },
+                                    {
+                                        label: 'Visitors',
+                                        borderColor: 'rgba(230, 93, 255)',
+                                        backgroundColor: 'rgba(230, 93, 255, 0.35)',
+                                        data: response.data.visitors
                                     }
                                 ]
                             }
