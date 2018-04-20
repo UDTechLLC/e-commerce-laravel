@@ -3,5 +3,5 @@
 @section('content')
     <p>Name : {{ $name }}</p>
     <p>Email : {{ $email }}</p>
-    <p>Massage : {{ $massage }}</p>
+    <p>Message : {{ $massage }}</p>
     @endsection
