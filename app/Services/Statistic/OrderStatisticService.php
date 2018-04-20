@@ -51,7 +51,8 @@ class OrderStatisticService
 
             $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
             $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
-            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
+            $products[] = number_format(($timeFilteredCollection->sum('product_cost')
+                - $timeFilteredCollection->sum('discount_cost')), 2, ".", "");
         } while ($startOfDay->addHour()->diffInHours($now) !== 0);
 
         $result['labels'] = $this->getHoursLabels(count($total));
@@ -89,7 +90,8 @@ class OrderStatisticService
 
             $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
             $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
-            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
+            $products[] = number_format(($timeFilteredCollection->sum('product_cost')
+                - $timeFilteredCollection->sum('discount_cost')), 2, ".", "");
         } while ($startOfWeek->addDay() <= $today);
 
         $result['labels'] = $this->getWeekLabels(count($total));
@@ -123,7 +125,8 @@ class OrderStatisticService
 
             $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
             $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
-            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
+            $products[] = number_format(($timeFilteredCollection->sum('product_cost')
+                - $timeFilteredCollection->sum('discount_cost')), 2, ".", "");
         } while ($startOfMonth->addDay() <= $today);
 
         $result['labels'] = $this->getDaysOfMonthLabels(count($total));
@@ -157,7 +160,8 @@ class OrderStatisticService
 
             $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
             $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
-            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
+            $products[] = number_format(($timeFilteredCollection->sum('product_cost')
+                - $timeFilteredCollection->sum('discount_cost')), 2, ".", "");
         } while ($startOfYear->addMonth() <= $lastOfMonth);
 
         $result['labels'] = $this->getMonthsOfYearLabels(count($total));
@@ -196,7 +200,7 @@ class OrderStatisticService
             $step = 'addDay';
             $labels = $this->getCustomPeriodDaysLabels($startDate->copy(), $endDate->copy());
         }
-        
+
         $visitors = $this->googleService->getVisitorsForCustomPeriod($startDate, $endDate, $step);
 
         do {
@@ -206,7 +210,8 @@ class OrderStatisticService
 
             $total[] = number_format($timeFilteredCollection->sum('total_cost'), 2, ".", "");
             $shipping[] = number_format($timeFilteredCollection->sum('shipping_cost'), 2, ".", "");
-            $products[] = number_format($timeFilteredCollection->sum('product_cost'), 2, ".", "");
+            $products[] = number_format(($timeFilteredCollection->sum('product_cost')
+                - $timeFilteredCollection->sum('discount_cost')), 2, ".", "");
         } while ($startDate->$step() <= $endDate);
 
         $result['labels'] = $labels;
