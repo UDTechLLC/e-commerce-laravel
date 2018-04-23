@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'US/Eastern',
 
     /*
     |--------------------------------------------------------------------------
@@ -186,8 +186,8 @@ return [
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         LaravelShipStation\ShipStationServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
-        App\Providers\ComposerServiceProvider::class
-
+        App\Providers\ComposerServiceProvider::class,
+        Spatie\Analytics\AnalyticsServiceProvider::class
     ],
 
     /*
@@ -242,5 +242,6 @@ return [
         */
         'Laratrust'   => Laratrust\LaratrustFacade::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+        'Analytics' => Spatie\Analytics\AnalyticsFacade::class
     ],
 ];

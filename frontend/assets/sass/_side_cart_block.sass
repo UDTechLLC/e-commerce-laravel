@@ -102,13 +102,15 @@
         .cart-products-wrapper
           background-color: #FFFFFF
           border-bottom: 1px solid #d6d6d6
-          max-height: 64%
+          //max-height: 64%
+          //max-height: 35vh
           overflow-x: hidden
           overflow-y: auto
           padding: 30px
 
           @media screen and (max-width: 480px)
-            max-height: 66.5%
+            //max-height: 66.5%
+            //max-height: 31%
             padding: 15px
 
           .cart-single-product
@@ -239,15 +241,57 @@
           @media screen and (max-width: 480px)
             padding: 10px 15px
 
+          .cart-coupon-block-wrapper
+            .cart-coupon-title
+              color: #000000
+              font-size: 15px
+              font-weight: 600
+              margin: 0 0 20px
+              text-align: center
+
+            .cart-coupon-block
+              margin-bottom: 25px
+
+              .cart-coupon-form
+                display: flex
+                justify-content: space-between
+
+                .cart-coupon-field
+                  border: 1px solid #d2d2d2
+                  box-sizing: border-box
+                  color: #858585
+                  display: block
+                  height: 30px
+                  padding-left: 15px
+                  width: 138px
+
+                .cart-coupon-submit
+                  background-color: #ff0000
+                  border: none
+                  border-radius: 3px
+                  color: #ffffff
+                  display: block
+                  font-size: 16px
+                  font-weight: bold
+                  height: 30px
+                  text-align: center
+                  text-transform: uppercase
+                  width: 185px
+                  -webkit-appearance: none
+                  -moz-appearance: none
+                  appearance: none
+
           .cart-sub-totals-block-wrapper
             display: flex
             justify-content: space-between
-            margin-bottom: 18px
+            //flex-wrap: wrap
+            margin-bottom: 10px
 
             .cart-sub-totals-block
               font-size: 16px
               font-weight: bold
               padding-left: 0
+              //width: 100%
 
               @media screen and (max-width: 480px)
                 font-size: 16px
@@ -256,8 +300,15 @@
               .sub-total-label
                 color: #29282e
 
+              .sub-total-text
+                font-weight: normal
+
               .sub-total-amount
                 color: #f13031
+
+                .remove_link
+                  color: #5f298b
+                  font-weight: normal
 
             .view-cart-link
               color: #29282e

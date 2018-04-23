@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class ProductStatisticController
+ * @package App\Http\Controllers\Admin
+ */
 class ProductStatisticController extends Controller
 {
     /**
@@ -21,8 +25,12 @@ class ProductStatisticController extends Controller
     public function allProductsStatisticFixedPeriod(Request $request)
     {
         throw_if(!($period = $request->get('period')), new NotFoundHttpException());
+        $custom = [
+            'start' => $request->get('start'),
+            'end'   => $request->get('end')
+        ];
 
-        return response()->json($this->getAllProductsStatisticFixedPeriod($period));
+        return response()->json($this->getAllProductsStatisticFixedPeriod($period, $custom));
     }
 
     /**
@@ -50,15 +58,15 @@ class ProductStatisticController extends Controller
      * Get statistics by period for all products.
      *
      * @param string $period
+     * @param array|null $custom
      *
      * @return array
+     * @throws \Throwable
+     * @throws string
      */
-    private function getAllProductsStatisticFixedPeriod(string $period): array
+    private function getAllProductsStatisticFixedPeriod(string $period, array $custom = null): array
     {
         $statisticService = new ProductsStatisticService();
-        if ($period == 'custom') {
-            $period = 'day';            /// @FIXME
-        }
 
         switch ($period) {
             case 'day':
@@ -69,15 +77,20 @@ class ProductStatisticController extends Controller
                 return $statisticService->getTotalMonthStats();
             case 'year':
                 return $statisticService->getTotalYearStats();
+            case 'custom':
+                throw_if(!($custom['start'] && $custom['end']), new NotFoundHttpException());
+                return $statisticService->getTotalCustomStats($custom['start'], $custom['end']);
         }
     }
 
     /**
      * @param string $period
-     *
      * @param $product
+     * @param array|null $custom
      *
      * @return array
+     * @throws \Throwable
+     * @throws string
      */
     private function getProductsStatisticFixedPeriod(string $period, $product, array $custom = null): array
     {

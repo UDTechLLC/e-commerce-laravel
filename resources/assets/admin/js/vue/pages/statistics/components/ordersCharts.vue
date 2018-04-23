@@ -43,8 +43,14 @@
                     },
                     {
                         label: 'Gross sales in this period',
-                        borderColor: 'rgba(5, 175, 8)',
-                        backgroundColor: 'rgba(5, 175, 8, 0.35)',
+                        borderColor: 'rgba(0, 93, 255)',
+                        backgroundColor: 'rgba(0, 93, 255, 0.35)',
+                        data: []
+                    },
+                    {
+                        label: 'Visitors',
+                        borderColor: 'rgba(230, 93, 255)',
+                        backgroundColor: 'rgba(230, 93, 255, 0.35)',
                         data: []
                     }
                 ]
@@ -72,7 +78,7 @@
                                     {
                                         label: 'Net sales in this period',
                                         borderColor: 'rgba(0, 174, 255)',
-                                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
+                                        backgroundColor: 'rgba(241, 249, 7, 0.35)',
                                         data: response.data.products
                                     },
                                     {
@@ -83,9 +89,15 @@
                                     },
                                     {
                                         label: 'Gross sales in this period',
-                                        borderColor: 'rgba(5, 175, 8)',
-                                        backgroundColor: 'rgba(5, 175, 8, 0.35)',
+                                        borderColor: 'rgba(0, 93, 255)',
+                                        backgroundColor: 'rgba(0, 93, 255, 0.35)',
                                         data: response.data.total
+                                    },
+                                    {
+                                        label: 'Visitors',
+                                        borderColor: 'rgba(230, 93, 255)',
+                                        backgroundColor: 'rgba(230, 93, 255, 0.35)',
+                                        data: response.data.visitors
                                     }
                                 ]
                             }
