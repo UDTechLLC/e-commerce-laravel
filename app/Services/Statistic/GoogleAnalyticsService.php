@@ -105,6 +105,29 @@ class GoogleAnalyticsService
     }
 
     /**
+     * @return $this
+     */
+    public function getSourceAnalytics()
+    {
+        $period = Period::create(Carbon::parse('2018-01-01'), now());
+        $data  = $this->getAnalytics($period, 'ga:sessions', ['ga:source'])->sortByDesc(1);
+        $totalSessions = $data->sum(1);
+        $others = $data->slice(7)->sum(1);
+
+        return $data->slice(0, 7)->map(function (array $dateRow) use ($totalSessions) {
+            return [
+                'source' => $dateRow[0],
+                'session' => $dateRow[1],
+                'percent' => round($dateRow[1] / $totalSessions * 100, 2)
+            ];
+        })->slice(0, 7)->push([
+            'source' => 'Others',
+            'session' => $others,
+            'percent' => round($others / $totalSessions * 100, 2)
+        ]);
+    }
+
+    /**
      * @param $dimensions
      * @param $startDate
      * @param null $endDate

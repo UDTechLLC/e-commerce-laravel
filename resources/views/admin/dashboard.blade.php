@@ -185,8 +185,40 @@
                 </div>
             </div>
         </div>
-    <device-chart
-            :labels-props="{{ json_encode($device['labels']) }}"
-            :data-props="{{  json_encode($device['session']) }}"
-    ></device-chart>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>App Sources</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @foreach($sources as $item)
+                        <div class="widget_summary">
+                            <div class="w_left w_25">
+                                <span>{{ $item['source'] }}</span>
+                            </div>
+                            <div class="w_center w_55">
+                                <div class="progress">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{ $item['percent'] }}%;">
+                                        <span class="sr-only">{{ $item['percent'] }}% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w_right w_20">
+                                <span>{{ $item['session'] }}</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="row">
+        <device-chart
+                :labels-props="{{ json_encode($device['labels']) }}"
+                :data-props="{{  json_encode($device['session']) }}"
+        ></device-chart>
+    </div>
+
 @endsection

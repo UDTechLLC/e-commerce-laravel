@@ -1,6 +1,6 @@
 <template>
     <div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>App Devices
@@ -8,7 +8,6 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-
                         <pie-charts
                                 :chart-data="datacollection"
                                 :options="{responsive: true, maintainAspectRatio: false}"
@@ -33,9 +32,9 @@
             this.datacollection.datasets = [
                 {
                     backgroundColor: [
-                        '#41B883',
-                        '#00D8FF',
-                        '#DD1B16'
+                        '#3FC8AB',
+                        '#3998D7',
+                        '#B072CB'
                     ],
                     data: this.dataProps
                 }
