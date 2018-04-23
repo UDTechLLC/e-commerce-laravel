@@ -177,7 +177,7 @@
                             </div>
                         </div>
                         <div class="w_right w_20">
-                            <span>{{ $item['session'] }}</span>
+                            <span>{{ $item['session'] }} <small>({{ $item['percent'] }}%)</small></span>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -205,7 +205,7 @@
                                 </div>
                             </div>
                             <div class="w_right w_20">
-                                <span>{{ $item['session'] }}</span>
+                                <span>{{ $item['session'] }} <small>({{ $item['percent'] }}%)</small></span>
                             </div>
                             <div class="clearfix"></div>
                         </div>
