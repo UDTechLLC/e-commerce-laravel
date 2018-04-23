@@ -26,7 +26,7 @@ class HomeController extends Controller
         });
 
         $googleService = new GoogleAnalyticsService();
-
+      //  dd($googleService->getBrowserAnalytics());
         return view('admin.dashboard', [
             'totalOrders'   => $order->count(),
             'totalUsers'    =>
@@ -44,7 +44,10 @@ class HomeController extends Controller
             'todaySales'  =>
                 number_format($order->whereDay('created_at', now()->format('d'))->sum('total_cost') / 100, 2, ".", ""),
             'totalTodayProducts' => $product->whereDay('created_at', now()->format('d'))->sum('count'),
-            'totalTodayUser' => array_sum($googleService->getVisitorsForDay())
+            'totalTodayUser' => array_sum($googleService->getVisitorsForDay()),
+            
+            'device' => $googleService->getDeviceAnalytics(),
+            'browsers' => $googleService->getBrowserAnalytics()
         ]);
     }
 
