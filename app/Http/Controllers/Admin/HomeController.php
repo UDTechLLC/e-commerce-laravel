@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Coupon;
-use App\Models\Order;
-use App\Models\OrderProduct;
-use App\Models\Product;
-use App\Models\User;
+use App\Models\{
+    Order, OrderProduct, User
+};
+use App\Services\GoogleAnalyticsService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,26 +25,26 @@ class HomeController extends Controller
             $q->where('state', Order::ORDER_STATE_PROCESSING);
         });
 
+        $googleService = new GoogleAnalyticsService();
+
         return view('admin.dashboard', [
             'totalOrders'   => $order->count(),
-            'totalUsers'    => User::count(),
+            'totalUsers'    =>
+                array_sum($googleService->getVisitorsForCustomPeriod(Carbon::parse('2018-01-01'), now(), 'ga:month')),
             'totalProducts' => $product->sum('count'),
             'totalSales'    => number_format($order->sum('total_cost') / 100, 2, ".", ""),
-
-            'yearOrders' => $order->whereYear('created_at', now()->format('Y'))->count(),
-            'yearSales'  =>
-                number_format($order->whereYear('created_at', now()->format('Y'))->sum('total_cost') / 100, 2, ".", ""),
-            'totalYearProducts' => $product->whereYear('created_at', now()->format('Y'))->sum('count'),
-
+            
             'monthOrders' => $order->whereMonth('created_at', now()->format('m'))->count(),
             'monthSales'  =>
              number_format($order->whereMonth('created_at', now()->format('m'))->sum('total_cost') / 100, 2, ".", ""),
             'totalMonthProducts' => $product->whereMonth('created_at', now()->format('m'))->sum('count'),
-
+            'totalMonthUser' => array_sum($googleService->getVisitorsForMonth()),
+            
             'todayOrders' => $order->whereDay('created_at', now()->format('d'))->count(),
             'todaySales'  =>
                 number_format($order->whereDay('created_at', now()->format('d'))->sum('total_cost') / 100, 2, ".", ""),
             'totalTodayProducts' => $product->whereDay('created_at', now()->format('d'))->sum('count'),
+            'totalTodayUser' => array_sum($googleService->getVisitorsForDay())
         ]);
     }
 
