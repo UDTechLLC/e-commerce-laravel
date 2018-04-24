@@ -101,11 +101,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="value"> Value <span
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postedAt"> Published <span
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <date-picker v-model="value" :config="config"></date-picker>
+                    <date-picker v-model="postedAt" :config="config"></date-picker>
                 </div>
             </div>
             <div class="form-group">
@@ -133,7 +133,7 @@
             body: "",
             image: "",
             imagePreview: "",
-            value: moment().format('YYYY-MM-DD h:mm:ss'),
+            postedAt: moment().format('YYYY-MM-DD h:mm:ss'),
             config: {
                 format: 'YYYY-MM-DD h:mm:ss'
             },
@@ -166,10 +166,10 @@
                 let data = {
                     title: this.title,
                     slug: this.slug,
-                    body: this.body,
+                    content: this.body,
                     image: this.image,
                     imagePreview: this.imagePreview,
-                    value: this.value,
+                    postedAt: this.postedAt,
                     published: this.published,
                     metaTags: this.metaTags
                 };
@@ -183,7 +183,7 @@
 </script>
 
 <style scoped>
-    .quill-editor {
-        min-height: 300px;
+    #published {
+        margin-top: 10px;
     }
 </style>
