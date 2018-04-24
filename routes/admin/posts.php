@@ -1,4 +1,5 @@
 <?php
+
 Route::group([
     'prefix' => 'posts',
     'as'     => '.posts',
