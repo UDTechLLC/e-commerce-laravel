@@ -6,7 +6,7 @@ return [
      * The API key of a MailChimp account. You can find yours at
      * https://us10.admin.mailchimp.com/account/api-key-popup/.
      */
-    'apiKey' => env('MAILCHIMP_APIKEY', 'df973c8f17fc5620cffdd0dc52763e7b-us12'),
+    'apiKey'          => env('MAILCHIMP_APIKEY', 'df973c8f17fc5620cffdd0dc52763e7b-us12'),
 
     /*
      * The listName to use when no listName has been specified in a method.
@@ -16,7 +16,7 @@ return [
     /*
      * Here you can define properties of the lists.
      */
-    'lists' => [
+    'lists'           => [
 
         /*
          * This key is used to identify this list. It can be used
@@ -25,7 +25,7 @@ return [
          * You can set it to any string you want and you can add
          * as many lists as you want.
          */
-        'subscribers' => [
+        'subscribers'              => [
 
             /*
              * A MailChimp list id. Check the MailChimp docs if you don't know
@@ -34,13 +34,14 @@ return [
              */
             'id' => env('MAILCHIMP_LIST_ID'),
         ],
-        'footer_list' => ['id' => '2d2c6ddaea'],
-        'challenge_list' => ['id' => '833bbb8828']
+        'Newsletter Subscription'  => ['id' => '2ad3a807b4'],
+        'ShedFat 30 Day Challenge' => ['id' => 'ead42d4dd7'],
+        'Dad hat'                  => ['id' => '1362d6d5fc'],
     ],
 
     /*
      * If you're having trouble with https connections, set this to false.
      */
-    'ssl' => true,
+    'ssl'             => true,
 
 ];

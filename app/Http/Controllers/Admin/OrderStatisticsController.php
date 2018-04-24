@@ -11,6 +11,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class OrderStatisticsController extends Controller
 {
     /**
+     * @var OrderStatisticService
+     */
+    protected $service;
+
+    public function __construct(OrderStatisticService $service)
+    {
+        $this->service = $service;
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -49,29 +59,26 @@ class OrderStatisticsController extends Controller
      *
      * @param string $period
      * @param array|null $custom
+     *
      * @return array|string
+     * @throws \Throwable
      */
     private function getTotalSumFixedPeriod(string $period, array $custom = null)
     {
-        $statisticService = new OrderStatisticService();
-
         switch ($period) {
             case 'day':
-                return $statisticService->getDayStats();
-                break;
+                return $this->service->getDayStats();
             case 'week':
-                return $statisticService->getWeekStats();
-                break;
+                return $this->service->getWeekStats();
             case 'month':
-                return $statisticService->getMonthStats();
-                break;
+                return $this->service->getMonthStats();
             case 'year':
-                return $statisticService->getYearStats();
-                break;
+                return $this->service->getYearStats();
             case 'custom':
                 throw_if(!($custom['start'] && $custom['end']), new NotFoundHttpException());
-                return $statisticService->getCustomPeriodStats($custom['start'], $custom['end']);
-                break;
+                return $this->service->getCustomPeriodStats($custom['start'], $custom['end']);
         }
+
+        throw new NotFoundHttpException();
     }
 }

@@ -14,4 +14,8 @@ Route::group([
         'as'   => '.challenge',
         'uses' => 'Web\SubscribeController@addToChallengeList',
     ]);
+    Route::post('dadhat', [
+        'as'   => '.dadhat',
+        'uses' => 'Web\SubscribeController@addToShedfatDadHatList',
+    ]);
 });
