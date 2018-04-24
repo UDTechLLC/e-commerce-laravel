@@ -51,9 +51,9 @@
                                 <div class="add-to-cart-wrapper">
                                     <add-to-cart
                                             product-slug="{{ $product->slug }}"
-                                            data-title="{{ $product->title }}"
+                                            data-title="{{ $product->slug }}"
                                     >
-                                        @if($product->slug == 'shedfat-maxx' || $product->slug == 'resistance-bands') pre-order @endif
+                                        @if($product->slug == 'resistance-bands') pre-order @endif
                                     </add-to-cart>
                                 </div>
                             </div>
@@ -94,26 +94,26 @@
                     </div>
                     <div class="shop-item">
                         <div class="image-wrapper">
-                           <a href="{{url('challenge')}}">
-                            {{--<a href="#scRegistration">--}}
+                          {{-- <a href="{{url('challenge')}}">--}}
+                          <a href="#scRegistration" >
                                 <img src="{{ asset('web/images/Spring Challenge_icon.jpg') }}"/>
                             </a>
                         </div>
                         <div class="product-details" style="padding-top: 10px;">
                             <h3 class="product-title">
-                               {{-- <a href="#scRegistration">--}}
-                                    <a href="{{url('challenge')}}">
+                             <a href="#scRegistration">
+                                  {{--  <a href="{{url('challenge')}}">--}}
                                     Spring Challenge </a>
                             </h3>
                         </div>
                         <div class="product-button-block">
                             <div class="add-to-cart-wrapper">
-                                {{--<a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
-                                    Register
-                                </a>--}}
-                                <a class="add-to-cart-btn"  href="{{url('challenge')}}" data-title='SPRING CHALLENGE'>
+                                <a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
                                     Register
                                 </a>
+                                {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}">
+                                    Register
+                                </a>--}}
                             </div>
                         </div>
                     </div>
@@ -121,9 +121,8 @@
             </div>
         </div>
 
-
     </main>
-    <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
+    <div class="popUp" data-modal="bogo-12week-custom-meal-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT</h2>
@@ -152,7 +151,7 @@
             </div>
         </div>
     </div>
-    {{--  <div class="popUp" data-modal="12 Week Custom Meal Plan"><!-- popUp--open -->
+     <div class="popUp" data-modal="12week-custom-meal-plan"><!-- popUp--open -->
           <div class="popUp__wrapper">
               <button type="button" class="popUp__close" data-dismiss="modal">×</button>
               <h2 class="popUp__title">ALSO RECOMMENDED</h2>
@@ -187,18 +186,16 @@
                                   product-slug="12-week-custom-training-plan+12week-custom-meal-plan"
                           >
                           </add-to-cart>
-                          --}}{{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}{{--
-                          <a href="#" class="no-thanks">NO, THANKS</a>
-                      </div>
-                      --}}{{--<a href="#" class="learn-more">learn more</a>--}}{{--
+
 
                   </div>
               </div>
           </div>
-      </div>--}}
+      </div>
+      </div>
 
 
-    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+   <div class="popUp" data-modal="bogo-12week-custom-training-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT</h2>
@@ -227,7 +224,7 @@
             </div>
         </div>
     </div>
-    {{--    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
+        <div class="popUp" data-modal="12week-custom-training-plan"><!-- popUp--open -->
             <div class="popUp__wrapper">
                 <button type="button" class="popUp__close" data-dismiss="modal">×</button>
                 <h2 class="popUp__title">ALSO RECOMMENDED</h2>
@@ -262,15 +259,16 @@
                                     product-slug="12-week-custom-meal-plan+12-week-custom-training-plan"
                             >
                             </add-to-cart>
-                            --}}{{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}{{--
+                           {{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}{{--
                             <a href="#" class="no-thanks">NO, THANKS</a>
                         </div>
-                        --}}{{--<a href="#" class="learn-more">learn more</a>--}}{{--
+                        --}}{{--<a href="#" class="learn-more">learn more</a>--}}
 
                     </div>
                 </div>
             </div>
-        </div>--}}
+        </div>
+        </div>
     <div class="popUp popUp--challenge" data-modal="SPRING CHALLENGE"><!-- popUp--open -->
         <input type="hidden" class="add-to-cart-btn callPopUp" data-title='SPRING CHALLENGE'>
         <div class="popUp__wrapper">

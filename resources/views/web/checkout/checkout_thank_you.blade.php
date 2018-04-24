@@ -1,6 +1,23 @@
 @extends('web.layouts.app')
 @section('style')
     @parent
+    <!-- Google Code for Purchases Conversion Page -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 830921804;
+        var google_conversion_label = "M_4HCLmsxHcQzLibjAM";
+        var google_conversion_value = {{$order->total_cost}};
+        var google_conversion_currency = "USD";
+        var google_remarketing_only = false;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/830921804/?value={{$order->total_cost}}&currency_code=USD&label=M_4HCLmsxHcQzLibjAM&guid=ON&script=0"/>
+        </div>
+    </noscript>
     <script>
 
         fbq('track', 'Purchase', {

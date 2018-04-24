@@ -33,7 +33,7 @@ class ContactController extends Controller
         $massage = $request->massage;
         $subject = $request->subject;
 
-        Mail::to('info@shedyourfat.com')->send(new ContactSent($name, $email, $massage, $subject));
+        Mail::to('operations@shedyourfat.com')->send(new ContactSent($name, $email, $massage, $subject));
 
         return $this->redirectTo = view('home');
     }

@@ -179,7 +179,7 @@ class ProductController extends Controller
      */
     private function checkImage($value): bool
     {
-        return substr($value, 0, 1) != '/';
+        return substr($value, 0, 1) == 'd';
     }
 
     /**

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Services\Statistic\StatisticService;
+use App\Services\Statistic\OrderStatisticService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class StatisticsController extends Controller
+class OrderStatisticsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,8 +31,12 @@ class StatisticsController extends Controller
     public function totalSumFixedPeriod(Request $request): JsonResponse
     {
         throw_if(!($period = $request->get('period')), new NotFoundHttpException());
+        $custom = [
+            'start' => $request->get('start'),
+            'end'   => $request->get('end')
+        ];
 
-        return response()->json($this->getTotalSumFixedPeriod($period));
+        return response()->json($this->getTotalSumFixedPeriod($period, $custom));
     }
 
     public function totalSumCustomPeriod()
@@ -44,12 +48,12 @@ class StatisticsController extends Controller
      * Get total orders sum for custom period.
      *
      * @param string $period
-     *
+     * @param array|null $custom
      * @return array|string
      */
-    private function getTotalSumFixedPeriod(string $period)
+    private function getTotalSumFixedPeriod(string $period, array $custom = null)
     {
-        $statisticService = new StatisticService();
+        $statisticService = new OrderStatisticService();
 
         switch ($period) {
             case 'day':
@@ -63,6 +67,10 @@ class StatisticsController extends Controller
                 break;
             case 'year':
                 return $statisticService->getYearStats();
+                break;
+            case 'custom':
+                throw_if(!($custom['start'] && $custom['end']), new NotFoundHttpException());
+                return $statisticService->getCustomPeriodStats($custom['start'], $custom['end']);
                 break;
         }
     }

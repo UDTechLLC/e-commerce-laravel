@@ -2,6 +2,12 @@
 @section('title')
     Spring Challenge -@parent
 @endsection
+@section('style')
+    @parent
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
+    <!--End of Zendesk Chat Script-->
+@endsection
 @section('content')
     <main>
         <div class="sc-top-banner-block-wrapper">
@@ -267,7 +273,7 @@
                                     <h3 class="sc-bandle-title">
 
                                         @if(strpos($product->title, 'Maxx'))
-                                            Optional
+                                            Optimal
                                         @elseif (strpos($product->title, 'email'))
                                             Enhanced
                                         @else
@@ -368,7 +374,7 @@
                                 <li class="sc-rules-regulations-list-item">
                                     Winners will be selected by the Shedfat Team and will be determined by what we
                                     consider to be the most drastic, most impressive overall change in body composition
-                                    and will be announced at 9pm on Friday, September 8
+                                    and will be announced at 9pm on Friday, June 8
                                     <sup>th</sup>
                                     .
                                 </li>

@@ -51,7 +51,6 @@
                     <add-to-cart
                             :product-slug="slug"
                     >
-                        pre-order
                     </add-to-cart>
                 </div>
             </div>

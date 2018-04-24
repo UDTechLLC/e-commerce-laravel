@@ -131,7 +131,13 @@ class Order extends EloquentModel
     {
         return $this->belongsToMany(Product::class)
             ->withPivot(['count', 'product_price'])
+            ->withTimestamps()
             ->using(OrderProduct::class);
+    }
+
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class);
     }
 
     public function coupon()
@@ -242,5 +248,10 @@ class Order extends EloquentModel
         ];
 
         return $map[$this->attributes['payment_method']] ?? Order::ORDER_UNKNOWN_PAYMENT_METHOD;
+    }
+
+    public function getProductsCountAttribute()
+    {
+        return $this->products->sum('pivot.count');
     }
 }

@@ -3,7 +3,6 @@
 
   $(document).ready(function () {
 
-
     if (0 < $('#successStories').length) {
       $('#successStories').slick({
         autoplay: true,
@@ -243,6 +242,14 @@
       bg: $('.sideCartModal__bg'),
       fnCall: function () {
         setTimeout(function () {
+          var cartButtonAreaHeight = $( '.side-cart-block .cart-button-area-wrapper' ).outerHeight();
+          var cartFooterHeight = $( '.side-cart-block  .side-cart-footer-wrapper' ).outerHeight();
+          var cartProductsHeight = $( window ).height() - cartButtonAreaHeight - cartFooterHeight;
+          if ( 800 < $( window ).width() ) {
+              $('.side-cart-block .cart-products-wrapper').height(cartProductsHeight - 50);
+          } else {
+              $('.side-cart-block .cart-products-wrapper').height(cartProductsHeight - 20);
+          }
           cart.wrap.addClass('active');
           cart.bg.fadeIn();
           body.css('overflow', 'hidden');
@@ -329,7 +336,10 @@
       });
     };
 
-    CallPopUp('12 Week Custom Training Plan');
+    CallPopUp('bogo-12week-custom-meal-plan');
+    CallPopUp('12week-custom-meal-plan');
+    CallPopUp('bogo-12week-custom-training-plan');
+    CallPopUp('12week-custom-training-plan');
     CallPopUp('12 Week Custom Meal Plan');
     CallPopUp('SPRING CHALLENGE');
     CallPopUp('Shedfat Dad Hat');
@@ -354,7 +364,7 @@
      $('.callPopUp').click();
      },2000)*/
 
-    /// challenge
+  /// challenge
    /* $('.sc-register-button').click(function (e) {
       e.preventDefault();
       $('.callPopUp').click();
@@ -389,7 +399,7 @@
 
 
 
-   /* document.addEventListener('DOMContentLoaded', () => {
+    /*document.addEventListener('DOMContentLoaded', () => {
         var flipdown = new FlipDown(1523902200, 'flipdown').start();
     });*/
 

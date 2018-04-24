@@ -41,8 +41,11 @@ import subscriptions from './vue/pages/subscriptions';
 
 import timer from './vue/pages/timer/edit';
 
+import deviceChart from './vue/pages/statistics/components/deviceCharts';
+
 require('./vue/mixins');
 
+Vue.prototype.$EventBus = new Vue();
 
 const app = new Vue({
     el: '#app',
@@ -58,6 +61,7 @@ const app = new Vue({
         statistics,
         orders,
         subscriptions,
-        timer
+        timer,
+        deviceChart
     }
 });
