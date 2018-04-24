@@ -30,7 +30,7 @@
     export default {
         data () {
             return {
-                content: '<h2>I am Example</h2>',
+                content: '',
                 editorOption: {
                     theme: 'snow',
                     modules: {
@@ -67,7 +67,6 @@
             quillEditor
         },
         // manually control the data synchronization
-        // 如果需要手动控制数据同步，父组件需要显式地处理changed事件
         methods: {
             onEditorBlur(quill) {
                 this.$emit('returnContent', this.content)
@@ -95,7 +94,7 @@
 </script>
 
 <style scoped>
-    .quill-editor {
+    /*.quill-editor {
         height: 350px;
-    }
+    }*/
 </style>

@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
 @section('content')
-    create
+    <h1>Create Post</h1>
     <blog-create></blog-create>
 @endsection

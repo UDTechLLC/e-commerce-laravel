@@ -10,4 +10,8 @@ Route::group([
         'as'   => '.create',
         'uses' => 'PostController@create',
     ]);
+    Route::post('/store', [
+        'as'   => '.store',
+        'uses' => 'PostController@store',
+    ]);
 });
