@@ -47,9 +47,12 @@
                                 </h4>
                                 <div class="cart-coupon-block">
                                     <form class="cart-coupon-form">
-                                        <input class="cart-coupon-field" type="text" @input="updateCoupon" :value="coupon" placeholder="Coupon code"/>
+                                        <input class="cart-coupon-field" :class="{'coupon-input-error': errorCoupon}" type="text" @input="updateCoupon" :value="coupon" placeholder="Coupon code"/>
                                         <input class="cart-coupon-submit" type="submit" @click.prevent="submitCoupon" value="Apply coupon"/>
                                     </form>
+                                    <div class="wrapper coupon-error" v-if="errorCoupon">
+                                        Coupon "{{ coupon }}" does not exist!
+                                    </div>
                                 </div>
                             </div>
                             <div class="cart-sub-totals-block-wrapper">
@@ -139,6 +142,7 @@
     export default ({
         data: () => ({
             shipping: 0,
+            errorCoupon: false,
             selectedCountry: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
         }),
         computed: {
@@ -205,5 +209,11 @@
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    .coupon-error {
+        color: red;
+    }
+    .coupon-input-error {
+        border: 1px solid red!important;
     }
 </style>
