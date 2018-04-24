@@ -172,7 +172,7 @@
                     value: this.value,
                     published: this.published,
                     metaTags: this.metaTags
-                }
+                };
                 axios.post('/admin/posts/store', data).then(
                         request => console.log(request),
                         error => console.log('error')
