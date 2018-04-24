@@ -78,5 +78,7 @@ class OrderStatisticsController extends Controller
                 throw_if(!($custom['start'] && $custom['end']), new NotFoundHttpException());
                 return $this->service->getCustomPeriodStats($custom['start'], $custom['end']);
         }
+
+        throw new NotFoundHttpException();
     }
 }
