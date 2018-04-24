@@ -30,7 +30,7 @@
     export default {
         data () {
             return {
-                content: '<p><strong><em>Click on the Image Below to resize!</em></strong></p><p><br></p><p><a href="/fdffsdf" target="_blank"><img src="/vue-quill-editor/static/images/surmon-6.jpg" width="306" style=""></a></p><p><br></p><p><strong><em>Or drag/paste an image here.vcfdgdfg</em></strong></p>',
+                content: '',
                 editorOption: {
                     theme: 'snow',
                     modules: {
