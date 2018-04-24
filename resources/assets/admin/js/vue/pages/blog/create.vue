@@ -133,7 +133,7 @@
             body: "",
             image: "",
             imagePreview: "",
-            value: moment().format(),
+            value: moment().format('YYYY-MM-DD h:mm:ss'),
             config: {
                 format: 'YYYY-MM-DD h:mm:ss'
             },
