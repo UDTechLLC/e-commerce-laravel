@@ -27,15 +27,24 @@ class WebhookController extends CashierController
 
     /**
      * @param Request $request
+     *
+     * @throws \Exception
      */
     public function handleSubscriptionWentActive(Request $request)
     {
         $notification = $this->parseBraintreeNotification($request);
 
         if ($notification->subscription->currentBillingCycle > 1) {
-            $order = Order::where('subscription_id', $notification->subscription->id)->first();
+            $order = Order::where(
+                'subscription_id',
+                Subscription::where('braintree_id', $notification->subscription->id)->first()->getKey()
+            )
+                ->first();
 
             $newOrder = $this->createOrder($order);
+
+            $user = User::where('braintree_id', $notification->subscription->transactions[0]->customer['id'])->first();
+            $user->charge($newOrder->shipping_cost);
 
             $this->sendOrderToShipStation($newOrder);
             $this->sendOrderToEmail($newOrder);
@@ -104,15 +113,18 @@ class WebhookController extends CashierController
             'cart_id'        => $order->cart->getKey(),
             'coupon_id'      => null,
             'payment_method' => $order->payment_method,
-            'product_cost'   => $order->product_cost,
+            'product_cost'   => $product->amount,
             'shipping_cost'  => $order->shipping_cost,
-            'discount_cost'  => $order->discount_cost,
+            'discount_cost'  => 0,
             'total_cost'     => $product->amount + $order->shipping_cost,
             'count'          => 1,
             'state'          => Order::ORDER_STATE_PROCESSING,
         ]);
 
-        $newOrder->products()->attach($product->id, ['count' => $product->pivot->count]);
+        $newOrder->products()->attach($product->id, [
+            'count'         => $newOrder->count,
+            'product_price' => $product->pivot->product_price,
+        ]);
 
         return $newOrder;
     }
