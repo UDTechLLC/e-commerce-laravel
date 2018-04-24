@@ -43,6 +43,8 @@ import timer from './vue/pages/timer/edit';
 
 import deviceChart from './vue/pages/statistics/components/deviceCharts';
 
+import blogCreate from './vue/pages/blog/create';
+
 require('./vue/mixins');
 
 Vue.prototype.$EventBus = new Vue();
@@ -62,6 +64,7 @@ const app = new Vue({
         orders,
         subscriptions,
         timer,
-        deviceChart
+        deviceChart,
+        blogCreate
     }
 });

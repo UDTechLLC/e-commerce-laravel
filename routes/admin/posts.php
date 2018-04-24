@@ -6,4 +6,8 @@ Route::group([
     Route::get('/', [
         'uses' => 'PostController@index',
     ]);
+    Route::get('/create', [
+        'as'   => '.create',
+        'uses' => 'PostController@create',
+    ]);
 });
