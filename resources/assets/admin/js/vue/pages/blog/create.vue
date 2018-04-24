@@ -96,7 +96,8 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="published">Published
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="checkbox" class="published-checkbox" id="published" name="visible" v-model="published" />
+                    <input type="checkbox" class="published-checkbox" id="published" name="visible"
+                           v-model="published"/>
                 </div>
             </div>
             <div class="form-group">
@@ -162,7 +163,17 @@
                 this.errorPreviewImage = false;
             },
             validateBeforeSubmit() {
-                axios.post('/admin/posts/store', {'test': 'sss'}).then(
+                let data = {
+                    title: this.title,
+                    slug: this.slug,
+                    body: this.body,
+                    image: this.image,
+                    imagePreview: this.imagePreview,
+                    value: this.value,
+                    published: this.published,
+                    metaTags: this.metaTags
+                }
+                axios.post('/admin/posts/store', data).then(
                         request => console.log(request),
                         error => console.log('error')
                 )
