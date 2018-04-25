@@ -110,7 +110,7 @@ class PostController extends Controller
 
         return Post::create([
             'author_id' => $user ? $user->getKey() : null,
-            'slug'      => str_slug($data['slug']),
+            'slug'      => $data['slug'],
             'title'     => $data['title'],
             'content'   => $data['content'],
             'published' => $data['published'],
