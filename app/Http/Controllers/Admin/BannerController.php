@@ -37,6 +37,14 @@ class BannerController extends Controller
     }
 
     /**
+     * Return banner template.
+     */
+    public function getTemplate()
+    {
+        //
+    }
+
+    /**
      * @param array $data
      *
      * @return mixed
