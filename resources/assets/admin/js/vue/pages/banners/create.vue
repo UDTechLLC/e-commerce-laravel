@@ -4,12 +4,12 @@
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
             <h2 class="text-center">Load desktop image</h2>
             <upload-image
-                    @getFile="getFile"
+                    @getFile="getDesktopImage"
                     :errorImage="errorImage"
             ></upload-image>
             <h2 class="text-center">Load mobile image</h2>
             <upload-image
-                    @getFile="getPreview"
+                    @getFile="getMobileImage"
                     :errorImage="errorPreviewImage"
             ></upload-image>
 
@@ -71,27 +71,27 @@
             title: "",
             description: "",
             link: "",
-            image: "",
-            imagePreview: "",
+            imageDesktop: "",
+            imageMobile: "",
             errorImage: false,
             errorPreviewImage: false,
 
         }),
 
         methods: {
-            getFile(file) {
-                this.image = file;
+            getDesktopImage(file) {
+                this.imageDesktop = file;
                 this.errorImage = false;
             },
-            getPreview(file) {
-                this.imagePreview = file;
+            getMobileImage(file) {
+                this.imageMobile = file;
                 this.errorPreviewImage = false;
             },
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
-                    if (this.image == "") this.errorImage = true;
-                    if (this.imagePreview == "") this.errorPreviewImage = true;
-                    if (result && this.image && this.imagePreview)  this.submitForm();
+                    if (this.imageDesktop == "") this.errorImage = true;
+                    if (this.imageMobile == "") this.errorPreviewImage = true;
+                    if (result && this.imageDesktop && this.imageMobile)  this.submitForm();
                 });
             },
             submitForm() {
@@ -99,7 +99,8 @@
                     title: this.title,
                     description: this.description,
                     link: this.link,
-                    image: this.image
+                    imageDesktop: this.imageDesktop,
+                    imageMobile: this.imageMobile
                 };
                 axios.post('/admin/banners/store', data).then(
                         request => console.log(request),
