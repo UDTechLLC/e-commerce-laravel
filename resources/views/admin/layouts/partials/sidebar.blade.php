@@ -52,6 +52,9 @@
                     <li>
                         <a href="{{route('admin.timer.edit')}}"><i class="fa fa-clock-o"></i> Countdown Clock </a>
                     </li>
+                    <li>
+                        <a href="{{route('admin.posts')}}"><i class="fa fa-book"></i> Blog </a>
+                    </li>
                 </ul>
             </div>
         </div>
