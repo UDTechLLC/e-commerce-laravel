@@ -13,7 +13,7 @@
 
 </template>
 
-<script>
+<script type="text/babel">
 
     import 'quill/dist/quill.core.css'
     import 'quill/dist/quill.snow.css'
@@ -28,11 +28,7 @@
     window.Quill.register('modules/imageDrop', ImageDrop);
     window.Quill.register('modules/imageResize', ImageResize);
     var icons = window.Quill.import('ui/icons');
-    icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
-    icons['italic'] = '<i class="fa fa-italic" aria-hidden="true"></i>';
-    icons['underline'] = '<i class="fa fa-underline" aria-hidden="true"></i>';
-    icons['image'] = '<i class="fa fa-picture-o" aria-hidden="true"></i>';
-    icons['test'] = '<i class="fa fa-code" aria-hidden="true"></i>';
+    icons['banner'] = '<i class="fa fa-barcode" aria-hidden="true"></i>';
 
     export default {
         data () {
@@ -56,7 +52,7 @@
                             [{ 'align': [] }],
                             ['clean'],
                             ['link', 'image', 'video'],
-                            ['test']
+                            ['banner']
                         ],
                         imageDrop: true,
                         imageResize: {
@@ -97,6 +93,22 @@
         },
         mounted() {
             //console.log('this is current quill instance object', this.editor)
+            var customButton = document.querySelector('.ql-banner');
+            customButton.addEventListener('click', () => {
+                let t = "<h1>Test</h1>";
+                let cursor = this.$refs.myQuillEditor.quill.getSelection().index;
+               // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
+                this.$refs.myQuillEditor.quill.clipboard.dangerouslyPasteHTML(cursor, t);
+
+
+               // this.content = this.content + t;
+                /*if (screenfull.enabled) {
+                    console.log('requesting fullscreen');
+                    screenfull.request();
+                } else {
+                    console.log('Screenfull not enabled');
+                }*/
+            });
         }
     }
 </script>
