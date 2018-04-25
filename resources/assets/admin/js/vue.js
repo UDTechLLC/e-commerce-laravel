@@ -45,6 +45,8 @@ import deviceChart from './vue/pages/statistics/components/deviceCharts';
 
 import blogCreate from './vue/pages/blog/create';
 
+import bannerCreate from './vue/pages/banners/create'
+
 require('./vue/mixins');
 
 Vue.prototype.$EventBus = new Vue();
@@ -65,6 +67,7 @@ const app = new Vue({
         subscriptions,
         timer,
         deviceChart,
-        blogCreate
+        blogCreate,
+        bannerCreate
     }
 });
