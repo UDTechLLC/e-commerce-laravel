@@ -21,11 +21,18 @@
 
     // you can also register quill modules in the component
     //import Quill from 'quill';
+
     import {quillEditor} from 'vue-quill-editor';
     import {ImageDrop} from 'quill-image-drop-module';
     import  ImageResize  from 'quill-image-resize-module';
     window.Quill.register('modules/imageDrop', ImageDrop);
     window.Quill.register('modules/imageResize', ImageResize);
+    var icons = window.Quill.import('ui/icons');
+    icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
+    icons['italic'] = '<i class="fa fa-italic" aria-hidden="true"></i>';
+    icons['underline'] = '<i class="fa fa-underline" aria-hidden="true"></i>';
+    icons['image'] = '<i class="fa fa-picture-o" aria-hidden="true"></i>';
+    icons['test'] = '<i class="fa fa-code" aria-hidden="true"></i>';
 
     export default {
         data () {
@@ -48,7 +55,8 @@
                             [{ 'color': [] }, { 'background': [] }],
                             [{ 'align': [] }],
                             ['clean'],
-                            ['link', 'image', 'video']
+                            ['link', 'image', 'video'],
+                            ['test']
                         ],
                         imageDrop: true,
                         imageResize: {
