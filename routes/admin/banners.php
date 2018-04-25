@@ -16,4 +16,8 @@ Route::group([
         'as' => '.all',
         'uses' => 'BannerController@all'
     ]);
+    Route::get('banner/template', [
+        'as' => '.banner.template',
+        'uses' => 'BannerController@getTemplate',
+    ]);
 });
