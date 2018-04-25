@@ -163,6 +163,13 @@
                 this.errorPreviewImage = false;
             },
             validateBeforeSubmit() {
+                this.$validator.validateAll().then((result) => {
+                    if (this.image == "") this.errorImage = true;
+                    if (this.imagePreview == "") this.errorPreviewImage = true;
+                    if (result && this.image && this.imagePreview)  this.submitForm();
+                });
+            },
+            submitForm() {
                 let data = {
                     title: this.title,
                     slug: this.sanitizeTitle(this.slug),
