@@ -121,7 +121,6 @@ class PostController extends Controller
     /**
      * @param string $base64Data
      * @param Post $post
-     *
      * @param string $collection
      *
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded

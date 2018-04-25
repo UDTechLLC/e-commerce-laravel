@@ -12,4 +12,8 @@ Route::group([
         'as'   => '.store',
         'uses' => 'BannerController@store',
     ]);
+    Route::get('all', [
+        'as' => '.all',
+        'uses' => 'BannerController@all'
+    ]);
 });
