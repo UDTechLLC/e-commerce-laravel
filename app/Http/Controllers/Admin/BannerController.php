@@ -14,4 +14,9 @@ class BannerController extends Controller
     {
         return view('admin.banners.create');
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }

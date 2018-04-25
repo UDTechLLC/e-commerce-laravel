@@ -8,4 +8,8 @@ Route::group([
         'as'   => '.create',
         'uses' => 'BannerController@create',
     ]);
+    Route::post('store', [
+        'as'   => '.store',
+        'uses' => 'BannerController@store',
+    ]);
 });

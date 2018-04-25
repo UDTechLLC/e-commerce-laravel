@@ -46,7 +46,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="link" name="link"
                            v-model="link"
-                           v-validate data-vv-rules="required|link"
+                           v-validate data-vv-rules="required|url"
                            :class="{'is-danger': errors.has('link')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('link')">{{ errors.first('link') }}</span>
@@ -101,7 +101,7 @@
                     link: this.link,
                     image: this.image
                 };
-                axios.post('/admin/posts/store', data).then(
+                axios.post('/admin/banners/store', data).then(
                         request => console.log(request),
                         error => console.log('error')
                 )
