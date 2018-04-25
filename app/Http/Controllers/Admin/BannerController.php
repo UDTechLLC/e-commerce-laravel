@@ -41,7 +41,7 @@ class BannerController extends Controller
      */
     public function getTemplate()
     {
-        //
+        return view('admin.banners.partials.template');
     }
 
     /**
