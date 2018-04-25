@@ -73,6 +73,18 @@ text-align: left;
                                                 </span>
                             </td>
                         </tr>
+                        @if($order->coupon_id)
+                            <tr class="cart-subtotal">
+                                <td>
+                                    <span class="sub-total-label">
+									Coupon: {{ $order->coupon->code }}:
+								</span>
+								<span class="sub-total-amount">
+									-${{ $order->discount_cost }}
+								</span>
+                                </td>
+                            </tr>
+                        @endif
                         <tr class="order-payment-method">
                             <td colspan="2">
                                 Payment method:
