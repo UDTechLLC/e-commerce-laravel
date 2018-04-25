@@ -19,4 +19,5 @@ Route::group([
     require 'subscriptions.php';
     require 'timer.php';
     require 'posts.php';
+    require 'banners.php';
 });
