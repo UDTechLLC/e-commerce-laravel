@@ -9,6 +9,54 @@
                       @focus="onEditorFocus($event)"
                       @ready="onEditorReady($event)">
         </quill-editor>
+
+        <modal v-if="showModal"
+               @pushCancel="showModal = false"
+               @pushOk="showModal = false"
+        >
+            <div slot="body">
+                <h3>Banners</h3>
+                <ul class="to_do">
+
+                <li>
+                    <label for="1">
+                        <input id="1" name="products[]"
+                               value=" product->id "
+                               type="checkbox"
+
+                        > title
+                    </label>
+                </li>
+                <li>
+                    <label for="1">
+                        <input id="2" name="products[]"
+                               value=" $product->id "
+                               type="checkbox"
+
+                        > title
+                    </label>
+                </li>
+                <li>
+                    <label for="1">
+                        <input id="3" name="products[]"
+                               value=" $product->id "
+                               type="checkbox"
+
+                        > title
+                    </label>
+                </li>
+                <li>
+                    <label for="1">
+                        <input id="4" name="products[]"
+                               value=" $product->id "
+                               type="checkbox"
+
+                        > title
+                    </label>
+                </li>
+            </ul>
+            </div>
+        </modal>
     </div>
 
 </template>
@@ -33,6 +81,7 @@
     export default {
         data () {
             return {
+                showModal: false,
                 content: '',
                 editorOption: {
                     theme: 'snow',
@@ -40,16 +89,16 @@
                         toolbar: [
                             ['bold', 'italic', 'underline', 'strike'],
                             ['blockquote', 'code-block'],
-                            [{ 'header': 1 }, { 'header': 2 }],
-                            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                            [{ 'script': 'sub' }, { 'script': 'super' }],
-                            [{ 'indent': '-1' }, { 'indent': '+1' }],
-                            [{ 'direction': 'rtl' }],
-                            [{ 'size': ['small', false, 'large', 'huge'] }],
-                            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                            [{ 'font': [] }],
-                            [{ 'color': [] }, { 'background': [] }],
-                            [{ 'align': [] }],
+                            [{'header': 1}, {'header': 2}],
+                            [{'list': 'ordered'}, {'list': 'bullet'}],
+                            [{'script': 'sub'}, {'script': 'super'}],
+                            [{'indent': '-1'}, {'indent': '+1'}],
+                            [{'direction': 'rtl'}],
+                            [{'size': ['small', false, 'large', 'huge']}],
+                            [{'header': [1, 2, 3, 4, 5, 6, false]}],
+                            [{'font': []}],
+                            [{'color': []}, {'background': []}],
+                            [{'align': []}],
                             ['clean'],
                             ['link', 'image', 'video'],
                             ['banner']
@@ -76,7 +125,7 @@
                 this.$emit('returnContent', this.content)
             },
             onEditorFocus(quill) {
-               // console.log('editor focus!', quill)
+                // console.log('editor focus!', quill)
             },
             onEditorReady(quill) {
                 //console.log('editor ready!', quill)
@@ -92,22 +141,24 @@
             }
         },
         mounted() {
+
             //console.log('this is current quill instance object', this.editor)
             var customButton = document.querySelector('.ql-banner');
             customButton.addEventListener('click', () => {
+                this.showModal = true;
                 let t = "<h1>Test</h1>";
                 let cursor = this.$refs.myQuillEditor.quill.getSelection().index;
-               // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
+                // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
                 this.$refs.myQuillEditor.quill.clipboard.dangerouslyPasteHTML(cursor, t);
 
 
-               // this.content = this.content + t;
+                // this.content = this.content + t;
                 /*if (screenfull.enabled) {
-                    console.log('requesting fullscreen');
-                    screenfull.request();
-                } else {
-                    console.log('Screenfull not enabled');
-                }*/
+                 console.log('requesting fullscreen');
+                 screenfull.request();
+                 } else {
+                 console.log('Screenfull not enabled');
+                 }*/
             });
         }
     }
