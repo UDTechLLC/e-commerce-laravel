@@ -2,12 +2,12 @@
     <!-- bidirectional data binding（双向数据绑定） -->
     <div class="container">
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
-            <h2 class="text-center">Load main image</h2>
+            <h2 class="text-center">Load desktop image</h2>
             <upload-image
                     @getFile="getFile"
                     :errorImage="errorImage"
             ></upload-image>
-            <h2 class="text-center">Load preview image</h2>
+            <h2 class="text-center">Load mobile image</h2>
             <upload-image
                     @getFile="getPreview"
                     :errorImage="errorPreviewImage"
