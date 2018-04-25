@@ -15,4 +15,8 @@ Route::group([
         'as'   => '.store',
         'uses' => 'PostController@store',
     ]);
+    Route::get('{post}', [
+        'as' => '.show',
+        'uses' => 'PostController@show'
+    ]);
 });

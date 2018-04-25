@@ -31,6 +31,6 @@ Route::group([
 });
 
 Route::get('videolibrary/legs-fire-downloads', [
-    'as' => '.videolibrary',
+    'as'   => '.videolibrary',
     'uses' => 'Web\VideoLibraryController@awayToWp',
 ]);
