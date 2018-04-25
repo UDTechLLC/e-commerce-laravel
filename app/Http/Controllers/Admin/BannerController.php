@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Banner;
+use App\Transformers\Api\BannerTransformer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class BannerController extends Controller
 {
+    public function all()
+    {
+        return fractal(Banner::all(), new BannerTransformer());
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
