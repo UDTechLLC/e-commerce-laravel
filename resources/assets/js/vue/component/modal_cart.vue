@@ -155,7 +155,7 @@
                 'coupon'
             ]),
             total() {
-                return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
+                return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
             }
         },
         updated() {

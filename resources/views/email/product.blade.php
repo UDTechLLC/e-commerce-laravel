@@ -79,6 +79,8 @@ text-align: left;
                                     <span class="sub-total-label">
 									Coupon: {{ $order->coupon->code }}:
 								</span>
+                                </td>
+                                    <td>
 								<span class="sub-total-amount">
 									-${{ $order->discount_cost }}
 								</span>
