@@ -13,7 +13,7 @@
 
 </template>
 
-<script>
+<script type="text/babel">
 
     import 'quill/dist/quill.core.css'
     import 'quill/dist/quill.snow.css'
@@ -21,11 +21,14 @@
 
     // you can also register quill modules in the component
     //import Quill from 'quill';
+
     import {quillEditor} from 'vue-quill-editor';
     import {ImageDrop} from 'quill-image-drop-module';
     import  ImageResize  from 'quill-image-resize-module';
     window.Quill.register('modules/imageDrop', ImageDrop);
     window.Quill.register('modules/imageResize', ImageResize);
+    var icons = window.Quill.import('ui/icons');
+    icons['banner'] = '<i class="fa fa-barcode" aria-hidden="true"></i>';
 
     export default {
         data () {
@@ -48,7 +51,8 @@
                             [{ 'color': [] }, { 'background': [] }],
                             [{ 'align': [] }],
                             ['clean'],
-                            ['link', 'image', 'video']
+                            ['link', 'image', 'video'],
+                            ['banner']
                         ],
                         imageDrop: true,
                         imageResize: {
@@ -89,6 +93,22 @@
         },
         mounted() {
             //console.log('this is current quill instance object', this.editor)
+            var customButton = document.querySelector('.ql-banner');
+            customButton.addEventListener('click', () => {
+                let t = "<h1>Test</h1>";
+                let cursor = this.$refs.myQuillEditor.quill.getSelection().index;
+               // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
+                this.$refs.myQuillEditor.quill.clipboard.dangerouslyPasteHTML(cursor, t);
+
+
+               // this.content = this.content + t;
+                /*if (screenfull.enabled) {
+                    console.log('requesting fullscreen');
+                    screenfull.request();
+                } else {
+                    console.log('Screenfull not enabled');
+                }*/
+            });
         }
     }
 </script>
