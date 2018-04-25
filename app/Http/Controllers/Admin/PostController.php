@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Blog\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,14 +32,14 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param StorePostRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      *
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         /** @var Post $post */
         $post = $this->createPost($request->all());
