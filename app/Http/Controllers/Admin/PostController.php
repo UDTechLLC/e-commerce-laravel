@@ -191,7 +191,7 @@ class PostController extends Controller
     private function getBanner(string $content)
     {
         preg_match('/@banner\((\d+)\)/', $content, $m);
-
+        
         $bannerId = $m[1];
 
         return Banner::find($bannerId);
