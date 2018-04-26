@@ -39,6 +39,31 @@
     // you can also register quill modules in the component
     //import Quill from 'quill';
 
+    let Block = window.Quill.import('blots/block');
+
+    class SubtitleBlot extends Block {
+        static create(url) {
+            let node = super.create();
+            return node;
+        }
+    }
+    SubtitleBlot.blotName = 'subtitle';
+    SubtitleBlot.className = 'subtitle';
+    SubtitleBlot.tagName = 'div';
+
+    class TipBlot extends Block {
+        static create(url) {
+            let node = super.create();
+            return node;
+        }
+    }
+    TipBlot.blotName = 'tip';
+    TipBlot.className = 'tip';
+    TipBlot.tagName = 'div';
+
+    window.Quill.register(TipBlot);
+    window.Quill.register(SubtitleBlot);
+
     import {quillEditor} from 'vue-quill-editor';
     import {ImageDrop} from 'quill-image-drop-module';
     import  ImageResize  from 'quill-image-resize-module';
@@ -119,7 +144,8 @@
                           //  console.log(index);
                             // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
                            // this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `<p class="test">Test</p>`);
-                            this.content = `<p class="test">Test 1</p>`;
+                            this.content = `<div class="tip">Hello</div>
+                                            <div class="subtitle">Goodbye</div>`;
                         },
                         error => console.log('error')
                 )
@@ -155,13 +181,15 @@
     }
 </script>
 
-<style scoped>
+<style>
     .item {
         cursor: pointer;
     }
     .test {
         color:red;
     }
+    .tip{color:red;}
+    .subtitle{color:green;}
 
     /*.quill-editor {
         height: 350px;
