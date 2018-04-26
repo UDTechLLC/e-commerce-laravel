@@ -163,7 +163,7 @@
         },
         methods: {
             submitCoupon() {
-                let url = `api/carts/coupons`;
+                let url = `/api/carts/coupons`;
                 let data = {
                     hash: Vue.localStorage.get('hash'),
                     code: this.coupon
@@ -179,7 +179,7 @@
                 )
             },
             deleteCoupon() {
-                let url = `api/carts/coupons/remove?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
+                let url = `/api/carts/coupons/remove?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
 
                 axios.delete(url).then(
                         response => this.$store.commit('updateState', response),
