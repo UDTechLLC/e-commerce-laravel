@@ -41,6 +41,7 @@ class PostController extends Controller
      *
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
      * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     * @throws \Throwable
      */
     public function store(StorePostRequest $request)
     {
@@ -49,6 +50,8 @@ class PostController extends Controller
 
         $this->saveImageBase64($request->get('imagePreview'), $post, 'preview');
         $this->saveImageBase64($request->get('image'), $post, 'banner');
+
+        $this->insertBanner($post);
     }
 
     /**
@@ -61,15 +64,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        preg_match('/@banner\((\d+)\)/', $post->content, $m);
-        $bannerId = $m[1];
-        $template = view('admin.banners.partials.template', ['banner' => Banner::find($bannerId)])->render();
-        $post->content = preg_replace("/@banner\((\d+)\)/", $template, $post->content);
-        $post->save();
-
         return view('admin.blog.show', [
             'post' => $post,
-            'hello' => 'Hello, world',
         ]);
     }
 
@@ -104,6 +100,7 @@ class PostController extends Controller
      * @param  $post
      *
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Post $post)
     {
@@ -113,6 +110,8 @@ class PostController extends Controller
     }
 
     /**
+     * Create post.
+     *
      * @param array $data
      *
      * @return mixed
@@ -132,6 +131,8 @@ class PostController extends Controller
     }
 
     /**
+     * Attach image to model.
+     *
      * @param string $base64Data
      * @param Post $post
      * @param string $collection
@@ -149,6 +150,8 @@ class PostController extends Controller
     }
 
     /**
+     * Get image extension from base64 format string.
+     *
      * @param string $data
      *
      * @return mixed
@@ -158,5 +161,39 @@ class PostController extends Controller
         $pos  = strpos($data, ';');
 
         return explode('/', substr($data, 0, $pos))[1];
+    }
+
+    /**
+     * Insert banner to content.
+     *
+     * @param Post $post
+     *
+     * @throws \Throwable
+     */
+    private function insertBanner(Post $post)
+    {
+        $content = $post->content;
+
+        $banner = $this->getBanner($content);
+        $template = view('admin.banners.partials.template', ['banner' => $banner])->render();
+
+        $post->content = preg_replace("/@banner\((\d+)\)/", $template, $content);
+        $post->save();
+    }
+
+    /**
+     * Get banner from content.
+     *
+     * @param string $content
+     *
+     * @return mixed
+     */
+    private function getBanner(string $content)
+    {
+        preg_match('/@banner\((\d+)\)/', $content, $m);
+
+        $bannerId = $m[1];
+
+        return Banner::find($bannerId);
     }
 }
