@@ -32,22 +32,38 @@ class WebhookController extends CashierController
      */
     public function handleSubscriptionWentActive(Request $request)
     {
+        \Log::info('Start subscribe');
+
         $notification = $this->parseBraintreeNotification($request);
 
+        \Log::info('Subscription info: ', [
+            'id'    => $notification->subscription->id,
+            'cycle' => $notification->subscription->currentBillingCycle,
+        ]);
+
         if ($notification->subscription->currentBillingCycle > 1) {
+            \Log::info('Start prepare new order');
+
             $order = Order::where(
                 'subscription_id',
                 Subscription::where('braintree_id', $notification->subscription->id)->first()->getKey()
             )
                 ->first();
 
+            \Log::info('Order was found');
             $newOrder = $this->createOrder($order);
+
+            \Log::info('New order was created');
 
             $user = User::where('braintree_id', $notification->subscription->transactions[0]->customer['id'])->first();
             $user->charge($newOrder->shipping_cost);
 
+            \Log::info('User was found');
+
             $this->sendOrderToShipStation($newOrder);
             $this->sendOrderToEmail($newOrder);
+
+            \Log::info('New order was prepared');
         }
     }
 
