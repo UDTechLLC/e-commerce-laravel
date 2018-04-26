@@ -143,9 +143,8 @@
                            // let index = this.$refs.myQuillEditor.quill.getSelection();
                           //  console.log(index);
                             // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
-                           // this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `<p class="test">Test</p>`);
-                            this.content = `<div class="tip">Hello</div>
-                                            <div class="subtitle">Goodbye</div>`;
+                            this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `@banner(${id})`);
+                            this.showModal = false;
                         },
                         error => console.log('error')
                 )
