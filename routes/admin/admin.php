@@ -20,4 +20,5 @@ Route::group([
     require 'timer.php';
     require 'posts.php';
     require 'banners.php';
+    require 'category.php';
 });

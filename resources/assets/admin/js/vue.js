@@ -45,7 +45,9 @@ import deviceChart from './vue/pages/statistics/components/deviceCharts';
 
 import blogCreate from './vue/pages/blog/create';
 
-import bannerCreate from './vue/pages/banners/create'
+import bannerCreate from './vue/pages/banners/create';
+
+import categoryCreate from './vue/pages/category/create';
 
 require('./vue/mixins');
 
@@ -68,6 +70,7 @@ const app = new Vue({
         timer,
         deviceChart,
         blogCreate,
-        bannerCreate
+        bannerCreate,
+        categoryCreate
     }
 });
