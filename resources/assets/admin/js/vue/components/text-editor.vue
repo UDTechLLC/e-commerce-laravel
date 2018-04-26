@@ -136,8 +136,10 @@
                         error => console.log('error')
                 )
             },
-            selectBanner(id) {
-                axios.get(`/admin/banners/template/${id}`).then(
+           selectBanner(id) {
+               this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `@banner(${id})`);
+               this.showModal = false;
+               /*axios.get(`/admin/banners/template/${id}`).then(
                         request => {
                            // let index = 0;
                            // let index = this.$refs.myQuillEditor.quill.getSelection();
@@ -147,7 +149,7 @@
                             this.showModal = false;
                         },
                         error => console.log('error')
-                )
+                )*/
             }
         },
         computed: {

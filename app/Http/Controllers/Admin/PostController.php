@@ -17,7 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.posts.index');
+        return view('admin.posts.index', [
+            'posts' => Post::all()
+        ]);
     }
 
     /**
@@ -74,13 +76,13 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        dd($post);
     }
 
     /**
@@ -99,13 +101,15 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->back();
     }
 
     /**
