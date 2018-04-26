@@ -1,0 +1,146 @@
+.blog
+  &__heading
+    align-content: center
+    background-image: url("../images/blog/title_bg.png")
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    display: flex
+    justify-content: center
+    height: 100%
+    width: 100%
+    &-wrapper
+      height: 180px
+      width: 100%
+    &-title
+      color: #fff
+      font-size: 50px
+      font-weight: 700
+      height: 50px
+      letter-spacing: 1px
+      line-height: 50px
+      margin: 65px 0
+  &__navigation
+    background-color: #2b2a3c
+    display: block
+    height: 85px
+    margin: 0 -30px
+    width: calc(100% + 60px)
+    ul
+      align-items: center
+      display: flex
+      justify-content: center
+      height: 100%
+      list-style: none
+      margin: 0
+      width: 100%
+      li
+        height: 100%
+        display: inline-block
+        margin: 0 20px
+        a
+          align-items: center
+          color: #fff
+          display: flex
+          justify-content: center
+          font-size: 13px
+          font-weight: 400
+          height: 100%
+          text-transform: uppercase
+        &.active
+          a
+            background-image: url("../images/blog/arrow-full-top.svg")
+            background-position: bottom center
+            background-repeat: no-repeat
+            background-size: auto auto
+            background-size: 25px
+            color: #eb212e
+            font-weight: 600
+  &__posts
+    display: flex
+    justify-content: flex-start
+    flex-wrap: wrap
+    margin: 65px auto 0
+    max-width: 1170px
+    text-align: center
+  &__post
+    padding: 15px
+    width: calc(100% / 3 - 30px)
+    &-top
+      img
+        display: block
+    &-bottom
+      padding: 19px 15px 17px
+      text-align: left
+      &-title
+        color: #fff
+        font-size: 15px
+        font-weight: 700
+        letter-spacing: 1px
+        line-height: 1
+        margin: 0 0 9px
+        overflow: hidden
+        text-overflow: ellipsis
+        text-transform: capitalize
+        width: 100%
+        white-space: nowrap
+        a
+          color: #fff
+          &:hover
+            opacity: .8
+      &-info
+        display: flex
+        justify-content: flex-start
+        font-size: 12px
+      &-meta
+        &-line
+          color: #fff
+          font-size: 12px
+          margin: 0
+          opacity: .5
+        &-view, &-likes
+          color: #fff
+          opacity: .5
+    &-separator
+      color: #fff
+      font-family: 'PT Sans',Arial,Helvetica sans-serif
+      font-size: 12px
+      font-weight: 400
+      line-height: 1.5
+      margin: 0 8px
+      opacity: .5
+  &__post
+    &:nth-child(4n+1)
+      .blog__post-bottom
+        background-color: #eb212e
+    &:nth-child(4n+2)
+      .blog__post-bottom
+        background-color: #077ab8
+    &:nth-child(4n+3)
+      .blog__post-bottom
+        background-color: #009e27
+    &:nth-child(4n+4)
+      .blog__post-bottom
+        background-color: #7e21a8
+  &__load-more
+    background-color: #f6f6f6
+    border-radius: 5px
+    color: #333
+    cursor: pointer
+    display: block
+    font-size: 15px
+    font-weight: 700
+    height: 50px
+    letter-spacing: 1px
+    line-height: 50px
+    margin: 20px auto
+    max-width: 230px
+    text-align: center
+    text-transform: uppercase
+    transition: all .3s
+    width: 100%
+    &:hover
+      background-color: rgba(246,246,246,0.8)
+
+
+
