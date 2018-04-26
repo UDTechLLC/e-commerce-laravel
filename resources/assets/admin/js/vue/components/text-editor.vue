@@ -136,7 +136,7 @@
                         error => console.log('error')
                 )
             },
-            selectBanner(id) {
+           /* selectBanner(id) {
                 axios.get(`/admin/banners/template/${id}`).then(
                         request => {
                            // let index = 0;
@@ -148,7 +148,7 @@
                         },
                         error => console.log('error')
                 )
-            }
+            }*/
         },
         computed: {
             editor() {

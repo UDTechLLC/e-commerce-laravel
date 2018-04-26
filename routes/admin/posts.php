@@ -16,7 +16,19 @@ Route::group([
         'uses' => 'PostController@store',
     ]);
     Route::get('{post}', [
-        'as' => '.show',
+        'as'   => '.show',
         'uses' => 'PostController@show'
+    ]);
+    Route::get('edit/{post}', [
+        'as'   => '.edit',
+        'uses' => 'PostController@edit'
+    ]);
+    Route::post('update', [
+        'as'   => '.update',
+        'uses' => 'PostController@update'
+    ]);
+    Route::get('delete/{post}', [
+        'as'   => '.delete',
+        'uses' => 'PostController@destroy'
     ]);
 });
