@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Blog\StorePostRequest;
+use App\Models\Banner;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -54,11 +55,19 @@ class PostController extends Controller
      * @param Post $post
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
      */
     public function show(Post $post)
     {
+        preg_match('/@banner\((\d+)\)/', $post->content, $m);
+        $bannerId = $m[1];
+        $template = view('admin.banners.partials.template', ['banner' => Banner::find($bannerId)])->render();
+        $post->content = preg_replace("/@banner\((\d+)\)/", $template, $post->content);
+        $post->save();
+
         return view('admin.blog.show', [
             'post' => $post,
+            'hello' => 'Hello, world',
         ]);
     }
 

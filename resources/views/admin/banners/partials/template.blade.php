@@ -1,1 +1,1 @@
-<h1>Hello, world</h1>
+<img src="{{$banner->getFirstMediaUrl('desktop')}}">
