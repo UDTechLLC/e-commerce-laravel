@@ -18,43 +18,12 @@
                 <h3>Banners</h3>
                 <ul class="to_do">
 
-                <li>
-                    <label for="1">
-                        <input id="1" name="products[]"
-                               value=" product->id "
-                               type="checkbox"
-
-                        > title
-                    </label>
-                </li>
-                <li>
-                    <label for="1">
-                        <input id="2" name="products[]"
-                               value=" $product->id "
-                               type="checkbox"
-
-                        > title
-                    </label>
-                </li>
-                <li>
-                    <label for="1">
-                        <input id="3" name="products[]"
-                               value=" $product->id "
-                               type="checkbox"
-
-                        > title
-                    </label>
-                </li>
-                <li>
-                    <label for="1">
-                        <input id="4" name="products[]"
-                               value=" $product->id "
-                               type="checkbox"
-
-                        > title
-                    </label>
-                </li>
-            </ul>
+                    <li v-for="item in banners" class="item" @click.prevent="selectBanner(item.id)">
+                        <label :for="item.id">
+                            {{item.title}}
+                        </label>
+                    </li>
+                </ul>
             </div>
         </modal>
     </div>
@@ -83,6 +52,8 @@
             return {
                 showModal: false,
                 content: '',
+                cursorPosition: 0,
+                banners: [],
                 editorOption: {
                     theme: 'snow',
                     modules: {
@@ -133,6 +104,25 @@
             onEditorChange({quill, html, text}) {
                 //console.log('editor change!', quill, html, text)
                 this.content = html
+            },
+            getBanners() {
+                axios.get('/admin/banners/all').then(
+                        request => this.banners = request.data.data,
+                        error => console.log('error')
+                )
+            },
+            selectBanner(id) {
+                axios.get(`/admin/banners/template/${id}`).then(
+                        request => {
+                           // let index = 0;
+                           // let index = this.$refs.myQuillEditor.quill.getSelection();
+                          //  console.log(index);
+                            // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
+                           // this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `<p class="test">Test</p>`);
+                            this.content = `<p class="test">Test 1</p>`;
+                        },
+                        error => console.log('error')
+                )
             }
         },
         computed: {
@@ -141,15 +131,16 @@
             }
         },
         mounted() {
-
             //console.log('this is current quill instance object', this.editor)
-            var customButton = document.querySelector('.ql-banner');
+            let customButton = document.querySelector('.ql-banner');
             customButton.addEventListener('click', () => {
-                this.showModal = true;
-                let t = "<h1>Test</h1>";
-                let cursor = this.$refs.myQuillEditor.quill.getSelection().index;
-                // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
-                this.$refs.myQuillEditor.quill.clipboard.dangerouslyPasteHTML(cursor, t);
+                this.getBanners();
+                setTimeout(() => {
+                    this.showModal = true;
+                     this.cursorPosition = this.editor.getSelection().index;
+                    //let t = `<img src="${this.banners[0].imageDesktop}" />`;
+
+                }, 500);
 
 
                 // this.content = this.content + t;
@@ -165,6 +156,13 @@
 </script>
 
 <style scoped>
+    .item {
+        cursor: pointer;
+    }
+    .test {
+        color:red;
+    }
+
     /*.quill-editor {
         height: 350px;
     }*/

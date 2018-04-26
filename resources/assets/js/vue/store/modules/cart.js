@@ -59,7 +59,7 @@ const actions = {
     let data = {
       hash: Vue.localStorage.get('hash')
     };
-    axios.post(`/api/carts/products/add/${productSlug}`, data).then(
+    axios.post(`api/carts/products/add/${productSlug}`, data).then(
       response => {
         this.commit('updateState', response);
         //this.addedToCart = true;
