@@ -103,8 +103,16 @@
                     imageMobile: this.imageMobile
                 };
                 axios.post('/admin/banners/store', data).then(
-                        request => console.log(request),
-                        error => console.log('error')
+                        request => {
+                            this.notifySuccess("Done", "Banner create");
+                            setTimeout(() => location.href = "/admin/banners", 1500);
+                        },
+                        error => {
+                            this.notifyError(
+                                    error.response.data.message,
+                                    error.response.data.errors,
+                                    error.response.status)
+                        }
                 )
             },
         }
