@@ -2,23 +2,37 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\CreateCategoryRequest;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        return "C";
+        return view('admin.category.index', [
+            'categories' => Category::all(),
+        ]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('admin.category.create');
     }
-    
-    public function store(Request $request)
+
+    /**
+     * @param CreateCategoryRequest $request
+     *
+     * @return void
+     */
+    public function store(CreateCategoryRequest $request)
     {
-        dd($request->all());
+        Category::create(['title' => $request->get('title')]);
     }
 }
