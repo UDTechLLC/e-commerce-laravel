@@ -5,6 +5,13 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Posts </h2>
+                    <div class="nav navbar-right panel_toolbox">
+                        <a href="{{ route('admin.posts.create') }}">
+                            <button class="btn btn-sm btn-success btn-block">
+                                <i class="fa fa-plus"></i> Create post
+                            </button>
+                        </a>
+                        </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
