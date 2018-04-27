@@ -23,4 +23,9 @@ class BlogController extends Controller
     {
         return PostsResource::collection(Post::paginate(20));
     }
+
+    public function show(Post $post)
+    {
+        return view('web.blog.show', ['post' => $post]);
+    }
 }

@@ -33,12 +33,12 @@
         </div>
         <div class="blog__posts">
             <article class="blog__post" v-for="post in posts">
-                <a class="blog__post-top" href="#">
+                <a class="blog__post-top" :href="'/blog/'+ post.slug">
                     <img :src="post.image"/>
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
-                        <a href="#">
+                        <a :href="'/blog/'+ post.slug">
                             {{ post.title }}
                         </a>
                     </h2>

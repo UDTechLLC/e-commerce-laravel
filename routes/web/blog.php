@@ -12,4 +12,8 @@ Route::group([
         'as'   => '.all',
         'uses' => 'BlogController@all'
     ]);
+    Route::get('/{post}', [
+        'as'   => '.show',
+        'uses' => 'BlogController@show'
+    ]);
 });
