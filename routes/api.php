@@ -93,7 +93,7 @@ Route::group([
     'prefix' => 'webhooks',
 ], function () {
     Route::group([
-        'as' => 'braintree',
+        'as' => '.braintree',
         'prefix' => 'braintree',
     ], function () {
         Route::post('successfully', [
