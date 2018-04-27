@@ -1,5 +1,4 @@
 <template>
-    <!-- bidirectional data binding（双向数据绑定） -->
     <div class="container">
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
             <h2 class="text-center">Load desktop image</h2>
@@ -74,8 +73,7 @@
             imageDesktop: "",
             imageMobile: "",
             errorImage: false,
-            errorPreviewImage: false,
-
+            errorPreviewImage: false
         }),
 
         methods: {
@@ -114,7 +112,7 @@
                                     error.response.status)
                         }
                 )
-            },
+            }
         }
     }
 </script>

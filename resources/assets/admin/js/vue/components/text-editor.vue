@@ -1,5 +1,4 @@
 <template>
-    <!-- bidirectional data binding（双向数据绑定） -->
     <div class="container">
 
         <quill-editor v-model="content"
@@ -131,7 +130,7 @@
                 this.content = html
             },
             getBanners() {
-                axios.get('/admin/banners/all').then(
+                return axios.get('/admin/banners/all').then(
                         request => this.banners = request.data.data,
                         error => console.log('error')
                 )
@@ -139,17 +138,6 @@
            selectBanner(id) {
                this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `@banner(${id})`);
                this.showModal = false;
-               /*axios.get(`/admin/banners/template/${id}`).then(
-                        request => {
-                           // let index = 0;
-                           // let index = this.$refs.myQuillEditor.quill.getSelection();
-                          //  console.log(index);
-                            // this.$refs.myQuillEditor.quill.insertText(cursor, t, 'html');
-                            this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `@banner(${id})`);
-                            this.showModal = false;
-                        },
-                        error => console.log('error')
-                )*/
             }
         },
         computed: {
@@ -158,25 +146,12 @@
             }
         },
         mounted() {
-            //console.log('this is current quill instance object', this.editor)
             let customButton = document.querySelector('.ql-banner');
             customButton.addEventListener('click', () => {
-                this.getBanners();
-                setTimeout(() => {
+                this.getBanners().then(result => {
                     this.showModal = true;
-                     this.cursorPosition = this.editor.getSelection().index;
-                    //let t = `<img src="${this.banners[0].imageDesktop}" />`;
-
-                }, 500);
-
-
-                // this.content = this.content + t;
-                /*if (screenfull.enabled) {
-                 console.log('requesting fullscreen');
-                 screenfull.request();
-                 } else {
-                 console.log('Screenfull not enabled');
-                 }*/
+                    this.cursorPosition = (this.editor.getSelection()) ? this.editor.getSelection().index : 0;
+                });
             });
         }
     }
