@@ -1,8 +1,8 @@
 <?php
 
 Route::group([
-    'as'     => '.category',
-    'prefix' => 'category',
+    'as'     => '.categories',
+    'prefix' => 'categories',
 ], function () {
     Route::get('/', [
         'uses' => 'CategoryController@index'

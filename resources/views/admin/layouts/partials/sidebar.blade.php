@@ -56,7 +56,7 @@
                         <ul class="nav child_menu">
                             <li><a href="{{ route('admin.posts') }}">Posts</a></li>
                             <li><a href="{{ route('admin.banners') }}">Banners</a></li>
-                            <li><a href="{{ route('admin.category') }}">Categories</a></li>
+                            <li><a href="{{ route('admin.categories') }}">Categories</a></li>
                         </ul>
                     </li>
                 </ul>
