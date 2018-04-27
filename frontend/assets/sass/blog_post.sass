@@ -1,0 +1,85 @@
+.blog-post
+  display: flex
+  justify-content: space-between
+  margin: 0 auto
+  max-width: 1170px
+  width: 100%
+  @media screen and (max-width: 767px)
+    flex-wrap: wrap
+  &__content
+    padding: 0 30px
+    width: 75%
+    @media screen and (max-width: 767px)
+      width: 100%
+    &-title
+      color: #29282e
+      letter-spacing: 1px
+      font-size: 38px
+      font-weight: 700
+      line-height: 50px
+      padding: 0 15px
+      text-align: center
+      text-transform: capitalize
+      @media screen and (max-width: 767px)
+        font-size: 1.5em
+        line-height: 1.5em
+        padding: 0 5px
+    &-image-wrapper
+      border: 1px solid #eaeaea
+      padding: 30px
+      text-align: center
+      width: 100%
+      @media screen and (max-width: 767px)
+        padding: 0
+      img
+        display: block
+    p
+      color: #494949
+      font-size: 15px
+      line-height: 1.87
+      font-family: "PT Sans", Arial, Helvetica, sans-serif
+      font-weight: 400
+      letter-spacing: 0
+      margin: 15px 0
+    a
+      color: #eb212e
+      cursor: pointer
+      font-style: italic
+      font-weight: 700
+    ol, ul
+      margin: 15px 0
+      padding-left: 15px
+      @media screen and (max-width: 767px)
+        padding-left: 5px
+      li
+        color: #494949
+        font-size: 15px
+        line-height: 1.87
+        font-family: "PT Sans", Arial, Helvetica, sans-serif
+        font-weight: 400
+        letter-spacing: 0
+        //margin: 15px 0
+        padding-left: 15px
+        @media screen and (max-width: 767px)
+          padding-left: 5px
+  &__sidebar
+    margin-top: 155px
+    width: 25%
+    @media screen and (max-width: 767px)
+      margin-top: 30px
+      width: 100%
+    &-title
+      letter-spacing: 1px
+      font-size: 23px
+      font-weight: 700
+      line-height: 26px
+      color: #29282e
+      text-align: center
+      margin: 0.30em 0 30px
+    .blog
+      &__post
+        box-sizing: border-box
+        margin: 0.30em auto 30px
+        max-width: 320px
+        width: 100%
+
