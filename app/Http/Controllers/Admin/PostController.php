@@ -19,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' => Post::all()
+            'posts' => Post::all(),
         ]);
     }
 
@@ -31,7 +31,7 @@ class PostController extends Controller
     public function create()
     {
         return view('admin.posts.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
         ]);
     }
 
@@ -121,9 +121,11 @@ class PostController extends Controller
      */
     private function createPost(array $data)
     {
+        /** @var User $user */
         $user = \Auth::user();
 
-        return Post::create([
+        /** @var Post $post */
+        $post = Post::create([
             'author_id' => $user ? $user->getKey() : null,
             'slug'      => $data['slug'],
             'title'     => $data['title'],
@@ -131,6 +133,12 @@ class PostController extends Controller
             'published' => $data['published'],
             'posted_at' => $data['postedAt'],
         ]);
+
+        $category = Category::find($data['categoryId']);
+
+        $post->category()->associate($category);
+
+        return $post;
     }
 
     /**
@@ -161,7 +169,7 @@ class PostController extends Controller
      */
     private function getImageTypeFromBase64(string $data)
     {
-        $pos  = strpos($data, ';');
+        $pos = strpos($data, ';');
 
         return explode('/', substr($data, 0, $pos))[1];
     }
@@ -178,10 +186,13 @@ class PostController extends Controller
         $content = $post->content;
 
         $banner = $this->getBanner($content);
-        $template = view('admin.banners.partials.template', ['banner' => $banner])->render();
 
-        $post->content = preg_replace("/@banner\((\d+)\)/", $template, $content);
-        $post->save();
+        if (null !== $banner) {
+            $template = view('admin.banners.partials.template', ['banner' => $banner])->render();
+
+            $post->content = preg_replace("/@banner\((\d+)\)/", $template, $content);
+            $post->save();
+        }
     }
 
     /**
@@ -194,9 +205,9 @@ class PostController extends Controller
     private function getBanner(string $content)
     {
         preg_match('/@banner\((\d+)\)/', $content, $m);
-        
-        $bannerId = $m[1];
 
-        return Banner::find($bannerId);
+        $bannerId = $m[1] ?? null;
+
+        return $bannerId ? Banner::find($bannerId) : null;
     }
 }
