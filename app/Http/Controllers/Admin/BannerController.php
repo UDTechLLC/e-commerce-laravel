@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class BannerController extends Controller
 {
+    public function index()
+    {
+        return "B";
+    }
+
     public function all()
     {
         return fractal(Banner::all(), new BannerTransformer());

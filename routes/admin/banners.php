@@ -4,6 +4,9 @@ Route::group([
     'as'     => '.banners',
     'prefix' => 'banners',
 ], function () {
+    Route::get('/', [
+       'uses' => 'BannerController@index'
+    ]);
     Route::get('create', [
         'as'   => '.create',
         'uses' => 'BannerController@create',

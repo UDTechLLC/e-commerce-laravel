@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
+    public function index()
+    {
+        return "C";
+    }
+
     public function create()
     {
         return view('admin.category.create');
