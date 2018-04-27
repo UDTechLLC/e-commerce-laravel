@@ -1,6 +1,6 @@
 <template>
     <div class="checkout">
-        <!--<login v-if="userAuth != '1'"></login>-->
+        <login v-if="userAuth != '1'"></login>
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
@@ -173,13 +173,13 @@
                                               style="display: none">Please enter your phone.</span>
                                     </div>
 
-                                    <!--<div class="form-field-wrapper" v-if="userAuth != '1'">-->
-                                    <!--<input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"-->
-                                    <!--type="checkbox" @change="createUser = !createUser"/>-->
-                                    <!--<label for="bdCreateAccount" class="checkbox">-->
-                                    <!--Create an account?-->
-                                    <!--</label>-->
-                                    <!--</div>-->
+                                    <div class="form-field-wrapper" v-if="userAuth != '1'">
+                                    <input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"
+                                    type="checkbox" @change="createUser = !createUser"/>
+                                    <label for="bdCreateAccount" class="checkbox">
+                                    Create an account?
+                                    </label>
+                                    </div>
 
                                     <div class="create-account-block" v-if="createUser">
                                         <p>
