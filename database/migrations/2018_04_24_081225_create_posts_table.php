@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('author_id')->nullable();
+            $table->unsignedInteger('category_id');
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('content');
@@ -24,6 +25,7 @@ class CreatePostsTable extends Migration
             $table->timestamps();
 
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

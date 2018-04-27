@@ -61,7 +61,10 @@ class Category extends EloquentModel
      * Entity relations go below
      */
 
-    // @todo:
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 
     /**
      * Entity scopes go below

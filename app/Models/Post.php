@@ -83,7 +83,15 @@ class Post extends EloquentModel implements HasMedia
      * Entity relations go below
      */
 
-    // @todo:
+    public function author()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     /**
      * Entity scopes go below
