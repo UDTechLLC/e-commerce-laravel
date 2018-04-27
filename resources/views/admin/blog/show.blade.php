@@ -5,3 +5,6 @@
     {!! $post->content !!}
     {{ $post->getFirstMedia() }}
 @stop
+
+@section('description', $post->meta_description)
+@section('keywords', $post->meta_keywords)

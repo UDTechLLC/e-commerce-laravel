@@ -126,12 +126,15 @@ class PostController extends Controller
 
         /** @var Post $post */
         $post = Post::create([
-            'author_id' => $user ? $user->getKey() : null,
-            'slug'      => $data['slug'],
-            'title'     => $data['title'],
-            'content'   => $data['content'],
-            'published' => $data['published'],
-            'posted_at' => $data['postedAt'],
+            'author_id'        => $user ? $user->getKey() : null,
+            'slug'             => $data['slug'],
+            'title'            => $data['title'],
+            'content'          => $data['content'],
+            'meta_title'       => $data['metaTags']['title'],
+            'meta_description' => $data['metaTags']['description'],
+            'meta_keywords'    => $data['metaTags']['keywords'],
+            'published'        => $data['published'],
+            'posted_at'        => $data['postedAt'],
         ]);
 
         $category = Category::find($data['categoryId']);

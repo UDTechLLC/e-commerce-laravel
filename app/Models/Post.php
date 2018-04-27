@@ -29,7 +29,7 @@ class Post extends EloquentModel implements HasMedia
      */
     protected $fillable = [
         'author_id', 'category_id', 'slug', 'title', 'content',
-        'published', 'posted_at',
+        'meta_title', 'meta_description', 'meta_keywords', 'published', 'posted_at',
     ];
 
     /**

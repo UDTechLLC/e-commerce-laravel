@@ -20,6 +20,9 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('content');
+            $table->string('meta_title');
+            $table->string('meta_description');
+            $table->string('meta_keywords');
             $table->boolean('published')->default(0);
             $table->timestamp('posted_at');
             $table->timestamps();
