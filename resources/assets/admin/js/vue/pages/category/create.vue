@@ -42,7 +42,7 @@
                 });
             },
             submitForm() {
-                axios.post('/admin/category/store', {title: this.title}).then(
+                axios.post('/admin/categories/store', {title: this.title}).then(
                         request => console.log(request),
                         error => console.log('error')
                 )
