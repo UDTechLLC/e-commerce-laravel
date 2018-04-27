@@ -35,4 +35,16 @@ class CategoryController extends Controller
     {
         Category::create(['title' => $request->get('title')]);
     }
+
+    /**
+     * @param Category $category
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy(Category $category)
+    {
+        $category->delete();
+
+        return redirect()->back();
+    }
 }

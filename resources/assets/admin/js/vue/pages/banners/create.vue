@@ -46,7 +46,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="link" name="link"
                            v-model="link"
-                           v-validate data-vv-rules="required|url"
+                           v-validate data-vv-rules="required|url:{true}"
                            :class="{'is-danger': errors.has('link')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('link')">{{ errors.first('link') }}</span>
@@ -103,8 +103,16 @@
                     imageMobile: this.imageMobile
                 };
                 axios.post('/admin/banners/store', data).then(
-                        request => console.log(request),
-                        error => console.log('error')
+                        request => {
+                            this.notifySuccess("Done", "Banner create");
+                            setTimeout(() => location.href = "/admin/banners", 1500);
+                        },
+                        error => {
+                            this.notifyError(
+                                    error.response.data.message,
+                                    error.response.data.errors,
+                                    error.response.status)
+                        }
                 )
             },
         }

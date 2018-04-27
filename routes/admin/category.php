@@ -15,4 +15,8 @@ Route::group([
         'as'   => '.store',
         'uses' => 'CategoryController@store',
     ]);
+    Route::get('delete/{category}', [
+        'as'   => '.delete',
+        'uses' => 'CategoryController@destroy'
+    ]);
 });
