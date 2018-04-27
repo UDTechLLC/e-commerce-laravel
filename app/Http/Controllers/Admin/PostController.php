@@ -137,6 +137,7 @@ class PostController extends Controller
         $category = Category::find($data['categoryId']);
 
         $post->category()->associate($category);
+        $post->save();
 
         return $post;
     }

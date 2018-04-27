@@ -28,7 +28,7 @@ class Post extends EloquentModel implements HasMedia
      * @var array
      */
     protected $fillable = [
-        'author_id', 'slug', 'title', 'content',
+        'author_id', 'category_id', 'slug', 'title', 'content',
         'published', 'posted_at',
     ];
 
