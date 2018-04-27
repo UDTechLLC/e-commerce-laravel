@@ -11,7 +11,9 @@ class BannerController extends Controller
 {
     public function index()
     {
-        return "B";
+        return view('admin.banners.index', [
+            'banners' => Banner::all()
+        ]);
     }
 
     public function all()
@@ -47,6 +49,18 @@ class BannerController extends Controller
     public function getTemplate()
     {
         return view('admin.banners.partials.template');
+    }
+
+    /**
+     * @param Banner $banner
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy(Banner $banner)
+    {
+        $banner->delete();
+
+        return redirect()->back();
     }
 
     /**

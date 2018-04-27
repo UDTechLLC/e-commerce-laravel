@@ -59,7 +59,7 @@
                             v-validate data-vv-rules="required"
                             :class="{'is-danger': errors.has('category')}"
                             class="form-control col-md-7 col-xs-12">
-                        <option v-for="item in categories">{{ item }}</option>
+                        <option v-for="item in categories" :value="item.id">{{ item.title }}</option>
                     </select>
                     <span class="text-danger" v-if="errors.has('category')">{{ errors.first('category') }}</span>
                 </div>
@@ -193,6 +193,7 @@
                     title: this.title,
                     slug: this.sanitizeTitle(this.slug),
                     content: this.body,
+                    categoryId: this.category,
                     image: this.image,
                     imagePreview: this.imagePreview,
                     postedAt: this.postedAt,

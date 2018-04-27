@@ -23,4 +23,8 @@ Route::group([
         'as' => '.banner.template',
         'uses' => 'BannerController@getTemplate',
     ]);
+    Route::get('delete/{banner}', [
+        'as' => '.delete',
+        'uses' => 'BannerController@destroy'
+    ]);
 });
