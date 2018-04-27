@@ -37,7 +37,7 @@
         <div class="blog__posts">
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/1.jpg" />
+                    <img src="web/images/blog/1.jpg" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -46,21 +46,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 27th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     9,028
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     0
                                 </span>
@@ -70,7 +70,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/2.png" />
+                    <img src="web/images/blog/2.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -79,21 +79,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     725
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     2+
                                 </span>
@@ -103,7 +103,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/3.png" />
+                    <img src="web/images/blog/3.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -112,21 +112,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     371
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     3+
                                 </span>
@@ -136,7 +136,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/4.png" />
+                    <img src="web/images/blog/4.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -145,21 +145,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     5,388
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     23+
                                 </span>
@@ -169,7 +169,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/1.jpg" />
+                    <img src="web/images/blog/1.jpg" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -178,21 +178,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 27th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     9,028
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     0
                                 </span>
@@ -202,7 +202,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/2.png" />
+                    <img src="web/images/blog/2.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -211,21 +211,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     725
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     2+
                                 </span>
@@ -235,7 +235,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/3.png" />
+                    <img src="web/images/blog/3.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -244,21 +244,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     371
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     3+
                                 </span>
@@ -268,7 +268,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/4.png" />
+                    <img src="web/images/blog/4.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -277,21 +277,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     5,388
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     23+
                                 </span>
@@ -301,7 +301,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/1.jpg" />
+                    <img src="web/images/blog/1.jpg" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -310,21 +310,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 27th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     9,028
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     0
                                 </span>
@@ -334,7 +334,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/2.png" />
+                    <img src="web/images/blog/2.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -343,21 +343,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     725
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     2+
                                 </span>
@@ -367,7 +367,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/3.png" />
+                    <img src="web/images/blog/3.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -376,21 +376,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     371
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     3+
                                 </span>
@@ -400,7 +400,7 @@
             </article>
             <article class="blog__post">
                 <a class="blog__post-top" href="#">
-                    <img src="assets/images/blog/4.png" />
+                    <img src="web/images/blog/4.png" />
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
@@ -409,21 +409,21 @@
                         </a>
                     </h2>
                     <div class="blog__post-bottom-info">
-                        <img class="blog__post-icon" src="assets/images/blog/blog-icon.svg" />
+                        <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                         <span class="blog__post-separator">|</span>
                         <p class="blog__post-bottom-meta-line">
                             November 15th, 2017
                         </p>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-view">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
                                     5,388
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>
                         <div class="blog__post-bottom-meta-likes">
-                            <img class="blog__post-icon" src="assets/images/blog/icon-heart-white.svg" />
+                            <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg" />
                                 <span class="blog__post-text">
                                     23+
                                 </span>
