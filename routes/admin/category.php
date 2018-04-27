@@ -4,7 +4,7 @@ Route::group([
     'as'     => '.categories',
     'prefix' => 'categories',
 ], function () {
-    Route::get('/', [
+    Route::get('', [
         'uses' => 'CategoryController@index'
     ]);
     Route::get('create', [
