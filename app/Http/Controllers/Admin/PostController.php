@@ -19,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' => Post::all()
+            'posts' => Post::all(),
         ]);
     }
 
@@ -31,7 +31,7 @@ class PostController extends Controller
     public function create()
     {
         return view('admin.posts.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
         ]);
     }
 
@@ -169,7 +169,7 @@ class PostController extends Controller
      */
     private function getImageTypeFromBase64(string $data)
     {
-        $pos  = strpos($data, ';');
+        $pos = strpos($data, ';');
 
         return explode('/', substr($data, 0, $pos))[1];
     }
@@ -186,10 +186,13 @@ class PostController extends Controller
         $content = $post->content;
 
         $banner = $this->getBanner($content);
-        $template = view('admin.banners.partials.template', ['banner' => $banner])->render();
 
-        $post->content = preg_replace("/@banner\((\d+)\)/", $template, $content);
-        $post->save();
+        if (null !== $banner) {
+            $template = view('admin.banners.partials.template', ['banner' => $banner])->render();
+
+            $post->content = preg_replace("/@banner\((\d+)\)/", $template, $content);
+            $post->save();
+        }
     }
 
     /**
@@ -202,9 +205,9 @@ class PostController extends Controller
     private function getBanner(string $content)
     {
         preg_match('/@banner\((\d+)\)/', $content, $m);
-        
-        $bannerId = $m[1];
 
-        return Banner::find($bannerId);
+        $bannerId = $m[1] ?? null;
+
+        return $bannerId ? Banner::find($bannerId) : null;
     }
 }
