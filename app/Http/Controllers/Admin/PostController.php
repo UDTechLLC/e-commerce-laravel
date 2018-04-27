@@ -121,9 +121,11 @@ class PostController extends Controller
      */
     private function createPost(array $data)
     {
+        /** @var User $user */
         $user = \Auth::user();
 
-        return Post::create([
+        /** @var Post $post */
+        $post = Post::create([
             'author_id' => $user ? $user->getKey() : null,
             'slug'      => $data['slug'],
             'title'     => $data['title'],
@@ -131,6 +133,12 @@ class PostController extends Controller
             'published' => $data['published'],
             'posted_at' => $data['postedAt'],
         ]);
+
+        $category = Category::find($data['categoryId']);
+
+        $post->category()->associate($category);
+
+        return $post;
     }
 
     /**
