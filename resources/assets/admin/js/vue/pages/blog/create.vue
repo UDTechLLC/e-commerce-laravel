@@ -1,5 +1,5 @@
 <template>
-    <!-- bidirectional data binding（双向数据绑定） -->
+
     <div class="container">
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
             <h2 class="text-center">Load main image</h2>
@@ -50,6 +50,36 @@
                     </editor>
                 </div>
             </div>
+            <div class="form-group" :class="{'has-error': errors.has('category') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">Category
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="category" name="category"
+                            v-model="category"
+                            v-validate data-vv-rules="required"
+                            :class="{'is-danger': errors.has('category')}"
+                            class="form-control col-md-7 col-xs-12">
+                        <option v-for="item in categories">{{ item }}</option>
+                    </select>
+                    <span class="text-danger" v-if="errors.has('category')">{{ errors.first('category') }}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="published">Published
+                </label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="checkbox" class="published-checkbox" id="published" name="visible"
+                           v-model="published"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postedAt"> Published <span
+                        class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <date-picker v-model="postedAt" :config="config"></date-picker>
+                </div>
+            </div>
             <h3 class="text-center">Meta tags</h3>
             <div class="form-group" :class="{'has-error': errors.has('metaTitle') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="metaTitle">Title <span
@@ -92,22 +122,7 @@
                           v-if="errors.has('metaKeywords')">{{ errors.first('metaKeywords') }}</span>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="published">Published
-                </label>
-                <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="checkbox" class="published-checkbox" id="published" name="visible"
-                           v-model="published"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postedAt"> Published <span
-                        class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <date-picker v-model="postedAt" :config="config"></date-picker>
-                </div>
-            </div>
+
             <div class="form-group">
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                     <button type="submit" @click.prevent="validateBeforeSubmit" class="btn btn-success btn-lg">Submit
@@ -133,6 +148,7 @@
             body: "",
             image: "",
             imagePreview: "",
+            category: "",
             postedAt: moment().format('YYYY-MM-DD h:mm:ss'),
             config: {
                 format: 'YYYY-MM-DD h:mm:ss'
@@ -146,6 +162,9 @@
                 description: ""
             }
         }),
+        props: {
+            categories: Array
+        },
         components: {
             editor,
             datePicker
