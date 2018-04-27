@@ -8,4 +8,8 @@ Route::group([
     Route::get('/', [
         'uses' => 'BlogController@index'
     ]);
+    Route::get('/all', [
+        'as'   => '.all',
+        'uses' => 'BlogController@all'
+    ]);
 });

@@ -10,6 +10,7 @@ import addToCart from './component/addToCart';
 import checkout from './pages/checkout';
 import addToCartMobile from  './component/addToCartMobile';
 import shedfatMaxx from './pages/products/shedfat-maxx';
+import blog from './pages/blog/index';
 
 Vue.component('add-to-cart', addToCart);
 
@@ -34,7 +35,8 @@ const app = new Vue({
     cart,
     checkout,
     addToCartMobile,
-    shedfatMaxx
+    shedfatMaxx,
+    blog
 },
   created() {
     if (!Vue.localStorage.get('hash')) {
