@@ -17,6 +17,7 @@ require 'web/paypal.php';
 require 'web/page.php';
 require 'web/subscribe.php';
 require 'web/checkout.php';
+require 'web/blog.php';
 
 Auth::routes();
 

@@ -21,8 +21,8 @@
                                                    value="{{ $product->id }}"
                                                    type="checkbox"
                                                    @if(in_array($product->id, $productIds)) checked @endif
-                                            > {{ $product->title }}
-                                        </label>
+                                            > {{ $product->title }} <span> SKU {{$product->id}}</span>
+                                            </label>
                                     </li>
                                 @endforeach
                             </ul>
