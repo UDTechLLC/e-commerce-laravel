@@ -53,8 +53,6 @@ class PostController extends Controller
 
         $this->saveImageBase64($request->get('imagePreview'), $post, 'preview');
         $this->saveImageBase64($request->get('image'), $post, 'banner');
-
-        $this->insertBanner($post);
     }
 
     /**
@@ -67,6 +65,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $this->insertBanner($post);
+
         return view('admin.blog.show', [
             'post' => $post,
         ]);
@@ -179,6 +179,7 @@ class PostController extends Controller
      *
      * @param Post $post
      *
+     * @return null|string|string[]
      * @throws \Throwable
      */
     private function insertBanner(Post $post)
@@ -191,7 +192,6 @@ class PostController extends Controller
             $template = view('admin.banners.partials.template', ['banner' => $banner])->render();
 
             $post->content = preg_replace("/@banner\((\d+)\)/", $template, $content);
-            $post->save();
         }
     }
 
