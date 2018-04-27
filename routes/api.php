@@ -93,7 +93,7 @@ Route::group([
     'prefix' => 'webhooks',
 ], function () {
     Route::group([
-        'as' => 'braintree',
+        'as' => '.braintree',
         'prefix' => 'braintree',
     ], function () {
         Route::post('successfully', [
@@ -104,6 +104,15 @@ Route::group([
         ]);
         Route::post('canceled', [
             'uses' => 'Api\WebhookController@handleSubscriptionCustomCanceled'
+        ]);
+        Route::post('expired', [
+            'uses' => 'Api\WebhookController@handleSubscriptionCustomExpired'
+        ]);
+        Route::post('due', [
+            'uses' => 'Api\WebhookController@handleSubscriptionPastDue',
+        ]);
+        Route::post('pending', [
+            'uses' => 'Api\WebhookController@handleSubscriptionPending',
         ]);
     });
 });

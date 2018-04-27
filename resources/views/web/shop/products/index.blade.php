@@ -308,7 +308,7 @@
                     <div class="popUp__name">Be the first to know
                         when its Available
                     </div>
-                    <form action="{{ route('subscribe.challenge') }}" method="POST" class="popUp__form">
+                    <form action="{{ route('subscribe.dadhat') }}" method="POST" class="popUp__form">
                         {{ csrf_field() }}
                         <input type="text" name="name" placeholder="Your First Name" required>
                         <input type="email" name="email" placeholder="Your Email Adress" required>

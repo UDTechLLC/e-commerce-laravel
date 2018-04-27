@@ -75,10 +75,12 @@ text-align: left;
                         </tr>
                         @if($order->coupon_id)
                             <tr class="cart-subtotal">
-                                <td>
+                                <td colspan="2">
                                     <span class="sub-total-label">
 									Coupon: {{ $order->coupon->code }}:
 								</span>
+                                </td>
+                                    <td>
 								<span class="sub-total-amount">
 									-${{ $order->discount_cost }}
 								</span>
