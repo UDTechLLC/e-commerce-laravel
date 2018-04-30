@@ -8,7 +8,7 @@ use App\Models\{
     Product
 };
 use App\Observers\OrderObserver;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,17 +31,30 @@ class AppServiceProvider extends ServiceProvider
         Order::observe(OrderObserver::class);
 
         Route::bind('product', function ($value) {
+            if ($this->isAdmin()) {
+                return Product::where('slug', $value)->first();
+            }
             return Product::where('slug', $value)
                 ->where('published', true)
                 ->first();
         });
 
         Route::bind('post', function ($value) {
+            if ($this->isAdmin()) {
+                return Post::where('slug', $value)->first();
+            }
             return Post::where('slug', $value)
-                ->where('published', true)
-                ->where('posted_at', '<=', Carbon::now())
+                ->published()
                 ->first();
         });
+    }
+
+    /**
+     * @return bool
+     */
+    private function isAdmin()
+    {
+        return Auth::user() && Auth::user()->hasRole('administrator');
     }
 
     /**
