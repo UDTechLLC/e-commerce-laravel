@@ -18,8 +18,8 @@ class PostsResource extends Resource
             'id'        => $this->id,
             'title'     => $this->title,
             'slug'      => $this->slug,
-            'image'     => $this->getFirstMediaUrl('view_count'),
-            'views'     => $this->views,
+            'image'     => $this->getFirstMediaUrl('preview'),
+            'views'     => $this->view_count,
             'published' => $this->posted_at->format('F jS, Y')
         ];
     }
