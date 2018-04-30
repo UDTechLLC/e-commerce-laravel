@@ -203,7 +203,7 @@
                 axios.post('/admin/posts/store', data).then(
                         response => {
                             this.notifySuccess("Done", "Post create");
-                           // setTimeout(() => location.href = "/admin/posts", 1500);
+                            setTimeout(() => location.href = "/admin/posts", 1500);
                         },
                         error => {
                             this.notifyError(

@@ -184,7 +184,7 @@
           this.post.image = this.postProps.image;
           this.post.imagePreview = this.postProps.preview;
           this.post.category = this.postProps.category_id;
-          this.post.postedAt = moment(this.postProps.posted_at, 'MMMM Do, YYYY');
+          this.post.postedAt = moment(this.postProps.posted_at, 'MMMM Do, YYYY').format('YYYY-MM-DD h:mm:ss');
           this.post.metaTags.title = this.postProps.meta_title;
           this.post.metaTags.keywords = this.postProps.meta_keywords;
           this.post.metaTags.description = this.postProps.meta_description
