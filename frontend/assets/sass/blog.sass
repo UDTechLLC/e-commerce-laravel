@@ -12,6 +12,8 @@
     &-wrapper
       height: 180px
       width: 100%
+      @media screen and (max-width: 767px)
+        height: 80px
     &-title
       color: #fff
       font-size: 50px
@@ -20,12 +22,20 @@
       letter-spacing: 1px
       line-height: 50px
       margin: 65px 0
+      @media screen and (max-width: 767px)
+        margin: 15px 0
   &__navigation
     background-color: #2b2a3c
     display: block
     height: 85px
     margin: 0 -30px
     width: calc(100% + 60px)
+    @media screen and (max-width: 1024px)
+      width: calc(100% + 30px)
+    @media screen and (max-width: 767px)
+      padding-right: 15px
+      //width: calc(100% + 45px)
+      width: 100%
     ul
       align-items: center
       display: flex
@@ -33,11 +43,16 @@
       height: 100%
       list-style: none
       margin: 0
+      padding: 0 0 0 30px
       width: 100%
+      @media screen and (max-width: 767px)
+        justify-content: space-between
       li
         height: 100%
         display: inline-block
         margin: 0 20px
+        @media screen and (max-width: 767px)
+          margin: 0
         a
           align-items: center
           color: #fff
@@ -47,6 +62,12 @@
           font-weight: 400
           height: 100%
           text-transform: uppercase
+          @media screen and (max-width: 420px)
+            font-size: .8em
+          @media screen and (max-width: 400px)
+            font-size: .7em
+          @media screen and (max-width: 400px)
+            font-size: .6em
         &.active
           a
             background-image: url("../images/blog/arrow-full-top.svg")
@@ -56,6 +77,14 @@
             background-size: 25px
             color: #eb212e
             font-weight: 600
+    &-wrapper
+      background-color: #2b2a3c
+      box-sizing: border-box
+      @media screen and (max-width: 767px)
+        margin-left: 0
+        float: none
+        padding: 0 15px
+        width: 100%
   &__posts
     display: flex
     justify-content: flex-start
@@ -66,9 +95,18 @@
   &__post
     padding: 15px
     width: calc(100% / 3 - 30px)
+    @media screen and (max-width: 767px)
+      padding: 10px
+      width: calc(100% / 2 - 20px)
     &-top
+      display: block
+      max-height: 150px
+      overflow: hidden
       img
         display: block
+        transition: all 1s
+        &:hover
+          transform: scale3d(1.1,1.1,1)
     &-bottom
       padding: 19px 15px 17px
       text-align: left
@@ -84,6 +122,8 @@
         text-transform: capitalize
         width: 100%
         white-space: nowrap
+        @media screen and (max-width: 767px)
+          font-size: 12px
         a
           color: #fff
           &:hover
@@ -93,6 +133,11 @@
         justify-content: flex-start
         font-size: 12px
       &-meta
+        &-date
+          display: flex
+          justify-content: flex-start
+          @media screen and (max-width: 767px)
+            display: none
         &-line
           color: #fff
           font-size: 12px
@@ -101,6 +146,22 @@
         &-view, &-likes
           color: #fff
           opacity: .5
+        &-likes
+          @media screen and (max-width: 767px)
+            //border-left: 1px solid #fff
+            margin-left: 8px
+            padding-left: 8px
+            position: relative
+            &:before
+              color: #fff
+              content: "|"
+              font-family: 'PT Sans',Arial,Helvetica sans-serif
+              font-size: 12px
+              font-weight: 400
+              left: 0
+              line-height: 1.5
+              position: absolute
+              top: 0
     &-separator
       color: #fff
       font-family: 'PT Sans',Arial,Helvetica sans-serif
@@ -109,6 +170,8 @@
       line-height: 1.5
       margin: 0 8px
       opacity: .5
+      @media screen and (max-width: 767px)
+        display: none
   &__post
     &:nth-child(4n+1)
       .blog__post-bottom
@@ -128,6 +191,7 @@
     color: #333
     cursor: pointer
     display: block
+    font-family: Montserrat,Arial,Helvetica,sans-serif
     font-size: 15px
     font-weight: 700
     height: 50px
