@@ -50,6 +50,16 @@ class BannerController extends Controller
     {
         return view('admin.banners.partials.template');
     }
+    
+    public function edit(Banner $banner)
+    {
+        return view('admin.banners.edit');
+    }
+    
+    public function update(Request $request, Banner $banner)
+    {
+        dd($request->all());
+    }
 
     /**
      * @param Banner $banner

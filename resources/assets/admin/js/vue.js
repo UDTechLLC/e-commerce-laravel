@@ -47,6 +47,7 @@ import blogCreate from './vue/pages/blog/create';
 import blogEdit from './vue/pages/blog/edit';
 
 import bannerCreate from './vue/pages/banners/create';
+import bannerEdit from './vue/pages/banners/edit';
 
 import categoryCreate from './vue/pages/category/create';
 import categoryEdit from './vue/pages/category/edit';
@@ -74,6 +75,7 @@ const app = new Vue({
         blogCreate,
         blogEdit,
         bannerCreate,
+        bannerEdit,
         categoryCreate,
         categoryEdit
     }
