@@ -53,12 +53,12 @@
                     </editor>
                 </div>
             </div>
-            <div class="form-group" :class="{'has-error': errors.has('category') }">
+            <div class="form-group" :class="{'has-error': errors.has('categoryId') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">Category
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <select id="category" name="category"
-                            v-model="post.category"
+                            v-model="post.categoryId"
                             v-validate data-vv-rules="required"
                             :class="{'is-danger': errors.has('category')}"
                             class="form-control col-md-7 col-xs-12">
@@ -152,7 +152,7 @@
                 content: "",
                 image: "",
                 imagePreview: "",
-                category: "",
+                categoryId: "",
                 postedAt: moment().format('YYYY-MM-DD h:mm:ss'),
                 published: false,
                 metaTags: {
@@ -183,7 +183,7 @@
           this.post.content = this.postProps.content;
           this.post.image = this.postProps.image;
           this.post.imagePreview = this.postProps.preview;
-          this.post.category = this.postProps.category_id;
+          this.post.categoryId = this.postProps.category_id;
           this.post.postedAt = moment(this.postProps.posted_at, 'MMMM Do, YYYY').format('YYYY-MM-DD h:mm:ss');
           this.post.metaTags.title = this.postProps.meta_title;
           this.post.metaTags.keywords = this.postProps.meta_keywords;
