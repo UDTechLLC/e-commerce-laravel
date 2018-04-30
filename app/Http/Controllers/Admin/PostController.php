@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Blog\StorePostRequest;
+use App\Http\Resources\Web\PostsResource;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Post;
@@ -81,20 +82,23 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        dd($post);
+        return view('admin.posts.edit', [
+            'post'       => json_encode(new PostsResource($post)),
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  Post $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        dd($request->all());
     }
 
     /**

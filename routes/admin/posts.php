@@ -23,7 +23,7 @@ Route::group([
         'as'   => '.edit',
         'uses' => 'PostController@edit'
     ]);
-    Route::post('update', [
+    Route::post('update/{post}', [
         'as'   => '.update',
         'uses' => 'PostController@update'
     ]);

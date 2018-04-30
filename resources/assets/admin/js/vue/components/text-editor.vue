@@ -111,6 +111,9 @@
                 }
             }
         },
+        props: {
+          oldContent: String
+        },
         components: {
             quillEditor
         },
@@ -146,6 +149,7 @@
             }
         },
         mounted() {
+            this.content = this.oldContent;
             let customButton = document.querySelector('.ql-banner');
             customButton.addEventListener('click', () => {
                 this.getBanners().then(result => {

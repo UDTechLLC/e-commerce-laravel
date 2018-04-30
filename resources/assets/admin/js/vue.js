@@ -44,6 +44,7 @@ import timer from './vue/pages/timer/edit';
 import deviceChart from './vue/pages/statistics/components/deviceCharts';
 
 import blogCreate from './vue/pages/blog/create';
+import blogEdit from './vue/pages/blog/edit';
 
 import bannerCreate from './vue/pages/banners/create';
 
@@ -70,6 +71,7 @@ const app = new Vue({
         timer,
         deviceChart,
         blogCreate,
+        blogEdit,
         bannerCreate,
         categoryCreate
     }

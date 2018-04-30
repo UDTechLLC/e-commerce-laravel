@@ -47,7 +47,7 @@
                             <img class="blog__post-icon" src="web/images/blog/blog-icon.svg" />
                             <span class="blog__post-separator">|</span>
                             <p class="blog__post-bottom-meta-line">
-                                {{ post.published }}
+                                {{ post.posted_at }}
                             </p>
                         </div>
                         <span class="blog__post-separator">|</span>
