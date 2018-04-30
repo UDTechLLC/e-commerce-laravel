@@ -22,6 +22,8 @@
                     B.S. Exercise Science, NSCA-CSCS Certified
                 </p>
             </div>
+
+            <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
         </article>
         <div class="blog-post__sidebar">
             <h1 class="blog-post__sidebar-title">
