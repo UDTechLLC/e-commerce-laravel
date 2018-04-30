@@ -2,8 +2,14 @@
 
 namespace App\Providers;
 
-use App\Models\Order;
+use App\Models\{
+    Order,
+    Post,
+    Product
+};
 use App\Observers\OrderObserver;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +29,19 @@ class AppServiceProvider extends ServiceProvider
         \Schema::defaultStringLength(191);
 
         Order::observe(OrderObserver::class);
+
+        Route::bind('product', function ($value) {
+            return Product::where('slug', $value)
+                ->where('published', true)
+                ->first();
+        });
+
+        Route::bind('post', function ($value) {
+            return Post::where('slug', $value)
+                ->where('published', true)
+                ->where('posted_at', '<=', Carbon::now())
+                ->first();
+        });
     }
 
     /**

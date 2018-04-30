@@ -201,9 +201,9 @@
                     metaTags: this.metaTags
                 };
                 axios.post('/admin/posts/store', data).then(
-                        request => {
+                        response => {
                             this.notifySuccess("Done", "Post create");
-                            setTimeout(() => location.href = "/admin/posts", 1500);
+                           // setTimeout(() => location.href = "/admin/posts", 1500);
                         },
                         error => {
                             this.notifyError(
