@@ -5,11 +5,13 @@
             <upload-image
                     @getFile="getDesktopImage"
                     :errorImage="errorImage"
+                    :oldImage="banner.imageDesktop"
             ></upload-image>
             <h2 class="text-center">Load mobile image</h2>
             <upload-image
                     @getFile="getMobileImage"
                     :errorImage="errorPreviewImage"
+                    :oldImage="banner.imageMobile"
             ></upload-image>
 
             <div class="form-group" :class="{'has-error': errors.has('title') }">
@@ -18,7 +20,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="title" name="title"
-                           v-model="title"
+                           v-model="banner.title"
                            v-validate data-vv-rules="required"
                            :class="{'is-danger': errors.has('title')}"
                            class="form-control col-md-7 col-xs-12">
@@ -31,7 +33,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <textarea type="text" id="description" name="description"
-                              v-model="description"
+                              v-model="banner.description"
                               v-validate data-vv-rules="required"
                               :class="{'is-danger': errors.has('description')}"
                               class="form-control col-md-7 col-xs-12"></textarea>
@@ -44,7 +46,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="link" name="link"
-                           v-model="link"
+                           v-model="banner.link"
                            v-validate data-vv-rules="required|url:{true}"
                            :class="{'is-danger': errors.has('link')}"
                            class="form-control col-md-7 col-xs-12">
@@ -67,42 +69,46 @@
 
     export default {
         data: () => ({
-            title: "",
-            description: "",
-            link: "",
-            imageDesktop: "",
-            imageMobile: "",
+            banner: {
+                title: "",
+                description: "",
+                link: "",
+                imageDesktop: "",
+                imageMobile: ""
+            },
             errorImage: false,
             errorPreviewImage: false
         }),
-
+        props: {
+            bannerProps: Object
+        },
+        created() {
+            this.banner.title = this.bannerProps.data.title;
+            this.banner.description = this.bannerProps.data.description;
+            this.banner.link = this.bannerProps.data.link;
+            this.banner.imageDesktop = this.bannerProps.data.imageDesktop;
+            this.banner.imageMobile = this.bannerProps.data.imageMobile;
+        },
         methods: {
             getDesktopImage(file) {
-                this.imageDesktop = file;
+                this.banner.imageDesktop = file;
                 this.errorImage = false;
             },
             getMobileImage(file) {
-                this.imageMobile = file;
+                this.banner.imageMobile = file;
                 this.errorPreviewImage = false;
             },
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
-                    if (this.imageDesktop == "") this.errorImage = true;
-                    if (this.imageMobile == "") this.errorPreviewImage = true;
-                    if (result && this.imageDesktop && this.imageMobile)  this.submitForm();
+                    if (this.banner.imageDesktop == "") this.errorImage = true;
+                    if (this.banner.imageMobile == "") this.errorPreviewImage = true;
+                    if (result && this.banner.imageDesktop && this.banner.imageMobile)  this.submitForm();
                 });
             },
             submitForm() {
-                let data = {
-                    title: this.title,
-                    description: this.description,
-                    link: this.link,
-                    imageDesktop: this.imageDesktop,
-                    imageMobile: this.imageMobile
-                };
-                axios.post('/admin/banners/store', data).then(
-                        request => {
-                            this.notifySuccess("Done", "Banner create");
+                axios.post(`/admin/banners/update/${this.bannerProps.data.id}`, this.banner).then(
+                        response => {
+                            this.notifySuccess("Done", "Banner update");
                             setTimeout(() => location.href = "/admin/banners", 1500);
                         },
                         error => {

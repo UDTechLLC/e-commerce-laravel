@@ -50,10 +50,16 @@ class BannerController extends Controller
     {
         return view('admin.banners.partials.template');
     }
-    
+
+    /**
+     * @param Banner $banner
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit(Banner $banner)
     {
-        return view('admin.banners.edit');
+        return view('admin.banners.edit', [
+            'banner' => json_encode(fractal($banner, new BannerTransformer()))
+        ]);
     }
     
     public function update(Request $request, Banner $banner)

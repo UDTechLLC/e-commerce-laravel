@@ -40,7 +40,7 @@
                                 {{ $banner->created_at }}
                             </td>
                             <td >
-                                <a href="entry.action.edit"  class="item-edit"><i
+                                <a href="{{ route('admin.banners.edit', $banner->getKey()) }}"  class="item-edit"><i
                                             class="fa fa-edit"></i></a>
 
                                 <a href="{{ route('admin.banners.delete', $banner->getKey()) }}" class="item-delete" onclick="return confirm('Are you sure you want to delete this item?');"><i

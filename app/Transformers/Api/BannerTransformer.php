@@ -19,6 +19,7 @@ class BannerTransformer extends TransformerAbstract
         return [
             'id'           => $banner->getKey(),
             'title'        => $banner->title,
+            'link'         => $banner->link,
             'description'  => $banner->description,
             'imageDesktop' => $banner->getFirstMediaUrl('desktop'),
             'imageMobile'  => $banner->getFirstMediaUrl('mobile'),
