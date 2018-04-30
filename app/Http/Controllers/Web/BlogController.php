@@ -24,8 +24,14 @@ class BlogController extends Controller
         return PostsResource::collection(Post::paginate(20));
     }
 
+    /**
+     * @param Post $post
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(Post $post)
     {
+        $post->increment('view_count');
+   
         return view('web.blog.show', ['post' => $post]);
     }
 }

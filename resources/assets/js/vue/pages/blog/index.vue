@@ -54,7 +54,7 @@
                         <div class="blog__post-bottom-meta-view">
                             <img class="blog__post-icon" src="web/images/blog/icon-white.svg" />
                                 <span class="blog__post-text">
-                                    9,028
+                                    {{ post.views }}
                                 </span>
                         </div>
                         <span class="blog__post-separator">|</span>

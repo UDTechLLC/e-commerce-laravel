@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('meta_title');
             $table->string('meta_description');
             $table->string('meta_keywords');
+            $table->integer('view_count')->default(0);
             $table->boolean('published')->default(0);
             $table->timestamp('posted_at');
             $table->timestamps();
