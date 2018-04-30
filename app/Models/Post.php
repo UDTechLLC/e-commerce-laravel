@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\{
     Builder
 };
@@ -88,6 +89,9 @@ class Post extends EloquentModel implements HasMedia
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -96,6 +100,15 @@ class Post extends EloquentModel implements HasMedia
     /**
      * Entity scopes go below
      */
+    
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('published', true)->where('posted_at', '<=', Carbon::now());
+    }
 
     // @todo:
 

@@ -25,7 +25,7 @@ class CreatePostsTable extends Migration
             $table->string('meta_keywords');
             $table->integer('view_count')->default(0);
             $table->boolean('published')->default(0);
-            $table->timestamp('posted_at');
+            $table->timestamp('posted_at')->nullable();
             $table->timestamps();
 
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');

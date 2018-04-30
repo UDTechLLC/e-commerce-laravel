@@ -21,7 +21,7 @@ class BlogController extends Controller
      */
     public function all()
     {
-        return PostsResource::collection(Post::paginate(20));
+        return PostsResource::collection(Post::published()->paginate(20));
     }
 
     /**
@@ -31,7 +31,10 @@ class BlogController extends Controller
     public function show(Post $post)
     {
         $post->increment('view_count');
-   
-        return view('web.blog.show', ['post' => $post]);
+
+        return view('web.blog.show', [
+            'post' => $post,
+            'topPosts' => Post::published()->orderByDesc('view_count')->limit(4)->get()
+        ]);
     }
 }
