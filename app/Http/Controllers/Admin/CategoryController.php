@@ -38,6 +38,26 @@ class CategoryController extends Controller
 
     /**
      * @param Category $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Category $category)
+    {
+        return view('admin.category.edit', ['category' => $category]);
+    }
+
+    /**
+     * @param CreateCategoryRequest $request
+     * @param Category $category
+     *
+     * @return void
+     */
+    public function update(CreateCategoryRequest $request, Category $category)
+    {
+        $category->update((['title' => $request->get('title')]));
+    }
+
+    /**
+     * @param Category $category
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */

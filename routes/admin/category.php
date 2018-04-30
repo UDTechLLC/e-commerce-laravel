@@ -19,4 +19,12 @@ Route::group([
         'as'   => '.delete',
         'uses' => 'CategoryController@destroy'
     ]);
+    Route::get('edit/{category}', [
+        'as'   => '.edit',
+        'uses' => 'CategoryController@edit'
+    ]);
+    Route::post('update/{category}', [
+        'as'   => '.update',
+        'uses' => 'CategoryController@update'
+    ]);
 });

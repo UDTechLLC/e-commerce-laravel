@@ -40,7 +40,7 @@
                                 {{ $category->created_at }}
                             </td>
                             <td >
-                                <a href="entry.action.edit"  class="item-edit"><i
+                                <a href="{{ route('admin.categories.edit', $category->getKey()) }}"  class="item-edit"><i
                                             class="fa fa-edit"></i></a>
 
                                 <a href="{{ route('admin.categories.delete', $category->getKey()) }}" class="item-delete" onclick="return confirm('Are you sure you want to delete this item?');"><i

@@ -49,6 +49,7 @@ import blogEdit from './vue/pages/blog/edit';
 import bannerCreate from './vue/pages/banners/create';
 
 import categoryCreate from './vue/pages/category/create';
+import categoryEdit from './vue/pages/category/edit';
 
 require('./vue/mixins');
 
@@ -73,6 +74,7 @@ const app = new Vue({
         blogCreate,
         blogEdit,
         bannerCreate,
-        categoryCreate
+        categoryCreate,
+        categoryEdit
     }
 });
