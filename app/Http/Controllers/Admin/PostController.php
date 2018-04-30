@@ -98,7 +98,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        dd($request->all());
+        $this->updatePost($request->all(), $post);
     }
 
     /**
@@ -130,6 +130,32 @@ class PostController extends Controller
 
         /** @var Post $post */
         $post = Post::create([
+            'author_id'        => $user ? $user->getKey() : null,
+            'slug'             => $data['slug'],
+            'title'            => $data['title'],
+            'content'          => $data['content'],
+            'meta_title'       => $data['metaTags']['title'],
+            'meta_description' => $data['metaTags']['description'],
+            'meta_keywords'    => $data['metaTags']['keywords'],
+            'published'        => $data['published'],
+            'posted_at'        => $data['postedAt'],
+        ]);
+
+        $category = Category::find($data['categoryId']);
+
+        $post->category()->associate($category);
+        $post->save();
+
+        return $post;
+    }
+
+    private function updatePost(array $data, Post $post)
+    {
+        /** @var User $user */
+        $user = \Auth::user();
+
+        /** @var Post $post */
+        $post->update([
             'author_id'        => $user ? $user->getKey() : null,
             'slug'             => $data['slug'],
             'title'            => $data['title'],

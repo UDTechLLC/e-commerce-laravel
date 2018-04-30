@@ -48,7 +48,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <editor
                             @returnContent="updateContent"
-                            :oldContent="post.body"
+                            :oldContent="post.content"
                     >
                     </editor>
                 </div>
@@ -149,7 +149,7 @@
             post: {
                 title: "",
                 slug: "",
-                body: "",
+                content: "",
                 image: "",
                 imagePreview: "",
                 category: "",
@@ -180,7 +180,7 @@
           this.post.title = this.postProps.title;
           this.post.slug = this.postProps.slug;
           this.oldSlug = this.postProps.slug;
-          this.post.body = this.postProps.content;
+          this.post.content = this.postProps.content;
           this.post.image = this.postProps.image;
           this.post.imagePreview = this.postProps.preview;
           this.post.category = this.postProps.category_id;
@@ -191,7 +191,7 @@
         },
         methods: {
             updateContent(value) {
-                this.body = value;
+                this.content = value;
             },
             getFile(file) {
                 this.post.image = file;
