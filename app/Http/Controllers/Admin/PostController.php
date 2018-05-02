@@ -102,8 +102,11 @@ class PostController extends Controller
     {
         $this->updatePost($request->all(), $post);
 
-//        $this->saveImageBase64($request->get('imagePreview'), $post, 'preview');
-        $this->saveImageBase64($request->get('image'), $post, 'banner');
+        $this->checkBase64Format($request->get('imagePreview'))
+            ? $this->saveImageBase64($request->get('imagePreview'), $post, 'preview')
+            : $this->checkBase64Format($request->get('image'))
+                ? $this->saveImageBase64($request->get('image'), $post, 'banner')
+                : false;
     }
 
     /**
@@ -258,5 +261,17 @@ class PostController extends Controller
         $bannerId = $m[1] ?? null;
 
         return $bannerId ? Banner::find($bannerId) : null;
+    }
+
+    /**
+     * Check base64 format.
+     *
+     * @param string $value
+     *
+     * @return bool
+     */
+    private function checkBase64Format(string $value)
+    {
+        return (bool) strpos($value, 'base64');
     }
 }
