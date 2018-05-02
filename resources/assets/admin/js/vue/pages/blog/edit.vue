@@ -48,7 +48,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <editor
                             @returnContent="updateContent"
-                            :oldContent="post.body"
+                            :oldContent="post.content"
                     >
                     </editor>
                 </div>
@@ -58,7 +58,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <select id="category" name="category"
-                            v-model="post.category"
+                            v-model="post.categoryId"
                             v-validate data-vv-rules="required"
                             :class="{'is-danger': errors.has('category')}"
                             class="form-control col-md-7 col-xs-12">
@@ -149,10 +149,10 @@
             post: {
                 title: "",
                 slug: "",
-                body: "",
+                content: "",
                 image: "",
                 imagePreview: "",
-                category: "",
+                categoryId: "",
                 postedAt: moment().format('YYYY-MM-DD h:mm:ss'),
                 published: false,
                 metaTags: {
@@ -180,10 +180,10 @@
           this.post.title = this.postProps.title;
           this.post.slug = this.postProps.slug;
           this.oldSlug = this.postProps.slug;
-          this.post.body = this.postProps.content;
+          this.post.content = this.postProps.content;
           this.post.image = this.postProps.image;
           this.post.imagePreview = this.postProps.preview;
-          this.post.category = this.postProps.category_id;
+          this.post.categoryId = this.postProps.category_id;
           this.post.published = this.postProps.published;
           this.post.postedAt = moment(this.postProps.posted_at, 'MMMM Do, YYYY').format('YYYY-MM-DD h:mm:ss');
           this.post.metaTags.title = this.postProps.meta_title;
@@ -192,7 +192,7 @@
         },
         methods: {
             updateContent(value) {
-                this.body = value;
+                this.content = value;
             },
             getFile(file) {
                 this.post.image = file;
