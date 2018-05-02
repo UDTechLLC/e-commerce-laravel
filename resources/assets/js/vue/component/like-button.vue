@@ -14,39 +14,49 @@
             active: false
         }),
         props: {
+            likes: Number,
             type: String,
-            id: Number
+            id: Number,
+            likeUrl: String,
+            dislikeUrl: String
         },
         created() {
-          this.checkStorage()
+            this.likesCount = this.likes;
+            this.checkStorage()
         },
         methods: {
             event() {
-              if (this.active) {
-                  this.dislike()
-              } else {
-                  this.like()
-              }
+                 (this.active) ? this.dislike() :this.like()
             },
             like () {
-                this.active = true;
-                let tmp = [];
-                tmp.push(...JSON.parse(Vue.localStorage.get(this.type)));
-                tmp.push(this.id);
-                Vue.localStorage.set(this.type, JSON.stringify(tmp));
+                axios.put(this.likeUrl).then(
+                        response => {
+                            let tmp = [];
+                            tmp.push(...JSON.parse(Vue.localStorage.get(this.type)));
+                            tmp.push(this.id);
+                            Vue.localStorage.set(this.type, JSON.stringify(tmp));
+                            this.active = true;
+                            this.likesCount++;
+                        },
+                        error => console.log('error')
+                );
             },
             dislike() {
-                let tmp = JSON.parse(Vue.localStorage.get(this.type));
-                tmp.splice(tmp.indexOf(this.id), 1);
-                Vue.localStorage.set(this.type, JSON.stringify(tmp));
-                this.active = false;
+                axios.put(this.dislikeUrl).then(
+                        response => {
+                            let tmp = JSON.parse(Vue.localStorage.get(this.type));
+                            tmp.splice(tmp.indexOf(this.id), 1);
+                            Vue.localStorage.set(this.type, JSON.stringify(tmp));
+                            this.active = false;
+                            this.likesCount--;
+                        },
+                        error => console.log('error')
+                );
             },
             checkStorage() {
                 let oldStorage = JSON.parse(Vue.localStorage.get(this.type));
-                if (oldStorage) {
-                    if (oldStorage.indexOf(this.id) != -1) {
-                        this.active = true;
-                    }
+                if (oldStorage && oldStorage.indexOf(this.id) != -1) {
+                    this.active = true;
                 } else {
                     let a = [];
                     Vue.localStorage.set(this.type, JSON.stringify(a));

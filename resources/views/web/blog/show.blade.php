@@ -31,6 +31,9 @@
                     </div>
                     <like-button
                             type="blog"
+                            :likes="{{ $post->likes_count }}"
+                            like-url="{{ route('likes.like', $post->slug) }}"
+                            dislike-url="{{ route('likes.dislike', $post->slug) }}"
                             :id="{{$post->getKey()}}"
                     ></like-button>
                 </div>
