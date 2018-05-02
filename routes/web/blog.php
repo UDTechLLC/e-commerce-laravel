@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-    'as'        => '.blog',
+    'as'        => 'blog',
     'prefix'    => 'blog',
     'namespace' => 'Web'
 ], function () {
