@@ -62,6 +62,21 @@
         padding-left: 15px
         @media screen and (max-width: 767px)
           padding-left: 5px
+    &-banner
+      height: auto
+      text-align: center
+      width: 100%
+      img
+        display: block
+        margin: 0 auto
+      .desktop-banner-image
+        display: block
+        @media screen and (max-width: 480px)
+          display: none
+      .mobile-banner-image
+        display: none
+        @media screen and (max-width: 480px)
+          display: block
     &-social
       border-bottom: 1px solid #96989c
       border-top: 1px solid #96989c

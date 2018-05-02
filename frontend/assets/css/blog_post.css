@@ -75,6 +75,23 @@
         @media screen and (max-width: 767px) {
           .blog-post__content ol li, .blog-post__content ul li {
             padding-left: 5px; } }
+    .blog-post__content-banner {
+      height: auto;
+      text-align: center;
+      width: 100%; }
+      .blog-post__content-banner img {
+        display: block;
+        margin: 0 auto; }
+      .blog-post__content-banner .desktop-banner-image {
+        display: block; }
+        @media screen and (max-width: 480px) {
+          .blog-post__content-banner .desktop-banner-image {
+            display: none; } }
+      .blog-post__content-banner .mobile-banner-image {
+        display: none; }
+        @media screen and (max-width: 480px) {
+          .blog-post__content-banner .mobile-banner-image {
+            display: block; } }
     .blog-post__content-social {
       border-bottom: 1px solid #96989c;
       border-top: 1px solid #96989c;
