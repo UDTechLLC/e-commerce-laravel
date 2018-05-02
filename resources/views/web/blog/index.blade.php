@@ -12,31 +12,31 @@
                 </h1>
             </div>
         </div>
-        <div class="blog__navigation-wrapper">
-            <nav class="blog__navigation">
-                <ul>
+        {{--<div class="blog__navigation-wrapper">--}}
+            {{--<nav class="blog__navigation">--}}
+                {{--<ul>--}}
 
-                    <li>
-                        <a class="tab-link" href="#">Exercises</a>
-                    </li>
-                    <li class="active">
-                        <a class="tab-link" href="#">Blog</a>
-                    </li>
-                    <li>
-                        <a class="tab-link" href="#">Vlog</a>
-                    </li>
-                    <li>
-                        <a class="tab-link" href="#">Workouts</a>
-                    </li>
-                    <li>
-                        <a class="tab-link" href="#">Recipes</a>
-                    </li>
-                    <li>
-                        <a class="tab-link" href="#">Education</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                    {{--<li>--}}
+                        {{--<a class="tab-link" href="#">Exercises</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="active">--}}
+                        {{--<a class="tab-link" href="#">Blog</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a class="tab-link" href="#">Vlog</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a class="tab-link" href="#">Workouts</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a class="tab-link" href="#">Recipes</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a class="tab-link" href="#">Education</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</nav>--}}
+        {{--</div>--}}
         <blog></blog>
     </main>
 @endsection
