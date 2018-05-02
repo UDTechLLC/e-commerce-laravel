@@ -115,6 +115,22 @@ class Post extends EloquentModel implements HasMedia
     /**
      * Entity mutators and accessors go below
      */
+    
+    /**
+     * @return string
+     */
+    public function getImageAttribute()
+    {
+        return $this->getFirstMediaUrl('banner');
+    }
+
+    /**
+     * @return string
+     */
+    public function getPreviewImageAttribute()
+    {
+        return $this->getFirstMediaUrl('preview');
+    }
 
     // @todo:
 
