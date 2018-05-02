@@ -93,7 +93,7 @@
                             <div class="blog__post-bottom-meta-likes">
                                 <img class="blog__post-icon" src="{{ asset('/web/images/blog/icon-heart-white.svg') }}"/>
                                 <span class="blog__post-text">
-                                    23+
+                                    {{ $item->likes_count }}+
                                 </span>
                             </div>
                         </div>

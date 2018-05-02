@@ -24,6 +24,7 @@ class PostsResource extends Resource
             'category_id'      => $this->category_id,
             'published'        => $this->published,
             'views'            => $this->view_count,
+            'likes'            => $this->likes_count,
             'posted_at'        => $this->posted_at->format('F jS, Y'),
             'meta_title'       => $this->meta_title,
             'meta_description' => $this->meta_description,

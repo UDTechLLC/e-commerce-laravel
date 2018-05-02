@@ -30,7 +30,7 @@
                         <div class="blog__post-bottom-meta-likes">
                             <img class="blog__post-icon" src="web/images/blog/icon-heart-white.svg"/>
                                 <span class="blog__post-text">
-                                    0
+                                    {{ post.likes }}
                                 </span>
                         </div>
                     </div>
