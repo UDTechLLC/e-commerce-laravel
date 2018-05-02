@@ -135,7 +135,7 @@ class PostController extends Controller
     {
         /** @var User $user */
         $user = \Auth::user();
-        //dd($data);
+
         /** @var Post $post */
         $post = Post::create([
             'author_id'        => $user ? $user->getKey() : null,
