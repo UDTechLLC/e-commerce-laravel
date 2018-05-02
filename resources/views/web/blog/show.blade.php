@@ -30,25 +30,25 @@
             </h1>
             @foreach($topPosts as $item)
                 <aside class="blog__post">
-                    <a class="blog__post-top" href="#">
+                    <a class="blog__post-top" href="{{ route('blog.show', $item->slug) }}">
                         <img src="{{ $item->previewImage }}"/>
                     </a>
                     <div class="blog__post-bottom">
                         <h2 class="blog__post-bottom-title">
-                            <a href="#">
+                            <a href="{{ route('blog.show', $item->slug) }}">
                                 HOW Do You Get Rid of Cellulite?
                             </a>
                         </h2>
                         <div class="blog__post-bottom-info">
                             <div class="blog__post-bottom-meta-view">
-                                <img class="blog__post-icon" src="/web/images/blog/icon-white.svg"/>
+                                <img class="blog__post-icon" src="{{ asset('/web/images/blog/icon-white.svg') }}"/>
                                 <span class="blog__post-text">
                                     {{ $item->view_count }}
                                 </span>
                             </div>
                             <span class="blog__post-separator">|</span>
                             <div class="blog__post-bottom-meta-likes">
-                                <img class="blog__post-icon" src="/web/images/blog/icon-heart-white.svg"/>
+                                <img class="blog__post-icon" src="{{ asset('/web/images/blog/icon-heart-white.svg') }}"/>
                                 <span class="blog__post-text">
                                     23+
                                 </span>
