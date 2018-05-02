@@ -37,7 +37,7 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        $banner = $this->createBanner($request->all());
+        $banner = $this->createOrUpdateBanner($request->all());
 
         $this->saveImageBase64($request->get('imageDesktop'), $banner, 'desktop');
         $this->saveImageBase64($request->get('imageMobile'), $banner, 'mobile');
@@ -45,6 +45,8 @@ class BannerController extends Controller
 
     /**
      * Return banner template.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getTemplate()
     {
@@ -61,10 +63,28 @@ class BannerController extends Controller
             'banner' => json_encode(fractal($banner, new BannerTransformer()))
         ]);
     }
-    
+
+    /**
+     * @param Request $request
+     * @param Banner $banner
+     *
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     */
     public function update(Request $request, Banner $banner)
     {
-        dd($request->all());
+        $this->createOrUpdateBanner($request->all(), $banner);
+
+        $imgDesktop = $request->get('imageDesktop');
+        $imgMobile = $request->get('imageMobile');
+
+        if ($this->checkBase64Format($imgDesktop)) {
+            $this->saveImageBase64($imgDesktop, $banner, 'desktop');
+        }
+
+        if ($this->checkBase64Format($imgMobile)) {
+            $this->saveImageBase64($imgMobile, $banner, 'mobile');
+        }
     }
 
     /**
@@ -82,11 +102,15 @@ class BannerController extends Controller
     /**
      * @param array $data
      *
+     * @param Banner|null $banner
+     *
      * @return mixed
      */
-    private function createBanner(array $data)
+    private function createOrUpdateBanner(array $data, Banner $banner = null)
     {
-        return Banner::create([
+        $bannerId = null !== $banner ? $banner->getKey() : 0;
+
+        return Banner::updateOrCreate(['id' => $bannerId], [
             'title' => $data['title'],
             'description' => $data['description'],
             'link' => $data['link'],
@@ -103,6 +127,8 @@ class BannerController extends Controller
      */
     private function saveImageBase64(string $base64Data, Banner $banner, string $collection)
     {
+        $banner->clearMediaCollection($collection);
+
         $imageType = $this->getImageTypeFromBase64($base64Data);
 
         $banner->addMediaFromBase64($base64Data)
@@ -120,5 +146,17 @@ class BannerController extends Controller
         $pos  = strpos($data, ';');
 
         return explode('/', substr($data, 0, $pos))[1];
+    }
+
+    /**
+     * Check base64 format.
+     *
+     * @param string $value
+     *
+     * @return bool
+     */
+    private function checkBase64Format(string $value)
+    {
+        return (bool) strpos($value, 'base64');
     }
 }
