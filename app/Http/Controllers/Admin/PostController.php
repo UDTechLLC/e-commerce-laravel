@@ -102,11 +102,16 @@ class PostController extends Controller
     {
         $this->updatePost($request->all(), $post);
 
-        $this->checkBase64Format($request->get('imagePreview'))
-            ? $this->saveImageBase64($request->get('imagePreview'), $post, 'preview')
-            : $this->checkBase64Format($request->get('image'))
-                ? $this->saveImageBase64($request->get('image'), $post, 'banner')
-                : false;
+        $imgPreview = $request->get('imagePreview');
+        $imgBanner = ($request->get('image'));
+
+        if ($this->checkBase64Format($imgPreview)) {
+            $this->saveImageBase64($imgPreview, $post, 'preview');
+        }
+
+        if ($this->checkBase64Format($imgBanner)) {
+            $this->saveImageBase64($imgBanner, $post, 'banner');
+        }
     }
 
     /**
