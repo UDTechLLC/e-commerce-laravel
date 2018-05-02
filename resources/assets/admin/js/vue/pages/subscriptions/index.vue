@@ -21,6 +21,13 @@
                 </tbody>
             </table>
         </div>
+        <div v-if="pagination.totalPage > 1">
+            <paginate
+                    :pageCount="pagination.totalPage"
+                    :containerClass="'pagination'"
+                    :clickHandler="clickCallback">
+            </paginate>
+        </div>
     </div>
 </template>
 <script type="text/babel">
@@ -38,16 +45,28 @@
                 'next payment',
                 'status'
             ],
+            pagination: {
+                totalPage: 1,
+                currentPage: 1
+            },
         }),
         created() {
             this.getSubscriptions();
         },
         methods: {
             getSubscriptions() {
-                axios.get('/admin/subscriptions/getSubscriptions').then(
-                        request => this.subscribs = request.data.data,
-                        error => console.log('eroro')
+                axios.get(`/admin/subscriptions/getSubscriptions?page=${this.pagination.currentPage}`).then(
+                        response => {
+                            this.subscribs = response.data.data;
+                            this.pagination.totalPage = response.data.meta.pagination.total_pages;
+                        },
+                            error => console.log('eroro')
+
                 )
+            },
+            clickCallback(page) {
+                this.pagination.currentPage = page;
+                this.getSubscriptions();
             }
         }
     })

@@ -62,6 +62,103 @@
         padding-left: 15px
         @media screen and (max-width: 767px)
           padding-left: 5px
+    &-banner
+      height: auto
+      text-align: center
+      width: 100%
+      img
+        display: block
+        margin: 0 auto
+      .desktop-banner-image
+        display: block
+        @media screen and (max-width: 480px)
+          display: none
+      .mobile-banner-image
+        display: none
+        @media screen and (max-width: 480px)
+          display: block
+    &-social
+      border-bottom: 1px solid #96989c
+      border-top: 1px solid #96989c
+      display: flex
+      justify-content: space-between
+      margin-bottom: 50px
+      @media screen and (max-width: 767px)
+        flex-wrap: wrap
+    &-viewlike
+      color: #96989c
+      display: flex
+      font-family: 'PT Sans',Arial,Helvetica sans-serif
+      font-size: 20px
+      font-weight: 400
+      justify-content: flex-start
+      line-height: 26px
+      margin: 30px 0
+      @media screen and (max-width: 767px)
+        margin-bottom: 15px
+        width: 100%
+    &-view
+      align-content: center
+      margin-right: 20px
+    &-like
+      display: inline-flex
+      &-link
+        background-image: url("../images/blog/like-desk-icon.svg")
+        display: block
+        height: 22px
+        margin-right: 5px
+        width: 22px
+        &:hover, &.active
+          background-image: url("../images/blog/like-desk-icon-active.svg")
+    &-share
+      display: flex
+      justify-content: flex-start
+      overflow: hidden
+      .share-btn
+        align-items: center
+        background-color: #96989c
+        border-radius: 50%
+        color: #fff
+        cursor: pointer
+        display: flex
+        justify-content: center
+        height: 32px
+        margin: 25px 0
+        width: 32px
+        @media screen and (max-width: 767px)
+          margin-top: 10px
+      &-list
+        box-sizing: border-box
+        display: flex
+        justify-content: flex-start
+        padding: 10px 0 !important
+        transition: width 1s
+        width: 0
+        @media screen and (max-width: 767px)
+          margin-top: 0 !important
+        &.active
+          width: auto
+      &-item
+        margin-left: 10px
+        &:first-child
+          //margin-left: 0
+        &-link
+          align-items: center
+          background-color: #000000
+          border-radius: 50%
+          color: #fff !important
+          display: flex
+          justify-content: center
+          height: 32px
+          width: 32px
+          &.facebook-share
+            background-color: #3252a2
+          &.twitter-share
+            background-color: #2aa3f0
+          &.pinterest-share
+            background-color: #bc0f23
+          &.email-share
+            background-color: #009e27
   &__sidebar
     margin-top: 155px
     width: 25%

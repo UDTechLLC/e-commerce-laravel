@@ -391,6 +391,12 @@
         .find('ul').slideToggle();
     })
 
+    if ( 0 < $('#shareButton').length ) {
+        $('#shareButton').on( 'click', function () {
+            $( this ).parent( '.blog-post__content-share' ).children( '.blog-post__content-share-list' ).toggleClass( 'active' );
+        })
+    }
+
   });
 
 
