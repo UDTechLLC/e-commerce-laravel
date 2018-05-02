@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-    'as' => '.likes',
+    'as' => 'likes',
     'prefix' => 'likes',
 ], function () {
     Route::put('like/{post}', [
