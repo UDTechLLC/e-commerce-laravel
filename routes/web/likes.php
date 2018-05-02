@@ -4,7 +4,7 @@ Route::group([
     'as' => '.likes',
     'prefix' => 'likes',
 ], function () {
-    Route::post('like/{post}', [
+    Route::put('like/{post}', [
         'as' => '.like',
         'uses' => 'Web\LikeController@like',
     ]);
