@@ -1,4 +1,11 @@
 @extends('web.layouts.app')
+@section('title')
+    {{ $post->meta_title }}
+@endsection
+@section('meta')
+    <meta name="description" content="{{ $post->meta_description }}">
+    <meta name="keywords" content="{{ $post->meta_keywords }}">
+@endsection
 @section('style')
     @parent
     <link rel="stylesheet" href="{{asset('web/css/blog.css')}}">
