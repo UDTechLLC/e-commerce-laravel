@@ -48,17 +48,17 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <editor
                             @returnContent="updateContent"
-                            :oldContent="post.content"
+                            :oldContent="post.body"
                     >
                     </editor>
                 </div>
             </div>
-            <div class="form-group" :class="{'has-error': errors.has('categoryId') }">
+            <div class="form-group" :class="{'has-error': errors.has('category') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">Category
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <select id="category" name="category"
-                            v-model="post.categoryId"
+                            v-model="post.category"
                             v-validate data-vv-rules="required"
                             :class="{'is-danger': errors.has('category')}"
                             class="form-control col-md-7 col-xs-12">
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postedAt"> Published <span
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postedAt"> Posted at <span
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -149,10 +149,10 @@
             post: {
                 title: "",
                 slug: "",
-                content: "",
+                body: "",
                 image: "",
                 imagePreview: "",
-                categoryId: "",
+                category: "",
                 postedAt: moment().format('YYYY-MM-DD h:mm:ss'),
                 published: false,
                 metaTags: {
@@ -180,10 +180,11 @@
           this.post.title = this.postProps.title;
           this.post.slug = this.postProps.slug;
           this.oldSlug = this.postProps.slug;
-          this.post.content = this.postProps.content;
+          this.post.body = this.postProps.content;
           this.post.image = this.postProps.image;
           this.post.imagePreview = this.postProps.preview;
-          this.post.categoryId = this.postProps.category_id;
+          this.post.category = this.postProps.category_id;
+          this.post.published = this.postProps.published;
           this.post.postedAt = moment(this.postProps.posted_at, 'MMMM Do, YYYY').format('YYYY-MM-DD h:mm:ss');
           this.post.metaTags.title = this.postProps.meta_title;
           this.post.metaTags.keywords = this.postProps.meta_keywords;
@@ -191,7 +192,7 @@
         },
         methods: {
             updateContent(value) {
-                this.content = value;
+                this.body = value;
             },
             getFile(file) {
                 this.post.image = file;
