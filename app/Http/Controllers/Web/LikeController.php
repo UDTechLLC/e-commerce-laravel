@@ -11,11 +11,17 @@ use App\Http\Controllers\Controller;
  */
 class LikeController extends Controller
 {
+    /**
+     * @param Post $post
+     */
     public function like(Post $post)
     {
         $post->increment('likes_count');
     }
 
+    /**
+     * @param Post $post
+     */
     public function dislike(Post $post)
     {
         $post->decrement('likes_count');
