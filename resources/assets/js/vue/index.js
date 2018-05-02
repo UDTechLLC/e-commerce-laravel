@@ -11,8 +11,10 @@ import checkout from './pages/checkout';
 import addToCartMobile from  './component/addToCartMobile';
 import shedfatMaxx from './pages/products/shedfat-maxx';
 import blog from './pages/blog/index';
+import likeButton from './component/like-button';
 
 Vue.component('add-to-cart', addToCart);
+Vue.component('like-button', likeButton);
 
 import store from './store';
 window.TWEEN = require('tween.js');

@@ -21,7 +21,47 @@
                 <img src="{{asset($post->image)}}">
             </div>
             {!! $post->content !!}
-
+            <div class="blog-post__content-social">
+                <div class="blog-post__content-viewlike">
+                    <div class="blog-post__content-view">
+                        <img src="{{asset('web/images/blog/view-desk-icon.svg')}}" />
+                            <span class="blog-post__content-view-counter">
+                                {{ $post->view_count }}
+                            </span>
+                    </div>
+                    <like-button
+                            type="blog"
+                            :id="{{$post->getKey()}}"
+                    ></like-button>
+                </div>
+                <div class="blog-post__content-share">
+                        <span id="shareButton" class="share-btn">
+                            <i class="fas fa-share-alt"></i>
+                        </span>
+                    <ul class="blog-post__content-share-list" style="">
+                        <li class="blog-post__content-share-item">
+                            <a class="facebook-share blog-post__content-share-item-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="blog-post__content-share-item">
+                            <a class="twitter-share blog-post__content-share-item-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="blog-post__content-share-item">
+                            <a class="pinterest-share blog-post__content-share-item-link">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                        <li class="blog-post__content-share-item">
+                            <a class="email-share blog-post__content-share-item-link">
+                                <i class="far fa-envelope"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
         </article>
         <div class="blog-post__sidebar">
