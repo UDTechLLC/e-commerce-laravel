@@ -94,11 +94,16 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param  Post $post
      *
-     * @return \Illuminate\Http\Response
+     * @return void
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
      */
     public function update(Request $request, Post $post)
     {
         $this->updatePost($request->all(), $post);
+
+//        $this->saveImageBase64($request->get('imagePreview'), $post, 'preview');
+        $this->saveImageBase64($request->get('image'), $post, 'banner');
     }
 
     /**
@@ -149,6 +154,14 @@ class PostController extends Controller
         return $post;
     }
 
+    /**
+     * Update specific post.
+     *
+     * @param array $data
+     * @param Post $post
+     *
+     * @return Post
+     */
     private function updatePost(array $data, Post $post)
     {
         /** @var User $user */
@@ -187,6 +200,8 @@ class PostController extends Controller
      */
     private function saveImageBase64(string $base64Data, Post $post, string $collection)
     {
+        $post->clearMediaCollection($collection);
+
         $imageType = $this->getImageTypeFromBase64($base64Data);
 
         $post->addMediaFromBase64($base64Data)
