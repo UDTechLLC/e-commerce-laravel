@@ -105,7 +105,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.12&appId=1580805958670684&autoLogAppEvents=1';
+        js.src = 'https://connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.12&appId=1580805958670684&autoLogAppEvents=1';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 <div id="app">
