@@ -34,7 +34,7 @@
         <div class="blog__posts">
             <article class="blog__post" v-for="post in posts">
                 <a class="blog__post-top" :href="'/blog/'+ post.slug">
-                    <img :src="post.image"/>
+                    <img :src="post.preview"/>
                 </a>
                 <div class="blog__post-bottom">
                     <h2 class="blog__post-bottom-title">
