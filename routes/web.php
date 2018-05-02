@@ -18,6 +18,7 @@ require 'web/page.php';
 require 'web/subscribe.php';
 require 'web/checkout.php';
 require 'web/blog.php';
+require 'web/likes.php';
 
 Auth::routes();
 
