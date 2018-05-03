@@ -1,5 +1,17 @@
 <template>
     <div>
+        <div class="blog__navigation-wrapper">
+            <nav class="blog__navigation">
+                <ul>
+                    <li class="active">
+                        <a class="tab-link" @click.prevent="filterPost(null)" href="#">All</a>
+                    </li>
+                    <li v-for="category in categories">
+                        <a class="tab-link" @click.prevent="filterPost(category.id)" href="#">{{ category.title }}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <div class="blog__posts">
             <article class="blog__post" v-for="post in posts">
                 <a class="blog__post-top" :href="'/blog/'+ post.slug">
@@ -46,9 +58,15 @@
     export default ({
         data: () => ({
             posts: [],
-            url: `/blog/all?page=1`
+            categoryId: null,
+            oldUrl: `/blog/all?page=1`,
+            url: ""
         }),
+        props: {
+          categories: Array
+        },
         created() {
+            this.url = this.oldUrl;
             this.getPosts()
         },
         methods: {
@@ -60,6 +78,11 @@
                         },
                         error => console.log('error')
                 )
+            },
+            filterPost(categoryId) {
+                this.post = [];
+                this.url = `${this.oldUrl}&filter=${categoryId}`;
+                this.getPosts();
             }
         }
     });

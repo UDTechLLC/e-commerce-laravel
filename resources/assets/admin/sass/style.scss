@@ -28,3 +28,18 @@
   color: #D8414F;
   padding-left: 15px;
 }
+.caption {
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+  }
+
+}
+.caption{
+  p:hover {
+    background: #f0f0f0;
+    white-space: normal;
+  }
+}

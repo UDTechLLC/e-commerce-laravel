@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Resources\Web\PostsResource;
 use App\Models\Banner;
+use App\Models\Category;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('web.blog.index');
+        return view('web.blog.index', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -35,7 +38,7 @@ class BlogController extends Controller
         $this->insertBanner($post);
 
         return view('web.blog.show', [
-            'post' => $post,
+            'post'     => $post,
             'topPosts' => Post::published()->orderByDesc('view_count')->limit(4)->get()
         ]);
     }
