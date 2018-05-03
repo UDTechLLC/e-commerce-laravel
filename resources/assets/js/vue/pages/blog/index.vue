@@ -3,10 +3,10 @@
         <div class="blog__navigation-wrapper">
             <nav class="blog__navigation">
                 <ul>
-                    <li class="active">
+                    <li :class="{'active': categoryId == null}">
                         <a class="tab-link" @click.prevent="filterPost(null)" href="#">All</a>
                     </li>
-                    <li v-for="category in categories">
+                    <li v-for="category in categories" :class="{'active': categoryId == category.id}">
                         <a class="tab-link" @click.prevent="filterPost(category.id)" href="#">{{ category.title }}</a>
                     </li>
                 </ul>
