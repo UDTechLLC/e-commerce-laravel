@@ -20,4 +20,5 @@ Route::group([
     require 'posts.php';
     require 'banners.php';
     require 'category.php';
+    require 'shipping.php';
 });
