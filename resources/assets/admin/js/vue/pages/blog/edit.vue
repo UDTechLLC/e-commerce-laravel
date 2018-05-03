@@ -192,7 +192,7 @@
         },
         methods: {
             updateContent(value) {
-                this.content = value;
+                this.post.content = value;
             },
             getFile(file) {
                 this.post.image = file;

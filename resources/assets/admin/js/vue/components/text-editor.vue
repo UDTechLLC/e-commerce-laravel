@@ -114,22 +114,27 @@
         props: {
           oldContent: String
         },
+        watch: {
+          content() {
+              this.$emit('returnContent', this.content)
+          }
+        },
         components: {
             quillEditor
         },
         // manually control the data synchronization
         methods: {
             onEditorBlur(quill) {
-                this.$emit('returnContent', this.content)
+                //this.$emit('returnContent', this.content)
             },
             onEditorFocus(quill) {
                 // console.log('editor focus!', quill)
             },
             onEditorReady(quill) {
-                //console.log('editor ready!', quill)
+               // console.log('editor ready!', quill)
             },
             onEditorChange({quill, html, text}) {
-                //console.log('editor change!', quill, html, text)
+             //   console.log('editor change!', quill, html, text)
                 this.content = html
             },
             getBanners() {
