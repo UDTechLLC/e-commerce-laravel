@@ -100,9 +100,10 @@ class Post extends EloquentModel implements HasMedia
     /**
      * Entity scopes go below
      */
-    
+
     /**
      * @param $query
+     *
      * @return mixed
      */
     public function scopePublished($query)
@@ -110,12 +111,27 @@ class Post extends EloquentModel implements HasMedia
         return $query->where('published', true)->where('posted_at', '<=', Carbon::now());
     }
 
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeFilterCategory($query, $value)
+    {
+        return null === $value
+            ? $query
+            : $query->whereHas('category', function ($q) use ($value) {
+                return $q->where('title', $value);
+            });
+    }
+
     // @todo:
 
     /**
      * Entity mutators and accessors go below
      */
-    
+
     /**
      * @return string
      */

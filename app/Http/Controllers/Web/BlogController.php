@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -21,11 +22,15 @@ class BlogController extends Controller
     }
 
     /**
+     * @param Request $request
+     *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function all()
+    public function all(Request $request)
     {
-        return PostsResource::collection(Post::published()->paginate(20));
+        $category = $request->get('filter');
+
+        return PostsResource::collection(Post::published()->filterCategory($category)->paginate(20));
     }
 
     /**
