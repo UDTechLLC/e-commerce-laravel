@@ -122,7 +122,7 @@ class Post extends EloquentModel implements HasMedia
         return null === $value
             ? $query
             : $query->whereHas('category', function ($q) use ($value) {
-                return $q->where('title', $value);
+                return $q->where('id', $value);
             });
     }
 

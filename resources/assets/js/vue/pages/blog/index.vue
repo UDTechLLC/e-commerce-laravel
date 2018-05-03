@@ -13,7 +13,7 @@
             </nav>
         </div>
         <div class="blog__posts">
-            <article class="blog__post" v-for="post in posts">
+            <article class="blog__post" v-for="post in posts" :key="post.id">
                 <a class="blog__post-top" :href="'/blog/'+ post.slug">
                     <img :src="post.preview"/>
                 </a>
@@ -49,7 +49,7 @@
                 </div>
             </article>
         </div>
-        <div class="blog__load-more" @click="getPosts" v-if="url">
+        <div class="blog__load-more" @click="getPosts" v-if="showButton">
             Load more posts
         </div>
     </div>
@@ -59,31 +59,43 @@
         data: () => ({
             posts: [],
             categoryId: null,
-            oldUrl: `/blog/all?page=1`,
-            url: ""
+            currentPage: 1,
+            showButton: true
         }),
         props: {
           categories: Array
         },
         created() {
-            this.url = this.oldUrl;
             this.getPosts()
         },
         methods: {
             getPosts() {
-                axios.get(this.url).then(
+                let url = (this.categoryId) ? `/blog/all?filter=${this.categoryId}&page=${this.currentPage}` :
+                        `/blog/all?page=${this.currentPage}`;
+
+                 axios.get(url).then(
                         response => {
                             this.posts.push(...response.data.data);
-                            this.url = response.data.links.next;
+                            this.showButton = (response.data.links.next) ? true : false;
+                            this.currentPage++;
                         },
                         error => console.log('error')
                 )
             },
             filterPost(categoryId) {
-                this.post = [];
-                this.url = `${this.oldUrl}&filter=${categoryId}`;
+                this.posts = [];
+                this.currentPage = 1;
+                this.categoryId = categoryId;
                 this.getPosts();
             }
         }
     });
 </script>
+<style scoped>
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+</style>
