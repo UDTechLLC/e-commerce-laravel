@@ -57,23 +57,6 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Post $post
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Throwable
-     */
-    public function show(Post $post)
-    {
-        $this->insertBanner($post);
-
-        return view('admin.blog.show', [
-            'post' => $post,
-        ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  $post
@@ -229,43 +212,6 @@ class PostController extends Controller
         $pos = strpos($data, ';');
 
         return explode('/', substr($data, 0, $pos))[1];
-    }
-
-    /**
-     * Insert banner to content.
-     *
-     * @param Post $post
-     *
-     * @return null|string|string[]
-     * @throws \Throwable
-     */
-    private function insertBanner(Post $post)
-    {
-        $content = $post->content;
-
-        $banner = $this->getBanner($content);
-
-        if (null !== $banner) {
-            $template = view('admin.banners.partials.template', ['banner' => $banner])->render();
-
-            $post->content = preg_replace("/@banner\((\d+)\)/", $template, $content);
-        }
-    }
-
-    /**
-     * Get banner from content.
-     *
-     * @param string $content
-     *
-     * @return mixed
-     */
-    private function getBanner(string $content)
-    {
-        preg_match('/@banner\((\d+)\)/', $content, $m);
-
-        $bannerId = $m[1] ?? null;
-
-        return $bannerId ? Banner::find($bannerId) : null;
     }
 
     /**
