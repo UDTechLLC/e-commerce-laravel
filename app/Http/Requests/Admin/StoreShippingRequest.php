@@ -25,8 +25,7 @@ class StoreShippingRequest extends FormRequest
     {
         return [
             'country' => 'required',
-            'cost' => 'required|integer',
-            'isFree' => 'required|boolean',
+            'cost' => 'required',
         ];
     }
 }

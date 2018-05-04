@@ -24,7 +24,7 @@ Route::group([
         'as' => '.update',
         'uses' => 'ShippingController@update'
     ]);
-    Route::delete('delete/{shipping}', [
+    Route::get('delete/{shipping}', [
         'as' => '.delete',
         'uses' => 'ShippingController@destroy',
     ]);

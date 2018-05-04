@@ -32,22 +32,28 @@ class ShippingController extends Controller
 
     /**
      * @param StoreShippingRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreShippingRequest $request)
     {
         Shipping::create([
             'country' => $request->get('country'),
             'cost' => $request->get('cost'),
-            'isFree' => $request->get('isFree'),
+            'isFree' => $request->get('isFree') ?? 0,
         ]);
+
+        return redirect()->route('admin.shipping.index');
     }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit()
+    public function edit(Shipping $shipping)
     {
-        return view('admin.shipping.edit');
+        return view('admin.shipping.edit', [
+            'shipping' => $shipping
+        ]);
     }
 
     /**
@@ -71,8 +77,10 @@ class ShippingController extends Controller
      * @return bool|null
      * @throws \Exception
      */
-    public function delete(Shipping $shipping)
+    public function destroy(Shipping $shipping)
     {
-        return $shipping->delete();
+        $shipping->delete();
+
+        return back();
     }
 }

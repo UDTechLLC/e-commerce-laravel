@@ -37,7 +37,9 @@ class Shipping extends EloquentModel
      * The attributes that should be cast to native types.
      * @var array
      */
-    protected $casts = [];
+    protected $casts = [
+        'isFree' => 'boolean',
+    ];
 
     /**
      * The relationships that should be touched on save.
