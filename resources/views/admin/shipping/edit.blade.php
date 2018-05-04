@@ -3,19 +3,11 @@
     <h2>Shipping edit</h2>
 
     <div class="container">
-        <form id="demo-form2" action="{{ route('admin.shipping.update') }}" class="form-horizontal form-label-left" method="post">
+        <form id="demo-form2" action="{{ route('admin.shipping.update', $shipping->getKey()) }}" class="form-horizontal form-label-left" method="post">
+            {{ method_field('PUT') }}
             {{ csrf_field() }}
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="country">Country<span
-                            class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" id="country" name="country" value="{{ old('country', $shipping->country) }}"
-                           class="form-control col-md-7 col-xs-12">
-                </div>
-            </div>
-
-            <div class="form-group">
+            <h3 class="text-center">Country {{ $shipping->country }}</h3>
+            <div class="form-group {{ $errors->has('cost') ? ' has-error' : '' }}">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cost">Cost<span
                             class="required">*</span>
                 </label>
@@ -23,6 +15,11 @@
                     <input type="text" id="cost" name="cost" value="{{ old('cost', $shipping->cost) }}"
                            class="form-control col-md-7 col-xs-12">
                 </div>
+                @if ($errors->has('cost'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('cost') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
@@ -30,8 +27,7 @@
                             class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="checkbox" id="free" name="isFree" value="1" @if($shipping->isFree) checked @endif
-                    class="form-control col-md-7 col-xs-12">
+                    <input type="checkbox" id="free" name="isFree" value="1" @if($shipping->isFree) checked @endif />
                 </div>
             </div>
 
