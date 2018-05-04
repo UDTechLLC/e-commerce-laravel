@@ -8,14 +8,13 @@ function getShippingCost(string $country)
     $other = App\Models\Shipping::where('country', \App\Models\Shipping::OTHER)->first();
     $freeCost = number_format(0, 2);
 
-    return
-        null !== $shipping
-            ? $shipping->isFree
-                ? $freeCost
-                : $shipping->cost
-            : $other->isFree
-                ? $freeCost
-                : $other->cost;
+    if (null !== $shipping) {
+        return $shipping->isFree ? $freeCost : $shipping->cost;
+    } elseif (null !== $other) {
+        return $other->isFree ? $freeCost : $other->cost;
+    }
+
+    return $freeCost;
 }
 
 function freeShipping()
