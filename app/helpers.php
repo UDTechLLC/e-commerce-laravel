@@ -5,6 +5,7 @@ declare(strict_types = 1);
 function getShippingCost(string $country)
 {
     $shipping = App\Models\Shipping::where('country', $country)->first();
+
     $other = App\Models\Shipping::where('country', 'other')->first();
     $freeCost = number_format(0, 2);
 

@@ -7,13 +7,13 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Shipping list</h2>
-                <div class="nav navbar-right panel_toolbox">
+              {{--  <div class="nav navbar-right panel_toolbox">
                     <a href="{{ route('admin.shipping.create') }}">
                         <button class="btn btn-sm btn-success btn-block">
                             <i class="fa fa-plus"></i> Create shipping
                         </button>
                     </a>
-                </div>
+                </div>--}}
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -47,8 +47,8 @@
                                 <a href="{{ route('admin.shipping.edit', $shipping->getKey()) }}"  class="item-edit"><i
                                             class="fa fa-edit"></i></a>
 
-                                <a href="{{ route('admin.shipping.delete', $shipping->getKey()) }}" class="item-delete" onclick="return confirm('Are you sure you want to delete this item?');"><i
-                                            class="fa fa-trash"></i></a>
+                               {{-- <a href="{{ route('admin.shipping.delete', $shipping->getKey()) }}" class="item-delete" onclick="return confirm('Are you sure you want to delete this item?');"><i
+                                            class="fa fa-trash"></i></a>--}}
                             </td>
                         </tr>
                     @endforeach
