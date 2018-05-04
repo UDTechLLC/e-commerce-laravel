@@ -137,7 +137,7 @@
                         </div>
 
                         <div class="get-more__text">
-                            <img src="{{ asset('web/images/limited_opportunity/lettering.jpg')}}"
+                            <img src="{{ asset('web/images/limited_opportunity/lettering.svg')}}"
                                  alt="get-more">
                         </div>
 
