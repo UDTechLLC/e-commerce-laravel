@@ -98,7 +98,7 @@
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Exercises, Sets & Reps!
+                                Every Meal, Monday through Sunday!
                             </p>
                         </div>
                     </div>
