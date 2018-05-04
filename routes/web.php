@@ -17,6 +17,8 @@ require 'web/paypal.php';
 require 'web/page.php';
 require 'web/subscribe.php';
 require 'web/checkout.php';
+require 'web/blog.php';
+require 'web/likes.php';
 
 Auth::routes();
 
@@ -31,6 +33,6 @@ Route::group([
 });
 
 Route::get('videolibrary/legs-fire-downloads', [
-    'as' => '.videolibrary',
+    'as'   => '.videolibrary',
     'uses' => 'Web\VideoLibraryController@awayToWp',
 ]);

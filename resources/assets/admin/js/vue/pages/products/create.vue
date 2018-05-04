@@ -226,7 +226,7 @@
                 let data = {
                     image: this.image,
                     imagePreview: this.imagePreview,
-                    slug: this.slug,
+                    slug: this.sanitizeTitle(this.slug),
                     title: this.title,
                     subtitle: this.subtitle,
                     description: this.description,

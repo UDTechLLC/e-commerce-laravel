@@ -43,6 +43,15 @@ import timer from './vue/pages/timer/edit';
 
 import deviceChart from './vue/pages/statistics/components/deviceCharts';
 
+import blogCreate from './vue/pages/blog/create';
+import blogEdit from './vue/pages/blog/edit';
+
+import bannerCreate from './vue/pages/banners/create';
+import bannerEdit from './vue/pages/banners/edit';
+
+import categoryCreate from './vue/pages/category/create';
+import categoryEdit from './vue/pages/category/edit';
+
 require('./vue/mixins');
 
 Vue.prototype.$EventBus = new Vue();
@@ -62,6 +71,12 @@ const app = new Vue({
         orders,
         subscriptions,
         timer,
-        deviceChart
+        deviceChart,
+        blogCreate,
+        blogEdit,
+        bannerCreate,
+        bannerEdit,
+        categoryCreate,
+        categoryEdit
     }
 });

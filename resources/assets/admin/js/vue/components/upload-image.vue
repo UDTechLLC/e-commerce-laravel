@@ -49,8 +49,6 @@
                 setTimeout(() => this.createImage(files[0]), 500);
             },
             createImage(file) {
-                //this.$validator.validateAll();
-                console.log(this.errors.first("image"));
                 if (!this.errors.has("image")) {
                     let image = new Image();
                     let reader = new FileReader();

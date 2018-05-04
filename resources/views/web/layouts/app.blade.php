@@ -5,7 +5,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117863358-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'UA-117863358-1');
@@ -14,8 +16,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+    @section('meta')
+        <meta name="description" content="ShedFat">
+        <meta name="keywords" content="ShedFat">
+    @show
+<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
@@ -97,9 +102,22 @@
 
     @show
 </head>
+
 <body @if(Request::is('/') && $timer->home_page || Request::is('shop') && $timer->shop_page) class=""
-        @else class="disabled-timer"
+      @else class="disabled-timer"
         @endif>
+@section('body-script')
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.12&appId=1580805958670684&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+@show
 <div id="app">
     <section class="timer">
         <h2>{{$timer->description}}</h2>

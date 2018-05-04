@@ -1,6 +1,5 @@
 <?php
 
-
 Route::group([
     'namespace' => 'Admin',
     'prefix' => 'admin',
@@ -18,4 +17,7 @@ Route::group([
     require 'statistics.php';
     require 'subscriptions.php';
     require 'timer.php';
+    require 'posts.php';
+    require 'banners.php';
+    require 'category.php';
 });

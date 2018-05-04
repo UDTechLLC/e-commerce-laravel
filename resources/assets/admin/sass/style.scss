@@ -19,3 +19,27 @@
 .nav-sm .navbar.nav_title a .mini-logo {
   display: block;
 }
+.item-edit {
+  font-size: 20px;
+  color: #949400;
+}
+.item-delete {
+  font-size: 20px;
+  color: #D8414F;
+  padding-left: 15px;
+}
+.caption {
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+  }
+
+}
+.caption{
+  p:hover {
+    background: #f0f0f0;
+    white-space: normal;
+  }
+}
