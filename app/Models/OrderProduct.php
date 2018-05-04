@@ -60,7 +60,10 @@ class OrderProduct extends Pivot
     /**
      * Entity relations go below
      */
-
+    public function orders()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
     // @todo:
 
     /**

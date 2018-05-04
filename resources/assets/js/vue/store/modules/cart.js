@@ -59,7 +59,7 @@ const actions = {
     let data = {
       hash: Vue.localStorage.get('hash')
     };
-    axios.post(`/api/carts/products/add/${productSlug}`, data).then(
+    axios.post(`api/carts/products/add/${productSlug}`, data).then(
       response => {
         this.commit('updateState', response);
         //this.addedToCart = true;
@@ -84,7 +84,7 @@ const mutations = {
   updateState(state, responseApi) {
     state.products = responseApi.data.data.products.data;
     state.countItems = responseApi.data.data.sum.products_counts;
-    state.subTotal = responseApi.data.data.sum.with_discount_sum;
+    state.subTotal = responseApi.data.data.sum.products_sum;
     state.discount = responseApi.data.data.sum.discount_sum;
     state.isShipping = responseApi.data.data.isShipping;
     state.isSubscribe = responseApi.data.data.isSubscribe;

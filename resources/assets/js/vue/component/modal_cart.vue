@@ -41,6 +41,20 @@
                             </div>
                         </div>
                         <div class="cart-button-area-wrapper">
+                            <div class="cart-coupon-block-wrapper">
+                                <h4 class="cart-coupon-title">
+                                    Have A Promotional Code?
+                                </h4>
+                                <div class="cart-coupon-block">
+                                    <form class="cart-coupon-form">
+                                        <input class="cart-coupon-field" :class="{'coupon-input-error': errorCoupon}" type="text" @input="updateCoupon" :value="coupon" placeholder="Coupon code"/>
+                                        <input class="cart-coupon-submit" type="submit" @click.prevent="submitCoupon" value="Apply coupon"/>
+                                    </form>
+                                    <div class="wrapper coupon-error" v-if="errorCoupon">
+                                        Coupon "{{ coupon }}" does not exist!
+                                    </div>
+                                </div>
+                            </div>
                             <div class="cart-sub-totals-block-wrapper">
                                 <div class="cart-sub-totals-block">
 											<span class="sub-total-label">
@@ -53,6 +67,39 @@
                                 <a href="/cart" class="view-cart-link">
                                     View cart
                                 </a>
+                            </div>
+                            <div class="cart-sub-totals-block-wrapper" v-if="discount != '0.00'">
+                                <div class="cart-sub-totals-block">
+								<span class="sub-total-label">
+									Coupon: {{ coupon }}:
+								</span>
+								<span class="sub-total-amount">
+									-${{ discount }}
+									<a href="#" class="remove_link" @click.prevent="deleteCoupon">
+										[Remove]
+									</a>
+								</span>
+                                </div>
+                            </div>
+                            <div class="cart-sub-totals-block-wrapper" v-if="isShipping">
+                                <div class="cart-sub-totals-block">
+								<span class="sub-total-label">
+									Shipping
+								</span>
+								<span class="sub-total-text">
+									Flate rate: ${{ shipping }}
+								</span>
+                                </div>
+                            </div>
+                            <div class="cart-sub-totals-block-wrapper">
+                                <div class="cart-sub-totals-block">
+								<span class="sub-total-label">
+									Total:
+								</span>
+								<span class="sub-total-amount">
+									${{ total }}
+								</span>
+                                </div>
                             </div>
                             <div class="cart-button-area">
                                 <div class="cart-button checkout-button-wrapper">
@@ -74,14 +121,14 @@
                             </span>
                                 100% INDUSTRY STANDARD SSL
                             </p>
- <!--                           <p class="subscribe-save-wrapper">
-                            <span class="label">
-                                SUBSCRIBE AND SAVE 15%:
-                            </span>
-                                <a id="subsSaveMoreInf" href="#" class="subs-save-more-info">
-                                    MORE INFO
-                                </a>
-                            </p>-->
+                            <!--                           <p class="subscribe-save-wrapper">
+                                                       <span class="label">
+                                                           SUBSCRIBE AND SAVE 15%:
+                                                       </span>
+                                                           <a id="subsSaveMoreInf" href="#" class="subs-save-more-info">
+                                                               MORE INFO
+                                                           </a>
+                                                       </p>-->
                         </div>
                     </div>
                 </div>
@@ -93,10 +140,67 @@
     import {mapGetters} from 'vuex'
 
     export default ({
-        computed: mapGetters({
-            products: 'products',
-            subTotal: 'subTotal'
-        })
+        data: () => ({
+            shipping: 0,
+            errorCoupon: false,
+            selectedCountry: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
+        }),
+        computed: {
+            ...mapGetters([
+                'products',
+                'subTotal',
+                'countItems',
+                'isShipping',
+                'discount',
+                'coupon'
+            ]),
+            total() {
+                return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
+            }
+        },
+        updated() {
+          if (this.isShipping && this.shipping == 0) this.getShipping()
+        },
+        methods: {
+            submitCoupon() {
+                let url = `/api/carts/coupons`;
+                let data = {
+                    hash: Vue.localStorage.get('hash'),
+                    code: this.coupon
+                };
+
+                axios.post(url, data).then(
+                        response => {
+                            // this.$EventBus.$emit('updateProduct', response);
+                            this.$store.commit('updateState', response);
+                            this.errorCoupon = false;
+                        },
+                        error => this.errorCoupon = true
+                )
+            },
+            deleteCoupon() {
+                let url = `/api/carts/coupons/remove?hash=${Vue.localStorage.get('hash')}&code=${this.coupon}`;
+
+                axios.delete(url).then(
+                        response => this.$store.commit('updateState', response),
+                        error => console.log('error')
+                )
+            },
+            updateCoupon (e) {
+                this.$store.commit('updateCoupon', e.target.value)
+            },
+            getShipping() {
+                axios.get(`/api/countries?country=${this.selectedCountry}`).then(
+                        response => {
+                            //this.countries = response.data.countries;
+                            this.selectedCountry = response.data.selected;
+                            // this.states = response.data.states;
+                            this.shipping = response.data.shipping;
+                        },
+                        error => console.log('error')
+                )
+            },
+        }
     })
 </script>
 <style scoped>
@@ -105,5 +209,11 @@
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    .coupon-error {
+        color: red;
+    }
+    .coupon-input-error {
+        border: 1px solid red!important;
     }
 </style>

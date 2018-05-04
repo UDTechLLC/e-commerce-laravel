@@ -3,7 +3,6 @@
 
   $(document).ready(function () {
 
-
     if (0 < $('#successStories').length) {
       $('#successStories').slick({
         autoplay: true,
@@ -243,6 +242,14 @@
       bg: $('.sideCartModal__bg'),
       fnCall: function () {
         setTimeout(function () {
+          var cartButtonAreaHeight = $( '.side-cart-block .cart-button-area-wrapper' ).outerHeight();
+          var cartFooterHeight = $( '.side-cart-block  .side-cart-footer-wrapper' ).outerHeight();
+          var cartProductsHeight = $( window ).height() - cartButtonAreaHeight - cartFooterHeight;
+          if ( 800 < $( window ).width() ) {
+              $('.side-cart-block .cart-products-wrapper').height(cartProductsHeight - 50);
+          } else {
+              $('.side-cart-block .cart-products-wrapper').height(cartProductsHeight - 20);
+          }
           cart.wrap.addClass('active');
           cart.bg.fadeIn();
           body.css('overflow', 'hidden');
@@ -329,6 +336,10 @@
       });
     };
 
+    CallPopUp('bogo-12week-custom-meal-plan');
+    CallPopUp('12week-custom-meal-plan');
+    CallPopUp('bogo-12week-custom-training-plan');
+    CallPopUp('12week-custom-training-plan');
     CallPopUp('12 Week Custom Training Plan');
     CallPopUp('12 Week Custom Meal Plan');
     CallPopUp('SPRING CHALLENGE');
@@ -379,6 +390,12 @@
         .toggleClass('open')
         .find('ul').slideToggle();
     })
+
+    if ( 0 < $('#shareButton').length ) {
+        $('#shareButton').on( 'click', function () {
+            $( this ).parent( '.blog-post__content-share' ).children( '.blog-post__content-share-list' ).toggleClass( 'active' );
+        })
+    }
 
   });
 

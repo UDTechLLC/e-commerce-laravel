@@ -13,7 +13,7 @@ use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 
 class SubscriptionResponse implements Responsable
 {
-    const PER_PAGE_DEFAULT = 5;
+    const PER_PAGE_DEFAULT = 20;
 
     /**
      * Create an HTTP response that represents the object.

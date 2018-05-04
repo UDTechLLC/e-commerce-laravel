@@ -10,10 +10,10 @@
 
                         <div class="modal-footer">
                             <slot name="footer">
-                                <button class="default-button btn btn-default" @click="$emit('pushCancel')">
+                                <button class="default-button btn btn-default" @click.prevent="$emit('pushCancel')">
                                     Cancel
                                 </button>
-                                <button class="modal-default-button btn btn-primary" @click="$emit('pushOk')">
+                                <button class="modal-default-button btn btn-primary" @click.prevent="$emit('pushOk')">
                                     OK
                                 </button>
                             </slot>

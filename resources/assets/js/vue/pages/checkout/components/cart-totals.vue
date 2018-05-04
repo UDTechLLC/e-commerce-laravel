@@ -32,11 +32,11 @@
                 </td>
                 <td class="product-subtotal">
                     <span v-if="product.discount_amount != '0.00'">
-                        <del>$ {{product.amount}}</del>
-                        <span class="product-subtotal-amount"> ${{ product.amount_with_discount }} </span>
+                        <del>${{product.total_sum}}</del>
+                        <span class="product-subtotal-amount"> ${{ product.total_sum_with_discount }} </span>
                     </span>
                      <span v-else class="product-amount">
-                          ${{ product.amount_with_discount }}
+                          ${{ product.total_sum_with_discount }}
                      </span>
                 </td>
 
@@ -105,7 +105,7 @@
                 'coupon'
             ]),
             total() {
-                return (Number(this.subTotal) + Number(this.shipping)).toFixed(2);
+                return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
             }
         }
     })

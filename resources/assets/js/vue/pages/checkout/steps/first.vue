@@ -1,6 +1,6 @@
 <template>
     <div class="checkout">
-        <!--<login v-if="userAuth != '1'"></login>-->
+        <login v-if="userAuth != '1' && isSubscribe"></login>
         <div class="checkout-billing-details-block-wrapper">
             <div class="wrapper">
                 <div class="checkout-billing-details-block">
@@ -9,6 +9,9 @@
                             <h3 class="checkout-title">
                                 Billing Details
                             </h3>
+                            <cart-totals-mobile
+                                    :shipping="shipping"
+                            ></cart-totals-mobile>
                         </div>
 
                         <div class="billing-details-info-wrapper">
@@ -170,13 +173,13 @@
                                               style="display: none">Please enter your phone.</span>
                                     </div>
 
-                                    <!--<div class="form-field-wrapper" v-if="userAuth != '1'">-->
-                                        <!--<input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"-->
-                                               <!--type="checkbox" @change="createUser = !createUser"/>-->
-                                        <!--<label for="bdCreateAccount" class="checkbox">-->
-                                            <!--Create an account?-->
-                                        <!--</label>-->
-                                    <!--</div>-->
+                                    <div class="form-field-wrapper" v-if="userAuth != '1' && isSubscribe">
+                                    <input id="bdCreateAccount" class="form-checkbox-field" name="bd_create_account"
+                                    type="checkbox" @change="createUser = !createUser"/>
+                                    <label for="bdCreateAccount" class="checkbox">
+                                    Create an account?
+                                    </label>
+                                    </div>
 
                                     <div class="create-account-block" v-if="createUser">
                                         <p>
@@ -226,137 +229,139 @@
 </template>
 <script type="text/babel">
 
-    import cartTotals from './../components/cart-totals';
-    import login from './../components/login';
-    import VueGoogleAutocomplete from 'vue-google-autocomplete';
-    import {mapGetters} from 'vuex';
+  import cartTotals from './../components/cart-totals';
+  import cartTotalsMobile from './../components/cart-totals-mobile';
+  import login from './../components/login';
+  import VueGoogleAutocomplete from 'vue-google-autocomplete';
+  import {mapGetters} from 'vuex';
 
-    export default ({
+  export default ({
 
-        data: () => ({
-            result: "",
-            billingId: "",
-            createUser: false,
-            password: "",
-            registerError: [],
-            registerErrorShow: false,
-            authErrorShow: false,
-            billingInfo: {
-                firstName: "",
-                lastName: "",
-                email: "",
-                company: "",
-                street: "",
-                apartment: "",
-                country: {
-                    code: "",
-                    name: ""
-                },
-                state: "",
-                city: "",
-                postcode: "",
-                phone: ""
-            }
-        }),
-        props: {
-            userAuth: String,
-            shipping: String,
-            countries: Array,
-            isSubscribe: Boolean
+    data: () => ({
+      result: "",
+      billingId: "",
+      createUser: false,
+      password: "",
+      registerError: [],
+      registerErrorShow: false,
+      authErrorShow: false,
+      billingInfo: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        street: "",
+        apartment: "",
+        country: {
+          code: "",
+          name: ""
         },
-        components: {
-            cartTotals,
-            login,
-            VueGoogleAutocomplete
-        },
-        computed: {
-            ...mapGetters([
-                'isShipping',
-                'cartId'
-            ]),
-            googleCountry() {
-                return this.billingInfo.country.code;
-            },
-            authError() {
-                let authEr = true;
-                if(this.userAuth == "1" || this.password != "") authEr = false;
+        state: "",
+        city: "",
+        postcode: "",
+        phone: ""
+      }
+    }),
+    props: {
+      userAuth: String,
+      shipping: String,
+      countries: Array,
+      isSubscribe: Boolean
+    },
+    components: {
+      cartTotals,
+      cartTotalsMobile,
+      login,
+      VueGoogleAutocomplete
+    },
+    computed: {
+      ...mapGetters([
+        'isShipping',
+        'cartId'
+      ]),
+      googleCountry() {
+        return this.billingInfo.country.code;
+      },
+      authError() {
+        let authEr = true;
+        if (this.userAuth == "1" || this.password != "") authEr = false;
 
-                return authEr;
-            }
-        },
-        updated() {
-            if (this.isShipping) {
-                this.billingInfo.country.name = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
-                this.billingInfo.country.code = (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "";
-            }
-        },
-        methods: {
-            saveCountries() {
-                Vue.localStorage.set('shippingCountryName', this.billingInfo.country.name);
-                Vue.localStorage.set('shippingCountryCode', this.billingInfo.country.code);
-                this.$emit('updateCountry');
-            },
-            getAddressData(value) {
-                this.billingInfo.street = (value.street_number) ? `${value.street_number} ${value.route}` : `${value.route}`;
-                this.billingInfo.country.name = value.country;
-                this.countries.forEach(key => {
-                    if (key.name == value.country) {
-                        this.billingInfo.country.code = key.code;
-                    }
-                });
-                this.saveCountries();
-                this.billingInfo.state = value.administrative_area_level_1;
-                this.billingInfo.city = value.locality;
-                this.billingInfo.postcode = value.postal_code;
+        return authEr;
+      }
+    },
+    updated() {
+      if (this.isShipping) {
+        this.billingInfo.country.name = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
+        this.billingInfo.country.code = (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "";
+      }
+    },
+    methods: {
+      saveCountries() {
+        Vue.localStorage.set('shippingCountryName', this.billingInfo.country.name);
+        Vue.localStorage.set('shippingCountryCode', this.billingInfo.country.code);
+        this.$emit('updateCountry');
+      },
+      getAddressData(value) {
+        this.billingInfo.street = (value.street_number) ? `${value.street_number} ${value.route}` : `${value.route}`;
+        this.billingInfo.country.name = value.country;
+        this.countries.forEach(key => {
+          if (key.name == value.country) {
+            this.billingInfo.country.code = key.code;
+          }
+        });
+        this.saveCountries();
+        this.billingInfo.state = value.administrative_area_level_1;
+        this.billingInfo.city = value.locality;
+        this.billingInfo.postcode = value.postal_code;
 
-                this.$nextTick(() => {
-                    this.$refs.street.update(this.billingInfo.street)
-                })
-            },
-            getCustomAddress(value) {
-                this.billingInfo.street = value.name ? value.name : value.newVal;
-            },
-            next() {
-                this.registerErrorShow = false;
-                this.registerError = [];
-                this.$validator.validateAll().then((result) => {
-                    if (result) {
-                        this.authErrorShow = false;
-                        if (this.isSubscribe && this.authError) {
-                            this.authErrorShow = true;
-                                return false;
-                        }
-
-                        let url = `/checkout/billing/${this.cartId}`;
-                        if (this.billingId != "") url = `/checkout/billing/${this.cartId}/${this.billingId}`;
-                        let body = {
-                            ...this.billingInfo,
-                            password: this.password
-                        };
-                        axios.post(url, body).then(
-                                response => {
-                                    this.billingId = response.data.data.billing.data.id;
-                                    let data = {
-                                        step: 'second',
-                                        billing: this.billingInfo,
-                                        orderId: response.data.data.id,
-                                        password: this.password
-                                    };
-                                    this.$emit('next', data);
-                                    return;
-                                },
-                                error => {
-                                    for (let key in error.response.data.error) {
-                                        this.registerError.push(...error.response.data.error[key]);
-                                    }
-                                    this.registerErrorShow = true;
-                                }
-                        );
-                    }
-                });
+        this.$nextTick(() => {
+          this.$refs.street.update(this.billingInfo.street)
+        })
+      },
+      getCustomAddress(value) {
+        this.billingInfo.street = value.name ? value.name : value.newVal;
+      },
+      next() {
+        this.registerErrorShow = false;
+        this.registerError = [];
+        this.$validator.validateAll().then((result) => {
+          if (result) {
+            this.authErrorShow = false;
+            if (this.isSubscribe && this.authError) {
+              this.authErrorShow = true;
+              return false;
             }
-        }
-    })
+
+            let url = `/checkout/billing/${this.cartId}`;
+            if (this.billingId != "") url = `/checkout/billing/${this.cartId}/${this.billingId}`;
+            let body = {
+              ...this.billingInfo,
+              password: this.password
+            };
+            axios.post(url, body).then(
+              response => {
+                this.billingId = response.data.data.billing.data.id;
+                let data = {
+                  step: 'second',
+                  billing: this.billingInfo,
+                  orderId: response.data.data.id,
+                  password: this.password
+                };
+                this.$emit('next', data);
+                return;
+              },
+              error => {
+                for (let key in error.response.data.error) {
+                  this.registerError.push(...error.response.data.error[key]);
+                }
+                this.registerErrorShow = true;
+              }
+            );
+          }
+        });
+      }
+    }
+  })
 
 </script>
 <style scoped lang="scss">
@@ -367,9 +372,9 @@
         color: #CE4747;
         padding: 15px;
 
-    span {
-        display: block;
-    }
+        span {
+            display: block;
+        }
 
     }
 

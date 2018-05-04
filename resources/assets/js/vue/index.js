@@ -10,8 +10,11 @@ import addToCart from './component/addToCart';
 import checkout from './pages/checkout';
 import addToCartMobile from  './component/addToCartMobile';
 import shedfatMaxx from './pages/products/shedfat-maxx';
+import blog from './pages/blog/index';
+import likeButton from './component/like-button';
 
 Vue.component('add-to-cart', addToCart);
+Vue.component('like-button', likeButton);
 
 import store from './store';
 window.TWEEN = require('tween.js');
@@ -34,7 +37,8 @@ const app = new Vue({
     cart,
     checkout,
     addToCartMobile,
-    shedfatMaxx
+    shedfatMaxx,
+    blog
 },
   created() {
     if (!Vue.localStorage.get('hash')) {

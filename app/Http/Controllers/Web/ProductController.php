@@ -55,21 +55,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        if (!$product->published) {
-            return abort(404);
-        }
-//        return view('web.shop.products.12week-custom-training-plan', compact('product'));
-//        return view('web.shop.products.never-stop-moving-e-book', compact('product'));
-//        return view('web.shop.products.shedfat-infuser-bottle', compact('product'));
-//        return view('web.shop.products.resistance-bands',compact('product'));
-//        return view('web.shop.products.what-to-eat-in-the-streets',compact('product'));
-//        return view('web.shop.products.14-day-detox-guide',compact('product'));
-//        return view('web.shop.products.queen-of-the-hill', compact('product'));
-        if ($product->view_name) {
-            return view('web.shop.products.' . $product->view_name . '', compact('product'));
-        } else {
-            return view('web.shop.products.show', compact('product'));
-        }
+        $viewName = ($product->view_name) ? 'web.shop.products.' . $product->view_name : 'web.shop.products.show';
+        
+        return view($viewName, compact('product'));
     }
 
     public function challenge(): View

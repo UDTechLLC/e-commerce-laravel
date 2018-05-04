@@ -9,8 +9,9 @@ use App\Http\Requests\Subscribe\FooterSubscribeRequest;
 
 class SubscribeController extends Controller
 {
-    const SHEDFAT_LIST = 'footer_list';
-    const CHALLENGE_LIST = 'challenge_list';
+    const NEWSLETTER_SUBSCRIPTION = 'Newsletter Subscription';
+    const SHED_FAT_30_DAY_CHALLENGE = 'ShedFat 30 Day Challenge';
+    const DAD_HAT = 'Dad hat';
 
     /**
      * Add email to footer_list.
@@ -23,7 +24,7 @@ class SubscribeController extends Controller
     {
         $email = $request->get('email');
 
-        $response = Newsletter::subscribeOrUpdate($email, [], self::SHEDFAT_LIST);
+        $response = Newsletter::subscribeOrUpdate($email, [], self::NEWSLETTER_SUBSCRIPTION);
 
         return back();
     }
@@ -40,7 +41,24 @@ class SubscribeController extends Controller
         $name = $request->get('name');
         $email = $request->get('email');
 
-        Newsletter::subscribeOrUpdate($email, ['FNAME' => $name], self::CHALLENGE_LIST);
+        Newsletter::subscribeOrUpdate($email, ['FNAME' => $name], self::SHED_FAT_30_DAY_CHALLENGE);
+
+        return back();
+    }
+
+    /**
+     * Add email to subscribe list.
+     *
+     * @param ChallengeSubscribeRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addToShedfatDadHatList(ChallengeSubscribeRequest $request)
+    {
+        $name = $request->get('name');
+        $email = $request->get('email');
+
+        Newsletter::subscribeOrUpdate($email, ['FNAME' => $name], self::DAD_HAT);
 
         return back();
     }

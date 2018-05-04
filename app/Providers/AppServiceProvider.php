@@ -2,8 +2,14 @@
 
 namespace App\Providers;
 
-use App\Models\Order;
+use App\Models\{
+    Order,
+    Post,
+    Product
+};
 use App\Observers\OrderObserver;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +29,32 @@ class AppServiceProvider extends ServiceProvider
         \Schema::defaultStringLength(191);
 
         Order::observe(OrderObserver::class);
+
+        Route::bind('product', function ($value) {
+            if ($this->isAdmin()) {
+                return Product::where('slug', $value)->first();
+            }
+            return Product::where('slug', $value)
+                ->where('published', true)
+                ->first();
+        });
+
+        Route::bind('post', function ($value) {
+            if ($this->isAdmin()) {
+                return Post::where('slug', $value)->first();
+            }
+            return Post::where('slug', $value)
+                ->published()
+                ->first();
+        });
+    }
+
+    /**
+     * @return bool
+     */
+    private function isAdmin()
+    {
+        return Auth::user() && Auth::user()->hasRole('administrator');
     }
 
     /**
