@@ -32,11 +32,13 @@
                                 {{--SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase your weight loss, provide clean smooth energy and help you get past your fitness plateaus.--}}
                             </p>
                         </div>
+
                         <shedfat-maxx
                                 product-props="{{$product}}"
                                 subscribe-product-props="{{ \App\Models\Product::where('slug', 'shedfat-maxx-subscription')->first() }}"
                         >
                         </shedfat-maxx>
+                        @include('web.shop.partials.free_shipping')
                     </div>
                 </div>
                 <div class="clear"></div>
