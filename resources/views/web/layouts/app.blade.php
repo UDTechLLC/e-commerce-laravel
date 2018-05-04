@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+    <script type="text/javascript">
+        var google_conversion_id = 830921804;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/830921804/?guid=ON&script=0"/>
+        </div>
+    </noscript>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117863358-1"></script>
+    {{--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117863358-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
@@ -11,8 +23,19 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-117863358-1');
-    </script>
+    </script>--}}
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108376619-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag()
+
+        {dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-108376619-1');
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
