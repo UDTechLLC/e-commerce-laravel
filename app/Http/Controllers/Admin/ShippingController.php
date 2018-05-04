@@ -68,7 +68,7 @@ class ShippingController extends Controller
     {
         $shipping->update([
             'cost'   => $request->get('cost'),
-            'isFree' => $request->get('isFree'),
+            'isFree' => $request->get('isFree') ?? 0,
         ]);
 
         return redirect()->route('admin.shipping.index');

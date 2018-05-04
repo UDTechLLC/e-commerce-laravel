@@ -48,6 +48,7 @@
                                 product-slug="{{ $product->slug }}"
                         >pre-order
                         </add-to-cart>
+                        @include('web.shop.partials.free_shipping')
                     </div>
                 </div>
                 <div class="clear"></div>
