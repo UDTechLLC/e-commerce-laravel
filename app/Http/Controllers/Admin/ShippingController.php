@@ -27,7 +27,9 @@ class ShippingController extends Controller
      */
     public function create()
     {
-        return view('admin.shipping.create');
+        return view('admin.shipping.create', [
+            'countries' => Shipping::SHIPPING_COUNTRIES
+        ]);
     }
 
     /**
@@ -39,8 +41,8 @@ class ShippingController extends Controller
     {
         Shipping::create([
             'country' => $request->get('country'),
-            'cost' => $request->get('cost'),
-            'isFree' => $request->get('isFree') ?? 0,
+            'cost'    => $request->get('cost'),
+            'isFree'  => $request->get('isFree') ?? 0,
         ]);
 
         return redirect()->route('admin.shipping.index');
@@ -64,11 +66,12 @@ class ShippingController extends Controller
      */
     public function update(StoreShippingRequest $request, Shipping $shipping)
     {
-        return $shipping->update([
-            'country' => $request->get('country'),
-            'cost' => $request->get('cost'),
-            'isFree' => $request->get('isFree'),
+        $shipping->update([
+            'cost'   => $request->get('cost'),
+            'isFree' => $request->get('isFree') ?? 0,
         ]);
+
+        return redirect()->route('admin.shipping.index');
     }
 
     /**

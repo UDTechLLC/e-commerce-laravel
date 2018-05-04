@@ -24,7 +24,6 @@ class StoreShippingRequest extends FormRequest
     public function rules()
     {
         return [
-            'country' => 'required',
             'cost' => 'required',
         ];
     }

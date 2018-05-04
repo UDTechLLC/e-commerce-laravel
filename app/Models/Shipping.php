@@ -14,6 +14,13 @@ use App\Models\EloquentModel;
  */
 class Shipping extends EloquentModel
 {
+    const USA = 'United States';
+    const OTHER = 'other';
+
+    const SHIPPING_COUNTRIES = [
+        self::USA,
+        self::OTHER,
+    ];
     /**
      * @var string
      */

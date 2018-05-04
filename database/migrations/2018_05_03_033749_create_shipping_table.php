@@ -15,7 +15,7 @@ class CreateShippingTable extends Migration
     {
         Schema::create('shipping', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('country');
+            $table->string('country')->unique();
             $table->unsignedInteger('cost');
             $table->boolean('isFree');
             $table->timestamps();
