@@ -94,7 +94,7 @@
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/cust_meal_plan.png')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/imgs_devices.png')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
