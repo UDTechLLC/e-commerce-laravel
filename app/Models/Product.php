@@ -179,7 +179,7 @@ class Product extends Model implements HasMedia
      */
     public function getOldAmountAttribute($value)
     {
-        return number_format($value / 100, 2, ".", "");
+        return ($value) ? number_format($value / 100, 2, ".", "") : 0;
     }
 
     public function getProductLinkAttribute()
