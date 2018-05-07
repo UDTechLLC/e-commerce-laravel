@@ -22,4 +22,5 @@ Route::group([
     require 'category.php';
     require 'shipping.php';
     require 'cms.php';
+    require 'export.php';
 });
