@@ -36,3 +36,7 @@ Route::get('videolibrary/legs-fire-downloads', [
     'as'   => '.videolibrary',
     'uses' => 'Web\VideoLibraryController@awayToWp',
 ]);
+
+Route::get('test', function () {
+    return \Excel::download(new \App\Exports\BillingExport(), 'billing.csv');
+});

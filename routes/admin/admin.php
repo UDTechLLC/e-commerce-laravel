@@ -21,4 +21,5 @@ Route::group([
     require 'banners.php';
     require 'category.php';
     require 'shipping.php';
+    require 'export.php';
 });
