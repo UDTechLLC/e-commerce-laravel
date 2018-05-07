@@ -52,6 +52,8 @@ import bannerEdit from './vue/pages/banners/edit';
 import categoryCreate from './vue/pages/category/create';
 import categoryEdit from './vue/pages/category/edit';
 
+import cmsHomepageEdit from './vue/pages/cms/homepage/edit';
+
 require('./vue/mixins');
 
 Vue.prototype.$EventBus = new Vue();
@@ -77,6 +79,7 @@ const app = new Vue({
         bannerCreate,
         bannerEdit,
         categoryCreate,
-        categoryEdit
+        categoryEdit,
+        cmsHomepageEdit
     }
 });
