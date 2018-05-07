@@ -64,6 +64,11 @@
                             <li><a href="{{ route('admin.shipping.index') }}">Shipping</a></li>
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-wrench"></i> Export <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('admin.export.billings') }}">Export billing data</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
