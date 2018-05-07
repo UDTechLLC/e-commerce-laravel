@@ -69,23 +69,13 @@
                 </div>
                 <div class="section__text-wrapper">
                     <p class="section__text text-center">
-                        Here is a chance for you to capitalize and really get the best bang for your buck! It is impossible to put a price on looking great, feeling amazing and achieving the goals that you have set out to achieve… but that does not mean we will not do our best to make it affordable!
+                        Labor Day! Here is a chance for you to capitalize and really get the best bang for your buck! It is impossible to put a price on looking great, feeling amazing and achieving the goals that you have set out to achieve… but that does not mean we will not do our best to make it affordable!
                     </p>
                 </div>
                 <div class="limited-opportunity__products-wrapper">
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/shedfatMAX.png')}}" />
-                        </div>
-                        <div class="limited-opportunity__product-description">
-                            <p>
-                                Increase your weight loss, provide clean smooth energy and help you get past your fitness plateaus
-                            </p>
-                        </div>
-                    </div>
-                    <div class="limited-opportunity__product-item">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/cust_trein_plan.png')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-30day.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
@@ -95,11 +85,45 @@
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/imgs_devices.png')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-30dayCmp.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Every Meal, Monday through Sunday!
+                                Every Meal, Monday
+                                through Sunday!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="limited-opportunity__product-item">
+                        <div class="image-wrapper">
+                            <img src="{{ asset('web/images/limited_opportunity/lo-shf.jpg')}}" />
+                        </div>
+                        <div class="limited-opportunity__product-description">
+                            <p>
+                                Increase your weight loss,
+                                provide  clean smooth energy
+                                and help  you get past
+                                your fitness plateaus
+                            </p>
+                        </div>
+                    </div>
+                    <div class="limited-opportunity__product-item">
+                        <div class="image-wrapper">
+                            <img src="{{ asset('web/images/limited_opportunity/lo-wte.jpg')}}" />
+                        </div>
+                        <div class="limited-opportunity__product-description">
+                            <p>
+                                The list of popular “fast food” chains with meal options that will keep you on the right track with your diet guilt free.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="limited-opportunity__product-item">
+                        <div class="image-wrapper">
+                            <img src="{{ asset('web/images/limited_opportunity/lo-shfbag.jpg')}}" />
+                        </div>
+                        <div class="limited-opportunity__product-description">
+                            <p>
+                                Exercises, Sets & Reps!
                             </p>
                         </div>
                     </div>
