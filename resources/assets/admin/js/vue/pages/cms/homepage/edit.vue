@@ -79,7 +79,7 @@
                 axios.put(`/admin/cms/homepage/update/${this.bannerProps.id}`, this.banner).then(
                         response => {
                             this.notifySuccess("Done", "Banner update");
-                           // setTimeout(() => location.href = "/admin/banners", 1500);
+                            setTimeout(() => location.href = "/admin/cms/homepage", 1500);
                         },
                         error => {
                             this.notifyError(
