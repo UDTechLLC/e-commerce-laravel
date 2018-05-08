@@ -38,14 +38,14 @@ text-align: left;
                                         @if (!$product->parent_id)
                                             <br>
                                             @if ($product->getMedia('products')->first()->hasCustomProperty('external_link'))
-                                                <a href="{{ $product->generateProductLink($order) }}">
+                                                <a href="{{ $product->getMedia('products')->first()->getCustomProperty('external_link') }}">
                                                     <u style="color:red">Fill out your questionnaire by clicking
                                                         here</u>
-
                                                 </a>
+                                                </br>
                                             @endif
                                             @if($product->getFirstMediaUrl('download'))
-                                                <a href="{{ $product->getFirstMediaUrl('download') }}">
+                                                <a href="{{ asset($product->getFirstMediaUrl('download')) }}">
                                                     <u style="color:red">Click here to download</u>
                                                 </a>
                                             @endif
