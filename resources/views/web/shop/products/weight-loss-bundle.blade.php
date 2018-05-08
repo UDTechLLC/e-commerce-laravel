@@ -79,7 +79,7 @@
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Exercises, Sets & Reps!
+                                Properly Fuel Your Transformation!
                             </p>
                         </div>
                     </div>
@@ -89,8 +89,7 @@
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Every Meal, Monday
-                                through Sunday!
+                                Re-Program Your Body!
                             </p>
                         </div>
                     </div>
@@ -100,10 +99,7 @@
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Increase your weight loss,
-                                provide  clean smooth energy
-                                and help  you get past
-                                your fitness plateaus
+                                Our All Natural Boost!
                             </p>
                         </div>
                     </div>
@@ -113,7 +109,7 @@
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                The list of popular “fast food” chains with meal options that will keep you on the right track with your diet guilt free.
+                                No Meal Prep? No Problem!
                             </p>
                         </div>
                     </div>
@@ -123,7 +119,7 @@
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Exercises, Sets & Reps!
+                                Compact and Convenient Carrying
                             </p>
                         </div>
                     </div>
