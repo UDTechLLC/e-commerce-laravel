@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Traits\CustomBillable;
 use Illuminate\Notifications\Notifiable,
     Illuminate\Foundation\Auth\User as Authenticatable,
     Laratrust\Traits\LaratrustUserTrait,
@@ -12,7 +13,8 @@ class User extends Authenticatable
 {
     use LaratrustUserTrait,
         Notifiable;
-    use Billable;
+//    use Billable;
+    use CustomBillable;
 
     protected $table = 'users';
     /**
@@ -43,14 +45,28 @@ class User extends Authenticatable
     {
         return "{$this->first_name} {$this->last_name}";
     }
-    
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function cart()
     {
         return $this->hasOne(Cart::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function customSubscriptions()
+    {
+        return $this->hasMany(CustomSubscription::class);
     }
 }

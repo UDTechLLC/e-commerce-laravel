@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Mail\OrderSent;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Plan;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\Braintree\BraintreeService;
@@ -26,6 +27,8 @@ class PayController extends Controller
     public function pay(Request $request, Order $order)
     {
         $token = $request->get('nonce');
+
+        $order->user->newCustomSubscription($order, 14);
 
         $amount = $order->total_cost;
 
