@@ -38,7 +38,7 @@ text-align: left;
                                         @if (!$product->parent_id)
                                             <br>
                                             @if ($product->getMedia('products')->first()->hasCustomProperty('external_link'))
-                                                <a href="{{ $product->generateProductLink() }}">
+                                                <a href="{{ $product->generateProductLink($order) }}">
                                                     <u style="color:red">Fill out your questionnaire by clicking
                                                         here</u>
                                                 </a>
