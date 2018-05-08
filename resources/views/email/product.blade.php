@@ -42,7 +42,7 @@ text-align: left;
                                                     <u style="color:red">Fill out your questionnaire by clicking
                                                         here</u>
                                                 </a>
-                                                </br>
+                                                <br>
                                             @endif
                                             @if($product->getFirstMediaUrl('download'))
                                                 <a href="{{ asset($product->getFirstMediaUrl('download')) }}">
