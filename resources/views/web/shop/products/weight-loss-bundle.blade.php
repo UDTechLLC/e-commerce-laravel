@@ -69,37 +69,57 @@
                 </div>
                 <div class="section__text-wrapper">
                     <p class="section__text text-center">
-                        Here is a chance for you to capitalize and really get the best bang for your buck! It is impossible to put a price on looking great, feeling amazing and achieving the goals that you have set out to achieve… but that does not mean we will not do our best to make it affordable!
+                        Labor Day! Here is a chance for you to capitalize and really get the best bang for your buck! It is impossible to put a price on looking great, feeling amazing and achieving the goals that you have set out to achieve… but that does not mean we will not do our best to make it affordable!
                     </p>
                 </div>
                 <div class="limited-opportunity__products-wrapper">
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/shedfatMAX.png')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-30day.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Increase your weight loss, provide clean smooth energy and help you get past your fitness plateaus
+                                Properly Fuel Your Transformation!
                             </p>
                         </div>
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/cust_trein_plan.png')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-30dayCmp.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Exercises, Sets & Reps!
+                                Re-Program Your Body!
                             </p>
                         </div>
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/imgs_devices.png')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-shf.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p>
-                                Every Meal, Monday through Sunday!
+                                Our All Natural Boost!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="limited-opportunity__product-item">
+                        <div class="image-wrapper">
+                            <img src="{{ asset('web/images/limited_opportunity/lo-wte.jpg')}}" />
+                        </div>
+                        <div class="limited-opportunity__product-description">
+                            <p>
+                                No Meal Prep? No Problem!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="limited-opportunity__product-item">
+                        <div class="image-wrapper">
+                            <img src="{{ asset('web/images/limited_opportunity/lo-shfbag.jpg')}}" />
+                        </div>
+                        <div class="limited-opportunity__product-description">
+                            <p>
+                                Compact and Convenient Carrying
                             </p>
                         </div>
                     </div>

@@ -37,18 +37,21 @@ text-align: left;
                                     @if($product->getMedia('download')->first() || $product->getMedia('products')->first()->getCustomProperty('external_link') != "")
                                         @if (!$product->parent_id)
                                             <br>
-                                            <a href="{{ $product->generateProductLink($order) }}">
-                                                @if ($product->getMedia('download')->first())
-                                                    <u style="color:red">Click here to download</u>
-                                                @else
+                                            @if ($product->getMedia('products')->first()->hasCustomProperty('external_link'))
+                                                <a href="{{ $product->generateProductLink($order) }}">
                                                     <u style="color:red">Fill out your questionnaire by clicking
                                                         here</u>
-                                                @endif
-                                                @endif
-                                            </a>
-
-                                </td>
+                                                </a>
+                                                <br>
+                                            @endif
+                                            @if($product->getFirstMediaUrl('download'))
+                                                <a href="{{ asset($product->getFirstMediaUrl('download')) }}">
+                                                    <u style="color:red">Click here to download</u>
+                                                </a>
+                                            @endif
+                                        @endif
                                 @endif
+                                </td>
                                 <td class="product-quantity">
                                     {{ $product->pivot->count }}
                                 </td>
@@ -80,7 +83,7 @@ text-align: left;
 									Coupon: {{ $order->coupon->code }}:
 								</span>
                                 </td>
-                                    <td>
+                                <td>
 								<span class="sub-total-amount">
 									-${{ $order->discount_cost }}
 								</span>
