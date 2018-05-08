@@ -14,6 +14,9 @@ use App\Models\EloquentModel;
  */
 class CustomSubscription extends EloquentModel
 {
+    const SUBSCRIPTION_ACTIVE = 'Active';
+    const SUBSCRIPTION_INACTIVE = 'Inactive';
+
     /**
      * @var string
      */

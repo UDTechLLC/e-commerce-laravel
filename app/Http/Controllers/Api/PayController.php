@@ -28,7 +28,7 @@ class PayController extends Controller
     {
         $token = $request->get('nonce');
 
-        $order->user->newCustomSubscription($order, 14);
+        $order->user->newCustomSubscription($token, $order, 14);
 
         $amount = $order->total_cost;
 

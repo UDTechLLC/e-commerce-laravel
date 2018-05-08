@@ -51,7 +51,7 @@ class CreateNextSubscriptionBillingCycle extends Command
     {
         /** @var Collection $subscriptions */
         $subscriptions = CustomSubscription::whereDate('next_billing_at', '<', now())
-            ->where('status', 'Active')
+            ->where('status', CustomSubscription::SUBSCRIPTION_ACTIVE)
             ->get();
 
         if ($subscriptions->isNotEmpty()) {
@@ -82,7 +82,7 @@ class CreateNextSubscriptionBillingCycle extends Command
 
                 $item->update(['next_billing_at' => now()->addDays($item->period)]);
             } else {
-                $item->update(['status' => 'Inactive']);
+                $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
             }
         });
     }

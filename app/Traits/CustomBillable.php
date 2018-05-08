@@ -22,8 +22,9 @@ trait CustomBillable
      * @return mixed
      * @throws \Exception
      */
-    public function newCustomSubscription(Order $order, $period)
+    public function newCustomSubscription($token, Order $order, $period)
     {
+        $customer = $this->getBraintreeCustomer($token);
         /** @var Product $product */
         $product = $order->getSubscriptionProduct();
         $plan = $product->plan;
