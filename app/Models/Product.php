@@ -239,7 +239,7 @@ class Product extends Model implements HasMedia
             $product = $order->products()->wherePivot('product_id', $this->bandls->id)->first();
         }
 
-        return $product->product_link;
+        return $product->getMedia('products')->first()->getCustomProperty('external_link');
     }
 
     /**
