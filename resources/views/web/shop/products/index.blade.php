@@ -19,8 +19,8 @@
                                     <img src="{!! $product->getFirstMediaUrl('preview') !!}"/>
                                 </a>
                             </div>
-                            <div class="product-details">
-                                <h2 class="product-title">
+                            <div class="product-details" style="width: 100%;">
+                                <h2 class="product-title" style="text-align: center !important;">
                                     <a href="{{url('product/'.$product->slug)}}">
                                         {!! $product->title !!} </a>
                                 </h2>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="product-price-block">
                                 <div class="product-price">
-									<span class="product-amount">
+									<span class="product-amount" style="display: flex;justify-content: center">
                                          {{--@if($products -> category)--}}
                                         {{--<p>Category {{ $product->category }}</p>--}}
                                         {{--@endif--}}
@@ -70,8 +70,8 @@
                                 <img src="{{ asset('web/images/icon_Shedfat Dad Hat Sales.jpg')}}"/>
                             </a>
                         </div>
-                        <div class="product-details" style="padding-top: 28px">
-                            <h3 class="product-title">
+                        <div class="product-details" style="padding-top: 28px;width: 100%">
+                            <h3 class="product-title" style="text-align: center">
                                 <a href="#">
                                     Shedfat Dad Hat
                                 </a>
@@ -99,8 +99,8 @@
                                 <img src="{{ asset('web/images/Spring Challenge_icon.jpg') }}"/>
                             </a>
                         </div>
-                        <div class="product-details" style="padding-top: 10px;">
-                            <h3 class="product-title">
+                        <div class="product-details" style="padding-top: 10px;width: 100%">
+                            <h3 class="product-title" style="text-align: center">
                              <a href="#scRegistration">
                                   {{--  <a href="{{url('challenge')}}">--}}
                                     Spring Challenge </a>
@@ -125,7 +125,7 @@
     <div class="popUp" data-modal="bogo-12week-custom-meal-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">FREE GIFT</h2>
+            <h2 class="popUp__title">FREE GIFT INCLUDED</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     <img src="{{ asset('web/images/popUp/12-week-popUp.png') }}" alt="12-week-popUp">
@@ -145,6 +145,11 @@
                             <span class="currency">$</span>
                             <span> 0.00</span>
                         </span>
+                        </div>
+                        <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
+                            <a class="add-to-cart-btn" href="/cart" >
+                                View cart
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -198,7 +203,7 @@
    <div class="popUp" data-modal="bogo-12week-custom-training-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">FREE GIFT</h2>
+            <h2 class="popUp__title">FREE GIFT INCLUDED</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     <img src="{{ asset('web/images/popUp/meal_free_icon.png') }}" alt="meal_free_icon">
@@ -218,6 +223,11 @@
                             <span class="currency">$</span>
                             <span> 0.00</span>
                         </span>
+                        </div>
+                        <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
+                            <a class="add-to-cart-btn" href="/cart" >
+                                View cart
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -2,21 +2,31 @@
   background-image: url("../images/bg-12-week-header.jpg")
   background-repeat: no-repeat
   background-size: cover
-  padding: 65px 0 47px
+  padding: 65px 0
+  //padding: 65px 0 47px
   @media screen and (max-width: $breakpoint-mobile)
     padding: 15px 0 15px
 
   .wrapper
+    display: flex
+    justify-content: space-between
     padding-left: 15px
     padding-right: 15px
+    @media screen and (max-width: $breakpoint-mobile)
+      flex-wrap: wrap
 
   .product-preview-wrapper
-    float: left
+    //float: left
     width: 50%
 
     @media screen and (max-width: $breakpoint-mobile)
       float: none
       width: 100%
+    .image-wrapper
+      align-items: center
+      display: flex
+      justify-content: center
+      height: 100%
 
   .image-wrapper
     margin: 15px auto
@@ -29,7 +39,7 @@
         max-height: 220px
         max-width: 62.5%
   .product-info-block
-    float: left
+    //float: left
     width: 50%
 
     @media screen and (max-width: $breakpoint-mobile)
@@ -43,7 +53,8 @@
       text-align: center
 
   .product-title-block
-    margin-top: 8px
+    @media screen and (max-width: $breakpoint-mobile)
+      margin-top: 8px
 
     .product-title
       color: #eb212e
@@ -89,6 +100,9 @@
       @media screen and (max-width: $breakpoint-mobile)
         font-size: 16px
         line-height: 22px
+    @media screen and (max-width: $breakpoint-mobile)
+      &.mobile-center-width
+        max-width: 80%
 
   .product-price-block
     .product-price
@@ -171,7 +185,9 @@
 
   .product-button-block
     .add-to-cart-wrapper
-      margin: 30px 0 25px
+      margin: 30px 0 0
+      @media screen and (max-width: $breakpoint-mobile)
+        margin: 30px 0 25px
       .add-to-cart-btn
         border-radius: 3px
         box-sizing: border-box

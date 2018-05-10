@@ -22,7 +22,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="title" name="title"
                            v-model="post.title"
-                           v-validate data-vv-rules="required"
+                           v-validate data-vv-rules="required|max:250"
                            :class="{'is-danger': errors.has('title')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('title')">{{ errors.first('title') }}</span>
@@ -35,7 +35,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="slug" name="slug"
                            v-model="post.slug"
-                           v-validate data-vv-rules="required"
+                           v-validate data-vv-rules="required|max:250"
                            :class="{'is-danger': errors.has('slug')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('slug')">{{ errors.first('slug') }}</span>
@@ -91,7 +91,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="metaTitle" name="metaTitle"
                            v-model="post.metaTags.title"
-                           v-validate data-vv-rules="required"
+                           v-validate data-vv-rules="required|max:250"
                            :class="{'is-danger': errors.has('metaTitle')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('metaTitle')">{{ errors.first('metaTitle') }}</span>
@@ -104,7 +104,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="metaDescription" name="metaDescription"
                            v-model="post.metaTags.description"
-                           v-validate data-vv-rules="required"
+                           v-validate data-vv-rules="required|max:250"
                            :class="{'is-danger': errors.has('metaDescription')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger"
@@ -118,7 +118,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="text" id="metaKeywords" name="metaKeywords"
                            v-model="post.metaTags.keywords"
-                           v-validate data-vv-rules="required"
+                           v-validate data-vv-rules="required|max:250"
                            :class="{'is-danger': errors.has('metaKeywords')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger"

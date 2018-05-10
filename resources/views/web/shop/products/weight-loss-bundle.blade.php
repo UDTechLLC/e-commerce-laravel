@@ -22,6 +22,28 @@
                             <p class="product-description">
                                 {!! $product->description !!}
                             </p>
+                            <ul class="product-description-list check-icon-list mobile-center-width">
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    30 Day Customized Meal Plan
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    30 Day Customized Training Plan
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    30 Day Supply of Shedfat Maxx
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    FREE BONUS #1-What To Eat In The Streets Guide
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    FREE BONUS #2-Shedfat Gym Bag
+                                </li>
+                            </ul>
                         </div>
                         <div class="product-price-block">
                             <div class="product-price has-old-price">
