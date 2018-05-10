@@ -8,7 +8,6 @@
             <div class="wrapper">
                 <div class="product-preview-wrapper">
                     <div class="image-wrapper">
-                        {{--<img src="assets/images/full-product/resistance_bands.png">--}}
                         <img src="{!! $product->getFirstMediaUrl('products') !!}" />
                     </div>
                 </div>

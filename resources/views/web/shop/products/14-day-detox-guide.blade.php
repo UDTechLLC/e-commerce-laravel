@@ -2,19 +2,12 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
-@section('style')
-    @parent
-    <!--Start of Zendesk Chat Script-->
-    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
-    <!--End of Zendesk Chat Script-->
-@endsection
 @section('content')
     <main>
         <div class="top-product-description-block">
             <div class="wrapper">
                 <div class="product-preview-wrapper">
                     <div class="image-wrapper">
-                        {{--<img src="assets/images/full-product/14-day-detox-guide/top_product_image.png">--}}
                         <img src="{!! $product->getFirstMediaUrl('products') !!}"/>
                     </div>
                 </div>
