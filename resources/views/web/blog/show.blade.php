@@ -16,7 +16,7 @@
     <script>
         window.fbAsyncInit = function () {
             FB.init({
-                appId: '1580805958670684',
+                appId: '252804818530741',
                 autoLogAppEvents: true,
                 xfbml: true,
                 version: 'v2.10'
