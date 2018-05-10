@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Mail\OrderSent;
 use App\Models\Cart;
+use App\Models\CustomSubscription;
 use App\Models\Order;
 use App\Models\Plan;
 use App\Models\Product;
@@ -28,8 +29,6 @@ class PayController extends Controller
     {
         $token = $request->get('nonce');
 
-        $order->user->newCustomSubscription($token, $order, 14);
-
         $amount = $order->total_cost;
 
         if ($order->isShipping()) {
@@ -47,38 +46,32 @@ class PayController extends Controller
                 : null;
 
             if (null !== $plan) {
-                try {
-                    $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
-                    $this->updateOrderSubscription($order, $result);
-                } catch (\Exception $ex) {
-                    return view('errors.error_payment', [
-                        'message' => $ex->getMessage(),
-                    ]);
-                }
-
-                $amount -= $subscriptionProduct->amount;
+                $subscription = $user->newCustomSubscription($token, $order);
+                $this->updateOrderSubscription($order, $subscription);
             } else {
                 return response()->json(['error' => 'No plan found for this product'], 404);
             }
 
-            if (0 !== $amount) {
-                $result = $user->charge($amount, ['orderId' => $order->order_id]);
+            $charged = $user->charge($amount, ['orderId' => $order->order_id]);
+
+            if (!$charged->success) {
+                $subscription->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
             }
         } else {
             $service = new BraintreeService();
 
             $service->setAuthToken($token);
 
-            $result = $service->pay($amount, ['orderId' => $order->order_id]);
+            $charged = $service->pay($amount, ['orderId' => $order->order_id]);
         }
 
-        if ($result->success) {
-            $this->clearing($result, $order);
+        if ($charged->success) {
+            $this->clearing($charged, $order);
 
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         } else {
             return view('errors.error_payment', [
-                'message' => $result->message,
+                'message' => $charged->message,
             ]);
         }
     }
