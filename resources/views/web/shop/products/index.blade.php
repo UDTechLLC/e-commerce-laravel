@@ -125,7 +125,7 @@
     <div class="popUp" data-modal="bogo-12week-custom-meal-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">FREE GIFT</h2>
+            <h2 class="popUp__title">FREE GIFT INCLUDED</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     <img src="{{ asset('web/images/popUp/12-week-popUp.png') }}" alt="12-week-popUp">
@@ -203,7 +203,7 @@
    <div class="popUp" data-modal="bogo-12week-custom-training-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">FREE GIFT</h2>
+            <h2 class="popUp__title">FREE GIFT INCLUDED</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     <img src="{{ asset('web/images/popUp/meal_free_icon.png') }}" alt="meal_free_icon">
