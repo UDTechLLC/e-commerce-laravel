@@ -145,6 +145,7 @@ class CheckoutController extends Controller
             $order->products()->attach($product->id, [
                 'count' => $product->pivot->count,
                 'product_price' => $product->amount,
+                'subscribe_period' => $product->pivot->subscribe_period,
             ]);
         }
 
