@@ -29,14 +29,17 @@
                                                    @click="addProduct(product.slug)"/>
                                         </div>
                                     </div>
-                                    <!-- <div class="deliver-block-wrapper">
-                                         <label class="deliver-label">
-                                             Deliver:
-                                         </label>
-                                         <select class="deliver-select">
-                                             <option>1 time only</option>
-                                         </select>
-                                     </div>-->
+                                    <div class="deliver-block-wrapper" v-if="product.subscribe">
+                                        <label class="deliver-label">
+                                            Deliver:
+                                        </label>
+                                        <select class="deliver-select">
+                                            <option>2 weeks</option>
+                                            <option>1 month (most common)</option>
+                                            <option>2 month</option>
+                                            <option>3 months</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
