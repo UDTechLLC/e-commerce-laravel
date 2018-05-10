@@ -1135,8 +1135,6 @@ ul {
     margin: 27px 0 30px; }
     @media screen and (max-width: 800px) {
       .top-product-description-block .product-description {
-        font-size: 16px;
-        line-height: 22px;
         margin-bottom: 11px; } }
   .top-product-description-block .product-price-block .product-price {
     margin: 25px 0 0; }
