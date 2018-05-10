@@ -19,7 +19,7 @@
 												<span class="product-price">
 													${{ product.amount }}
 												</span>
-                                        <div class="quantity buttons_added">
+                                        <div class="quantity buttons_added" v-if="!product.subscribe">
                                             <input value="-" class="minus" type="button"
                                                    @click="deleteProduct(product.slug)"/>
                                             <input id="" class="input-text qty text" step="1" min="0" max="" name=""
@@ -174,7 +174,8 @@
                 'countItems',
                 'isShipping',
                 'discount',
-                'coupon'
+                'coupon',
+                'subscribePlan'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
@@ -183,11 +184,15 @@
                 return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
             }
         },
+        mounted() {
+            console.log(this.products);
+        },
         updated() {
             if (this.isShipping && this.shipping == 0) this.getShipping()
         },
         methods: {
             submitCoupon() {
+
                 let url = `/api/carts/coupons`;
                 let data = {
                     hash: Vue.localStorage.get('hash'),
