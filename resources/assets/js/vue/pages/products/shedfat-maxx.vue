@@ -5,7 +5,8 @@
             <div class="price-radio-block">
 
                 <label class="price-radio flex flex-a--center">
-                    <input type="radio" :value="product.slug" v-model="slug" name="product-price" checked>
+                    <input type="radio" :value="product.slug" v-model="slug" name="product-price" checked
+                           @change="showDelivery = !showDelivery">
                     <span class="custom-input"></span>
                                     <span class="product-amount">
                                         <span class="currency">$</span>
@@ -18,7 +19,8 @@
 
                 </label>
                 <label class="price-radio flex flex-a--center">
-                    <input type="radio" :value="subscribeProduct.slug" name="product-price" v-model="slug">
+                    <input type="radio" :value="subscribeProduct.slug" name="product-price" v-model="slug"
+                           @change="showDelivery = !showDelivery">
                     <span class="custom-input"></span>
                                     <span>
                                     <!--<span class="old-price">-->
@@ -35,6 +37,14 @@
                                         I want auto-shipping for every 30 days.
                                 </span>
                 </label>
+                <div class="deliver-block-wrapper" v-if="showDelivery">
+                    <label class="deliver-label">
+                        Deliver:
+                    </label>
+                    <select class="deliver-select" v-model="subscribePeriod">
+                        <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
+                    </select>
+                </div>
 
             </div>
 
@@ -47,12 +57,16 @@
                     <button class="btn">+</button>
                 </div>-->
 
-                <div class="add-to-cart-wrapper">
-                    <add-to-cart
-                            :product-slug="slug"
-                    >
-                    </add-to-cart>
-                </div>
+                        <div class="add-to-cart-wrapper">
+                            <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct"
+                               >
+                                    Add to cart
+                            </a>
+                            <a v-else class="add-to-cart-btn" href="/cart" >
+                                View cart
+                            </a>
+                        </div>
+
             </div>
 
         </div>
@@ -60,20 +74,62 @@
 </template>
 
 <script type="text/babel">
+    import moment from 'moment';
+
     export default ({
         data: () => ({
             slug: "",
             product: {},
-            subscribeProduct: {}
+            subscribeProduct: {},
+            addedToCart: false,
+            showDelivery: false,
+            subscribePeriod: 14,
+            subscribePlans: [
+                {
+                    name: "2 weeks",
+                    value: 14
+                },
+                {
+                    name: "month (most common)",
+                    value: 1
+                },
+                {
+                    name: "2 month",
+                    value: 2
+                },
+                {
+                    name: "3 months",
+                    value: 3
+                }
+            ]
         }),
         props: {
             productProps: String,
             subscribeProductProps: String
         },
+        computed: {
+            subscribeDay() {
+                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
+            }
+        },
         created() {
             this.product = JSON.parse(this.productProps);
             this.slug = this.product.slug;
             this.subscribeProduct = JSON.parse(this.subscribeProductProps)
+        },
+        methods: {
+            addProduct() {
+                this.addedToCart = true;
+                let data = {
+                    hash: Vue.localStorage.get('hash')
+                };
+                axios.post(`/api/carts/products/add/${this.slug}`, data).then(
+                        response => {
+                            this.$store.commit('updateState', response);
+                        },
+                        error => console.log('error')
+                );
+            }
         }
     })
 </script>

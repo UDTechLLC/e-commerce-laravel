@@ -2,7 +2,7 @@
 <div>
     <div class="product-button-block">
         <div class="add-to-cart-wrapper">
-            <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct(productSlug, productBundleSlug)"
+            <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct(productSlug, productBundleSlug, subscribePeriod)"
                :data-title="dataTitle" data-target="#sideCartModal">
                 <slot>
                     Add to cart
@@ -25,7 +25,8 @@
         props: {
             productSlug: String,
             dataTitle: String,
-            productBundleSlug: String
+            productBundleSlug: String,
+            subscribePeriod: Number
         }
     });
 </script>

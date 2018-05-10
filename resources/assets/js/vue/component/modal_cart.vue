@@ -33,11 +33,8 @@
                                         <label class="deliver-label">
                                             Deliver:
                                         </label>
-                                        <select class="deliver-select">
-                                            <option>2 weeks</option>
-                                            <option>1 month (most common)</option>
-                                            <option>2 month</option>
-                                            <option>3 months</option>
+                                        <select class="deliver-select" v-model="subscribePeriod">
+                                            <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -50,8 +47,11 @@
                                 </h4>
                                 <div class="cart-coupon-block">
                                     <form class="cart-coupon-form">
-                                        <input class="cart-coupon-field" :class="{'coupon-input-error': errorCoupon}" type="text" @input="updateCoupon" :value="coupon" placeholder="Coupon code"/>
-                                        <input class="cart-coupon-submit" type="submit" @click.prevent="submitCoupon" value="Apply coupon"/>
+                                        <input class="cart-coupon-field" :class="{'coupon-input-error': errorCoupon}"
+                                               type="text" @input="updateCoupon" :value="coupon"
+                                               placeholder="Coupon code"/>
+                                        <input class="cart-coupon-submit" type="submit" @click.prevent="submitCoupon"
+                                               value="Apply coupon"/>
                                     </form>
                                     <div class="wrapper coupon-error" v-if="errorCoupon">
                                         Coupon "{{ coupon }}" does not exist!
@@ -141,12 +141,31 @@
 </template>
 <script type="text/babel">
     import {mapGetters} from 'vuex'
-
+    import moment from 'moment'
     export default ({
         data: () => ({
             shipping: 0,
             errorCoupon: false,
-            selectedCountry: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
+            selectedCountry: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "",
+            subscribePeriod: 14,
+            subscribePlans: [
+                {
+                    name: "2 weeks",
+                    value: 14
+                },
+                {
+                    name: "month (most common)",
+                    value: 1
+                },
+                {
+                    name: "2 month",
+                    value: 2
+                },
+                {
+                    name: "3 months",
+                    value: 3
+                }
+            ]
         }),
         computed: {
             ...mapGetters([
@@ -159,10 +178,13 @@
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
+            },
+            subscribeDay() {
+                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
             }
         },
         updated() {
-          if (this.isShipping && this.shipping == 0) this.getShipping()
+            if (this.isShipping && this.shipping == 0) this.getShipping()
         },
         methods: {
             submitCoupon() {
@@ -213,10 +235,12 @@
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
+
     .coupon-error {
         color: red;
     }
+
     .coupon-input-error {
-        border: 1px solid red!important;
+        border: 1px solid red !important;
     }
 </style>
