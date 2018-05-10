@@ -71,9 +71,9 @@
                             <img src="{{ asset('web/images/limited_opportunity/lo-30day.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
-                            <p>
+                            <p><b>
                                 Properly Fuel Your Transformation!
-                            </p>
+                                </b> </p>
                         </div>
                     </div>
                     <div class="limited-opportunity__product-item">
@@ -81,8 +81,8 @@
                             <img src="{{ asset('web/images/limited_opportunity/lo-30dayCmp.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
-                            <p>
-                                Re-Program Your Body!
+                            <p><b>
+                                Re-Program Your Body!</b>
                             </p>
                         </div>
                     </div>
@@ -91,8 +91,8 @@
                             <img src="{{ asset('web/images/limited_opportunity/lo-shf.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
-                            <p>
-                                Our All Natural Boost!
+                            <p><b>
+                                Our All Natural Boost!</b>
                             </p>
                         </div>
                     </div>
@@ -101,8 +101,8 @@
                             <img src="{{ asset('web/images/limited_opportunity/lo-wte.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
-                            <p>
-                                No Meal Prep? No Problem!
+                            <p><b>
+                                No Meal Prep? No Problem!</b>
                             </p>
                         </div>
                     </div>
@@ -111,8 +111,8 @@
                             <img src="{{ asset('web/images/limited_opportunity/lo-shfbag.jpg')}}" />
                         </div>
                         <div class="limited-opportunity__product-description">
-                            <p>
-                                Compact and Convenient Carrying
+                            <p><b>
+                                Compact and Convenient Carrying</b>
                             </p>
                         </div>
                     </div>
