@@ -44,6 +44,7 @@ class CartController extends Controller
         /** @var User $user */
         $user = \Auth::user();
         $hash = $request->get('hash');
+        $subscribePeriod = $request->get('subscribePeriod');
 
         /** @var Cart $cart */
         $cart = null === $user
@@ -62,6 +63,10 @@ class CartController extends Controller
             $cart->products()->attach($product, ['count' => ++$countProduct]);
         } else {
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => ++$countProduct]);
+        }
+
+        if ($product->hasPlan()) {
+            $cart->products()->updateExistingPivot($product->getKey(), ['subscribe_period' => $subscribePeriod]);
         }
 
         $this->calculateDiscount($cart);

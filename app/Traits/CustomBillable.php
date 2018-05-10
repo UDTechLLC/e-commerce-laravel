@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Traits;
 
 use App\Models\Order;
+use App\Models\Plan;
 use App\Models\Product;
 use Laravel\Cashier\Billable;
 
@@ -22,27 +23,23 @@ trait CustomBillable
      * @return mixed
      * @throws \Exception
      */
-    public function newCustomSubscription($token, Order $order, $period)
+    public function newCustomSubscription($token, Order $order)
     {
-        $customer = $this->getBraintreeCustomer($token);
+        $this->getBraintreeCustomer($token);
+
         /** @var Product $product */
         $product = $order->getSubscriptionProduct();
-        $plan = $product->plan;
-        $cost = $plan->cost;
+        /** @var Plan $plan */
 
-        $result = $this->charge($cost, ['orderId' => $order->order_id]);
+        $period = $product->pivot->subscribe_period;
 
-        if ($result->success) {
-            return $this->customSubscriptions()->create([
-                'user_id' => $this->getKey(),
-                'order_id' => $order->getKey(),
-                'period' => $period,
-                'status' => 'Active',
-                'next_billing_at' => now()->addDays($period),
-            ]);
-        }
-
-        return null;
+        return $this->customSubscriptions()->create([
+            'user_id'         => $this->getKey(),
+            'order_id'        => $order->getKey(),
+            'period'          => $period,
+            'status'          => 'Active',
+            'next_billing_at' => now()->addDays($period),
+        ]);
     }
 
     /**

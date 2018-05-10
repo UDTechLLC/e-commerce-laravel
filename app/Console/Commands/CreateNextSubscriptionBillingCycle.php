@@ -55,10 +55,12 @@ class CreateNextSubscriptionBillingCycle extends Command
             ->get();
 
         if ($subscriptions->isNotEmpty()) {
+            \Log::info('Subscriptions were found');
+
             $this->recur($subscriptions);
         }
 
-        \Log::info('Subscriptions');
+        \Log::info('Subscriptions were recurred');
     }
 
     /**
@@ -73,8 +75,10 @@ class CreateNextSubscriptionBillingCycle extends Command
             $product = $order->getSubscriptionProduct();
             /** @var Plan $plan */
             $plan = $product->plan;
+            /** @var $cost */
+            $cost = $plan->cost + $order->shipping_cost;
 
-            if ($this->charge($item->user, $plan->cost, $order->order_id)) {
+            if ($this->charge($item->user, $cost, $order->order_id)) {
                 $newOrder = $this->createOrder($order);
 
                 $this->sendOrderToShipStation($newOrder);
