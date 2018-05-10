@@ -121,7 +121,8 @@
             addProduct() {
                 this.addedToCart = true;
                 let data = {
-                    hash: Vue.localStorage.get('hash')
+                    hash: Vue.localStorage.get('hash'),
+                    subscribePeriod: this.subscribeDay
                 };
                 axios.post(`/api/carts/products/add/${this.slug}`, data).then(
                         response => {
