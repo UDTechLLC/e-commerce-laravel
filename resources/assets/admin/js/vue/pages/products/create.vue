@@ -241,7 +241,7 @@
                 };
 
                 axios.post('/admin/products/store', data).then(
-                        result => {
+                        response => {
                             this.notifySuccess("Done", "Product create");
                             setTimeout(() => location.href = "/admin/products", 1500);
                         },
