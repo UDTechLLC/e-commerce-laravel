@@ -53,37 +53,37 @@
                     <div class="success-story-slider-wrapper">
                         <div id="successStories" class="success-story-slider">
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/1.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/1 (3).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/2.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/2 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/3.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/3 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/4.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/4 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/5.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/5 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/6.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/6 (2).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/7.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/7 (2).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/8.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/8 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/9.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/9 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/10.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/10 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img data-lazy="{{ asset('web/images/home_page/slider/11.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/11 (1).jpg')}}"/>
                             </div>
 
                         </div>
