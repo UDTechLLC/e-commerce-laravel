@@ -105,7 +105,9 @@
     @show
 </head>
 
-<body @if(Request::is('/') && $timer->home_page || Request::is('shop') && $timer->shop_page) class=""
+<body @if(Request::is('/') && $timer->home_page
+        || Request::is('shop') && $timer->shop_page
+        || Request::is('product/*') && $timer->shop_page) class=""
       @else class="disabled-timer"
         @endif>
 @section('body-script')

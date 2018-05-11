@@ -30,6 +30,7 @@ import productsOrder from './vue/pages/products/order';
 import couponsIndex from './vue/pages/coupons/index';
 import couponsCreate from './vue/pages/coupons/create';
 import couponsEdit from './vue/pages/coupons/edit';
+import couponsAttach from './vue/pages/coupons/attach';
 
 import usersIndex from './vue/pages/users/index';
 
@@ -68,6 +69,7 @@ const app = new Vue({
         couponsIndex,
         couponsCreate,
         couponsEdit,
+        couponsAttach,
         usersIndex,
         statistics,
         orders,

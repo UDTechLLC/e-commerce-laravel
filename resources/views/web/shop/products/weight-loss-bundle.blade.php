@@ -22,6 +22,28 @@
                             <p class="product-description">
                                 {!! $product->description !!}
                             </p>
+                            <ul class="product-description-list check-icon-list mobile-center-width">
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    30 Day Customized Meal Plan
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    30 Day Customized Training Plan
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    30 Day Supply of Shedfat Maxx
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    FREE BONUS #1-What To Eat In The Streets Guide
+                                </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    FREE BONUS #2-Shedfat Gym Bag
+                                </li>
+                            </ul>
                         </div>
                         <div class="product-price-block">
                             <div class="product-price has-old-price">
@@ -37,11 +59,11 @@
                         </span>
                             </div>
                         </div>
+                        @include('web.shop.partials.free_shipping')
                         <add-to-cart
                                 product-slug="{{ $product->slug }}"
                         >
                         </add-to-cart>
-                        @include('web.shop.partials.free_shipping')
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -62,7 +84,7 @@
                 </div>
                 <div class="section__text-wrapper">
                     <p class="section__text text-center">
-                        Labor Day! Here is a chance for you to capitalize and really get the best bang for your buck! It is impossible to put a price on looking great, feeling amazing and achieving the goals that you have set out to achieve… but that does not mean we will not do our best to make it affordable!
+                         Here is a chance for you to capitalize and really get the best bang for your buck! It is impossible to put a price on looking great, feeling amazing and achieving the goals that you have set out to achieve… but that does not mean we will not do our best to make it affordable!
                     </p>
                 </div>
                 <div class="limited-opportunity__products-wrapper">

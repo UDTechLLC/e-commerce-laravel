@@ -38,19 +38,17 @@
                         </span>
                             </div>
                         </div>
+                        @include('web.shop.partials.free_shipping')
                         <add-to-cart
                                 product-slug="{{ $product->slug }}"
                         >pre-order
                         </add-to-cart>
-                        @include('web.shop.partials.free_shipping')
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
         </div>
 
-
-    </main>
 
     <section class="get-more">
         <div class="wrapper">
@@ -90,6 +88,7 @@
             </div>
         </div>
     </section>
+    </main>
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >pre-order

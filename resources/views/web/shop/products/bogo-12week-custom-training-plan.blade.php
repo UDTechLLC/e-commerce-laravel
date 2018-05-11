@@ -217,28 +217,28 @@
                         <div class="success-story-slider-wrapper">
                             <div id="successStories" class="success-story-slider">
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_5611.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_5611.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2421.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_2421.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2810.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_2810.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_7519.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_7519.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_6252.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_6252.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2811.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_2811.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_9363.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_9363.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_4745.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_4745.jpg')}}"/>
                                 </div>
                             </div>
                         </div>
@@ -423,7 +423,7 @@
    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">FREE GIFT</h2>
+            <h2 class="popUp__title">FREE GIFT INCLUDED</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     <img src="{{ asset('web/images/popUp/meal_free_icon.png') }}" alt="meal_free_icon">
@@ -443,6 +443,11 @@
                             <span class="currency">$</span>
                             <span> 0.00</span>
                         </span>
+                        </div>
+                        <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
+                            <a class="add-to-cart-btn" href="/cart" >
+                                View cart
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -48,9 +48,6 @@
             </div>
         </div>
 
-
-    </main>
-
     <section class="get-more">
         <div class="wrapper">
             <div class="flex flex-a--center flex--m-block">
@@ -82,6 +79,7 @@
             </div>
         </div>
     </section>
+    </main>
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >

@@ -219,25 +219,25 @@
                     <div class="success-story-slider-wrapper">
                         <div id="successStories" class="success-story-slider">
                             <div class="slider-item">
-                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_1.jpg')}}" />
+                                <img data-lazy="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_1.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_2.jpg')}}" />
+                                <img data-lazy="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_2.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_3.jpg')}}" />
+                                <img data-lazy="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_3.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_4.jpg')}}" />
+                                <img data-lazy="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_4.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_5.jpg')}}" />
+                                <img data-lazy="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_5.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_6.jpg')}}" />
+                                <img data-lazy="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_6.jpg')}}" />
                             </div>
                             <div class="slider-item">
-                                <img src="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_7.jpg')}}" />
+                                <img data-lazy="{{asset('web/images/full-product/12_week_custom_meal_plan/slider_images/IMG_7.jpg')}}" />
                             </div>
                         </div>
                     </div>

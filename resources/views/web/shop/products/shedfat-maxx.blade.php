@@ -29,9 +29,9 @@
                         <shedfat-maxx
                                 product-props="{{$product}}"
                                 subscribe-product-props="{{ \App\Models\Product::where('slug', 'shedfat-maxx-subscription')->first() }}"
+                                :free-shipping="{{freeShipping()}}"
                         >
                         </shedfat-maxx>
-                        @include('web.shop.partials.free_shipping')
                     </div>
                 </div>
                 <div class="clear"></div>
