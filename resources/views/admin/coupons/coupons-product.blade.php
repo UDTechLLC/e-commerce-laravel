@@ -2,7 +2,7 @@
 @section('content')
     <h2>Attach product</h2>
     <!-- Start to do list -->
-    <div class="row">
+    {{--<div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -34,6 +34,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
+    <coupons-attach
+        :products="{{$products}}"
+        :attach-product="{{$productIds}}"
+        :coupon-id="{{$coupon->getKey()}}"
+    ></coupons-attach>
     <!-- End to do list -->
 @endsection
