@@ -20,6 +20,6 @@ function getShippingCost(string $country)
 function freeShipping()
 {
     $shipping = \App\Models\Shipping::where('country', \App\Models\Shipping::USA)->first();
-
-    return $shipping->isFree;
+    
+    return ($shipping->isFree) ? $shipping->isFree : 0;
 }

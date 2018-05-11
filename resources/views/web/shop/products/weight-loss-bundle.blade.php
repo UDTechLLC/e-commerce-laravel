@@ -59,11 +59,11 @@
                         </span>
                             </div>
                         </div>
+                        @include('web.shop.partials.free_shipping')
                         <add-to-cart
                                 product-slug="{{ $product->slug }}"
                         >
                         </add-to-cart>
-                        @include('web.shop.partials.free_shipping')
                     </div>
                 </div>
                 <div class="clear"></div>
