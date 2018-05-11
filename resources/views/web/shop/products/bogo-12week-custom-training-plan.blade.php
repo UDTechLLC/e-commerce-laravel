@@ -423,7 +423,7 @@
    <div class="popUp" data-modal="12 Week Custom Training Plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">FREE GIFT</h2>
+            <h2 class="popUp__title">FREE GIFT INCLUDED</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
                     <img src="{{ asset('web/images/popUp/meal_free_icon.png') }}" alt="meal_free_icon">
@@ -443,6 +443,11 @@
                             <span class="currency">$</span>
                             <span> 0.00</span>
                         </span>
+                        </div>
+                        <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
+                            <a class="add-to-cart-btn" href="/cart" >
+                                View cart
+                            </a>
                         </div>
                     </div>
                 </div>
