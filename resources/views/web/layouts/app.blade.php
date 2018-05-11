@@ -51,7 +51,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('web/slick/slick-theme.css') }}">
         <!-- Zendesk Chat Script-->
-    {{--    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>--}}
+        <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
         <!--[if lt IE 9]!!>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
