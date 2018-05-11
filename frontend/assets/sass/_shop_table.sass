@@ -15,7 +15,7 @@
       @media screen and (max-width: 800px)
         width: 35%
 
-    &price, &quantity, &subtotal
+    &price, &quantity, &subtotal, &deliver
       text-align: center
 
     &remove
@@ -125,3 +125,28 @@
           font-size: 24px
           float: right
           text-decoration: none
+      .product-deliver
+        .deliver-select-wrapper
+          margin-top: -7px
+          //select
+            border: 1px solid #eaeaea
+            height: 38px
+            max-width: 150px
+            display: inline-block
+            padding-left: 15px
+          .select2
+            &-container
+              width: 147px !important
+
+            &-selection
+              border-color: #eaeaea !important
+              border-radius: 0 !important
+              height: 36px !important
+
+              &__rendered
+                color: #000000 !important
+                font-size: 14px !important
+                line-height: 35px !important
+
+              &__arrow
+                top: 5px !important
