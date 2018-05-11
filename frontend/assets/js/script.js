@@ -401,6 +401,16 @@
 
 
 
+  $('.product-select_option').click(function () {
+    var option = $(this).data('option');
+
+    $('#select_option').value(option);
+    console.log(option);
+
+  })
+
+
+
 
   //timer
 

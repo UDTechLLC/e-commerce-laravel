@@ -39,49 +39,41 @@
 
                         <div class="price-radio-block">
 
-                                <label class="price-radio flex flex-a--center">
+                                <label class="price-radio has-select flex flex-a--center">
                                     <input type="radio" value="34.00" name="product-price" checked>
+
                                     <span class="custom-input"></span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>34.00</span>
-                                    </span>
+                                    <div class="product-select_subscribe">
+                                       <span class="product-subscribeText">Subscribe and Save</span>
+                                        <div class="product-select-wrapper">
+                                            <div class="product-select-text">Deliber every</div>
+                                            <div class="product-select">
+                                                <span class="product-select__current">2 weeks (most common)</span>
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
 
-
-                                    <span class="price-radio-block__desc">
-                                        I want to make a one-time purchase.
-                                    </span>
-
+                                                <div class="product-select_option-wrapper">
+                                                    <input type="text" value="2 week" name="select_option" id="select_option">
+                                                    <div class="product-select_option" data-option="1 week">1 week</div>
+                                                    <div class="product-select_option" data-option="2 week">2 weeks (most common)</div>
+                                                    <div class="product-select_option" data-option="3 week">3 weeks</div>
+                                                    <div class="product-select_option" data-option="4 week">4 weeks</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </label>
-                            <label class="price-radio flex flex-a--center">
+                            <label class="price-radio has-select  flex flex-a--center">
                                 <input type="radio" value="59.99" name="product-price">
                                 <span class="custom-input"></span>
-                                <span>
-                                    <span class="old-price">
-                                        <span class="currency">$</span>
-                                        <span>59.99</span>
-                                    </span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>24.99</span>
-                                    </span>
-                                </span>
-
-                                <span class="price-radio-block__desc">
-                                        I want auto-shipping for every 30 days.
-                                </span>
+                                <div class="product-select_subscribe">
+                                    <span class="product-subscribeText">One time purchase</span>
+                                </div>
                             </label>
                         </div>
 
                     </div>
                     <div class="product-button-block">
                         <div class="flex flex-a--center wrapper-btns-buy-count">
-
-                            <div class="btn-wrapper-product-count flex flex-a--center">
-                                <button class="btn">-</button>
-                                <input type="number" class="product-count" value="1">
-                                <button class="btn">+</button>
-                            </div>
 
                             <div class="add-to-cart-wrapper">
                                 <a class="add-to-cart-btn" href="#">
