@@ -31,7 +31,7 @@
         </td>
         <td class="product-deliver" v-if="product.subscribe">
             <div class="deliver-select-wrapper">
-                <select class="deliver-select-custom" v-model="subscribePeriod">
+                <select class="deliver-select-custom" v-model="subscribePeriod" @change="updatePlan">
                     <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
                 </select>
             </div>
@@ -52,6 +52,7 @@
 
 <script type="text/babel">
     import delivery from './../../../component/delivery'
+    import moment from 'moment';
 
     export default ({
         data: () => ({
@@ -61,6 +62,11 @@
         }),
         props: {
             product: Object
+        },
+        computed: {
+            subscribeDay() {
+                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
+            }
         },
         created() {
             this.subscribePeriod = this.product.subscribe_period;
@@ -97,8 +103,8 @@
                         error => console.log('error')
                 )
             },
-            test() {
-                console.log('aa' + this.subscribePeriod)
+            updatePlan() {
+                this.$store.dispatch('updatePlan', [this.product.slug, this.subscribeDay]);
             }
         }
     });

@@ -76,6 +76,19 @@ const actions = {
         error => console.log('error')
       )
     }
+  },
+  updatePlan(context, params) {
+    let data = {
+      hash: Vue.localStorage.get('hash'),
+      days: params[1]
+    };
+
+    axios.put(`/api/carts/products/update/${params[0]}/subscribe/period`, data).then(
+      response => {
+        this.commit('updateState', response);
+      },
+      error => console.log('error')
+    )
   }
 };
 
