@@ -44,19 +44,28 @@
 
                                     <span class="custom-input"></span>
                                     <div class="product-select_subscribe">
-                                       <span class="product-subscribeText">Subscribe and Save</span>
+                                        <div class="flex flex-a--center m-flexSbscr">
+                                            <div class="product-price">
+                                              <span class="product-amount">
+                                                $100.00
+                                              </span>
+                                            </div>
+                                            <span class="product-subscribeText">Subscribe and Save</span>
+                                        </div>
+
+
                                         <div class="product-select-wrapper">
-                                            <div class="product-select-text">Deliber every</div>
+                                            <div class="product-select-text">Deliver every</div>
                                             <div class="product-select">
-                                                <span class="product-select__current">2 weeks (most common)</span>
+                                                <span class="product-select__current"></span>
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
 
                                                 <div class="product-select_option-wrapper">
-                                                    <input type="text" value="2 week" name="select_option" id="select_option">
-                                                    <div class="product-select_option" data-option="1 week">1 week</div>
-                                                    <div class="product-select_option" data-option="2 week">2 weeks (most common)</div>
-                                                    <div class="product-select_option" data-option="3 week">3 weeks</div>
-                                                    <div class="product-select_option" data-option="4 week">4 weeks</div>
+                                                    <input type="hidden" name="select_option" id="select_option">
+                                                    <div class="product-select_option active" data-option="2 weeks" >2 weeks</div>
+                                                    <div class="product-select_option" data-option="1 month">1 month (most common)</div>
+                                                    <div class="product-select_option" data-option="2 month">2 month</div>
+                                                    <div class="product-select_option" data-option="3 month">3 month</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +75,19 @@
                                 <input type="radio" value="59.99" name="product-price">
                                 <span class="custom-input"></span>
                                 <div class="product-select_subscribe">
-                                    <span class="product-subscribeText">One time purchase</span>
+
+                                    <div class="flex flex-a--center m-flexSbscr">
+                                        <div class="product-price">
+                                              <span class="product-amount">
+                                                $200.00
+                                              </span>
+                                        </div>
+
+                                        <span class="product-subscribeText">One time purchase</span>
+
+                                    </div>
+
+
                                 </div>
                             </label>
                         </div>
