@@ -21,11 +21,8 @@
                 <label class="deliver-label">
                     Deliver:
                 </label>
-                <select class="deliver-select">
-                    <option>every 2 weeks</option>
-                    <option>every 1 month (most common)</option>
-                    <option>every 2 month</option>
-                    <option>every 3 month</option>
+                <select class="deliver-select-custom" v-model="subscribePeriod" @change="updatePlan">
+                    <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
                 </select>
             </div>
         </div>
@@ -38,14 +35,25 @@
 </template>
 
 <script type="text/babel">
+    import delivery from './../../../component/delivery'
+    import moment from 'moment';
+
     export default ({
         data: () => ({
-            animatedTotal: 0
+            animatedTotal: 0,
+            subscribePlans: delivery,
+            subscribePeriod: 0
         }),
         props: {
             product: Object
         },
+        computed: {
+            subscribeDay() {
+                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
+            }
+        },
         created() {
+            this.subscribePeriod = this.product.subscribe_period;
             this.animatedTotal = this.product.total_sum_with_discount;
         },
         watch: {
@@ -78,6 +86,9 @@
                         },
                         error => console.log('error')
                 )
+            },
+            updatePlan() {
+                this.$store.dispatch('updatePlan', [this.product.slug, this.subscribeDay]);
             }
         }
     });
@@ -89,5 +100,36 @@
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    .deliver-select-custom {
+        background-color: #ffffff;
+        -webkit-appearance: none;
+        -o-text-overflow: '';
+        text-overflow: '';
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        font-size: 13px;
+        height: 38px;
+        outline: 0;
+        padding: 0 15px;
+        position: relative;
+        text-indent: .01px;
+        vertical-align: middle;
+        z-index: 5;
+        margin: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        width: 100%;
+    }
+    .deliver-select-wrapper {
+        margin-top: 0;
+        padding: 0 15px;
+    }
+    .product-price {
+     width: 100%;
     }
 </style>
