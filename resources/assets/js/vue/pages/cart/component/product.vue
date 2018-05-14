@@ -31,14 +31,12 @@
         </td>
         <td class="product-deliver" v-if="product.subscribe">
             <div class="deliver-select-wrapper">
-                <select class="deliver-select">
-                    <option>every 2 weeks</option>
-                    <option>every 1 month (most common)</option>
-                    <option>every 2 month</option>
-                    <option>every 3 month</option>
+                <select class="deliver-select-custom" v-model="subscribePeriod">
+                    <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
                 </select>
             </div>
         </td>
+        <td class="product-deliver" v-else></td>
         <td class="product-subtotal">
                      <span class="product-subtotal-amount">
                            ${{ animatedTotal }}
@@ -53,14 +51,19 @@
 </template>
 
 <script type="text/babel">
+    import delivery from './../../../component/delivery'
+
     export default ({
         data: () => ({
-            animatedTotal: 0
+            animatedTotal: 0,
+            subscribePlans: delivery,
+            subscribePeriod: 0
         }),
         props: {
             product: Object
         },
         created() {
+            this.subscribePeriod = this.product.subscribe_period;
             this.animatedTotal = this.product.total_sum_with_discount;
         },
         watch: {
@@ -93,6 +96,9 @@
                         },
                         error => console.log('error')
                 )
+            },
+            test() {
+                console.log('aa' + this.subscribePeriod)
             }
         }
     });
@@ -104,5 +110,33 @@
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    .deliver-select-custom {
+        background-color: #ffffff;
+        -webkit-appearance: none;
+        -o-text-overflow: '';
+        text-overflow: '';
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        font-size: 13px;
+        height: 38px;
+        outline: 0;
+        padding: 0 15px;
+        position: relative;
+        text-indent: .01px;
+        vertical-align: middle;
+        z-index: 5;
+        margin: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        width: 100%;
+    }
+    .deliver-select-wrapper {
+        margin-top: 0;
+        padding: 0 15px;
     }
 </style>
