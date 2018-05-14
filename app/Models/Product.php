@@ -34,6 +34,7 @@ class Product extends Model implements HasMedia
     const VIEW_NAME_LEGS_ON_FIRE ='legs-on-fire';
     const VIEW_NAME_SHAKER = 'shedFat-shaker';
     const VIEW_NAME_GYM_BAG ='gym-bag';
+    const VIEW_NAME_WEIGHT_LOSS_BUNDLE = 'weight-loss-bundle';
 
     const VIEW_NAMES = [
         self::VIEW_NAME_SHOW,
@@ -51,7 +52,8 @@ class Product extends Model implements HasMedia
         self::VIEW_NAME_DAD_HAT,
         self::VIEW_NAME_LEGS_ON_FIRE,
         self::VIEW_NAME_SHAKER,
-        self::VIEW_NAME_GYM_BAG
+        self::VIEW_NAME_GYM_BAG,
+        self::VIEW_NAME_WEIGHT_LOSS_BUNDLE
     ];
 
     protected $table = 'products';
@@ -177,7 +179,7 @@ class Product extends Model implements HasMedia
      */
     public function getOldAmountAttribute($value)
     {
-        return number_format($value / 100, 2, ".", "");
+        return ($value) ? number_format($value / 100, 2, ".", "") : 0;
     }
 
     public function getProductLinkAttribute()
@@ -237,7 +239,7 @@ class Product extends Model implements HasMedia
             $product = $order->products()->wherePivot('product_id', $this->bandls->id)->first();
         }
 
-        return $product->product_link;
+        return $product->getMedia('products')->first()->getCustomProperty('external_link');
     }
 
     /**

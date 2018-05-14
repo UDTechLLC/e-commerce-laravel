@@ -8,7 +8,6 @@
             <div class="wrapper">
                 <div class="product-preview-wrapper">
                     <div class="image-wrapper">
-                        {{--<img src="assets/images/full-product/resistance_bands.png">--}}
                         <img src="{!! $product->getFirstMediaUrl('products') !!}" />
                     </div>
                 </div>
@@ -38,6 +37,7 @@
                         </span>
                             </div>
                         </div>
+                        @include('web.shop.partials.free_shipping')
                         <add-to-cart
                                 product-slug="{{ $product->slug }}"
                         >
@@ -47,9 +47,6 @@
                 <div class="clear"></div>
             </div>
         </div>
-
-
-    </main>
 
     <section class="get-more">
         <div class="wrapper">
@@ -64,6 +61,7 @@
             </div>
         </div>
     </section>
+    </main>
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >

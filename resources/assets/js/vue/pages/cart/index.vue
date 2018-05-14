@@ -15,6 +15,9 @@
                         <product-list
                                 :products="products"
                         ></product-list>
+                        <mobile-products-list
+                            :products="products"
+                        ></mobile-products-list>
                     </div>
                 </form>
             </div>
@@ -115,6 +118,7 @@
 <script type="text/babel">
 
     import productList from './component/product-list';
+    import mobileProductsList from './component/mobile-products-list';
     import shipping from './component/shipping';
     import emptyCart from './component/empty-cart';
     import {mapGetters} from 'vuex'
@@ -130,7 +134,8 @@
         components: {
             productList,
             shipping,
-            emptyCart
+            emptyCart,
+            mobileProductsList
         },
 
         computed: {

@@ -37,6 +37,7 @@ class CouponController extends Controller
 
         return CouponsResource::collection($coupons);
     }
+
     /**
      *  Show the form for creating a new resource.
      *
@@ -51,26 +52,26 @@ class CouponController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreateCouponRequest  $request
+     * @param  CreateCouponRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateCouponRequest $request)
     {
-        $coupon =Coupon::create([
-            'code'        => $request->get('code'),
-            'description' => $request->get('description'),
+        $coupon = Coupon::create([
+            'code'          => $request->get('code'),
+            'description'   => $request->get('description'),
 //            'discount_type' =>$request->get('discount_type'),
-            'coupon_amount'=>$request->get('coupon_amount')
+            'coupon_amount' => $request->get('coupon_amount')
 
         ]);
-        
+
         return $coupon;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -92,18 +93,18 @@ class CouponController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  CreateCouponRequest  $request
+     * @param  CreateCouponRequest $request
      * @param  Coupon $coupon
      * @return \Illuminate\Http\Response
      */
     public function update(CreateCouponRequest $request, Coupon $coupon)
     {
         $coupon->update([
-            'code'        => $request->get('code'),
-            'description' => $request->get('description'),
-            'coupon_amount'=>$request->get('coupon_amount')
+            'code'          => $request->get('code'),
+            'description'   => $request->get('description'),
+            'coupon_amount' => $request->get('coupon_amount')
         ]);
-        
+
         return $coupon;
     }
 
@@ -121,16 +122,14 @@ class CouponController extends Controller
     public function attachProduct(Coupon $coupon)
     {
         return view('admin.coupons.coupons-product', [
-            'coupon' => $coupon,
-            'productIds' => $coupon->products->pluck('id')->toArray(),
-            'products' => Product::where('published', true)->get()
+            'coupon'     => $coupon,
+            'productIds' => json_encode($coupon->products->pluck('id')->toArray()),
+            'products'   => Product::where('published', true)->get()
         ]);
     }
-    
-    public function attach(Request $request, Coupon $coupon) 
+
+    public function attach(Request $request, Coupon $coupon)
     {
         $coupon->products()->sync($request->get('products'));
-
-        return redirect()->back();
     }
 }

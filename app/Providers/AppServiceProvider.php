@@ -30,14 +30,14 @@ class AppServiceProvider extends ServiceProvider
 
         Order::observe(OrderObserver::class);
 
-        Route::bind('product', function ($value) {
+       /* Route::bind('product', function ($value) {
             if ($this->isAdmin()) {
                 return Product::where('slug', $value)->first();
             }
             return Product::where('slug', $value)
                 ->where('published', true)
                 ->first();
-        });
+        });*/
 
         Route::bind('post', function ($value) {
             if ($this->isAdmin()) {

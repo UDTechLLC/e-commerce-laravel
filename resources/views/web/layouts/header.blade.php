@@ -32,13 +32,16 @@
 
                 <ul class="second-header__menu-items">
                     <li class="second-header__menu-item {!! Request::is('/')?'active':'' !!}">
-                        <a href="{{url('/')}}">Home</a>
+                        <a href="{{route('home')}}">Home</a>
                     </li>
                     <li class="second-header__menu-item {!! Request::is('shop')?'active':'' !!}">
-                        <a href="{{url('shop')}}">Shop</a>
+                        <a href="{{route('shop')}}">Shop</a>
+                    </li>
+                    <li class="second-header__menu-item {!! Request::is('blog')?'active':'' !!}">
+                        <a href="{{route('blog')}}">Blog</a>
                     </li>
                     <li class="second-header__menu-item {!! Request::is('faq')?'active':'' !!}">
-                        <a href="{{url('faq')}}">FAQ</a>
+                        <a href="{{route('faq')}}">FAQ</a>
                     </li>
                 </ul>
             </div>

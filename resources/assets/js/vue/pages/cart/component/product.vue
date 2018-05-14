@@ -29,6 +29,16 @@
                 <input value="+" class="plus" type="button" @click="addProduct(product.slug)"/>
             </div>
         </td>
+        <td class="product-deliver" v-if="product.subscribe">
+            <div class="deliver-select-wrapper">
+                <select class="deliver-select">
+                    <option>every 2 weeks</option>
+                    <option>every 1 month (most common)</option>
+                    <option>every 2 month</option>
+                    <option>every 3 month</option>
+                </select>
+            </div>
+        </td>
         <td class="product-subtotal">
                      <span class="product-subtotal-amount">
                            ${{ animatedTotal }}

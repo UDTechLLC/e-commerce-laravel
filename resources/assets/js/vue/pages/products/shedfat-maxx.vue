@@ -26,7 +26,7 @@
                                     <!--<span class="old-price">-->
                                         <!--<span class="currency">$</span>-->
                                         <!--<span>{{ subscribeProduct.old_amount }}</span>-->
-                                    <!--</span>-->
+                                        <!--</span>-->
                                     <span class="product-amount">
                                         <span class="currency">$</span>
                                         <span>{{ subscribeProduct.amount }}</span>
@@ -50,6 +50,9 @@
 
         </div>
         <div class="product-button-block">
+            <div v-if="freeShipping">
+                <img width="95px" src="/web/images/delivery.svg" alt="delivery">
+            </div>
             <div class="flex flex-a--center wrapper-btns-buy-count">
                 <!--<div class="btn-wrapper-product-count flex flex-a&#45;&#45;center">
                     <button class="btn">-</button>
@@ -105,7 +108,8 @@
         }),
         props: {
             productProps: String,
-            subscribeProductProps: String
+            subscribeProductProps: String,
+            freeShipping: Number
         },
         computed: {
             subscribeDay() {
@@ -134,3 +138,8 @@
         }
     })
 </script>
+<style>
+    .top-product-description-block .product-button-block .add-to-cart-wrapper {
+        margin-top: 10px;
+    }
+</style>

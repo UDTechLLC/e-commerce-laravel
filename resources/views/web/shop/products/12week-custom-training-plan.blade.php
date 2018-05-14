@@ -2,12 +2,6 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
-@section('style')
-    @parent
-    <!--Start of Zendesk Chat Script-->
-    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
-    <!--End of Zendesk Chat Script-->
-@endsection
 @section('content')
     <main>
         <div class="main">
@@ -223,28 +217,28 @@
                         <div class="success-story-slider-wrapper">
                             <div id="successStories" class="success-story-slider">
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_5611.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_5611.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2421.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_2421.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2810.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_2810.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_7519.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_7519.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_6252.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_6252.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_2811.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_2811.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_9363.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_9363.jpg')}}"/>
                                 </div>
                                 <div class="slider-item">
-                                    <img src="{{ asset('web/images/success_story_slider/1/IMG_4745.jpg')}}"/>
+                                    <img data-lazy="{{ asset('web/images/success_story_slider/1/IMG_4745.jpg')}}"/>
                                 </div>
                             </div>
                         </div>

@@ -29,8 +29,8 @@
                         <div class="product-price-block product-price-block--radio">
                             {{--<div class="product-price">--}}
                             {{--<span class="product-amount">--}}
-                                {{--<span class="currency">$</span>--}}
-                                {{--<span>  {!! $product->amount !!}</span>--}}
+                            {{--<span class="currency">$</span>--}}
+                            {{--<span>  {!! $product->amount !!}</span>--}}
                             {{--</span>--}}
                             {{--</div>--}}
                             <div class="price-radio-block">
@@ -70,20 +70,22 @@
                             </div>
 
                         </div>
-                            <div class="product-button-block">
-                                <div class="flex flex-a--center wrapper-btns-buy-count">
+                        <div class="product-button-block">
+                            <div class="flex flex-a--center wrapper-btns-buy-count">
 
-                                    <div class="btn-wrapper-product-count flex flex-a--center">
-                                        <button class="btn">-</button>
-                                        <input type="number" class="product-count" value="1">
-                                        <button class="btn">+</button>
-                                    </div>
+                                <div class="btn-wrapper-product-count flex flex-a--center">
+                                    <button class="btn">-</button>
+                                    <input type="number" class="product-count" value="1">
+                                    <button class="btn">+</button>
+                                </div>
 
                                 <div class="add-to-cart-wrapper">
-                                <add-to-cart
-                                        product-slug="{{ $product->slug }}"
-                                >
-                                </add-to-cart>
+                                    @include('web.shop.partials.free_shipping')
+                                    <add-to-cart
+                                            product-slug="{{ $product->slug }}"
+                                    >
+                                    </add-to-cart>
+
                                 </div>
                             </div>
 
@@ -103,7 +105,8 @@
                 <div class="flex flex-j--between ingredients">
                     <div class="ingredients__item">
                         <div class="ingredients__img">
-                            <img src="{{ asset('web/images/full-product/shedfat-maxx/green-coffee.png')}}" alt="green-coffee">
+                            <img src="{{ asset('web/images/full-product/shedfat-maxx/green-coffee.png')}}"
+                                 alt="green-coffee">
                         </div>
                         <div class="ingredients__text">
                             <span>Green Coffee</span>
@@ -127,7 +130,8 @@
                     </div>
                     <div class="ingredients__item">
                         <div class="ingredients__img">
-                            <img src="{{ asset('web/images/full-product/shedfat-maxx/L-Theanine.png')}}" alt="L-Theanine">
+                            <img src="{{ asset('web/images/full-product/shedfat-maxx/L-Theanine.png')}}"
+                                 alt="L-Theanine">
                         </div>
                         <div class="ingredients__text">
                             <span>L-Theanine</span>
@@ -214,11 +218,14 @@
                 <div class="flex flex-j--between ingredients__other-wrapper">
                     <div class="ingredients__other-item">
                         <h3 class="ingredients__other-title">Other Ingredients</h3>
-                        <p class="ingredients__other-text">Magnesium stearate & Silicon Dioxide, Hypromellose (Vegetable Shell).</p>
+                        <p class="ingredients__other-text">Magnesium stearate & Silicon Dioxide, Hypromellose (Vegetable
+                            Shell).</p>
 
 
                         <h3 class="ingredients__other-title">Additional Information</h3>
-                        <p class="ingredients__other-text">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnoze, treat, cure, or prevent any disease.</p>
+                        <p class="ingredients__other-text">These statements have not been evaluated by the Food and Drug
+                            Administration. This product is not intended to diagnoze, treat, cure, or prevent any
+                            disease.</p>
                     </div>
                     <div class="ingredients__other-item">
                         <div class="ingredients__other-line"></div>
@@ -238,7 +245,6 @@
         </section>
 
 
-
         <section>
             <div class="training-plan-faqs-block-wrapper">
                 <div class="wrapper">
@@ -248,17 +254,37 @@
                         <div class="video-block-wrapper">
                             <div class="video-block">
                                 <div id="amazingcarousel-container-1">
-                                    <div id="amazingcarousel-1" style="display: block; position: relative; width: 100%; max-width: 990px; margin: 0px auto; direction: ltr;">
-                                        <div class="amazingcarousel-list-container" style="position: relative; margin: 0px auto; overflow: visible;">
-                                            <div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><div class="amazingcarousel-list-wrapper" style="overflow: hidden;"><ul class="amazingcarousel-list" style="display: block; position: relative; list-style-type: none; list-style-image: none; background-image: none; background-color: transparent; padding: 0px; margin: 0px;">
-                                                        <li class="amazingcarousel-item amazingcarousel-item-0" style="display: block; position: relative; background-image: none; background-color: transparent; margin: 0px; padding: 0px; float: left;">
-                                                            <div class="amazingcarousel-item-container" style="position: relative; margin: 0px 4px;">
+                                    <div id="amazingcarousel-1"
+                                         style="display: block; position: relative; width: 100%; max-width: 990px; margin: 0px auto; direction: ltr;">
+                                        <div class="amazingcarousel-list-container"
+                                             style="position: relative; margin: 0px auto; overflow: visible;">
+                                            <div class="amazingcarousel-list-wrapper" style="overflow: hidden;">
+                                                <div class="amazingcarousel-list-wrapper" style="overflow: hidden;">
+                                                    <ul class="amazingcarousel-list"
+                                                        style="display: block; position: relative; list-style-type: none; list-style-image: none; background-image: none; background-color: transparent; padding: 0px; margin: 0px;">
+                                                        <li class="amazingcarousel-item amazingcarousel-item-0"
+                                                            style="display: block; position: relative; background-image: none; background-color: transparent; margin: 0px; padding: 0px; float: left;">
+                                                            <div class="amazingcarousel-item-container"
+                                                                 style="position: relative; margin: 0px 4px;">
                                                                 <div class="amazingcarousel-image border-red">
-                                                                    <a href="https://player.vimeo.com/video/247015617" title="Rauve workout plan GYM" class="html5lightbox" data-group="amazingcarousel-1"><img src="{{ asset('web/images/full-product/shedfat-maxx/672144082_640.jpg')}}" alt="Rauve workout plan GYM"></a>
-                                                                    <div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div><div class="amazingcarousel-play-video" style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div></div>
+                                                                    <a href="https://player.vimeo.com/video/247015617"
+                                                                       title="Rauve workout plan GYM"
+                                                                       class="html5lightbox"
+                                                                       data-group="amazingcarousel-1"><img
+                                                                                src="{{ asset('web/images/full-product/shedfat-maxx/672144082_640.jpg')}}"
+                                                                                alt="Rauve workout plan GYM"></a>
+                                                                    <div class="amazingcarousel-play-video"
+                                                                         style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div>
+                                                                    <div class="amazingcarousel-play-video"
+                                                                         style="position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;background-image:url('http://localhost:5000/assets/carouselengine/playvideo-64-64-0.png');background-repeat:no-repeat;background-position:center center;"></div>
+                                                                </div>
                                                             </div>
                                                         </li>
-                                                        <div style="clear:both;"></div><div style="clear:both;"></div></ul></div></div>
+                                                        <div style="clear:both;"></div>
+                                                        <div style="clear:both;"></div>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -266,16 +292,12 @@
                         </div>
 
 
-
                         <div class="get-more__text">
                             <img src="{{ asset('web/images/full-product/shedfat-maxx/txt.png')}}" alt="get-more">
                         </div>
 
 
-
-
                     </div>
-
 
 
                     <div class="training-plan-faqs-block">
@@ -286,7 +308,6 @@
                 </div>
             </div>
         </section>
-
 
 
         <section class="section__wrapper maxx-description">
@@ -301,7 +322,8 @@
                         <div class="flex flex-j--between maxx-description__icons">
                             <div class="section__icon-wrapper">
                                 <div class="section__icon-img section__icon-img--white flex flex-a--center flex-j--center">
-                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/weight-loss.svg')}}" alt="weight-loss">
+                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/weight-loss.svg')}}"
+                                         alt="weight-loss">
                                 </div>
                                 <div class="text-center">
                                     <p class="section__icon-info section__icon-info--white">
@@ -312,7 +334,8 @@
 
                             <div class="section__icon-wrapper">
                                 <div class="section__icon-img section__icon-img--white flex flex-a--center flex-j--center">
-                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/boost-energy.svg')}}" alt="boost-energy">
+                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/boost-energy.svg')}}"
+                                         alt="boost-energy">
                                 </div>
                                 <div class="text-center">
                                     <p class="section__icon-info section__icon-info--white">
@@ -322,10 +345,10 @@
                             </div>
 
 
-
                             <div class="section__icon-wrapper">
                                 <div class="section__icon-img section__icon-img--white flex flex-a--center flex-j--center">
-                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/optimize-health.svg')}}" alt="optimize-health">
+                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/optimize-health.svg')}}"
+                                         alt="optimize-health">
                                 </div>
                                 <div class="text-center">
                                     <p class="section__icon-info section__icon-info--white">
@@ -337,7 +360,8 @@
 
                             <div class="section__icon-wrapper">
                                 <div class="section__icon-img section__icon-img--white flex flex-a--center flex-j--center">
-                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/reduced.svg')}}" alt="reduced">
+                                    <img src="{{ asset('web/images/full-product/shedfat-maxx/reduced.svg')}}"
+                                         alt="reduced">
                                 </div>
                                 <div class="text-center">
                                     <p class="section__icon-info section__icon-info--white">
@@ -357,26 +381,32 @@
                         <div class="flex flex--m-block flex-j--between maxx-description__blocks">
                             <div class="block-50 m-block-100 maxx-description__left-block">
                                 <h2 class="maxx-description__title">Green Coffee Bean Extract (200 mg)</h2>
-                                <p class="maxx-description__text">Supports fat burning, appetite control and boosts metabolism via Chlorogenic acid contained in green coffee beans.</p>
+                                <p class="maxx-description__text">Supports fat burning, appetite control and boosts
+                                    metabolism via Chlorogenic acid contained in green coffee beans.</p>
 
                                 <h2 class="maxx-description__title">Caffeine Anhydrous (125 mg)</h2>
-                                <p class="maxx-description__text">Increases the hormones epinephrine and norepinephrine, which aid in dissolving fat and increasing energy.</p>
+                                <p class="maxx-description__text">Increases the hormones epinephrine and norepinephrine,
+                                    which aid in dissolving fat and increasing energy.</p>
 
 
                                 <h2 class="maxx-description__title">Coleus Root Extract (50 mg)</h2>
-                                <p class="maxx-description__text">Stimulates fat burning enzymes and hormones, which in turn causes weight loss.</p>
+                                <p class="maxx-description__text">Stimulates fat burning enzymes and hormones, which in
+                                    turn causes weight loss.</p>
 
                             </div>
                             <div class="block-50 m-block-100 maxx-description__right-block">
                                 <h2 class="maxx-description__title">L-Theanine (50 mg)</h2>
-                                <p class="maxx-description__text">Puts your brain in alpha state, which allows you to be relaxed yet alert at the same time.</p>
+                                <p class="maxx-description__text">Puts your brain in alpha state, which allows you to be
+                                    relaxed yet alert at the same time.</p>
 
                                 <h2 class="maxx-description__title">Salvia Root Extract (25 mg)</h2>
-                                <p class="maxx-description__text">Prevents blood vessel inflammation, lowers blood pressure, and increases blood flow circulation</p>
+                                <p class="maxx-description__text">Prevents blood vessel inflammation, lowers blood
+                                    pressure, and increases blood flow circulation</p>
 
 
                                 <h2 class="maxx-description__title">Yohimbe Bark Extract (20 mg)</h2>
-                                <p class="maxx-description__text">Improves cognition, boost energy levels, and improve healing.</p>
+                                <p class="maxx-description__text">Improves cognition, boost energy levels, and improve
+                                    healing.</p>
 
 
                             </div>
@@ -384,11 +414,10 @@
 
                     </div>
                     <div class="block-35 m-block-100 text-right">
-                        <img src="{{ asset('web/images/full-product/shedfat-maxx/bottle-description.png')}}" class="bottle-description" alt="bottle-description">
+                        <img src="{{ asset('web/images/full-product/shedfat-maxx/bottle-description.png')}}"
+                             class="bottle-description" alt="bottle-description">
                     </div>
                 </div>
-
-
 
 
             </div>
@@ -405,15 +434,19 @@
 
                     <div class="maxx-directions__item">
                         <div class="maxx-directions__item-num"><span>1</span></div>
-                        <p class="maxx-directions__item-text">To assess your tolerance, take one capsule with 8 oz of water once per day.</p>
+                        <p class="maxx-directions__item-text">To assess your tolerance, take one capsule with 8 oz of
+                            water once per day.</p>
                     </div>
                     <div class="maxx-directions__item">
                         <div class="maxx-directions__item-num"><span>2</span></div>
-                        <p class="maxx-directions__item-text">Once your tolerance has been assessed, take one capsule two times daily 30 to 60 minutes before your two largest meals of the day.</p>
+                        <p class="maxx-directions__item-text">Once your tolerance has been assessed, take one capsule
+                            two times daily 30 to 60 minutes before your two largest meals of the day.</p>
                     </div>
                     <div class="maxx-directions__item">
                         <div class="maxx-directions__item-num"><span>3</span></div>
-                        <p class="maxx-directions__item-text">Once tolerance has been assessed and you are looking for additional boost of energy, take an additional capsule with the first serving of the day. Do not exceed 3 capsules in a 24 hour period.</p>
+                        <p class="maxx-directions__item-text">Once tolerance has been assessed and you are looking for
+                            additional boost of energy, take an additional capsule with the first serving of the day. Do
+                            not exceed 3 capsules in a 24 hour period.</p>
                     </div>
                 </div>
 
@@ -429,4 +462,4 @@
             product-slug="{{ $product->slug }}"
     >
     </add-to-cart-mobile>
-    @endsection
+@endsection

@@ -2,12 +2,6 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
-@section('style')
-    @parent
-    <!--Start of Zendesk Chat Script-->
-    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
-    <!--End of Zendesk Chat Script-->
-@endsection
 @section('content')
     <main>
 
@@ -29,12 +23,13 @@
                         <div class="product-description-block">
                             <p class="product-description">
                                 {!! $product->description !!}
-                                {{--SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase your weight loss, provide clean smooth energy and help you get past your fitness plateaus.--}}
                             </p>
                         </div>
+
                         <shedfat-maxx
                                 product-props="{{$product}}"
                                 subscribe-product-props="{{ \App\Models\Product::where('slug', 'shedfat-maxx-subscription')->first() }}"
+                                :free-shipping="{{freeShipping()}}"
                         >
                         </shedfat-maxx>
                     </div>

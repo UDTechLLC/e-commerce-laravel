@@ -2,19 +2,12 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
-@section('style')
-    @parent
-    <!--Start of Zendesk Chat Script-->
-    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
-    <!--End of Zendesk Chat Script-->
-@endsection
 @section('content')
     <main>
     <div class="top-product-description-block">
         <div class="wrapper">
             <div class="product-preview-wrapper">
                 <div class="image-wrapper">
-                    {{--<img src="assets/images/full-product/product.png">--}}
                     <img src="{!! $product->getFirstMediaUrl('products') !!}" />
                 </div>
             </div>
@@ -22,13 +15,11 @@
                 <div class="product-info">
                     <div class="product-title-block">
                         <h2 class="product-title">
-                            {{--Shedfat Infuser Bottle--}}
                             {!! $product->title !!}
                         </h2>
                     </div>
                     <div class="product-description-block">
                         <p class="product-description">
-                            {{--Proper hydration is extremely important. It effects energy levels, performance and overall well-being.  Add flavor, increase the nutritional value and make staying hydrated and healthy a more enjoyable process.--}}
                             {!! $product->description !!}
                         </p>
                     </div>
@@ -37,36 +28,29 @@
                             @if($product->old_amount)
                             <span class="product-amount product-amount--old">
                                  <span class="currency">$</span>
-                                {{--<span>49.99</span>--}}
                                 <span>{{ $product->old_amount }}</span>
                             </span>
                             @endif
                             <span class="product-amount">
                                 <span class="currency">$</span>
-                                {{--<span>29.99</span>--}}
                                 <span>{{ $product->amount }}</span>
                             </span>
                         </div>
                     </div>
+                    @include('web.shop.partials.free_shipping')
                     <add-to-cart
                             product-slug="{{ $product->slug }}"
                     >
                     </add-to-cart>
+
                 </div>
             </div>
             <div class="clear"></div>
         </div>
     </div>
-
-    </main>
-
-
     <section class="get-more">
         <div class="wrapper">
             <div class="flex flex-a--center flex--m-block">
-                {{--<div class="get-more__img">
-                    <img src="{{ asset('web/images/full-product/pr-get-more.png')}}" alt="pr-get-more">
-                </div>--}}
                 @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
                     <div class="video-block-wrapper">
                         <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
@@ -100,6 +84,7 @@
             </div>
         </div>
     </section>
+    </main>
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >

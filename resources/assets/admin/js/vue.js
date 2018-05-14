@@ -30,6 +30,7 @@ import productsOrder from './vue/pages/products/order';
 import couponsIndex from './vue/pages/coupons/index';
 import couponsCreate from './vue/pages/coupons/create';
 import couponsEdit from './vue/pages/coupons/edit';
+import couponsAttach from './vue/pages/coupons/attach';
 
 import usersIndex from './vue/pages/users/index';
 
@@ -52,6 +53,8 @@ import bannerEdit from './vue/pages/banners/edit';
 import categoryCreate from './vue/pages/category/create';
 import categoryEdit from './vue/pages/category/edit';
 
+import cmsHomepageEdit from './vue/pages/cms/homepage/edit';
+
 require('./vue/mixins');
 
 Vue.prototype.$EventBus = new Vue();
@@ -66,6 +69,7 @@ const app = new Vue({
         couponsIndex,
         couponsCreate,
         couponsEdit,
+        couponsAttach,
         usersIndex,
         statistics,
         orders,
@@ -77,6 +81,7 @@ const app = new Vue({
         bannerCreate,
         bannerEdit,
         categoryCreate,
-        categoryEdit
+        categoryEdit,
+        cmsHomepageEdit
     }
 });

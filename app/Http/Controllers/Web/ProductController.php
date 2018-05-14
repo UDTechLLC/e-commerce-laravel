@@ -55,6 +55,10 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        if (!$product->published) {
+            return abort(404);
+        }
+
         $viewName = ($product->view_name) ? 'web.shop.products.' . $product->view_name : 'web.shop.products.show';
         
         return view($viewName, compact('product'));

@@ -11,25 +11,25 @@
         <div class="top-home-banner-block-wrapper">
             <div class="top-home-banner-block">
                 <div class="main-product">
-                    <a href="{{url('product/12week-custom-meal-plan')}}">
+                    <a href="{{url($banners[0]->link)}}">
                         <img class="desktop-image"
-                             src="{{ asset('web/images/home_page/top_banner/banner_12_week_custom_plan (3).jpg')}}"/>
+                             src="{{ asset($banners[0]->desktopImage) }}"/>
                         <img class="mobile-image"
-                             src="{{ asset('web/images/home_page/top_banner/mobile/banner_12_week_custom_plan_mob (1).jpg')}}">
+                             src="{{ asset($banners[0]->mobileImage) }}">
                     </a>
                 </div>
                 <div class="secondary-products">
                     <div class="tabs-flex">
-                        <a class="top" href="{{url('product/queen-of-the-hill')}}">
+                        <a class="top" href="{{url($banners[1]->link)}}">
                             <img class="desktop-image"
-                                 src="{{ asset('web/images/new-images/queen_of_the_hill_banner.jpg')}}"/>
+                                 src="{{ asset($banners[1]->desktopImage) }}"/>
                             <img class="mobile-image"
-                                 src="{{ asset('web/images/home_page/top_banner/mobile/mobile_2.jpg')}}">
+                                 src="{{ asset($banners[1]->mobileImage) }}">
                         </a>
-                        <a class="bottom" href="{{url('product/shedfat-maxx')}}">
-                            <img class="desktop-image" src="{{ asset('web/images/new-images/shedfat_max.jpg')}}"/>
+                        <a class="bottom" href="{{url($banners[2]->link)}}">
+                            <img class="desktop-image" src="{{ asset($banners[2]->desktopImage) }}"/>
                             <img class="mobile-image"
-                                 src="{{ asset('web/images/home_page/top_banner/mobile/mobile_3.jpg')}}">
+                                 src="{{ asset($banners[2]->mobileImage) }}">
                         </a>
                     </div>
                 </div>
@@ -53,37 +53,37 @@
                     <div class="success-story-slider-wrapper">
                         <div id="successStories" class="success-story-slider">
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/1.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/1 (3).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/2.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/2 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/3.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/3 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/4.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/4 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/5.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/5 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/6.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/6 (2).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/7.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/7 (2).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/8.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/8 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/9.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/9 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/10.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/10 (1).jpg')}}"/>
                             </div>
                             <div class="slider-item">
-                                <img src="{{ asset('web/images/home_page/slider/11.jpg')}}"/>
+                                <img data-lazy="{{ asset('web/images/home_page/slider/11 (1).jpg')}}"/>
                             </div>
 
                         </div>

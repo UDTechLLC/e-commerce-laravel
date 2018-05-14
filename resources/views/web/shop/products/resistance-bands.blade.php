@@ -2,12 +2,6 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
-@section('style')
-    @parent
-    <!--Start of Zendesk Chat Script-->
-    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
-    <!--End of Zendesk Chat Script-->
-@endsection
 @section('content')
     <main>
         <div class="top-product-description-block">
@@ -44,6 +38,7 @@
                         </span>
                             </div>
                         </div>
+                        @include('web.shop.partials.free_shipping')
                         <add-to-cart
                                 product-slug="{{ $product->slug }}"
                         >pre-order
@@ -54,8 +49,6 @@
             </div>
         </div>
 
-
-    </main>
 
     <section class="get-more">
         <div class="wrapper">
@@ -95,6 +88,7 @@
             </div>
         </div>
     </section>
+    </main>
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >pre-order

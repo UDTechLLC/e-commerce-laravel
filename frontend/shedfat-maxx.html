@@ -39,49 +39,62 @@
 
                         <div class="price-radio-block">
 
-                                <label class="price-radio flex flex-a--center">
+                                <label class="price-radio has-select flex flex-a--center">
                                     <input type="radio" value="34.00" name="product-price" checked>
+
                                     <span class="custom-input"></span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>34.00</span>
-                                    </span>
+                                    <div class="product-select_subscribe">
+                                        <div class="flex flex-a--center m-flexSbscr">
+                                            <div class="product-price">
+                                              <span class="product-amount">
+                                                $100.00
+                                              </span>
+                                            </div>
+                                            <span class="product-subscribeText">Subscribe and Save</span>
+                                        </div>
 
 
-                                    <span class="price-radio-block__desc">
-                                        I want to make a one-time purchase.
-                                    </span>
+                                        <div class="product-select-wrapper">
+                                            <div class="product-select-text">Deliver every</div>
+                                            <div class="product-select">
+                                                <span class="product-select__current"></span>
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
 
+                                                <div class="product-select_option-wrapper">
+                                                    <input type="hidden" name="select_option" id="select_option">
+                                                    <div class="product-select_option active" data-option="2 weeks" >2 weeks</div>
+                                                    <div class="product-select_option" data-option="1 month">1 month (most common)</div>
+                                                    <div class="product-select_option" data-option="2 month">2 month</div>
+                                                    <div class="product-select_option" data-option="3 month">3 month</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </label>
-                            <label class="price-radio flex flex-a--center">
+                            <label class="price-radio has-select  flex flex-a--center">
                                 <input type="radio" value="59.99" name="product-price">
                                 <span class="custom-input"></span>
-                                <span>
-                                    <span class="old-price">
-                                        <span class="currency">$</span>
-                                        <span>59.99</span>
-                                    </span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>24.99</span>
-                                    </span>
-                                </span>
+                                <div class="product-select_subscribe">
 
-                                <span class="price-radio-block__desc">
-                                        I want auto-shipping for every 30 days.
-                                </span>
+                                    <div class="flex flex-a--center m-flexSbscr">
+                                        <div class="product-price">
+                                              <span class="product-amount">
+                                                $200.00
+                                              </span>
+                                        </div>
+
+                                        <span class="product-subscribeText">One time purchase</span>
+
+                                    </div>
+
+
+                                </div>
                             </label>
                         </div>
 
                     </div>
                     <div class="product-button-block">
                         <div class="flex flex-a--center wrapper-btns-buy-count">
-
-                            <div class="btn-wrapper-product-count flex flex-a--center">
-                                <button class="btn">-</button>
-                                <input type="number" class="product-count" value="1">
-                                <button class="btn">+</button>
-                            </div>
 
                             <div class="add-to-cart-wrapper">
                                 <a class="add-to-cart-btn" href="#">

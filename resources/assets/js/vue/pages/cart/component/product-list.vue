@@ -12,6 +12,9 @@
                 <th class="product-quantity">
                     Quantity
                 </th>
+                <th class="product-deliver">
+                    Deliver
+                </th>
                 <th class="product-subtotal">
                     Total
                 </th>
@@ -39,7 +42,7 @@
             products: Array
         },
         components: {
-            "product-item": productItem
+            productItem
         }
     });
 </script>
