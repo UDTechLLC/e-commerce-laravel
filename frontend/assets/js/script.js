@@ -402,13 +402,27 @@
   });
 
 
+  var option = $('.product-select_option.active').data('option');
+  var optionText = $('.product-select_option.active').text();
+
+  function getSbscrVal(val,text) {
+    $('.product-select__current').text(text);
+    $('#select_option').val(val);
+    };
+
+  getSbscrVal(option,optionText);
+
 
   $('.product-select_option').click(function () {
-    var option = $(this).data('option');
-
-    $('#select_option').value(option);
-    console.log(option);
-
+    option = $(this).data('option');
+    optionText = $(this).text();
+    getSbscrVal(option,optionText);
+    $('.product-select_option').removeClass('active');
+    $(this).addClass('active');
+    $('.product-select_option-wrapper').hide();
+    setTimeout(function () {
+      $('.product-select_option-wrapper').css('display','');
+    },100)
   })
 
 
