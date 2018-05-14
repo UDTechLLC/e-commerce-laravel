@@ -4,14 +4,16 @@
 @endsection
 @section('style')
     @parent
-    <!--Start of Zendesk Chat Script-->
-    <script type="text/javascript" src="{{asset('web/js/chat.js')}}"></script>
-    <!--End of Zendesk Chat Script-->
+    <link rel="stylesheet" href="{{asset('web/css/select2.min.css')}}">
 @endsection
 @section('content')
 
-<div class="main">
-    <cart></cart>
-</div>
+    <div class="main">
+        <cart></cart>
+    </div>
 
+@endsection
+@section('scripts')
+    @parent
+    <script src="{{asset('web/js/select2.min.js')}}"></script>
 @endsection
