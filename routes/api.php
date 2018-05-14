@@ -35,6 +35,10 @@ Route::group([
             'as'   => '.remove',
             'uses' => 'Api\CartController@removeAll',
         ]);
+        Route::put('update/{product}/subscribe/period', [
+            'as' => '.update.subscribe.period',
+            'uses' => 'Api\CartController@updateSubscriptionPeriod',
+        ]);
     });
 
     Route::group([

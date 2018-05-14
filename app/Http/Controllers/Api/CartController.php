@@ -143,6 +143,17 @@ class CartController extends Controller
         return fractal($cart, new CartTransformer())->respond();
     }
 
+
+    public function updateSubscriptionPeriod(Request $request, Product $product)
+    {
+        $days = $request->get('days');
+        $cart = $this->getCart($request);
+
+        $cart->products()->updateExistingPivot($product->getKey(), ['subscribe_period' => $days]);
+
+        return fractal($cart, new CartTransformer())->respond();
+    }
+
     /**
      * @param $request
      * @param Product $product
