@@ -372,33 +372,34 @@ img {
       .has-select .product-select-wrapper {
         display: block; } }
   .has-select .product-select {
-    position: relative;
-    background: white;
-    border: 1px solid #eaeaea;
-    width: 100%;
-    max-width: 388px;
-    height: 48px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 0 10px;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    cursor: pointer;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s; }
-    .has-select .product-select:hover {
-      border: 1px solid #c4c4c4; }
-      .has-select .product-select:hover .product-select_option-wrapper {
-        display: block; }
+    width: 100%; }
+    .has-select .product-select select {
+      position: relative;
+      background: white;
+      border: 1px solid #eaeaea;
+      width: 100%;
+      max-width: 388px;
+      height: 48px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      padding: 0 10px;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      cursor: pointer;
+      -webkit-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s;
+      outline: 0; }
+      .has-select .product-select select:hover {
+        border: 1px solid #c4c4c4; }
   .has-select .product-select-text {
     white-space: nowrap;
     margin-right: 20px; }
@@ -2423,9 +2424,6 @@ ul {
   @media screen and (max-width: 800px) {
     .maxx-directions .info-text {
       margin-top: 10px; } }
-
-.second-header {
-  display: none; }
 
 .shop-items-wrapper {
   display: -webkit-box;

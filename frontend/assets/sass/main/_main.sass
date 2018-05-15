@@ -312,22 +312,25 @@ img
     @media screen and (max-width: $breakpoint-mobile)
       display: block
   .product-select
-    position: relative
-    background: white
-    border: 1px solid #eaeaea
     width: 100%
-    max-width: 388px
-    height: 48px
-    display: flex
-    align-items: center
-    padding: 0 10px
-    justify-content: space-between
-    cursor: pointer
-    transition: .3s
-    &:hover
-      border: 1px solid #c4c4c4
-      .product-select_option-wrapper
-        display: block
+    select
+      position: relative
+      background: white
+      border: 1px solid #eaeaea
+      width: 100%
+      max-width: 388px
+      height: 48px
+      display: flex
+      align-items: center
+      padding: 0 10px
+      justify-content: space-between
+      cursor: pointer
+      transition: .3s
+      outline: 0
+      &:hover
+        border: 1px solid #c4c4c4
+      //.product-select_option-wrapper
+        //display: block
   .product-select-text
     white-space: nowrap
     margin-right: 20px
