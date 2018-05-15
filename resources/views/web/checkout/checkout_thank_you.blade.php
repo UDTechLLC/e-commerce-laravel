@@ -181,9 +181,9 @@
                                                         Shipping:
                                                     </th>
                                                     <td>
-                                                <span class="product-subtotal-amount">
-                                                    ${{ $order->shipping_cost }} via Flat Rate
-                                                </span>
+                                                    <span class="product-subtotal-amount">
+                                                            ${{ $order->shipping_cost }} via Flat Rate
+                                                        </span>
                                                     </td>
                                                 </tr>
                                             @endif
@@ -209,6 +209,37 @@
                                                  </span>
                                                 </td>
                                             </tr>
+                                            @if(true)
+
+                                                <tr class="recurring-totals">
+                                                    <td></td>
+                                                    <th colspan="2">Recurring Totals</th>
+                                                </tr>
+                                                <tr class="cart-subtotal recurring-total">
+                                                    <td></td>
+                                                    <th rowspan="1">Subtotal</th>
+                                                    <td data-title="Subtotal">
+                                                        <span>&#036;</span><span>{{ $order->getSubscriptionProduct()->amount }}</span></td>
+                                                </tr>
+
+                                                <tr class="shipping recurring-total 2018_06_15_monthly">
+                                                    <td></td>
+                                                    <th>Shipping via Flat Rate</th>
+                                                    <td data-title="Shipping via Flat Rate">
+                                                        <span>&#036;</span><span>{{ $order->shipping_cost }} </span>																											</td>
+                                                </tr>
+
+                                                <tr class="order-total recurring-total">
+                                                    <td></td>
+                                                    <th rowspan="1">Recurring Total</th>
+                                                    <td data-title="Recurring Total">
+                                                        <strong>
+                                                            <span>&#036;</span><span>{{ $order->getSubscriptionProduct()->amount + $order->shipping_cost}}
+                                                            </span>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                                @endif
                                             </tfoot>
                                             <tbody>
                                             @foreach($order->products as $product)
