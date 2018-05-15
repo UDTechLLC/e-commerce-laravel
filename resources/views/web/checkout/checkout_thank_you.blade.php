@@ -209,8 +209,7 @@
                                                  </span>
                                                 </td>
                                             </tr>
-                                            @if(true)
-
+                                            @if($order->hasSubscriptionProduct())
                                                 <tr class="recurring-totals">
                                                     <td></td>
                                                     <th colspan="2">Recurring Totals</th>
