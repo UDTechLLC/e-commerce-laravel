@@ -2,51 +2,6 @@
     <div>
         <div class="product-price-block product-price-block--radio">
 
-           <!-- <div class="price-radio-block">
-
-                <label class="price-radio flex flex-a&#45;&#45;center">
-                    <input type="radio" :value="product.slug" v-model="slug" name="product-price" checked
-                           @change="showDelivery = !showDelivery">
-                    <span class="custom-input"></span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>{{ product.amount }}</span>
-                                    </span>
-
-                                    <span class="price-radio-block__desc">
-                                        I want to make a one-time purchase.
-                                    </span>
-
-                </label>
-                <label class="price-radio flex flex-a&#45;&#45;center">
-                    <input type="radio" :value="subscribeProduct.slug" name="product-price" v-model="slug"
-                           @change="showDelivery = !showDelivery">
-                    <span class="custom-input"></span>
-                                    <span>
-                                    &lt;!&ndash;<span class="old-price">&ndash;&gt;
-                                        &lt;!&ndash;<span class="currency">$</span>&ndash;&gt;
-                                        &lt;!&ndash;<span>{{ subscribeProduct.old_amount }}</span>&ndash;&gt;
-                                        &lt;!&ndash;</span>&ndash;&gt;
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>{{ subscribeProduct.amount }}</span>
-                                    </span>
-                                </span>
-
-                                    <span class="price-radio-block__desc">
-                                        I want auto-shipping for every 30 days.
-                                </span>
-                </label>
-                <div class="deliver-block-wrapper" v-if="showDelivery">
-                    <label class="deliver-label">
-                        Deliver:
-                    </label>
-                    <select class="deliver-select" v-model="subscribePeriod">
-                        <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
-                    </select>
-                </div>
-
-            </div>-->
             <div class="price-radio-block">
 
                 <label class="price-radio has-select flex flex-a--center" v-if="!isSubscribe">
@@ -71,17 +26,6 @@
                                 <select v-model="subscribePeriod">
                                     <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
                                 </select>
-
-                                <!--<span class="product-select__current"></span>
-                                <i class="fa fa-caret-down" aria-hidden="true"></i>
-
-                                <div class="product-select_option-wrapper">
-                                    <input type="hidden" name="select_option" id="select_option">
-                                    <div class="product-select_option active" data-option="2 weeks" >2 weeks</div>
-                                    <div class="product-select_option" data-option="1 month">1 month (most common)</div>
-                                    <div class="product-select_option" data-option="2 month">2 month</div>
-                                    <div class="product-select_option" data-option="3 month">3 month</div>
-                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -93,15 +37,14 @@
 
                         <div class="flex flex-a--center m-flexSbscr">
                             <div class="product-price">
-                                              <span class="product-amount">
-                                                ${{ product.amount }}
-                                              </span>
+                                <span class="product-amount">
+                                    ${{ product.amount }}
+                                </span>
                             </div>
 
                             <span class="product-subscribeText">One time purchase</span>
 
                         </div>
-
 
                     </div>
                 </label>
