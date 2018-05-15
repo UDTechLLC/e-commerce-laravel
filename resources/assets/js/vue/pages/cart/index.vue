@@ -101,13 +101,13 @@
                                             </span>
                                 </td>
                             </tr>
-                            <tr class="order-total">
+                            <tr class="order-total" v-if="isSubscribe">
                                 <th>Recurring Totals</th>
                                 <td class="product-total">
 
                                 </td>
                             </tr>
-                            <tr class="order-total">
+                            <tr class="order-total" v-if="isSubscribe">
                                 <th>
                                     Subtotal
                                 </th>
@@ -117,7 +117,7 @@
                                     </span>
                                 </td>
                             </tr>
-                            <tr class="order-total">
+                            <tr class="order-total" v-if="isSubscribe">
                                 <th>
                                     Shipping via Flat Rate
                                 </th>
@@ -127,7 +127,7 @@
                                     </span>
                                 </td>
                             </tr>
-                            <tr class="order-total">
+                            <tr class="order-total" v-if="isSubscribe">
                                 <th>
                                     Recurring Total
                                 </th>
