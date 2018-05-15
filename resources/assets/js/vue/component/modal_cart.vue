@@ -7,38 +7,9 @@
                     <div class="side-cart-block">
                         <span class="close-cart close" data-dismiss="modal" aria-label="Close"></span>
                         <div class="cart-products-wrapper">
-                            <div class="cart-single-product" v-for="product in products">
-                                <div class="product-image">
-                                    <img :src="product.image"/>
-                                </div>
-                                <div class="product-details">
-                                    <h3 class="product-title">
-                                        {{ product.title }}
-                                    </h3>
-                                    <div class="product-price-wrapper">
-												<span class="product-price">
-													${{ product.amount }}
-												</span>
-                                        <div class="quantity buttons_added" v-if="!product.subscribe">
-                                            <input value="-" class="minus" type="button"
-                                                   @click="deleteProduct(product.slug)"/>
-                                            <input id="" class="input-text qty text" step="1" min="0" max="" name=""
-                                                   :value="product.count" title="Qty" size="4" pattern="[0-9]*"
-                                                   inputmode="numeric" type="number"/>
-                                            <input value="+" class="plus" type="button"
-                                                   @click="addProduct(product.slug)"/>
-                                        </div>
-                                    </div>
-                                    <div class="deliver-block-wrapper" v-if="product.subscribe">
-                                        <label class="deliver-label">
-                                            Deliver:
-                                        </label>
-                                        <select class="deliver-select" v-model="subscribePeriod">
-                                            <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                            <modal-cart-product v-for="product in products" :key="product.id"
+                                :product="product"
+                            ></modal-cart-product>
                         </div>
                         <div class="cart-button-area-wrapper">
                             <div class="cart-coupon-block-wrapper">
@@ -141,32 +112,17 @@
 </template>
 <script type="text/babel">
     import {mapGetters} from 'vuex'
-    import moment from 'moment'
+    import modalCartProduct from './modal-cart-product'
+
     export default ({
         data: () => ({
             shipping: 0,
             errorCoupon: false,
-            selectedCountry: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "",
-            subscribePeriod: 14,
-            subscribePlans: [
-                {
-                    name: "2 weeks",
-                    value: 14
-                },
-                {
-                    name: "month (most common)",
-                    value: 1
-                },
-                {
-                    name: "2 month",
-                    value: 2
-                },
-                {
-                    name: "3 months",
-                    value: 3
-                }
-            ]
+            selectedCountry: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
         }),
+        components: {
+            modalCartProduct
+        },
         computed: {
             ...mapGetters([
                 'products',
@@ -174,18 +130,11 @@
                 'countItems',
                 'isShipping',
                 'discount',
-                'coupon',
-                'subscribePlan'
+                'coupon'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
             },
-            subscribeDay() {
-                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
-            }
-        },
-        mounted() {
-            console.log(this.products);
         },
         updated() {
             if (this.isShipping && this.shipping == 0) this.getShipping()
@@ -229,7 +178,7 @@
                         },
                         error => console.log('error')
                 )
-            },
+            }
         }
     })
 </script>

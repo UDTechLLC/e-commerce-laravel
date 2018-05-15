@@ -117,32 +117,4 @@
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
-    .deliver-select-custom {
-        background-color: #ffffff;
-        -webkit-appearance: none;
-        -o-text-overflow: '';
-        text-overflow: '';
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: block;
-        font-size: 13px;
-        height: 38px;
-        outline: 0;
-        padding: 0 15px;
-        position: relative;
-        text-indent: .01px;
-        vertical-align: middle;
-        z-index: 5;
-        margin: 0;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        width: 100%;
-    }
-    .deliver-select-wrapper {
-        margin-top: 0;
-        padding: 0 15px;
-    }
 </style>
