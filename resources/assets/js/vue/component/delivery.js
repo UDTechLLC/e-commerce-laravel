@@ -1,18 +1,18 @@
 module.exports = [
   {
-    name: "2 weeks",
+    name: "every 2 weeks",
     value: 14
   },
   {
-    name: "1 month (most common)",
+    name: "every 1 month (most common)",
     value: 1
   },
   {
-    name: "2 month",
+    name: "every 2 month",
     value: 2
   },
   {
-    name: "3 months",
+    name: "every 3 months",
     value: 3
   }
 ];

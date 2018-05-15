@@ -18,7 +18,7 @@
                         <span class="product-subtotal-amount"> ${{ product.amount_with_discount }} </span>
                     </span>
                      <span v-else class="product-amount">
-                          ${{ product.amount_with_discount }} 
+                          ${{ product.amount_with_discount }}
                      </span>
         </td>
         <td class="product-quantity">
