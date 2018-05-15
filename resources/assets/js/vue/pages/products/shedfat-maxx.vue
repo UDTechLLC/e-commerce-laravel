@@ -126,8 +126,4 @@
         }
     })
 </script>
-<style>
-    .top-product-description-block .product-button-block .add-to-cart-wrapper {
-        margin-top: 10px;
-    }
-</style>
+
