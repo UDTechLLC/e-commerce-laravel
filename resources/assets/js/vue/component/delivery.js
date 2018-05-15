@@ -4,7 +4,7 @@ module.exports = [
     value: 14
   },
   {
-    name: "month (most common)",
+    name: "1 month (most common)",
     value: 1
   },
   {
