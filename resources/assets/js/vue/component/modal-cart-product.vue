@@ -46,7 +46,7 @@
 <script type="text/babel">
     import delivery from './delivery'
     import moment from 'moment'
-    
+
     export default ({
         data:() => ({
             subscribePlans: delivery,
