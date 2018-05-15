@@ -46,8 +46,11 @@
                     <li>
                         <a href="{{route('admin.statistics')}}"><i class="fa fa-line-chart"></i> Analytics </a>
                     </li>
-                    <li>
-                        <a href="{{route('admin.subscriptions')}}"><i class="fa fa-tags"></i> Subscriptions </a>
+                    <li><a><i class="fa fa-tags"></i> Subscriptions <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('admin.subscriptions') }}">Braintree</a></li>
+                            <li><a href="{{ route('admin.subscriptions.custom.index') }}">Custom</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{route('admin.timer.edit')}}"><i class="fa fa-clock-o"></i> Countdown Clock </a>

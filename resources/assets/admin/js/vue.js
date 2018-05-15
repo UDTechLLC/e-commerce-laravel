@@ -39,6 +39,7 @@ import statistics from './vue/pages/statistics';
 import orders from './vue/pages/orders';
 
 import subscriptions from './vue/pages/subscriptions';
+import customSubscriptions from './vue/pages/customSubscriptions';
 
 import timer from './vue/pages/timer/edit';
 
@@ -74,6 +75,7 @@ const app = new Vue({
         statistics,
         orders,
         subscriptions,
+        customSubscriptions,
         timer,
         deviceChart,
         blogCreate,

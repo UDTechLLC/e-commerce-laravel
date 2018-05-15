@@ -61,6 +61,8 @@ class CustomSubscription extends EloquentModel
      */
     protected $appends = [];
 
+    protected $dates = ['next_billing_at'];
+
     /**
      * Entity relations go below
      */
