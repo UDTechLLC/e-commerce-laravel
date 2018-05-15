@@ -102,33 +102,19 @@
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
     .deliver-select-custom {
-        background-color: #ffffff;
-        -webkit-appearance: none;
-        -o-text-overflow: '';
-        text-overflow: '';
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: block;
-        font-size: 13px;
+        border: 1px solid #eaeaea;
         height: 38px;
+        width: 150px;
+        display: inline-block;
+        padding-left: 15px;
         outline: 0;
-        padding: 0 15px;
-        position: relative;
-        text-indent: .01px;
-        vertical-align: middle;
-        z-index: 5;
-        margin: 0;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        width: 100%;
+        cursor: pointer;
+        background: #ffffff!important;
     }
-    .deliver-select-wrapper {
+   /* .deliver-select-wrapper {
         margin-top: 0;
         padding: 0 15px;
-    }
+    }*/
     .product-price {
      width: 100%;
     }
