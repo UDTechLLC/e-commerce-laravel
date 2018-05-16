@@ -109,7 +109,7 @@
                                                 </span>
                                            </td>
                                        </tr>
-                                       @if($order->coupon_id)
+                                       @if($order->coupon)
                                        <tr class="cart-subtotal" >
                                            <td></td>
                                            <th>
@@ -123,6 +123,7 @@
                                            </td>
                                        </tr>
                                        @endif
+                                       @if($order->isShipping())
                                        <tr class="shipping">
                                            <td></td>
                                            <th>
@@ -134,6 +135,7 @@
                                                 </span>
                                            </td>
                                        </tr>
+                                       @endif
                                        <tr class="order-payment-method">
                                            <td></td>
                                            <th>
