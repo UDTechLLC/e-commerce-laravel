@@ -30,4 +30,3 @@ class AddActiveToCoupon extends Migration
         });
     }
 }
-
