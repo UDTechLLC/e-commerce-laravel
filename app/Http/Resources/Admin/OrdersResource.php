@@ -27,7 +27,7 @@ class OrdersResource extends Resource
             'user name'   => $this->billing->full_name,
             'email'       => $this->billing->email,
             'ship to'     => $this->getShipping(),
-            'coupon code' => ($this->coupon_id) ? $this->coupon->code : "-",
+            'coupon code' => ($this->coupon) ? $this->coupon->code : "-",
             'total cost'  => $this->total_cost,
             'status'      => $this->state,
             'date'        => $this->created_at->format('M j, Y H:i'),

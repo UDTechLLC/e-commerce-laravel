@@ -33,7 +33,7 @@ class CouponController extends Controller
         $sortField = $request->get('sortField') ?? 'id';
         $sortType = $request->get('sortType') ?? 'asc';
 
-        $coupons = Coupon::orderBy($sortField, $sortType)->paginate(20);
+        $coupons = Coupon::orderBy($sortField, $sortType)->where('active', true)->paginate(20);
 
         return CouponsResource::collection($coupons);
     }
@@ -116,7 +116,9 @@ class CouponController extends Controller
      */
     public function destroy(Coupon $coupon)
     {
-        $coupon->delete();
+        $coupon->update([
+            'active' => false
+        ]);
     }
 
     public function attachProduct(Coupon $coupon)

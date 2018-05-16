@@ -113,7 +113,7 @@ class CartController extends Controller
         $cart = $this->getCart($request);
 
         /** @var Coupon $coupon */
-        $coupon = Coupon::where('code', $code)->first();
+        $coupon = Coupon::where('code', $code)->where('active', true)->first();
 
         if (null === $coupon) {
             return response()->json(['Coupon not found'], 404);
