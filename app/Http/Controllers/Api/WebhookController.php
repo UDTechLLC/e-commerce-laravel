@@ -7,7 +7,6 @@ use App\Models\Order;
 use App\Models\Subscription;
 use App\Models\User;
 use App\Services\Orders\ShipStationService;
-use Braintree\WebhookNotification;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Http\Controllers\WebhookController as CashierController;
 
@@ -19,10 +18,19 @@ class WebhookController extends CashierController
 {
     /**
      * @param Request $request
+     *
+     * @throws \Exception
      */
-    public function handleSubscriptionChargedSuccessfully(Request $request)
+    public function handleSubscriptionWentActive(Request $request)
     {
+        \Log::info('Start subscribe');
+
         $notification = $this->parseBraintreeNotification($request);
+
+        \Log::info('Subscription info: ', [
+            'id'    => $notification->subscription->id,
+            'cycle' => $notification->subscription->currentBillingCycle,
+        ]);
     }
 
     /**
@@ -30,9 +38,9 @@ class WebhookController extends CashierController
      *
      * @throws \Exception
      */
-    public function handleSubscriptionWentActive(Request $request)
+    public function handleSubscriptionChargedSuccessfully(Request $request)
     {
-        \Log::info('Start subscribe');
+        \Log::info('Start new billing cycle');
 
         $notification = $this->parseBraintreeNotification($request);
 

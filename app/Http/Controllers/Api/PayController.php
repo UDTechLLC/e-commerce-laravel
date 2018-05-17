@@ -18,6 +18,19 @@ use App\Http\Controllers\Controller;
 
 class PayController extends Controller
 {
+    /** @var BraintreeService */
+    protected $braintree;
+
+    /**
+     * PayController constructor.
+     *
+     * @param BraintreeService $braintreeService
+     */
+    public function __construct(BraintreeService $braintreeService)
+    {
+        $this->braintree = $braintreeService;
+    }
+
     /**
      * @param Request $request
      * @param Order $order
@@ -58,11 +71,9 @@ class PayController extends Controller
                 $subscription->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
             }
         } else {
-            $service = new BraintreeService();
+            $this->braintree->setAuthToken($token);
 
-            $service->setAuthToken($token);
-
-            $charged = $service->pay($amount, ['orderId' => $order->order_id]);
+            $charged = $this->braintree->pay($amount, ['orderId' => $order->order_id]);
         }
 
         if ($charged->success) {
