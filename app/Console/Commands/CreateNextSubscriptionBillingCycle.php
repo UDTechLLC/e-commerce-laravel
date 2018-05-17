@@ -59,8 +59,6 @@ class CreateNextSubscriptionBillingCycle extends Command
 
             $this->recur($subscriptions);
         }
-
-        \Log::info('Subscriptions were recurred');
     }
 
     /**
@@ -85,6 +83,8 @@ class CreateNextSubscriptionBillingCycle extends Command
                 $this->sendOrderToEmail($newOrder);
 
                 $item->update(['next_billing_at' => now()->addDays($item->period)]);
+
+                \Log::info('Subscriptions were recurred. Created new order with ID: '. $newOrder->getKey());
             } else {
                 $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
             }
@@ -114,7 +114,7 @@ class CreateNextSubscriptionBillingCycle extends Command
      */
     private function createOrder(Order $order)
     {
-        $product = $order->products()->whereNotNull('plan_id')->first();
+        $product = $order->getSubscriptionProduct();
 
         $newOrder = Order::create([
             'user_id'        => $order->user->getKey(),

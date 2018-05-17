@@ -128,7 +128,7 @@ class WebhookController extends CashierController
      */
     private function createOrder(Order $order)
     {
-        $product = $order->products()->whereNotNull('plan_id')->first();
+        $product = $order->getSubscriptionProduct();
 
         $newOrder = Order::create([
             'user_id'        => $order->user->getKey(),
