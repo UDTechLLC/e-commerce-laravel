@@ -50,7 +50,7 @@ class CheckoutController extends Controller
 
         if ($cart->isShipping()) {
             $country = $request->get('country')['name'];
-            $shippingCost = getShippingCost($country);
+            $shippingCost = getShippingCost($country, $cart->isSubscribe());
         }
         // todo: Check shipping
 
@@ -188,7 +188,7 @@ class CheckoutController extends Controller
      */
     private function updateOrder(Order $order, OrderShipping $shipping, string $country)
     {
-        $shippingCost = getShippingCost($country);
+        $shippingCost = getShippingCost($country, $order->hasSubscriptionProduct());
 
         $order->update([
             'shipping_id'   => $shipping->getKey(),

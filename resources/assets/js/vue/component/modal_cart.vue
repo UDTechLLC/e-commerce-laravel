@@ -129,6 +129,7 @@
                 'subTotal',
                 'countItems',
                 'isShipping',
+                'isSubscribe',
                 'discount',
                 'coupon'
             ]),
@@ -174,7 +175,12 @@
                             //this.countries = response.data.countries;
                             this.selectedCountry = response.data.selected;
                             // this.states = response.data.states;
-                            this.shipping = response.data.shipping;
+                            // this.shipping = response.data.shipping;
+                            if (this.isSubscribe) {
+                                this.shipping = this.selectedCountry === 'United States' ? '6.99' : '17.99';
+                            } else {
+                                this.shipping = response.data.shipping;
+                            }
                         },
                         error => console.log('error')
                 )

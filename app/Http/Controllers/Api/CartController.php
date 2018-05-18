@@ -143,7 +143,14 @@ class CartController extends Controller
         return fractal($cart, new CartTransformer())->respond();
     }
 
-
+    /**
+     * Update subscribe period.
+     *
+     * @param Request $request
+     * @param Product $product
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function updateSubscriptionPeriod(Request $request, Product $product)
     {
         $days = $request->get('days');
