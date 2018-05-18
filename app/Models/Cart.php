@@ -70,7 +70,7 @@ class Cart extends EloquentModel
     {
         return $this
             ->belongsToMany(Product::class)
-            ->withPivot(['count', 'discount', 'discount_sum'])
+            ->withPivot(['count', 'discount', 'discount_sum', 'subscribe_period'])
             ->using(CartProductPivot::class);
     }
 
@@ -181,5 +181,19 @@ class Cart extends EloquentModel
         $this->products()->detach();
         $this->coupon()->dissociate();
         $this->save();
+    }
+
+    public function subscribeInfo():array
+    {
+        foreach ($this->products as $product) {
+            if ($product->hasPlan()) {
+                return [
+                    'total'       => $product->amount,
+                    'nextPayment' => $product->nextPaymentDate()
+                ];
+            }
+        }
+
+        return [];
     }
 }

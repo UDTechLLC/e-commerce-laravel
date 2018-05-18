@@ -30,7 +30,8 @@ class Coupon extends EloquentModel
         'discount_type',
         'coupon_amount',
         'limit',
-        'expired'
+        'expired',
+        'active'
     ];
 
     /**

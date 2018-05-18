@@ -15,6 +15,9 @@
                         <product-list
                                 :products="products"
                         ></product-list>
+                        <mobile-products-list
+                                :products="products"
+                        ></mobile-products-list>
                     </div>
                 </form>
             </div>
@@ -98,6 +101,45 @@
                                             </span>
                                 </td>
                             </tr>
+                            <tr class="order-total" v-if="isSubscribe">
+                                <th>Recurring Totals</th>
+                                <td class="product-total">
+
+                                </td>
+                            </tr>
+                            <tr class="order-total" v-if="isSubscribe">
+                                <th>
+                                    Subtotal
+                                </th>
+                                <td class="product-subtotal">
+                                    <span class="product-subtotal-amount">
+                                        ${{ subscribeInfo.total }}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="order-total" v-if="isSubscribe">
+                                <th>
+                                    Shipping via Flat Rate
+                                </th>
+                                <td class="product-subtotal">
+                                    <span class="product-subtotal-amount">
+                                        ${{ animatedShipping }}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="order-total" v-if="isSubscribe">
+                                <th>
+                                    Recurring Total
+                                </th>
+                                <td class="product-subtotal">
+                                    <span class="product-subtotal-amount">
+                                        ${{ subscribeTotal }}
+                                    </span>
+                                    <span class="first-renewal">
+                                        First renewal: {{ subscribeInfo.nextPayment }}
+                                    </span>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                         <div class="proceed-to-checkout-button-wrapper">
@@ -115,6 +157,7 @@
 <script type="text/babel">
 
     import productList from './component/product-list';
+    import mobileProductsList from './component/mobile-products-list';
     import shipping from './component/shipping';
     import emptyCart from './component/empty-cart';
     import {mapGetters} from 'vuex'
@@ -130,7 +173,8 @@
         components: {
             productList,
             shipping,
-            emptyCart
+            emptyCart,
+            mobileProductsList
         },
 
         computed: {
@@ -139,11 +183,16 @@
                 'subTotal',
                 'countItems',
                 'isShipping',
+                'isSubscribe',
+                'subscribeInfo',
                 'discount',
                 'coupon'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
+            },
+            subscribeTotal() {
+                return (Number(this.subscribeInfo.total) + Number(this.shipping)).toFixed(2);
             }
         },
         watch: {
@@ -222,5 +271,9 @@
         text-align: center;
         color: #D45D5D;
         padding: 15px;
+    }
+    .first-renewal {
+        display: block;
+        font-size: 14px;
     }
 </style>

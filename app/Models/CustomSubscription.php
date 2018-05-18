@@ -9,23 +9,26 @@ use Illuminate\Database\Eloquent\{
 use App\Models\EloquentModel;
 
 /**
- * Class Plan
+ * Class CustomSubscription
  * @package App\Models
  */
-class Plan extends EloquentModel
+class CustomSubscription extends EloquentModel
 {
+    const SUBSCRIPTION_ACTIVE = 'Active';
+    const SUBSCRIPTION_INACTIVE = 'Inactive';
+
     /**
      * @var string
      */
-    protected $table = 'plans';
+    protected $table = 'custom_subscriptions';
 
     /**
      * The attributes that are mass assignable.
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'braintree_plan', 'cost', 'description',
-        'period',
+        'user_id', 'order_id', 'plan_id', 'period', 'status',
+        'next_billing_at',
     ];
 
     /**
@@ -58,13 +61,26 @@ class Plan extends EloquentModel
      */
     protected $appends = [];
 
+    protected $dates = ['next_billing_at'];
+
     /**
      * Entity relations go below
      */
 
-    public function products()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function order()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Order::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     /**

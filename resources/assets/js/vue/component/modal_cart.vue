@@ -7,38 +7,9 @@
                     <div class="side-cart-block">
                         <span class="close-cart close" data-dismiss="modal" aria-label="Close"></span>
                         <div class="cart-products-wrapper">
-                            <div class="cart-single-product" v-for="product in products">
-                                <div class="product-image">
-                                    <img :src="product.image"/>
-                                </div>
-                                <div class="product-details">
-                                    <h3 class="product-title">
-                                        {{ product.title }}
-                                    </h3>
-                                    <div class="product-price-wrapper">
-												<span class="product-price">
-													${{ product.amount }}
-												</span>
-                                        <div class="quantity buttons_added" v-if="!product.subscribe">
-                                            <input value="-" class="minus" type="button"
-                                                   @click="deleteProduct(product.slug)"/>
-                                            <input id="" class="input-text qty text" step="1" min="0" max="" name=""
-                                                   :value="product.count" title="Qty" size="4" pattern="[0-9]*"
-                                                   inputmode="numeric" type="number"/>
-                                            <input value="+" class="plus" type="button"
-                                                   @click="addProduct(product.slug)"/>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="deliver-block-wrapper">
-                                         <label class="deliver-label">
-                                             Deliver:
-                                         </label>
-                                         <select class="deliver-select">
-                                             <option>1 time only</option>
-                                         </select>
-                                     </div>-->
-                                </div>
-                            </div>
+                            <modal-cart-product v-for="product in products" :key="product.id"
+                                :product="product"
+                            ></modal-cart-product>
                         </div>
                         <div class="cart-button-area-wrapper">
                             <div class="cart-coupon-block-wrapper">
@@ -47,8 +18,11 @@
                                 </h4>
                                 <div class="cart-coupon-block">
                                     <form class="cart-coupon-form">
-                                        <input class="cart-coupon-field" :class="{'coupon-input-error': errorCoupon}" type="text" @input="updateCoupon" :value="coupon" placeholder="Coupon code"/>
-                                        <input class="cart-coupon-submit" type="submit" @click.prevent="submitCoupon" value="Apply coupon"/>
+                                        <input class="cart-coupon-field" :class="{'coupon-input-error': errorCoupon}"
+                                               type="text" @input="updateCoupon" :value="coupon"
+                                               placeholder="Coupon code"/>
+                                        <input class="cart-coupon-submit" type="submit" @click.prevent="submitCoupon"
+                                               value="Apply coupon"/>
                                     </form>
                                     <div class="wrapper coupon-error" v-if="errorCoupon">
                                         Coupon "{{ coupon }}" does not exist!
@@ -138,6 +112,7 @@
 </template>
 <script type="text/babel">
     import {mapGetters} from 'vuex'
+    import modalCartProduct from './modal-cart-product'
 
     export default ({
         data: () => ({
@@ -145,24 +120,29 @@
             errorCoupon: false,
             selectedCountry: (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : ""
         }),
+        components: {
+            modalCartProduct
+        },
         computed: {
             ...mapGetters([
                 'products',
                 'subTotal',
                 'countItems',
                 'isShipping',
+                'isSubscribe',
                 'discount',
                 'coupon'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
-            }
+            },
         },
         updated() {
-          if (this.isShipping && this.shipping == 0) this.getShipping()
+            if (this.isShipping && this.shipping == 0) this.getShipping()
         },
         methods: {
             submitCoupon() {
+
                 let url = `/api/carts/coupons`;
                 let data = {
                     hash: Vue.localStorage.get('hash'),
@@ -195,11 +175,16 @@
                             //this.countries = response.data.countries;
                             this.selectedCountry = response.data.selected;
                             // this.states = response.data.states;
-                            this.shipping = response.data.shipping;
+                            // this.shipping = response.data.shipping;
+                            if (this.isSubscribe) {
+                                this.shipping = this.selectedCountry === 'United States' ? '6.99' : '17.99';
+                            } else {
+                                this.shipping = response.data.shipping;
+                            }
                         },
                         error => console.log('error')
                 )
-            },
+            }
         }
     })
 </script>
@@ -210,10 +195,12 @@
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
+
     .coupon-error {
         color: red;
     }
+
     .coupon-input-error {
-        border: 1px solid red!important;
+        border: 1px solid red !important;
     }
 </style>

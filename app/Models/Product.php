@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\{
     Builder, Model
 };
@@ -115,7 +116,7 @@ class Product extends Model implements HasMedia
     public function carts()
     {
         return $this->belongsToMany(Cart::class)
-            ->withPivot(['count', 'product_price'])
+            ->withPivot(['count', 'product_price', 'subscribe_period'])
             ->withTimestamps()
             ->using(CartProductPivot::class);
     }
@@ -313,5 +314,10 @@ class Product extends Model implements HasMedia
     public function hasPlan()
     {
         return null !== $this->plan;
+    }
+
+    public function nextPaymentDate()
+    {
+        return Carbon::now()->addDay($this->pivot->subscribe_period)->format('F d, Y');
     }
 }

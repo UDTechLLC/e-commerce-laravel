@@ -24,6 +24,7 @@ class CartTransformer extends TransformerAbstract
         $productCount = $cart->getProductsCount();
         $isShipping = $cart->isShipping();
         $isSubscribe = $cart->isSubscribe();
+        $subscribeInfo = $cart->subscribeInfo();
 
         return [
             'id'          => $cart->getKey(),
@@ -37,6 +38,7 @@ class CartTransformer extends TransformerAbstract
                 'discount_sum'      => $discountSum,
                 'with_discount_sum' => $withDiscountSum,
             ],
+            'subscribeInfo' => $subscribeInfo
         ];
     }
 }

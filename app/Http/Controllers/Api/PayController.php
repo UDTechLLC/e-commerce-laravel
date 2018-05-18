@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Mail\OrderSent;
 use App\Models\Cart;
+use App\Models\CustomSubscription;
 use App\Models\Order;
+use App\Models\Plan;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\Braintree\BraintreeService;
@@ -16,6 +18,19 @@ use App\Http\Controllers\Controller;
 
 class PayController extends Controller
 {
+    /** @var BraintreeService */
+    protected $braintree;
+
+    /**
+     * PayController constructor.
+     *
+     * @param BraintreeService $braintreeService
+     */
+    public function __construct(BraintreeService $braintreeService)
+    {
+        $this->braintree = $braintreeService;
+    }
+
     /**
      * @param Request $request
      * @param Order $order
@@ -44,38 +59,30 @@ class PayController extends Controller
                 : null;
 
             if (null !== $plan) {
-                try {
-                    $result = $user->newSubscription($plan->name, $plan->braintree_plan)->create($token);
-                    $this->updateOrderSubscription($order, $result);
-                } catch (\Exception $ex) {
-                    return view('errors.error_payment', [
-                        'message' => $ex->getMessage(),
-                    ]);
-                }
-
-                $amount -= $subscriptionProduct->amount;
+                $subscription = $user->newCustomSubscription($token, $order);
+                $this->updateOrderSubscription($order, $subscription);
             } else {
                 return response()->json(['error' => 'No plan found for this product'], 404);
             }
 
-            if (0 !== $amount) {
-                $result = $user->charge($amount, ['orderId' => $order->order_id]);
+            $charged = $user->charge($amount, ['orderId' => $order->order_id]);
+
+            if (!$charged->success) {
+                $subscription->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
             }
         } else {
-            $service = new BraintreeService();
+            $this->braintree->setAuthToken($token);
 
-            $service->setAuthToken($token);
-
-            $result = $service->pay($amount, ['orderId' => $order->order_id]);
+            $charged = $this->braintree->pay($amount, ['orderId' => $order->order_id]);
         }
 
-        if ($result->success) {
-            $this->clearing($result, $order);
+        if ($charged->success) {
+            $this->clearing($charged, $order);
 
             return view('web.checkout.checkout_thank_you', ['order' => $order]);
         } else {
             return view('errors.error_payment', [
-                'message' => $result->message,
+                'message' => $charged->message,
             ]);
         }
     }

@@ -200,6 +200,78 @@
                     </div>
                 </div>
             </div>
+            <div class="custom-plan-block-wrapper custom-meal-plan-block-wrapper">
+                <div class="wrapper">
+                    <div class="custom-plan-block">
+                        <div class="separate-heading-block">
+                            <div class="title-sep-container title-sep-container-left">
+                                <div class="title-sep sep-single"></div>
+                            </div>
+                            <h2 class="separate-heading-title custom-plan-title" style="color: red;">
+                               FREE CUSTOM NUTRITION PROGRAM
+                            </h2>
+                            <div class="title-sep-container title-sep-container-right">
+                                <div class="title-sep sep-single"></div>
+                            </div>
+                        </div>
+                        <div class="custom-plan-content">
+                            <div class="custom-plan-image-block">
+                                <div class="image-wrapper">
+                                    <img class="desktop-image" src="{{ asset('web/images/full-product/12_week_custom_meal_plan/plates.png')}}" />
+                                    <img class="mobile-image" src="{{ asset('web/images/full-product/12_week_custom_meal_plan/plate_mobile.png')}}" />
+                                </div>
+                            </div>
+                            <div class="custom-plan-description-block">
+                                <ul class="custom-plan-description-list">
+                                    <li class="custom-plan-description-list-item">
+                                        <div class="item-icon-wrapper">
+                                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/nutrition-program-1.svg')}}" />
+                                        </div>
+                                        <div class="item-content">
+                                            <h3 class="item-title">
+                                                100% TAILORED
+                                            </h3>
+                                            <p class="item-text">
+                                                TO YOUR NEEDS AND GOALS
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </li>
+                                    <li class="custom-plan-description-list-item">
+                                        <div class="item-icon-wrapper">
+                                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/nutrition-program-2.svg')}}" />
+                                        </div>
+                                        <div class="item-content">
+                                            <h3 class="item-title">
+                                                20+ EATING STYLES
+                                            </h3>
+                                            <p class="item-text">
+                                                CARB CYCLING, PALEO, VEGAN, ETC.
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </li>
+                                    <li class="custom-plan-description-list-item">
+                                        <div class="item-icon-wrapper">
+                                            <img src="{{ asset('web/images/full-product/12_week_custom_meal_plan/nutrition-program-3.svg')}}" />
+                                        </div>
+                                        <div class="item-content">
+                                            <h3 class="item-title">
+                                                COOKING GUIDES
+                                            </h3>
+                                            <p class="item-text">
+                                                TO PREP DELICIOUS FOOD
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="success-stories-block-wrapper">
                 <div class="wrapper">
                     <div class="success-stories-block">

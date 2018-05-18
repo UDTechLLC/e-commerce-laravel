@@ -4,40 +4,51 @@
 
             <div class="price-radio-block">
 
-                <label class="price-radio flex flex-a--center">
-                    <input type="radio" :value="product.slug" v-model="slug" name="product-price" checked>
+                <label class="price-radio has-select flex flex-a--center" v-if="!isSubscribe">
+                    <input type="radio" :value="subscribeProduct.slug" v-model="slug" name="product-price" checked>
+
                     <span class="custom-input"></span>
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>{{ product.amount }}</span>
-                                    </span>
+                    <div class="product-select_subscribe">
+                        <div class="flex flex-a--center m-flexSbscr">
+                            <div class="product-price">
+                                              <span class="product-amount">
+                                                ${{ subscribeProduct.amount }}
+                                              </span>
+                            </div>
+                            <span class="product-subscribeText">Subscribe and Save</span>
+                        </div>
 
-                                    <span class="price-radio-block__desc">
-                                        I want to make a one-time purchase.
-                                    </span>
 
+                        <div class="product-select-wrapper">
+                            <div class="product-select-text">Deliver every</div>
+                            <div class="product-select">
+
+                                <select v-model="subscribePeriod">
+                                    <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </label>
-                <label class="price-radio flex flex-a--center">
-                    <input type="radio" :value="subscribeProduct.slug" name="product-price" v-model="slug">
+                <label class="price-radio has-select  flex flex-a--center">
+                    <input type="radio" :value="product.slug" v-model="slug" name="product-price">
                     <span class="custom-input"></span>
-                                    <span>
-                                    <!--<span class="old-price">-->
-                                        <!--<span class="currency">$</span>-->
-                                        <!--<span>{{ subscribeProduct.old_amount }}</span>-->
-                                        <!--</span>-->
-                                    <span class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>{{ subscribeProduct.amount }}</span>
-                                    </span>
-                                </span>
+                    <div class="product-select_subscribe">
 
-                                    <span class="price-radio-block__desc">
-                                        I want auto-shipping for every 30 days.
+                        <div class="flex flex-a--center m-flexSbscr">
+                            <div class="product-price">
+                                <span class="product-amount">
+                                    ${{ product.amount }}
                                 </span>
+                            </div>
+
+                            <span class="product-subscribeText">One time purchase</span>
+
+                        </div>
+
+                    </div>
                 </label>
-
             </div>
-
         </div>
         <div class="product-button-block">
             <div v-if="freeShipping">
@@ -50,12 +61,16 @@
                     <button class="btn">+</button>
                 </div>-->
 
-                <div class="add-to-cart-wrapper">
-                    <add-to-cart
-                            :product-slug="slug"
-                    >
-                    </add-to-cart>
-                </div>
+                        <div class="add-to-cart-wrapper">
+                            <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct"
+                               >
+                                    Add to cart
+                            </a>
+                            <a v-else class="add-to-cart-btn" href="/cart" >
+                                View cart
+                            </a>
+                        </div>
+
             </div>
 
         </div>
@@ -63,26 +78,52 @@
 </template>
 
 <script type="text/babel">
+    import moment from 'moment';
+    import delivery from './../../component/delivery';
+    import {mapGetters} from 'vuex';
+
     export default ({
         data: () => ({
             slug: "",
             product: {},
-            subscribeProduct: {}
+            subscribeProduct: {},
+            addedToCart: false,
+            subscribePeriod: 14,
+            subscribePlans: delivery
         }),
         props: {
             productProps: String,
             subscribeProductProps: String,
             freeShipping: Number
         },
+        computed: {
+            ...mapGetters([
+                'isSubscribe'
+            ]),
+            subscribeDay() {
+                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
+            }
+        },
         created() {
             this.product = JSON.parse(this.productProps);
             this.slug = this.product.slug;
             this.subscribeProduct = JSON.parse(this.subscribeProductProps)
+        },
+        methods: {
+            addProduct() {
+                this.addedToCart = true;
+                let data = {
+                    hash: Vue.localStorage.get('hash'),
+                    subscribePeriod: this.subscribeDay
+                };
+                axios.post(`/api/carts/products/add/${this.slug}`, data).then(
+                        response => {
+                            this.$store.commit('updateState', response);
+                        },
+                        error => console.log('error')
+                );
+            }
         }
     })
 </script>
-<style>
-    .top-product-description-block .product-button-block .add-to-cart-wrapper {
-        margin-top: 10px;
-    }
-</style>
+

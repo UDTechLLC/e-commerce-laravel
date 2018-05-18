@@ -33,7 +33,19 @@ class ProductTransformer extends TransformerAbstract
             'total_sum_with_discount' => $product->getTotalSumWithDiscount(),
             'total_sum'               => $product->total_sum,
             'image'                   => $product->getFirstMediaUrl('preview'),
-            'subscribe'               => $product->hasPlan()
+            'subscribe'               => $product->hasPlan(),
+            'subscribe_period'        => $this->getSubscribePeriod($product)
         ];
+    }
+
+    /**
+     * @param $product
+     * @return int
+     */
+    private function getSubscribePeriod($product)
+    {
+        $period = $product->created_at->diffInMonths($product->created_at->addDays($product->pivot->subscribe_period));
+        
+        return ($period) ? $period : 14;
     }
 }

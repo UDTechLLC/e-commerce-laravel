@@ -1,53 +1,37 @@
 <template>
-    <tr class="cart-row">
-        <td class="product-name">
-            <div class="product-thumbnail">
-                <a :href="'/product/' + product.slug">
-                    <img :src="product.image"/>
-                </a>
+    <div class="cart-single-product">
+        <div class="product-image">
+            <img :src="product.image" />
+        </div>
+        <div class="product-details">
+            <h3 class="product-title" >
+                {{ product.title }}
+            </h3>
+            <div class="product-price-wrapper">
+                <span class="product-price">
+                    ${{ animatedTotal }}
+                </span>
+                <div class="quantity buttons_added" v-if="!product.subscribe">
+                    <input value="-" class="minus" type="button" @click="deleteProduct(product.slug)" />
+                    <input  class="input-text qty text" step="1" min="0" max="" name="" :value="product.count" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number" />
+                    <input value="+" class="plus" type="button" @click="addProduct(product.slug)" />
+                </div>
             </div>
-            <div class="product-info">
-                <a class="product-title" :href="'/product/' + product.slug">
-                    {{ product.title }}
-                </a>
-            </div>
-        </td>
-        <td class="product-price">
-                    <span v-if="product.discount_amount != '0.00'">
-                        <del>$ {{product.amount}}</del>
-                        <span class="product-subtotal-amount"> ${{ product.amount_with_discount }} </span>
-                    </span>
-                     <span v-else class="product-amount">
-                          ${{ product.amount_with_discount }}
-                     </span>
-        </td>
-        <td class="product-quantity">
-            <div class="quantity buttons_added" v-if="!product.subscribe">
-                <input value="-" class="minus" type="button" @click="deleteProduct(product.slug)"/>
-                <input id="" class="input-text qty text" step="1" min="0" max="" name="" :value="product.count"
-                       title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number"/>
-                <input value="+" class="plus" type="button" @click="addProduct(product.slug)"/>
-            </div>
-        </td>
-        <td class="product-deliver" v-if="product.subscribe">
-            <div class="deliver-select-wrapper">
+            <div class="deliver-block-wrapper" v-if="product.subscribe">
+                <label class="deliver-label">
+                    Deliver:
+                </label>
                 <select class="deliver-select-custom" v-model="subscribePeriod" @change="updatePlan">
                     <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
                 </select>
             </div>
-        </td>
-        <td class="product-deliver" v-else></td>
-        <td class="product-subtotal">
-                     <span class="product-subtotal-amount">
-                           ${{ animatedTotal }}
-                     </span>
-        </td>
-        <td class="product-remove">
+        </div>
+        <div class="product-remove">
             <a href="#" class="remove" aria-label="Remove this item" @click.prevent="deleteAllProduct(product.slug)">
                 ×
             </a>
-        </td>
-    </tr>
+        </div>
+    </div>
 </template>
 
 <script type="text/babel">
@@ -118,6 +102,20 @@
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
     .deliver-select-custom {
-        background: #ffffff;
+        border: 1px solid #eaeaea;
+        height: 38px;
+        width: 150px;
+        display: inline-block;
+        padding-left: 15px;
+        outline: 0;
+        cursor: pointer;
+        background: #ffffff!important;
+    }
+   /* .deliver-select-wrapper {
+        margin-top: 0;
+        padding: 0 15px;
+    }*/
+    .product-price {
+     width: 100%;
     }
 </style>
