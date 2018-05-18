@@ -49,6 +49,7 @@
     </div>
 </template>
 <script type="text/babel">
+    import {mapGetters} from 'vuex'
     export default ({
         data: () => ({
             countries: [],
@@ -60,14 +61,24 @@
             this.getCountries();
             this.countries = require("./../../checkout/components/countries.js");
         },
+        computed: {
+            ...mapGetters([
+                'isSubscribe',
+            ]),
+        },
         methods: {
             getCountries() {
                 axios.get(`/api/countries?country=${this.selectedCountry}`).then(
                         response => {
                             //this.countries = response.data.countries;
-                            this.selectedCountry = response.data.selected;
+                            // this.selectedCountry = response.data.selected;
+                            if (this.isSubscribe) {
+                                this.shipping = this.selectedCountry === 'United States' ? '6.99' : '17.99';
+                            } else {
+                                this.shipping = response.data.shipping;
+                            }
                            // this.states = response.data.states;
-                            this.$EventBus.$emit('updateShipping', response.data.shipping);
+                            this.$EventBus.$emit('updateShipping', this.shipping);
                         },
                         error => console.log('error')
                 )
