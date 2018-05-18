@@ -6753,3 +6753,24 @@ footer .second-footer {
     @media screen and (max-width: 400px) {
       .limited-opportunity__product-item {
         width: 100%; } }
+
+.facebook-section-content-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.facebook-section-content-slider-wrapper {
+  border: 1px solid #d0d0d0;
+  padding: 30px; }
+
+.facebook-section-content-slider {
+  max-width: 616px; }
+
+.facebook-section-content-text {
+  max-width: 450px;
+  text-align: center; }
