@@ -200,6 +200,38 @@
                     </div>
                 </div>
             </div>
+            <section class="facebook-section">
+                <div class="wrapper">
+                    <div class="separate-heading-block">
+                        <div class="title-sep-container title-sep-container-left">
+                            <div class="title-sep sep-single"></div>
+                        </div>
+                        <h2 class="separate-heading-title custom-plan-title">
+                            GET ACCESS OUR PRIVATE FACEBOOK GROUP
+                        </h2>
+                        <div class="title-sep-container title-sep-container-right">
+                            <div class="title-sep sep-single"></div>
+                        </div>
+                    </div>
+                    <div class="facebook-section-content-wrapper">
+                        <div class="facebook-section-content-text">
+                            <p>
+                                Support and accountability are two key components to success. That is why we have developed a private interactive Facebook community
+                                where our clients are able to ask questions, find motivation and share
+                                their experiences while completing their
+                                customized plans.
+                            </p>
+                        </div>
+                        <div class="facebook-section-content-slider-wrapper">
+                            <div id="FBSlider" class="facebook-section-content-slider">
+                                <img src="{{asset('web/images/facebook_section/slider_image.png')}}" />
+                                <img src="{{asset('web/images/facebook_section/slider_image.png')}}" />
+                                <img src="{{asset('web/images/facebook_section/slider_image.png')}}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <div class="success-stories-block-wrapper">
                 <div class="wrapper">
                     <div class="success-stories-block">
