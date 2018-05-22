@@ -27,10 +27,13 @@
 @endsection
 @section('content')
     <main class="blog-post">
-        <article class="blog-post__content">
-            <h1 class="blog-post__content-title">
+        <div class="blog-post__title-wrapper">
+            <h1 class="blog-post__title">
                 {{ $post->title }}
             </h1>
+        </div>
+        <div class="blog-post__wrapper">
+          <article class="blog-post__content">
             <div class="blog-post__content-image-wrapper">
                 <img src="{{asset($post->image)}}">
             </div>
@@ -127,6 +130,7 @@
                     </div>
                 </aside>
             @endforeach
+        </div>
         </div>
     </main>
 @endsection

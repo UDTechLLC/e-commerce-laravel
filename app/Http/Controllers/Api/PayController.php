@@ -59,7 +59,13 @@ class PayController extends Controller
                 : null;
 
             if (null !== $plan) {
-                $subscription = $user->newCustomSubscription($token, $order);
+                try {
+                    $subscription = $user->newCustomSubscription($token, $order);
+                } catch (\Exception $ex) {
+                    return view('errors.error_payment', [
+                        'message' => $ex->getMessage(),
+                    ]);
+                }
                 $this->updateOrderSubscription($order, $subscription);
             } else {
                 return response()->json(['error' => 'No plan found for this product'], 404);
