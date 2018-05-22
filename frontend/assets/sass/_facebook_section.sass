@@ -1,0 +1,69 @@
+.facebook-section
+  background-image: url("../images/facebook_section/background_image.png")
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center center
+  padding-bottom: 95px
+  padding-top: 30px
+  @media screen and (max-width: 992px)
+    padding-bottom: 40px
+    padding-top: 0
+  .wrapper
+    @media screen and (max-width: 992px)
+      padding-top: 25px
+      .separate-heading-block
+        margin-bottom: 0
+        .separate-heading-title
+          font-size: 21px
+  &-content
+    &-wrapper
+      display: flex
+      justify-content: space-between
+      @media screen and (max-width: 992px)
+        flex-wrap: wrap
+    &-slider-wrapper
+      border: 1px solid #d0d0d0
+      //margin-bottom: 45px
+      max-width: 616px
+      padding: 30px
+      width: 100%
+      @media screen and (max-width: 992px)
+        border: none
+        padding: 15px
+    &-slider
+      margin-bottom: 0 !important
+      .slick-dots
+        bottom: -60px
+        position: absolute
+        @media screen and (max-width: 992px)
+          bottom: -30px
+        li
+          background-color: #2b2e32
+          border-radius: 100%
+          height: 7px
+          margin-left: 7px
+          width: 7px
+          &:first-child
+            margin-left: 0
+          &.slick-active
+            background-color: #ed1c24
+          button
+            display: none
+    &-text
+      align-items: center
+      color: #000000
+      display: flex
+      justify-content: center
+      max-width: 450px
+      text-align: center
+      width: 100%
+      @media screen and (max-width: 992px)
+        padding-left: 15px
+        padding-right: 15px
+      p
+        font-size: 20px
+        padding-right: 5px
+        @media screen and (max-width: 992px)
+          font-size: 16px
+          margin-bottom: 0
+          padding-right: 0

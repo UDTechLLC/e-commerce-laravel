@@ -104,9 +104,9 @@ text-align: left;
                                     Shipping:
                                 </td>
                                 <td>
-                                                <span class="product-subtotal-amount">
-                                                    ${{ $order->shipping_cost }}
-                                                </span>
+                                    <span class="product-subtotal-amount">
+                                        ${{ $order->shipping_cost }}
+                                    </span>
                                 </td>
                             </tr>
                         @endif
@@ -122,6 +122,32 @@ text-align: left;
                                                  </span>
                             </td>
                         </tr>
+                        @if($order->hasSubscriptionProduct())
+                            <tr class="recurring-totals">
+                                <th colspan="2">Recurring Totals</th>
+                            </tr>
+                            <tr class="cart-subtotal recurring-total">
+                                <th colspan="2">Subtotal</th>
+                                <td data-title="Subtotal">
+                                    <span>&#036;</span><span>{{ $order->getSubscriptionProduct()->amount }}</span></td>
+                            </tr>
+
+                            <tr class="shipping recurring-total 2018_06_15_monthly">
+                                <th colspan="2">Shipping via Flat Rate</th>
+                                <td data-title="Shipping via Flat Rate">
+                                    <span>&#036;</span><span>{{ $order->shipping_cost }} </span>																											</td>
+                            </tr>
+
+                            <tr class="order-total recurring-total">
+                                <th colspan="2">Recurring Total</th>
+                                <td data-title="Recurring Total">
+                                    <strong>
+                                        <span>&#036;</span><span>{{ $order->getSubscriptionProduct()->amount + $order->shipping_cost}}
+                                                            </span>
+                                    </strong>
+                                </td>
+                            </tr>
+                        @endif
 
 
                         </tfoot>

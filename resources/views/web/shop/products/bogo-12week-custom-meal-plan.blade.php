@@ -202,6 +202,109 @@
                 </div>
             </div>
         </div>
+        <div class="custom-plan-block-wrapper" {{--style="background-color: white;"--}}>
+            <div class="wrapper">
+                <div class="custom-plan-block">
+                    <div class="separate-heading-block">
+                        <div class="title-sep-container title-sep-container-left">
+                            <div class="title-sep sep-single"></div>
+                        </div>
+                        <h2 class="separate-heading-title custom-plan-title" style="color: red;">
+                           FREE CUSTOM WORKOUT PROGRAM
+                        </h2>
+                        <div class="title-sep-container title-sep-container-right">
+                            <div class="title-sep sep-single"></div>
+                        </div>
+                    </div>
+                    <div class="custom-plan-content">
+                        <div class="custom-plan-image-block">
+                            <div class="image-wrapper">
+                                <img src="{{ asset('web/images/custom-training-program.png') }}"/>
+                            </div>
+                        </div>
+                        <div class="custom-plan-description-block">
+                            <ul class="custom-plan-description-list">
+                                <li class="custom-plan-description-list-item">
+                                    <div class="item-icon-wrapper">
+                                        <img src="{{ asset('web/images/workout-program-1.svg') }}"/>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">
+                                            100% TAILORED
+                                        </h3>
+                                        <p class="item-text">
+                                            TO YOUR BODY AND GOALS
+                                        </p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <li class="custom-plan-description-list-item">
+                                    <div class="item-icon-wrapper">
+                                        <img src="{{asset('web/images/workout-program-2.svg')}}"/>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">
+                                            20+ WAYS TO TRAIN
+                                        </h3>
+                                        <p class="item-text">
+                                            AT HOME, HIIT, TABATA, ETC.
+                                        </p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <li class="custom-plan-description-list-item">
+                                    <div class="item-icon-wrapper">
+                                        <img src="{{asset('web/images/workout-program-3.svg')}}"/>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">
+                                            WARM-UP TIPS
+                                        </h3>
+                                        <p class="item-text">
+                                            TO KEEP YOU SAFE
+                                        </p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--<section class="facebook-section">--}}
+            {{--<div class="wrapper">--}}
+                {{--<div class="separate-heading-block">--}}
+                    {{--<div class="title-sep-container title-sep-container-left">--}}
+                        {{--<div class="title-sep sep-single"></div>--}}
+                    {{--</div>--}}
+                    {{--<h2 class="separate-heading-title custom-plan-title">--}}
+                        {{--GET ACCESS OUR PRIVATE FACEBOOK GROUP--}}
+                    {{--</h2>--}}
+                    {{--<div class="title-sep-container title-sep-container-right">--}}
+                        {{--<div class="title-sep sep-single"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="facebook-section-content-wrapper">--}}
+                    {{--<div class="facebook-section-content-text">--}}
+                        {{--<p>--}}
+                            {{--Support and accountability are two key components to success. That is why we have developed a private interactive Facebook community--}}
+                            {{--where our clients are able to ask questions, find motivation and share--}}
+                            {{--their experiences while completing their--}}
+                            {{--customized plans.--}}
+                        {{--</p>--}}
+                    {{--</div>--}}
+                    {{--<div class="facebook-section-content-slider-wrapper">--}}
+                        {{--<div id="FBSlider" class="facebook-section-content-slider">--}}
+                            {{--<img src="{{asset('web/images/facebook_section/slider_image.png')}}" />--}}
+                            {{--<img src="{{asset('web/images/facebook_section/slider_image.png')}}" />--}}
+                            {{--<img src="{{asset('web/images/facebook_section/slider_image.png')}}" />--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</section>--}}
         <div class="success-stories-block-wrapper">
             <div class="wrapper">
                 <div class="success-stories-block">

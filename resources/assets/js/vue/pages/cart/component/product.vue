@@ -29,6 +29,14 @@
                 <input value="+" class="plus" type="button" @click="addProduct(product.slug)"/>
             </div>
         </td>
+        <td class="product-deliver" v-if="product.subscribe">
+            <div class="deliver-select-wrapper">
+                <select class="deliver-select-custom" v-model="subscribePeriod" @change="updatePlan">
+                    <option v-for="item in subscribePlans" :value="item.value">{{ item.name }}</option>
+                </select>
+            </div>
+        </td>
+        <td class="product-deliver" v-else></td>
         <td class="product-subtotal">
                      <span class="product-subtotal-amount">
                            ${{ animatedTotal }}
@@ -43,14 +51,25 @@
 </template>
 
 <script type="text/babel">
+    import delivery from './../../../component/delivery'
+    import moment from 'moment';
+
     export default ({
         data: () => ({
-            animatedTotal: 0
+            animatedTotal: 0,
+            subscribePlans: delivery,
+            subscribePeriod: 0
         }),
         props: {
             product: Object
         },
+        computed: {
+            subscribeDay() {
+                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
+            }
+        },
         created() {
+            this.subscribePeriod = this.product.subscribe_period;
             this.animatedTotal = this.product.total_sum_with_discount;
         },
         watch: {
@@ -83,6 +102,9 @@
                         },
                         error => console.log('error')
                 )
+            },
+            updatePlan() {
+                this.$store.dispatch('updatePlan', [this.product.slug, this.subscribeDay]);
             }
         }
     });
@@ -94,5 +116,8 @@
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    .deliver-select-custom {
+        background: #ffffff;
     }
 </style>

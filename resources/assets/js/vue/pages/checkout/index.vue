@@ -169,7 +169,12 @@
                                    }
                                 });
                                 // this.shipping = this.isShipping ? response.data.shipping : 0;
-                                this.shipping = response.data.shipping;
+                                // this.shipping = response.data.shipping;
+                                if (this.isSubscribe) {
+                                    this.shipping = selectedCountry === 'United States' ? '6.99' : '17.99';
+                                } else {
+                                    this.shipping = response.data.shipping;
+                                }
                             },
                             error => console.log('error')
                     )

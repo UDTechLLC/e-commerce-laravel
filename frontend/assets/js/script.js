@@ -36,6 +36,16 @@
       });
     }
 
+      if (0 < $('#FBSlider').length) {
+          $('#FBSlider').slick({
+              autoplay: true,
+              arrows: false,
+              dots: true,
+              slidesToShow: 1,
+              slidesToScroll: 1
+          });
+      }
+
     if (0 < $('.customer-login-form').length) {
       $('.showlogin').on('click', function () {
         $('.customer-login-form').slideToggle();
@@ -50,9 +60,11 @@
     if (0 < $('#bdCountry').length) {
       $('#bdCountry').select2();
     }
-    /* if ( 0 < $( '.deliver-select' ).length ) {
-     $( '.deliver-select' ).select2();
-     }*/
+    if ( 0 < $( '.deliver-select' ).length ) {
+      $( '.deliver-select' ).select2({
+          minimumResultsForSearch: -1
+      });
+    }
 
 
     /*if ( 0 < $( '.add-to-cart-btn' ).length ) {
@@ -398,6 +410,30 @@
     }
 
   });
+
+
+  var option = $('.product-select_option.active').data('option');
+  var optionText = $('.product-select_option.active').text();
+
+  function getSbscrVal(val,text) {
+    $('.product-select__current').text(text);
+    $('#select_option').val(val);
+    };
+
+  getSbscrVal(option,optionText);
+
+
+  $('.product-select_option').click(function () {
+    option = $(this).data('option');
+    optionText = $(this).text();
+    getSbscrVal(option,optionText);
+    $('.product-select_option').removeClass('active');
+    $(this).addClass('active');
+    $('.product-select_option-wrapper').hide();
+    setTimeout(function () {
+      $('.product-select_option-wrapper').css('display','');
+    },100)
+  })
 
 
 

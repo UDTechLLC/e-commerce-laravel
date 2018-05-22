@@ -44,6 +44,7 @@ class CartController extends Controller
         /** @var User $user */
         $user = \Auth::user();
         $hash = $request->get('hash');
+        $subscribePeriod = $request->get('subscribePeriod');
 
         /** @var Cart $cart */
         $cart = null === $user
@@ -62,6 +63,10 @@ class CartController extends Controller
             $cart->products()->attach($product, ['count' => ++$countProduct]);
         } else {
             $cart->products()->updateExistingPivot($product->getKey(), ['count' => ++$countProduct]);
+        }
+
+        if ($product->hasPlan()) {
+            $cart->products()->updateExistingPivot($product->getKey(), ['subscribe_period' => $subscribePeriod]);
         }
 
         $this->calculateDiscount($cart);
@@ -134,6 +139,24 @@ class CartController extends Controller
         $cart->coupon()->dissociate()->save();
 
         $this->calculateDiscount($cart);
+
+        return fractal($cart, new CartTransformer())->respond();
+    }
+
+    /**
+     * Update subscribe period.
+     *
+     * @param Request $request
+     * @param Product $product
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateSubscriptionPeriod(Request $request, Product $product)
+    {
+        $days = $request->get('days');
+        $cart = $this->getCart($request);
+
+        $cart->products()->updateExistingPivot($product->getKey(), ['subscribe_period' => $days]);
 
         return fractal($cart, new CartTransformer())->respond();
     }

@@ -294,3 +294,75 @@ img
 .reset-p-top
   .wrapper
     padding-top: 0 !important
+
+.has-select
+  align-items: flex-start
+  .custom-input
+    margin-right: 20px
+  .product-select_subscribe
+    margin-top: 5px
+    width: 80%
+  .product-subscribeText
+    font-size: 20px
+    font-weight: 600
+  .product-select-wrapper
+    display: flex
+    align-items: center
+    margin-top: 20px
+    @media screen and (max-width: $breakpoint-mobile)
+      display: block
+  .product-select
+    width: 100%
+    select
+      position: relative
+      background: white
+      border: 1px solid #eaeaea
+      width: 100%
+      max-width: 388px
+      height: 48px
+      display: flex
+      align-items: center
+      padding: 0 10px
+      justify-content: space-between
+      cursor: pointer
+      transition: .3s
+      outline: 0
+      &:hover
+        border: 1px solid #c4c4c4
+      //.product-select_option-wrapper
+        //display: block
+  .product-select-text
+    white-space: nowrap
+    margin-right: 20px
+    @media screen and (max-width: $breakpoint-mobile)
+      margin-bottom: 5px
+  .product-select_option-wrapper
+    position: absolute
+    top: 100%
+    background: white
+    width: 100%
+    left: 0
+    margin-top: 1px
+    border: 1px solid #eaeaea
+    border-top: 0
+    border-bottom: 0
+    display: none
+    .product-select_option
+      padding: 10px
+      border-bottom: 1px solid #eaeaea
+      transition: .2s
+      &:hover
+        background: #f9f9f9
+  .product-select_option
+    &.active
+      display: none
+
+  .product-price
+    margin: 0 !important
+    @media screen and (max-width: $breakpoint-mobile)
+      .product-amount
+        margin: 0 !important
+        display: block !important
+  .m-flexSbscr
+    @media screen and (max-width: $breakpoint-mobile)
+      display: block

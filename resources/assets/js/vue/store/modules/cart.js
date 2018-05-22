@@ -7,6 +7,7 @@ const state = {
   discount: 0,
   isShipping: false,
   isSubscribe: false,
+  subscribeInfo: {},
   cartId: 0,
   coupon: ""
 };
@@ -30,6 +31,9 @@ const getters = {
   },
   isSubscribe: state => {
     return state.isSubscribe
+  },
+  subscribeInfo: state => {
+    return state.subscribeInfo
   },
   cartId: state => {
     return state.cartId
@@ -76,6 +80,19 @@ const actions = {
         error => console.log('error')
       )
     }
+  },
+  updatePlan(context, params) {
+    let data = {
+      hash: Vue.localStorage.get('hash'),
+      days: params[1]
+    };
+
+    axios.put(`/api/carts/products/update/${params[0]}/subscribe/period`, data).then(
+      response => {
+        this.commit('updateState', response);
+      },
+      error => console.log('error')
+    )
   }
 };
 
@@ -88,6 +105,7 @@ const mutations = {
     state.discount = responseApi.data.data.sum.discount_sum;
     state.isShipping = responseApi.data.data.isShipping;
     state.isSubscribe = responseApi.data.data.isSubscribe;
+    state.subscribeInfo = responseApi.data.data.subscribeInfo;
     state.cartId = responseApi.data.data.id;
     state.coupon = responseApi.data.data.coupon;
   },

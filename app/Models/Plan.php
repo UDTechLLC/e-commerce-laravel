@@ -24,7 +24,8 @@ class Plan extends EloquentModel
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'braintree_plan', 'cost', 'description'
+        'name', 'slug', 'braintree_plan', 'cost', 'description',
+        'period',
     ];
 
     /**

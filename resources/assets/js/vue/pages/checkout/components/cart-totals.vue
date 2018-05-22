@@ -41,6 +41,7 @@
                 </td>
 
             </tr>
+
             </tbody>
             <tfoot>
             <tr class="cart-subtotal">
@@ -85,6 +86,32 @@
                         </span>
                 </td>
             </tr>
+            <tr class="recurring-totals" v-if="isSubscribe">
+                <th colspan="2">Recurring Totals</th>
+            </tr>
+            <tr class="cart-subtotal recurring-total" v-if="isSubscribe">
+                <th rowspan="1">Subtotal</th>
+                <td data-title="Subtotal">
+                    <span>&#036;</span><span>{{ subscribeInfo.total }}</span></td>
+            </tr>
+
+            <tr class="shipping recurring-total 2018_06_15_monthly" v-if="isSubscribe">
+                <th>Shipping via Flat Rate</th>
+                <td data-title="Shipping via Flat Rate">
+                    <span>&#036;</span><span>{{ shipping }}</span>																											</td>
+            </tr>
+
+            <tr class="order-total recurring-total" v-if="isSubscribe">
+                <th rowspan="1">Recurring Total</th>
+                <td data-title="Recurring Total">
+                    <strong>
+                        <span>&#036;</span><span>{{ subscribeTotal }}</span>
+                    </strong>
+                    <div class="first-payment-date">
+                        <small>First renewal: {{ subscribeInfo.nextPayment }}</small>
+                    </div>
+                </td>
+            </tr>
             </tfoot>
         </table>
     </div>
@@ -102,10 +129,15 @@
                 'subTotal',
                 'discount',
                 'isShipping',
+                'isSubscribe',
+                'subscribeInfo',
                 'coupon'
             ]),
             total() {
                 return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
+            },
+            subscribeTotal() {
+                return (Number(this.subscribeInfo.total) + Number(this.shipping)).toFixed(2);
             }
         }
     })
