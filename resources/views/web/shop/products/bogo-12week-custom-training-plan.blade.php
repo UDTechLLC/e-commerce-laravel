@@ -200,7 +200,7 @@
                     </div>
                 </div>
             </div>
-            <div class="custom-plan-block-wrapper custom-meal-plan-block-wrapper" {{--style="background-color: white;"--}}>
+            <div class="custom-plan-block-wrapper custom-meal-plan-block-wrapper" style="border-top: 1px solid red;"{{--style="background-color: white;"--}}>
                 <div class="wrapper">
                     <div class="custom-plan-block">
                         <div class="separate-heading-block">
