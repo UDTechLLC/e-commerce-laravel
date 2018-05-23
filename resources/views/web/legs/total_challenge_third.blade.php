@@ -5,19 +5,19 @@
             <nav class="legs-on-fire__navigation">
                 <ul>
                     <li>
-                        <a class="tab-link" href="{{route('legs-on-fire')}}">LEGS ON FIRE</a>
+                        <a class="tab-link" href="{{route('videolibrary.legs-on-fire')}}">LEGS ON FIRE</a>
                     </li>
                     <li class="active">
-                        <a class="tab-link" href="{{route('total-body-challenge')}}">TOTAL BODY CHALLENGE</a>
+                        <a class="tab-link" href="{{route('videolibrary.total-body-challenge')}}">TOTAL BODY CHALLENGE</a>
                         <ul class="sub-menu">
                             <li>
-                                <a class="tab-link" href="{{route('total-body-challenge')}}">STEPS 1 TO 10</a>
+                                <a class="tab-link" href="{{route('videolibrary.total-body-challenge')}}">STEPS 1 TO 10</a>
                             </li>
                             <li>
-                                <a class="tab-link" href="{{route('total-body-challenge-11-20')}}">STEPS 11 TO 20</a>
+                                <a class="tab-link" href="{{route('videolibrary.total-body-challenge-11-20')}}">STEPS 11 TO 20</a>
                             </li>
                             <li class="active">
-                                <a class="tab-link" href="{{route('total-body-challenge-21-30')}}">STEPS 21 TO 30</a>
+                                <a class="tab-link" href="{{route('videolibrary.total-body-challenge-21-30')}}">STEPS 21 TO 30</a>
                             </li>
                         </ul>
                     </li>

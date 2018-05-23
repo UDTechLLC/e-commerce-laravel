@@ -5,27 +5,27 @@
             <nav class="legs-on-fire__navigation">
                 <ul>
                     <li class="active">
-                        <a class="tab-link" href="{{route('legs-on-fire')}}">LEGS ON FIRE</a>
+                        <a class="tab-link" href="{{route('videolibrary.legs-on-fire')}}">LEGS ON FIRE</a>
                         <ul class="sub-menu">
                             <li>
-                                <a class="tab-link" href="{{route('legs-on-fire')}}">FIRST WEEK</a>
+                                <a class="tab-link" href="{{route('videolibrary.legs-on-fire')}}">FIRST WEEK</a>
                             </li>
                             <li>
-                                <a class="tab-link" href="{{route('legs-on-fire-week-2')}}">SECOND WEEK</a>
+                                <a class="tab-link" href="{{route('videolibrary.legs-on-fire-week-2')}}">SECOND WEEK</a>
                             </li>
                             <li>
-                                <a class="tab-link" href="{{route('legs-on-fire-week-3')}}">THIRD WEEK</a>
+                                <a class="tab-link" href="{{route('videolibrary.legs-on-fire-week-3')}}">THIRD WEEK</a>
                             </li>
                             <li>
-                                <a class="tab-link" href="{{route('legs-on-fire-week-4')}}">FOURTH WEEK</a>
+                                <a class="tab-link" href="{{route('videolibrary.legs-on-fire-week-4')}}">FOURTH WEEK</a>
                             </li>
                             <li class="active">
-                                <a class="tab-link" href="{{route('legs-on-fire-week-5')}}">FIFTH WEEK</a>
+                                <a class="tab-link" href="{{route('videolibrary.legs-on-fire-week-5')}}">FIFTH WEEK</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a class="tab-link" href="{{route('total-body-challenge')}}">TOTAL BODY CHALLENGE</a>
+                        <a class="tab-link" href="{{route('videolibrary.total-body-challenge')}}">TOTAL BODY CHALLENGE</a>
                     </li>
                 </ul>
             </nav>
