@@ -41,7 +41,7 @@ text-align: left;
                                                 <a href="{{ $product->generateProductLink($order) }}">
                                                     <u style="color:red">
                                                         @if($product->isVideolibrary())
-                                                            Click here for download
+                                                            Click here to download
                                                         @else
                                                         Fill out your questionnaire by clicking here
                                                         @endif
