@@ -19,6 +19,7 @@ require 'web/subscribe.php';
 require 'web/checkout.php';
 require 'web/blog.php';
 require 'web/likes.php';
+require 'web/legsfire.php';
 
 Auth::routes();
 

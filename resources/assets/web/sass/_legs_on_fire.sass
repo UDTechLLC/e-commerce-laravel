@@ -1,0 +1,180 @@
+.legs-on-fire
+  .wrapper
+    margin: 0 auto
+    max-width: 1170px
+    width: 100%
+  &__navigation
+    background-color: #212121
+    box-sizing: border-box
+    margin-bottom: 52px
+    padding: 0 15px
+    position: relative
+    ul
+      align-items: center
+      box-sizing: border-box
+      display: flex
+      justify-content: space-around
+      height: 77px
+      max-width: 770px
+      margin: 0 auto
+      padding: 0
+      @media screen and (max-width: 800px)
+        height: 52px
+        justify-content: center
+      li
+        font-size: 15px
+        font-weight: 400
+        line-height: 1.87
+        list-style-type: none
+        @media screen and (max-width: 800px)
+          margin-left: 30px
+          &:first-child
+            margin-left: 0
+        a
+          box-sizing: border-box
+          color: #fff
+          font-size: 23px
+          font-weight: 600
+          transition: color .3s
+          text-transform: uppercase
+          @media screen and (max-width: 800px)
+            font-size: 14px
+        &.active
+          a
+            color: #eb212e
+            position: relative
+            &:before
+              content: ''
+              position: absolute
+              bottom: -25px
+              left: 0
+              right: 0
+              margin: 0 auto
+              width: 0
+              height: 0
+              border-left: 9px solid transparent
+              border-right: 9px solid transparent
+              border-bottom: 10px solid #fff
+              @media screen and (max-width: 800px)
+                bottom: -17px
+        .sub-menu
+          align-items: center
+          background-color: #fff
+          height: 55px
+          justify-content: center
+          left: 0
+          margin: 0
+          max-width: unset
+          padding: 0
+          position: absolute
+          right: 0
+          top: 77px
+          z-index: 1
+          @media screen and (max-width: 800px)
+            display: flex
+            justify-content: unset
+            height: 52px
+            overflow-y: auto
+            top: 52px
+          li
+            padding: 0 25px
+            @media screen and (max-width: 800px)
+              padding: 0 12px
+            a
+              background-image: none
+              color: #29282e
+              font-size: 20px
+              font-weight: 400
+              transition: color .3s
+              text-transform: uppercase
+              white-space: nowrap
+              @media screen and (max-width: 800px)
+                font-size: 14px
+              &:before
+                display: none
+            &.active
+              a
+                color: #eb212e
+  &__introduction
+    background-color: #212121
+    padding: 55px 15px 65px
+    &-title
+      color: #fff
+      font-size: 23px
+      font-weight: 600
+      margin-bottom: 45px
+      text-align: center
+      text-transform: uppercase
+    &-video
+      &-wrapper
+        height: 30.4vw
+        margin: 0 auto
+        max-height: 442px
+        max-width: 790px
+        width: 100%
+        @media screen and (max-width: 800px)
+          height: 51.6vw
+  &__content
+    display: flex
+    justify-content: flex-start
+    flex-wrap: wrap
+    &-wrapper
+      padding: 58px 15px 30px
+      @media screen and (max-width: 800px)
+        padding: 10px 15px 30px
+    &-item
+      margin: 0 0 0 11%
+      width: calc( 50% - ( 11% * 0.5 ) )
+      @media screen and (max-width: 800px)
+        border-bottom: 1px solid #eeeeee
+        margin: 0 0 15px
+        padding-bottom: 30px
+        width: 100%
+      &.odd
+        margin-left: 0
+      &-title
+        color: #29282e
+        font-size: 23px
+        font-weight: 700
+        line-height: 1.88
+        letter-spacing: 0
+        margin-bottom: 8px
+        padding: 0
+        text-align: left
+        text-transform: uppercase
+        @media screen and (max-width: 800px)
+          font-size: 18px
+          text-align: center
+        .num
+          color: #eb212e
+          font-size: 38px
+          font-weight: 700
+          font-style: italic
+          margin-right: 7px
+          @media screen and (max-width: 800px)
+            font-size: 26px
+      &-video
+        &-wrapper
+          height: 20.21vw
+          max-height: 293px
+          width: 100%
+          @media screen and (max-width: 800px)
+            height: 51vw
+            max-height: 350px
+            max-width: 600px
+  &__note-text
+    color: #494949
+    font-size: 15px
+    font-weight: 400
+    line-height: 1.87
+    font-family: "PT Sans", Arial, Helvetica, sans-serif
+    letter-spacing: 0px
+  &__desktop-separate-line
+    background-color: #eeeeee
+    height: 1px
+    clear: both
+    margin: 50px auto 45px
+    position: relative
+    width: 100%
+    @media screen and (max-width: 800px)
+      display: none
