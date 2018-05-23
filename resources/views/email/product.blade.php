@@ -39,8 +39,13 @@ text-align: left;
                                             <br>
                                             @if ($product->getMedia('products')->first()->hasCustomProperty('external_link'))
                                                 <a href="{{ $product->generateProductLink($order) }}">
-                                                    <u style="color:red">Fill out your questionnaire by clicking
-                                                        here</u>
+                                                    <u style="color:red">
+                                                        @if($product->isVideolibrary())
+                                                            Click here for download
+                                                        @else
+                                                        Fill out your questionnaire by clicking here
+                                                        @endif
+                                                    </u>
                                                 </a>
                                                 <br>
                                             @endif
