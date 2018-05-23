@@ -27,14 +27,14 @@ Route::get('legs-on-fire-week-5', [
     'uses' => 'Web\LegsFireController@legsFifth',
 ]);
 Route::get('total-body-challenge', [
-    'as'  =>'total-body-challenge',
-    'uses' => 'Web\LegsFireController@totalChallenge'
+    'as'   => 'total-body-challenge',
+    'uses' => 'Web\LegsFireController@totalChallenge',
 ]);
-Route::get('total-body-challenge-11-20',[
-   'as' => 'total-body-challenge-11-20',
-   'uses' =>'Web\LegsFireController@challengeSecond'
+Route::get('total-body-challenge-11-20', [
+    'as'   => 'total-body-challenge-11-20',
+    'uses' => 'Web\LegsFireController@challengeSecond',
 ]);
-Route::get('total-body-challenge-21-30',[
-    'as' => 'total-body-challenge-21-30',
-    'uses' =>'Web\LegsFireController@challengeThird'
+Route::get('total-body-challenge-21-30', [
+    'as'   => 'total-body-challenge-21-30',
+    'uses' => 'Web\LegsFireController@challengeThird',
 ]);
