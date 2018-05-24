@@ -209,7 +209,7 @@
                 </div>
                 <div class="popUp__info">
                     <div class="popUp__name">Shedfat Maxx</div>
-                    <p class="popUp__description">For a limited time only, get a 2nd ShedFat Maxx for only $29.99</p>
+                    <p class="popUp__description">For a limited time only, get a 2nd ShedFat Maxx for only $19.99</p>
 
                     <div class="popUp__productPriceBlock">
 
