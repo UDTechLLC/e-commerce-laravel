@@ -356,6 +356,8 @@
     CallPopUp('12 Week Custom Meal Plan');
     CallPopUp('SPRING CHALLENGE');
     CallPopUp('Shedfat Dad Hat');
+    CallPopUp('Shedfat Maxx');
+    CallPopUp('shedfat-maxx');
 
     cart.btnBuy.click(function () {
       if (!$(this).data('title')) cart.fnCall();

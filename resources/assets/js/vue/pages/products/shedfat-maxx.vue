@@ -50,6 +50,7 @@
                 </label>
             </div>
         </div>
+
         <div class="product-button-block">
             <div v-if="freeShipping">
                 <img width="95px" src="/web/images/delivery.svg" alt="delivery">
@@ -61,20 +62,20 @@
                     <button class="btn">+</button>
                 </div>-->
 
-                        <div class="add-to-cart-wrapper">
-                            <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct"
-                               >
-                                    Add to cart
-                            </a>
-                            <a v-else class="add-to-cart-btn" href="/cart" >
-                                View cart
-                            </a>
-                        </div>
-
+                <div class="add-to-cart-wrapper">
+                    <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct"
+                       :data-title="getDataTitle"
+                    >
+                        Add to cart
+                    </a>
+                    <a v-else class="add-to-cart-btn" href="/cart">
+                        View cart
+                    </a>
+                </div>
             </div>
-
         </div>
     </div>
+
 </template>
 
 <script type="text/babel">
@@ -89,20 +90,29 @@
             subscribeProduct: {},
             addedToCart: false,
             subscribePeriod: 14,
-            subscribePlans: delivery
+            subscribePlans: delivery,
         }),
         props: {
             productProps: String,
             subscribeProductProps: String,
-            freeShipping: Number
+            freeShipping: Number,
+            dataTitle: String,
         },
         computed: {
             ...mapGetters([
                 'isSubscribe'
             ]),
             subscribeDay() {
-                return (this.subscribePeriod == 14 ) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
-            }
+                return (this.subscribePeriod == 14) ? 14 : Math.abs(moment().diff(moment().add(this.subscribePeriod, 'months'), 'days'));
+            },
+            getDataTitle() {
+                if (this.slug !== 'shedfat-maxx') {
+                    return 'shedfat-maxx-subscription';
+                } else {
+                    return 'shedfat-maxx';
+                }
+            },
+
         },
         created() {
             this.product = JSON.parse(this.productProps);
@@ -117,10 +127,10 @@
                     subscribePeriod: this.subscribeDay
                 };
                 axios.post(`/api/carts/products/add/${this.slug}`, data).then(
-                        response => {
-                            this.$store.commit('updateState', response);
-                        },
-                        error => console.log('error')
+                    response => {
+                        this.$store.commit('updateState', response);
+                    },
+                    error => console.log('error')
                 );
             }
         }
