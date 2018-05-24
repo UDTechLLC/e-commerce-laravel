@@ -1159,6 +1159,10 @@ ul {
     .top-product-description-block {
       padding: 15px 0 15px; } }
   .top-product-description-block .wrapper {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
