@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="product-amount">
                                     <span class="currency">$</span>
-                                    <span>29.99</span>
+                                    <span>19.99</span>
                                 </div>
                             </div>
                         </div>
