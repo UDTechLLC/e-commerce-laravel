@@ -204,7 +204,7 @@
             <h2 class="popUp__title">MEMORIAL DAY SPECIAL</h2>
             <div class="popUp__img-info">
                 <div class="popUp__img">
-                    <img src="{{asset('/storage/3/maxx_icon.jpg')}}"
+                    <img src="{{asset('web/images/popUp/maxx_icon.jpg')}}"
                          alt="product_icon">
                 </div>
                 <div class="popUp__info">
