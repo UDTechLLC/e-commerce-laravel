@@ -176,11 +176,11 @@
                               <div class="product-price has-old-price">
                                   <div class="product-amount product-amount--old">
                                       <span class="currency">$</span>
-                                      <span>125</span>
+                                      <span>125.00</span>
                                   </div>
                                   <div class="product-amount">
                                       <span class="currency">$</span>
-                                      <span>30</span>
+                                      <span>30.00</span>
                                   </div>
                               </div>
                           </div>
@@ -295,11 +295,11 @@
                                 <div class="product-price has-old-price">
                                     <div class="product-amount product-amount--old">
                                         <span class="currency">$</span>
-                                        <span>125</span>
+                                        <span>125.00</span>
                                     </div>
                                     <div class="product-amount">
                                         <span class="currency">$</span>
-                                        <span>30</span>
+                                        <span>30.00</span>
                                     </div>
                                 </div>
                             </div>
