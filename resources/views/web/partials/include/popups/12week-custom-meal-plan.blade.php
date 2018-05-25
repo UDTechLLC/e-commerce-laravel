@@ -29,7 +29,7 @@
                 </div>
                 <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
                     <add-to-cart
-                            product-slug="shedfat-max-additional"
+                            product-slug="{{$product->slug}}"
                     >
                     </add-to-cart>
                     <a href="#" class="no-thanks">NO, THANKS</a>
