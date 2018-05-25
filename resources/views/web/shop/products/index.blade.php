@@ -53,7 +53,7 @@
                                             product-slug="{{ $product->slug }}"
                                             data-title="{{ $product->slug }}"
                                     >
-                                        @if($product->slug == 'resistance-bands') pre-order @endif
+                                        {{--@if($product->slug == 'resistance-bands') pre-order @endif--}}
                                     </add-to-cart>
                                 </div>
                             </div>
@@ -171,6 +171,7 @@
                           A 100% customized training plan will make you look better, feel better and maximize results!</p>
 
                       <div class="popUp__productPriceBlock">
+
 
                           <div class="product-price-block">
                               <div class="product-price has-old-price">
