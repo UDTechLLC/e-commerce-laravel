@@ -162,7 +162,7 @@
               <h2 class="popUp__title">ALSO RECOMMENDED</h2>
               <div class="popUp__img-info">
                   <div class="popUp__img">
-                      <img src="{{asset('/storage/3/icon_12_week_custom_meal_plan%20%282%29.png')}}"
+                      <img src="{{asset('web/images/popUp/icon_12_week_custom_meal_plan (2).png')}}"
                            alt="product_icon">
                   </div>
                   <div class="popUp__info">
@@ -176,11 +176,11 @@
                               <div class="product-price has-old-price">
                                   <div class="product-amount product-amount--old">
                                       <span class="currency">$</span>
-                                      <span>100</span>
+                                      <span>125</span>
                                   </div>
                                   <div class="product-amount">
                                       <span class="currency">$</span>
-                                      <span>40</span>
+                                      <span>30</span>
                                   </div>
                               </div>
                           </div>
@@ -191,7 +191,7 @@
                                   product-slug="12-week-custom-training-plan+12week-custom-meal-plan"
                           >
                           </add-to-cart>
-
+                          <a href="#" class="no-thanks">NO, THANKS</a>
 
                   </div>
               </div>
@@ -232,7 +232,7 @@
                                 product-slug="shedfat-max-additional"
                         >
                         </add-to-cart>
-
+                        <a href="#" class="no-thanks">NO, THANKS</a>
 
                     </div>
                 </div>
@@ -281,7 +281,7 @@
                 <h2 class="popUp__title">ALSO RECOMMENDED</h2>
                 <div class="popUp__img-info">
                     <div class="popUp__img">
-                        <img src="{{asset('/storage/1/icon_12_week_custom_training_plan%20%283%29.png')}}"
+                        <img src="{{asset('web/images/popUp/icon_12_week_custom_training_plan (3).png')}}"
                              alt="product_icon">
                     </div>
                     <div class="popUp__info">
@@ -295,11 +295,11 @@
                                 <div class="product-price has-old-price">
                                     <div class="product-amount product-amount--old">
                                         <span class="currency">$</span>
-                                        <span>100</span>
+                                        <span>125</span>
                                     </div>
                                     <div class="product-amount">
                                         <span class="currency">$</span>
-                                        <span>40</span>
+                                        <span>30</span>
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +314,7 @@
                             <a href="#" class="no-thanks">NO, THANKS</a>
                         </div>
                         --}}{{--<a href="#" class="learn-more">learn more</a>--}}
-
+                            <a href="#" class="no-thanks">NO, THANKS</a>
                     </div>
                 </div>
             </div>
