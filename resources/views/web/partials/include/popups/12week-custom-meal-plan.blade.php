@@ -1,4 +1,4 @@
-<div class="popUp" data-modal="shedfat-maxx"><!-- popUp--open -->
+<div class="popUp" data-modal="12week-custom-meal-plan"><!-- popUp--open -->
     <div class="popUp__wrapper">
         <button type="button" class="popUp__close" data-dismiss="modal">×</button>
         <h2 class="popUp__title">ALSO RECOMMENDED</h2>
