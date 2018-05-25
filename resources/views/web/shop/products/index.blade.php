@@ -63,6 +63,15 @@
                         {{-->--}}
                         {{--</add-to-cart>--}}
                         {{--</div>--}}
+
+                        {{-- Partial file name should be as slug --}}
+                        @if ($product->bandls)
+                            @if (View::exists('web.partials.include.popups.' .$product->slug))
+                                @include('web.partials.include.popups.' .$product->slug, [
+                                    'product' => $product->bandls
+                                    ])
+                            @endif
+                        @endif
                     @endforeach
                     <div class="shop-item">
                         <div class="image-wrapper">
@@ -94,15 +103,15 @@
                     </div>
                     <div class="shop-item">
                         <div class="image-wrapper">
-                          {{-- <a href="{{url('challenge')}}">--}}
-                          <a href="#scRegistration" >
+                            {{-- <a href="{{url('challenge')}}">--}}
+                            <a href="#scRegistration">
                                 <img src="{{ asset('web/images/Spring Challenge_icon.jpg') }}"/>
                             </a>
                         </div>
                         <div class="product-details" style="padding-top: 10px;width: 100%">
                             <h3 class="product-title" style="text-align: center">
-                             <a href="#scRegistration">
-                                  {{--  <a href="{{url('challenge')}}">--}}
+                                <a href="#scRegistration">
+                                    {{--  <a href="{{url('challenge')}}">--}}
                                     Spring Challenge </a>
                             </h3>
                         </div>
@@ -147,7 +156,7 @@
                         </span>
                         </div>
                         <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
-                            <a class="add-to-cart-btn" href="/cart" >
+                            <a class="add-to-cart-btn" href="/cart">
                                 View cart
                             </a>
                         </div>
@@ -156,93 +165,51 @@
             </div>
         </div>
     </div>
-     <div class="popUp" data-modal="12week-custom-meal-plan"><!-- popUp--open -->
-          <div class="popUp__wrapper">
-              <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-              <h2 class="popUp__title">ALSO RECOMMENDED</h2>
-              <div class="popUp__img-info">
-                  <div class="popUp__img">
-                      <img src="{{asset('web/images/popUp/icon_12_week_custom_meal_plan (2).png')}}"
-                           alt="product_icon">
-                  </div>
-                  <div class="popUp__info">
-                      <div class="popUp__name">12 Week Custom Training Plan</div>
-                      <p class="popUp__description">Proper diet is key to achieving your health and fitness goals.
-                          A 100% customized training plan will make you look better, feel better and maximize results!</p>
 
-                      <div class="popUp__productPriceBlock">
+    {{--<div class="popUp" data-modal="12week-custom-meal-plan"><!-- popUp--open -->--}}
+        {{--<div class="popUp__wrapper">--}}
+            {{--<button type="button" class="popUp__close" data-dismiss="modal">×</button>--}}
+            {{--<h2 class="popUp__title">ALSO RECOMMENDED</h2>--}}
+            {{--<div class="popUp__img-info">--}}
+                {{--<div class="popUp__img">--}}
+                    {{--<img src="{{asset('web/images/popUp/icon_12_week_custom_meal_plan (2).png')}}"--}}
+                         {{--alt="product_icon">--}}
+                {{--</div>--}}
+                {{--<div class="popUp__info">--}}
+                    {{--<div class="popUp__name">12 Week Custom Training Plan</div>--}}
+                    {{--<p class="popUp__description">Proper diet is key to achieving your health and fitness goals.--}}
+                        {{--A 100% customized training plan will make you look better, feel better and maximize results!</p>--}}
 
-
-                          <div class="product-price-block">
-                              <div class="product-price has-old-price">
-                                  <div class="product-amount product-amount--old">
-                                      <span class="currency">$</span>
-                                      <span>125.00</span>
-                                  </div>
-                                  <div class="product-amount">
-                                      <span class="currency">$</span>
-                                      <span>30.00</span>
-                                  </div>
-                              </div>
-                          </div>
-
-                      </div>
-                      <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
-                          <add-to-cart
-                                  product-slug="12-week-custom-training-plan+12week-custom-meal-plan"
-                          >
-                          </add-to-cart>
-                          <a href="#" class="no-thanks">NO, THANKS</a>
-
-                  </div>
-              </div>
-          </div>
-      </div>
-      </div>
-    <div class="popUp" data-modal="shedfat-maxx"><!-- popUp--open -->
-        <div class="popUp__wrapper">
-            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-            <h2 class="popUp__title">MEMORIAL DAY SPECIAL</h2>
-            <div class="popUp__img-info">
-                <div class="popUp__img">
-                    <img src="{{asset('web/images/popUp/maxx_icon.jpg')}}"
-                         alt="product_icon">
-                </div>
-                <div class="popUp__info">
-                    <div class="popUp__name">Shedfat Maxx</div>
-                    <p class="popUp__description">For a limited time only, get a 2nd ShedFat Maxx for only $19.99</p>
-
-                    <div class="popUp__productPriceBlock">
-
-                        <div class="product-price-block">
-                            <div class="product-price has-old-price">
-                                <div class="product-amount product-amount--old">
-                                    <span class="currency">$</span>
-                                    <span>59.99</span>
-                                </div>
-                                <div class="product-amount">
-                                    <span class="currency">$</span>
-                                    <span>19.99</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
-                        <add-to-cart
-                                product-slug="shedfat-max-additional"
-                        >
-                        </add-to-cart>
-                        <a href="#" class="no-thanks">NO, THANKS</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    {{--<div class="popUp__productPriceBlock">--}}
 
 
-   <div class="popUp" data-modal="bogo-12week-custom-training-plan"><!-- popUp--open -->
+                        {{--<div class="product-price-block">--}}
+                            {{--<div class="product-price has-old-price">--}}
+                                {{--<div class="product-amount product-amount--old">--}}
+                                    {{--<span class="currency">$</span>--}}
+                                    {{--<span>125.00</span>--}}
+                                {{--</div>--}}
+                                {{--<div class="product-amount">--}}
+                                    {{--<span class="currency">$</span>--}}
+                                    {{--<span>30.00</span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+
+                    {{--</div>--}}
+                    {{--<div class="btns-add-to-thanks flex flex-a--center flex-j--between">--}}
+                        {{--<add-to-cart--}}
+                                {{--product-slug="12-week-custom-training-plan+12week-custom-meal-plan"--}}
+                        {{-->--}}
+                        {{--</add-to-cart>--}}
+                        {{--<a href="#" class="no-thanks">NO, THANKS</a>--}}
+
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    <div class="popUp" data-modal="bogo-12week-custom-training-plan"><!-- popUp--open -->
         <div class="popUp__wrapper">
             <button type="button" class="popUp__close" data-dismiss="modal">×</button>
             <h2 class="popUp__title">FREE GIFT INCLUDED</h2>
@@ -267,7 +234,7 @@
                         </span>
                         </div>
                         <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
-                            <a class="add-to-cart-btn" href="/cart" >
+                            <a class="add-to-cart-btn" href="/cart">
                                 View cart
                             </a>
                         </div>
@@ -276,51 +243,51 @@
             </div>
         </div>
     </div>
-        <div class="popUp" data-modal="12week-custom-training-plan"><!-- popUp--open -->
-            <div class="popUp__wrapper">
-                <button type="button" class="popUp__close" data-dismiss="modal">×</button>
-                <h2 class="popUp__title">ALSO RECOMMENDED</h2>
-                <div class="popUp__img-info">
-                    <div class="popUp__img">
-                        <img src="{{asset('web/images/popUp/icon_12_week_custom_training_plan (3).png')}}"
-                             alt="product_icon">
-                    </div>
-                    <div class="popUp__info">
-                        <div class="popUp__name">12 Week Custom Meal Plan</div>
-                        <p class="popUp__description">Training is only 20% of the battle. 80% of results come from
-                            consistent and proper nutrition!</p>
+    {{--<div class="popUp" data-modal="12week-custom-training-plan"><!-- popUp--open -->--}}
+        {{--<div class="popUp__wrapper">--}}
+            {{--<button type="button" class="popUp__close" data-dismiss="modal">×</button>--}}
+            {{--<h2 class="popUp__title">ALSO RECOMMENDED</h2>--}}
+            {{--<div class="popUp__img-info">--}}
+                {{--<div class="popUp__img">--}}
+                    {{--<img src="{{asset('web/images/popUp/icon_12_week_custom_training_plan (3).png')}}"--}}
+                         {{--alt="product_icon">--}}
+                {{--</div>--}}
+                {{--<div class="popUp__info">--}}
+                    {{--<div class="popUp__name">12 Week Custom Meal Plan</div>--}}
+                    {{--<p class="popUp__description">Training is only 20% of the battle. 80% of results come from--}}
+                        {{--consistent and proper nutrition!</p>--}}
 
-                        <div class="popUp__productPriceBlock">
+                    {{--<div class="popUp__productPriceBlock">--}}
 
-                            <div class="product-price-block">
-                                <div class="product-price has-old-price">
-                                    <div class="product-amount product-amount--old">
-                                        <span class="currency">$</span>
-                                        <span>125.00</span>
-                                    </div>
-                                    <div class="product-amount">
-                                        <span class="currency">$</span>
-                                        <span>30.00</span>
-                                    </div>
-                                </div>
-                            </div>
+                        {{--<div class="product-price-block">--}}
+                            {{--<div class="product-price has-old-price">--}}
+                                {{--<div class="product-amount product-amount--old">--}}
+                                    {{--<span class="currency">$</span>--}}
+                                    {{--<span>125.00</span>--}}
+                                {{--</div>--}}
+                                {{--<div class="product-amount">--}}
+                                    {{--<span class="currency">$</span>--}}
+                                    {{--<span>30.00</span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
-                        </div>
-                        <div class="btns-add-to-thanks flex flex-a--center flex-j--between">
-                            <add-to-cart
-                                    product-slug="12-week-custom-meal-plan+12-week-custom-training-plan"
-                            >
-                            </add-to-cart>
-                           {{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}{{--
-                            <a href="#" class="no-thanks">NO, THANKS</a>
-                        </div>
-                        --}}{{--<a href="#" class="learn-more">learn more</a>--}}
-                            <a href="#" class="no-thanks">NO, THANKS</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+                    {{--</div>--}}
+                    {{--<div class="btns-add-to-thanks flex flex-a--center flex-j--between">--}}
+                        {{--<add-to-cart--}}
+                                {{--product-slug="12-week-custom-meal-plan+12-week-custom-training-plan"--}}
+                        {{-->--}}
+                        {{--</add-to-cart>--}}
+                        {{--<a href="#" class="btn add-to-cart-btn">ADD TO CART</a>--}}{{----}}{{----}}
+                         {{--<a href="#" class="no-thanks">NO, THANKS</a>--}}
+                     {{--</div>--}}
+                     {{----}}{{----}}{{--<a href="#" class="learn-more">learn more</a>--}}
+                        {{--<a href="#" class="no-thanks">NO, THANKS</a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="popUp popUp--challenge" data-modal="SPRING CHALLENGE"><!-- popUp--open -->
         <input type="hidden" class="add-to-cart-btn callPopUp" data-title='SPRING CHALLENGE'>
         <div class="popUp__wrapper">
