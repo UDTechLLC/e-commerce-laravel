@@ -36,6 +36,7 @@
         <orders-table
                 :data="gridData"
                 :columns="gridColumns"
+                @sort="sort"
         >
         </orders-table>
 
@@ -46,7 +47,7 @@
                     :clickHandler="clickCallback">
             </paginate>
         </div>
-    </div>
+        <div class="clearfix"></div>
     </div>
 </template>
 <script type="text/babel">
@@ -78,10 +79,10 @@
                     totalPage: 1,
                     currentPage: 1
                 },
-                /* sortParam: {
-                 field: 'id',
-                 type: 'asc'
-                 }*/
+                 sortParam: {
+                     field: 'id',
+                     type: 'ASC'
+                 }
             }
         },
         props: {
@@ -98,7 +99,7 @@
         },
         methods: {
             getOrders() {
-                let url = `/admin/orders/filters?page=${this.pagination.currentPage}&searchField=${this.searchField}&searchValue=${this.searchQuery}&filterField=state&filterValue=${this.state}`;
+                let url = `/admin/orders/filters?page=${this.pagination.currentPage}&searchField=${this.searchField}&searchValue=${this.searchQuery}&filterField=state&filterValue=${this.state}&sortField=${this.sortParam.field}&sortType=${this.sortParam.type}`;
                 axios.get(url).then(
                         response => {
                             this.gridData = response.data.data;
@@ -115,6 +116,11 @@
             },
             clickCallback(page) {
                 this.pagination.currentPage = page;
+                this.getOrders();
+            },
+            sort(params) {
+                this.sortParam.field = params.key;
+                this.sortParam.type = params.type;
                 this.getOrders();
             }
         }
