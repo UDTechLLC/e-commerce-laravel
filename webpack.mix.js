@@ -39,11 +39,11 @@ mix.sass('resources/assets/admin/sass/app.scss', 'public/admin_panel/css')
   .copy('resources/assets/web/fonts', 'public/web/fonts')
   .copy('resources/assets/web/js', 'public/web/js')
   .copy('resources/assets/web/carouselengine', 'public/web/carouselengine')
-  .copy('resources/assets/web/slick', 'public/web/slick')
-  .babel('public/web/css/base.css', 'public/web/css/base.css')
+  .copy('resources/assets/web/slick', 'public/web/slick');
+/*  .babel('public/web/css/base.css', 'public/web/css/base.css')
   .babel('public/web/slick/slick-theme.css', 'public/web/slick/slick-theme.css')
   .babel('public/web/js/modal.js', 'public/web/js/modal.js')
-  .babel('public/web/js/script.js', 'public/web/js/script.js');
+  .babel('public/web/js/script.js', 'public/web/js/script.js');*/
 
 /*.js([
  `${path}jquery/dist/jquery.js`,
