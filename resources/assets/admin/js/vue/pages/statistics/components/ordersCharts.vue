@@ -9,7 +9,6 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-
                         <line-chart
                                 :chart-data="datacollection"
                                 :options="{responsive: true, maintainAspectRatio: false}"
@@ -26,31 +25,25 @@
 
     export default ({
         data: () => ({
+            show: true,
             datacollection: {
+
                 labels: [],
                 datasets: [
                     {
                         label: 'Net sales in this period',
-                        borderColor: 'rgba(0, 174, 255)',
-                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
                         data: []
                     },
                     {
                         label: 'Charged for shipping',
-                        borderColor: 'rgba(206, 14, 14)',
-                        backgroundColor: 'rgba(206, 14, 14, 0.35)',
                         data: []
                     },
                     {
                         label: 'Gross sales in this period',
-                        borderColor: 'rgba(0, 93, 255)',
-                        backgroundColor: 'rgba(0, 93, 255, 0.35)',
                         data: []
                     },
                     {
                         label: 'Visitors',
-                        borderColor: 'rgba(230, 93, 255)',
-                        backgroundColor: 'rgba(230, 93, 255, 0.35)',
                         data: []
                     }
                 ]
@@ -77,26 +70,18 @@
                                 datasets: [
                                     {
                                         label: 'Net sales in this period',
-                                        borderColor: 'rgba(0, 174, 255)',
-                                        backgroundColor: 'rgba(241, 249, 7, 0.35)',
                                         data: response.data.products
                                     },
                                     {
                                         label: 'Charged for shipping',
-                                        borderColor: 'rgba(206, 14, 14)',
-                                        backgroundColor: 'rgba(206, 14, 14, 0.35)',
                                         data: response.data.shipping
                                     },
                                     {
                                         label: 'Gross sales in this period',
-                                        borderColor: 'rgba(0, 93, 255)',
-                                        backgroundColor: 'rgba(0, 93, 255, 0.35)',
                                         data: response.data.total
                                     },
                                     {
                                         label: 'Visitors',
-                                        borderColor: 'rgba(230, 93, 255)',
-                                        backgroundColor: 'rgba(230, 93, 255, 0.35)',
                                         data: response.data.visitors
                                     }
                                 ]
