@@ -31,9 +31,9 @@ class CartController extends Controller
 
         if ($cart->coupon && !$cart->coupon->active) {
             $cart->coupon()->dissociate()->save();
-
-            $this->calculateDiscount($cart);
         }
+
+        $this->calculateDiscount($cart);
 
         return fractal($cart, new CartTransformer())->respond();
     }
