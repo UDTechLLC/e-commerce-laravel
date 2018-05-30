@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <input type="text" id="search" v-model="searchQuery"
+                <input type="text" id="search" v-model="searchQuery" @keyup.enter="getUsers"
                        class="form-control" placeholder="Search for...">
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
