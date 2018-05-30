@@ -28,7 +28,7 @@ class SubscriptionTransformer extends TransformerAbstract
             'user email'    => $subscription->user->email,
             'user phone'    => $subscription->user->phone,
             'start date'    => $subscription->created_at->toFormattedDateString(),
-            'next payment'  => $subscription->ends_at,
+            'next payment'  => $subscription->ends_at->toFormattedDateString(),
         ];
     }
 }
