@@ -70,6 +70,10 @@ class WebhookController extends CashierController
             $this->sendOrderToEmail($newOrder);
 
             \Log::info('New order was prepared');
+
+            $subscription->update(['ends_at' => now()->addMonth()]);
+
+            \Log::info('Subscription next billing at was updated');
         }
     }
 
