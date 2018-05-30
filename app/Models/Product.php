@@ -57,6 +57,10 @@ class Product extends Model implements HasMedia
         self::VIEW_NAME_WEIGHT_LOSS_BUNDLE
     ];
 
+    const VIDEO_LIBRARY = [
+        self::VIEW_NAME_LEGS_ON_FIRE,
+    ];
+
     protected $table = 'products';
 
     /**
@@ -75,6 +79,7 @@ class Product extends Model implements HasMedia
         'position',
         'isVirtual',
         'slug',
+        'parent_id',
         'published',
         'visible'
     ];
@@ -319,5 +324,10 @@ class Product extends Model implements HasMedia
     public function nextPaymentDate()
     {
         return Carbon::now()->addDay($this->pivot->subscribe_period)->format('F d, Y');
+    }
+
+    public function isVideolibrary()
+    {
+        return in_array($this->slug, self::VIDEO_LIBRARY);
     }
 }

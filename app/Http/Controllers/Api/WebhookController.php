@@ -52,11 +52,9 @@ class WebhookController extends CashierController
         if ($notification->subscription->currentBillingCycle > 1) {
             \Log::info('Start prepare new order');
 
-            $order = Order::where(
-                'subscription_id',
-                Subscription::where('braintree_id', $notification->subscription->id)->first()->getKey()
-            )
-                ->first();
+            $subscription = Subscription::where('braintree_id', $notification->subscription->id)->first();
+
+            $order = Order::where('subscription_id', $subscription->getKey())->first();
 
             \Log::info('Order was found');
             $newOrder = $this->createOrder($order);
