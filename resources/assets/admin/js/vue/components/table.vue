@@ -62,16 +62,13 @@ i
                 sortOrders: sortOrders
             }
         },
-        computed: {
-
-        },
         filters: {
-            capitalize: function (str) {
+            capitalize (str) {
                 return str.charAt(0).toUpperCase() + str.slice(1)
             }
         },
         methods: {
-            sortBy: function (key) {
+            sortBy (key) {
                 this.sortOrders[key] = this.sortOrders[key] * -1;
                 let sort = {
                     field: key,

@@ -34,6 +34,8 @@ class OrderController extends Controller
         $searchValue = $request->get('searchValue');
         $filter = $request->get('filterField');
         $filterValue = $request->get('filterValue');
+        $sortField = $request->get('sortField') ?? 'id';
+        $sortType = $request->get('sortType') ?? 'asc';
 
         $query = $this->search($search, $searchValue);
 
@@ -41,7 +43,7 @@ class OrderController extends Controller
             $query->where($filter, $filterValue);
         }
 
-        return OrdersResource::collection($query->paginate(20));
+        return OrdersResource::collection($query->orderBy($sortField, $sortType)->paginate(20));
     }
 
     public function getOrders(Request $request)

@@ -29,6 +29,12 @@ class CartController extends Controller
 
         throw_if(null === $cart, new CartNotFoundException());
 
+        if ($cart->coupon && !$cart->coupon->active) {
+            $cart->coupon()->dissociate()->save();
+        }
+
+        $this->calculateDiscount($cart);
+
         return fractal($cart, new CartTransformer())->respond();
     }
 
@@ -222,7 +228,7 @@ class CartController extends Controller
     private function createCart($hash)
     {
         return Cart::create([
-            'hash' => $hash
+            'hash' => $hash,
         ]);
     }
 
