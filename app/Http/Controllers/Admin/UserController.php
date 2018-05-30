@@ -28,10 +28,12 @@ class UserController extends Controller
     {
         $sortField = $request->get('sortField') ?? 'id';
         $sortType = $request->get('sortType') ?? 'asc';
+        $searchField = $request->get('searchField');
+        $searchValue = $request->get('searchValue');
 
-        $users = User::orderBy($sortField, $sortType)->paginate(20);
+        $users = $this->search($searchField, $searchValue);
 
-        return UsersResource::collection($users);
+        return UsersResource::collection($users->orderBy($sortField, $sortType)->paginate(20));
     }
 
     /**
@@ -98,5 +100,30 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+    }
+
+    /**
+     * @param string $field
+     * @param string $value
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    private function search($field, $value)
+    {
+        $query = User::query();
+
+        switch ($field) {
+            case 'id':
+                $query = User::where('id', $value);
+                break;
+            case 'email':
+                $query = User::where('email', $value);
+                break;
+            case 'name':
+                $query = User::where('first_name', 'LIKE', '%' . $value . '%')
+                    ->orWhere('last_name', 'LIKE', '%' . $value . '%');
+                break;
+        }
+        return $query;
     }
 }
