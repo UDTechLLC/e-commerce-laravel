@@ -66,7 +66,6 @@ class PayController extends Controller
                         'message' => $ex->getMessage(),
                     ]);
                 }
-                $this->updateOrderSubscription($order, $subscription);
             } else {
                 return response()->json(['error' => 'No plan found for this product'], 404);
             }
@@ -112,13 +111,6 @@ class PayController extends Controller
     {
         $order->update([
             'state' => Order::ORDER_STATE_PROCESSING,
-        ]);
-    }
-
-    private function updateOrderSubscription($order, $subscription)
-    {
-        $order->update([
-            'subscription_id' => $subscription->getKey(),
         ]);
     }
 
