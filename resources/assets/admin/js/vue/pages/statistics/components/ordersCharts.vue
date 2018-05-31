@@ -93,3 +93,8 @@
         }
     })
 </script>
+<style scoped>
+    .x_content {
+        background: #262C36;
+    }
+</style>

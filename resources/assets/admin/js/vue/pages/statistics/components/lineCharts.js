@@ -21,13 +21,13 @@ export default ({
     this.gradient.addColorStop(0.5, 'rgba(255, 0, 0, 0.5)');
     this.gradient.addColorStop(1, 'rgba(255, 0, 0, 0)');
 
-    this.gradient2.addColorStop(0, 'rgba(0, 231, 255, 1)');
-    this.gradient2.addColorStop(0.5, 'rgba(0, 231, 255, 0.5)');
-    this.gradient2.addColorStop(1, 'rgba(0, 231, 255, 0)');
-
-    this.gradient3.addColorStop(0, 'rgba(145, 232, 66, 1)');
-    this.gradient3.addColorStop(0.5, 'rgba(145, 232, 66, 0.5)');
-    this.gradient3.addColorStop(1, 'rgba(145, 232, 66, 0)');
+    this.gradient2.addColorStop(0, 'rgba(145, 232, 66, 1)');
+    this.gradient2.addColorStop(0.5, 'rgba(145, 232, 66, 0.5)');
+    this.gradient2.addColorStop(1, 'rgba(145, 232, 66, 0)');
+    
+    this.gradient3.addColorStop(0, 'rgba(0, 231, 255, 1)');
+    this.gradient3.addColorStop(0.5, 'rgba(0, 231, 255, 0.5)');
+    this.gradient3.addColorStop(1, 'rgba(0, 231, 255, 0)');
 
     this.gradient4.addColorStop(0, 'rgba(162, 111, 252, 1)');
     this.gradient4.addColorStop(0.5, 'rgba(162, 111, 252, 0.5)');
