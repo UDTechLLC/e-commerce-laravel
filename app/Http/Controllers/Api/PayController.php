@@ -159,7 +159,11 @@ class PayController extends Controller
             $this->updateOrderStatusOnShipStation($order);
         }
 
-        $this->sendOrderToEmail($order);
+        try {
+            $this->sendOrderToEmail($order);
+        } catch (\Exception $ex) {
+            \Log::warning("Email was not sent");
+        }
     }
 
     /**
