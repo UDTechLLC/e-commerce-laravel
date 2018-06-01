@@ -319,7 +319,10 @@
         })
       },
       getCustomAddress(value) {
-        this.billingInfo.street = value.name ? value.name : value.newVal;
+        // this.billingInfo.street = value.name ? value.name : value.newVal;
+          if (!value.oldVal) {
+              this.billingInfo.street = value.newVal;
+          }
       },
       next() {
         this.registerErrorShow = false;
