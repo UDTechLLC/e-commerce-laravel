@@ -74,7 +74,7 @@
             ],
             sortKey: '',
             sortItems: {
-                'id' : 1,
+                'id': 1,
                 'start date': 1,
                 'status': 1
             },
@@ -89,6 +89,7 @@
                 'plan',
                 'user name',
                 'user email',
+                'user braintree id',
                 'user phone',
                 'start date',
                 'next payment',
@@ -110,8 +111,7 @@
                             this.subscribs = response.data.data;
                             this.pagination.totalPage = response.data.meta.pagination.total_pages;
                         },
-                            error => console.log('error')
-
+                        error => console.log('error')
                 )
             },
             clickCallback(page) {
