@@ -428,5 +428,6 @@
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >
+        @if($product->getKey() == 22)<slot>pre-order</slot>@endif
     </add-to-cart-mobile>
 @endsection
