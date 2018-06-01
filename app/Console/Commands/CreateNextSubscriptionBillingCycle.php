@@ -85,9 +85,13 @@ class CreateNextSubscriptionBillingCycle extends Command
 
                 $newOrder = $this->createOrder($order);
 
-                $this->sendOrderToShipStation($newOrder);
+                try {
+                    $this->sendOrderToShipStation($newOrder);
+                } catch (\Exception $ex) {
+                    \Log::warning('Shipstation order was disabled');
+                }
+                
                 $this->sendOrderToEmail($newOrder);
-
 
                 \Log::info('Subscriptions were recurred. Created new order with ID: ' . $newOrder->getKey());
             } else {

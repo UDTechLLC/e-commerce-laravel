@@ -4,7 +4,7 @@
 
             <div class="price-radio-block">
 
-                <label class="price-radio has-select flex flex-a--center" v-if="!isSubscribe">
+                <label class="price-radio has-select flex flex-a--center" v-if="!isSubscribe && product.id == 3">
                     <input type="radio" :value="subscribeProduct.slug" v-model="slug" name="product-price" checked>
 
                     <span class="custom-input"></span>
@@ -66,7 +66,8 @@
                     <a v-if="!addedToCart" class="add-to-cart-btn" href="#" @click.prevent="addProduct"
                        :data-title="getDataTitle"
                     >
-                        Add to cart
+                       <span v-if="product.id == 22"> Pre-order</span>
+                       <span v-else> Add to cart</span>
                     </a>
                     <a v-else class="add-to-cart-btn" href="/cart">
                         View cart

@@ -17,18 +17,20 @@ class SubscriptionTransformer extends TransformerAbstract
     public function transform(Subscription $subscription)
     {
         return [
-            'id'            => $subscription->getKey(),
-            'subscription'  => $subscription->name,
-            'braintree_id'  => $subscription->braintree_id,
-            'plan'          => $subscription->braintree_plan,
-            'status'        => $subscription->status,
-            'trial_ends_at' => $subscription->trial_ends_at,
-            'end date'      => $subscription->ends_at,
-            'user name'     => $subscription->user->full_name,
-            'user email'    => $subscription->user->email,
-            'user phone'    => $subscription->user->phone,
-            'start date'    => $subscription->created_at->toFormattedDateString(),
-            'next payment'  => $subscription->ends_at->toFormattedDateString(),
+            'id'                => $subscription->getKey(),
+            'subscription'      => $subscription->name,
+            'braintree_id'      => $subscription->braintree_id,
+            'plan'              => $subscription->braintree_plan,
+            'status'            => $subscription->status,
+            'trial_ends_at'     => $subscription->trial_ends_at,
+            'end date'          => $subscription->ends_at,
+            'user name'         => $subscription->user->full_name,
+            'user braintree id' => $subscription->user->braintree_id,
+            'user email'        => $subscription->user->email,
+            'user phone'        => $subscription->user->phone,
+            'start date'        => $subscription->created_at->toFormattedDateString(),
+            'next payment'      => is_null($subscription->ends_at) ? '' :
+                                    $subscription->ends_at->toFormattedDateString(),
         ];
     }
 }
