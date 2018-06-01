@@ -189,6 +189,8 @@
                 'coupon'
             ]),
             total() {
+                if (!this.isShipping) this.shipping = 0;
+
                 return (Number(this.subTotal) + Number(this.shipping) - Number(this.discount)).toFixed(2);
             },
             subscribeTotal() {

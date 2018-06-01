@@ -23,7 +23,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 bar-chart">
                             <bar-chart
                                     :chart-data="datacollection"
                                     :options="{responsive: true, maintainAspectRatio: false}"
@@ -52,8 +52,6 @@
                 datasets: [
                     {
                         label: 'Purchases for the selected items',
-                        borderColor: 'rgba(0, 174, 255)',
-                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
                         data: []
                     }
                 ]
@@ -104,8 +102,6 @@
                                 datasets: [
                                     {
                                         label: 'Purchases for the selected items',
-                                        borderColor: 'rgba(0, 174, 255)',
-                                        backgroundColor: 'rgba(130, 196, 214, 0.35)',
                                         data: response.data.data
                                     }
                                 ]
@@ -129,5 +125,8 @@
 
     li.active {
         background: #acc8d8 !important;
+    }
+    .bar-chart {
+        background: #262C36;
     }
 </style>

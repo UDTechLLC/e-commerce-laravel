@@ -30,7 +30,7 @@ class OrdersResource extends Resource
             'coupon code' => ($this->coupon) ? $this->coupon->code : "-",
             'total cost'  => $this->total_cost,
             'status'      => $this->state,
-            'date'        => $this->created_at->format('M j, Y H:i'),
+            'date'        => $this->created_at->format('M j, Y g:i A'),
         ];
     }
 

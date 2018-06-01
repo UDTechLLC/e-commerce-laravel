@@ -24,10 +24,15 @@ class SubscriptionResponse implements Responsable
      */
     public function toResponse($request)
     {
+        $sortField = $request->get('sortField') ?? 'id';
+        $sortType = $request->get('sortType') ?? 'asc';
+        $searchField = $request->get('searchField');
+        $searchValue = $request->get('searchValue');
+
         $fractal = new Manager();
         $perPage = $request->get('per_page') ?? self::PER_PAGE_DEFAULT;
 
-        $paginator = Subscription::paginate($perPage);
+        $paginator = $this->search($searchField, $searchValue)->orderBy($sortField, $sortType)->paginate($perPage);
 
         $subscriptions = $paginator->getCollection();
 
@@ -37,5 +42,34 @@ class SubscriptionResponse implements Responsable
         $data = $fractal->createData($resource)->toArray();
 
         return response()->json($data);
+    }
+
+    /**
+     * @param string $field
+     * @param string $value
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    private function search($field, $value)
+    {
+        $query = Subscription::query();
+
+        switch ($field) {
+            case 'id':
+                $query = Subscription::where('id', $value);
+                break;
+            case 'email':
+                $query = Subscription::whereHas('user', function ($query) use ($value) {
+                    $query->where('email', $value);
+                });
+                break;
+            case 'name':
+                $query = Subscription::whereHas('user', function ($query) use ($value) {
+                    $query->where('first_name', 'LIKE', '%' . $value . '%')
+                        ->orWhere('last_name', 'LIKE', '%' . $value . '%');
+                });
+                break;
+        }
+        return $query;
     }
 }

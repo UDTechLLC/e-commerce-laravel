@@ -64,6 +64,10 @@ class Subscription extends EloquentModel
      */
     protected $appends = [];
 
+    protected $dates = [
+        'ends_at',
+    ];
+
     public static $statuses = [
         self::SUBSCRIPTION_ACTIVE,
         self::SUBSCRIPTION_CANCELED,

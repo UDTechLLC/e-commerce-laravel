@@ -77,14 +77,23 @@ class CreateNextSubscriptionBillingCycle extends Command
             $cost = $plan->cost + $order->shipping_cost;
 
             if ($this->charge($item->user, $cost, $order->order_id)) {
+                $nextBillingDate = now()->addDays($item->period);
+
+                $item->update(['next_billing_at' => $nextBillingDate]);
+                
+                \Log::info("Next billing date set to {$nextBillingDate->toFormattedDateString()}");
+
                 $newOrder = $this->createOrder($order);
 
-                $this->sendOrderToShipStation($newOrder);
+                try {
+                    $this->sendOrderToShipStation($newOrder);
+                } catch (\Exception $ex) {
+                    \Log::warning('Shipstation order was disabled');
+                }
+                
                 $this->sendOrderToEmail($newOrder);
 
-                $item->update(['next_billing_at' => now()->addDays($item->period)]);
-
-                \Log::info('Subscriptions were recurred. Created new order with ID: '. $newOrder->getKey());
+                \Log::info('Subscriptions were recurred. Created new order with ID: ' . $newOrder->getKey());
             } else {
                 $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
             }
@@ -157,6 +166,10 @@ class CreateNextSubscriptionBillingCycle extends Command
      */
     private function sendOrderToEmail(Order $order)
     {
-        \Mail::to($order->billing->email)->send(new OrderSent($order));
+        try {
+            \Mail::to($order->billing->email)->send(new OrderSent($order));
+        } catch (\Exception $ex) {
+            \Log::warning("Email wan not sent");
+        }
     }
 }

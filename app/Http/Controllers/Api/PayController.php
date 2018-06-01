@@ -66,7 +66,6 @@ class PayController extends Controller
                         'message' => $ex->getMessage(),
                     ]);
                 }
-                $this->updateOrderSubscription($order, $subscription);
             } else {
                 return response()->json(['error' => 'No plan found for this product'], 404);
             }
@@ -115,13 +114,6 @@ class PayController extends Controller
         ]);
     }
 
-    private function updateOrderSubscription($order, $subscription)
-    {
-        $order->update([
-            'subscription_id' => $subscription->getKey(),
-        ]);
-    }
-
     /**
      * @param Order $order
      */
@@ -167,7 +159,11 @@ class PayController extends Controller
             $this->updateOrderStatusOnShipStation($order);
         }
 
-        $this->sendOrderToEmail($order);
+        try {
+            $this->sendOrderToEmail($order);
+        } catch (\Exception $ex) {
+            \Log::warning("Email was not sent");
+        }
     }
 
     /**
