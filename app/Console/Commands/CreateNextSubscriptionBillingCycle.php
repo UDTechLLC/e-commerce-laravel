@@ -77,14 +77,19 @@ class CreateNextSubscriptionBillingCycle extends Command
             $cost = $plan->cost + $order->shipping_cost;
 
             if ($this->charge($item->user, $cost, $order->order_id)) {
-                $newOrder = $this->createOrder($order);
-
-                $this->sendOrderToShipStation($newOrder);
-                $this->sendOrderToEmail($newOrder);
-
                 $item->update(['next_billing_at' => now()->addDays($item->period)]);
 
-                \Log::info('Subscriptions were recurred. Created new order with ID: '. $newOrder->getKey());
+                $newOrder = $this->createOrder($order);
+
+                try {
+                    $this->sendOrderToShipStation($newOrder);
+                } catch (\Exception $ex) {
+                    \Log::warning('Shipstation order was disabled');
+                }
+                
+                $this->sendOrderToEmail($newOrder);
+
+                \Log::info('Subscriptions were recurred. Created new order with ID: ' . $newOrder->getKey());
             } else {
                 $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
             }
