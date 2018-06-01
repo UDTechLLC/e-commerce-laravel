@@ -77,7 +77,11 @@ class CreateNextSubscriptionBillingCycle extends Command
             $cost = $plan->cost + $order->shipping_cost;
 
             if ($this->charge($item->user, $cost, $order->order_id)) {
-                $item->update(['next_billing_at' => now()->addDays($item->period)]);
+                $nextBillingDate = now()->addDays($item->period);
+
+                $item->update(['next_billing_at' => $nextBillingDate]);
+                
+                \Log::info("Next billing date set to {$nextBillingDate->toFormattedDateString()}");
 
                 $newOrder = $this->createOrder($order);
 
@@ -162,6 +166,10 @@ class CreateNextSubscriptionBillingCycle extends Command
      */
     private function sendOrderToEmail(Order $order)
     {
-        \Mail::to($order->billing->email)->send(new OrderSent($order));
+        try {
+            \Mail::to($order->billing->email)->send(new OrderSent($order));
+        } catch (\Exception $ex) {
+            \Log::warning("Email wan not sent");
+        }
     }
 }
