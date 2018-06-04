@@ -53,7 +53,7 @@
                                             product-slug="{{ $product->slug }}"
                                             data-title="{{ $product->slug }}"
                                     >
-                                        @if($product->getKey() == 22) pre-order @endif
+                                        @if($product->getKey() == 22 || $product->getKey() == 31) pre-order @endif
                                     </add-to-cart>
                                 </div>
                             </div>

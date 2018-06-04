@@ -61,8 +61,8 @@
                         </div>
                         @include('web.shop.partials.free_shipping')
                         <add-to-cart
-                                product-slug="{{ $product->slug }}"
-                        >
+                                product-slug="{{ $product->slug }}">
+                                @if($product->getKey() == 31)<slot>pre-order</slot>@endif
                         </add-to-cart>
                     </div>
                 </div>
@@ -194,6 +194,7 @@
     <add-to-cart-mobile
             product-slug="{{ $product->slug }}"
     >
+        @if($product->getKey() == 31)<slot>pre-order</slot>@endif
     </add-to-cart-mobile>
 
 @endsection
