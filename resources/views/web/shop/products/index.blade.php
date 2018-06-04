@@ -2,6 +2,10 @@
 @section('title')
     Shop -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" href="{{asset('web/css/product_custom.css')}}">
+@endsection
 @section('content')
     <main>
         <div class="main">
@@ -46,17 +50,32 @@
 									</span>
                                 </div>
                             </div>
-
-                            <div class="product-button-block">
-                                <div class="add-to-cart-wrapper">
-                                    <add-to-cart
-                                            product-slug="{{ $product->slug }}"
-                                            data-title="{{ $product->slug }}"
-                                    >
-                                        @if($product->getKey() == 22) pre-order @endif
-                                    </add-to-cart>
+                            @if($product->slug == 'Fat-Loss-Bundle')
+                                <div class="product-button-block">
+                                    <div class="add-to-cart-wrapper">
+                                        <div class="product-button-block">
+                                            <div class="add-to-cart-wrapper">
+                                                <a class="disabled-button">
+                                                    Sold out
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            @else
+                                <div class="product-button-block">
+                                    <div class="add-to-cart-wrapper">
+                                        <add-to-cart
+                                                product-slug="{{ $product->slug }}"
+                                                data-title="{{ $product->slug }}"
+                                        >
+                                            @if($product->getKey() == 22) pre-order @endif
+                                        </add-to-cart>
+                                    </div>
+                                </div>
+                            @endif
+
+
                         </div>
                         {{--<add-to-cart--}}
                         {{--product-slug="{{ $product->slug }}"--}}
