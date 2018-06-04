@@ -84,13 +84,13 @@
                         {{--</div>--}}
 
                         {{-- Partial file name should be as slug --}}
-                        @if ($product->bandls)
-                            @if (View::exists('web.partials.include.popups.' .$product->slug))
-                                @include('web.partials.include.popups.' .$product->slug, [
-                                    'product' => $product->bandls
-                                    ])
-                            @endif
-                        @endif
+                        {{--  @if ($product->bandls)
+                              @if (View::exists('web.partials.include.popups.' .$product->slug))
+                                  @include('web.partials.include.popups.' .$product->slug, [
+                                      'product' => $product->bandls
+                                      ])
+                              @endif
+                          @endif--}}
                     @endforeach
                     <div class="shop-item">
                         <div class="image-wrapper">
@@ -269,4 +269,13 @@
             </div>
         </div>
     </div>
+    @foreach($products as $product)
+        @if ($product->bandls)
+            @if (View::exists('web.partials.include.popups.' .$product->slug))
+                @include('web.partials.include.popups.' .$product->slug, [
+                    'product' => $product->bandls
+                    ])
+            @endif
+        @endif
+    @endforeach
 @endsection
