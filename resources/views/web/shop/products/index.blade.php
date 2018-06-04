@@ -50,7 +50,7 @@
 									</span>
                                 </div>
                             </div>
-                            @if($product->slug == 'Fat-Loss-Bundle')
+                            @if($product->slug == 'Fat-loss-bundle')
                                 <div class="product-button-block">
                                     <div class="add-to-cart-wrapper">
                                         <div class="product-button-block">
