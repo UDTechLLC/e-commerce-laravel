@@ -91,7 +91,7 @@
             ></third>
         </transition>
         <transition name="component-fade" mode="out-in">
-            <up-sale v-show="currentComponent == 'up-sale'"
+            <up-sale v-if="currentComponent == 'up-sale'"
                    :orderId="orderId"
                    :billing="billing"
                    :shipping="shipping"

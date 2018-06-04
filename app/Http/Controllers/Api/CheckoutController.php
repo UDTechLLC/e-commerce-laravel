@@ -5,13 +5,17 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Checkout\BillingRequest;
 use App\Http\Requests\Checkout\ShippingRequest;
+use App\Http\Resources\Api\UpSaleResource;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderBilling;
 use App\Models\OrderShipping;
+use App\Models\Product;
 use App\Models\Role;
 use App\Models\User;
 use App\Transformers\Api\OrderTransformer;
+use App\Transformers\Api\ProductTransformer;
+use Illuminate\Http\Request;
 use PragmaRX\Countries\Package\Countries;
 
 class CheckoutController extends Controller
@@ -31,7 +35,7 @@ class CheckoutController extends Controller
     {
         /** @var User $user */
         $user = \Auth::user();
-        
+
         $shippingCost = 0;
 
         if (null === $user && null !== $request->get('password')) {
@@ -81,6 +85,49 @@ class CheckoutController extends Controller
         $this->updateOrder($order, $shipping, $country);
 
         return fractal($order, new OrderTransformer())->respond();
+    }
+
+    public function getUpSaleProduct(Order $order)
+    {
+        $products = Product::limit(3)->get();
+
+        return UpSaleResource::collection($products);
+    }
+
+    public function addUpSaleProduct(Request $request, Order $order)
+    {
+        foreach ($request->get('products') as $id) {
+            Product::findOrFail($id);
+            $order->cart->products()->attach($id, ['count' => 1]);
+        }
+
+        //   $cart = Cart::findOrFail($order->cart_id);
+        // return $order->cart->products;
+
+
+        //$order->products()->sync($pro)
+        $oldProducts = $order->products->map(function ($value) {
+            return $value->id;
+        })->toArray();
+
+
+        foreach ($order->cart->products as $product) {
+            if (!in_array($product->getKey(), $oldProducts)) {
+                $order->products()->attach($product->id, [
+                    'count'            => $product->pivot->count,
+                    'product_price'    => $product->amount,
+                    'subscribe_period' => $product->pivot->subscribe_period,
+                ]);
+            }
+        }
+
+        $order->update([
+            'product_cost'  => $order->cart->getProductsCost(),
+            'shipping_cost' => $order->shipping_cost,
+            'discount_cost' => $order->cart->getDiscountCost(),
+            'total_cost'    => $order->cart->getWithDiscountCost() + $order->shipping_cost,
+            'count'         => $order->cart->getProductsCount()
+        ]);
     }
 
     /**
@@ -143,8 +190,8 @@ class CheckoutController extends Controller
 
         foreach ($cart->products as $product) {
             $order->products()->attach($product->id, [
-                'count' => $product->pivot->count,
-                'product_price' => $product->amount,
+                'count'            => $product->pivot->count,
+                'product_price'    => $product->amount,
                 'subscribe_period' => $product->pivot->subscribe_period,
             ]);
         }

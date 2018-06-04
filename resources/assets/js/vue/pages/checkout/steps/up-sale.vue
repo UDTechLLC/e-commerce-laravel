@@ -1,17 +1,111 @@
 <template>
     <div>
-        <h1>test</h1>
-        <button @click="pay">Click</button>
+        <main class="upsale">
+            <section class="upsale__top-banner">
+                <!--<div class="wrapper">
+                    <div class="upsale__top-banner__content-block">
+                        <h2 class="upsale__top-banner__content-block-title">
+                            <span class="highlight-text">
+                                Try these products
+                            </span>
+                            at our highest savings
+                        </h2>
+                    </div>
+                    <div class="upsale__top-banner__image-block">
+                        <img src="assets/images/upsale_page/top_banner_image.png" />
+                    </div>
+                </div>-->
+                <div class="upsale__top-banner__image-wrapper desktop">
+                    <img src="/web/images/upsale_page/top_banner_decktop.png" alt="Try these products at our highest savings" />
+                </div>
+                <div class="upsale__top-banner__image-wrapper mobile">
+                    <img src="/web/images/upsale_page/top_banner_mobile.png" alt="Try these products at our highest savings" />
+                </div>
+            </section>
+            <section class="upsale__product-block">
+                <div class="wrapper">
+                    <div class="upsale__product-block-single" v-for="product in upSaleProducts">
+                        <div class="upsale__product-block-single--image-wrapper">
+                            <img :src="product.image" />
+                        </div>
+                        <div class="upsale__product-block-single--description-block">
+                            <div class="title-check-wrapper">
+                                <input :id="'product' + product.id" class="product-check-field upsale__checkbox" :name="'product'+product.id"
+                                       type="checkbox" v-model="selectedProducts" :value="product.id"
+                                />
+                                <label :for="'product' + product.id" class="product-title">{{ product.title }}</label>
+                            </div>
+                            <p>
+                                {{ product.description }}
+                            </p>
+                            <div class="product-price-block">
+                                <div class="product-price">
+                                    <span class="product-amount">
+                                        <del v-if="product.old_amount != 0">
+                                            ${{ product.old_amount }}
+                                        </del>
+                                        <ins>
+                                            ${{ product.amount }}
+                                        </ins>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="upsale__product-block-single">
+                        <div class="upsale__product-block-single--image-wrapper">
+
+                        </div>
+                        <div class="upsale__product-block-single--description-block">
+                            <div class="title-check-wrapper">
+                                <input id="product1" class="product-check-field" name="product_1" type="checkbox" />
+                                <label for="product1" class="product-title"></label>
+                            </div>
+                            <p></p>
+                            <div class="product-price-block">
+                                <div class="product-price">
+                                    <span class="product-amount">
+                                        <del>
+                                            $100.00
+                                        </del>
+                                        <ins>
+                                            $50.00
+                                        </ins>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="upsale__product-block-buttons-area">
+                        <button class="add-to-my-order-btn" @click="addedProduct">Add to my order</button>
+                        <span class="close-btn">No Thanks</span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
     </div>
 </template>
 <script type="text/babel">
     export default ({
-        data: () => ({}),
+        data: () => ({
+            upSaleProducts: [],
+            selectedProducts: []
+        }),
         props: {
             payload: String,
             orderId: Number
         },
+        created() {
+            this.getUpSaleProducts();
+        },
         methods: {
+            getUpSaleProducts() {
+              axios.get(`/api/checkout/getUpSaleProducts/${this.orderId}`).then(
+                      response => this.upSaleProducts = response.data.data,
+                      error => console.log('error')
+              )
+            },
             pay() {
                 let method = "post";
                 let path = `/api/pay/braintree/${this.orderId}`;
@@ -28,6 +122,14 @@
 
                 document.body.appendChild(form);
                 form.submit();
+            },
+            addedProduct() {
+                axios.post(`/api/checkout/addUpSaleProducts/${this.orderId}`, {
+                    products: this.selectedProducts
+                }).then(
+                        response => this.pay(),
+                        error => console.log('error')
+                )
             }
         }
     })
