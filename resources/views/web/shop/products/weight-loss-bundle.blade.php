@@ -2,6 +2,10 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" href="{{asset('web/css/product_custom.css')}}">
+@endsection
 @section('content')
     <main>
         <div class="top-product-description-block">
