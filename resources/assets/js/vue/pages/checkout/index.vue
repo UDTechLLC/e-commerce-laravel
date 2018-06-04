@@ -1,6 +1,6 @@
 <template>
     <div class="checkout-top-navigation-bar-wrapper">
-        <div class="wrapper">
+        <div class="wrapper" v-if="currentComponent != 'up-sale'">
             <div class="checkout-top-navigation-bar">
                 <h2 class="checkout-title">
                     Checkout
@@ -90,6 +90,19 @@
                    @editBilling="editBilling"
             ></third>
         </transition>
+        <transition name="component-fade" mode="out-in">
+            <up-sale v-show="currentComponent == 'up-sale'"
+                   :orderId="orderId"
+                   :billing="billing"
+                   :shipping="shipping"
+                   :token="token"
+                   :payload="payload"
+                   @next="nextStep"
+                   @back="backStep"
+                   @editBilling="editBilling"
+            ></up-sale>
+        </transition>
+
 
     </div>
 </template>
@@ -99,6 +112,7 @@
     import second from './steps/second';
     import third from './steps/third';
     import fourth from './steps/fourth';
+    import upSale from './steps/up-sale';
     import {mapGetters} from 'vuex';
 
     export default ({
@@ -115,7 +129,8 @@
                 states: [],
                 shipping: "0",
                 currentComponent: "first",
-                billing: {}
+                billing: {},
+                payload: ""
         }
         },
         props: {
@@ -126,7 +141,8 @@
             first,
             second,
             third,
-            fourth
+           // fourth,
+            upSale
         },
         computed: {
             ...mapGetters([
@@ -151,6 +167,7 @@
                 this.billing = value.billing;
                 this.orderId = value.orderId;
                 this.progress = !this.isShipping && value.step === 'second' ? this.progress + 2 : this.progress + 1;
+                this.payload = value.payload
             },
             backStep(value) {
                 this.currentComponent = !this.isShipping && value.step === 'second' ? 'first' : value.step;

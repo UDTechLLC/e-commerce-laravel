@@ -22,22 +22,22 @@
                         <div class="billing-details-info-wrapper">
                             <div class="contacts-block-wrapper">
                                 <div id="payment" class="payment-block-wrapper">
-                                 <!--   <div class="paypal-method payment-method-block">
-                                        <div class="paypal-header-block">
-                                            <div class="payment-method-title">
-                                                <img src="/web/images/checkout/img-paypal.png"/>
-                                            </div>
-                                            <div class="icons-label-block">
-                                                <img src="/web/images/checkout/paypal-icons.png"/>
-                                            </div>
-                                        </div>
-                                        <div class="paypal-content-block">
-                                            <p>
-                                                Pay via PayPal; you can pay with your credit card if you don’t have a
-                                                PayPal account.
-                                            </p>
-                                        </div>
-                                    </div>-->
+                                    <!--   <div class="paypal-method payment-method-block">
+                                           <div class="paypal-header-block">
+                                               <div class="payment-method-title">
+                                                   <img src="/web/images/checkout/img-paypal.png"/>
+                                               </div>
+                                               <div class="icons-label-block">
+                                                   <img src="/web/images/checkout/paypal-icons.png"/>
+                                               </div>
+                                           </div>
+                                           <div class="paypal-content-block">
+                                               <p>
+                                                   Pay via PayPal; you can pay with your credit card if you don’t have a
+                                                   PayPal account.
+                                               </p>
+                                           </div>
+                                       </div>-->
 
                                     <div id="dropin-container"></div>
 
@@ -75,7 +75,7 @@
 
     export default ({
         data: () => ({
-            braintree: ""
+            payload: ""
         }),
         props: {
             orderId: Number,
@@ -92,63 +92,61 @@
         },
         mounted() {
 
-           // axios.get('/api/pay/braintree/token').then(
-             //       response => {
-                        //this.token = response.data.token;
+            var button = document.querySelector('#submit-button');
 
-                        var button = document.querySelector('#submit-button');
-
-                        dropin.create({
-                            authorization: this.token,
-                            container: '#dropin-container',
-                            card: {
-                                overrides: {
-                                    fields: {
-                                        number: {
-                                            placeholder: '1111 1111 1111 1111' // Update the number field placeholder
-                                        }
-                                    }
-                                }
-                            },
-                            paypal: {
-                                flow: 'vault'
+            dropin.create({
+                authorization: this.token,
+                container: '#dropin-container',
+                card: {
+                    overrides: {
+                        fields: {
+                            number: {
+                                placeholder: '1111 1111 1111 1111' // Update the number field placeholder
                             }
-                        }, (createErr, instance) => {
-                            button.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                instance.requestPaymentMethod((requestPaymentMethodErr, payload) => {
+                        }
+                    }
+                },
+                paypal: {
+                    flow: 'vault'
+                }
+            }, (createErr, instance) => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    instance.requestPaymentMethod((requestPaymentMethodErr, payload) => {
+                        this.payload = payload.nonce;
+                        this.next();
+                     /*   let method = "post";
+                        let path = `/api/pay/braintree/${this.orderId}`;
+                        var form = document.createElement("form");
+                        form.setAttribute("method", method);
+                        form.setAttribute("action", path);
 
-                                    let method = "post";
-                                    let path = `/api/pay/braintree/${this.orderId}`;
-                                    var form = document.createElement("form");
-                                    form.setAttribute("method", method);
-                                    form.setAttribute("action", path);
+                        var hiddenField = document.createElement("input");
+                        hiddenField.setAttribute("type", "hidden");
+                        hiddenField.setAttribute("name", 'nonce');
+                        hiddenField.setAttribute("value", payload.nonce);
 
-                                    var hiddenField = document.createElement("input");
-                                    hiddenField.setAttribute("type", "hidden");
-                                    hiddenField.setAttribute("name", 'nonce');
-                                    hiddenField.setAttribute("value", payload.nonce);
+                        form.appendChild(hiddenField);
 
-                                    form.appendChild(hiddenField);
+                        document.body.appendChild(form);
+                        form.submit();*/
+                    });
+                });
+            });
+            //   },
+            //      error => console.log('error')
 
-                                    document.body.appendChild(form);
-                                    form.submit();
-                                });
-                            });
-                        });
-                 //   },
-                  //      error => console.log('error')
-
-         //   );
+            //   );
 
 
         },
         methods: {
             next() {
                 let data = {
-                    step: 'fourth',
+                    step: 'up-sale',
                     billing: this.billing,
-                    orderId: this.orderId
+                    orderId: this.orderId,
+                    payload: this.payload
                 };
                 this.$emit('next', data);
             },
