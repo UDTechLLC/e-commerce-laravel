@@ -268,8 +268,10 @@
             },
             getAddressData(value) {
 
-                this.shippingInfo.street = value.route;
-                this.shippingInfo.apartment = value.street_number;
+                // this.shippingInfo.street = value.route;
+                // this.shippingInfo.apartment = value.street_number;
+                console.log(value);
+                this.shippingInfo.street = (value.street_number) ? `${value.street_number} ${value.route}` : `${value.route}`;
                 this.shippingInfo.country.name = value.country;
                 this.countries.forEach(key => {
                     if (key.name == value.country) {
@@ -282,14 +284,17 @@
                 this.shippingInfo.postcode = value.postal_code;
 
                 this.$nextTick(() => {
-                    this.$refs.street.update(value.route)
+                    this.$refs.street.update(this.shippingInfo.street)
                 })
             },
             getCountries() {
                 this.$emit('updateCountry', this.shippingInfo.country);
             },
             getCustomAddress(value) {
-                this.shippingInfo.street = value.name ? value.name : value.newVal;
+                if (!value.oldVal) {
+                    this.shippingInfo.street = value.newVal;
+                }
+                // this.shippingInfo.street = value.name ? value.name : value.newVal;
             },
             next() {
                 let data = {
