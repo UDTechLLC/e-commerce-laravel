@@ -69,7 +69,7 @@
                                 <div class="add-to-cart-wrapper">
                                     <div class="product-button-block">
                                         <div class="add-to-cart-wrapper">
-                                            <a class="disabled-button">
+                                            <a class="disabled-button-product-page">
                                                 Sold out
                                             </a>
                                         </div>
