@@ -2,6 +2,10 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" href="{{asset('web/css/product_custom.css')}}">
+@endsection
 @section('content')
     <main>
         <div class="top-product-description-block">
@@ -60,10 +64,23 @@
                             </div>
                         </div>
                         @include('web.shop.partials.free_shipping')
-                        <add-to-cart
-                                product-slug="{{ $product->slug }}"
-                        >
-                        </add-to-cart>
+                        @if($product->out_of_stock)
+                            <div class="product-button-block">
+                                <div class="add-to-cart-wrapper">
+                                    <div class="product-button-block">
+                                        <div class="add-to-cart-wrapper">
+                                            <a class="disabled-button-product-page">
+                                                Sold out
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <add-to-cart
+                                    product-slug="{{ $product->slug }}">
+                            </add-to-cart>
+                        @endif
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -84,57 +101,59 @@
                 </div>
                 <div class="section__text-wrapper">
                     <p class="section__text text-center">
-                         Here is a chance for you to capitalize and really get the best bang for your buck! It is impossible to put a price on looking great, feeling amazing and achieving the goals that you have set out to achieve… but that does not mean we will not do our best to make it affordable!
+                        Here is a chance for you to capitalize and really get the best bang for your buck! It is
+                        impossible to put a price on looking great, feeling amazing and achieving the goals that you
+                        have set out to achieve… but that does not mean we will not do our best to make it affordable!
                     </p>
                 </div>
                 <div class="limited-opportunity__products-wrapper">
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/lo-30day.jpg')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-30day.jpg')}}"/>
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p><b>
-                                Properly Fuel Your Transformation!
-                                </b> </p>
+                                    Properly Fuel Your Transformation!
+                                </b></p>
                         </div>
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/lo-30dayCmp.jpg')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-30dayCmp.jpg')}}"/>
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p><b>
-                                Re-Program Your Body!</b>
+                                    Re-Program Your Body!</b>
                             </p>
                         </div>
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/lo-shf.jpg')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-shf.jpg')}}"/>
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p><b>
-                                Our All Natural Boost!</b>
+                                    Our All Natural Boost!</b>
                             </p>
                         </div>
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/lo-wte.jpg')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-wte.jpg')}}"/>
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p><b>
-                                No Meal Prep? No Problem!</b>
+                                    No Meal Prep? No Problem!</b>
                             </p>
                         </div>
                     </div>
                     <div class="limited-opportunity__product-item">
                         <div class="image-wrapper">
-                            <img src="{{ asset('web/images/limited_opportunity/lo-shfbag.jpg')}}" />
+                            <img src="{{ asset('web/images/limited_opportunity/lo-shfbag.jpg')}}"/>
                         </div>
                         <div class="limited-opportunity__product-description">
                             <p><b>
-                                Compact and Convenient Carrying</b>
+                                    Compact and Convenient Carrying</b>
                             </p>
                         </div>
                     </div>
@@ -191,9 +210,11 @@
         </section>
 
     </main>
-    <add-to-cart-mobile
-            product-slug="{{ $product->slug }}"
-    >
-    </add-to-cart-mobile>
+    @if(!$product->out_of_stock)
+        <add-to-cart-mobile
+                product-slug="{{ $product->slug }}"
+        >
+        </add-to-cart-mobile>
+    @endif
 
 @endsection

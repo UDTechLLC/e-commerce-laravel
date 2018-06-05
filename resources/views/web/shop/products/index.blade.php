@@ -2,6 +2,10 @@
 @section('title')
     Shop -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" href="{{asset('web/css/product_custom.css')}}">
+@endsection
 @section('content')
     <main>
         <div class="main">
@@ -16,6 +20,14 @@
                         <div class="shop-item">
                             <div class="image-wrapper">
                                 <a href="{{url('product/'.$product->slug)}}">
+                                    @if($product->out_of_stock)
+                                        <span class="fusion-out-of-stock">
+                                        <span class="featured-image">
+                                            <img src="{{asset('web/images/full-product/sticker.png')}}"
+                                                 alt="Out of Stock">
+                                        </span>
+                                    </span>
+                                    @endif
                                     <img src="{!! $product->getFirstMediaUrl('preview') !!}"/>
                                 </a>
                             </div>
@@ -46,17 +58,32 @@
 									</span>
                                 </div>
                             </div>
-
-                            <div class="product-button-block">
-                                <div class="add-to-cart-wrapper">
-                                    <add-to-cart
-                                            product-slug="{{ $product->slug }}"
-                                            data-title="{{ $product->slug }}"
-                                    >
-                                        @if($product->getKey() == 22) pre-order @endif
-                                    </add-to-cart>
+                            @if($product->out_of_stock)
+                                <div class="product-button-block">
+                                    <div class="add-to-cart-wrapper">
+                                        <div class="product-button-block">
+                                            <div class="add-to-cart-wrapper">
+                                                <a class="disabled-button">
+                                                    out of stock
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            @else
+                                <div class="product-button-block">
+                                    <div class="add-to-cart-wrapper">
+                                        <add-to-cart
+                                                product-slug="{{ $product->slug }}"
+                                                data-title="{{ $product->slug }}"
+                                        >
+                                            @if($product->getKey() == 22) pre-order @endif
+                                        </add-to-cart>
+                                    </div>
+                                </div>
+                            @endif
+
+
                         </div>
                         {{--<add-to-cart--}}
                         {{--product-slug="{{ $product->slug }}"--}}
@@ -65,13 +92,13 @@
                         {{--</div>--}}
 
                         {{-- Partial file name should be as slug --}}
-                        @if ($product->bandls)
-                            @if (View::exists('web.partials.include.popups.' .$product->slug))
-                                @include('web.partials.include.popups.' .$product->slug, [
-                                    'product' => $product->bandls
-                                    ])
-                            @endif
-                        @endif
+                        {{--  @if ($product->bandls)
+                              @if (View::exists('web.partials.include.popups.' .$product->slug))
+                                  @include('web.partials.include.popups.' .$product->slug, [
+                                      'product' => $product->bandls
+                                      ])
+                              @endif
+                          @endif--}}
                     @endforeach
                     <div class="shop-item">
                         <div class="image-wrapper">
@@ -250,4 +277,13 @@
             </div>
         </div>
     </div>
+    @foreach($products as $product)
+        @if ($product->bandls)
+            @if (View::exists('web.partials.include.popups.' .$product->slug))
+                @include('web.partials.include.popups.' .$product->slug, [
+                    'product' => $product->bandls
+                    ])
+            @endif
+        @endif
+    @endforeach
 @endsection

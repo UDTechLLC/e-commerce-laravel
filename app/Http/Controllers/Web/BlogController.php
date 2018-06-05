@@ -30,7 +30,7 @@ class BlogController extends Controller
     {
         $category = $request->get('filter');
 
-        return PostsResource::collection(Post::published()->filterCategory($category)->paginate(20));
+        return PostsResource::collection(Post::published()->filterCategory($category)->paginate(21));
     }
 
     /**

@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="cart-button keep-shoping-button-wrapper">
                                     <a href="/shop" class="keep-shoping-button">
-                                        Keep Shoping
+                                        Keep Shopping
                                     </a>
                                 </div>
                             </div>
