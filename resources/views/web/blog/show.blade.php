@@ -108,7 +108,7 @@
                     <div class="blog__post-bottom">
                         <h2 class="blog__post-bottom-title">
                             <a href="{{ route('blog.show', $item->slug) }}">
-                                HOW Do You Get Rid of Cellulite?
+                                {{ $item->title }}
                             </a>
                         </h2>
                         <div class="blog__post-bottom-info">
