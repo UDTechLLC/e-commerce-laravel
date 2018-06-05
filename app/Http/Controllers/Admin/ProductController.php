@@ -116,7 +116,7 @@ class ProductController extends Controller
             'visible'      => $product->visible,
             'view_name'    => $product->view_name,
             'oldPrice'     => $product->old_amount,
-            'slug'         => $product->slug,
+           // 'slug'         => $product->slug,
             'out_of_stock' => $product->out_of_stock,
             'viewVideo'    => ($product->getFirstMedia('products'))
                 ? $product->getFirstMedia('products')->getCustomProperty('view_video')
