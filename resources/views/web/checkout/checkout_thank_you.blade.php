@@ -53,27 +53,31 @@
                 </div>
             </div>
             @if($order->hasQuestionnaire())
-            <div class="tp-important-info-block-wrapper">
-                <div class="wrapper">
-                    <div class="tp-important-info-block">
-                        <h4 class="tp-important-title">
-                            IMPORTANT
-                        </h4>
-                        <p class="tp-important-description">
-                            You will need to fill out your questionnaire before we can begin the process of creating
-                            your customized plan. Click the link below to fill out your questionnaire. You can also find
-                            this questionnaire link in your purchase confirmation email receipt.
-                        </p>
-                        @foreach($order->products as $product)
-                            @if($product->getMedia('products')->first()->hasCustomProperty('external_link'))
-                            <a href="{{ $product->generateProductLink($order) }}" class="tp-important-questionnaire-link" target="_blank">
-                                Questionnaire
-                            </a> </br>
-                            @endif
-                        @endforeach
+                <div class="tp-important-info-block-wrapper">
+                    <div class="wrapper">
+                        <div class="tp-important-info-block">
+                            <h4 class="tp-important-title">
+                                IMPORTANT
+                            </h4>
+                            <p class="tp-important-description">
+                                You will need to fill out your questionnaire before we can begin the process of creating
+                                your customized plan. Click the link below to fill out your questionnaire. You can also
+                                find
+                                this questionnaire link in your purchase confirmation email receipt.
+                            </p>
+                            @foreach($order->products as $product)
+                                @if (!$product->parent_id)
+                                    @if($product->getMedia('products')->first()->hasCustomProperty('external_link'))
+                                        <a href="{{ $product->generateProductLink($order) }}"
+                                           class="tp-important-questionnaire-link" target="_blank">
+                                            Questionnaire
+                                        </a> </br>
+                                    @endif
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
             <div class="tp-order-details-block-wrapper">
                 <div class="wrapper">
