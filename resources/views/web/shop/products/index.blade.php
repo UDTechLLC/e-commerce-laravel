@@ -20,6 +20,14 @@
                         <div class="shop-item">
                             <div class="image-wrapper">
                                 <a href="{{url('product/'.$product->slug)}}">
+                                    @if($product->out_of_stock)
+                                        <span class="fusion-out-of-stock">
+                                        <span class="featured-image">
+                                            <img src="{{asset('web/images/full-product/sticker.png')}}"
+                                                 alt="Out of Stock">
+                                        </span>
+                                    </span>
+                                    @endif
                                     <img src="{!! $product->getFirstMediaUrl('preview') !!}"/>
                                 </a>
                             </div>
@@ -50,13 +58,13 @@
 									</span>
                                 </div>
                             </div>
-                            @if($product->slug == 'Fat-loss-bundle')
+                            @if($product->out_of_stock)
                                 <div class="product-button-block">
                                     <div class="add-to-cart-wrapper">
                                         <div class="product-button-block">
                                             <div class="add-to-cart-wrapper">
                                                 <a class="disabled-button">
-                                                    Sold out
+                                                    out of stock
                                                 </a>
                                             </div>
                                         </div>
