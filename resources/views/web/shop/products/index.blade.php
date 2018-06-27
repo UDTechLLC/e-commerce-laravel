@@ -28,7 +28,7 @@
                                         </span>
                                     </span>
                                     @endif
-                                    <img src="{!! $product->getFirstMediaUrl('preview') !!}"/>
+                                    <img src="{{ $product->getFirstMediaUrl('preview') }}"/>
                                 </a>
                             </div>
                             <div class="product-details" style="width: 100%;">

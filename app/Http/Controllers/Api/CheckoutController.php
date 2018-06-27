@@ -18,6 +18,10 @@ use App\Transformers\Api\ProductTransformer;
 use Illuminate\Http\Request;
 use PragmaRX\Countries\Package\Countries;
 
+/**
+ * Class CheckoutController
+ * @package App\Http\Controllers\Api
+ */
 class CheckoutController extends Controller
 {
     /**
@@ -87,13 +91,19 @@ class CheckoutController extends Controller
         return fractal($order, new OrderTransformer())->respond();
     }
 
+    /**
+     * @param Order $order
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function getUpSaleProduct(Order $order)
     {
-        $products = Product::limit(3)->get();
-
-        return UpSaleResource::collection($products);
+        return UpSaleResource::collection(Product::whereIn('slug', $this->upSaleProductsList($order->cart))->get());
     }
 
+    /**
+     * @param Request $request
+     * @param Order $order
+     */
     public function addUpSaleProduct(Request $request, Order $order)
     {
         foreach ($request->get('products') as $id) {
@@ -101,17 +111,12 @@ class CheckoutController extends Controller
             $order->cart->products()->attach($id, ['count' => 1]);
         }
 
-        //   $cart = Cart::findOrFail($order->cart_id);
-        // return $order->cart->products;
-
-
-        //$order->products()->sync($pro)
         $oldProducts = $order->products->map(function ($value) {
             return $value->id;
         })->toArray();
 
-
-        foreach ($order->cart->products as $product) {
+        $cart = $order->cart;
+        foreach ($cart->products as $product) {
             if (!in_array($product->getKey(), $oldProducts)) {
                 $order->products()->attach($product->id, [
                     'count'            => $product->pivot->count,
@@ -121,11 +126,19 @@ class CheckoutController extends Controller
             }
         }
 
+        $cart->fresh();
+        $shippingCost = $order->shipping_cost;
+
+        if ($cart->isShipping()) {
+            $country = $order->shipping ? $order->shipping->country : $order->billing->country;
+            $shippingCost = getShippingCost($country, $cart->isSubscribe());
+        }
+
         $order->update([
             'product_cost'  => $order->cart->getProductsCost(),
-            'shipping_cost' => $order->shipping_cost,
+            'shipping_cost' => $shippingCost,
             'discount_cost' => $order->cart->getDiscountCost(),
-            'total_cost'    => $order->cart->getWithDiscountCost() + $order->shipping_cost,
+            'total_cost'    => $order->cart->getWithDiscountCost() + $shippingCost,
             'count'         => $order->cart->getProductsCount()
         ]);
     }
@@ -264,6 +277,50 @@ class CheckoutController extends Controller
         $user->attachRole(Role::where('name', 'user')->first());
 
         return $user;
+    }
+
+    /**
+     * @param Cart $cart
+     * @return array
+     */
+    private function upSaleProductsList(Cart $cart): array
+    {
+        $userBuys = $cart->products->map(function ($value) {
+            return $value->title;
+        });
+
+
+        $upSaleConfig = config('up-sale');
+
+        foreach ($upSaleConfig as $item) {
+            if ($this->checkProductInCart($userBuys, collect($item['user_buys']))) {
+                if ($this->checkProductInNotCart($userBuys, collect($item['is_not_in_cart']))) {
+                    return $item['up_sale_products'];
+                }
+            }
+        }
+
+        return [];
+    }
+
+    /**
+     * @param $cartProducts
+     * @param $checkProduct
+     * @return bool
+     */
+    private function checkProductInCart($cartProducts, $checkProduct): bool
+    {
+        return $checkProduct->diff($cartProducts)->isEmpty();
+    }
+
+    /**
+     * @param $cartProducts
+     * @param $checkProduct
+     * @return bool
+     */
+    private function checkProductInNotCart($cartProducts, $checkProduct): bool
+    {
+        return $checkProduct->intersect($cartProducts)->isEmpty();
     }
 
     /**

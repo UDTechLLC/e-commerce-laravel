@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="form-field-wrapper"
                                          :class="{'error': errors.has('bg_street_address') }"
-                                         v-if="this.isShipping">
+                                        >
                                         <label for="bdStreetAddress">
                                             Street address
                                         </label>
@@ -88,7 +88,7 @@
                                     </div>
 
                                     <div class="form-field-wrapper"
-                                         v-if="this.isShipping">
+                                         >
                                         <label for="bdApartments">
                                             Apartment, suite, unit etc.
                                             <span>
@@ -100,7 +100,7 @@
                                                v-model="billingInfo.apartment"/>
                                     </div>
                                     <div class="form-field-wrapper half-field"
-                                         v-if="this.isShipping">
+                                        >
                                         <label for="bdCountry">
                                             Country
                                         </label>
@@ -115,7 +115,7 @@
                                     </div>
                                     <div class="form-field-wrapper half-field"
                                          :class="{'error': errors.has('bg_city') }"
-                                         v-if="this.isShipping">
+                                         >
                                         <label for="bdTownCity">
                                             Town / City
                                         </label>
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="form-field-wrapper half-field"
                                          :class="{'error': errors.has('bd_state') }"
-                                         v-if="this.isShipping">
+                                       >
                                         <label for="bdState">
                                             State / County
                                         </label>
@@ -151,7 +151,7 @@
                                     </div>
                                     <div class="form-field-wrapper half-field"
                                          :class="{'error': errors.has('bg_post_zip') }"
-                                         v-if="this.isShipping">
+                                      >
                                         <label for="bdZipCode">
                                             Postcode / ZIP
                                         </label>
@@ -290,10 +290,10 @@
       }
     },
     updated() {
-      if (this.isShipping) {
+     // if (this.isShipping) {
         this.billingInfo.country.name = (Vue.localStorage.get('shippingCountryName')) ? Vue.localStorage.get('shippingCountryName') : "";
         this.billingInfo.country.code = (Vue.localStorage.get('shippingCountryCode')) ? Vue.localStorage.get('shippingCountryCode') : "";
-      }
+     // }
     },
     methods: {
       saveCountries() {
