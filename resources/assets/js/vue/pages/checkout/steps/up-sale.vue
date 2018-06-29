@@ -77,8 +77,8 @@
                         </div>
                     </div> -->
                     <div class="upsale__product-block-buttons-area">
-                        <button class="add-to-my-order-btn" @click="addedProduct">Add to my order</button>
-                        <span class="close-btn">No Thanks</span>
+                        <button class="add-to-my-order-btn" :class="{'disabled': payButton}" :disabled="payButton" @click="addedProduct">Add to my order</button>
+                        <span class="close-btn" @click="pay">No Thanks</span>
                     </div>
                 </div>
             </section>
@@ -90,22 +90,19 @@
     export default ({
         data: () => ({
             upSaleProducts: [],
-            selectedProducts: []
+            selectedProducts: [],
+            payButton: false,
         }),
         props: {
+            upSaleProducts: Array,
             payload: String,
             orderId: Number
         },
         created() {
-            this.getUpSaleProducts();
+            //this.getUpSaleProducts();
         },
         methods: {
-            getUpSaleProducts() {
-              axios.get(`/api/checkout/getUpSaleProducts/${this.orderId}`).then(
-                      response => this.upSaleProducts = response.data.data,
-                      error => console.log('error')
-              )
-            },
+
             pay() {
                 let method = "post";
                 let path = `/api/pay/braintree/${this.orderId}`;
@@ -124,6 +121,7 @@
                 form.submit();
             },
             addedProduct() {
+                this.payButton = true;
                 axios.post(`/api/checkout/addUpSaleProducts/${this.orderId}`, {
                     products: this.selectedProducts
                 }).then(
@@ -134,3 +132,11 @@
         }
     })
 </script>
+<style scoped>
+    .add-to-my-order-btn {
+        cursor: pointer;
+    }
+    .disabled {
+        background: #a8a6a6;
+    }
+</style>

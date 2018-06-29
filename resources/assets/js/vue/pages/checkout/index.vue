@@ -94,6 +94,7 @@
             <up-sale v-if="currentComponent == 'up-sale'"
                    :orderId="orderId"
                    :billing="billing"
+                   :up-sale-products="upSaleProducts"
                    :shipping="shipping"
                    :token="token"
                    :payload="payload"
@@ -125,6 +126,7 @@
                 userAuth: false,
                 orderId: 0,
                 progress: 1,
+                upSaleProducts: [],
                 countries: [],
                 states: [],
                 shipping: "0",
@@ -167,7 +169,9 @@
                 this.billing = value.billing;
                 this.orderId = value.orderId;
                 this.progress = !this.isShipping && value.step === 'second' ? this.progress + 2 : this.progress + 1;
-                this.payload = value.payload
+                this.payload = value.payload;
+                /// @todo get products
+                this.upSaleProducts = value.upSaleProducts
             },
             backStep(value) {
                 this.currentComponent = !this.isShipping && value.step === 'second' ? 'first' : value.step;
@@ -196,6 +200,16 @@
                             error => console.log('error')
                     )
                 }
+            },
+            getUpSaleProducts() {
+                axios.get(`/api/checkout/getUpSaleProducts/${this.orderId}`).then(
+                        response => {
+                            this.upSaleProducts = response.data.data
+                            console.log(this.upSaleProducts.length);
+                            if (this.upSaleProducts.length == 0) this.pay()
+                        },
+                        error => console.log('error')
+                )
             },
             editBilling() {
                 this.currentComponent = 'first';
