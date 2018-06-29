@@ -107,7 +107,7 @@ class ProductController extends Controller
     {
         $data = [
             'title'        => $product->title,
-            'subtitle'     => "subtitle",
+            'subtitle'     => $product->subtile,
             'description'  => $product->description,
             'image'        => $product->getFirstMediaUrl('products'),
             'imagePreview' => $product->getFirstMediaUrl('preview'),

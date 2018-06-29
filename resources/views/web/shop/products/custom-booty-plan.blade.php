@@ -19,7 +19,8 @@
                                     {!! $product->title !!}
                                 </h2>
                                 <p class="product-title-sub-line">
-                                    {{$product->sub_title}}
+                                    100% Personalized Exercise Plan
+                                   {{-- {{$product->sub_title}}--}}
                                 </p>
                             </div>
                             <div class="product-description-block">
@@ -177,7 +178,7 @@
                                                 100% TAILORED
                                             </h3>
                                             <p class="item-text">
-                                                To you needs and goals
+                                                TO YOUR BODY AND GOALS
                                             </p>
                                         </div>
                                         <div class="clear"></div>
@@ -188,10 +189,10 @@
                                         </div>
                                         <div class="item-content">
                                             <h3 class="item-title">
-                                                20+ Eating Styles
+                                                20+ WAYS TO TRAIN
                                             </h3>
                                             <p class="item-text">
-                                                Carb Cycling, Intermittent Fasting, Ketogenic, ETC.
+                                                AT HOME, HIIT, TABATA, ETC.
                                             </p>
                                         </div>
                                         <div class="clear"></div>
@@ -202,10 +203,10 @@
                                         </div>
                                         <div class="item-content">
                                             <h3 class="item-title">
-                                                Substitutions Guide
+                                                WARM-UP TIPS
                                             </h3>
                                             <p class="item-text">
-                                                To Add Variety
+                                                TO KEEP YOU SAFE
                                             </p>
                                         </div>
                                         <div class="clear"></div>
@@ -217,15 +218,15 @@
                     </div>
                 </div>
             </div>
-            <div class="custom-plan-block-wrapper custom-meal-plan-block-wrapper">
+            <div class="custom-plan-block-wrapper custom-meal-plan-block-wrapper" style="border-top: 1px solid red;"{{--style="background-color: white;"--}}>
                 <div class="wrapper">
                     <div class="custom-plan-block">
                         <div class="separate-heading-block">
                             <div class="title-sep-container title-sep-container-left">
                                 <div class="title-sep sep-single"></div>
                             </div>
-                            <h2 class="separate-heading-title custom-plan-title">
-                                CUSTOM NUTRITION PROGRAM
+                            <h2 class="separate-heading-title custom-plan-title" style="color: red;">
+                                FREE CUSTOM NUTRITION PROGRAM
                             </h2>
                             <div class="title-sep-container title-sep-container-right">
                                 <div class="title-sep sep-single"></div>
@@ -263,7 +264,7 @@
                                                 20+ EATING STYLES
                                             </h3>
                                             <p class="item-text">
-                                                CARB CYCLING, PALEO, VEGAN, ETC.
+                                                Carb Cycling, Intermittent Fasting, Ketogenic, ETC.
                                             </p>
                                         </div>
                                         <div class="clear"></div>
@@ -274,10 +275,10 @@
                                         </div>
                                         <div class="item-content">
                                             <h3 class="item-title">
-                                                COOKING GUIDES
+                                                Substitutions Guide
                                             </h3>
                                             <p class="item-text">
-                                                TO PREP DELICIOUS FOOD
+                                                To Add Variety
                                             </p>
                                         </div>
                                         <div class="clear"></div>
@@ -289,7 +290,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="success-stories-block-wrapper">
                 <div class="wrapper">
                     <div class="success-stories-block">
