@@ -75,7 +75,8 @@
 
     export default ({
         data: () => ({
-            payload: ""
+            payload: "",
+            upSaleProducts: []
         }),
         props: {
             orderId: Number,
@@ -142,13 +143,27 @@
         },
         methods: {
             next() {
-                let data = {
-                    step: 'up-sale',
-                    billing: this.billing,
-                    orderId: this.orderId,
-                    payload: this.payload
-                };
-                this.$emit('next', data);
+                axios.get(`/api/checkout/getUpSaleProducts/${this.orderId}`).then(
+                        response => {
+                            this.upSaleProducts = response.data.data
+                            console.log(this.upSaleProducts.length);
+                            if (this.upSaleProducts.length == 0) {
+                                this.pay()
+                            }
+                            else {
+                                let data = {
+                                    step: 'up-sale',
+                                    billing: this.billing,
+                                    orderId: this.orderId,
+                                    payload: this.payload,
+                                    upSaleProducts: this.upSaleProducts
+                                };
+                                this.$emit('next', data);
+                            }
+                        },
+                        error => console.log('error')
+                )
+
             },
             back() {
                 let data = {
@@ -156,6 +171,23 @@
                     progress: 2
                 };
                 this.$emit('back', data);
+            },
+            pay() {
+                let method = "post";
+                let path = `/api/pay/braintree/${this.orderId}`;
+                var form = document.createElement("form");
+                form.setAttribute("method", method);
+                form.setAttribute("action", path);
+
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", 'nonce');
+                hiddenField.setAttribute("value", this.payload);
+
+                form.appendChild(hiddenField);
+
+                document.body.appendChild(form);
+                form.submit();
             }
         }
     })

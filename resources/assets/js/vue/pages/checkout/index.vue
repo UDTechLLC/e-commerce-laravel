@@ -170,7 +170,6 @@
                 this.orderId = value.orderId;
                 this.progress = !this.isShipping && value.step === 'second' ? this.progress + 2 : this.progress + 1;
                 this.payload = value.payload;
-                /// @todo get products
                 this.upSaleProducts = value.upSaleProducts
             },
             backStep(value) {
@@ -200,16 +199,6 @@
                             error => console.log('error')
                     )
                 }
-            },
-            getUpSaleProducts() {
-                axios.get(`/api/checkout/getUpSaleProducts/${this.orderId}`).then(
-                        response => {
-                            this.upSaleProducts = response.data.data
-                            console.log(this.upSaleProducts.length);
-                            if (this.upSaleProducts.length == 0) this.pay()
-                        },
-                        error => console.log('error')
-                )
             },
             editBilling() {
                 this.currentComponent = 'first';

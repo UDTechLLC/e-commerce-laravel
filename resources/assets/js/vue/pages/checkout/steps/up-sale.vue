@@ -89,7 +89,6 @@
 <script type="text/babel">
     export default ({
         data: () => ({
-            upSaleProducts: [],
             selectedProducts: [],
             payButton: false,
         }),
