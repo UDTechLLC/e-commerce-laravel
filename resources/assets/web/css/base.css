@@ -2101,6 +2101,37 @@ ul {
   .section__img--detox {
     margin-left: 40px; } }
 
+.green-page-section__block--right {
+  text-align: center; }
+  @media screen and (max-width: 800px) {
+    .green-page-section__block--right {
+      margin-bottom: 50px; } }
+
+.green-page-section__block .inline-block {
+  margin: 0 auto;
+  max-width: 516px;
+  width: 100%; }
+
+@media screen and (min-width: 801px) {
+  .green-page-section__item {
+    width: 49%; } }
+
+.green-page-section__item .section__icon-img {
+  border: none;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  height: 120px;
+  width: 120px; }
+  .green-page-section__item .section__icon-img img {
+    height: 100%; }
+
+.green-page-benefits-section .section__img__green_page {
+  margin-left: 0;
+  margin-top: 0; }
+  @media screen and (max-width: 800px) {
+    .green-page-benefits-section .section__img__green_page {
+      margin: 0 auto; } }
+
 .ingredients {
   margin-top: 60px; }
   @media screen and (max-width: 800px) {
@@ -6828,7 +6859,7 @@ footer .second-footer {
       margin: 0;
       text-align: center; }
   .limited-opportunity__product-item {
-    width: 25%;
+    width: 20%;
     padding: 35px 17px;
     border: 1px solid #bebebe;
     border-right: 0; }

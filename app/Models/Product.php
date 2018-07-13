@@ -37,6 +37,7 @@ class Product extends Model implements HasMedia
     const VIEW_NAME_GYM_BAG ='gym-bag';
     const VIEW_NAME_WEIGHT_LOSS_BUNDLE = 'weight-loss-bundle';
     const VIEW_CUSTOM_BOOTY_PLAN = 'custom-booty-plan';
+    const VIEW_NAME_SHEDFAT_DETOX = 'ShedFat-detox';
 
     const VIEW_NAMES = [
         self::VIEW_NAME_SHOW,
@@ -56,7 +57,8 @@ class Product extends Model implements HasMedia
         self::VIEW_NAME_SHAKER,
         self::VIEW_NAME_GYM_BAG,
         self::VIEW_NAME_WEIGHT_LOSS_BUNDLE,
-        self::VIEW_CUSTOM_BOOTY_PLAN
+        self::VIEW_CUSTOM_BOOTY_PLAN,
+        self::VIEW_NAME_SHEDFAT_DETOX
     ];
 
     const VIDEO_LIBRARY = [
