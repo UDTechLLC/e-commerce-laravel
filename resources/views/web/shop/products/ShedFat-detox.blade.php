@@ -96,27 +96,7 @@
             </div>
         </section>
 
-        <section class="grey-section section__wrapper green-page-benefits-section">
-            <div class="wrapper">
-                <div class="flex flex-j--between flex--m-block">
-                    <div class="block-50 m-block-100">
-                        <div class="section__img section__img--detox section__img__green_page">
-                            <img src="{{ asset('web/images/full-product/detox.png')}}"
-                                 alt="benefits">
-                        </div>
-                    </div>
-                    <div class="block-50 m-block-100">
-                        <h2 class="section__title section__title--detox">BENEFITS OF THE
-                            SHEDFAT DETOX GREENS</h2>
-                        <p class="section__text section__text--detox">
-                            Many people struggle to consume the appropriate amounts of vitamins, minerals and other plant based micro-nutrients required for optimal health.
-                            <br><br>
-                            Shedfat Detox is an excellent way to enhance energy levels while helping to rid the body of stores of harmful toxins. </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
+        <section style="background: #f5f3f3;">
             <div class="training-plan-faqs-block-wrapper">
                 <div class="wrapper">
 
@@ -164,6 +144,27 @@
                 </div>
             </div>
         </section>
+        <section style="background: #ffffff;" class="grey-section section__wrapper green-page-benefits-section">
+            <div class="wrapper">
+                <div class="flex flex-j--between flex--m-block">
+                    <div class="block-50 m-block-100">
+                        <div class="section__img section__img--detox section__img__green_page">
+                            <img src="{{ asset('web/images/full-product/detox.png')}}"
+                                 alt="benefits">
+                        </div>
+                    </div>
+                    <div class="block-50 m-block-100">
+                        <h2 class="section__title section__title--detox">BENEFITS OF THE
+                            SHEDFAT DETOX GREENS</h2>
+                        <p class="section__text section__text--detox">
+                            Many people struggle to consume the appropriate amounts of vitamins, minerals and other plant based micro-nutrients required for optimal health.
+                            <br><br>
+                            Shedfat Detox is an excellent way to enhance energy levels while helping to rid the body of stores of harmful toxins. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
     </main>
 
