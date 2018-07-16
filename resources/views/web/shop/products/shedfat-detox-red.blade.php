@@ -51,7 +51,7 @@
             <div class="wrapper">
                 <div class="flex flex-j--between detox-section__wrapper">
                     <div class="detox-section__block green-page-section__block">
-                        <h2 class="section__title">WHY SHOULD I DETOX?</h2>
+                        <h2 class="section__title">WHY SHOULD I DEFEND?</h2>
                         <div class="inline-block">
                             <div class="detox-section__item green-page-section__item">
                                 <div class="section__icon-img">
@@ -114,8 +114,7 @@
                                             <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
                                                  class="custom-video-block__playImg">
                                         </div>
-
-
+                                        
                                         <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}"
                                                 frameborder="0" webkitallowfullscreen mozallowfullscreen
                                                 allowfullscreen></iframe>
@@ -154,7 +153,7 @@
                     </div>
                     <div class="block-50 m-block-100">
                         <h2 class="section__title section__title--detox">BENEFITS OF THE
-                            SHEDFAT DETOX REDS</h2>
+                            SHEDFAT DEFENSE</h2>
                         <p class="section__text section__text--detox">
                             Are you looking to enhance physical performance, decrease your occurrence of illness, or simply have more energy throughout your day?
                             <br><br>
