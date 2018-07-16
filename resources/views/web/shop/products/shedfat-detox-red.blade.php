@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <section class="section__wrapper detox-section green-page-section" style="background-color: #f9fff0;">
+        <section class="section__wrapper detox-section green-page-section">
             <div class="wrapper">
                 <div class="flex flex-j--between detox-section__wrapper green-page-section__wrapper">
                     <div class="detox-section__block green-page-section__block">
@@ -55,41 +55,41 @@
                         <div class="inline-block">
                             <div class="detox-section__item green-page-section__item">
                                 <div class="section__icon-img">
-                                    <img src="{{ asset('web/images/full-product/green_page/Revitalize.svg')}}" alt="icon-weight-loss">
+                                    <img src="{{ asset('web/images/full-product/red_page/Jump-start.svg')}}" alt="icon-weight-loss">
                                 </div>
                                 <p class="section__info">
-                                    Revitalize
+                                    Jump-start
                                 </p>
                             </div>
 
                             <div class="detox-section__item green-page-section__item">
                                 <div class="section__icon-img">
-                                    <img src="{{ asset('web/images/full-product/green_page/Repair.svg')}}" alt="improved-complexion">
+                                    <img src="{{ asset('web/images/full-product/red_page/Protect.svg')}}" alt="improved-complexion">
                                 </div>
                                 <p class="section__info">
-                                    Repair
+                                    Protect
                                 </p>
                             </div>
                             <div class="detox-section__item green-page-section__item">
                                 <div class="section__icon-img">
-                                    <img src="{{ asset('web/images/full-product/green_page/Replenish.svg')}}" alt="absorption">
+                                    <img src="{{ asset('web/images/full-product/red_page/Fortify.svg')}}" alt="absorption">
                                 </div>
                                 <p class="section__info">
-                                    Replenish
+                                    Fortify
                                 </p>
                             </div>
                             <div class="detox-section__item green-page-section__item">
                                 <div class="section__icon-img">
-                                    <img src="{{ asset('web/images/full-product/green_page/Re-Energize.svg')}}" alt="enhanced-mood">
+                                    <img src="{{ asset('web/images/full-product/red_page/Enhance.svg')}}" alt="enhanced-mood">
                                 </div>
                                 <p class="section__info">
-                                    Re-Energize
+                                    Enhance
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="detox-section__block green-page-section__block detox-section__block--right">
-                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/supplement_facts_image.png')}}" alt="Supplement Facts" />
+                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/table.png')}}" alt="Supplement Facts" />
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                         </div>
 
                         <div class="get-more__text">
-                            <img src="{{ asset('web/images/full-product/Scoop.svg')}}"
+                            <img src="{{ asset('web/images/full-product/red_page/scoop.svg')}}"
                                  alt="get-more">
                         </div>
 
@@ -148,17 +148,17 @@
                 <div class="flex flex-j--between flex--m-block">
                     <div class="block-50 m-block-100">
                         <div class="section__img section__img--detox section__img__green_page">
-                            <img src="{{ asset('web/images/full-product/detox.png')}}"
+                            <img src="{{ asset('web/images/full-product/red_page/detox-red.png')}}"
                                  alt="benefits">
                         </div>
                     </div>
                     <div class="block-50 m-block-100">
                         <h2 class="section__title section__title--detox">BENEFITS OF THE
-                            SHEDFAT DETOX GREENS</h2>
+                            SHEDFAT DETOX REDS</h2>
                         <p class="section__text section__text--detox">
-                            Many people struggle to consume the appropriate amounts of vitamins, minerals and other plant based micro-nutrients required for optimal health.
+                            Are you looking to enhance physical performance, decrease your occurrence of illness, or simply have more energy throughout your day?
                             <br><br>
-                            Shedfat Detox is an excellent way to enhance energy levels while helping to rid the body of stores of harmful toxins. </p>
+                            Look no further, Shedfat Defense is a potent source of antioxidants that can make you feel better and live with vitality!</p>
                     </div>
                 </div>
             </div>

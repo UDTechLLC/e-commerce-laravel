@@ -3,6 +3,7 @@
     padding-left: 15px
     padding-right: 15px
   .section__title
+    margin-top: 0
 
     @media screen and (max-width: $breakpoint-mobile)
       font-size: 26px
@@ -28,6 +29,9 @@
     width: 100%
     @media screen and (min-width: $breakpoint-mobile + 1)
       width: 50%
+    .inline-block
+      @media screen and (max-width: $breakpoint-mobile)
+        margin-bottom: 50px !important
     &--right
       @media screen and (max-width: $breakpoint-mobile)
         text-align: center
@@ -35,7 +39,8 @@
           max-width: 290px
   &__wrapper
     @media screen and (max-width: $breakpoint-mobile)
-      flex-direction: column-reverse
+      //flex-direction: column-reverse
+      flex-direction: column
   &__wrapperVideo
     @media screen and (max-width: $breakpoint-mobile)
       flex-direction: column-reverse
