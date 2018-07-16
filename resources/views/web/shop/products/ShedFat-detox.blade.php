@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <section class="section__wrapper detox-section green-page-section" style="background-color: #f9fff0;">
+        <section class="section__wrapper detox-section green-page-section">
             <div class="wrapper">
                 <div class="flex flex-j--between detox-section__wrapper">
                     <div class="detox-section__block green-page-section__block">
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="detox-section__block green-page-section__block detox-section__block--right">
-                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/supplement_facts_image.png')}}" alt="Supplement Facts" />
+                        <img src="{{ asset('web/images/full-product/14-day-detox-guide/supplement_fasts_image.png')}}" alt="Supplement Facts" />
                     </div>
                 </div>
             </div>
