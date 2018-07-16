@@ -49,7 +49,7 @@
 
         <section class="section__wrapper detox-section green-page-section">
             <div class="wrapper">
-                <div class="flex flex-j--between detox-section__wrapper green-page-section__wrapper">
+                <div class="flex flex-j--between detox-section__wrapper">
                     <div class="detox-section__block green-page-section__block">
                         <h2 class="section__title">WHY SHOULD I DETOX?</h2>
                         <div class="inline-block">
