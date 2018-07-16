@@ -114,7 +114,7 @@
                                             <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
                                                  class="custom-video-block__playImg">
                                         </div>
-                                        
+
                                         <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}"
                                                 frameborder="0" webkitallowfullscreen mozallowfullscreen
                                                 allowfullscreen></iframe>
