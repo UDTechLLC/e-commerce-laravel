@@ -81,7 +81,7 @@ class CreateNextSubscriptionBillingCycle extends Command
 
                 $newOrder = $this->createOrder($order);
 
-                $this->charge($item->user, $cost, $newOrder->order_id);
+                $item->user->charge($cost, ['orderId' => $newOrder->order_id]);
 
                 \DB::commit();
 
@@ -110,20 +110,6 @@ class CreateNextSubscriptionBillingCycle extends Command
                 \Log::info('Exception message: ' . $ex->getMessage());
             }
         });
-    }
-
-    /**
-     * @param User $user
-     * @param $cost
-     *
-     * @param $orderId
-     *
-     * @return boolean
-     * @throws \Exception
-     */
-    private function charge(User $user, $cost, $orderId)
-    {
-        return ($user->charge($cost, ['orderId' => $orderId]))->success;
     }
 
     /**
