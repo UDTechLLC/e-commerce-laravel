@@ -62,7 +62,10 @@ class WebhookController extends CashierController
             \Log::info('New order was created');
 
             $user = User::where('braintree_id', $notification->subscription->transactions[0]->customer['id'])->first();
-            $user->charge($newOrder->shipping_cost);
+
+            if ($newOrder->shipping_cost !== 0) {
+                $user->charge($newOrder->shipping_cost);
+            }
 
             \Log::info('User was found');
 

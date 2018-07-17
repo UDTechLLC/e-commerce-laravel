@@ -71,31 +71,43 @@ class CreateNextSubscriptionBillingCycle extends Command
             $order = $item->order;
             /** @var Product $product */
             $product = $order->getSubscriptionProduct();
-            /** @var Plan $plan */
-            $plan = $product->plan;
+//            /** @var Plan $plan */
+//            $plan = $product->plan;
             /** @var $cost */
-            $cost = $plan->cost + $order->shipping_cost;
+            $cost = $product->amouunt + $order->shipping_cost;
 
-            if ($this->charge($item->user, $cost, $order->order_id)) {
+            try {
+                \DB::beginTransaction();
+
+                $newOrder = $this->createOrder($order);
+
+                $this->charge($item->user, $cost, $newOrder->order_id);
+
+                \DB::commit();
+
                 $nextBillingDate = now()->addDays($item->period);
 
                 $item->update(['next_billing_at' => $nextBillingDate]);
                 
                 \Log::info("Next billing date set to {$nextBillingDate->toFormattedDateString()}");
 
-                $newOrder = $this->createOrder($order);
+//                $newOrder = $this->createOrder($order, $orderId);
 
                 try {
                     $this->sendOrderToShipStation($newOrder);
                 } catch (\Exception $ex) {
                     \Log::warning('Shipstation order was disabled');
                 }
-                
+
                 $this->sendOrderToEmail($newOrder);
 
                 \Log::info('Subscriptions were recurred. Created new order with ID: ' . $newOrder->getKey());
-            } else {
+            } catch (\Exception $ex) {
                 $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
+
+                \DB::rollBack();
+
+                \Log::info('Exception message: ' . $ex->getMessage());
             }
         });
     }
