@@ -76,6 +76,8 @@ class CreateNextSubscriptionBillingCycle extends Command
             /** @var $cost */
             $cost = $product->amount + $order->shipping_cost;
 
+            \Log::info('Payment cost is ' . $cost);
+
             \DB::beginTransaction();
 
             try {
