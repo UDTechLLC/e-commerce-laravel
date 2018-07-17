@@ -103,9 +103,9 @@ class CreateNextSubscriptionBillingCycle extends Command
 
                 \Log::info('Subscriptions were recurred. Created new order with ID: ' . $newOrder->getKey());
             } catch (\Exception $ex) {
-                $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
-
                 \DB::rollBack();
+                
+                $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
 
                 \Log::info('Exception message: ' . $ex->getMessage());
             }
