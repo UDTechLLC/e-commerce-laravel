@@ -74,7 +74,7 @@ class CreateNextSubscriptionBillingCycle extends Command
 //            /** @var Plan $plan */
 //            $plan = $product->plan;
             /** @var $cost */
-            $cost = $product->amouunt + $order->shipping_cost;
+            $cost = $product->amount + $order->shipping_cost;
 
             \DB::beginTransaction();
 
