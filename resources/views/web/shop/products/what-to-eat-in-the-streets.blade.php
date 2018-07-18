@@ -20,7 +20,7 @@
                         </div>
                         <div class="product-description-block">
                             <p class="product-description">
-                                {{ $product->description }}
+                                {!! $product->description  !!}
                             </p>
                         </div>
                         <div class="product-price-block">

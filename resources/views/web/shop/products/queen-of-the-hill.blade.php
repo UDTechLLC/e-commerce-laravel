@@ -22,181 +22,181 @@
                         </div>
                         <div class="product-description-block">
                             <p class="product-description">
-                            {{ $product->description}}
-                            {{--You do not need to spend hundreds of dollars on a personal trainer to get the results that you are after! All of the guidance that you need is right here in our 90 Day, total body, gym based program. It can be accessed at any time from any smart device! </p>--}}
-                        </div>
-                        <div class="product-price-block border-top border-top--grey">
-                            <div class="product-price has-old-price">
-                                @if($product->old_amount)
-                                    <span class="product-amount product-amount--old">
-                                <span class="currency">$</span>
-                                <span>{{ $product->old_amount }}</span>
-                            </span>
-                                @endif
-                                <span class="product-amount">
-                                <span class="currency">$</span>
-                                    {{--<span>50.00</span>--}}
-                                    <span>{{ $product->amount }}</span>
-                            </span>
+                                {!!  $product->description !!}
+                                {{--You do not need to spend hundreds of dollars on a personal trainer to get the results that you are after! All of the guidance that you need is right here in our 90 Day, total body, gym based program. It can be accessed at any time from any smart device! </p>--}}
                             </div>
-                        </div>
-                        <add-to-cart
-                                product-slug="{{ $product->slug }}"
-                                {{--data-title="12 Week Custom Meal Plan"--}}
-                        >
-                        </add-to-cart>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <section class="section__wrapper queen-of-the-hill__bg">
-            <div class="wrapper">
-                <h2 class="section__title after-lines after-lines--large text-center">
-                    90 DAY GUIDE TO <br>
-                    A STRONG AND SEXY FIGURE
-                </h2>
-                <p class="section__text">
-                    QUEEN OF THE HILL is our all-encompassing guide to achieving the body that you have always wanted.
-                    After the first 6 weeks, the program changes, keeping it fun and effective! Use it to ensure that
-                    your time in the gym is optimized and your results are maximized!
-                </p>
-
-                <div class="section__img">
-                    <img src="{{ asset('web/images/full-product/queen-of-the-hill/book@2x-2.png')}}" alt="book"
-                         class="full-width desktop-image"/>
-                    <img src="{{ asset('web/images/full-product/queen-of-the-hill/book_mob@2x-1.png')}}" alt="book"
-                         class="full-width mobile-image"/>
-                </div>
-
-                <div class="section__icons inline-block text-center">
-                    {{--<div class="section__icon-wrapper">--}}
-                    {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
-                    {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/full_weekly.svg')}}" alt="">--}}
-                    {{--</div>--}}
-                    {{--<div class="text-center">--}}
-                    {{--<h3 class="section__icon-text">--}}
-                    {{--FULL WEEKLY BREAK DOWN--}}
-                    {{--</h3>--}}
-                    {{--<p class="section__icon-info">--}}
-                    {{--What to do and when to do it!--}}
-                    {{--</p>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="section__icon-wrapper">--}}
-                    {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
-                    {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/icon_Get-Toned-1.svg')}}" alt="">--}}
-                    {{--</div>--}}
-                    {{--<div class="text-center">--}}
-                    {{--<h3 class="section__icon-text">--}}
-                    {{--GET TONED--}}
-                    {{--</h3>--}}
-                    {{--<p class="section__icon-info">--}}
-                    {{--We concentrate on fat loss over weight loss--}}
-                    {{--</p>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="section__icon-wrapper">--}}
-                    {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
-                    {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/recovery.svg')}}" alt="">--}}
-                    {{--</div>--}}
-                    {{--<div class="text-center">--}}
-                    {{--<h3 class="section__icon-text">--}}
-                    {{--RECOVERY TIPS--}}
-                    {{--</h3>--}}
-                    {{--<p class="section__icon-info">--}}
-                    {{--Rest allows the body to change--}}
-                    {{--</p>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-
-                </div>
-
-
-            </div>
-        </section>
-        <div class="training-plan-faqs-block-wrapper">
-            <div class="wrapper">
-                <div class="video-block-wrapper">
-
-                    @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
-                        <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
-                            <div class="custom-video-block__inner">
-
-                                <div class="custom-video-block__wrapper-click">
-                                    <img src="{{ asset('web/images/new-images/cap.png')}}" alt="mainImage"
-                                         class="custom-video-block__coverImg">
-                                    <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
-                                         class="custom-video-block__playImg">
+                            <div class="product-price-block border-top border-top--grey">
+                                <div class="product-price has-old-price">
+                                    @if($product->old_amount)
+                                        <span class="product-amount product-amount--old">
+                                    <span class="currency">$</span>
+                                    <span>{{ $product->old_amount }}</span>
+                                </span>
+                                    @endif
+                                    <span class="product-amount">
+                                    <span class="currency">$</span>
+                                        {{--<span>50.00</span>--}}
+                                        <span>{{ $product->amount }}</span>
+                                </span>
                                 </div>
-
-
-                                <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}"
-                                        frameborder="0" webkitallowfullscreen mozallowfullscreen
-                                        allowfullscreen></iframe>
-
-                            </div><!--custom-video-block__inner-->
-
-                        </div><!--custom-video-block-->
-                    @endif
+                            </div>
+                            <add-to-cart
+                                    product-slug="{{ $product->slug }}"
+                                    {{--data-title="12 Week Custom Meal Plan"--}}
+                            >
+                            </add-to-cart>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="training-plan-faqs-block">
-                    <h4 class="training-plan-faqs-title">
-                        FAQS
-                    </h4>
-                    <ul class="training-plan-faqs-list">
-                        <li class="training-plan-faqs-list-item">
-                            <p class="item-title">
-                                <strong>
-                                    Is this program to advanced for me?
-                                </strong>
-                            </p>
-                            <p class="item-description">
-                                NO! This is a progressive program that has been designed to improve upon any fitness
-                                level.
-                            </p>
-                        </li>
-                        <li class="training-plan-faqs-list-item">
-                            <p class="item-title">
-                                <strong>
-                                    I do not want to spend 2 hours in the gym!
-                                </strong>
-                            </p>
-                            <p class="item-description">
-                                With this guide, you will be able to complete comprehensive and extremely effective
-                                workouts in less than an hour.
-                            </p>
-                        </li>
-                        <li class="training-plan-faqs-list-item">
-                            <p class="item-title">
-                                <strong>
-                                    Is this a program that I can complete more than once?
-                                </strong>
-                            </p>
-                            <p class="item-description">
-                                Absolutely! The guide can be completed once, twice...ten times through. Each successful
-                                completion of the program will make you better than the last.
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="clear"></div>
             </div>
-        </div>
-        {{--<section class="parallax-section parallax-section--queen-of-the-hill" data-speed=".7" data-size="100vw" data-parallax="scroll" data-image-src="{{ asset('web/images/full-product/parallax/maximize_bg.jpg')}}" data-relative-input="true">--}}
+            <section class="section__wrapper queen-of-the-hill__bg">
+                <div class="wrapper">
+                    <h2 class="section__title after-lines after-lines--large text-center">
+                        90 DAY GUIDE TO <br>
+                        A STRONG AND SEXY FIGURE
+                    </h2>
+                    <p class="section__text">
+                        QUEEN OF THE HILL is our all-encompassing guide to achieving the body that you have always wanted.
+                        After the first 6 weeks, the program changes, keeping it fun and effective! Use it to ensure that
+                        your time in the gym is optimized and your results are maximized!
+                    </p>
 
-        {{--<div class="wrapper">--}}
-        {{--<h2 class="section__title section__title--white after-lines after-lines--large after-lines--red text-center section__title--what-eat">--}}
-        {{--MAXIMIZE YOUR RESULTS--}}
-        {{--</h2>--}}
-        {{--<p class="section__text section__text--white text-center">Combine Queen Of The Hill and our Custom Meal Plan to achieve greater results</p>--}}
+                    <div class="section__img">
+                        <img src="{{ asset('web/images/full-product/queen-of-the-hill/book@2x-2.png')}}" alt="book"
+                             class="full-width desktop-image"/>
+                        <img src="{{ asset('web/images/full-product/queen-of-the-hill/book_mob@2x-1.png')}}" alt="book"
+                             class="full-width mobile-image"/>
+                    </div>
+
+                    <div class="section__icons inline-block text-center">
+                        {{--<div class="section__icon-wrapper">--}}
+                        {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
+                        {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/full_weekly.svg')}}" alt="">--}}
+                        {{--</div>--}}
+                        {{--<div class="text-center">--}}
+                        {{--<h3 class="section__icon-text">--}}
+                        {{--FULL WEEKLY BREAK DOWN--}}
+                        {{--</h3>--}}
+                        {{--<p class="section__icon-info">--}}
+                        {{--What to do and when to do it!--}}
+                        {{--</p>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="section__icon-wrapper">--}}
+                        {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
+                        {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/icon_Get-Toned-1.svg')}}" alt="">--}}
+                        {{--</div>--}}
+                        {{--<div class="text-center">--}}
+                        {{--<h3 class="section__icon-text">--}}
+                        {{--GET TONED--}}
+                        {{--</h3>--}}
+                        {{--<p class="section__icon-info">--}}
+                        {{--We concentrate on fat loss over weight loss--}}
+                        {{--</p>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="section__icon-wrapper">--}}
+                        {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
+                        {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/recovery.svg')}}" alt="">--}}
+                        {{--</div>--}}
+                        {{--<div class="text-center">--}}
+                        {{--<h3 class="section__icon-text">--}}
+                        {{--RECOVERY TIPS--}}
+                        {{--</h3>--}}
+                        {{--<p class="section__icon-info">--}}
+                        {{--Rest allows the body to change--}}
+                        {{--</p>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
 
 
-        {{--<div class="block-in-section-wrapper flex flex-j--between">--}}
-        {{--<div class="block-in-section  block-in-section--40 text-center">--}}
-        {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">--}}
-        {{--<img src="{!! $product->bandls->getFirstMediaUrl('products') !!}" />--}}
+                    </div>
+
+
+                </div>
+            </section>
+            <div class="training-plan-faqs-block-wrapper">
+                <div class="wrapper">
+                    <div class="video-block-wrapper">
+
+                        @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
+                            <div class="custom-video-block"> <!--add class  'custom-video-block--red' for red border -->
+                                <div class="custom-video-block__inner">
+
+                                    <div class="custom-video-block__wrapper-click">
+                                        <img src="{{ asset('web/images/new-images/cap.png')}}" alt="mainImage"
+                                             class="custom-video-block__coverImg">
+                                        <img src="{{ asset('web/carouselengine/playvideo-64-64-0.png')}}" alt=""
+                                             class="custom-video-block__playImg">
+                                    </div>
+
+
+                                    <iframe src="{{ $product->getFirstMedia('products')->getCustomProperty('view_video') }}"
+                                            frameborder="0" webkitallowfullscreen mozallowfullscreen
+                                            allowfullscreen></iframe>
+
+                                </div><!--custom-video-block__inner-->
+
+                            </div><!--custom-video-block-->
+                        @endif
+                    </div>
+                    <div class="training-plan-faqs-block">
+                        <h4 class="training-plan-faqs-title">
+                            FAQS
+                        </h4>
+                        <ul class="training-plan-faqs-list">
+                            <li class="training-plan-faqs-list-item">
+                                <p class="item-title">
+                                    <strong>
+                                        Is this program to advanced for me?
+                                    </strong>
+                                </p>
+                                <p class="item-description">
+                                    NO! This is a progressive program that has been designed to improve upon any fitness
+                                    level.
+                                </p>
+                            </li>
+                            <li class="training-plan-faqs-list-item">
+                                <p class="item-title">
+                                    <strong>
+                                        I do not want to spend 2 hours in the gym!
+                                    </strong>
+                                </p>
+                                <p class="item-description">
+                                    With this guide, you will be able to complete comprehensive and extremely effective
+                                    workouts in less than an hour.
+                                </p>
+                            </li>
+                            <li class="training-plan-faqs-list-item">
+                                <p class="item-title">
+                                    <strong>
+                                        Is this a program that I can complete more than once?
+                                    </strong>
+                                </p>
+                                <p class="item-description">
+                                    Absolutely! The guide can be completed once, twice...ten times through. Each successful
+                                    completion of the program will make you better than the last.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            {{--<section class="parallax-section parallax-section--queen-of-the-hill" data-speed=".7" data-size="100vw" data-parallax="scroll" data-image-src="{{ asset('web/images/full-product/parallax/maximize_bg.jpg')}}" data-relative-input="true">--}}
+
+            {{--<div class="wrapper">--}}
+            {{--<h2 class="section__title section__title--white after-lines after-lines--large after-lines--red text-center section__title--what-eat">--}}
+            {{--MAXIMIZE YOUR RESULTS--}}
+            {{--</h2>--}}
+            {{--<p class="section__text section__text--white text-center">Combine Queen Of The Hill and our Custom Meal Plan to achieve greater results</p>--}}
+
+
+            {{--<div class="block-in-section-wrapper flex flex-j--between">--}}
+            {{--<div class="block-in-section  block-in-section--40 text-center">--}}
+            {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/product_icon.png')}}" alt="product_icon">--}}
+            {{--<img src="{!! $product->bandls->getFirstMediaUrl('products') !!}" />--}}
         {{--</div>--}}
         {{--<div class="block-in-section block-in-section--60">--}}
         {{--<h2 class="parallax-section__title  parallax-section__title--red" style="text-transform: uppercase;">--}}
