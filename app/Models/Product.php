@@ -87,7 +87,8 @@ class Product extends Model implements HasMedia
         'slug',
         'parent_id',
         'published',
-        'visible'
+        'visible',
+        'out_of_stock'
     ];
 
     /**

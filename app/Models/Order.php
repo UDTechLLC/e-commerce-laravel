@@ -254,4 +254,16 @@ class Order extends EloquentModel
     {
         return $this->products->sum('pivot.count');
     }
+
+    public function hasQuestionnaire():bool
+    {
+        foreach ($this->products as $product) {
+            if ($product->getMedia('products')->first()->hasCustomProperty('external_link') &&
+                !$product->isVideolibrary()) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 }

@@ -2,6 +2,10 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" href="{{asset('web/css/product_custom.css')}}">
+@endsection
 @section('content')
     <main>
 
@@ -31,6 +35,7 @@
                                 subscribe-product-props="{{ \App\Models\Product::where('slug', 'shedfat-maxx-subscription')->first() }}"
                                 :free-shipping="{{freeShipping()}}"
                                 data-title="{{$product->title}}"
+                                :out-of-stock="{{$product->out_of_stock}}"
                         >
                         </shedfat-maxx>
                     </div>
@@ -425,9 +430,11 @@
     </div>
     @endif
 
-    <add-to-cart-mobile
-            product-slug="{{ $product->slug }}"
-    >
-        @if($product->getKey() == 22)<slot>pre-order</slot>@endif
-    </add-to-cart-mobile>
+    @if(!$product->out_of_stock)
+        <add-to-cart-mobile
+                product-slug="{{ $product->slug }}"
+        >
+            @if($product->getKey() == 22)<slot>pre-order</slot>@endif
+        </add-to-cart-mobile>
+    @endif
 @endsection

@@ -115,6 +115,20 @@ class CreateNextSubscriptionBillingCycle extends Command
     }
 
     /**
+     * @param User $user
+     * @param $cost
+     *
+     * @param $orderId
+     *
+     * @return boolean
+     * @throws \Exception
+     */
+    private function charge(User $user, $cost, $orderId)
+    {
+        return ($user->charge($cost, ['orderId' => $orderId]))->success;
+    }
+
+    /**
      * Create new order.
      *
      * @param Order $order

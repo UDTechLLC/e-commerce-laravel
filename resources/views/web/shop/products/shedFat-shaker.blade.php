@@ -2,6 +2,10 @@
 @section('title')
     {!! $product->title !!} -@parent
 @endsection
+@section('style')
+    @parent
+    <link rel="stylesheet" href="{{asset('web/css/product_custom.css')}}">
+@endsection
 @section('content')
     <main>
         <div class="top-product-description-block">
@@ -38,10 +42,23 @@
                             </div>
                         </div>
                         @include('web.shop.partials.free_shipping')
-                        <add-to-cart
-                                product-slug="{{ $product->slug }}"
-                        >
-                        </add-to-cart>
+                        @if($product->out_of_stock)
+                            <div class="product-button-block">
+                                <div class="add-to-cart-wrapper">
+                                    <div class="product-button-block">
+                                        <div class="add-to-cart-wrapper">
+                                            <a class="disabled-button-product-page">
+                                                Sold out
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <add-to-cart
+                                    product-slug="{{ $product->slug }}">
+                            </add-to-cart>
+                        @endif
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -80,8 +97,10 @@
         </div>
     </section>
     </main>
-    <add-to-cart-mobile
-            product-slug="{{ $product->slug }}"
-    >
-    </add-to-cart-mobile>
+    @if(!$product->out_of_stock)
+        <add-to-cart-mobile
+                product-slug="{{ $product->slug }}"
+        >
+        </add-to-cart-mobile>
+    @endif
 @endsection

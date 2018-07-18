@@ -15,7 +15,8 @@
     </script>
     <noscript>
         <div style="display:inline;">
-            <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/830921804/?value={{$order->total_cost}}&currency_code=USD&label=M_4HCLmsxHcQzLibjAM&guid=ON&script=0"/>
+            <img height="1" width="1" style="border-style:none;" alt=""
+                 src="//www.googleadservices.com/pagead/conversion/830921804/?value={{$order->total_cost}}&currency_code=USD&label=M_4HCLmsxHcQzLibjAM&guid=ON&script=0"/>
         </div>
     </noscript>
     <script>
@@ -51,6 +52,33 @@
                     </div>
                 </div>
             </div>
+            @if($order->hasQuestionnaire())
+                <div class="tp-important-info-block-wrapper">
+                    <div class="wrapper">
+                        <div class="tp-important-info-block">
+                            <h4 class="tp-important-title">
+                                IMPORTANT
+                            </h4>
+                            <p class="tp-important-description">
+                                You will need to fill out your questionnaire before we can begin the process of creating
+                                your customized plan. Click the link below to fill out your questionnaire. You can also
+                                find
+                                this questionnaire link in your purchase confirmation email receipt.
+                            </p>
+                            @foreach($order->products as $product)
+                                @if (!$product->parent_id)
+                                    @if($product->getMedia('products')->first()->hasCustomProperty('external_link') && !$product->isVideolibrary())
+                                        <a href="{{ $product->generateProductLink($order) }}"
+                                           class="tp-important-questionnaire-link" target="_blank">
+                                            Questionnaire
+                                        </a> </br>
+                                    @endif
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endif
             <div class="tp-order-details-block-wrapper">
                 <div class="wrapper">
                     <div class="tp-order-details-block">
@@ -218,14 +246,16 @@
                                                     <td></td>
                                                     <th rowspan="1">Subtotal</th>
                                                     <td data-title="Subtotal">
-                                                        <span>&#036;</span><span>{{ $order->getSubscriptionProduct()->amount }}</span></td>
+                                                        <span>&#036;</span><span>{{ $order->getSubscriptionProduct()->amount }}</span>
+                                                    </td>
                                                 </tr>
 
                                                 <tr class="shipping recurring-total 2018_06_15_monthly">
                                                     <td></td>
                                                     <th>Shipping via Flat Rate</th>
                                                     <td data-title="Shipping via Flat Rate">
-                                                        <span>&#036;</span><span>{{ $order->shipping_cost }} </span>																											</td>
+                                                        <span>&#036;</span><span>{{ $order->shipping_cost }} </span>
+                                                    </td>
                                                 </tr>
 
                                                 <tr class="order-total recurring-total">
@@ -238,7 +268,7 @@
                                                         </strong>
                                                     </td>
                                                 </tr>
-                                                @endif
+                                            @endif
                                             </tfoot>
                                             <tbody>
                                             @foreach($order->products as $product)

@@ -149,6 +149,14 @@
                     <input type="checkbox" class="published-checkbox" id="visible" name="visible" v-model="entry.visible" />
                 </div>
             </div>
+            <div class="form-group" v-if="!entry.isVirtual">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="out_of_stock"> Out of stock
+
+                </label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="checkbox" class="published-checkbox" id="out_of_stock" name="visible" v-model="entry.out_of_stock" />
+                </div>
+            </div>
 
             <div class="ln_solid"></div>
             <div class="form-group">

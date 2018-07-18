@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="product-button-block">
+        <div class="product-button-block" v-if="!outOfStock">
             <div v-if="freeShipping">
                 <img width="95px" src="/web/images/delivery.svg" alt="delivery">
             </div>
@@ -72,6 +72,17 @@
                     <a v-else class="add-to-cart-btn" href="/cart">
                         View cart
                     </a>
+                </div>
+            </div>
+        </div>
+        <div class="product-button-block" v-else>
+            <div class="add-to-cart-wrapper">
+                <div class="product-button-block">
+                    <div class="add-to-cart-wrapper">
+                        <a class="disabled-button-product-page">
+                            Sold out
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,6 +109,7 @@
             subscribeProductProps: String,
             freeShipping: Number,
             dataTitle: String,
+            outOfStock: Number
         },
         computed: {
             ...mapGetters([

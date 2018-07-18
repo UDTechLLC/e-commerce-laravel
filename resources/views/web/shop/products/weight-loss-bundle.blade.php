@@ -43,6 +43,10 @@
                                     <i class="fas fa-check"></i>
                                     FREE BONUS #1-What To Eat In The Streets Guide
                                 </li>
+                                <li class="product-description-list-item">
+                                    <i class="fas fa-check"></i>
+                                    FREE BONUS #2-Shedfat Gym Bag
+                                </li>
                             </ul>
                         </div>
                         <div class="product-price-block">
@@ -143,7 +147,16 @@
                             </p>
                         </div>
                     </div>
-
+                    <div class="limited-opportunity__product-item">
+                        <div class="image-wrapper">
+                            <img src="{{ asset('web/images/limited_opportunity/lo-shfbag.jpg')}}"/>
+                        </div>
+                        <div class="limited-opportunity__product-description">
+                            <p><b>
+                                    Compact and Convenient Carrying</b>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
