@@ -33,7 +33,6 @@
         "symfony/thanks": "^1.0",
         "barryvdh/laravel-debugbar": "^3.1",
         "barryvdh/laravel-ide-helper": "^2.4",
-        "phpro/grumphp": "^0.13.1",
         "squizlabs/php_codesniffer": "^3.2"
     },
     "autoload": {
