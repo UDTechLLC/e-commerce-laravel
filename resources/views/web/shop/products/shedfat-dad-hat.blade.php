@@ -69,7 +69,7 @@
         <div class="wrapper">
             <div class="flex flex-a--center flex--m-block">
                 <div class="get-more__text">
-                    <img src="{{ asset('web/images/full-product/desktop_2.svg')}}" alt="get-more">
+                    <img src="{{ asset('web/images/full-product/text_images/3.svg')}}" alt="get-more">
                 </div>
                 <div class="get-more__img get-more__img--red-border">
                     <img src="{{ asset('web/images/full-product/hat-view.jpg')}}" alt="pr-get-more">

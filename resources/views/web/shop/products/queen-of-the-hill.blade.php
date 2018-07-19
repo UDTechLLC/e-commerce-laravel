@@ -50,7 +50,7 @@
                     <div class="clear"></div>
                 </div>
             </div>
-            <section class="section__wrapper queen-of-the-hill__bg">
+            <section class="section__wrapper queen-of-the-hill__bg" style="background-image:url({{ asset('web/images/full-product/queen-of-the-hill/bg.png') }})">
                 <div class="wrapper">
                     <h2 class="section__title after-lines after-lines--large text-center">
                         90 DAY GUIDE TO <br>

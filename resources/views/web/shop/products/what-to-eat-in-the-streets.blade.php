@@ -231,7 +231,7 @@
 
 
                         <div class="get-more__text">
-                            <img src="{{ asset('web/images/full-product/what_to_eat_in_the_streets_desktop.svg')}}"
+                            <img src="{{ asset('web/images/full-product/text_images/10.svg')}}"
                                  alt="get-more">
                         </div>
 

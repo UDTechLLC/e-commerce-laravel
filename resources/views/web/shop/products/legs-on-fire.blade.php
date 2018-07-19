@@ -74,7 +74,7 @@
                     @endif
                 </div>
                 <div class="get-more__text">
-                    <img src="{{ asset('web/images/full-product/Press Play & follow along.svg')}}" alt="get-more">
+                    <img src="{{ asset('web/images/full-product/text_images/7.svg')}}" alt="get-more">
                 </div>
             </div>
         </div>
