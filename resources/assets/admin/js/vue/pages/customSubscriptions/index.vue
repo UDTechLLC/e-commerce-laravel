@@ -89,11 +89,11 @@
                 'user email',
                 'user phone',
                 'period',
+                'price',
                 'start date',
                 'next payment',
                 'last order date',
                 'status',
-                'price',
             ],
             pagination: {
                 totalPage: 1,
