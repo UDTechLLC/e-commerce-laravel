@@ -92,7 +92,8 @@
                 'start date',
                 'next payment',
                 'last order date',
-                'status'
+                'status',
+                'price',
             ],
             pagination: {
                 totalPage: 1,
