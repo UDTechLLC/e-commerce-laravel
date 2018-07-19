@@ -44,7 +44,7 @@ class BlogController extends Controller
 
         return view('web.blog.show', [
             'post'     => $post,
-            'topPosts' => Post::published()->orderByDesc('view_count')->limit(4)->get()
+            'topPosts' => Post::published()->where('id','!=',$post->id)->orderByDesc('view_count')->limit(4)->get()
         ]);
     }
 
