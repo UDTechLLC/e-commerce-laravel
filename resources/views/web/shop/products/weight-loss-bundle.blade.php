@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         @include('web.shop.partials.free_shipping')
-                        @if($product->out_of_stock)
+                        @if($product->slug == 'Fat-loss-bundles111')
                             <div class="product-button-block">
                                 <div class="add-to-cart-wrapper">
                                     <div class="product-button-block">
@@ -210,7 +210,7 @@
         </section>
 
     </main>
-    @if(!$product->out_of_stock)
+    @if(!$product->slug == 'Fat-loss-bundle')
         <add-to-cart-mobile
                 product-slug="{{ $product->slug }}"
         >

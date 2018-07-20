@@ -74,14 +74,16 @@ class CreateNextSubscriptionBillingCycle extends Command
 //            /** @var Plan $plan */
 //            $plan = $product->plan;
             /** @var $cost */
-            $cost = $product->amouunt + $order->shipping_cost;
+            $cost = $product->amount + $order->shipping_cost;
+
+            \Log::info('Payment cost is ' . $cost);
+
+            \DB::beginTransaction();
 
             try {
-                \DB::beginTransaction();
-
                 $newOrder = $this->createOrder($order);
 
-                $this->charge($item->user, $cost, $newOrder->order_id);
+                $item->user->charge($cost, ['orderId' => $newOrder->order_id]);
 
                 \DB::commit();
 
@@ -103,9 +105,9 @@ class CreateNextSubscriptionBillingCycle extends Command
 
                 \Log::info('Subscriptions were recurred. Created new order with ID: ' . $newOrder->getKey());
             } catch (\Exception $ex) {
-                $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
-
                 \DB::rollBack();
+
+                $item->update(['status' => CustomSubscription::SUBSCRIPTION_INACTIVE]);
 
                 \Log::info('Exception message: ' . $ex->getMessage());
             }

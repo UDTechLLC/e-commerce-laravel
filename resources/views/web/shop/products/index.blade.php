@@ -58,13 +58,13 @@
 									</span>
                                 </div>
                             </div>
-                            @if($product->out_of_stock)
+                            @if($product->slug == 'Fat-loss-bundle1111')
                                 <div class="product-button-block">
                                     <div class="add-to-cart-wrapper">
                                         <div class="product-button-block">
                                             <div class="add-to-cart-wrapper">
                                                 <a class="disabled-button">
-                                                    out of stock
+                                                    Sold out
                                                 </a>
                                             </div>
                                         </div>
