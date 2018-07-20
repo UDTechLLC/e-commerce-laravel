@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="get-more__text">
-                            <img src="{{ asset('web/images/full-product/red_page/scoop.svg')}}"
+                            <img src="{{ asset('web/images/full-product/text_images/8.svg')}}"
                                  alt="get-more">
                         </div>
 
