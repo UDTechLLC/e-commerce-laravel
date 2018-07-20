@@ -95,7 +95,7 @@
                     </div>
                 @endif
                 <div class="get-more__text">
-                    <img src="{{ asset('web/images/full-product/infuser_bottle_desktop.svg')}}" alt="get-more">
+                    <img src="{{ asset('web/images/full-product/text_images/4.svg')}}" alt="get-more">
                 </div>
             </div>
         </div>

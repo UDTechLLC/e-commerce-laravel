@@ -52,11 +52,11 @@
         </div>
 
 
-        <section class="section__wrapper total-results">
+        <section class="section__wrapper total-results" style="background-image:url({{ asset('web/images/full-product/never-stop-moving/bg.png') }})">
             <div class="wrapper">
-                <h2 class="section__title after-lines after-lines--black text-center">THE TOTAL PACKAGE FOR TOTAL
+                <h2 class="section__title after-lines after-lines--black text-center" style="color: white">THE TOTAL PACKAGE FOR TOTAL
                     RESULTS</h2>
-                <p class="section__text text-center">Getting in shape can be overwhelming. That is why we provide you
+                <p class="section__text text-center" style="color: white">Getting in shape can be overwhelming. That is why we provide you
                     with everything that you need to make the a complete transformation. We tell you what exercises to
                     perform, how to perform them, what meals to eat, what ingredients you should be shopping for and how
                     what you should be doing to recover.</p>
@@ -123,7 +123,7 @@
             </div>--}}
             </div>
         </section>
-        <div class="training-plan-faqs-block-wrapper reset-p-top">
+        <div class="training-plan-faqs-block-wrapper">
             <div class="wrapper">
                 <div class="video-block-wrapper">
                     @if($product->getFirstMedia('products')->getCustomProperty('view_video') != "")
