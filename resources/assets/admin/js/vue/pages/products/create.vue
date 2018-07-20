@@ -51,16 +51,23 @@
                     <span class="text-danger" v-if="errors.has('subtitle')">{{ errors.first('subtitle') }}</span>
                 </div>
             </div>
-            <div class="form-group" :class="{'has-error': errors.has('description') }">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span>
+            <!--<div class="form-group" :class="{'has-error': errors.has('description') }">-->
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <textarea class="form-control"
-                              v-validate data-vv-rules="required"
-                              :class="{'is-danger': errors.has('description')}"
-                              name="description" v-model="description" rows="3"></textarea>
-                    <span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>
+                    <editor
+                            @returnContent="updateContent"
+                    >
+                    </editor>
                 </div>
+                <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                    <!--<textarea class="form-control"-->
+                              <!--v-validate data-vv-rules="required"-->
+                              <!--:class="{'is-danger': errors.has('description')}"-->
+                              <!--name="description" v-model="description" rows="3"></textarea>-->
+                    <!--<span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>-->
+                <!--</div>-->
             </div>
             <div class="form-group" :class="{'has-error': errors.has('view_name') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="view_name">View Name
@@ -160,6 +167,7 @@
 </template>
 
 <script type="text/babel">
+    import editor from './../../components/text-editor.vue'
 
     export default ({
         data: () => ({
@@ -179,10 +187,16 @@
             errorPreviewImage: false,
             videoLink: "",
             externalLink: "",
-            isVirtual: false
+            isVirtual: false,
+            metaTags: {
+                description: ""
+            }
         }),
         props: {
             viewList: String
+        },
+        components: {
+            editor
         },
         created() {
             this.viewArray = JSON.parse(this.viewList);
@@ -207,6 +221,9 @@
             }*/
         },
         methods: {
+            updateContent(value) {
+                this.description = value;
+            },
             getFile(file) {
                 this.image = file;
                 this.errorImage = false;
