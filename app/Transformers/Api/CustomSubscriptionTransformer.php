@@ -26,6 +26,7 @@ class CustomSubscriptionTransformer extends TransformerAbstract
             'next payment'    => $subscription->next_billing_at->toFormattedDateString(),
             'last order date' => $subscription->updated_at->toFormattedDateString(),
             'period'          => $subscription->period,
+            'price'           => $subscription->order->getSubscriptionProduct()->amount,
         ];
     }
 }

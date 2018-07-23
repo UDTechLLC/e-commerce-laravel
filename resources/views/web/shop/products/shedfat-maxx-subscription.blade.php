@@ -293,7 +293,7 @@
 
 
                         <div class="get-more__text">
-                            <img src="{{ asset('web/images/full-product/shedfat-maxx/txt.png')}}" alt="get-more">
+                            <img src="{{ asset('web/images/full-product/text_images/6.svg')}}" alt="get-more">
                         </div>
 
 

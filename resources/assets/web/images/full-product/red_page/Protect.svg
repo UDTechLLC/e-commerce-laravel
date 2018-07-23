@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #c6dda3;
+        fill-rule: evenodd;
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#29282e"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Protect" class="cls-1">
+    <circle id="elipse" class="cls-2" cx="45" cy="45" r="44"/>
+    <path id="Фигура_6" data-name="Фигура 6" class="cls-3" d="M526.425,967.924v-7.611a13.442,13.442,0,0,1,26.883,0v7.541a18.239,18.239,0,0,0-4.8-3.74v-3.8a8.64,8.64,0,0,0-17.28,0v3.835A18.23,18.23,0,0,0,526.425,967.924Zm30.8,13.819A17.33,17.33,0,1,1,539.9,964.5,17.3,17.3,0,0,1,557.228,981.743Zm-4.387.071A12.943,12.943,0,1,0,539.9,994.688,12.924,12.924,0,0,0,552.841,981.814Zm-2.1,0A10.841,10.841,0,1,1,539.9,971.03,10.825,10.825,0,0,1,550.739,981.814Zm-7.928-2.769a2.955,2.955,0,0,0-5.91,0,3.163,3.163,0,0,0,1.236,2.306,0.956,0.956,0,0,1,.25.593v6.524a0.349,0.349,0,0,0,.35.348h2.239a0.349,0.349,0,0,0,.349-0.348v-6.524a0.956,0.956,0,0,1,.25-0.593A3.383,3.383,0,0,0,542.811,979.045Z" transform="translate(-495 -928)"/>
+  </g>
+</svg>

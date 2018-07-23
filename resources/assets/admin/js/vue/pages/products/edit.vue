@@ -54,17 +54,35 @@
                     <span class="text-danger" v-if="errors.has('subtitle')">{{ errors.first('subtitle') }}</span>
                 </div>
             </div>
-            <div class="form-group" :class="{'has-error': errors.has('description') }">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <textarea class="form-control"
-                              v-validate data-vv-rules="required"
-                              :class="{'is-danger': errors.has('description')}"
-                              name="description" v-model="entry.description" rows="3"></textarea>
-                    <span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>
+                    <editor
+                            @returnContent="updateContent"
+                            :oldContent="entry.description"
+                    >
+                    </editor>
                 </div>
+                <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                <!--<textarea class="form-control"-->
+                <!--v-validate data-vv-rules="required"-->
+                <!--:class="{'is-danger': errors.has('description')}"-->
+                <!--name="description" v-model="description" rows="3"></textarea>-->
+                <!--<span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>-->
+                <!--</div>-->
             </div>
+            <!--<div class="form-group" :class="{'has-error': errors.has('description') }">-->
+                <!--<label class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span>-->
+                <!--</label>-->
+                <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                    <!--<textarea class="form-control"-->
+                              <!--v-validate data-vv-rules="required"-->
+                              <!--:class="{'is-danger': errors.has('description')}"-->
+                              <!--name="description" v-model="entry.description" rows="3"></textarea>-->
+                    <!--<span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="form-group" :class="{'has-error': errors.has('view_name') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="view_name">View Name
                 </label>
@@ -171,12 +189,14 @@
     </div>
 </template>
 <script type="text/babel">
+    import editor from './../../components/text-editor.vue'
 
     export default ({
         data: () => ({
             entry: {},
             viewArray:[],
             oldSlug: "",
+            oldContent: "",
             errorImage: false,
             errorPreviewImage: false
         }),
@@ -184,10 +204,14 @@
             product: String,
             viewList: String
         },
+        components: {
+            editor
+        },
         created() {
             this.entry = JSON.parse(this.product);
             this.viewArray = JSON.parse(this.viewList);
             this.oldSlug = this.entry.slug;
+            this.oldContent = this.entry.description
 
             this.$validator.extend('linkVimeo', {
 
@@ -209,6 +233,9 @@
             }*/
         },
         methods: {
+            updateContent(value) {
+                this.entry.description = value;
+            },
             getFile(file) {
                 this.entry.image = file;
                 this.entry.errorImage = false;

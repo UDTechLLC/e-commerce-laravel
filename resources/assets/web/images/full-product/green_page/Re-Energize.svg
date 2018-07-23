@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill-rule: evenodd;
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#29282e"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Re-Energize" class="cls-1">
+    <circle id="elipse" class="cls-2" cx="45" cy="45" r="44"/>
+    <path id="Фигура_4" data-name="Фигура 4" class="cls-3" d="M634.912,1138.65l-11.734,27.59h9.779l-9.388,24.4,24.055-31.17-11.636-.8,13-19.62Zm-22.441,26.15a23.516,23.516,0,0,0,11.262,20.1l1.666-4.59a18.757,18.757,0,0,1,3.678-32.99l2.019-5.5A23.355,23.355,0,0,0,612.471,1164.8Zm35.319-19.75-2.625,3.93a18.734,18.734,0,0,1,8.669,15.82,18.529,18.529,0,0,1-18.334,18.67,17.585,17.585,0,0,1-3.863-.46h0l-3.154,4.09a22.362,22.362,0,0,0,7.017,1.15A23.482,23.482,0,0,0,647.79,1145.05Z" transform="translate(-590 -1120)"/>
+  </g>
+</svg>

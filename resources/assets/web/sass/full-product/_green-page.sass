@@ -1,0 +1,29 @@
+.green-page-section
+  &__wrapper
+    @media screen and (max-width: $breakpoint-mobile)
+      flex-direction: column-reverse
+  &__block
+    &--right
+      text-align: center
+      @media screen and (max-width: 800px)
+        margin-bottom: 50px
+    .inline-block
+      margin: 0 auto
+      max-width: 516px
+      width: 100%
+  &__item
+    @media screen and (min-width: 801px)
+      width: 49%
+    .section__icon-img
+      border: none
+      border-radius: 0
+      height: 120px
+      width: 120px
+      img
+        height: 100%
+.green-page-benefits-section
+  .section__img__green_page
+    margin-left: 0
+    margin-top: 0
+    @media screen and (max-width: 800px)
+      margin: 0 auto
