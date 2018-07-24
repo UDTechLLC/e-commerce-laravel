@@ -70,6 +70,14 @@
                                         </div>
                                     </div>
                                 </div>
+                            @elseif($product->slug == 'shedfat-dad-hat' && $product->out_of_stock)
+                                <div class="product-button-block">
+                                    <div class="add-to-cart-wrapper">
+                                        <a class="add-to-cart-btn" href="javascript:void(0)" data-title="Shedfat Dad Hat">
+                                            Register
+                                        </a>
+                                    </div>
+                                </div>
                             @else
                                 <div class="product-button-block">
                                     <div class="add-to-cart-wrapper">
@@ -100,7 +108,7 @@
                               @endif
                           @endif--}}
                     @endforeach
-                    <div class="shop-item">
+              {{--      <div class="shop-item">
                         <div class="image-wrapper">
                             <a href="#">
                                 <img src="{{ asset('web/images/icon_Shedfat Dad Hat Sales.jpg')}}"/>
@@ -127,7 +135,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="shop-item">
                         <div class="image-wrapper">
                             {{-- <a href="{{url('challenge')}}">--}}

@@ -47,8 +47,8 @@
                                 <div class="add-to-cart-wrapper">
                                     <div class="product-button-block">
                                         <div class="add-to-cart-wrapper">
-                                            <a class="disabled-button-product-page">
-                                                Sold out
+                                            <a class="add-to-cart-btn" href="javascript:void(0)" data-title="Shedfat Dad Hat">
+                                                Register
                                             </a>
                                         </div>
                                     </div>
@@ -79,6 +79,31 @@
         </div>
     </section>
     </main>
+    <div class="popUp popUp-register popUp-register--dad-hat" data-modal="Shedfat Dad Hat"><!-- popUp--open -->
+        <!--   <input type="hidden" class="add-to-cart-btn callPopUp" data-title='Shedfat Dad Hat'>-->
+        <div class="popUp__wrapper">
+            <button type="button" class="popUp__close" data-dismiss="modal">×</button>
+
+            <div class="popUp__img-info">
+                <div class="popUp__img">
+
+                </div>
+                <div class="popUp__info">
+                    <div class="popUp__name">Be the first to know
+                        when its Available
+                    </div>
+                    <form action="{{ route('subscribe.dadhat') }}" method="POST" class="popUp__form">
+                        {{ csrf_field() }}
+                        <input type="text" name="name" placeholder="Your First Name" required>
+                        <input type="email" name="email" placeholder="Your Email Adress" required>
+                        <button class="btn popUp__form-btn-submit">submit</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
     @if(!$product->out_of_stock)
         <add-to-cart-mobile
                 product-slug="{{ $product->slug }}"
