@@ -136,9 +136,36 @@
                             </div>
                         </div>
                     </div>--}}
-                    <div class="shop-item">
+                        @foreach($challenges as $challenge)
+                            <div class="shop-item">
+                                <div class="image-wrapper">
+                                    {{-- <a href="{{url('challenge')}}">--}}
+                            <a href="#scRegistration">
+                                <img src="{{ asset($challenge->getFirstMediaUrl('preview')) }}"/>
+                            </a>
+                        </div>
+                        <div class="product-details" style="padding-top: 10px;width: 100%">
+                            <h3 class="product-title" style="text-align: center">
+                                <a href="#scRegistration">
+                                   {{--  <a href="{{url('challenge')}}">--}}
+                                    {{$challenge->title}} </a>
+                            </h3>
+                        </div>
+                        <div class="product-button-block">
+                            <div class="add-to-cart-wrapper">
+                                <a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
+                                    Register
+                                </a>
+                              {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}">
+                                    Register
+                                </a>--}}
+                            </div>
+                        </div>
+                    </div>
+                            @endforeach
+                    {{--<div class="shop-item">
                         <div class="image-wrapper">
-                            {{-- <a href="{{url('challenge')}}">--}}
+                            --}}{{-- <a href="{{url('challenge')}}">--}}{{--
                             <a href="#scRegistration">
                                 <img src="{{ asset('web/images/Spring Challenge_icon.jpg') }}"/>
                             </a>
@@ -146,7 +173,7 @@
                         <div class="product-details" style="padding-top: 10px;width: 100%">
                             <h3 class="product-title" style="text-align: center">
                                 <a href="#scRegistration">
-                                    {{--  <a href="{{url('challenge')}}">--}}
+                                    --}}{{--  <a href="{{url('challenge')}}">--}}{{--
                                     Spring Challenge </a>
                             </h3>
                         </div>
@@ -155,12 +182,12 @@
                                 <a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
                                     Register
                                 </a>
-                                {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}">
+                                --}}{{--<a class="add-to-cart-btn"  href="{{url('challenge')}}">
                                     Register
-                                </a>--}}
+                                </a>--}}{{--
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>

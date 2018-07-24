@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Challenge;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -17,10 +18,10 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        $product = Product::where('visible', true)->where('published', true)->orderBy('position')->get();
-
+        
         return view("web.shop.products.index", [
-            'products' => $product,
+            'products' => Product::where('visible', true)->where('published', true)->orderBy('position')->get(),
+            'challenges' => Challenge::where('published', true)->get()
         ]);
     }
 
