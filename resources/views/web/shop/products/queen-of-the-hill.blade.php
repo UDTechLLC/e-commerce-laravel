@@ -42,7 +42,6 @@
                             </div>
                             <add-to-cart
                                     product-slug="{{ $product->slug }}"
-                                    {{--data-title="12 Week Custom Meal Plan"--}}
                             >
                             </add-to-cart>
                         </div>
