@@ -41,17 +41,17 @@
                     <span class="text-danger" v-if="errors.has('slug')">{{ errors.first('slug') }}</span>
                 </div>
             </div>
-            <div class="form-group" :class="{'has-error': errors.has('subtitle') }">
+            <div class="form-group" :class="{'has-error': errors.has('sub_title') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Subtitle">Subtitle <span
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" id="subtitle" name="subtitle"
-                           v-model="entry.subtitle"
+                    <input type="text" id="subtitle" name="sub_title"
+                           v-model="entry.sub_title"
                            v-validate data-vv-rules="required"
-                           :class="{'is-danger': errors.has('subtitle')}"
+                           :class="{'is-danger': errors.has('sub_title')}"
                            class="form-control col-md-7 col-xs-12">
-                    <span class="text-danger" v-if="errors.has('subtitle')">{{ errors.first('subtitle') }}</span>
+                    <span class="text-danger" v-if="errors.has('sub_title')">{{ errors.first('sub_title') }}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -255,7 +255,7 @@
                 axios.put(`/admin/products/update/${this.oldSlug}`, this.entry).then(
                         result => {
                             this.notifySuccess("Done", "Product update");
-                            setTimeout(() => location.href = "/admin/products", 1500);
+                           // setTimeout(() => location.href = "/admin/products", 1500);
                         },
                         error =>  this.notifyError(
                                 error.response.data.message,

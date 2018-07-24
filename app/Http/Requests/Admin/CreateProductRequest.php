@@ -26,7 +26,7 @@ class CreateProductRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'subtitle' => 'required',
+            'sub_title' => 'required',
             'description' => 'required',
             'image' => 'required',
             'imagePreview' => 'required',

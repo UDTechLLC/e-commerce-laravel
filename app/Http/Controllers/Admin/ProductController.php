@@ -63,6 +63,7 @@ class ProductController extends Controller
     {
         $product = Product::create([
             'title'       => $request->get('title'),
+            'sub_title'    => $request->get('sub_title'),
             'slug'        => $request->get('slug'),
             'description' => $request->get('description'),
             'view_name'   => $request->get('view_name'),
@@ -107,7 +108,7 @@ class ProductController extends Controller
     {
         $data = [
             'title'        => $product->title,
-            'subtitle'     => $product->subtile,
+            'sub_title'     => $product->sub_title,
             'description'  => $product->description,
             'image'        => $product->getFirstMediaUrl('products'),
             'imagePreview' => $product->getFirstMediaUrl('preview'),
@@ -142,7 +143,7 @@ class ProductController extends Controller
     {
         $product->update([
             'title'        => $request->get('title'),
-            'subtitle'     => $request->get('subtitle'),
+            'sub_title'     => $request->get('sub_title'),
             'description'  => $request->get('description'),
             'view_name'    => $request->get('view_name'),
             'old_amount'   => $request->get('oldPrice') ?? "0",
