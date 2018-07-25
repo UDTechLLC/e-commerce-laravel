@@ -3,6 +3,7 @@ declare (strict_types = 1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\CreateUserRequest;
 use App\Http\Resources\Admin\UsersResource;
 use Illuminate\Contracts\View\View;
 use \App\Models\User;
@@ -20,6 +21,7 @@ class UserController extends Controller
     {
         return view("admin.users.index");
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
@@ -43,24 +45,30 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CreateUserRequest $request
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-       //
+        $user = User::create([
+            'first_name' => $request->get('first_name'),
+            'last_name'  => $request->get('last_name'),
+            'email'      => $request->get('email'),
+            'password'   => bcrypt($request->get('password')),
+        ]);
+
+        $user->saveImageBase64($request->get('image'), 'avatar');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -71,7 +79,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -82,8 +90,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,7 +102,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  User  $user
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
@@ -117,13 +125,14 @@ class UserController extends Controller
                 $query = User::where('id', $value);
                 break;
             case 'email':
-                $query = User::where('email', $value);
+                $query = User::where('email', 'LIKE', "%$value%");
                 break;
             case 'name':
                 $query = User::where('first_name', 'LIKE', '%' . $value . '%')
                     ->orWhere('last_name', 'LIKE', '%' . $value . '%');
                 break;
         }
+
         return $query;
     }
 }

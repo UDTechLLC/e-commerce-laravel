@@ -8,13 +8,15 @@ use Illuminate\Notifications\Notifiable,
     Illuminate\Foundation\Auth\User as Authenticatable,
     Laratrust\Traits\LaratrustUserTrait,
     Laravel\Cashier\Billable;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use LaratrustUserTrait,
-        Notifiable;
-//    use Billable;
-    use CustomBillable;
+        Notifiable,
+        HasMediaTrait,
+        CustomBillable;
 
     protected $table = 'users';
     /**
@@ -68,5 +70,41 @@ class User extends Authenticatable
     public function customSubscriptions()
     {
         return $this->hasMany(CustomSubscription::class);
+    }
+
+    /**
+     * @param $image
+     * @param $collect
+     * @param $properties
+     *
+     * @return \Spatie\MediaLibrary\Media
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     */
+    public function saveImageBase64($image, $collect)
+    {
+        $imageParts = explode(";base64,", $image);
+        $imageTypeAux = explode("image/", $imageParts[0]);
+        $imageType = $imageTypeAux[1];
+
+        return $this->addMediaFromBase64($image)
+            ->usingFileName(str_slug($this->first_name) . "." . $imageType)
+            ->toMediaCollection($collect);
+    }
+
+
+    /**
+     * @param $image
+     * @param $collect
+     *
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaCannotBeUpdated
+     */
+    public function updateImageBase64($image, $collect)
+    {
+        $newMedia = $this->saveImageBase64($image, $collect);
+        $arr = ['id' => $newMedia->id];
+        $this->updateMedia([$arr], $collect);
     }
 }

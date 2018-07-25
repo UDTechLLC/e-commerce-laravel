@@ -33,6 +33,8 @@ import couponsEdit from './vue/pages/coupons/edit';
 import couponsAttach from './vue/pages/coupons/attach';
 
 import usersIndex from './vue/pages/users/index';
+import usersCreate from './vue/pages/users/create';
+import usersEdit from './vue/pages/users/edit';
 
 import statistics from './vue/pages/statistics';
 
@@ -75,6 +77,8 @@ const app = new Vue({
         couponsEdit,
         couponsAttach,
         usersIndex,
+        usersCreate,
+        usersEdit,
         statistics,
         orders,
         subscriptions,

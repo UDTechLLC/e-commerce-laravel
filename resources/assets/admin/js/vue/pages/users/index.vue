@@ -7,7 +7,14 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>User list</h2>
-
+                    <div class="nav navbar-right panel_toolbox">
+                        <a href="/admin/users/create">
+                            <button class="btn btn-sm btn-success btn-block">
+                                <i class="fa fa-plus"></i> Add user
+                            </button>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
