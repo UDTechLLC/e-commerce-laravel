@@ -27,18 +27,12 @@
                                     {!! $product->description !!}
                                 </p>
                                 <ul class="product-description-list check-icon-list">
-                                    <li class="product-description-list-item">
-                                        <i class="fas fa-check"></i>
-                                        Fat Loss and Toning
-                                    </li>
-                                    <li class="product-description-list-item">
-                                        <i class="fas fa-check"></i>
-                                        Muscle Building
-                                    </li>
-                                    <li class="product-description-list-item">
-                                        <i class="fas fa-check"></i>
-                                        Boost Energy Levels
-                                    </li>
+                                    @foreach($checkMark as $mark)
+                                        <li class="product-description-list-item">
+                                            <i class="fas fa-check"></i>
+                                            {{$mark}}
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="product-price-block">
