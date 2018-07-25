@@ -23,4 +23,5 @@ Route::group([
     require 'shipping.php';
     require 'cms.php';
     require 'export.php';
+    require 'challenges.php';
 });

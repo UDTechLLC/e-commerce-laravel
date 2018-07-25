@@ -73,7 +73,8 @@
                             @elseif($product->slug == 'shedfat-dad-hat' && $product->out_of_stock)
                                 <div class="product-button-block">
                                     <div class="add-to-cart-wrapper">
-                                        <a class="add-to-cart-btn" href="javascript:void(0)" data-title="Shedfat Dad Hat">
+                                        <a class="add-to-cart-btn" href="javascript:void(0)"
+                                           data-title="Shedfat Dad Hat">
                                             Register
                                         </a>
                                     </div>
@@ -108,61 +109,59 @@
                               @endif
                           @endif--}}
                     @endforeach
-              {{--      <div class="shop-item">
-                        <div class="image-wrapper">
-                            <a href="#">
-                                <img src="{{ asset('web/images/icon_Shedfat Dad Hat Sales.jpg')}}"/>
-                            </a>
-                        </div>
-                        <div class="product-details" style="padding-top: 28px;width: 100%">
-                            <h3 class="product-title" style="text-align: center">
-                                <a href="#">
-                                    Shedfat Dad Hat
-                                </a>
-                            </h3>
-                        </div>
-                        <div class="product-price-block">
-                            <div class="product-price">
-                                        <span class="product-amount">
+                    {{--      <div class="shop-item">
+                              <div class="image-wrapper">
+                                  <a href="#">
+                                      <img src="{{ asset('web/images/icon_Shedfat Dad Hat Sales.jpg')}}"/>
+                                  </a>
+                              </div>
+                              <div class="product-details" style="padding-top: 28px;width: 100%">
+                                  <h3 class="product-title" style="text-align: center">
+                                      <a href="#">
+                                          Shedfat Dad Hat
+                                      </a>
+                                  </h3>
+                              </div>
+                              <div class="product-price-block">
+                                  <div class="product-price">
+                                              <span class="product-amount">
 
-                                        </span>
-                            </div>
-                        </div>
-                        <div class="product-button-block">
-                            <div class="add-to-cart-wrapper">
-                                <a class="add-to-cart-btn" href="javascript:void(0)" data-title="Shedfat Dad Hat">
-                                    Register
+                                              </span>
+                                  </div>
+                              </div>
+                              <div class="product-button-block">
+                                  <div class="add-to-cart-wrapper">
+                                      <a class="add-to-cart-btn" href="javascript:void(0)" data-title="Shedfat Dad Hat">
+                                          Register
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>--}}
+                    @foreach($challenges as $challenge)
+                        <div class="shop-item">
+                            <div class="image-wrapper">
+                                    <a href="{{($challenge->open) ? url('challenge') : '#scRegistration'}}">
+                                     <img src="{{ asset($challenge->getFirstMediaUrl('preview')) }}"/>
                                 </a>
                             </div>
-                        </div>
-                    </div>--}}
-                        @foreach($challenges as $challenge)
-                            <div class="shop-item">
-                                <div class="image-wrapper">
-                                    {{-- <a href="{{url('challenge')}}">--}}
-                            <a href="#scRegistration">
-                                <img src="{{ asset($challenge->getFirstMediaUrl('preview')) }}"/>
-                            </a>
-                        </div>
-                        <div class="product-details" style="padding-top: 10px;width: 100%">
-                            <h3 class="product-title" style="text-align: center">
-                                <a href="#scRegistration">
-                                   {{--  <a href="{{url('challenge')}}">--}}
-                                    {{$challenge->title}} </a>
-                            </h3>
-                        </div>
-                        <div class="product-button-block">
-                            <div class="add-to-cart-wrapper">
-                                <a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
-                                    Register
-                                </a>
-                              {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}">
-                                    Register
-                                </a>--}}
+                            <div class="product-details" style="padding-top: 10px;width: 100%">
+                                <h3 class="product-title" style="text-align: center">
+                                    <a href="{{($challenge->open) ? url('challenge') : '#scRegistration'}}">
+                                        {{$challenge->title}} </a>
+                                </h3>
+                            </div>
+                            <div class="product-button-block">
+                                <div class="add-to-cart-wrapper">
+                                    <a class="add-to-cart-btn" href="#scRegistration" data-title='SPRING CHALLENGE'>
+                                        Register
+                                    </a>
+                                    {{--<a class="add-to-cart-btn"  href="{{url('challenge')}}">
+                                          Register
+                                      </a>--}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                            @endforeach
+                    @endforeach
                     {{--<div class="shop-item">
                         <div class="image-wrapper">
                             --}}{{-- <a href="{{url('challenge')}}">--}}{{--

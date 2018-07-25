@@ -15,6 +15,7 @@
                    v-validate data-vv-rules="required|image"
                    :class="{'is-danger': errors.has('image')}"
                    name="image"
+                   accept="image/jpeg,image/png"
             />
         </div>
 
