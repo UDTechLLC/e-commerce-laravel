@@ -133,7 +133,7 @@
             <div class="container">
                 <div class="row">
                     <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
-                        <li v-for="check in checkMark">{{ check }}</li>
+                        <li v-for="check in checkMark">{{ check }}</li><i class="fa fa-remove"></i>
                     </ul>
                 </div>
             </div>

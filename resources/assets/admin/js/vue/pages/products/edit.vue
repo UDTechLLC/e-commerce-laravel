@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" >Description <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <editor
@@ -147,7 +147,9 @@
             <div class="container">
                 <div class="row">
                     <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
-                        <li v-for="check in entry.check_mark">{{ check }}</li>
+                        <li v-for="(check, index) in entry.check_mark">{{ check }}
+                            <a href="#" @click.prevent="removeCheckMark(index)"><i class="fa fa-remove item-delete"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -290,6 +292,9 @@
                 this.entry.check_mark.push(this.check);
 
                 console.log(this.checkMark);
+            },
+            removeCheckMark(item) {
+                this.entry.check_mark.splice(item, 1);
             },
             sanitizeTitle(title) {
                 let slug = "";
