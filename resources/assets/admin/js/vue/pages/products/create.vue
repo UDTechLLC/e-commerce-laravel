@@ -133,7 +133,9 @@
             <div class="container">
                 <div class="row">
                     <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
-                        <li v-for="check in checkMark">{{ check }}</li><i class="fa fa-remove"></i>
+                        <li v-for="(check, index) in checkMark">{{ check }}
+                            <a href="#" @click.prevent="removeCheckMark(index)"><i class="fa fa-remove item-delete"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -298,6 +300,14 @@
                     }
                 );
             },
+            addCheckMark() {
+                this.checkMark.push(this.check);
+
+                console.log(this.checkMark);
+            },
+            removeCheckMark(item) {
+                this.checkMark.splice(item, 1);
+            },
             sanitizeTitle(title) {
                 let slug = "";
                 // Change to lower case
@@ -318,11 +328,6 @@
                 slug = slug.replace(/\s+/g, '-');
 
                 return slug;
-            },
-            addCheckMark() {
-                this.checkMark.push(this.check);
-
-                console.log(this.checkMark);
             }
         }
     });

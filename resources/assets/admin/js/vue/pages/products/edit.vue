@@ -290,8 +290,6 @@
             },
             addCheckMark() {
                 this.entry.check_mark.push(this.check);
-
-                console.log(this.checkMark);
             },
             removeCheckMark(item) {
                 this.entry.check_mark.splice(item, 1);
