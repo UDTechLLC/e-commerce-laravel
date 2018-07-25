@@ -281,7 +281,8 @@
                     visible: this.visible,
                     viewVideo: this.videoLink,
                     isVirtual: this.isVirtual,
-                    externalLink: this.externalLink
+                    externalLink: this.externalLink,
+                    checkMark: this.checkMark,
                 };
 
                 axios.post('/admin/products/store', data).then(

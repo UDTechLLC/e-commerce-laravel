@@ -61,6 +61,7 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
+        $a = '';
         $product = Product::create([
             'title'       => $request->get('title'),
             'slug'        => $request->get('slug'),
@@ -70,7 +71,8 @@ class ProductController extends Controller
             'amount'      => $request->get('price'),
             'published'   => $request->get('published'),
             'visible'     => $request->get('visible'),
-            'isVirtual'   => $request->get('isVirtual')
+            'isVirtual'   => $request->get('isVirtual'),
+            'check_mark'   => json_encode($request->get('checkMark'), JSON_FORCE_OBJECT),
         ]);
 
         $product->saveImageBase64(
