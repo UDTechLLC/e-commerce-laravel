@@ -30,7 +30,7 @@
                                 @foreach($checkMark as $mark)
                                     <li class="product-description-list-item">
                                         <i class="fas fa-check"></i>
-                                        {{$mark}}
+                                        {{$mark->title}}
                                     </li>
                                 @endforeach
                             </ul>
