@@ -61,6 +61,7 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
+        $a = '';
         $product = Product::create([
             'title'       => $request->get('title'),
             'sub_title'    => $request->get('sub_title'),
@@ -71,7 +72,8 @@ class ProductController extends Controller
             'amount'      => $request->get('price'),
             'published'   => $request->get('published'),
             'visible'     => $request->get('visible'),
-            'isVirtual'   => $request->get('isVirtual')
+            'isVirtual'   => $request->get('isVirtual'),
+            'check_mark'  => json_encode($request->get('checkMark'), JSON_FORCE_OBJECT),
         ]);
 
         $product->saveImageBase64(
@@ -125,7 +127,8 @@ class ProductController extends Controller
             'externalLink' => ($product->getFirstMedia('products'))
                 ? $product->getFirstMedia('products')->getCustomProperty('external_link')
                 : "",
-            'isVirtual'    => $product->isVirtual
+            'isVirtual'    => $product->isVirtual,
+            'check_mark'   => (array) json_decode($product->check_mark, true),
         ];
 
         return view('admin.products.edit', ['product' => $data]);
@@ -138,6 +141,9 @@ class ProductController extends Controller
      * @param Product $product
      *
      * @return Product
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\InvalidBase64Data
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaCannotBeUpdated
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
@@ -152,7 +158,8 @@ class ProductController extends Controller
             'published'    => $request->get('published'),
             'visible'      => $request->get('visible'),
             'isVirtual'    => $request->get('isVirtual'),
-            'out_of_stock' => $request->get('out_of_stock')
+            'out_of_stock' => $request->get('out_of_stock'),
+            'check_mark'   => json_encode($request->get('check_mark'), JSON_FORCE_OBJECT),
         ]);
 
         $viewVideo = $product->getFirstMedia('products')->getCustomProperty('view_video');

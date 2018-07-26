@@ -61,8 +61,10 @@ class ProductController extends Controller
         }
 
         $viewName = ($product->view_name) ? 'web.shop.products.' . $product->view_name : 'web.shop.products.show';
-        
-        return view($viewName, compact('product'));
+
+        $checkMark = (array) json_decode($product->check_mark);
+
+        return view($viewName, compact('product', 'checkMark'));
     }
 
     public function challenge(): View

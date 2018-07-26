@@ -27,22 +27,12 @@
                                 {!! $product->description !!}
                             </p>
                             <ul class="product-description-list check-icon-list">
-                                <li class="product-description-list-item">
-                                    <i class="fas fa-check"></i>
-                                    Intermittent Fasting
-                                </li>
-                                <li class="product-description-list-item">
-                                    <i class="fas fa-check"></i>
-                                    Ketogenic
-                                </li>
-                                <li class="product-description-list-item">
-                                    <i class="fas fa-check"></i>
-                                    Carb Cycling
-                                </li>
-                                <li class="product-description-list-item">
-                                    <i class="fas fa-check"></i>
-                                    Vegan/Vegetarian
-                                </li>
+                                @foreach($checkMark as $mark)
+                                    <li class="product-description-list-item">
+                                        <i class="fas fa-check"></i>
+                                        {{$mark->title}}
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="product-price-block">

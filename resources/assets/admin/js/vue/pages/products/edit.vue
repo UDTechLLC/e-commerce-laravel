@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" >Description <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <editor
@@ -134,6 +134,36 @@
                     <span class="text-danger" v-if="errors.has('price')">{{ errors.first('price') }}</span>
                 </div>
             </div>
+            <div class="form-group" :class="{'has-error': errors.has('checkMark') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="checkMark">Check mark</label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="text" id="checkMark" name="checkMark"
+                           v-model="check"
+                           :class="{'is-danger': errors.has('checkMark')}"
+                           class="form-control col-md-7 col-xs-12">
+                    <span class="text-danger" v-if="errors.has('checkMark')">{{ errors.first('checkMark') }}</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
+                        <li v-for="(mark, index) in entry.check_mark">
+                            <span v-show="mark.edit === false" @dblclick="mark.edit = true">{{ mark.title }}</span>
+                            <input
+                                    v-show="mark.edit === true"
+                                    v-model="mark.title"
+                                    v-on:blur="mark.edit = false; $emit('update')"
+                                    keyup.enter="mark.edit = false; $emit('update')">
+                            <a href="#" @click.prevent="removeCheckMark(index)"><i class="fa fa-remove item-delete"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button type="submit" @click.prevent="addCheckMark" class="btn btn-success">Add check mark</button>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isVirtual">Virtual
                 </label>
@@ -198,7 +228,8 @@
             oldSlug: "",
             oldContent: "",
             errorImage: false,
-            errorPreviewImage: false
+            errorPreviewImage: false,
+            check: "",
         }),
         props: {
             product: String,
@@ -211,7 +242,7 @@
             this.entry = JSON.parse(this.product);
             this.viewArray = JSON.parse(this.viewList);
             this.oldSlug = this.entry.slug;
-            this.oldContent = this.entry.description
+            this.oldContent = this.entry.description;
 
             this.$validator.extend('linkVimeo', {
 
@@ -263,6 +294,17 @@
                                 error.response.status)
                 );
             },
+            addCheckMark() {
+                this.entry.check_mark.push({
+                    title: this.check,
+                    edit: false
+                });
+
+                this.check = "";
+            },
+            removeCheckMark(item) {
+                this.entry.check_mark.splice(item, 1);
+            },
             sanitizeTitle(title) {
                 let slug = "";
                 // Change to lower case
@@ -296,5 +338,19 @@
         display: block;
         margin: 25px 0;
         width: 100%;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        padding-left: 1em;
+        text-indent: -1em;
+    }
+
+    li:before {
+        content: "\02713";
+        padding-right: 5px;
     }
 </style>

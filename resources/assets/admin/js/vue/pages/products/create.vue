@@ -53,7 +53,7 @@
             </div>
             <!--<div class="form-group" :class="{'has-error': errors.has('description') }">-->
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <editor
@@ -62,11 +62,11 @@
                     </editor>
                 </div>
                 <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
-                    <!--<textarea class="form-control"-->
-                              <!--v-validate data-vv-rules="required"-->
-                              <!--:class="{'is-danger': errors.has('description')}"-->
-                              <!--name="description" v-model="description" rows="3"></textarea>-->
-                    <!--<span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>-->
+                <!--<textarea class="form-control"-->
+                <!--v-validate data-vv-rules="required"-->
+                <!--:class="{'is-danger': errors.has('description')}"-->
+                <!--name="description" v-model="description" rows="3"></textarea>-->
+                <!--<span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>-->
                 <!--</div>-->
             </div>
             <div class="form-group" :class="{'has-error': errors.has('view_name') }">
@@ -74,9 +74,9 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <select id="view_name" name="view_name"
-                           v-model="view_name"
-                           v-validate data-vv-rules="required"
-                           :class="{'is-danger': errors.has('view_name')}"
+                            v-model="view_name"
+                            v-validate data-vv-rules="required"
+                            :class="{'is-danger': errors.has('view_name')}"
                             class="form-control col-md-7 col-xs-12">
                         <option v-for="view in viewArray">{{ view }}</option>
                     </select>
@@ -92,7 +92,7 @@
 
                     <input type="text" id="video" v-model="videoLink" class="form-control col-md-7 col-xs-12"
 
-                           v-validate data-vv-rules="url|linkVimeo"  name="video"
+                           v-validate data-vv-rules="url|linkVimeo" name="video"
                     />
                     <span class="text-danger" v-if="errors.has('video')">{{ errors.first('video') }}</span>
                 </div>
@@ -120,11 +120,44 @@
                     <span class="text-danger" v-if="errors.has('price')">{{ errors.first('price') }}</span>
                 </div>
             </div>
+            <div class="form-group" :class="{'has-error': errors.has('checkMark') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="checkMark">Check mark</label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="text" id="checkMark" name="checkMark"
+                           v-model="check"
+                           :class="{'is-danger': errors.has('checkMark')}"
+                           class="form-control col-md-7 col-xs-12">
+                    <span class="text-danger" v-if="errors.has('checkMark')">{{ errors.first('checkMark') }}</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
+                        <li v-for="(mark, index) in checkMark">
+                            <span v-show="mark.edit === false" @dblclick="mark.edit = true">{{ mark.title }}</span>
+                            <input
+                                    v-show="mark.edit === true"
+                                    v-model="mark.title"
+                                    v-on:blur="mark.edit = false; $emit('update')"
+                                    keyup.enter="mark.edit = false; $emit('update')">
+                            <a href="#" @click.prevent="removeCheckMark(index)">
+                                <i class="fa fa-remove item-delete"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button type="submit" @click.prevent="addCheckMark" class="btn btn-success">Add check mark</button>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isVirtual">Virtual
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="checkbox" class="published-checkbox" id="isVirtual" name="isVirtual" v-model="isVirtual" />
+                    <input type="checkbox" class="published-checkbox" id="isVirtual" name="isVirtual"
+                           v-model="isVirtual"/>
                 </div>
             </div>
             <div class="form-group" :class="{'has-error': errors.has('externalLink') }" v-if="isVirtual">
@@ -135,14 +168,16 @@
                            v-validate data-vv-rules="url"
                            :class="{'is-danger': errors.has('externalLink')}"
                            name="externalLink" class="form-control col-md-7 col-xs-12">
-                    <span class="text-danger" v-if="errors.has('externalLink')">{{ errors.first('externalLink') }}</span>
+                    <span class="text-danger"
+                          v-if="errors.has('externalLink')">{{ errors.first('externalLink') }}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="published">Published
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="checkbox" class="published-checkbox" id="published" name="published" v-model="published" />
+                    <input type="checkbox" class="published-checkbox" id="published" name="published"
+                           v-model="published"/>
                 </div>
             </div>
             <div class="form-group">
@@ -150,7 +185,7 @@
 
                 </label>
                 <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="checkbox" class="published-checkbox" id="visible" name="visible" v-model="visible" />
+                    <input type="checkbox" class="published-checkbox" id="visible" name="visible" v-model="visible"/>
                 </div>
             </div>
 
@@ -177,7 +212,7 @@
             published: true,
             visible: true,
             view_name: "show",
-            viewArray:[],
+            viewArray: [],
             oldPrice: null,
             price: "",
             image: "",
@@ -190,7 +225,9 @@
             isVirtual: false,
             metaTags: {
                 description: ""
-            }
+            },
+            check: "",
+            checkMark: [],
         }),
         props: {
             viewList: String
@@ -208,8 +245,8 @@
                     let url = new URL(value);
 
                     return url.hostname == "player.vimeo.com"
-                            || url.hostname == "www.youtube.com"
-                            || url.hostname == "youtube.com";
+                        || url.hostname == "www.youtube.com"
+                        || url.hostname == "youtube.com";
                 }
             });
         },
@@ -233,10 +270,10 @@
                 this.errorPreviewImage = false;
             },
             validateBeforeSubmit() {
-                   this.$validator.validateAll().then((result) => {
+                this.$validator.validateAll().then((result) => {
                     if (this.image == "") this.errorImage = true;
                     if (this.imagePreview == "") this.errorPreviewImage = true;
-                    if (result && this.image && this.imagePreview)  this.submitForm();
+                    if (result && this.image && this.imagePreview) this.submitForm();
                 });
             },
             submitForm() {
@@ -254,21 +291,36 @@
                     visible: this.visible,
                     viewVideo: this.videoLink,
                     isVirtual: this.isVirtual,
-                    externalLink: this.externalLink
+                    externalLink: this.externalLink,
+                    checkMark: this.checkMark,
                 };
 
                 axios.post('/admin/products/store', data).then(
-                        response => {
-                            this.notifySuccess("Done", "Product create");
-                            setTimeout(() => location.href = "/admin/products", 1500);
-                        },
-                        error => {
-                            this.notifyError(
-                                    error.response.data.message,
-                                    error.response.data.errors,
-                                    error.response.status)
-                        }
+                    response => {
+                        this.notifySuccess("Done", "Product create");
+                        setTimeout(() => location.href = "/admin/products", 1500);
+                    },
+                    error => {
+                        this.notifyError(
+                            error.response.data.message,
+                            error.response.data.errors,
+                            error.response.status)
+                    }
                 );
+            },
+            addCheckMark() {
+                this.checkMark.push({
+                    title: this.check,
+                    edit: false
+                });
+
+                this.check = "";
+            },
+            editCheckMark(index) {
+                this.check = this.checkMark[index];
+            },
+            removeCheckMark(item) {
+                this.checkMark.splice(item, 1);
             },
             sanitizeTitle(title) {
                 let slug = "";
@@ -298,9 +350,24 @@
     #published, #visible, #isVirtual {
         margin-top: 10px;
     }
+
     iframe {
         display: block;
         margin: 25px 0;
         width: 100%;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        padding-left: 1em;
+        text-indent: -1em;
+    }
+
+    li:before {
+        content: "\02713";
+        padding-right: 5px;
     }
 </style>
