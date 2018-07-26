@@ -18,12 +18,12 @@ Route::group([
         'as'   => 'store',
         'uses' => 'UserController@store'
     ]);
-    Route::get('/edit', [
-        'as'   => 'edit',
+    Route::get('/edit/{user}', [
+        'as'   => '.edit',
         'uses' => 'UserController@edit'
     ]);
-    Route::get('/update', [
-        'as'   => 'update',
+    Route::post('/update/{user}', [
+        'as'   => '.update',
         'uses' => 'UserController@update'
     ]);
     Route::delete('/delete/{user}', [

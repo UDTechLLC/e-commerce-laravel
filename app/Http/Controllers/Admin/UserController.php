@@ -4,6 +4,7 @@ declare (strict_types = 1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\CreateUserRequest;
+use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Http\Resources\Admin\UsersResource;
 use Illuminate\Contracts\View\View;
 use \App\Models\User;
@@ -63,6 +64,7 @@ class UserController extends Controller
         ]);
 
         $user->saveImageBase64($request->get('image'), 'avatar');
+        $user->attachRole(2);
     }
 
     /**
@@ -79,24 +81,35 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.users.edit', [
+            'user' => $user->toJson()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  UpdateUserRequest $request
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->update([
+            'first_name' => $request->get('first_name'),
+            'last_name'  => $request->get('last_name'),
+            'email'      => $request->get('email'),
+            'password'   => ($request->get('password')) ? bcrypt($request->get('password')) : $user->password
+        ]);
+
+        if ($request->has('image') && $this->checkImage($request->get('image'))) {
+            $user->updateImageBase64($request->get('image'), 'avatar');
+        }
     }
 
     /**
@@ -134,5 +147,15 @@ class UserController extends Controller
         }
 
         return $query;
+    }
+
+    /**
+     * @param $value
+     *
+     * @return bool
+     */
+    private function checkImage($value): bool
+    {
+        return substr($value, 0, 1) == 'd';
     }
 }

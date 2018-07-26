@@ -38,6 +38,9 @@ class User extends Authenticatable implements HasMedia
         'password', 'remember_token',
     ];
 
+    protected $appends = [
+       'avatar'
+    ];
     /**
      * Get the user's full name.
      *
@@ -47,6 +50,17 @@ class User extends Authenticatable implements HasMedia
     {
         return "{$this->first_name} {$this->last_name}";
     }
+
+    /**
+     * Get the user's avatar.
+     *
+     * @return string
+     */
+    public function getAvatarAttribute()
+    {
+        return $this->getFirstMediaUrl('avatar') ?? "";
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

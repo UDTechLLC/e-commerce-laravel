@@ -54,7 +54,7 @@
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" id="password" name="password"
+                    <input type="password" id="password" name="password"
                            v-model="password"
                            v-validate data-vv-rules="required|min:5"
                            :class="{'is-danger': errors.has('password')}"
@@ -86,9 +86,6 @@
             image: "",
             errorImage: false
         }),
-        props: {
-            viewList: String
-        },
         methods: {
             getFile(file) {
                 this.image = file;
@@ -112,7 +109,7 @@
                 axios.post('/admin/users/store', data).then(
                         response => {
                             this.notifySuccess("Done", "User create");
-                            //setTimeout(() => location.href = "/admin/users", 1500);
+                            setTimeout(() => location.href = "/admin/users", 1500);
                         },
                         error => {
                             this.notifyError(

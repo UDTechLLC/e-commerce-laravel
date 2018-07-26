@@ -12,7 +12,8 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{asset('admin_panel/images/ava.jpg')}}" alt="..." class="img-circle profile_img">
+                <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : asset('admin_panel/images/ava.jpg')}}"
+                     alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>

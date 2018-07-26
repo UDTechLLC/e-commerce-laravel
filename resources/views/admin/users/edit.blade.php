@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: silivanov
- * Date: 25.07.18
- * Time: 11:22
- */
+@extends('admin.layouts.app')
+
+@section('content')
+    <users-edit :user="{{$user}}"></users-edit>
+@endsection
