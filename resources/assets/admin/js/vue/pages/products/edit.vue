@@ -295,7 +295,12 @@
                 );
             },
             addCheckMark() {
-                this.entry.check_mark.push(this.check);
+                this.entry.check_mark.push({
+                    title: this.check,
+                    edit: false
+                });
+
+                this.check = "";
             },
             removeCheckMark(item) {
                 this.entry.check_mark.splice(item, 1);
