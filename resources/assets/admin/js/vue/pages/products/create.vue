@@ -133,8 +133,16 @@
             <div class="container">
                 <div class="row">
                     <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
-                        <li v-for="(check, index) in checkMark">{{ check }}
-                            <a href="#" @click.prevent="removeCheckMark(index)"><i class="fa fa-remove item-delete"></i></a>
+                        <li v-for="(mark, index) in checkMark">
+                            <span v-show="mark.edit === false" @dblclick="mark.edit = true">{{ mark.title }}</span>
+                            <input
+                                    v-show="mark.edit === true"
+                                    v-model="mark.title"
+                                    v-on:blur="mark.edit = false; $emit('update')"
+                                    keyup.enter="mark.edit = false; $emit('update')">
+                            <a href="#" @click.prevent="removeCheckMark(index)">
+                                <i class="fa fa-remove item-delete"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -219,7 +227,7 @@
                 description: ""
             },
             check: "",
-            checkMark: []
+            checkMark: [],
         }),
         props: {
             viewList: String
@@ -301,9 +309,15 @@
                 );
             },
             addCheckMark() {
-                this.checkMark.push(this.check);
+                this.checkMark.push({
+                    title: this.check,
+                    edit: false
+                });
 
-                console.log(this.checkMark);
+                this.check = "";
+            },
+            editCheckMark(index) {
+                this.check = this.checkMark[index];
             },
             removeCheckMark(item) {
                 this.checkMark.splice(item, 1);

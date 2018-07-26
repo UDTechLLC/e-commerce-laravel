@@ -72,7 +72,7 @@ class ProductController extends Controller
             'published'   => $request->get('published'),
             'visible'     => $request->get('visible'),
             'isVirtual'   => $request->get('isVirtual'),
-            'check_mark'   => json_encode($request->get('checkMark'), JSON_FORCE_OBJECT),
+            'check_mark'  => json_encode($request->get('checkMark'), JSON_FORCE_OBJECT),
         ]);
 
         $product->saveImageBase64(

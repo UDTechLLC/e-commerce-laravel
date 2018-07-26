@@ -147,7 +147,13 @@
             <div class="container">
                 <div class="row">
                     <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
-                        <li v-for="(check, index) in entry.check_mark">{{ check }}
+                        <li v-for="(mark, index) in entry.check_mark">
+                            <span v-show="mark.edit === false" @dblclick="mark.edit = true">{{ mark.title }}</span>
+                            <input
+                                    v-show="mark.edit === true"
+                                    v-model="mark.title"
+                                    v-on:blur="mark.edit = false; $emit('update')"
+                                    keyup.enter="mark.edit = false; $emit('update')">
                             <a href="#" @click.prevent="removeCheckMark(index)"><i class="fa fa-remove item-delete"></i></a>
                         </li>
                     </ul>
