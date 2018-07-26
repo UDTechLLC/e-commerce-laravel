@@ -119,7 +119,7 @@
                 axios.post(`/admin/users/update/${this.user.id}`, data).then(
                         response => {
                             this.notifySuccess("Done", "User update");
-                            //setTimeout(() => location.href = "/admin/users", 1500);
+                            setTimeout(() => location.href = "/admin/users", 1500);
                         },
                         error => {
                             this.notifyError(
