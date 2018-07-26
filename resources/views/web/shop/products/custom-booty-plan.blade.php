@@ -28,23 +28,12 @@
                                     {!! $product->description !!}
                                 </p>
                                 <ul class="product-description-list check-icon-list">
-
-                                    <li class="product-description-list-item">
-                                        <i class="fas fa-check"></i>
-                                        Glute Specific Training
-                                    </li>
-                                    <li class="product-description-list-item">
-                                        <i class="fas fa-check"></i>
-                                        Easy to Follow Schedule
-                                    </li>
-                                    <li class="product-description-list-item">
-                                        <i class="fas fa-check"></i>
-                                        Your Choice of Home OR Gym
-                                    </li>
-                                    <li class="product-description-list-item">
-                                        <i class="fas fa-check"></i>
-                                        Free Meal Plan Included
-                                    </li>
+                                    @foreach($checkMark as $mark)
+                                        <li class="product-description-list-item">
+                                            <i class="fas fa-check"></i>
+                                            {{$mark->title}}
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="product-price-block">
