@@ -23,6 +23,14 @@
                                 {!! $product->description !!}
                                 {{--Looking for a comprehensive yet simple training plan? Never Stop Moving is our 63-day, total body tutorial! We teach you how to achieve and more importantly how to maintain a tighter and more toned physique from head to toe.--}}
                             </p>
+                            <ul class="product-description-list check-icon-list">
+                                @foreach($checkMark as $mark)
+                                    <li class="product-description-list-item">
+                                        <i class="fas fa-check"></i>
+                                        {{$mark->title}}
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="product-price-block">
                             <div class="product-price has-old-price">
