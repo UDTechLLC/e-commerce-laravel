@@ -27,6 +27,14 @@
                             <p class="product-description">
                                 {!! $product->description !!}
                             </p>
+                            <ul class="product-description-list check-icon-list">
+                                @foreach($checkMark as $mark)
+                                    <li class="product-description-list-item">
+                                        <i class="fas fa-check"></i>
+                                        {{$mark->title}}
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="product-price-block">
                             <div class="product-price has-old-price">
