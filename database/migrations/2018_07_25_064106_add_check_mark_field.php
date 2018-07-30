@@ -14,7 +14,7 @@ class AddCheckMarkField extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->json('check_mark');
+            $table->json('check_mark')->nullable();
         });
     }
 

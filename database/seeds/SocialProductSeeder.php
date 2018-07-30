@@ -24,6 +24,8 @@ class SocialProductSeeder extends Seeder
             'slug'       => '12week-custom-meal-plan-FB',
             'view_name'  => '12week-custom-meal-plan',
             'isVirtual'  => true,
+            'published'  => false,
+            'visible'    => false,
 
         ]);
 
@@ -73,6 +75,8 @@ class SocialProductSeeder extends Seeder
             'slug'        => '12week-custom-training-plan-FB',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
+            'published'   => false,
+            'visible'     => false,
 
         ]);
 
@@ -127,7 +131,8 @@ class SocialProductSeeder extends Seeder
             'slug'       => '12week-custom-meal-plan-GO',
             'view_name'  => '12week-custom-meal-plan',
             'isVirtual'  => true,
-
+            'published'  => false,
+            'visible'    => false,
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_training_plan (2).png';
@@ -176,7 +181,8 @@ class SocialProductSeeder extends Seeder
             'slug'        => '12week-custom-training-plan-GO',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
-
+            'published'   => false,
+            'visible'     => false,
         ]);
 
         $pathToFile = 'resources/assets/web/seed_products/icon_12_week_custom_meal_plan_2.png';

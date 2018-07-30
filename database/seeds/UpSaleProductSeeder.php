@@ -21,6 +21,8 @@ class UpSaleProductSeeder extends Seeder
             'slug'        => 'shedfat-maxx-up-sale',
             'view_name'   => 'shedfat-maxx',
             'isVirtual'   => false,
+            'published'  => false,
+            'visible'    => false,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/shedfat_maxx.png';
@@ -48,6 +50,8 @@ class UpSaleProductSeeder extends Seeder
             'slug'       => '12week-custom-meal-plan-up-sale',
             'view_name'  => '12week-custom-meal-plan',
             'isVirtual'  => true,
+            'published'  => false,
+            'visible'    => false,
 
         ]);
 
@@ -75,6 +79,8 @@ class UpSaleProductSeeder extends Seeder
             'slug'        => '12week-custom-training-plan-up-sale',
             'view_name'   => '12week-custom-training-plan',
             'isVirtual'   => true,
+            'published'  => false,
+            'visible'    => false,
 
         ]);
 
@@ -107,6 +113,8 @@ class UpSaleProductSeeder extends Seeder
             'slug'       => 'queen-of-the-hill-up-sale',
             'view_name'  => 'queen-of-the-hill',
             'isVirtual'  => true,
+            'published'  => false,
+            'visible'    => false,
 
         ]);
         $pathToFile = 'resources/assets/web/seed_products/Queen_of_the_Hill_90_Day_icon_2.png';
