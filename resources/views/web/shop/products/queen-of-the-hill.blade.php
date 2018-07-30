@@ -23,6 +23,14 @@
                         <div class="product-description-block">
                             <p class="product-description">
                                 {!!  $product->description !!}
+                            <ul class="product-description-list check-icon-list">
+                                @foreach($checkMark as $mark)
+                                    <li class="product-description-list-item">
+                                        <i class="fas fa-check"></i>
+                                        {{$mark->title}}
+                                    </li>
+                                @endforeach
+                            </ul>
                                 {{--You do not need to spend hundreds of dollars on a personal trainer to get the results that you are after! All of the guidance that you need is right here in our 90 Day, total body, gym based program. It can be accessed at any time from any smart device! </p>--}}
                             </div>
                             <div class="product-price-block border-top border-top--grey">

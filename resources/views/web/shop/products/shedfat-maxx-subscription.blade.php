@@ -25,6 +25,14 @@
                                 {!! $product->description !!}
                                 {{--SHEDFAT MAXX is a weight loss supplement formulated with premium ingredients to increase your weight loss, provide clean smooth energy and help you get past your fitness plateaus.--}}
                             </p>
+                            <ul class="product-description-list check-icon-list">
+                                @foreach($checkMark as $mark)
+                                    <li class="product-description-list-item">
+                                        <i class="fas fa-check"></i>
+                                        {{$mark->title}}
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="product-price-block product-price-block--radio">
                             {{--<div class="product-price">--}}
