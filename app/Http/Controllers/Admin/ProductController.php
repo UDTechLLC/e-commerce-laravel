@@ -61,7 +61,6 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
-        $a = '';
         $product = Product::create([
             'title'       => $request->get('title'),
             'sub_title'    => $request->get('sub_title'),
@@ -128,7 +127,7 @@ class ProductController extends Controller
                 ? $product->getFirstMedia('products')->getCustomProperty('external_link')
                 : "",
             'isVirtual'    => $product->isVirtual,
-            'check_mark'   => (array) json_decode($product->check_mark, true),
+            'check_mark'   => ($product->check_mark) ? (array) json_decode($product->check_mark, true) : [],
         ];
 
         return view('admin.products.edit', ['product' => $data]);
