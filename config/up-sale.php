@@ -14,7 +14,8 @@ return [
         'up_sale_products' => [
             '12week-custom-meal-plan-up-sale',
             '12week-custom-training-plan-up-sale',
-            'queen-of-the-hill-up-sale'       //////  @todo  added  combo product
+            'queen-of-the-hill-up-sale',
+            '12-week-custom-meal-plan+12-week-custom-training-plan-up-sale'
         ]
     ],
 

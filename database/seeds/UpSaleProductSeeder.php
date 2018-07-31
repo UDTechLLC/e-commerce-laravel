@@ -151,5 +151,25 @@ class UpSaleProductSeeder extends Seeder
             ->preservingOriginal()
             ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
             ->toMediaCollection('product');
+
+        $bundle = factory(App\Models\Product::class)->create([
+            'title'       => 'Custom Meal and Training Plan Combo',
+            'description' => 'Proper diet is key to achieving your health and fitness goals.
+                        A 100% customized training plan will make you look better, feel better and maximize results!',
+
+            'old_amount' => '100.00',
+            'amount'     => '40.00',
+            'slug'       => '12-week-custom-meal-plan+12-week-custom-training-plan-up-sale',
+            'isVirtual'  => true,
+            'published'  => false,
+            'visible'    => false
+        ]);
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (2).jpg';
+        $bundle->addMedia($pathToFile)
+            ->withCustomProperties(['external_link' => 'https://airtable.com/shrHWsoXhJhrWcMYT'])
+            ->preservingOriginal()
+            ->toMediaCollection('products');
+        $pathToFile = 'resources/assets/web/seed_products/preview/icon_12_week_custom_training_plan (1).jpg';
+        $bundle->addMedia($pathToFile)->preservingOriginal()->toMediaCollection('preview');
     }
 }
