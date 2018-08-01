@@ -1,4 +1,7 @@
+.second-header
+  //display: none
 .upsale
+
   &__top-banner
     //background-image: url("../images/upsale_page/top_banner_bg.png")
     //background-repeat: no-repeat
@@ -22,14 +25,19 @@
           display: block
     //&__image-block
       margin-right: 97px
+
     &__image-wrapper
       text-align: center
+
+
       &.desktop
         display: block
         @media screen and (max-width: 992px)
           display: none
       &.mobile
         display: none
+        img
+          width: 100%
         @media screen and (max-width: 992px)
           display: block
   &__product-block
@@ -53,6 +61,16 @@
       &--image-wrapper
         max-height: 300px
         max-width: 300px
+        min-height: 300px
+        min-width: 300px
+        overflow: hidden
+        @media screen and (max-width: 992px)
+          min-width: auto
+          min-height: auto
+          margin: auto
+        img
+          width: 100%
+          height: auto
       &--description-block
         padding: 0 30px
         @media screen and (max-width: 992px)
@@ -62,6 +80,9 @@
         .title-check-wrapper
           @media screen and (max-width: 992px)
             margin-top: 20px
+            display: flex
+            align-items: center
+            justify-content: center
           .product-check-field
           .product-title
             color: #29282e
@@ -69,7 +90,9 @@
             font-weight: 700
             line-height: 26px
             @media screen and (max-width: 992px)
-              display: block
+              display: flex
+              align-items: center
+              padding: 0
         .product-price-block
           .product-price
             .product-amount
@@ -137,10 +160,16 @@
     left: 0
     width: 32px
     height: 32px
+    min-width: 32px
+    min-height: 32px
     transition: .2s
     @media screen and (max-width: 992px)
-      left: 12px
-      top: 5px
+      //left: 12px
+      //top: 5px
+      position: relative
+      top: 0
+      left: 0
+      margin-right: 10px
   //&__checkbox + label:after
     content: ''
     position: absolute
