@@ -25,6 +25,26 @@
                 </ul>
             </div>
         </modal>
+        <modal v-if="showModalVideo"
+               @pushCancel="showModalVideo = false"
+               @pushOk="createCustomVideo"
+        >
+            <div slot="body">
+                <h3>Create video</h3>
+                <div class="form-group">
+                    <label for="videoUrl">Enter video</label>
+                    <input type="text" class="form-control" id="videoUrl" v-model="customVideoInfo.url">
+                </div>
+                <div class="form-group">
+                    <label for="videoUrl">Video height</label>
+                    <input type="text" class="form-control" id="videoHeight" v-model="customVideoInfo.height">
+                </div>
+                <div class="form-group">
+                    <label for="videoUrl">Video width</label>
+                    <input type="text" class="form-control" id="videoWidth" v-model="customVideoInfo.width">
+                </div>
+            </div>
+        </modal>
     </div>
 
 </template>
@@ -34,6 +54,11 @@
     import 'quill/dist/quill.core.css'
     import 'quill/dist/quill.snow.css'
     import 'quill/dist/quill.bubble.css'
+
+    import {VideoBlot} from './quill/quill-video-resize'
+
+    // register with Quill
+    window.Quill.register({'formats/video': VideoBlot});
 
     // you can also register quill modules in the component
     //import Quill from 'quill';
@@ -70,12 +95,20 @@
     window.Quill.register('modules/imageResize', ImageResize);
     var icons = window.Quill.import('ui/icons');
     icons['banner'] = '<i class="fa fa-barcode" aria-hidden="true"></i>';
+    icons['customVideo'] = '<i class="fa fa-film" aria-hidden="true"></i>';
+
 
     export default {
         data () {
             return {
                 showModal: false,
+                showModalVideo: false,
                 content: '',
+                customVideoInfo: {
+                    url: "",
+                    height: "150",
+                    width: "300"
+                },
                 cursorPosition: 0,
                 banners: [],
                 editorOption: {
@@ -95,7 +128,7 @@
                             [{'color': []}, {'background': []}],
                             [{'align': []}],
                             ['clean'],
-                            ['link', 'image', 'video'],
+                            ['link', 'image', 'customVideo'],
                             ['banner']
                         ],
                         imageDrop: true,
@@ -112,12 +145,12 @@
             }
         },
         props: {
-          oldContent: String
+            oldContent: String
         },
         watch: {
-          content() {
-              this.$emit('returnContent', this.content)
-          }
+            content() {
+                this.$emit('returnContent', this.content)
+            }
         },
         components: {
             quillEditor
@@ -131,10 +164,10 @@
                 // console.log('editor focus!', quill)
             },
             onEditorReady(quill) {
-               // console.log('editor ready!', quill)
+                // console.log('editor ready!', quill)
             },
             onEditorChange({quill, html, text}) {
-             //   console.log('editor change!', quill, html, text)
+                //   console.log('editor change!', quill, html, text)
                 this.content = html
             },
             getBanners() {
@@ -143,9 +176,13 @@
                         error => console.log('error')
                 )
             },
-           selectBanner(id) {
-               this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `@banner(${id})`);
-               this.showModal = false;
+            selectBanner(id) {
+                this.editor.clipboard.dangerouslyPasteHTML(this.cursorPosition, `@banner(${id})`);
+                this.showModal = false;
+            },
+            createCustomVideo() {
+                this.editor.format('video', this.customVideoInfo);
+                this.showModalVideo = false
             }
         },
         computed: {
@@ -162,6 +199,11 @@
                     this.cursorPosition = (this.editor.getSelection()) ? this.editor.getSelection().index : 0;
                 });
             });
+
+            let customButton1 = document.querySelector('.ql-customVideo');
+            customButton1.addEventListener('click', () => {
+                this.showModalVideo = true;
+            });
         }
     }
 </script>
@@ -170,13 +212,21 @@
     .item {
         cursor: pointer;
     }
+
     .test {
-        color:red;
+        color: red;
     }
-    .tip{color:red;}
-    .subtitle{color:green;}
+
+    .tip {
+        color: red;
+    }
+
+    .subtitle {
+        color: green;
+    }
 
     /*.quill-editor {
         height: 350px;
     }*/
+
 </style>

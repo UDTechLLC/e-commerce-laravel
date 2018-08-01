@@ -272,3 +272,10 @@
   width: 100%; }
   .blog__load-more:hover {
     background-color: rgba(246, 246, 246, 0.8); }
+
+@media (max-width: 800px) {
+  .ql-video {
+    width: 100%;
+    height: auto;
+  }
+}
