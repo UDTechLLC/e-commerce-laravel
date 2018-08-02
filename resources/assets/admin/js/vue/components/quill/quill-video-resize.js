@@ -5,7 +5,7 @@ class VideoBlot extends BlockEmbed {
 
     let node = super.create();
 
-    if (value instanceof Object && value.url != null) {
+    if (value instanceof Object) {
       node.setAttribute('src', value.url);
       node.setAttribute('height', value.height);
       node.setAttribute('width', value.width);
