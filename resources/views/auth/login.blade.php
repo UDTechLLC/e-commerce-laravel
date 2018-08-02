@@ -17,7 +17,7 @@
 </head>
 <body class="login">
     <main>
-<div class="main">
+<div class="main" id="app">
 <div class="login_wrapper">
     <div class="animate form login_form">
         <section class="login_content">
