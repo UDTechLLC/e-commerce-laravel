@@ -5,12 +5,17 @@ class VideoBlot extends BlockEmbed {
 
     let node = super.create();
 
-    node.setAttribute('src', value.url);
+    if (value instanceof Object && value.url != null) {
+      node.setAttribute('src', value.url);
+      node.setAttribute('height', value.height);
+      node.setAttribute('width', value.width);
+    } else {
+      node.setAttribute('src', value);
+    }
+
     node.setAttribute('frameborder', '0');
     node.setAttribute('allowfullscreen', true);
     node.setAttribute('allow', 'autoplay; encrypted-media');
-    node.setAttribute('height', value.height);
-    node.setAttribute('width', value.width);
     node.className = 'ql-video';
 
     return node;
@@ -28,10 +33,11 @@ class VideoBlot extends BlockEmbed {
   }
 
   static value(node) {
+
     return node.getAttribute('src');
   }
 
-  format(name, value, value1) {
+  format(name, value) {
     if (name === 'height' || name === 'width') {
       if (value) {
         this.domNode.setAttribute(name, value);
