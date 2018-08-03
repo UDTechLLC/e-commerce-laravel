@@ -94,7 +94,7 @@
     .image-preview {
         margin: auto;
         width: 200px;
-        height: 150px;
+        height: 200px;
     }
 
     img {

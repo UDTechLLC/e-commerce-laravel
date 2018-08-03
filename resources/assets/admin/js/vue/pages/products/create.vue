@@ -67,6 +67,39 @@
                 <!--<span class="text-danger" v-if="errors.has('description')">{{ errors.first('description') }}</span>-->
                 <!--</div>-->
             </div>
+
+            <div class="form-group" :class="{'has-error': errors.has('checkMark') }">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="checkMark">Check mark</label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <input type="text" id="checkMark" name="checkMark"
+                           v-model="check"
+                           :class="{'is-danger': errors.has('checkMark')}"
+                           class="form-control col-md-7 col-xs-12">
+                    <span class="text-danger" v-if="errors.has('checkMark')">{{ errors.first('checkMark') }}</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
+                        <li v-for="(mark, index) in checkMark">
+                            <span v-show="mark.edit === false" @dblclick="mark.edit = true">{{ mark.title }}</span>
+                            <input
+                                    v-show="mark.edit === true"
+                                    v-model="mark.title"
+                                    v-on:blur="mark.edit = false; $emit('update')"
+                                    keyup.enter="mark.edit = false; $emit('update')">
+                            <a href="#" @click.prevent="removeCheckMark(index)">
+                                <i class="fa fa-remove item-delete"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button type="submit" @click.prevent="addCheckMark" class="btn btn-success">Add check mark</button>
+                </div>
+            </div>
             <div class="form-group" :class="{'has-error': errors.has('view_name') }">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="view_name">View Name
                 </label>
@@ -116,38 +149,6 @@
                            :class="{'is-danger': errors.has('price')}"
                            class="form-control col-md-7 col-xs-12">
                     <span class="text-danger" v-if="errors.has('price')">{{ errors.first('price') }}</span>
-                </div>
-            </div>
-            <div class="form-group" :class="{'has-error': errors.has('checkMark') }">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="checkMark">Check mark</label>
-                <div class="col-md-3 col-sm-3 col-xs-12">
-                    <input type="text" id="checkMark" name="checkMark"
-                           v-model="check"
-                           :class="{'is-danger': errors.has('checkMark')}"
-                           class="form-control col-md-7 col-xs-12">
-                    <span class="text-danger" v-if="errors.has('checkMark')">{{ errors.first('checkMark') }}</span>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <ul class="col-md-3 col-md-offset-3 col-sm-3 col-xs-12">
-                        <li v-for="(mark, index) in checkMark">
-                            <span v-show="mark.edit === false" @dblclick="mark.edit = true">{{ mark.title }}</span>
-                            <input
-                                    v-show="mark.edit === true"
-                                    v-model="mark.title"
-                                    v-on:blur="mark.edit = false; $emit('update')"
-                                    keyup.enter="mark.edit = false; $emit('update')">
-                            <a href="#" @click.prevent="removeCheckMark(index)">
-                                <i class="fa fa-remove item-delete"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button type="submit" @click.prevent="addCheckMark" class="btn btn-success">Add check mark</button>
                 </div>
             </div>
             <div class="form-group">
