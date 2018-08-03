@@ -37,6 +37,7 @@
                         </span>
                             </div>
                         </div>
+                        @include('web.shop.partials.free_shipping')
                         <add-to-cart
                                 product-slug="{{ $product->slug }}"
                         >
