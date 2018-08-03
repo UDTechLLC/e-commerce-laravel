@@ -89,8 +89,8 @@
                                                     classname="form-field"
                                                     placeholder="House number and street name"
                                                     @placechanged="getAddressData"
-                                                    @no-results-found="getCustomAddress"
                                                     @inputChange="getCustomAddress"
+                                                    @blur="updatePlaceChange"
                                             >
                                             </vue-google-autocomplete>
                                          <span class="error-massage"
@@ -232,7 +232,8 @@
                 state: "",
                 city: "",
                 postcode: "",
-                phone: ""
+                phone: "",
+                placeChanged: false
             }
         }),
         components: {
@@ -270,7 +271,7 @@
 
                 // this.shippingInfo.street = value.route;
                 // this.shippingInfo.apartment = value.street_number;
-                console.log(value);
+                this.placeChanged = true;
                 this.shippingInfo.street = (value.street_number) ? `${value.street_number} ${value.route}` : `${value.route}`;
                 this.shippingInfo.country.name = value.country;
                 this.countries.forEach(key => {
@@ -285,16 +286,19 @@
 
                 this.$nextTick(() => {
                     this.$refs.street.update(this.shippingInfo.street)
-                })
+                });
+
+                this.$refs.street.focus();
             },
             getCountries() {
                 this.$emit('updateCountry', this.shippingInfo.country);
             },
             getCustomAddress(value) {
-                if (!value.oldVal) {
+                if (!this.placeChanged)
                     this.shippingInfo.street = value.newVal;
-                }
-                // this.shippingInfo.street = value.name ? value.name : value.newVal;
+            },
+            updatePlaceChange() {
+                this.placeChanged = false;
             },
             next() {
                 let data = {
