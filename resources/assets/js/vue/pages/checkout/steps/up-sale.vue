@@ -35,8 +35,8 @@
                                 />
                                 <label :for="'product' + product.id" class="product-title">{{ product.title }}</label>
                             </div>
-                            <p>
-                                {{ product.description }}
+                            <p v-html="product.description">
+                               
                             </p>
                             <div class="product-price-block">
                                 <div class="product-price">
