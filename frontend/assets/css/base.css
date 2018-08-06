@@ -4653,6 +4653,29 @@ body {
     font-size: 30px !important;
     line-height: 49.95px !important; }
 
+.tp-important-info-block-wrapper {
+  text-align: center;
+  margin: 40px 0;
+  padding: 90px 0;
+  background: #f5f3f3; }
+  .tp-important-info-block-wrapper .tp-important-questionnaire-link {
+    color: #29282e;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 23px; }
+    .tp-important-info-block-wrapper .tp-important-questionnaire-link:hover {
+      color: #fe0000; }
+  .tp-important-info-block-wrapper .tp-important-title {
+    font-size: 38px;
+    margin: 0;
+    color: #fe0000; }
+  .tp-important-info-block-wrapper .tp-important-description {
+    margin: 45px 0;
+    font-size: 23px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #29282e; }
+
 .thank-you-page-template .tp-order-details-block-wrapper .wrapper .tp-order-details-block {
   margin-bottom: 30px; }
   .thank-you-page-template .tp-order-details-block-wrapper .wrapper .tp-order-details-block .order_details {
