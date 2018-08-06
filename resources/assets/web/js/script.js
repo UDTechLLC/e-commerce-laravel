@@ -57,14 +57,14 @@
         $('.create-account-block').slideToggle();
       });
     }
-   /* if (0 < $('#bdCountry').length) {
+    if (0 < $('#bdCountry').length) {
       $('#bdCountry').select2();
     }
     if ( 0 < $( '.deliver-select' ).length ) {
       $( '.deliver-select' ).select2({
           minimumResultsForSearch: -1
       });
-    }*/
+    }
 
 
     /*if ( 0 < $( '.add-to-cart-btn' ).length ) {
@@ -129,8 +129,10 @@
 
     $(window).scroll(function () {
       var curScroll = $(window).scrollTop();
-
+      var header = $('header');
       curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
+
+      curScroll >= fixedTop && document.querySelector('.timer')!==null ? header.css('padding-bottom','89px') : header.css('padding-bottom','0');
 
       if (curScroll >= showBtnAfter) {
         mobileAddToCard.addClass('active');
@@ -356,7 +358,6 @@
     CallPopUp('12 Week Custom Meal Plan');
     CallPopUp('SPRING CHALLENGE');
     CallPopUp('Shedfat Dad Hat');
-    CallPopUp('Shedfat Maxx');
     CallPopUp('shedfat-maxx');
 
     cart.btnBuy.click(function () {
