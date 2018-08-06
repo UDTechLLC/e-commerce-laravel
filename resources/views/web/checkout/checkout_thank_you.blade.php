@@ -67,7 +67,9 @@
                             </p>
                             @foreach($order->products as $product)
                                 @if (!$product->parent_id)
-                                    @if($product->getMedia('products')->first()->hasCustomProperty('external_link') && !$product->isVideolibrary())
+                                    @if($product->getMedia('products')->first()->hasCustomProperty('external_link')
+                                    && $product->getMedia('products')->first()->getCustomProperty('external_link') != null
+                                    && !$product->isVideolibrary())
                                         <a href="{{ $product->generateProductLink($order) }}"
                                            class="tp-important-questionnaire-link" target="_blank">
                                             Questionnaire
