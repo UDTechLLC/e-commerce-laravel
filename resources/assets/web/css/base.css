@@ -1220,7 +1220,7 @@ ul {
   @media screen and (max-width: 800px) {
     .top-product-description-block .product-info {
       text-align: center; } }
-top-product-description-block .product-info .product-description-block p {
+.top-product-description-block .product-info .product-description-block p {
    font-size: 20px;
    line-height: 26px; }
  .top-product-description-block .product-info .product-description-block p sub {
