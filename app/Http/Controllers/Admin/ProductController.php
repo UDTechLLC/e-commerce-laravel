@@ -107,6 +107,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        var_dump($product->getMedia('products')->first()->getCustomProperty('external_link'));
+        dd($product);
+        
         $data = [
             'title'        => $product->title,
             'sub_title'     => $product->sub_title,
