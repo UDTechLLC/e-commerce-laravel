@@ -199,7 +199,7 @@
         </section>
 
 
-        <section>
+        <section style="background-color: #f5f3f3;">
             <div class="training-plan-faqs-block-wrapper">
                 <div class="wrapper">
 

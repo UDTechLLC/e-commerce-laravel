@@ -804,7 +804,7 @@ ul {
       padding-bottom: 30px; } }
   .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper {
     float: left;
-    margin-bottom: 64px;
+    /*margin-bottom: 64px;*/
     width: 58%; }
     @media screen and (max-width: 992px) {
       .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper {
@@ -1995,7 +1995,7 @@ ul {
         opacity: .5; } }
 
 .queen-of-the-hill__bg {
-  margin-bottom: 35px;
+  /*margin-bottom: 35px;*/
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 0; }
