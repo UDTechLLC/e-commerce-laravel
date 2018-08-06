@@ -1220,6 +1220,12 @@ ul {
   @media screen and (max-width: 800px) {
     .top-product-description-block .product-info {
       text-align: center; } }
+.top-product-description-block .product-info .product-description-block p {
+   font-size: 20px;
+   line-height: 26px; }
+ .top-product-description-block .product-info .product-description-block p sub {
+   font-size: 20px;
+   line-height: 26px; }
   @media screen and (max-width: 800px) {
     .top-product-description-block .product-title-block {
       margin-top: 8px; } }
@@ -1428,7 +1434,8 @@ ul {
         margin-top: 0;
         text-align: center; } }
     .get-more__text img {
-      max-width: 100%; }
+      max-height: 300px;
+      max-width: 300px; }
       @media (max-width: 500px) {
         .get-more__text img {
           width: 80%; } }
