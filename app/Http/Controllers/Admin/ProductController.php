@@ -153,7 +153,7 @@ class ProductController extends Controller
             'view_name'    => $request->get('view_name'),
             'old_amount'   => $request->get('oldPrice') ?? "0",
             'amount'       => $request->get('price'),
-            //'slug'         => $request->get('slug'),
+            'slug'         => $request->get('slug'),
             'published'    => $request->get('published'),
             'visible'      => $request->get('visible'),
             'isVirtual'    => $request->get('isVirtual'),

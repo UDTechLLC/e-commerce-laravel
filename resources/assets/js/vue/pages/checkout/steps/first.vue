@@ -78,9 +78,10 @@
                                                 type="text"
                                                 classname="form-field"
                                                 placeholder="House number and street name"
-                                                @placechanged="getAddressData"
-                                                @no-results-found="getCustomAddress"
                                                 @inputChange="getCustomAddress"
+                                                @placechanged="getAddressData"
+                                                @blur="updatePlaceChange"
+
                                         >
                                         </vue-google-autocomplete>
                                         <span class="error-massage"
@@ -259,7 +260,8 @@
         state: "",
         city: "",
         postcode: "",
-        phone: ""
+        phone: "",
+        placeChanged: false
       }
     }),
     props: {
@@ -302,6 +304,7 @@
         this.$emit('updateCountry');
       },
       getAddressData(value) {
+        this.placeChanged = true;
         this.billingInfo.street = (value.street_number) ? `${value.street_number} ${value.route}` : `${value.route}`;
         this.billingInfo.country.name = value.country;
         this.countries.forEach(key => {
@@ -316,13 +319,16 @@
 
         this.$nextTick(() => {
           this.$refs.street.update(this.billingInfo.street)
-        })
+        });
+
+        this.$refs.street.focus();
       },
       getCustomAddress(value) {
-        // this.billingInfo.street = value.name ? value.name : value.newVal;
-          if (!value.oldVal) {
+          if (!this.placeChanged)
               this.billingInfo.street = value.newVal;
-          }
+      },
+      updatePlaceChange() {
+        this.placeChanged = false;
       },
       next() {
         this.registerErrorShow = false;
