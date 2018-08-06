@@ -258,8 +258,9 @@ class Order extends EloquentModel
     public function hasQuestionnaire():bool
     {
         foreach ($this->products as $product) {
-            if ($product->getMedia('products')->first()->hasCustomProperty('external_link') &&
-                !$product->isVideolibrary()) {
+            if ($product->getMedia('products')->first()->hasCustomProperty('external_link')
+                && $product->getMedia('products')->first()->getCustomProperty('external_link') != null
+                && !$product->isVideolibrary()) {
                 return true;
             }
         }
