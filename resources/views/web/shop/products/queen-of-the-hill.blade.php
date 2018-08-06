@@ -76,7 +76,7 @@
                              class="full-width mobile-image"/>
                     </div>
 
-                    <div class="section__icons inline-block text-center">
+                    {{--<div class="section__icons inline-block text-center">--}}
                         {{--<div class="section__icon-wrapper">--}}
                         {{--<div class="section__icon-img flex flex-a--center flex-j--center">--}}
                         {{--<img src="{{ asset('web/images/full-product/queen-of-the-hill/full_weekly.svg')}}" alt="">--}}
@@ -118,7 +118,7 @@
                         {{--</div>--}}
 
 
-                    </div>
+                    {{--</div>--}}
 
 
                 </div>

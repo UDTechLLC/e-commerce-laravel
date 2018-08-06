@@ -247,11 +247,11 @@
                     </div>
 
 
-                    <div class="training-plan-faqs-block">
+                    {{--<div class="training-plan-faqs-block">--}}
 
 
-                    </div>
-                    <div class="clear"></div>
+                    {{--</div>--}}
+                    {{--<div class="clear"></div>--}}
                 </div>
             </div>
         </section>

@@ -132,7 +132,7 @@
       var header = $('header');
       curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
 
-      curScroll >= fixedTop && document.querySelector('.timer')!==null ? header.css('padding-bottom','89px') : header.css('padding-bottom','0');
+      curScroll >= fixedTop && document.querySelector('.timer')!==null ? header.css('padding-bottom','120px') : header.css('padding-bottom','0');
 
       if (curScroll >= showBtnAfter) {
         mobileAddToCard.addClass('active');
