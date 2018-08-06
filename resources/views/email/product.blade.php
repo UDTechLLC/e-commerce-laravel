@@ -37,8 +37,7 @@ text-align: left;
                                     @if($product->getMedia('download')->first() || $product->getMedia('products')->first()->getCustomProperty('external_link') != "")
                                         @if (!$product->parent_id)
                                             <br>
-                                            @if ($product->getMedia('products')->first()->hasCustomProperty('external_link'))
-                                                <h1>{{ $product->getMedia('products')->first()->hasCustomProperty('external_link') }}</h1>
+                                            @if ($product->getMedia('products')->first()->hasCustomProperty('external_link') && $product->getMedia('products')->first()->getCustomProperty('external_link') != null)
                                                 <a href="{{ $product->generateProductLink($order) }}">
                                                     <u style="color:red">
                                                         @if($product->isVideolibrary())
