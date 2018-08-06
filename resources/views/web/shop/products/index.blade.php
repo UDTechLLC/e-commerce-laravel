@@ -79,6 +79,19 @@
                                         </a>
                                     </div>
                                 </div>
+                            @elseif($product->out_of_stock)
+                                <div class="product-button-block">
+                                    <div class="add-to-cart-wrapper">
+                                        <div class="product-button-block">
+                                            <div class="add-to-cart-wrapper">
+                                                <div class="out-of-stock" disabled>
+                                                    out of stock
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                             @else
                                 <div class="product-button-block">
                                     <div class="add-to-cart-wrapper">
@@ -87,7 +100,7 @@
                                                 data-title="{{ $product->slug }}"
                                         >
                                             @if($product->getKey() == 22) pre-order
-                                            @elseif($product->out_of_stock) out of stock
+
                                             @endif
                                         </add-to-cart>
                                     </div>
