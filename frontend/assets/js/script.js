@@ -57,14 +57,14 @@
         $('.create-account-block').slideToggle();
       });
     }
-    if (0 < $('#bdCountry').length) {
-      $('#bdCountry').select2();
-    }
-    if ( 0 < $( '.deliver-select' ).length ) {
-      $( '.deliver-select' ).select2({
-          minimumResultsForSearch: -1
-      });
-    }
+    // if (0 < $('#bdCountry').length) {
+    //   $('#bdCountry').select2();
+    // }
+    // if ( 0 < $( '.deliver-select' ).length ) {
+    //   $( '.deliver-select' ).select2({
+    //       minimumResultsForSearch: -1
+    //   });
+    // }
 
 
     /*if ( 0 < $( '.add-to-cart-btn' ).length ) {
