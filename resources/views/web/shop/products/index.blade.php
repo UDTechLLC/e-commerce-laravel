@@ -86,7 +86,9 @@
                                                 product-slug="{{ $product->slug }}"
                                                 data-title="{{ $product->slug }}"
                                         >
-                                            @if($product->getKey() == 22) pre-order @endif
+                                            @if($product->getKey() == 22) pre-order
+                                            @elseif($product->out_of_stock) out of stock
+                                            @endif
                                         </add-to-cart>
                                     </div>
                                 </div>
@@ -140,8 +142,8 @@
                     @foreach($challenges as $challenge)
                         <div class="shop-item">
                             <div class="image-wrapper">
-                                    <a href="{{($challenge->open) ? url('challenge') : '#scRegistration'}}">
-                                     <img src="{{ asset($challenge->getFirstMediaUrl('preview')) }}"/>
+                                <a href="{{($challenge->open) ? url('challenge') : '#scRegistration'}}">
+                                    <img src="{{ asset($challenge->getFirstMediaUrl('preview')) }}"/>
                                 </a>
                             </div>
                             <div class="product-details" style="padding-top: 10px;width: 100%">
