@@ -38,6 +38,7 @@ text-align: left;
                                         @if (!$product->parent_id)
                                             <br>
                                             @if ($product->getMedia('products')->first()->hasCustomProperty('external_link'))
+                                                <h1>{{ $product->getMedia('products')->first()->hasCustomProperty('external_link') }}</h1>
                                                 <a href="{{ $product->generateProductLink($order) }}">
                                                     <u style="color:red">
                                                         @if($product->isVideolibrary())
