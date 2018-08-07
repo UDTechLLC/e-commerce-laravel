@@ -1264,7 +1264,13 @@ ul {
       .top-product-description-block .product-description {
         font-size: 16px;
         line-height: 22px;
-        margin-bottom: 11px; } }
+        margin-bottom: 11px; }
+        .top-product-description-block .product-info .product-description-block p {
+            font-size: 16px;
+            line-height: 22px; }
+        .top-product-description-block .product-info .product-description-block sub {
+            font-size: 16px;
+            line-height: 22px; }}
   @media screen and (max-width: 800px) {
     .top-product-description-block .product-description-list-item {
       font-size: 16px;
