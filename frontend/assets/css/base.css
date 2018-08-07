@@ -804,7 +804,6 @@ ul {
       padding-bottom: 30px; } }
   .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper {
     float: left;
-    /*margin-bottom: 64px;*/
     width: 58%; }
     @media screen and (max-width: 992px) {
       .training-plan-faqs-block-wrapper .wrapper .video-block-wrapper {
@@ -1214,18 +1213,18 @@ ul {
       .top-product-description-block .product-info-block {
         float: none;
         width: 100%; } }
+  .top-product-description-block .product-info .product-description-block p {
+    font-size: 20px;
+    line-height: 26px; }
+  .top-product-description-block .product-info .product-description-block sub {
+    font-size: 20px;
+    line-height: 26px; }
   @media screen and (min-width: 800px) {
     .top-product-description-block .product-info {
       padding-left: 10px; } }
   @media screen and (max-width: 800px) {
     .top-product-description-block .product-info {
       text-align: center; } }
-.top-product-description-block .product-info .product-description-block p {
-   font-size: 20px;
-   line-height: 26px; }
- .top-product-description-block .product-info .product-description-block p sub {
-   font-size: 20px;
-   line-height: 26px; }
   @media screen and (max-width: 800px) {
     .top-product-description-block .product-title-block {
       margin-top: 8px; } }
@@ -1434,8 +1433,8 @@ ul {
         margin-top: 0;
         text-align: center; } }
     .get-more__text img {
-      max-height: 300px;
-      max-width: 300px; }
+      max-width: 300px;
+      max-height: 300px; }
       @media (max-width: 500px) {
         .get-more__text img {
           width: 80%; } }
@@ -1995,7 +1994,6 @@ ul {
         opacity: .5; } }
 
 .queen-of-the-hill__bg {
-  /*margin-bottom: 35px;*/
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 0; }
@@ -2597,9 +2595,11 @@ ul {
     margin-bottom: 70px; }
     @media screen and (max-width: 992px) {
       .upsale__product-block-buttons-area {
-        -webkit-flex-wrap: wrap;
-            -ms-flex-wrap: wrap;
-                flex-wrap: wrap; } }
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column; } }
     .upsale__product-block-buttons-area .add-to-my-order-btn {
       background-color: #ed1c24;
       border: none;
@@ -4733,11 +4733,9 @@ body {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin: -12px 0 0; }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 992px) {
     .thank-you-page-template .tp-customer-details-block-wrapper .wrapper .tp-customer-details-block .tp-customer-details-info {
-      -webkit-flex-wrap: wrap;
-          -ms-flex-wrap: wrap;
-              flex-wrap: wrap; } }
+      display: block; } }
   .thank-you-page-template .tp-customer-details-block-wrapper .wrapper .tp-customer-details-block .tp-customer-details-info .cd-contacts {
     width: 35%; }
     .thank-you-page-template .tp-customer-details-block-wrapper .wrapper .tp-customer-details-block .tp-customer-details-info .cd-contacts .customer_details {
