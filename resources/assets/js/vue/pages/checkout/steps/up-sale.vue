@@ -35,8 +35,8 @@
                                 />
                                 <label :for="'product' + product.id" class="product-title">{{ product.title }}</label>
                             </div>
-                            <p>
-                                {{ product.description }}
+                            <p v-html="product.description">
+                               
                             </p>
                             <div class="product-price-block">
                                 <div class="product-price">
@@ -77,7 +77,7 @@
                         </div>
                     </div> -->
                     <div class="upsale__product-block-buttons-area">
-                        <button class="add-to-my-order-btn" :class="{'disabled': payButton}" :disabled="payButton" @click="addedProduct">Add to my order</button>
+                        <button class="add-to-my-order-btn" :class="{'disabled': payButton || selectedProducts.length == 0}" :disabled="payButton || selectedProducts.length == 0" @click="addedProduct">Add to my order</button>
                         <span class="close-btn" @click="pay">No Thanks</span>
                     </div>
                 </div>
