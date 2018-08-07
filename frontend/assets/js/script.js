@@ -57,15 +57,14 @@
         $('.create-account-block').slideToggle();
       });
     }
-    if (0 < $('#bdCountry').length) {
-      $('#bdCountry').select2();
-    }
-    if ( 0 < $( '.deliver-select' ).length ) {
-      $( '.deliver-select' ).select2({
-          minimumResultsForSearch: -1
-      });
-    }
-
+    // if (0 < $('#bdCountry').length) {
+    //   $('#bdCountry').select2();
+    // }
+    // if ( 0 < $( '.deliver-select' ).length ) {
+    //   $( '.deliver-select' ).select2({
+    //       minimumResultsForSearch: -1
+    //   });
+    // }
 
     /*if ( 0 < $( '.add-to-cart-btn' ).length ) {
      $( '.add-to-cart-btn' ).on( 'click', function () {
@@ -132,7 +131,7 @@
       var header = $('header');
       curScroll >= fixedTop ? body.addClass('fixed-header') : body.removeClass('fixed-header');
 
-      curScroll >= fixedTop && document.querySelector('.timer')!==null ? header.css('padding-bottom','89px') : header.css('padding-bottom','0');
+      curScroll >= fixedTop && document.querySelector('.timer')!==null ? header.css('padding-bottom','120px') : header.css('padding-bottom','0');
 
       if (curScroll >= showBtnAfter) {
         mobileAddToCard.addClass('active');
