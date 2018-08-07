@@ -19,7 +19,7 @@
                     <img src="/web/images/upsale_page/top_banner_decktop.png" alt="Try these products at our highest savings" />
                 </div>
                 <div class="upsale__top-banner__image-wrapper mobile">
-                    <img src="/web/images/upsale_page/top_banner_mobile.png" alt="Try these products at our highest savings" />
+                    <img src="/web/images/upsale_page/top_banner_mobile.jpg" alt="Try these products at our highest savings" />
                 </div>
             </section>
             <section class="upsale__product-block">
